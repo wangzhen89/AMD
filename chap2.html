@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 2 章 具有异质误差的完全随机设计结构中的单向处理结构 | 混乱数据分析：设计的实验</title>
+  <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 2 章 具有异质误差的完全随机设计结构中的单向处理结构 | 混乱数据分析：设计的实验" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 2 章 具有异质误差的完全随机设计结构中的单向处理结构 | 混乱数据分析：设计的实验" />
+  
+  <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  
+
+<meta name="author" content="王震" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap1.html"/>
+<link rel="next" href="chap3.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        },
+        extensions: ["cancel.js"]
+      }
+    });
+</script>
+
+<!-- add line break after theorem title -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    for (let s of document.querySelectorAll("span.theorem, span.lemma, span.proposition, span.corollary")) {
+      s.insertAdjacentHTML('afterend', '<br style="line-height:2px;"/>');
+    }
+  });
+</script>
+
+<!-- check if --themcolor in style.css matches one of elegantbook theme colors. If so, generates the color palette  -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const cssroot = document.querySelector(':root');
+    let theme_color = getComputedStyle(document.documentElement).getPropertyValue('--themecolor').trim();
+  
+    // blue is the default option
+
+    switch (theme_color) {
+      case 'green': 
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,120,2)');
+        cssroot.style.setProperty('--main', 'rgb(70,70,70)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(115,45,2)');
+        cssroot.style.setProperty('--secondbg', 'rgba(115,45,2,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,80,80)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,80,80,0.05)');
+      break;
+      case 'cyan':
+        cssroot.style.setProperty('--structurecolor', 'rgb(31,186,190)');
+        cssroot.style.setProperty('--main', 'rgb(59,180,5)');
+        cssroot.style.setProperty('--mainbg', 'rgba(59,180,5,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(175,153,8)');
+        cssroot.style.setProperty('--secondbg', 'rgba(175,153,8,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(244,105,102)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(244,105,102,0.05)');
+      break;
+      case 'gray':
+        cssroot.style.setProperty('--structurecolor', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--main', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--mainbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--secondbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(150,150,150,0.05)');
+      break;
+      case 'black':
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--main', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--secondbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,0,0,0.05)');
+      break;
+    default:
+        cssroot.style.setProperty('--structurecolor', 'rgb(60,113,183)');
+        cssroot.style.setProperty('--main', 'rgb(0,166,82)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(255,134,24)');
+        cssroot.style.setProperty('--secondbg', 'rgba(255,134,24,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,174,247)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,174,247,0.05)');
+    }
+  });
+  </script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">混乱数据分析：设计的实验</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="chap1.html"><a href="chap1.html"><i class="fa fa-check"></i><b>1</b> 最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap1.html"><a href="chap1.html#sec1-1"><i class="fa fa-check"></i><b>1.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="1.2" data-path="chap1.html"><a href="chap1.html#sec1-2"><i class="fa fa-check"></i><b>1.2</b> 参数估计</a></li>
+<li class="chapter" data-level="1.3" data-path="chap1.html"><a href="chap1.html#sec1-3"><i class="fa fa-check"></i><b>1.3</b> 线性组合的推断：检验与置信区间</a></li>
+<li class="chapter" data-level="1.4" data-path="chap1.html"><a href="chap1.html#sec1-4"><i class="fa fa-check"></i><b>1.4</b> 示例：任务和脉搏率</a></li>
+<li class="chapter" data-level="1.5" data-path="chap1.html"><a href="chap1.html#sec1-5"><i class="fa fa-check"></i><b>1.5</b> 几种线性组合的联合检验</a></li>
+<li class="chapter" data-level="1.6" data-path="chap1.html"><a href="chap1.html#sec1-6"><i class="fa fa-check"></i><b>1.6</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.7" data-path="chap1.html"><a href="chap1.html#sec1-7"><i class="fa fa-check"></i><b>1.7</b> 检验所有均值相等</a></li>
+<li class="chapter" data-level="1.8" data-path="chap1.html"><a href="chap1.html#sec1-8"><i class="fa fa-check"></i><b>1.8</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.9" data-path="chap1.html"><a href="chap1.html#sec1-9"><i class="fa fa-check"></i><b>1.9</b> 比较两种模型的一般方法：条件误差原理</a></li>
+<li class="chapter" data-level="1.10" data-path="chap1.html"><a href="chap1.html#sec1-10"><i class="fa fa-check"></i><b>1.10</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
+<li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
+<li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap2.html"><a href="chap2.html#sec2-1"><i class="fa fa-check"></i><b>2.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="2.2" data-path="chap2.html"><a href="chap2.html#sec2-2"><i class="fa fa-check"></i><b>2.2</b> 参数估计</a></li>
+<li class="chapter" data-level="2.3" data-path="chap2.html"><a href="chap2.html#sec2-3"><i class="fa fa-check"></i><b>2.3</b> 方差齐性检验</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap2.html"><a href="chap2.html#sec2-3-1"><i class="fa fa-check"></i><b>2.3.1</b> Hartley’s <em>F</em>-Max Test</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap2.html"><a href="chap2.html#sec2-3-2"><i class="fa fa-check"></i><b>2.3.2</b> Bartlett’s Test</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap2.html"><a href="chap2.html#sec2-3-3"><i class="fa fa-check"></i><b>2.3.3</b> Levene’s Test</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap2.html"><a href="chap2.html#sec2-4-4"><i class="fa fa-check"></i><b>2.3.4</b> Brown and Forsythe’s Test</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap2.html"><a href="chap2.html#sec2-3-5"><i class="fa fa-check"></i><b>2.3.5</b> O’Brien’s Test</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap2.html"><a href="chap2.html#sec2-3-6"><i class="fa fa-check"></i><b>2.3.6</b> 一些建议</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chap2.html"><a href="chap2.html#sec2-4"><i class="fa fa-check"></i><b>2.4</b> 示例：药物和错误</a></li>
+<li class="chapter" data-level="2.5" data-path="chap2.html"><a href="chap2.html#sec2-5"><i class="fa fa-check"></i><b>2.5</b> 关于线性组合的推断</a></li>
+<li class="chapter" data-level="2.6" data-path="chap2.html"><a href="chap2.html#sec2-6"><i class="fa fa-check"></i><b>2.6</b> 示例：药物和错误（续）</a></li>
+<li class="chapter" data-level="2.7" data-path="chap2.html"><a href="chap2.html#sec2-7"><i class="fa fa-check"></i><b>2.7</b> 自由度的一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
+<li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
+<li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 联合推断程序和多重比较</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap3.html"><a href="chap3.html#sec3-1"><i class="fa fa-check"></i><b>3.1</b> 错误率</a></li>
+<li class="chapter" data-level="3.2" data-path="chap3.html"><a href="chap3.html#sec3-2"><i class="fa fa-check"></i><b>3.2</b> 建议</a></li>
+<li class="chapter" data-level="3.3" data-path="chap3.html"><a href="chap3.html#sec3-3"><i class="fa fa-check"></i><b>3.3</b> 最小显著差异</a></li>
+<li class="chapter" data-level="3.4" data-path="chap3.html"><a href="chap3.html#sec3-4"><i class="fa fa-check"></i><b>3.4</b> Fisher’s LSD Procedure</a></li>
+<li class="chapter" data-level="3.5" data-path="chap3.html"><a href="chap3.html#sec3-5"><i class="fa fa-check"></i><b>3.5</b> Bonferroni’s Method</a></li>
+<li class="chapter" data-level="3.6" data-path="chap3.html"><a href="chap3.html#sec3-6"><i class="fa fa-check"></i><b>3.6</b> Scheffé’s Procedure</a></li>
+<li class="chapter" data-level="3.7" data-path="chap3.html"><a href="chap3.html#sec3-7"><i class="fa fa-check"></i><b>3.7</b> Tukey–Kramer Method</a></li>
+<li class="chapter" data-level="3.8" data-path="chap3.html"><a href="chap3.html#sec3-8"><i class="fa fa-check"></i><b>3.8</b> 模拟方法</a></li>
+<li class="chapter" data-level="3.9" data-path="chap3.html"><a href="chap3.html#sec3-9"><i class="fa fa-check"></i><b>3.9</b> Šidák Procedure</a></li>
+<li class="chapter" data-level="3.10" data-path="chap3.html"><a href="chap3.html#sec3-10"><i class="fa fa-check"></i><b>3.10</b> 示例：成对比较</a></li>
+<li class="chapter" data-level="3.11" data-path="chap3.html"><a href="chap3.html#sec3-11"><i class="fa fa-check"></i><b>3.11</b> Dunnett’s Procedure</a></li>
+<li class="chapter" data-level="3.12" data-path="chap3.html"><a href="chap3.html#sec3-12"><i class="fa fa-check"></i><b>3.12</b> 示例：与对照比较</a></li>
+<li class="chapter" data-level="3.13" data-path="chap3.html"><a href="chap3.html#sec3-13"><i class="fa fa-check"></i><b>3.13</b> 多元 <span class="math inline">\(t\)</span></a></li>
+<li class="chapter" data-level="3.14" data-path="chap3.html"><a href="chap3.html#sec3-14"><i class="fa fa-check"></i><b>3.14</b> 示例：线性独立比较</a></li>
+<li class="chapter" data-level="3.15" data-path="chap3.html"><a href="chap3.html#sec3-15"><i class="fa fa-check"></i><b>3.15</b> 序贯拒绝方法</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="chap3.html"><a href="chap3.html#sec3-15-1"><i class="fa fa-check"></i><b>3.15.1</b> Bonferroni–Holm Method</a></li>
+<li class="chapter" data-level="3.15.2" data-path="chap3.html"><a href="chap3.html#sec3-15-2"><i class="fa fa-check"></i><b>3.15.2</b> Šidák–Holm Method</a></li>
+<li class="chapter" data-level="3.15.3" data-path="chap3.html"><a href="chap3.html#sec3-15-3"><i class="fa fa-check"></i><b>3.15.3</b> 控制 FDR 的 Benjamini 和 Hochberg Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="chap3.html"><a href="chap3.html#sec3-16"><i class="fa fa-check"></i><b>3.16</b> 示例：线性相关比较</a></li>
+<li class="chapter" data-level="3.17" data-path="chap3.html"><a href="chap3.html#sec3-17"><i class="fa fa-check"></i><b>3.17</b> 多重极差检验</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="chap3.html"><a href="chap3.html#sec3-17-1"><i class="fa fa-check"></i><b>3.17.1</b> Student–Newman–Keul’s Method</a></li>
+<li class="chapter" data-level="3.17.2" data-path="chap3.html"><a href="chap3.html#sec3-17-2"><i class="fa fa-check"></i><b>3.17.2</b> Duncan’s New Multiple Range Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="chap3.html"><a href="chap3.html#sec3-18"><i class="fa fa-check"></i><b>3.18</b> Waller–Duncan Procedure</a></li>
+<li class="chapter" data-level="3.19" data-path="chap3.html"><a href="chap3.html#sec3-19"><i class="fa fa-check"></i><b>3.19</b> 示例：成对比较的多重极差</a></li>
+<li class="chapter" data-level="3.20" data-path="chap3.html"><a href="chap3.html#sec3-20"><i class="fa fa-check"></i><b>3.20</b> 警示</a></li>
+<li class="chapter" data-level="3.21" data-path="chap3.html"><a href="chap3.html#sec3-21"><i class="fa fa-check"></i><b>3.21</b> 结束语</a></li>
+<li class="chapter" data-level="3.22" data-path="chap3.html"><a href="chap3.html#sec3-22"><i class="fa fa-check"></i><b>3.22</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap3.html"><a href="chap3.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap4.html"><a href="chap4.html"><i class="fa fa-check"></i><b>4</b> 实验设计基础</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap4.html"><a href="chap4.html#sec4-1"><i class="fa fa-check"></i><b>4.1</b> 介绍基本概念</a></li>
+<li class="chapter" data-level="4.2" data-path="chap4.html"><a href="chap4.html#sec4-2"><i class="fa fa-check"></i><b>4.2</b> 设计实验的结构</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap4.html"><a href="chap4.html#sec4-2-1"><i class="fa fa-check"></i><b>4.2.1</b> 设计结构类型</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap4.html"><a href="chap4.html#sec4-2-2"><i class="fa fa-check"></i><b>4.2.2</b> 处理结构类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap4.html"><a href="chap4.html#sec4-3"><i class="fa fa-check"></i><b>4.3</b> 不同设计实验的示例</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap4.html"><a href="chap4.html#sec4-3-1"><i class="fa fa-check"></i><b>4.3.1</b> 示例 4.1: 饮食</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap4.html"><a href="chap4.html#sec4-3-2"><i class="fa fa-check"></i><b>4.3.2</b> 示例 4.2: 房屋油漆</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap4.html"><a href="chap4.html#sec4-3-3"><i class="fa fa-check"></i><b>4.3.3</b> 示例 4.3: 钢板</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap4.html"><a href="chap4.html#sec4-3-4"><i class="fa fa-check"></i><b>4.3.4</b> 示例 4.4: 氮和钾的水平</a></li>
+<li class="chapter" data-level="4.3.5" data-path="chap4.html"><a href="chap4.html#sec4-3-5"><i class="fa fa-check"></i><b>4.3.5</b> 示例 4.5: 区组和重复</a></li>
+<li class="chapter" data-level="4.3.6" data-path="chap4.html"><a href="chap4.html#sec4-3-6"><i class="fa fa-check"></i><b>4.3.6</b> 示例 4.6：行区组和列区组</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap4.html"><a href="chap4.html#sec4-4"><i class="fa fa-check"></i><b>4.4</b> 结束语</a></li>
+<li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#sec4-5"><i class="fa fa-check"></i><b>4.5</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap4.html"><a href="chap4.html#参考文献-1"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>5</b> 交叉设计分析</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>5.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两周期/两处理交叉设计</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">混乱数据分析：设计的实验</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap2" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">第 2 章</span> 具有异质误差的完全随机设计结构中的单向处理结构<a href="chap2.html#chap2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>在本章中，考虑分配给实验单元的处理可能影响响应的方差以及均值的情况。从单向均值模型 <span class="math inline">\(y_{ij} = \mu_i + \varepsilon_{ij}\)</span> 开始，其中 <span class="math inline">\(i = 1,2,\cdots,t;\,j =1,2,\cdots,n_i\)</span>. 在第 <a href="chap1.html#chap1">1</a> 章中，假设实验误差都具有相同的方差；也就是说，预期处理可能会改变抽样总体的均值，但不会改变方差。当处理影响方差和均值时，本章描述了一些分析数据的方法。在这种情况下，实验者想要回答的关于平均值的问题类型与第 <a href="chap1.html#chap1">1</a> 章中的类似。也就是说，</p>
+<ol style="list-style-type: decimal">
+<li>所有均值都相等吗？</li>
+<li>是否可以在均值之间进行成对比较？</li>
+<li>是否可以检验形如 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i=a\)</span> 的假设并为 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 构造置信区间？</li>
+</ol>
+<p>此外，关于方差还存在可能感兴趣的问题，例如</p>
+<ol style="list-style-type: decimal">
+<li>所有方差都相等吗？</li>
+<li>是否存在组内方差相等而组间方差不相等的处理分组？</li>
+</ol>
+<p>在回答有关模型均值的问题之前，必须获得处理方差的适当描述。</p>
+<p><strong>方差齐性检验</strong> (<strong>tests of homogeneity of variances</strong>) 用于回答有关各个处理的数据方差的问题。如果有两种处理，当方差不等时比较均值的问题通常被称为 Behrens–Fisher 问题。此外，异质误差方差被忽略比数据的非正态性带来了更严重的问题<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>。第一章中的程序在非正态性方面是稳健的，但在异质误差方差方面不是那么稳健。在之前考虑的分析中，假设总体方差都相等，这在许多情况下是合理的假设。当方差不相等时，分析数据的一种方法是简单地忽略它们不相等的事实，并计算在方差相等的情况下计算的相同的 <span class="math inline">\(F\)</span> 统计量或 <span class="math inline">\(t\)</span> 检验。也许令人惊讶的是，模拟研究表明，这些通常的检验都非常好，特别是当样本量都相等或几乎相等时。此外，如果较大的样本量对应于具有较大方差的处理或总体，那么用等方差假设计算的检验也相当好。事实上，通常的检验非常好，以至于许多统计学家甚至不建议对等方差进行检验。其他人试图找到一种能稳定处理方差的变换，即通过变换数据使处理方差相等。当方差不相等时，有一些技术可以在不等方差模型的框架内对均值进行比较。</p>
+<p>以下小节描述了单向模型的处理方差相等性的检验程序，以及当方差不相等时分析处理均值的程序。当怀疑通常的技术时，应使用这些程序。接下来描述不等方差模型。</p>
+<div id="sec2-1" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> 模型定义和假设<a href="chap2.html#sec2-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>不等方差模型为</p>
+<p><span class="math display" id="eq:2-1">\[\begin{equation}
+y_{ij}=\mu_{i}+\varepsilon_{ij}\quad\mathrm{for}\quad i=1,2,\ldots,t,\,j=1,2,\ldots,n_{i}\quad\mathrm{and}\quad\varepsilon_{ij}\sim\text{independent}\,N(0,\sigma_{i}^{2})
+\tag{2.1}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(\varepsilon_{ij}\sim\text{independent}\,N(0,\sigma_{i}^{2})\)</span> 表示误差 <span class="math inline">\(\varepsilon_{ij}\)</span> 都是独立地服从正态分布，并且每个正态分布的方差取决于 <span class="math inline">\(i\)</span>，对于每个总体或处理可能不同。</p>
+</div>
+<div id="sec2-2" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> 参数估计<a href="chap2.html#sec2-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>模型中参数的最佳估计值：</p>
+<p><span class="math display">\[\hat{\mu}_i=\sum_{j=1}^{n_i}y_{ij}/n_i=\bar{y}_{i\cdot},\quad i=1,2,\ldots,t\]</span></p>
+<p>和</p>
+<p><span class="math display">\[\hat{\sigma}_i^2=\frac{\sum_{j=1}^{n_i}(y_{ij}-\overline{y}_i)^2}{n_i-1},\quad i=1,2,\ldots,t\]</span></p>
+<p>与参数估计相关的抽样分布为</p>
+<p><span class="math display">\[\hat{\mu}_i\thicksim\text{independent}\,N(\mu_i,\sigma_i^2/n_i),\quad i=1,2,\ldots,t\]</span></p>
+<p>和</p>
+<p><span class="math display">\[\frac{\left(n_i-1\right)\hat{\sigma}_i^2}{\sigma_i^2}\thicksim\text{independent }\,\chi_{n_i-1}^2,\quad i=1,2,\ldots,t\]</span></p>
+<p>这些抽样分布被用作建立方差相等性检验的基础，并在方差不相等时提供均值分析。</p>
+</div>
+<div id="sec2-3" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> 方差齐性检验<a href="chap2.html#sec2-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本节描述了检验等方差假设的五个程序</p>
+<p><span class="math display">\[H_{0}\colon\,\sigma_{1}^{2}=\sigma_{2}^{2}=\cdots=\sigma_{t}^{2}\,\mathrm{~vs.~}\,H_{a}\colon(\mathrm{not~}H_{0}:)\]</span></p>
+<p>在尝试分析均值之前，应研究等方差假设。如果没有足够的证据得出方差不相等的结论，则可以使用第 <a href="chap1.html#chap1">1</a> 章中的等方差模型来研究均值。如果有足够的证据认为方差不相等，则应使用 <a href="chap2.html#sec2-5">2.5</a> 节中描述的程序来提供不等方差框架中的均值分析。建议当不等方差假设在 <span class="math inline">\(\alpha\le0.01\)</span> 时被拒绝时使用不等方差模型。</p>
+<div id="sec2-3-1" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Hartley’s <em>F</em>-Max Test<a href="chap2.html#sec2-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>所描述的第一个检验被称为 Hartley’s <em>F</em>-max检验 (Hartley, 1950). 该检验要求所有样本具有相同的大小，即 <span class="math inline">\(n_1 = n_2 = \cdots= n_t\)</span>. 该检验基于统计量</p>
+<p><span class="math display">\[F_{\max}=\frac{\max_i\{\hat{\sigma}_i^2\}}{\min_i\{\hat{\sigma}_i^2\}}\]</span></p>
+<p>附表 A.1 提供了 <span class="math inline">\(\alpha = 0.05\)</span> 和 <span class="math inline">\(0.01\)</span> 时 <span class="math inline">\(F_{\max}\)</span> 的百分位点。若 <span class="math inline">\(F_{\max} &gt; F_{\max,\alpha,v,k}\)</span>，其中 <span class="math inline">\(v = n - 1\)</span> 为与 <span class="math inline">\(k\)</span> 个处理方差中的每一个相关的自由度，则拒绝零假设 <span class="math inline">\(H_0\)</span>. 如果 <span class="math inline">\(n_i\)</span> 不都相等，则可以通过取 <span class="math inline">\(n=\max_i\{n_i\}-1\)</span> 来获得 <span class="math inline">\(H_0\,\mathrm{~vs.~} H_a\)</span> 的“自由” (liberal)检验。这个检验是自由的，因为它假设所有处理都有相同的（最大）样本量，所以你会比选定的显著性水平 <span class="math inline">\(\alpha\)</span> 更频繁地拒绝零假设<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>。当样本量相差不大<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>时，此程序提供了合理的检验。它还可以防止人们进行通常的方差分析，即使方差分析不合适的可能性极小。{#sec2-4} 节中有一个说明该检验使用的示例。</p>
+</div>
+<div id="sec2-3-2" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Bartlett’s Test<a href="chap2.html#sec2-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>方差齐性检验的第二个检验是 (Bartlett, 1937) 提出的检验，其优点是不要求 <span class="math inline">\(n_i\)</span> 相等。Bartlett 检验统计量为</p>
+<p><span class="math display" id="eq:2-2">\[\begin{equation}
+U=\frac1C{\left[v\log_\mathrm{e}(\hat{\sigma}^2)-\sum_{i=1}^tv_i\log_\mathrm{e}(\hat{\sigma}_i^2)\right]}
+\tag{2.2}
+\end{equation}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[v=n_i-1,\quad v=\sum_{i=1}^tv_i,\quad\hat{\sigma}^2=\sum_{i=1}^tv_i\hat{\sigma}_i^2/v \]</span></p>
+<p>且</p>
+<p><span class="math display">\[C=1+\frac1{3(t-1)}{\left[\sum_{i=1}^t\frac1{v_i}-\frac1v\right]}\]</span></p>
+<p>如果 <span class="math inline">\(U&gt;\chi_{\alpha,t-1}^2\)</span>，则拒绝等方差假设。方差齐性的前两个检验的缺点之一是它们对偏离正态性以及偏离等方差假设非常敏感。</p>
+</div>
+<div id="sec2-3-3" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Levene’s Test<a href="chap2.html#sec2-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Levene (1960) 建议对来自单向均值或效应模型的残差绝对值进行单向方差分析。残差绝对值由 <span class="math inline">\(z_{ij}=|y_{ij}-\overline{y}_{i\cdot}|,i=1,2,\ldots,t;j=1,2,\ldots,n_{i}\)</span> 给出。方差分析的 <span class="math inline">\(F\)</span> 检验提供残差绝对值的处理均值相等性检验。如果均值不等，则有证据表明，一种处理的残差平均而言大于另一种处理的残差。残差可以指导哪些方差不相等，多重比较检验（见第 <a href="chap3.html#chap3">3</a> 章）可以用来对这些均值进行成对比较。Levene’s Test 的一个改进是在方差分析中使用残差平方。</p>
+</div>
+<div id="sec2-4-4" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Brown and Forsythe’s Test<a href="chap2.html#sec2-4-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Brown and Forsythe (1974) 使用 Levene 的过程，并通过对每个处理的观察值与中位数的偏差的绝对值进行单向方差分析来对其进行修改。中位数偏差的绝对值由 <span class="math inline">\(u_{ij}=|y_{ij}-y_{i\mathrm{med}}|,i=1,2,\ldots,t;j=1,2,\ldots,n_{i}\)</span> 给出。方差分析的 <span class="math inline">\(F\)</span> 检验提供了偏差绝对值的处理均值相等性检验。如果均值不等，则有证据表明，一种处理的偏差平均而言大于另一种处理的偏差。偏离中位数的绝对值的均值可以提供关于哪些方差不等的指导，因为多重比较检验可以用于在这些均值之间进行成对比较。当数据的分布不对称时，这种利用中位数偏差的方法提供了比 Levene’s method 更大的功效。</p>
+</div>
+<div id="sec2-3-5" class="section level3 hasAnchor" number="2.3.5">
+<h3><span class="header-section-number">2.3.5</span> O’Brien’s Test<a href="chap2.html#sec2-3-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>O’Brien (1979) 计算了一种得分</p>
+<p><span class="math display" id="eq:2-3">\[\begin{equation}
+r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat{\sigma}_i^2(n_i-1)]/[(n_i-1)(n_i-2)]
+\tag{2.3}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(w\)</span> 为权重参数。该程序是对计算出的得分进行方差分析。当 <span class="math inline">\(w=0.5\)</span> 时，得分的均值是样本方差 <span class="math inline">\(\hat \sigma^2_i\)</span>，因此得分均值的比较是数据方差的比较。</p>
+<p>还有其他几种程序可用于使用参数和非参数方法来检验方差相等或尺度参数相等 [如 Conover et al. (1981) 和 Olejnik &amp; Algina (1987)]。McGaughey (2003) 提出了一种使用数据深度 (data depth) 概念的检验，并将该程序应用于单变量和多变量总体。数据深度超出了本书的范围。</p>
+</div>
+<div id="sec2-3-6" class="section level3 hasAnchor" number="2.3.6">
+<h3><span class="header-section-number">2.3.6</span> 一些建议<a href="chap2.html#sec2-3-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Conover (1981) 以及 Olejnik &amp; Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene’s Test 是 Conover 等人研究的更好的检验之一。O’Brien’s Test 似乎提供了一个合适的大小检验，而不会损失太多功效。当分布具有重尾时，Brown–Forsyth’s Test 似乎更好。根据他们的结果，我们提出以下建议：</p>
+<ol style="list-style-type: decimal">
+<li>如果分布具有较重的尾部，请使用 Brown–Forsyth’s test.</li>
+<li>如果分布有些偏斜，请使用 O’Brien’s test.</li>
+<li>如果数据几乎是正态分布的，那么任何检验都是合适的，包括 Bartlett’s 和 Hartley’s tests.</li>
+</ol>
+<p>Levene’s 和 O’Brien’s tests 可以很容易地进行定制，用于涉及多个因素的设计实验，包括协方差分析 (Milliken and Johnson,
+2002). Levene’s, O’Brien’s 和 Brown–Forsyth’s tests 在正态分布数据方面几乎与 Bartlett’s 和 Hartley’s tests 一样好，在非正态分布的数据方面优于它们。Conover et al. 以及 Olejnik 和 Algina 讨论了一些非参数检验，但它们更难计算，并且上述推荐的检验几乎同样有效。下面是一个示例，其中演示了用于方差相等的每个检验。</p>
+</div>
+</div>
+<div id="sec2-4" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> 示例：药物和错误<a href="chap2.html#sec2-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>表 <a href="chap2.html#tab:table2-1">2.1</a> 中的数据来自在两种可能的药物影响下对个体<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>进行的配对联想学习任务 (paired-association learning task) 实验。第1组为对照组（无药物），第2组给药1，第3组给药2，第4组同时给两种药。每组数据的样本量、总和、中位数、平均值和方差见表 <a href="chap2.html#tab:table2-1">2.1</a>。</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-1">表 2.1: </span>配对联想学习任务实验数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.1.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p><em>F</em>-max 统计量为 <span class="math inline">\(F_\max=16.286/1.867=8.723\)</span>. 取 <span class="math inline">\(k=t=4,v=7\)</span> 的自由 <span class="math inline">\(5\%\)</span> 临界点从表 A.1 得到。临界点为 <span class="math inline">\(8.44\)</span>，由于 <span class="math inline">\(8.723&gt;8.44\)</span>，以 <span class="math inline">\(0.05\)</span> 的显著性水平拒绝 <span class="math inline">\(H_{0}\colon\,\sigma_{1}^{2}=\sigma_{2}^{2}=\cdots=\sigma_{t}^{2}\,\mathrm{~vs.~}\,H_{a}\colon(\mathrm{not~}H_{0}:)\)</span>，但不能在 <span class="math inline">\(0.01\)</span> 的水平拒绝。</p>
+<p>Bartlett’s test 的计算为：</p>
+<p><span class="math display">\[C=1+\frac1{3\times3}{\left(\frac16+\frac15+\frac17+\frac17-\frac1{25}\right)}\]</span></p>
+<p>且</p>
+<p><span class="math display">\[\hat{\sigma}^2=\frac{6(16.2857)+5(1.8667)+7(9.6964)+7(2.7860)}{25}=7.7769\]</span></p>
+<p>因此</p>
+<p><span class="math display">\[\begin{aligned}
+U&amp; =\frac1C{\left(v\log_e\hat{\sigma}^2-\sum_{i=1}^4v_i\log_e\hat{\sigma}_i^2\right)}  \\
+&amp;=\frac1{1.068}[25\log_{\mathrm{e}}(7.7769)-6\log_{\mathrm{e}}(16.2857)-5\log_{\mathrm{e}}(1.8667) \\
+&amp;-7\log_{\mathrm{e}}(9.6964)-7\log_{\mathrm{e}}(2.7860)] \\
+&amp;=7.8111
+\end{aligned}\]</span></p>
+<p>与 <span class="math inline">\(U\)</span> 相关的渐近抽样分布是基于自由度为 <span class="math inline">\(3\)</span> 的卡方分布，检验的显著性水平为 <span class="math inline">\(0.0501\)</span>，可以再次得出结论，方差在大约 <span class="math inline">\(5\%\)</span> 的显著性水平上是不相等的。</p>
+<p>Levene’s test 的计算从残差或观测值与处理均值的偏差的计算开始。接下来，如表 <a href="chap2.html#tab:table2-2">2.2</a> 所示计算残差的绝对值。最后，对残差的这些绝对值进行单向方差分析。所得到的 <span class="math inline">\(F\)</span> 统计量的值为 <span class="math inline">\(6.97\)</span>，其基于自由度 <span class="math inline">\(3,25\)</span>。观察到的 Levene’s test 的显著性水平为 <span class="math inline">\(0.0015\)</span>. 在进行方差分析之前，可以通过对表 <a href="chap2.html#tab:table2-2">2.2</a> 中的项目进行平方来获得 Levene’s test 的平方偏差或平方残差版本。在这种情况下，<span class="math inline">\(F\)</span> 统计量的值为 <span class="math inline">\(7.36\)</span>，观察到的显著水平为 <span class="math inline">\(0.0011\)</span>（也基于自由度 <span class="math inline">\(3,25\)</span>）。</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-2">表 2.2: </span>计算 Levene’s test 的 <span class="math inline">\(z_{ij} = |y_{ij}-y_{i\cdot}|\)</span> 值，其中 <span class="math inline">\(y_{ij}\)</span> 来自表 <a href="chap2.html#tab:table2-1">2.1</a>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.2.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>Brown–Forsyth’s test 统计量是通过计算观察值与处理中位数偏差的绝对值（中位数见表 <a href="chap2.html#tab:table2-1">2.1</a>）获得的。表 <a href="chap2.html#tab:table2-3">2.3</a> 包含了与中位数偏差的绝对值。接下来，单向方差分析提供的 <span class="math inline">\(F\)</span> 统计量为 <span class="math inline">\(5.49\)</span>，并且观察到的显著性水平是 <span class="math inline">\(0.0049\)</span>（也基于自由度 <span class="math inline">\(3,25\)</span>）。</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-3">表 2.3: </span>观测结果相对于处理中位数偏差的绝对值
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap2.html#tab:table2-4">2.4</a> 包含使用式 <a href="chap2.html#eq:2-3">(2.3)</a> 计算的 <span class="math inline">\(r_{ij}\)</span> 值，其中 <span class="math inline">\(w = 0.5\)</span>. 通过进行方差分析获得 O’Brien’s test 统计量。<span class="math inline">\(F\)</span> 统计量的值为 <span class="math inline">\(6.30\)</span>，观察到的显著性水平为 <span class="math inline">\(0.0025\)</span>. 使用 <span class="math inline">\(w = 0.7\)</span>（计算未显示）的 <span class="math inline">\(F\)</span> 统计量值为 <span class="math inline">\(5.90\)</span>，观察到的显著性水平为 <span class="math inline">\(0.0035\)</span>.
+每个 O’Brien’s test 都基于自由度 <span class="math inline">\(3,25\)</span>.</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-4">表 2.4: </span>使用 <span class="math inline">\(w=0.5\)</span> 进行 O’Brien’s Test 的得分
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>每个检验统计量表明，有足够的证据得出方差不相等的结论。残差绝对值的组均值见表 <a href="chap2.html#tab:table2-5">2.5</a>。这些处理的残差绝对值均值之间的成对比较见表 <a href="chap2.html#tab:table2-6">2.6</a>。无药物和药物2的残差绝对值的平均值没有差异，药物1和同时给药没有差异，但是这两组之间存在差异。可以使用具有两个方差的简单模型来继续分析治疗均值。使用简单方差模型将提高一些关于均值检验的功效。两个方差模型和相应的均值比较将遵循使用四个方差的分析的讨论。</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-5">表 2.5: </span>残差绝对值均值
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-6">表 2.6: </span>残差绝对值组均值的成对比较
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.6.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec2-5" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> 关于线性组合的推断<a href="chap2.html#sec2-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>当方差 <span class="math inline">\(\sigma_i^2\)</span> 相差很大而无法应用第 <a href="chap1.html#chap1">1</a> 章中讨论的检验和置信区间时，本节讨论了处理均值的任意线性组合 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的假设检验和置信区间的构造问题。如果方差相等假设在 <span class="math inline">\(0.01\)</span> 或 <span class="math inline">\(1\%\)</span> 水平被拒绝，建议使用本节和下一节中的程序。如果没有足够的证据证明方差不等，则可以使用第 <a href="chap1.html#chap1">1</a> 章中的结果对处理均值进行推断。</p>
+<p><span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的最佳估计为 <span class="math inline">\(\sum_{i=1}^tc_i\hat \mu_i\)</span>，其抽样分布为</p>
+<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\sim N{\left(\sum_{i=1}^tc_i\mu_i,\sum_{i=1}^tc_i^2\sigma_i^2/n_i\right)}\]</span></p>
+<p>因此</p>
+<p><span class="math display">\[z=\frac{\sum_{i=1}^{t}c_{i}\hat{{\mu}}_{i}-\sum_{i=1}^{t}c_{i}\mu_{i}}{\sqrt{\sum_{i=1}^{t}c_{i}^{2}{\sigma}_{i}^{2}/n_{i}}}\sim N(0,1)\]</span></p>
+<p>当方差未知且不等时，一个明显可用于推断 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的统计量为</p>
+<p><span class="math display">\[z=\frac{\sum_{i=1}^tc_i\hat{\mu}_i-\sum_{i=1}^tc_i{\mu}_i}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}}\]</span></p>
+<p>如果非零 <span class="math inline">\(c_i\)</span> 对应的 <span class="math inline">\(n_i\)</span> 都非常大，则可以合理地假设 <span class="math inline">\(Z\)</span> 具有近似 <span class="math inline">\(N(0,1)\)</span> 分布，因此 <span class="math inline">\(Z\)</span> 可以用于推断 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span>. 此时 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式提供：</p>
+<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\pm z_{\alpha/2}\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}\]</span></p>
+<p>如果<span class="math inline">\(|z| &gt; z_{\alpha/2}\)</span>，则在显著性水平 <span class="math inline">\(\alpha\)</span> 处拒绝 <span class="math inline">\(H_0\)</span>.</p>
+<p>在其他情况下，注意 <span class="math inline">\(z\)</span> 可以写为</p>
+<p><span class="math display">\[z=\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i\mu_i\right)\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}{\sqrt{\sum_{i=1}^tc_i^2\hat{{\sigma}}_i^2/n_i}\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}\]</span></p>
+<p><span class="math inline">\(z\)</span> 的分子具有标准正态分布，<span class="math inline">\(z\)</span> 的分子和分母独立。<span class="math inline">\(z\)</span> 的分布可以近似为 <span class="math inline">\(t(v)\)</span> 分布，如果 <span class="math inline">\(v\)</span> 的值可以使得</p>
+<p><span class="math display">\[V=v\times\frac{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2\big/n_i}{\sum_{i=1}^tc_i^2\sigma_i^2\big/n_i}\]</span></p>
+<p>近似服从 <span class="math inline">\(\chi^2(v)\)</span>. 为了在方差不等时得到 <span class="math inline">\(V\)</span> 的分布的良好卡方近似，选择具有与 <span class="math inline">\(V\)</span> 相同的前两阶矩的卡方分布。也就是说，为了在方差不等的情况下找到 <span class="math inline">\(v\)</span>，求出 <span class="math inline">\(v\)</span> 使得 <span class="math inline">\(V\)</span> 的矩等于 <span class="math inline">\(\chi^2(v)\)</span> 分布的前两阶矩（这就是所谓的 Satterthwaite’s method ）。这导致自由度为：</p>
+<p><span class="math display">\[{v}=\frac{\left(\sum_{i=1}^tc_i^2{\sigma}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]}\]</span></p>
+<p>不幸的是，由于 <span class="math inline">\(v\)</span> 取决于 <span class="math inline">\(\sigma_1^2,\sigma_2^2,\ldots,\sigma_t^2\)</span>，因此无法精确确定。通常的程序是通过下式来估计 <span class="math inline">\(v\)</span>：</p>
+<p><span class="math display" id="eq:2-4">\[\begin{equation}
+\hat{{v}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\boldsymbol{\sigma}}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\hat{{\sigma}}_i^4/n_i^2(n_i-1)\right]}
+\tag{2.4}
+\end{equation}\]</span></p>
+<p>综上所述，拒绝 <span class="math inline">\(H_0\colon\sum_{i=1}^tc_i\mu_i=a\,\mathrm{~vs.~}H_a{:}\sum_{i=1}^tc_i\mu_i\neq a\)</span>，如果</p>
+<p><span class="math display">\[\left|t_c\right|=\frac{\left|\sum_{i=1}^tc_i\hat{\mu}_i-a\right|}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}}&gt;t_{\alpha/2,\hat{v}}\]</span></p>
+<p>其中 <span class="math inline">\(\hat v\)</span> 由式 <a href="chap2.html#eq:2-4">(2.4)</a> 确定。<span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式给出</p>
+<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\pm t_{\alpha/2,\hat{v}}\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}\]</span></p>
+<p>不幸的是，每当人们想要检验一个新的假设或构造另一个置信区间时，自由度 <span class="math inline">\(\hat v\)</span> 必须重新估计。可以证明 <span class="math inline">\(n_*-1\leq\hat{v}\leq t(n^*-1)\)</span> 其中 <span class="math inline">\(n_*=\min\{n_1,n_2,\ldots,n_t\}\)</span> 且 <span class="math inline">\(n^*=\max\{n_1,n_2,\ldots,n_t\}\)</span>. 因此，如果 <span class="math inline">\(|t_c|&gt;t_{\alpha/2,n_*-1}\)</span>，则可以保证 <span class="math inline">\(|t_c|&gt;t_{\alpha/2,\hat{v}}\)</span>；如果 <span class="math inline">\(|t_c|&lt;t_{\alpha/2,t(n^*-1)}\)</span>，则可以保证 <span class="math inline">\(|t_c|&lt;t_{\alpha/2,\hat{v}}\)</span>. 此时我们可以避免计算 <span class="math inline">\(\hat v\)</span>. 当 <span class="math inline">\(t_{\alpha/2,t(n^*-1)}&lt;|\left.t_c\right|&lt;t_{\alpha/2,n^*-1}\)</span>，为了确定是否应该拒绝或不拒绝被检验的零假设，必须计算 <span class="math inline">\(\hat v\)</span> 的值。为了获取置信区间，通常需要计算 <span class="math inline">\(\hat v\)</span>. 接下来，用药物误差的示例来证明前面的结果。</p>
+</div>
+<div id="sec2-6" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> 示例：药物和错误（续）<a href="chap2.html#sec2-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>考虑表 <a href="chap2.html#tab:table2-1">2.1</a> 中的数据，假设实验者有兴趣回答以下问题：</p>
+<ol style="list-style-type: decimal">
+<li>平均而言，药物对学习有任何影响吗？</li>
+<li>当给予两种药物时，个体犯的错误是否比只给予一种药物时更多？</li>
+<li>两种药物对错误数量的影响是否不同？</li>
+</ol>
+<p>为了回答第一个问题，可以检验三个药物组的均值等于对照组均值的假设。</p>
+<p><span class="math display">\[H_{01}{:}\,l_1=\mu_1-\frac{(\mu_2+\mu_3+\mu_4)}3=0\mathrm{~vs~}H_{a1}{:}\,l_1\neq0\]</span></p>
+<p>该线性组合的估计为</p>
+<p><span class="math display">\[\hat{l}_1=\hat{\mu}_1-\frac{\hat{\mu}_2+\hat{\mu}_3+\hat{\mu}_4}3=4.571-\frac13(34.042)=-6.776\]</span></p>
+<p><span class="math inline">\(\hat l_1\)</span> 相应的标准误估计为</p>
+<p><span class="math display">\[\begin{aligned}
+s.e.(\hat{l}_1)&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}  \\
+&amp;=\sqrt{\frac{\hat{\sigma}_1^2}7+\frac19{\left(\frac{\hat{\sigma}_2^2}6\right)}+\frac19{\left(\frac{\hat{\sigma}_3^2}8\right)}+\frac19{\left(\frac{\hat{\sigma}_4^2}8\right)}}\\
+&amp;=\sqrt{2.535}\\
+&amp;=1.592
+\end{aligned}\]</span></p>
+<p>与此标准误估计相关的近似自由度通过使用</p>
+<p><span class="math display">\[\sum_{i=1}^4\frac{c_i^4\hat{\sigma}_i^4}{n_i^2(n_i-1)}=0.9052\]</span></p>
+<p>使得</p>
+<p><span class="math display">\[\hat{v}=\frac{(2.535)^2}{0.9052}=7.10\]</span></p>
+<p>检验统计量的值为 <span class="math inline">\(t_c=-6.776/1.992=-4.256\)</span>，观察到的显著性水平为 <span class="math inline">\(\hat \alpha= 0.0038\)</span>.</p>
+<p><span class="math inline">\(l_1\)</span> 的 <span class="math inline">\(95\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\hat{l}_1\pm t_{\alpha/2,\hat{v}}\times\widehat{s.e.}(\hat{l}_1)=-6.776\pm(2.365)(1.592)\]</span></p>
+<p>简化为</p>
+<p><span class="math display">\[-10.54&lt;\mu_1-\frac{\mu_2+\mu_3+\mu_4}3&lt;-3.01\]</span></p>
+<p>下一个检验是看给予两种药物组的均值是否等于两种药物组的均值的均值。也就是检验</p>
+<p><span class="math display">\[H_{02}\colon l_2=\mu_4-\frac{\mu_2+\mu_3}2=0\,\mathrm{~vs.~}H_{a2}{:}\,l_2\neq0\]</span></p>
+<p>该线性组合的估计为</p>
+<p><span class="math display">\[\hat l_2=\hat{\mu}_4-\frac{\hat{\mu}_2+\hat{\mu}_3}2=3.6042\]</span></p>
+<p>其估计标准误为</p>
+<p><span class="math display">\[\begin{aligned}
+\widehat{s.e.}(\hat{l}_{2})&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}  \\
+&amp;=\sqrt{\frac14\!\left(\frac{\hat{\sigma}_2^2}6\right)+\frac14\!\left(\frac{\hat{\sigma}_3^2}8\right)+\left(\frac{\hat{\sigma}_4^2}8\right)}\\
+&amp;=\sqrt{0.7290}\\
+&amp;=0.8538
+\end{aligned}\]</span></p>
+<p>检验统计量的值为 <span class="math inline">\(t_c = 3.6042/0.8538 = 4.221\)</span>，因为 <span class="math inline">\(|t_c|&gt;t_{0.005,5}\)</span> 它在 <span class="math inline">\(\alpha=0.01\)</span> 水平下显著。此时 <span class="math inline">\(\hat v\)</span> 的值不需要用 <span class="math inline">\(n_ *-1\)</span> 作为近似自由度来计算，计算出的 <span class="math inline">\(\hat v\)</span> 的值为 <span class="math inline">\(16.8\)</span> ，这是构造 <span class="math inline">\(l_2\)</span> 置信区间所需要的</p>
+<p>最后，为了检验假设以查看两种药物的均值是否不同，检验 <span class="math inline">\(H_0{:}\,l_3 = \mu_2 - \mu_3 = 0 \,\mathrm{~vs.~} H_a{:}\,l_3 = \mu_2 - \mu_3 \ne 0\)</span>. 该线性组合的估计值为 <span class="math inline">\(\hat l_3 = \hat\mu_2 - \hat\mu_3=3.042\)</span>，其标准误估计为</p>
+<p><span class="math display">\[\widehat{s.e.}(\hat{l}_3)=\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}=\sqrt{\left(\frac{\hat{\sigma}_2^2}{6}\right)+\left(\frac{\hat{\sigma}_3^2}8\right)}=\sqrt{1.523}=1.234\]</span></p>
+<p>近似自由度的计算通过使用：</p>
+<p><span class="math display">\[\sum_{i=1}^4\frac{c_i^4\hat{\sigma}_i^4}{n_i^2(n_i-1)}=0.229\]</span></p>
+<p>使得</p>
+<p><span class="math display">\[\hat{v}=\frac{(1.523)^2}{0.229}=10.1\]</span></p>
+<p>因此，<span class="math inline">\(t_c = 3.042/1.234 = 2.465\)</span>，观察到的显著性水平为 <span class="math inline">\(\hat\alpha = 0.0334\)</span>.</p>
+</div>
+<div id="sec2-7" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> 自由度的一般 Satterthwaite 近似<a href="chap2.html#sec2-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>与估计标准误差相关的自由度的 Satterthwaite 近似由下式获得</p>
+<p><span class="math display">\[v=\frac{2*(E\{[\widehat{s.e.}(\hat{l})]^2\})^2}{\mathrm{Var}\{[\widehat{s.e.}(\hat{l})]^2\}}\]</span></p>
+<p>其中 <span class="math inline">\([\widehat{s.e.}(\widehat{l})]^2\)</span> 用于估计 <span class="math inline">\(E[s.e.(\hat{l})]^2\)</span>，且 <span class="math inline">\(\mathrm{Var}[\widehat{s.e.}(\hat{l})]^2\)</span> 的值由 <span class="math inline">\(\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]\)</span> 估计。对于更复杂的模型，<span class="math inline">\(\mathrm{Var}[\widehat{s.e.}(\widehat{l})]^2\)</span> 可以通过使用一阶泰勒级数 (Kendall and Stuart, 1952) 近似为 <span class="math inline">\(\boldsymbol q&#39;\boldsymbol M \boldsymbol q\)</span>，其中 <span class="math inline">\(\boldsymbol M\)</span> 是方差估计的渐近协方差矩阵估计，向量 <span class="math inline">\(\boldsymbol q\)</span> 的元素是 <span class="math inline">\(E[s.e.(\hat{l})]^2\)</span> 关于单个方差的一阶导数，即<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<p><span class="math display">\[q_{i}=\frac{\partial E[(s.e.(\hat{l})]^{2}}{\partial\sigma_{i}^{2}},\quad i=1,2,\ldots,t\]</span></p>
+<p>根据各处理方差的估计值评估 <span class="math inline">\(q_i\)</span> (Montgomery and Runger, 1993, 1994). 当每个样本的数据呈正态分布时，则</p>
+<p><span class="math display">\[\frac{(n_i-1)\hat{\sigma}_i^2}{\sigma_i^2}\]</span></p>
+<p>为中心卡方随机变量。因此 <span class="math inline">\(E(\hat{\sigma}_i^2)=\sigma_i^2\)</span> 且 <span class="math inline">\(\operatorname{Var}(\hat{\sigma}_i^2)=2\sigma_i^4/(n_i-1)\)</span>. 令感兴趣的线性组合为 <span class="math inline">\(l=\sum_{i=1}^{t}c_{i}\mu_{i}\)</span>，其方差为 <span class="math inline">\(\sigma_{l}^{2}=\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}\)</span>，则 <span class="math inline">\(\sigma_{l}^{2}\)</span> 关于 <span class="math inline">\(\hat \sigma_{i}^{2}\)</span> 的偏导数为</p>
+<p><span class="math display">\[\frac{\partial\sigma_l^2}{\partial\sigma_i^2}=\frac{c_i^2}{n_i}\]</span></p>
+<p>使用泰勒级数一阶近似获得的 <span class="math inline">\(\sigma_{l}^{2}\)</span> 的近似方差为</p>
+<p><span class="math display">\[\mathrm{Var}(\sigma_l^2)=\sum_{i=1}^t\left[\left[\frac{c_i^2}{n_i}\right]^2\left[\frac{2\sigma_i^4}{n_i-1}\right]\right]^2\]</span></p>
+<p>下一步是用提供近似自由度的相应样本估计值替换总体方差</p>
+<p><span class="math display">\[\hat{v}=\frac{2*\left(E\{[\widehat{s.e.}(\hat{l})]^2\}\right)^2}{\mathrm{Var}\{[\widehat{s.e.}(\hat{l})]^2\}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\sigma}_i^2\right)^2}{\sum_{i=1}^tc_i^4\hat{\sigma}_i^4/[n_i^2(n_i-1)]}\]</span></p>
+<p>与上述 Satterthwaite 近似相同。</p>
+</div>
+<div id="sec2-8" class="section level2 hasAnchor" number="2.8">
+<h2><span class="header-section-number">2.8</span> 比较所有均值<a href="chap2.html#sec2-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>如前所述，当方差不等时，通常的 <span class="math inline">\(F\)</span> 检验非常稳健，前提是样本量几乎相等，或者假设较大的样本量对应于方差差异较大的总体样本。本节提供了两个等均值假设的附加检验。等均值假设的第一个检验 <span class="math inline">\(H_{0}\colon\,\mu_{1}=\mu_{2}=\cdots=\mu_{t}\,\mathrm{~vs.~}H_{a}\colon\,(\operatorname{not}H_{0}{:})\)</span> ，由 Welch (1951) 给出，称为 Welch’s test。定义权重 <span class="math inline">\(W_{i}=n_{i}/\hat{\sigma}_{i}^{2}\)</span>，令 <span class="math inline">\(\bar{y}^{*}=\sum_{i=1}^{t}W_{i}\bar{y}_{i\cdot}\big/\sum_{i=1}^{t}W_{i}\)</span> 为样本均值的加权平均值，令</p>
+<p><span class="math display">\[\Lambda=\sum_{i=1}^{t}\frac{(1-W_{i}/W_{\cdot})^{2}}{n_{i}-1}\]</span></p>
+<p>其中 <span class="math inline">\(W_\cdot=\sum_{i=1}^tW_{i\cdot}\)</span>. 那么 Welch’s test 统计量为</p>
+<p><span class="math display" id="eq:2-5">\[\begin{equation}
+F_c=\frac{\sum_{i=1}^tW_i\frac{(\bar{y}_i.-\bar{y}^*)}{(t-1)}}{1+2(t-1)\Lambda/(t^2-1)}
+\tag{2.5}
+\end{equation}\]</span></p>
+<p>它具有近似的 <span class="math inline">\(F\)</span> 分布，分子分母自由度分别为 <span class="math inline">\(v_{1}=t-1,\,v_{2}=(t^{2}-1)/3\Lambda\)</span>. 因此当 <span class="math inline">\(F_{c}&gt;F_{\alpha,v_{1},v_{2}}\)</span>，拒绝零假设 <span class="math inline">\(H_{0}\colon\,\mu_{1}=\mu_{2}=\cdots=\mu_{t}\)</span>. 式 <a href="chap2.html#eq:2-5">(2.5)</a> 的分子也可以计算为：<span class="math inline">\([\sum_{i=1}^{t}W_{i}\bar{y}_{i\cdot}^{2}-\overline{W}\bar{y}^{*2}]/(t-1)\)</span>. 该程序使用 <a href="chap2.html#sec2-7">2.7</a> 节中的数据进行了演示，初步计算见表 <a href="chap2.html#tab:table2-7">2.7</a>.</p>
+<table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-7">表 2.7: </span>计算 Welch’s test 的量
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>根据以上信息计算 <span class="math inline">\(W_\cdot=7.341,\bar{y}^{*}=11.724\)</span></p>
+<p><span class="math display">\[\Lambda=\frac{(1-0.430/7.341)^2}6+\frac{(1-3.214/7.341)^2}5+\frac{(1-0.825/7.341)^2}7+\frac{(1-2.872/7.341)^2}7=0.376\]</span></p>
+<p>且 <span class="math inline">\(\sum_{i=1}^{t}W_{i}\left.\bar{y}_{i\cdot}^{2}-\overline{W}\right.\bar{y}^{*2}=1050.8069-1009.0954=43.7114\)</span>.</p>
+<p>Welch’s test 统计量的值为</p>
+<p><span class="math display">\[F_c=\frac{41.7114/3}{1+2\times2\times0.376/15}=\frac{13.9038}{1.1003}=12.6355\]</span></p>
+<p>自由度为 <span class="math inline">\(v_1=3,v_2=15/(3×0.376) = 13.283\)</span>. 观察到的 <span class="math inline">\(F_c\)</span> 相应的显著性概率为 <span class="math inline">\(\hat \alpha=0.00035\)</span>. 出于比较目的，通常的 <span class="math inline">\(F\)</span> 统计量 <span class="math inline">\(F_c=14.91\)</span>，自由度为 <span class="math inline">\(3,25\)</span>. Welch’s test 可以使用 SAS<sup>®</sup>GLM 通过在 MEANS 语句中指定 <code>Welch</code> 选项来获得。表 <a href="chap2.html#tab:table2-8">2.8</a> 包含 GLM 代码，用于提供方差相等的 BF 检验和均值相等的 Welch 检验。部分重要结果见表 <a href="chap2.html#tab:table2-8">2.8</a> 的第二部分。其他方差相等的检验可以通过指定 <code>O'Brien</code>、<code>Levene</code> 或 <code>Bartlett</code> 来获得。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-8">表 2.8: </span> SAS-GLM 代码提供 Brown-Forsythe 方差齐性检验和 Welch 方差齐性检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.8-1.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.8-2.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.8-3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>检验处理均值相等的第二个程序是将检验一组处理均值 <span class="math inline">\(\mu_i\)</span> 线性组合假设的过程加以推广。
+设一个假设是由 <span class="math inline">\(r\)</span> 个独立的 <span class="math inline">\(\mu_i\)</span> 的线性组合组成的，例如 <span class="math inline">\(H_{0}\colon\,\sum_{i=1}^{t}c_{1i}\mu_{i}=0,\sum_{i=1}^{t}c_{2i}\mu_{i}=0,\ldots,\sum_{i=1}^{t}c_{ri}\mu_{i}=0\,\mathrm{~vs.~}H_{a}:(\mathrm{not}\,H_{0})\)</span>. 设 <span class="math inline">\(\boldsymbol C\)</span> 是一个矩阵，其第 <span class="math inline">\(k\)</span> 行是第 <span class="math inline">\(k\)</span> 个线性组合的系数，若假定每个总体或处理的数据均服从正态分布，则处理均值向量的联合抽样分布为 <span class="math inline">\(\hat{\boldsymbol{\mu}}\sim N[\boldsymbol{\mu},\boldsymbol V]\)</span>，其中 <span class="math inline">\(\boldsymbol V\)</span> 是一个对角阵，其第 <span class="math inline">\(i\)</span> 个对角元素为 <span class="math inline">\(\sigma^2_i /n_i\)</span>. 线性组合集 <span class="math inline">\(\boldsymbol C \boldsymbol \mu\)</span> 的联合抽样分布为 <span class="math inline">\(\boldsymbol{C\hat{\boldsymbol{\mu}}}\sim N[\boldsymbol{C\mu},\boldsymbol{CV}\boldsymbol{C}^{\prime}]\)</span>. 与零假设的偏差导致的平方和为 <span class="math inline">\(SSH_{0} = [\boldsymbol C\hat{\boldsymbol{\mu}}]^{\prime}[\boldsymbol C\hat{\boldsymbol V}\boldsymbol C^{\prime}]^{-1}[\boldsymbol C\hat{\boldsymbol{\boldsymbol \mu}}]\)</span>，其渐近分布为具有 <span class="math inline">\(r\)</span> 个自由度的卡方分布。近似小样本量统计量为 <span class="math inline">\(F_c = SSH_ 0/r\)</span>，近似分布为 <span class="math inline">\(F\)</span>，自由度为 <span class="math inline">\(r,v\)</span>，其中 <span class="math inline">\(v\)</span> 需要近似 (Fai and Cornelius, 1996; SAS Institute, Inc., 1999, p. 2118). 近似自由度的计算开始于对 <span class="math inline">\(\boldsymbol C \hat {\boldsymbol V} \boldsymbol C&#39; = \boldsymbol Q \boldsymbol D \boldsymbol Q&#39;\)</span> 执行谱分解，其中 <span class="math inline">\(\boldsymbol D\)</span> 是具有 <span class="math inline">\(\boldsymbol C \hat {\boldsymbol V} \boldsymbol C&#39;\)</span> 的特征根作为对角元素的 <span class="math inline">\(r×r\)</span> 对角阵，并且 <span class="math inline">\(\boldsymbol Q\)</span> 是 <span class="math inline">\(\boldsymbol C \hat {\boldsymbol V} \boldsymbol C&#39;\)</span> 的对应特征向量的 <span class="math inline">\(r×r\)</span> 正交矩阵。令 <span class="math inline">\(\boldsymbol z_k&#39;\)</span> 为 <span class="math inline">\(\boldsymbol Q \boldsymbol C\)</span> 的第 <span class="math inline">\(k\)</span> 行，并令</p>
+<p><span class="math display">\[\nu_k=\frac{2(d_k)^2}{\boldsymbol b_k&#39;\boldsymbol M\boldsymbol b_k}\]</span></p>
+<p>其中 <span class="math inline">\(d_k\)</span> 是 <span class="math inline">\(\boldsymbol D\)</span> 的第 <span class="math inline">\(k\)</span> 个对角元素，<span class="math inline">\(\boldsymbol b_k\)</span> 包含 <span class="math inline">\(\boldsymbol z_k&#39;\boldsymbol V \boldsymbol z_k\)</span> 关于 <span class="math inline">\(\boldsymbol V\)</span> 中每个方差参数的偏导数在方差估计处的值，<span class="math inline">\(\boldsymbol M\)</span> 是方差向量的渐近协方差。令</p>
+<p><span class="math display">\[S=\sum_{k=1}^r\frac{v_k}{v_k-2}I[v_k&gt;2]\]</span></p>
+<p>其中 <span class="math inline">\(I[v_k&gt;2]\)</span> 是一个指示函数，当 <span class="math inline">\(v_k &gt; 2\)</span> 时值为 <span class="math inline">\(1\)</span>，否则为 <span class="math inline">\(0\)</span>. <span class="math inline">\(F_c\)</span> 分布的近似分母自由度为</p>
+<p><span class="math display">\[v=\begin{cases}\frac{2S}{S-r}&amp;\mathrm{if~}S&gt;r\\0&amp;\mathrm{if~}S\leq r&amp;\end{cases}\]</span></p>
+<p>上述过程可用于通过选择一组 <span class="math inline">\(t - 1\)</span> 个线性独立的 <span class="math inline">\(\mu_i\)</span> 的对比来提供等均值假设的检验。</p>
+<p>SAS-Mixed 程序实现了一种对分母自由度的近似，该分母自由度与分子中具有多个自由度的近似 <span class="math inline">\(F\)</span> 统计量相关。SAS-Mixed 可用于拟合每个处理组方差不等的模型，或使用 REPEATED 语句并指定 <code>GROUP =</code> 选项。表 <a href="chap2.html#tab:table2-9">2.9</a> 中的 Mixed 代码将不等方差模型拟合至表 <a href="chap2.html#tab:table2-1">2.1</a> 中的数据。REPEATED 语句用于指定要为每个处理估计不同的方差（组的每个值）。三个 Estimate 语句用于提供与 <a href="chap2.html#sec2-6">2.6</a> 节中的三个问题相对应的计算。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-9">表 2.9: </span>将不等方差模型拟合到表 <a href="chap2.html#tab:table2-1">2.1</a> 中的数据的 SAS-Mixed 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+proc mixed cl covtest data=task;<br />
+class group;<br />
+model errors=group/ddfm=kr;<br />
+repeated/group=group;<br />
+estimate “part(1)” group -1 -1 -1 3/divisor=3 cl alpha=0.05;<br />
+estimate “part(2)” group 2 -1 -1 0/divisor=2 cl alpha=0.05;<br />
+estimate “part(3)” group 0 1 -1 0/cl alpha=0.05;<br />
+lsmeans group/diff cl;
+</td>
+</tr>
+</tbody>
+</table>
+<p>Mixed 程序的结果见表 <a href="chap2.html#tab:table2-10">2.10</a>，其中协方差参数估计值是四个处理方差的估计值，拟合统计量中的 AIC 是 Akaike Information Criteria (Akaike, 1974)，模型似然比检验提供了等方差假设的检验，固定效应的 III 型检验使用第二个统计量和分母的相应近似自由度提供了等均值假设的检验，估计值包含与 <a href="chap2.html#sec2-6">2.6</a> 节中的三个问题对应的结果，其中提供了 <span class="math inline">\(t\)</span> 统计量、近似分母自由度和 <span class="math inline">\(95\%\)</span> 置信区间。表 <a href="chap2.html#tab:table2-11">2.11</a> 包含了处理均值估计及其相应的标准误估计。名义自由度是与它们各自的方差相对应的自由度。表 <a href="chap2.html#tab:table2-11">2.11</a> 的第二部分包含处理均值的成对比较，包括每次比较的近似分母自由度。该模型可以通过对药物1和两种药物使用一个方差，对药物2和无药物使用一种方差来简化。这可以通过定义一个变量来实现，比如T，对于药物1和两种药物都是1，对于其他两种处理是0。然后在模型指定中将T放在class语句中，并使用 <code>Repeated/Group=T;</code>。两个方差的估计值分别为 <span class="math inline">\(2.4028\)</span> 和 <span class="math inline">\(12.7376\)</span>，<span class="math inline">\(AIC\)</span> 为 <span class="math inline">\(126.4\)</span>，这比四方差模型的 <span class="math inline">\(AIC\)</span> 值小，表明两方差模型足以描述数据。使用在模型指定中具有较少方差的模型为相应的标准误提供了更多的自由度，从而提供了关于模型中固定效应的假设的更有效的检验。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-10">表 2.10: </span>将不等方差模型拟合到表 <a href="chap2.html#tab:table2-1">2.1</a> 中的数据的结果
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.10-1.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.10-2.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.10-3.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.10-4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table2-11">表 2.11: </span>利用不等方差模型估计药物组均值和配对比较
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.11-1.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<img src="table/table%202.11-2.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec2-9" class="section level2 hasAnchor" number="2.9">
+<h2><span class="header-section-number">2.9</span> 结束语<a href="chap2.html#sec2-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>总之，为了比较所有均值，建议采用以下方法：</p>
+<ol style="list-style-type: decimal">
+<li>如果方差齐性检验在 <span class="math inline">\(1\%\)</span> 的水平上不显著，则进行通常的方差分析检验。</li>
+<li>如果方差齐性检验在 <span class="math inline">\(1\%\)</span> 的水平上显著，则使用 Welch’s test 或混合模型检验以及相应的近似分母自由度。</li>
+<li>如果方差齐性检验在 <span class="math inline">\(1\%\)</span> 的水平上显著，则使用 <span class="math inline">\(AIC\)</span> 来确定是否可以使用更简单或更少数量的方差来充分描述数据，以增加与均值有关检验的功效。</li>
+</ol>
+<p>许多教科书和文章都写过关于对数据进行转换以实现相等的处理方差，从而可以使用通常的方差分析来比较处理。由于能够建立一个不等方差模型来提供均值的标准误估计和均值的比较，许多情况下不需要使用变换。不必使用变换来实现相等方差的一个主要好处是，平均值的单位是测量单位，从而简化了解释。</p>
+<p>本章讨论了具有异质误差的单向方差分析模型的统计分析。讨论包括确定误差方差齐性的几个统计检验，以及何时使用每个检验的建议。讨论了在发现误差方差不齐时，对不同处理的效应进行统计推断的适当程序，还回顾了说明这些程序使用的示例。</p>
+</div>
+<div id="sec2-10" class="section level2 hasAnchor" number="2.10">
+<h2><span class="header-section-number">2.10</span> 练习<a href="chap2.html#sec2-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>原文为: heterogeneous error variances pose a much more serious problem when ignored than non-normality of the error variances，应为笔误，此处译者做了修改。<a href="chap2.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>原文为: so you are going to reject the null hypothesis more often than specified by the choice of <span class="math inline">\(\alpha\)</span>.<a href="chap2.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>原文为: not too unequal.<a href="chap2.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>本文将 “subject” 统一翻译为“个体”，不论语境。<a href="chap2.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>原文分子没有 <span class="math inline">\(\partial\)</span>，应为笔误，此处已修改。<a href="chap2.html#fnref9" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
