@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="chap3.html"/>
-<link rel="next" href="chap29.html"/>
+<link rel="next" href="chap5.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -246,13 +246,17 @@
 <li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#sec4-5"><i class="fa fa-check"></i><b>4.5</b> 练习</a></li>
 <li class="chapter" data-level="" data-path="chap4.html"><a href="chap4.html#参考文献-1"><i class="fa fa-check"></i>参考文献</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>5</b> 交叉设计分析</a>
+<li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> 多水平设计：裂区、裂条、重复测量及组合</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>5.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两时期/两处理交叉设计</a></li>
-<li class="chapter" data-level="5.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>5.3</b> 具有两个以上时期的交叉设计</a></li>
-<li class="chapter" data-level="5.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>5.4</b> 具有两种以上处理的交叉设计</a></li>
-<li class="chapter" data-level="5.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>5.5</b> 小结</a></li>
+<li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#sec5-1"><i class="fa fa-check"></i><b>5.1</b> 实验单元的尺寸识别——四种基本设计结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>6</b> 交叉设计分析</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>6.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="6.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>6.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="6.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>6.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="6.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>6.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="6.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>6.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -276,7 +280,7 @@
             <section class="normal" id="section-">
 <div id="chap4" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">第 4 章</span> 实验设计基础<a href="chap4.html#chap4" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>经过适当设计和分析的实验提供了有关所使用资源的调查条件的最大信息量。本章介绍了实验者设计和分析实验时使用的概念和方法。本章讨论的基本概念是<strong>处理结构</strong> (treatment structure) 和<strong>设计结构</strong> (design structure)，以及<strong>重复</strong> (replication)、<strong>区组</strong> (block) 和<strong>实验单元</strong> (experimental unit) 的思想。给出了设计和处理结构相结合的实例，以说明完全区组设计和不完全区组设计的概念。这些设计涉及一种尺寸的实验单元。第五章描述了实验单元尺寸的概念，并给出了涉及多于一种实验单元尺寸的各种设计。本章提出的设计结构包括<strong>完全随机化</strong> (completely randomized, CRD)、<strong>随机完全区组</strong> (randomized complete block, RCBD)、<strong>不完全区组</strong> (incomplete block, IBD)和<strong>拉丁方</strong> (Latin square, LSD)。所考虑的处理结构包括单向、双向、双向对照、部分析因和 <em>n</em> 向结构。在本一章中，介绍了具有必要的变异源和自由度的模型和方差分析表。讨论提供了确定用于计算误差平方和的变异源的方法，以及用于计算结果自由度的算法。一般来说，误差平方和是通过对观测值或经过相同处理的观测值的线性组合 (observations that are treated alike) 的比较来获得的。其他平方和的计算将在后面的章节中讨论。本章的基本方法是通过示例来演示概念。裂区 (split-plot)、重复测量 (repeated measures)、裂条区 (strip-plot) 和交叉设计 (crossover designs ) 使用不同大小的实验单元的概念，并在第 <a href="#chap5"><strong>??</strong></a> 章中进行了描述。涉及嵌套 (nesting) 的设计也在第 <a href="#chap5"><strong>??</strong></a> 章中进行了讨论。</p>
+<p>经过适当设计和分析的实验提供了有关所使用资源的调查条件的最大信息量。本章介绍了实验者设计和分析实验时使用的概念和方法。本章讨论的基本概念是<strong>处理结构</strong> (treatment structure) 和<strong>设计结构</strong> (design structure)，以及<strong>重复</strong> (replication)、<strong>区组</strong> (block) 和<strong>实验单元</strong> (experimental unit) 的思想。给出了设计和处理结构相结合的实例，以说明完全区组设计和不完全区组设计的概念。这些设计涉及一种尺寸的实验单元。第五章描述了实验单元尺寸的概念，并给出了涉及多于一种实验单元尺寸的各种设计。本章提出的设计结构包括<strong>完全随机化</strong> (completely randomized, CRD)、<strong>随机完全区组</strong> (randomized complete block, RCBD)、<strong>不完全区组</strong> (incomplete block, IBD)和<strong>拉丁方</strong> (Latin square, LSD)。所考虑的处理结构包括单向、双向、双向对照、部分析因和 <span class="math inline">\(n\)</span> 向结构。在本一章中，介绍了具有必要的变异源和自由度的模型和方差分析表。讨论提供了确定用于计算误差平方和的变异源的方法，以及用于计算结果自由度的算法。一般来说，误差平方和是通过对观测值或经过相同处理的观测值的线性组合 (observations that are treated alike) 的比较来获得的。其他平方和的计算将在后面的章节中讨论。本章的基本方法是通过示例来演示概念。裂区 (split-plot)、重复测量 (repeated measures)、裂条区 (strip-plot) 和交叉设计 (crossover designs ) 使用不同大小的实验单元的概念，并在第 <a href="chap5.html#chap5">5</a> 章中进行了描述。涉及嵌套 (nesting) 的设计也在第 <a href="chap5.html#chap5">5</a> 章中进行了讨论。</p>
 <div id="sec4-1" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> 介绍基本概念<a href="chap4.html#sec4-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>实验设计涉及计划实验，以便从可用资源中获得最多的信息。实验的设计应该从要达到的目的开始。应指定一个或多个主要响应变量，并充分描述实验目的和响应变量之间的联系。应解释用作实验单元的实体，并将其与实验目的联系起来。通常，在设计实验时，实验者可以控制某些被称为处理、总体或处理组合的因素。实验者通常控制要使用的实验单元的选择以及这些实验单元是否可以分组（称为区组）。典型的实验涉及要进行比较或要研究其效应的处理（或处理组合）。</p>
@@ -285,7 +289,7 @@
 <li><strong>实验的目的是什么？响应变量是什么？</strong>这是设计的一个非常重要的方面，因为必须了解生成数据的过程以及数据与目的的关系。</li>
 <li><strong>需研究多少种处理？</strong>处理的数量可能已经被指定，但有时应该讨论处理的选择如何与研究的目的相关。例如，一名营养学专业的学生想要设计一项研究，以确定在饼干产品中可以使用的大豆粉的最大量来代替小麦粉，这样所得的饼干中就没有大豆味了。该学生选择的饼干配方涉及用大豆粉替代 0、10、20、30、40、50、60、70、80、90 和 100% 的小麦粉。第一个问题是：“如果使用100%大豆粉，你能尝到大豆的味道吗？”因为如果你不能品尝到100%大豆粉的大豆味，那么就没有必要进行实验，如果你能品尝到大豆味，那么就没有必要在一组处理中包括100%大豆粉。我们认为尚不清楚用 20%、30%、40% 和 50% 大豆粉制成的产品是否可以品尝到大豆味。即，确定大豆粉含量为10％时无法品尝到大豆味，而大豆粉含量超过50％时则可品尝到大豆味。确定了不能品尝到含有10%大豆粉的大豆味，而可以品尝到含有超过50%大豆粉的大豆味，在将处理的选择与研究目的联系起来后，只需要最初11个处理中的5个（0、20、30、40和50%大豆粉）。0%作为小麦粉对照。这一过程大大减少了研究所需的样本数量。</li>
 <li><strong>每种处理需要观测多少次？</strong>这个问题与实现特定目的所需的样本量有关。</li>
-<li><strong>实验单元是什么？</strong>许多实验只涉及一个尺寸的实验单元。但其中涉及的重要思想是独立的重复。一些实验涉及多个尺寸的实验单元，这一概念在第 <a href="#chap5"><strong>??</strong></a> 章中有所描述。研究人员通常认为一个实验只涉及一个尺寸的实验单元，而无法识别涉及多种尺寸的实验单元的情况。这个问题需要认真解决，如第 <a href="#chap5"><strong>??</strong></a> 章所述。</li>
+<li><strong>实验单元是什么？</strong>许多实验只涉及一个尺寸的实验单元。但其中涉及的重要思想是独立的重复。一些实验涉及多个尺寸的实验单元，这一概念在第 <a href="chap5.html#chap5">5</a> 章中有所描述。研究人员通常认为一个实验只涉及一个尺寸的实验单元，而无法识别涉及多种尺寸的实验单元的情况。这个问题需要认真解决，如第 <a href="chap5.html#chap5">5</a> 章所述。</li>
 <li><strong>实验者如何将处理应用于可用的实验单元，然后对响应进行观测？</strong>这个问题涉及使用随机化将处理分配给实验单元，以及在提供数据过程的其他部分中使用随机化。重要的是，随机化用于将处理分配给实验单元。在医学研究中，以随机顺序在实验室中运行样本或使用随机顺序评估受试者也很重要。</li>
 <li><strong>是否可以对最终设计进行分析或进行所需的比较？</strong>这可能是研究人员最重要的问题，但本书的一个主要目的是使读者能够使用更复杂的设计，并且仍然能够进行分析，以估计重要参数并检验所需的假设。</li>
 </ol>
@@ -360,7 +364,7 @@ y_{ij}-y_{i^{\prime}j}&amp; =(\mu_i+b_j+\varepsilon_{ij}^*)-(\mu_{i^{\prime}}+b_
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>拉丁方设计</strong> (Latin square design). 拉丁方设计结构由两个方向的区组组成。对于涉及 <span class="math inline">\(t\)</span> 个处理的实验，<span class="math inline">\(t^2\)</span> 个实验单元被安排为 <span class="math inline">\(t\times t\)</span> 的<strong>方块</strong> (square)，其中行被称为<strong>行区组</strong> (row blocks)，列被称为<strong>列区组</strong> (column blocks)。因此，实验单元的这种 <span class="math inline">\(t\times t\)</span> 安排在两个方向上被分区 (blocked)：行区组和列区组。为了构建拉丁方设计结构，将处理随机分配到方块中的实验单元，使得每种处理在每一行区组中发生一次且仅发生一次，在每一行区组中发生一次且仅发生一次。参见 Cochran and Cox (1957) 以了解在行区组和列区组中的各种处理安排。两个或多个方向的区组在许多学科中很常见，特别是当实验单元出现在矩形中时（其中一个维度可能是时间），按行和列进行分区很有用。Graeco–Latin 方块可用于形成三个方向的区组 (Cochran and Cox, 1957).</li>
-<li><strong>不完全区组设计</strong> (Incomplete block design)。当一个或多个区组中的处理数超过实验单元数时，即出现不完全区组设计。当这种情况发生时，每个区组中不可能出现完整的处理集，因此被称为“不完全区组”。有几种特殊的不完全区组设计结构，如<strong>均衡不完全区组</strong> (balanced incomplete blocks) 和<strong>部分均衡不完全区组</strong> (partially balanced incomplete blocks). 均衡不完全区组设计结构是指将处理分配给区组，使得每对处理在同一区组中出现的次数相等。当一组处理在区组内一起出现相同的次数，而其他处理在一些区组内一起出现不同的次数时，就会出现部分均衡不完全区组设计结构。第 <a href="#chap5"><strong>??</strong></a> 章中讨论的裂区设计结构是部分不完全区组设计结构的一个示例。例 <a href="chap4.html#sec4-3-5">4.5</a> 描述了一些不完全区组设计结构。</li>
+<li><strong>不完全区组设计</strong> (Incomplete block design)。当一个或多个区组中的处理数超过实验单元数时，即出现不完全区组设计。当这种情况发生时，每个区组中不可能出现完整的处理集，因此被称为“不完全区组”。有几种特殊的不完全区组设计结构，如<strong>均衡不完全区组</strong> (balanced incomplete blocks) 和<strong>部分均衡不完全区组</strong> (partially balanced incomplete blocks). 均衡不完全区组设计结构是指将处理分配给区组，使得每对处理在同一区组中出现的次数相等。当一组处理在区组内一起出现相同的次数，而其他处理在一些区组内一起出现不同的次数时，就会出现部分均衡不完全区组设计结构。第 <a href="chap5.html#chap5">5</a> 章中讨论的裂区设计结构是部分不完全区组设计结构的一个示例。例 <a href="chap4.html#sec4-3-5">4.5</a> 描述了一些不完全区组设计结构。</li>
 <li><strong>各种组合和推广</strong> (Various combinations and generalizations). 有多种方法可以对实验单元进行分组。有时分组不满足上述定义，但仍然提供了有效的设计结构。一个例子是区组尺寸因区组而异，其中一些区组是不完全的，而另一些块是完全的。在任何情况下，这些其他的区组方案都可以为实验者提供非常可行的设计结构，以便进行有效的实验。</li>
 </ol>
 </div>
@@ -390,7 +394,7 @@ y_{ij}-y_{i^{\prime}j}&amp; =(\mu_i+b_j+\varepsilon_{ij}^*)-(\mu_{i^{\prime}}+b_
 </p>
 </div>
 <p>出于分析目的，所有上述处理结构始终可以被视为一种单向处理结构。特别是，当处理结构是两个或多个处理结构的复杂组合时（如图 <a href="chap4.html#fig:figure4-5">4.5</a> 所示），在分析结果数据时通常最好将一组处理视为单向处理结构。</p>
-<p>裂区和重复测量设计结构由不完全区组设计结构和涉及两个或多个因素的析因安排处理结构组成。实际上，裂区和重复测量设计的设计结构和处理结构的组合产生不同尺寸的实验单元，这是一个必须解决的问题，以便获得适当的分析。这样的设计将在第 <a href="#chap5"><strong>??</strong></a> 章讨论。</p>
+<p>裂区和重复测量设计结构由不完全区组设计结构和涉及两个或多个因素的析因安排处理结构组成。实际上，裂区和重复测量设计的设计结构和处理结构的组合产生不同尺寸的实验单元，这是一个必须解决的问题，以便获得适当的分析。这样的设计将在第 <a href="chap5.html#chap5">5</a> 章讨论。</p>
 </div>
 </div>
 <div id="sec4-3" class="section level2 hasAnchor" number="4.3">
@@ -804,7 +808,7 @@ y_{ijk}=\mu_{ij}+b_{k}+\boldsymbol{\varepsilon}_{ijk}\quad i=1,2,3,j=1,2,3,4,k=1
 Y= \mathrm{treatment structure} + \mathrm{design structure} + \mathrm{error structure(s)}
 \tag{4.13}
 \end{equation}\]</span></p>
-<p>同样，相应的方差分析表也有三个部分。表 <a href="chap4.html#tab:table4-17">4.17</a> 给出了模型 <a href="chap4.html#eq:4-13">(4.13)</a> 一般的方差分析表。表 <a href="chap4.html#tab:table4-18">4.18</a> 给出了模型 <a href="chap4.html#eq:4-12">(4.12)</a> 的方差分析表。一般来说，必须考虑到可能存在一个以上的误差项。例如，裂区和重复测量模型有一个以上的误差项（见第 <a href="#chap5"><strong>??</strong></a> 章）。</p>
+<p>同样，相应的方差分析表也有三个部分。表 <a href="chap4.html#tab:table4-17">4.17</a> 给出了模型 <a href="chap4.html#eq:4-13">(4.13)</a> 一般的方差分析表。表 <a href="chap4.html#tab:table4-18">4.18</a> 给出了模型 <a href="chap4.html#eq:4-12">(4.12)</a> 的方差分析表。一般来说，必须考虑到可能存在一个以上的误差项。例如，裂区和重复测量模型有一个以上的误差项（见第 <a href="chap5.html#chap5">5</a> 章）。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table4-17">表 4.17: </span>一般模型的方差表分析
@@ -976,12 +980,12 @@ x
 <div id="sec4-3-6" class="section level3 hasAnchor" number="4.3.6">
 <h3><span class="header-section-number">4.3.6</span> 示例 4.6：行区组和列区组<a href="chap4.html#sec4-3-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>区组可以通过多种方式出现，拉丁方设计结构是一种同时存在行区组和列区组的设计。拉丁方设计结构有多种变化，其中行比处理或多或少（或者列比处理或多或少）（Cochran and Cox, 1957）。本示例由按行和列划分的实验单元组成，其中每行和列的交集包含多个实验单元。处理结构是双向的，因子 <span class="math inline">\(A\)</span> 有两个水平，因子 <span class="math inline">\(B\)</span> 有两个水平，从而产生四种处理组合。共有 <span class="math inline">\(24\)</span> 个实验单元，排列成三列两行，每行列组合包含 <span class="math inline">\(4\)</span> 个实验单元。将四种处理组合随机分配给每个行列组内的四个实验单元。表 <a href="chap4.html#tab:table4-25">4.25</a> 显示了实验单元的处理组合（非随机）的分配。该设计结构本质上由六个尺寸为四的区组组成，但评估行区组之间和列区组之间的变异性可能很有趣，因此可以构建一个模型以包含这些因素：</p>
-<p><span class="math display" id="eq:4-10">\[\begin{align}
+<p><span class="math display" id="eq:4-15">\[\begin{align}
 y_{ijkm}&amp;=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+r_k+c_m+(rc)_{km}+\varepsilon_{ijkm}\\
 i&amp;=1,2,j=1,2,k=1,2,m=1,2,3
-\tag{4.10}
+\tag{4.15}
 \end{align}\]</span></p>
-<p>其中 <span class="math inline">\(\mu + \alpha_i + \beta_j + (\alpha\beta)_{ij}\)</span> 表示因子 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 的主效应和交互作用，<span class="math inline">\(r_k\)</span> 表示行区组效应，<span class="math inline">\(c_m\)</span> 表示列区组效应，<span class="math inline">\((rc)_{km}\)</span> 表示行区组和列区组之间的交互作用，<span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示实验单元误差。模型 <a href="#eq:4-15">(<strong>??</strong>)</a> 对应的方差分析表见表 <a href="chap4.html#tab:table4-26">4.26</a>. 分析可能只涉及六个区组，并且可以合并由于行区组、列区组及其交互作用而产生的平方和，从而为设计结构提供五个自由度。通过设计结构与处理结构的交互作用来获得误差平方和；即通过合并 <span class="math inline">\(A\)</span> × 行区组、<span class="math inline">\(A\)</span> × 列区组、<span class="math inline">\(A\)</span> × 行区组 × 列区组、<span class="math inline">\(B\)</span> × 行区组、<span class="math inline">\(B\)</span> × 列区组、<span class="math inline">\(B\)</span> × 行区组 × 列区组、<span class="math inline">\(A\)</span> × <span class="math inline">\(B\)</span> × 行区组、<span class="math inline">\(A\)</span> × <span class="math inline">\(B\)</span> × 列区组，以及 <span class="math inline">\(A\)</span> × <span class="math inline">\(B\)</span> × 行区组 × 列区组的平方和。</p>
+<p>其中 <span class="math inline">\(\mu + \alpha_i + \beta_j + (\alpha\beta)_{ij}\)</span> 表示因子 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 的主效应和交互作用，<span class="math inline">\(r_k\)</span> 表示行区组效应，<span class="math inline">\(c_m\)</span> 表示列区组效应，<span class="math inline">\((rc)_{km}\)</span> 表示行区组和列区组之间的交互作用，<span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示实验单元误差。模型 <a href="chap4.html#eq:4-15">(4.15)</a> 对应的方差分析表见表 <a href="chap4.html#tab:table4-26">4.26</a>. 分析可能只涉及六个区组，并且可以合并由于行区组、列区组及其交互作用而产生的平方和，从而为设计结构提供五个自由度。通过设计结构与处理结构的交互作用来获得误差平方和；即通过合并 <span class="math inline">\(A\)</span> × 行区组、<span class="math inline">\(A\)</span> × 列区组、<span class="math inline">\(A\)</span> × 行区组 × 列区组、<span class="math inline">\(B\)</span> × 行区组、<span class="math inline">\(B\)</span> × 列区组、<span class="math inline">\(B\)</span> × 行区组 × 列区组、<span class="math inline">\(A\)</span> × <span class="math inline">\(B\)</span> × 行区组、<span class="math inline">\(A\)</span> × <span class="math inline">\(B\)</span> × 列区组，以及 <span class="math inline">\(A\)</span> × <span class="math inline">\(B\)</span> × 行区组 × 列区组的平方和。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table4-25">表 4.25: </span>在设计结构中使用行区组和列区组，在处理结构中使用双向安排的设计（非随机形式）
@@ -1066,7 +1070,7 @@ x
         </div>
       </div>
 <a href="chap3.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap5.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

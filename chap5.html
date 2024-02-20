@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>混乱数据分析：设计的实验</title>
+  <title>第 5 章 多水平设计：裂区、裂条、重复测量及组合 | 混乱数据分析：设计的实验</title>
   <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="混乱数据分析：设计的实验" />
+  <meta property="og:title" content="第 5 章 多水平设计：裂区、裂条、重复测量及组合 | 混乱数据分析：设计的实验" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="混乱数据分析：设计的实验" />
+  <meta name="twitter:title" content="第 5 章 多水平设计：裂区、裂条、重复测量及组合 | 混乱数据分析：设计的实验" />
   
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="chap1.html"/>
+<link rel="prev" href="chap4.html"/>
+<link rel="next" href="chap29.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -278,22 +278,28 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">混乱数据分析：设计的实验</h1>
-<p class="author"><em>Wang Zhen</em></p>
-<p class="date"><em>2024-2-18</em></p>
-</div>
-<p><a href="https://wangzhen89.github.io/AMD/book/">混乱数据分析：设计的实验</a> 基于 <a href="https://bookdown.org/xiangyun/elegantbookdown/">Elegant Bookdown Template</a>。</p>
-<p>本书/翻译还处于早期。</p>
-<p>尚未包括每章的练习。</p>
+<div id="chap5" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">第 5 章</span> 多水平设计：裂区、裂条、重复测量及组合<a href="chap5.html#chap5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>咨询统计学家并不总是有机会设计他们必须帮助构建适当分析的实验。相反，统计学家必须首先确定研究人员使用的设计实验的类型。识别过程中的第一步也是最重要的一步是确定是否使用了不止一种尺寸的实验单元，如果使用了，则识别每种尺寸的试验单元。正如在本节中显而易见的那样，每种尺寸的实验单元都将具有相关的设计结构和处理结构。在识别出不同尺寸的实验单元后，可以通过组合用于描述与每个尺寸的实验单位相对应的设计结构和处理结构的模型来构建用于进行适当分析的模型。</p>
+<div id="sec5-1" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> 实验单元的尺寸识别——四种基本设计结构<a href="chap5.html#sec5-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>涉及一种以上尺寸的实验单元的设计结构被称为<strong>多水平设计结构</strong> (multilevel designs structures )，并且包括<strong>裂区</strong> (split-plot) 类型的设计结构、<strong>裂条区</strong> (strip-plot) 设计结构、<strong>重复测量</strong> (repeated measures) 设计结构、<strong>分层</strong> (hierarchical) 或<strong>嵌套</strong> (nested) 类型的设计构造以及涉及上述各种组合的设计结构。重复测量和裂区类型的设计结构是相似的，尽管用于进行分析的假设可能不同。裂区和裂条区设计结构是从农业科学发展而来的，但在包括工程和制造业在内的许多其他学科中都有使用，第 <a href="#chap24"><strong>??</strong></a> 章和第 <a href="#chap25"><strong>??</strong></a> 章讨论了它们的分析。重复测量设计在社会科学和生物科学中广泛使用，但在大多数领域都适用，因为随着时间的推移，评估处理效应是有意义的，其分析见第 <a href="#chap26"><strong>??</strong></a> - <a href="#chap28"><strong>??</strong></a> 章。嵌套处理结构不同于重复测量和裂区设计使用的处理结构，嵌套处理结构在第 <a href="#chap30"><strong>??</strong></a> 章中进行了描述。</p>
+<p>有四种基本的设计结构，而最复杂的设计结构是这些结构的组合。四种基本设计结构是<strong>完全随机设计结构</strong> (completely randomized design
+structure)、<strong>随机完全区组设计结构</strong> (randomized complete block design structure)、<strong>裂区设计结构</strong> (split-plot design structure) 和<strong>裂条区设计结构</strong> (strip-plot design structure). 这些基本设计结构中的每一个都有自己的分析，具有计算所需误差平方和的独特过程。本节介绍了基本设计结构以及计算误差平方和所需的过程。讨论中使用了一个例子，其中处理结构是双向的，一个因素有两个水平，而另一个因素有三个水平，设计结构涉及 <span class="math inline">\(18\)</span> 个实验单元。</p>
+<p>该实验包括评估烘烤后纸杯蛋糕的体积，其中有三种配方和两种烹饪温度；因此，处理结构由三种配方和两种烹饪温度的六种组合组成。希望每种治疗组合重复 <span class="math inline">\(3\)</span> 次；因此需要烘烤 <span class="math inline">\(18\)</span> 个纸杯蛋糕。图 <a href="#fig:figure5-1"><strong>??</strong></a> 中的图用于演示使用完全随机设计结构的过程。该过程是将处理结构中的六种处理组合完全随机分配给设计结构中的 <span class="math inline">\(18\)</span> 个实验单元（纸杯蛋糕）。箭头表示每个处理组合分配给三个纸杯蛋糕。通常，该过程是一次制作一个纸杯蛋糕，因此纸杯蛋糕混合和烘焙的顺序对应于实验单元。完全随机设计结构是通过混合一批给定的配方，填写一个纸杯蛋糕表格，然后在设定为特定温度的烤箱中烘烤纸杯蛋糕来完成的。每个纸杯蛋糕都必须由自己的批次制成，也就是说，每批次蛋糕配方只有一个纸杯蛋糕，每个纸杯蛋糕必须在设定的特定温度下在烤箱中自行烘焙。
+该过程需要使用 <span class="math inline">\(18\)</span> 批蛋糕混合物和 <span class="math inline">\(18\)</span> 次使用一个或多个烤箱来烘焙纸杯蛋糕。与完全随机化设计结构相关的误差是根据相同处理的纸杯蛋糕之间的变异性计算的。根据温度组合，每个配方中有三个纸杯蛋糕，因此三个纸杯饼体积的变化提供了两个测量纸杯蛋糕误差的自由度。人们应该检验六种处理组合方差的相等性（见第 <a href="chap2.html#chap2">2</a> 章），如果可能的话，将六种处理组的误差估计值汇总在一起，以提供 <span class="math inline">\(12\)</span> 个误差自由度，用于测量相同处理的纸杯蛋糕之间的变异性。可用于描述纸杯蛋糕体积的模型为</p>
+<p><span class="math display">\[y_{ijk}=\mu+\tau_{i}+\beta_{j}+(\tau\beta)_{ij}+\varepsilon_{ijk},\quad i=1,2,j=1,2,3,\mathrm{and}\,k=1,2,3\]</span></p>
+<p>其中 <span class="math inline">\(y_{ijk}\)</span> 表示用第 <span class="math inline">\(j\)</span> 个配方制作并在第 <span class="math inline">\(i\)</span> 个温度下烘焙的第 <span class="math inline">\(k\)</span> 个纸杯蛋糕的体积，<span class="math inline">\(\mu\)</span> 表示总平均值，<span class="math inline">\(\tau_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个温度的效应，<span class="math inline">\(\beta_j\)</span> 表示第 <span class="math inline">\(j\)</span> 个配方的效应，<span class="math inline">\((\tau\beta)_{ij}\)</span> 是配方于温度的交互作用，以及 <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内的纸杯蛋糕以及不同烤箱烘烤的差异性。表 <a href="#tab:table5-1"><strong>??</strong></a> 包含了完全随机化设计结构中双向处理结构模型的方差分析表，其中根据实验单元或相同处理的纸杯蛋糕的变异性计算了 <span class="math inline">\(12\)</span> 个自由度。与处理结构相关的自由度为五 个，与设计结构相关的自由度为 <span class="math inline">\(12\)</span> 个，所有自由度均分配给误差项。表 <a href="#tab:table5-1"><strong>??</strong></a> 中标有 <span class="math inline">\(EMS\)</span> 的列给出了方差分析表各行的预期均方形式。函数 <span class="math inline">\(\phi^2(\tau),\phi^2(\beta),\phi^2(\tau\beta)\)</span> 分别表示温度主效应均值、配方主效应均值和交互作用效应的二次函数。当相应的效应不存在时，这些函数是非负的且等于零。在本章的其余部分中可以使用类似的解释。</p>
 
+</div>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="chap1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -110,6 +110,7 @@ tab:table4-21
 tab:table4-22
 tab:table4-23
 tab:table4-24
+eq:4-15
 tab:table4-25
 tab:table4-26
 tab:table29-1
@@ -240,6 +241,8 @@ sec4-3-5
 sec4-3-6
 sec4-4
 sec4-5
+chap5
+sec5-1
 chap29
 sec29-1
 sec29-2

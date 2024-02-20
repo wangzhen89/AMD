@@ -1,7 +1,7 @@
 
 # 实验设计基础 {#chap4}
 
-经过适当设计和分析的实验提供了有关所使用资源的调查条件的最大信息量。本章介绍了实验者设计和分析实验时使用的概念和方法。本章讨论的基本概念是**处理结构** (treatment structure) 和**设计结构** (design structure)，以及**重复** (replication)、**区组** (block) 和**实验单元** (experimental unit) 的思想。给出了设计和处理结构相结合的实例，以说明完全区组设计和不完全区组设计的概念。这些设计涉及一种尺寸的实验单元。第五章描述了实验单元尺寸的概念，并给出了涉及多于一种实验单元尺寸的各种设计。本章提出的设计结构包括**完全随机化** (completely randomized, CRD)、**随机完全区组** (randomized complete block, RCBD)、**不完全区组** (incomplete block, IBD)和**拉丁方** (Latin square, LSD)。所考虑的处理结构包括单向、双向、双向对照、部分析因和 *n* 向结构。在本一章中，介绍了具有必要的变异源和自由度的模型和方差分析表。讨论提供了确定用于计算误差平方和的变异源的方法，以及用于计算结果自由度的算法。一般来说，误差平方和是通过对观测值或经过相同处理的观测值的线性组合 (observations that are treated alike) 的比较来获得的。其他平方和的计算将在后面的章节中讨论。本章的基本方法是通过示例来演示概念。裂区 (split-plot)、重复测量 (repeated measures)、裂条区 (strip-plot) 和交叉设计 (crossover designs ) 使用不同大小的实验单元的概念，并在第 \@ref(chap5) 章中进行了描述。涉及嵌套 (nesting) 的设计也在第 \@ref(chap5) 章中进行了讨论。
+经过适当设计和分析的实验提供了有关所使用资源的调查条件的最大信息量。本章介绍了实验者设计和分析实验时使用的概念和方法。本章讨论的基本概念是**处理结构** (treatment structure) 和**设计结构** (design structure)，以及**重复** (replication)、**区组** (block) 和**实验单元** (experimental unit) 的思想。给出了设计和处理结构相结合的实例，以说明完全区组设计和不完全区组设计的概念。这些设计涉及一种尺寸的实验单元。第五章描述了实验单元尺寸的概念，并给出了涉及多于一种实验单元尺寸的各种设计。本章提出的设计结构包括**完全随机化** (completely randomized, CRD)、**随机完全区组** (randomized complete block, RCBD)、**不完全区组** (incomplete block, IBD)和**拉丁方** (Latin square, LSD)。所考虑的处理结构包括单向、双向、双向对照、部分析因和 $n$ 向结构。在本一章中，介绍了具有必要的变异源和自由度的模型和方差分析表。讨论提供了确定用于计算误差平方和的变异源的方法，以及用于计算结果自由度的算法。一般来说，误差平方和是通过对观测值或经过相同处理的观测值的线性组合 (observations that are treated alike) 的比较来获得的。其他平方和的计算将在后面的章节中讨论。本章的基本方法是通过示例来演示概念。裂区 (split-plot)、重复测量 (repeated measures)、裂条区 (strip-plot) 和交叉设计 (crossover designs ) 使用不同大小的实验单元的概念，并在第 \@ref(chap5) 章中进行了描述。涉及嵌套 (nesting) 的设计也在第 \@ref(chap5) 章中进行了讨论。
 
 ## 介绍基本概念 {#sec4-1}
 
@@ -664,7 +664,7 @@ $$\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (A, 4), (B, 4
 \begin{align}
 y_{ijkm}&=\mu+\alpha_i+\beta_j+(\alpha\beta)_{ij}+r_k+c_m+(rc)_{km}+\varepsilon_{ijkm}\\
 i&=1,2,j=1,2,k=1,2,m=1,2,3
-(#eq:4-10)
+(#eq:4-15)
 \end{align}
 
 其中 $\mu + \alpha_i + \beta_j + (\alpha\beta)_{ij}$ 表示因子 $A$ 和 $B$ 的主效应和交互作用，$r_k$ 表示行区组效应，$c_m$ 表示列区组效应，$(rc)_{km}$ 表示行区组和列区组之间的交互作用，$\varepsilon_{ijkm}$ 表示实验单元误差。模型 \@ref(eq:4-15) 对应的方差分析表见表 \@ref(tab:table4-26). 分析可能只涉及六个区组，并且可以合并由于行区组、列区组及其交互作用而产生的平方和，从而为设计结构提供五个自由度。通过设计结构与处理结构的交互作用来获得误差平方和；即通过合并 $A$ × 行区组、$A$ × 列区组、$A$ × 行区组 × 列区组、$B$ × 行区组、$B$ × 列区组、$B$ × 行区组 × 列区组、$A$ × $B$ × 行区组、$A$ × $B$ × 列区组，以及 $A$ × $B$ × 行区组 × 列区组的平方和。
