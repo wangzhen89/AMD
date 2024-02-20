@@ -85,7 +85,7 @@ $$\begin{aligned}&\hat{\bar{\mu}}_{1\cdot}-\hat{\bar{\mu}}_{2\cdot}\thicksim N\b
 
 与本节讨论的两期/两处理交叉设计相对应的方差分析表的形式如表 \@ref(tab:table29-2) 所示。用于检验 $H_0: T_A = T_B$ 的 $F$ 统计量由 $F = TMS/WSEMS$ 给出，其中 $TMS$ 是表 \@ref(tab:table29-2) 中的处理均方 (treatment mean square)，$WSEMS$ 是个体内误差均方 (within subject error mea square). 若 $F>F_{\alpha,1,n_1+n_2-2}$ 则拒绝 $H_0$. $T_A-T_B$ 的 $(1-\alpha)100\%$ 置信区间由
 
-$$\frac{\hat{\mu}_{11}-\hat{\mu}_{12}-\hat{\mu}_{21}+\hat{\mu}_{22}}2\pm t_{\alpha,v}\sqrt{\frac{\hat{\sigma}_{\varepsilon}^2}2{\left(\frac1{n_1}+\frac1{n_2}\right)}}$$
+$$\frac{\hat{\mu}_{11}-\hat{\mu}_{12}-\hat{\mu}_{21}+\hat{\mu}_{22}}2\pm t_{\alpha,v}\sqrt{\frac{\hat\sigma_{\varepsilon}^2}2{\left(\frac1{n_1}+\frac1{n_2}\right)}}$$
 
 给出。其中 $v=n_1+n_2-n$ 且 $\hat\sigma_\varepsilon^2=WSEMS$. 作为一个例子，考虑 Grizzle (1965) 使用的数据。数据如表 \@ref(tab:table29-3) 所示。使用表 \@ref(tab:table29-4) 中所示的命令通过 SAS^®^-GLM 程序分析数据。
 
