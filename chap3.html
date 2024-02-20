@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
 
-<meta name="author" content="王震" />
+<meta name="author" content="Wang Zhen" />
 
 
 
@@ -249,7 +249,10 @@
 <li class="chapter" data-level="5" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>5</b> 交叉设计分析</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>5.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两周期/两处理交叉设计</a></li>
+<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="5.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>5.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="5.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>5.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="5.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>5.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -411,14 +414,14 @@ et al. (1999)
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.1.png">
 </td>
 </tr>
@@ -594,14 +597,14 @@ FWER，而实际仅进行了15次成对比较。用差异估计加减临界差�
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 PROC mixed DATA=EX1; CLASS TASK;<br />
 MODEL PULSE20=TASK/NOINT SOLUTION;<br />
 LSMEANS TASK/ DIFF CL;<br />
@@ -620,14 +623,14 @@ LSMEANS TASK/ DIFF ADJUST=SIMULATE (REPORT SEED=4938371) CL;
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.3.png">
 </td>
 </tr>
@@ -639,14 +642,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.4.png">
 </td>
 </tr>
@@ -658,14 +661,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.5.png">
 </td>
 </tr>
@@ -705,14 +708,14 @@ FWER。如果样本大小不等，模拟程序可以考虑样本大小结构，�
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 PROC mixed DATA=EX1; CLASS TASK;<br />
 MODEL PULSE20=TASK/NOINT;<br />
 LSMEANS TASK/ DIFF=CONTROL(‘2’) CL;<br />
@@ -731,14 +734,14 @@ LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL;
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.7.png">
 </td>
 </tr>
@@ -750,14 +753,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.8.png">
 </td>
 </tr>
@@ -769,14 +772,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.9.png">
 </td>
 </tr>
@@ -843,14 +846,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 PROC mixed DATA=EX1; CLASS TASK;<br />
 MODEL PULSE20=TASK/NOINT;<br />
 LSMEANS TASK/ DIFF=CONTROL(‘2’) CL;<br />
@@ -869,14 +872,14 @@ LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL;
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.11.png">
 </td>
 </tr>
@@ -977,14 +980,14 @@ FWER 不感兴趣时使用。</p>
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.12.png">
 </td>
 </tr>
@@ -996,14 +999,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.13.png">
 </td>
 </tr>
@@ -1224,14 +1227,14 @@ EERC，但如果某些均值相等，而某些均值不相等，则无法控制 
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 PROC GLM DATA=EX1; CLASS TASK;<br />
 MODEL PULSE20=TASK;<br />
 MEANS TASK/DUNCAN;<br />
@@ -1247,19 +1250,19 @@ MEANS TASK/WALLER;
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.15-1.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.15-2.png">
 </td>
 </tr>
@@ -1279,19 +1282,19 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.16-1.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.16-2.png">
 </td>
 </tr>
@@ -1310,19 +1313,19 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.17-1.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%203.17-2.png">
 </td>
 </tr>

@@ -131,12 +131,12 @@ t_c=\frac{\sum c_i\hat{{\mu}}_i-a}{\widehat{s.e.}\left(\sum c_i\hat{\mu}_i\right
 <caption>(\#tab:table1-1)六项任务的脉搏数据和摘要信息</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%201.1.png">
+   <td style="text-align:center;">  <img src="table/table%201.1.png">
 </td>
   </tr>
 </tbody>
@@ -396,12 +396,12 @@ $$SS_{H0{:}\,\mu_1=\mu_2=\cdots=\mu_t}=ESS_{R}-ESS_{F}=\sum_{i=1}^{t}n_{i}(\over
 <caption>(\#tab:table1-2)单向模型检验均值相等的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%201.2.png">
+   <td style="text-align:center;">  <img src="table/table%201.2.png">
 </td>
   </tr>
 </tbody>
@@ -425,12 +425,12 @@ $$\begin{array}{ll}y_{ij}=\mu_0+\varepsilon_{ij}&\mathrm{~for~}i=1,2,3\\y_{ij}=\
 <caption>(\#tab:table1-3)任务和脉搏率数据检验均值相等的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%201.3.png">
+   <td style="text-align:center;">  <img src="table/table%201.3.png">
 </td>
   </tr>
 </tbody>
@@ -442,12 +442,12 @@ $$\begin{array}{ll}y_{ij}=\mu_0+\varepsilon_{ij}&\mathrm{~for~}i=1,2,3\\y_{ij}=\
 <caption>(\#tab:table1-4)Proc GLM代码，用于拟合任务和脉搏率数据，并提供文本中描述的分析所需的 estimate 和 contrast 语句</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> PROC GLM DATA=EX1; CLASS TASK;\
+   <td style="text-align:center;"> PROC GLM DATA=EX1; CLASS TASK;\
 MODEL PULSE20=TASK/NOINT SOLUTION E;\
 ESTIMATE 'Ho: M4=M5’ TASK 0 0 0 1 -1 0;\
 ESTIMATE 'Ho: 3M1=M2+M3+M4' TASK 3 -1 -1 -1 0 0;\
@@ -467,12 +467,12 @@ CONTRAST 'EQUAL MEANS 1’ TASK 1 -1 0 0 0 0, TASK 1 0 -1 0 0 0, TASK 1 0 0 -1 0
 <caption>(\#tab:table1-5)Proc IML代码执行 1.6 节中任务和脉搏率数据的计算</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%201.5.png">
+   <td style="text-align:center;">  <img src="table/table%201.5.png">
 </td>
   </tr>
 </tbody>

@@ -45,6 +45,10 @@ pre code {
   margin-bottom: 0;
 }
 
+.book .book-body .page-wrapper .page-inner {
+  max-width: 75%;
+}
+
 div.rmdwarn::before, div.rmdnote::before, div.rmdtip::before {
   display: block;
   font-size: 1.1em;

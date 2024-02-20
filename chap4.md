@@ -157,12 +157,12 @@ y_{ij}=\mu_i+\varepsilon_{ij}\quad i=1,2,\ldots,t,j=1,2,\ldots,n_i
 <caption>(\#tab:table4-1)完全随机设计结构中单向处理结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.1.png">
+   <td style="text-align:center;">  <img src="table/table%204.1.png">
 </td>
   </tr>
 </tbody>
@@ -183,12 +183,12 @@ $$\begin{array}{ll}q_{1j}=y_{1j}-y_{2j}&j=1,2,3,4\\q_{2j}=y_{1j}+y_{2j}-2y_{3j}&
 <caption>(\#tab:table4-2)随机完全区组设计结构中单向处理结构的方差分析表，每个区组中每种处理有一次重复</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.2.png">
+   <td style="text-align:center;">  <img src="table/table%204.2.png">
 </td>
   </tr>
 </tbody>
@@ -209,12 +209,12 @@ y_{ijk}=\mu_{i}+b_{j}+\boldsymbol{\varepsilon}_{ijk}\quad i=1,2,3,4,5,j=1,2,k=1,
 <caption>(\#tab:table4-3)随机完全区组设计结构中单向处理结构的方差分析表，每个区组中每种处理有两次重复</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.3.png">
+   <td style="text-align:center;">  <img src="table/table%204.3.png">
 </td>
   </tr>
 </tbody>
@@ -231,7 +231,7 @@ y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,5,j=1,2,k=1,2
 
 $$\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij}$$
 
-[^overallmean]: 这里的 $\mu$ 还不足以称为“总体平均值”，严谨地说是“截距”，如果对模型其他参数施加约束才可称为“总体平均值”。更多的讨论详见 Stroup (2012)，例如前言的 xxi 页。
+[^overallmean]: 这里的 $\mu$ 还不足以称为“总体平均值”，严谨地说是“截距”，如果对模型其他参数施加约束才可称为“总体平均值”。更多的讨论详见 Stroup (2012)，例如前言的 xxi 页以及 P.54 的 Note.
 
 其中 $\mu$ 是总体平均值[^overallmean](overall mean)，$\tau_i$ 是第 $i$ 种饮食的效应，$\beta_j$ 是人的第 $j$ 种性别的效应，$\gamma_{ij}$ 是交互作用效应。表 \@ref(tab:table4-4) 给出了模型 \@ref(eq:4-6) 这两种 $\mu_{ij}$ 表达式的方差分析表。
 
@@ -239,12 +239,12 @@ $$\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij}$$
 <caption>(\#tab:table4-4)完全随机设计结构中双向处理结构方差分析表，包含均值模型和效应模型</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.4.png">
+   <td style="text-align:center;">  <img src="table/table%204.4.png">
 </td>
   </tr>
 </tbody>
@@ -263,12 +263,12 @@ y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=0,1,2,3,4,j=1,2,k=1,2
 <caption>(\#tab:table4-5)完全随机设计结构中三向析因安排与两个对照相结合的处理结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.5.png">
+   <td style="text-align:center;">  <img src="table/table%204.5.png">
 </td>
   </tr>
 </tbody>
@@ -288,12 +288,12 @@ y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=0,1,2,3,4,j=1,2,k=1,2
 <caption>(\#tab:table4-6)将一组处理从单向处理结构分配到拉丁方设计结构</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.6.png">
+   <td style="text-align:center;">  <img src="table/table%204.6.png">
 </td>
   </tr>
 </tbody>
@@ -312,12 +312,12 @@ y_{ijk}=\mu_i+h_j+d_k+\boldsymbol{\varepsilon}_{ijk}\quad i=1,2,3,4,j=1,2,3,4,k=
 <caption>(\#tab:table4-7)拉丁方处理结构中单向处理结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.7.png">
+   <td style="text-align:center;">  <img src="table/table%204.7.png">
 </td>
   </tr>
 </tbody>
@@ -329,12 +329,12 @@ y_{ijk}=\mu_i+h_j+d_k+\boldsymbol{\varepsilon}_{ijk}\quad i=1,2,3,4,j=1,2,3,4,k=
 <caption>(\#tab:table4-8)房屋油漆的双向处理结构示例</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.8.png">
+   <td style="text-align:center;">  <img src="table/table%204.8.png">
 </td>
   </tr>
 </tbody>
@@ -363,12 +363,12 @@ i&=1,2,\,j=1,2,\,k=1,2,\,m=1,2,3,4,\,n=1,2,3,4
 <caption>(\#tab:table4-9)拉丁方处理结构中双向处理结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.9.png">
+   <td style="text-align:center;">  <img src="table/table%204.9.png">
 </td>
   </tr>
 </tbody>
@@ -378,12 +378,12 @@ i&=1,2,\,j=1,2,\,k=1,2,\,m=1,2,3,4,\,n=1,2,3,4
 <caption>(\#tab:table4-10)在重复拉丁方设计结构中显示单向处理结构的安排</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.10.png">
+   <td style="text-align:center;">  <img src="table/table%204.10.png">
 </td>
   </tr>
 </tbody>
@@ -395,12 +395,12 @@ i&=1,2,\,j=1,2,\,k=1,2,\,m=1,2,3,4,\,n=1,2,3,4
 <caption>(\#tab:table4-11)重复拉丁方设计结构中双向处理结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.11.png">
+   <td style="text-align:center;">  <img src="table/table%204.11.png">
 </td>
   </tr>
 </tbody>
@@ -423,12 +423,12 @@ y_{ijk}&=\mu+\mathrm{AI}_i+\mathrm{AII}_j+T_k+\varepsilon_{ijk},\quad(i,j,k)\in\
 <caption>(\#tab:table4-12)拉丁方安排处理结构，其中 $T_i$ 表示温度第 $i$ 个水平</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.12.png">
+   <td style="text-align:center;">  <img src="table/table%204.12.png">
 </td>
   </tr>
 </tbody>
@@ -440,12 +440,12 @@ y_{ijk}&=\mu+\mathrm{AI}_i+\mathrm{AII}_j+T_k+\varepsilon_{ijk},\quad(i,j,k)\in\
 <caption>(\#tab:table4-13)拉丁方安排中添加剂 I 水平和添加剂 II 水平的双向处理结构，忽略了温度水平</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.13.png">
+   <td style="text-align:center;">  <img src="table/table%204.13.png">
 </td>
   </tr>
 </tbody>
@@ -455,12 +455,12 @@ y_{ijk}&=\mu+\mathrm{AI}_i+\mathrm{AII}_j+T_k+\varepsilon_{ijk},\quad(i,j,k)\in\
 <caption>(\#tab:table4-14)拉丁方安排双向处理结构部分的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.14.png">
+   <td style="text-align:center;">  <img src="table/table%204.14.png">
 </td>
   </tr>
 </tbody>
@@ -470,12 +470,12 @@ y_{ijk}&=\mu+\mathrm{AI}_i+\mathrm{AII}_j+T_k+\varepsilon_{ijk},\quad(i,j,k)\in\
 <caption>(\#tab:table4-15)拉丁方安排双向处理结构部分的方差分析表，从两种添加剂的交互作用中划分出温度的变异</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.15.png">
+   <td style="text-align:center;">  <img src="table/table%204.15.png">
 </td>
   </tr>
 </tbody>
@@ -485,12 +485,12 @@ y_{ijk}&=\mu+\mathrm{AI}_i+\mathrm{AII}_j+T_k+\varepsilon_{ijk},\quad(i,j,k)\in\
 <caption>(\#tab:table4-16)拉丁方安排处理结构方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.16.png">
+   <td style="text-align:center;">  <img src="table/table%204.16.png">
 </td>
   </tr>
 </tbody>
@@ -518,12 +518,12 @@ Y= \mathrm{treatment structure} + \mathrm{design structure} + \mathrm{error stru
 <caption>(\#tab:table4-17)一般模型的方差表分析</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.17.png">
+   <td style="text-align:center;">  <img src="table/table%204.17.png">
 </td>
   </tr>
 </tbody>
@@ -533,12 +533,12 @@ Y= \mathrm{treatment structure} + \mathrm{design structure} + \mathrm{error stru
 <caption>(\#tab:table4-18)随机完全区组设计结构中双向处理结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.18.png">
+   <td style="text-align:center;">  <img src="table/table%204.18.png">
 </td>
   </tr>
 </tbody>
@@ -561,12 +561,12 @@ y_{ij}=\mu_i+b_j+\boldsymbol{\varepsilon}_{ij},\quad\mathrm{for~}(i,j)\in\mathrm
 <caption>(\#tab:table4-19)将四种处理分配到两个实验单元的六个区组的第一种分配：提供均衡不完全区组设计结构</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.19.png">
+   <td style="text-align:center;">  <img src="table/table%204.19.png">
 </td>
   </tr>
 </tbody>
@@ -576,12 +576,12 @@ y_{ij}=\mu_i+b_j+\boldsymbol{\varepsilon}_{ij},\quad\mathrm{for~}(i,j)\in\mathrm
 <caption>(\#tab:table4-20)表 \@ref(tab:table4-19) 中的均衡不完全区组设计结构的方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.20.png">
+   <td style="text-align:center;">  <img src="table/table%204.20.png">
 </td>
   </tr>
 </tbody>
@@ -591,12 +591,12 @@ y_{ij}=\mu_i+b_j+\boldsymbol{\varepsilon}_{ij},\quad\mathrm{for~}(i,j)\in\mathrm
 <caption>(\#tab:table4-21)区组与处理的双向结构，其中 $X$ 表示观测到的组合，被填充和空缺的各有 $12$ 个单元格</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.21.png">
+   <td style="text-align:center;">  <img src="table/table%204.21.png">
 </td>
   </tr>
 </tbody>
@@ -610,12 +610,12 @@ $$\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (A, 4), (B, 4
 <caption>(\#tab:table4-22)将四种处理分配给两个实验单元的六个区组，第二种分配：提供不均衡不完全区组设计结构</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.22.png">
+   <td style="text-align:center;">  <img src="table/table%204.22.png">
 </td>
   </tr>
 </tbody>
@@ -629,12 +629,12 @@ $$\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (A, 4), (B, 4
 <caption>(\#tab:table4-23)将四种处理分配给两个实验单元的六个区组的第三种分配：提供不相连不完全区组设计结构</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.23.png">
+   <td style="text-align:center;">  <img src="table/table%204.23.png">
 </td>
   </tr>
 </tbody>
@@ -644,12 +644,12 @@ $$\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (A, 4), (B, 4
 <caption>(\#tab:table4-24)表 \@ref(tab:table4-23) 中的不完全区组设计方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.24.png">
+   <td style="text-align:center;">  <img src="table/table%204.24.png">
 </td>
   </tr>
 </tbody>
@@ -673,12 +673,12 @@ i&=1,2,j=1,2,k=1,2,m=1,2,3
 <caption>(\#tab:table4-25)在设计结构中使用行区组和列区组，在处理结构中使用双向安排的设计（非随机形式）</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.25.png">
+   <td style="text-align:center;">  <img src="table/table%204.25.png">
 </td>
   </tr>
 </tbody>
@@ -688,12 +688,12 @@ i&=1,2,j=1,2,k=1,2,m=1,2,3
 <caption>(\#tab:table4-26)双向处理结构的行-列设计结构方差分析表</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%204.26.png">
+   <td style="text-align:center;">  <img src="table/table%204.26.png">
 </td>
   </tr>
 </tbody>

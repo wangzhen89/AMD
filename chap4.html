@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
 
-<meta name="author" content="王震" />
+<meta name="author" content="Wang Zhen" />
 
 
 
@@ -249,7 +249,10 @@
 <li class="chapter" data-level="5" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>5</b> 交叉设计分析</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>5.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两周期/两处理交叉设计</a></li>
+<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="5.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>5.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="5.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>5.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="5.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>5.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -408,14 +411,14 @@ y_{ij}=\mu_i+\varepsilon_{ij}\quad i=1,2,\ldots,t,j=1,2,\ldots,n_i
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.1.png">
 </td>
 </tr>
@@ -434,14 +437,14 @@ y_{ij}=\mu_i+b_j+\varepsilon_{ij}\quad i=1,2,3,4,5,j=1,2,3,4
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.2.png">
 </td>
 </tr>
@@ -460,14 +463,14 @@ y_{ijk}=\mu_{i}+b_{j}+\boldsymbol{\varepsilon}_{ijk}\quad i=1,2,3,4,5,j=1,2,k=1,
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.3.png">
 </td>
 </tr>
@@ -487,14 +490,14 @@ y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,5,j=1,2,k=1,2
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.4.png">
 </td>
 </tr>
@@ -512,14 +515,14 @@ y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=0,1,2,3,4,j=1,2,k=1,2
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.5.png">
 </td>
 </tr>
@@ -541,14 +544,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.6.png">
 </td>
 </tr>
@@ -566,14 +569,14 @@ y_{ijk}=\mu_i+h_j+d_k+\boldsymbol{\varepsilon}_{ijk}\quad i=1,2,3,4,j=1,2,3,4,k=
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.7.png">
 </td>
 </tr>
@@ -586,14 +589,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.8.png">
 </td>
 </tr>
@@ -618,14 +621,14 @@ i&amp;=1,2,\,j=1,2,\,k=1,2,\,m=1,2,3,4,\,n=1,2,3,4
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.9.png">
 </td>
 </tr>
@@ -637,14 +640,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.10.png">
 </td>
 </tr>
@@ -663,14 +666,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.11.png">
 </td>
 </tr>
@@ -698,14 +701,14 @@ y_{ijk}&amp;=\mu+\mathrm{AI}_i+\mathrm{AII}_j+T_k+\varepsilon_{ijk},\quad(i,j,k)
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.12.png">
 </td>
 </tr>
@@ -718,14 +721,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.13.png">
 </td>
 </tr>
@@ -737,14 +740,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.14.png">
 </td>
 </tr>
@@ -756,14 +759,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.15.png">
 </td>
 </tr>
@@ -775,14 +778,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.16.png">
 </td>
 </tr>
@@ -808,14 +811,14 @@ Y= \mathrm{treatment structure} + \mathrm{design structure} + \mathrm{error stru
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.17.png">
 </td>
 </tr>
@@ -827,14 +830,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.18.png">
 </td>
 </tr>
@@ -856,14 +859,14 @@ y_{ij}=\mu_i+b_j+\boldsymbol{\varepsilon}_{ij},\quad\mathrm{for~}(i,j)\in\mathrm
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.19.png">
 </td>
 </tr>
@@ -875,14 +878,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.20.png">
 </td>
 </tr>
@@ -894,14 +897,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.21.png">
 </td>
 </tr>
@@ -915,14 +918,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.22.png">
 </td>
 </tr>
@@ -936,14 +939,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.23.png">
 </td>
 </tr>
@@ -955,14 +958,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.24.png">
 </td>
 </tr>
@@ -985,14 +988,14 @@ i&amp;=1,2,j=1,2,k=1,2,m=1,2,3
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.25.png">
 </td>
 </tr>
@@ -1004,14 +1007,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%204.26.png">
 </td>
 </tr>
@@ -1054,7 +1057,7 @@ x
 <hr />
 <ol start="15">
 <li id="fn15"><p>也可译作 “排”，即图 <a href="chap4.html#fig:figure4-1">4.1</a> 中的竖线。<a href="chap4.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>这里的 <span class="math inline">\(\mu\)</span> 还不足以称为“总体平均值”，严谨地说是“截距”，如果对模型其他参数施加约束才可称为“总体平均值”。更多的讨论详见 Stroup (2012)，例如前言的 xxi 页。<a href="chap4.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>这里的 <span class="math inline">\(\mu\)</span> 还不足以称为“总体平均值”，严谨地说是“截距”，如果对模型其他参数施加约束才可称为“总体平均值”。更多的讨论详见 Stroup (2012)，例如前言的 xxi 页以及 P.54 的 Note.<a href="chap4.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

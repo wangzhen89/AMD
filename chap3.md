@@ -162,12 +162,12 @@ et al. (1999)
 <caption>(\#tab:table3-1)LSD Procedure 的模拟错误率</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.1.png">
+   <td style="text-align:center;">  <img src="table/table%203.1.png">
 </td>
   </tr>
 </tbody>
@@ -379,12 +379,12 @@ $0.840 \pm 6.526$. 表 \@ref(tab:table3-5) 包含每种方法的调整的 $p$
 <caption>(\#tab:table3-2)使用 Proc Mixed 计算多个多重比较程序的所有成对比较</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> PROC mixed DATA=EX1; CLASS TASK;\
+   <td style="text-align:center;"> PROC mixed DATA=EX1; CLASS TASK;\
 MODEL PULSE20=TASK/NOINT SOLUTION;\
 LSMEANS TASK/ DIFF CL;\
 LSMEANS TASK/ DIFF ADJUST=TUKEY CL;\
@@ -400,12 +400,12 @@ LSMEANS TASK/ DIFF ADJUST=SIMULATE (REPORT SEED=4938371) CL; </td>
 <caption>(\#tab:table3-3)用于六个任务均值的所有成对比较的分位数</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.3.png">
+   <td style="text-align:center;">  <img src="table/table%203.3.png">
 </td>
   </tr>
 </tbody>
@@ -415,12 +415,12 @@ LSMEANS TASK/ DIFF ADJUST=SIMULATE (REPORT SEED=4938371) CL; </td>
 <caption>(\#tab:table3-4)用于比较未调整的 $t$ 检验和几种多重比较程序的均值对之间差异的临界差异</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.4.png">
+   <td style="text-align:center;">  <img src="table/table%203.4.png">
 </td>
   </tr>
 </tbody>
@@ -430,12 +430,12 @@ LSMEANS TASK/ DIFF ADJUST=SIMULATE (REPORT SEED=4938371) CL; </td>
 <caption>(\#tab:table3-5)调整显著性水平以检验从六个程序中获得的 TASK 减去 _TASK 的所有成对比较的相等性，其中 $t$ 对应未调整的 $t$</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.5.png">
+   <td style="text-align:center;">  <img src="table/table%203.5.png">
 </td>
   </tr>
 </tbody>
@@ -475,12 +475,12 @@ $t$），模拟方法与之非常接近。目前正在进行五次比较，这�
 <caption>(\#tab:table3-6)使用 Proc Mixed 计算多个多重比较程序的所有成对比较</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> PROC mixed DATA=EX1; CLASS TASK;\
+   <td style="text-align:center;"> PROC mixed DATA=EX1; CLASS TASK;\
 MODEL PULSE20=TASK/NOINT;\
 LSMEANS TASK/ DIFF=CONTROL(‘2’) CL;\
 LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=BON CL;\
@@ -496,12 +496,12 @@ LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL; </td>
 <caption>(\#tab:table3-7)用于比较每个任务均值与任务2（对照）均值的分位数</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.7.png">
+   <td style="text-align:center;">  <img src="table/table%203.7.png">
 </td>
   </tr>
 </tbody>
@@ -511,12 +511,12 @@ LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL; </td>
 <caption>(\#tab:table3-8)未调整的 $t$ 检验和五个多重比较程序中各处理组与对照组比较的临界差异</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.8.png">
+   <td style="text-align:center;">  <img src="table/table%203.8.png">
 </td>
   </tr>
 </tbody>
@@ -526,12 +526,12 @@ LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL; </td>
 <caption>(\#tab:table3-9)调整显著性水平以检验 $H_0:\,\mu_i = \mu_2$，从六个程序中获得，其中任务2为对照，$t$ 对应于未调整的 $t$ </caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.9.png">
+   <td style="text-align:center;">  <img src="table/table%203.9.png">
 </td>
   </tr>
 </tbody>
@@ -604,12 +604,12 @@ $$\begin{aligned}
 <caption>(\#tab:table3-10)使用 Proc Mixed 计算多个多重比较程序的所有成对比较</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> PROC mixed DATA=EX1; CLASS TASK;\
+   <td style="text-align:center;"> PROC mixed DATA=EX1; CLASS TASK;\
 MODEL PULSE20=TASK/NOINT;\
 LSMEANS TASK/ DIFF=CONTROL(‘2’) CL;\
 LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=BON CL;\
@@ -625,12 +625,12 @@ LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL; </td>
 <caption>(\#tab:table3-11)未调整的 $t$ 和三种调整方法的置信区间宽度</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.11.png">
+   <td style="text-align:center;">  <img src="table/table%203.11.png">
 </td>
   </tr>
 </tbody>
@@ -739,12 +739,12 @@ FWER 不感兴趣时使用。
 <caption>(\#tab:table3-12)用 Proc MULTTEST 代码同时获得八个对比的检验信息</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.12.png">
+   <td style="text-align:center;">  <img src="table/table%203.12.png">
 </td>
   </tr>
 </tbody>
@@ -754,12 +754,12 @@ FWER 不感兴趣时使用。
 <caption>(\#tab:table3-13)八个对比的原始和调整的 $p$ 值</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.13.png">
+   <td style="text-align:center;">  <img src="table/table%203.13.png">
 </td>
   </tr>
 </tbody>
@@ -954,12 +954,12 @@ Duncan、Student–Newman–Keul 和 Waller–Duncan 方法可以使用 SAS-GLM 
 <caption>(\#tab:table3-14)生成 Ducan、Student–Newman–Kuels 和 Waller–Duncan 多重比较程序的程序的 GLM 代码</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> PROC GLM DATA=EX1; CLASS TASK;\
+   <td style="text-align:center;"> PROC GLM DATA=EX1; CLASS TASK;\
 MODEL PULSE20=TASK;\
 MEANS TASK/DUNCAN;\
 MEANS TASK/SNK;\
@@ -972,16 +972,16 @@ MEANS TASK/WALLER; </td>
 <caption>(\#tab:table3-15)使用 Duncan's 多重比较程序的结果</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.15-1.png">
+   <td style="text-align:center;">  <img src="table/table%203.15-1.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.15-2.png">
+   <td style="text-align:center;">  <img src="table/table%203.15-2.png">
 </td>
   </tr>
 </tbody>
@@ -995,16 +995,16 @@ MEANS TASK/WALLER; </td>
 <caption>(\#tab:table3-16)SNK 多重比较程序的结果</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.16-1.png">
+   <td style="text-align:center;">  <img src="table/table%203.16-1.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.16-2.png">
+   <td style="text-align:center;">  <img src="table/table%203.16-2.png">
 </td>
   </tr>
 </tbody>
@@ -1016,16 +1016,16 @@ MEANS TASK/WALLER; </td>
 <caption>(\#tab:table3-17)Waller-Duncan 多重比较程序的结果</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.17-1.png">
+   <td style="text-align:center;">  <img src="table/table%203.17-1.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%203.17-2.png">
+   <td style="text-align:center;">  <img src="table/table%203.17-2.png">
 </td>
   </tr>
 </tbody>

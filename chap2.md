@@ -132,12 +132,12 @@ Levene's 和 O'Brien's tests 可以很容易地进行定制，用于涉及多个
 <caption>(\#tab:table2-1)配对联想学习任务实验数据</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.1.png">
+   <td style="text-align:center;">  <img src="table/table%202.1.png">
 </td>
   </tr>
 </tbody>
@@ -170,12 +170,12 @@ Levene's test 的计算从残差或观测值与处理均值的偏差的计算开
 <caption>(\#tab:table2-2)计算 Levene's test 的 $z_{ij} = |y_{ij}-y_{i\cdot}|$ 值，其中 $y_{ij}$ 来自表 \@ref(tab:table2-1)</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.2.png">
+   <td style="text-align:center;">  <img src="table/table%202.2.png">
 </td>
   </tr>
 </tbody>
@@ -187,12 +187,12 @@ Brown–Forsyth's test 统计量是通过计算观察值与处理中位数偏差
 <caption>(\#tab:table2-3)观测结果相对于处理中位数偏差的绝对值</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.3.png">
+   <td style="text-align:center;">  <img src="table/table%202.3.png">
 </td>
   </tr>
 </tbody>
@@ -205,12 +205,12 @@ Brown–Forsyth's test 统计量是通过计算观察值与处理中位数偏差
 <caption>(\#tab:table2-4)使用 $w=0.5$ 进行 O'Brien's Test 的得分</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.4.png">
+   <td style="text-align:center;">  <img src="table/table%202.4.png">
 </td>
   </tr>
 </tbody>
@@ -222,12 +222,12 @@ Brown–Forsyth's test 统计量是通过计算观察值与处理中位数偏差
 <caption>(\#tab:table2-5)残差绝对值均值</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.5.png">
+   <td style="text-align:center;">  <img src="table/table%202.5.png">
 </td>
   </tr>
 </tbody>
@@ -237,12 +237,12 @@ Brown–Forsyth's test 统计量是通过计算观察值与处理中位数偏差
 <caption>(\#tab:table2-6)残差绝对值组均值的成对比较</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.6.png">
+   <td style="text-align:center;">  <img src="table/table%202.6.png">
 </td>
   </tr>
 </tbody>
@@ -424,12 +424,12 @@ F_c=\frac{\sum_{i=1}^tW_i\frac{(\bar{y}_i.-\bar{y}^*)}{(t-1)}}{1+2(t-1)\Lambda/(
 <caption>(\#tab:table2-7)计算 Welch's test 的量</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.7.png">
+   <td style="text-align:center;">  <img src="table/table%202.7.png">
 </td>
   </tr>
 </tbody>
@@ -452,20 +452,20 @@ $$F_c=\frac{41.7114/3}{1+2\times2\times0.376/15}=\frac{13.9038}{1.1003}=12.6355$
 <caption>(\#tab:table2-8) SAS-GLM 代码提供 Brown-Forsythe 方差齐性检验和 Welch 方差齐性检验</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.8-1.png">
+   <td style="text-align:center;">  <img src="table/table%202.8-1.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.8-2.png">
+   <td style="text-align:center;">  <img src="table/table%202.8-2.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.8-3.png">
+   <td style="text-align:center;">  <img src="table/table%202.8-3.png">
 </td>
   </tr>
 </tbody>
@@ -492,12 +492,12 @@ SAS-Mixed 程序实现了一种对分母自由度的近似，该分母自由度�
 <caption>(\#tab:table2-9)将不等方差模型拟合到表 \@ref(tab:table2-1) 中的数据的 SAS-Mixed 代码</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;"> proc mixed cl covtest data=task;\
+   <td style="text-align:center;"> proc mixed cl covtest data=task;\
 class group;\
 model errors=group/ddfm=kr;\
 repeated/group=group;\
@@ -515,24 +515,24 @@ Mixed 程序的结果见表 \@ref(tab:table2-10)，其中协方差参数估计�
 <caption>(\#tab:table2-10)将不等方差模型拟合到表 \@ref(tab:table2-1) 中的数据的结果</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.10-1.png">
+   <td style="text-align:center;">  <img src="table/table%202.10-1.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.10-2.png">
+   <td style="text-align:center;">  <img src="table/table%202.10-2.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.10-3.png">
+   <td style="text-align:center;">  <img src="table/table%202.10-3.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.10-4.png">
+   <td style="text-align:center;">  <img src="table/table%202.10-4.png">
 </td>
   </tr>
 </tbody>
@@ -542,16 +542,16 @@ Mixed 程序的结果见表 \@ref(tab:table2-10)，其中协方差参数估计�
 <caption>(\#tab:table2-11)利用不等方差模型估计药物组均值和配对比较</caption>
  <thead>
   <tr>
-   <th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
   </tr>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.11-1.png">
+   <td style="text-align:center;">  <img src="table/table%202.11-1.png">
 </td>
   </tr>
   <tr>
-   <td style="text-align:left;">  <img src="table/table%202.11-2.png">
+   <td style="text-align:center;">  <img src="table/table%202.11-2.png">
 </td>
   </tr>
 </tbody>

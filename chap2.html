@@ -20,7 +20,7 @@
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
 
-<meta name="author" content="王震" />
+<meta name="author" content="Wang Zhen" />
 
 
 
@@ -249,7 +249,10 @@
 <li class="chapter" data-level="5" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>5</b> 交叉设计分析</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>5.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两周期/两处理交叉设计</a></li>
+<li class="chapter" data-level="5.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>5.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="5.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>5.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="5.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>5.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="5.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>5.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -371,14 +374,14 @@ r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat{\sigma}_i^2(n_i-1)]/[
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.1.png">
 </td>
 </tr>
@@ -404,14 +407,14 @@ U&amp; =\frac1C{\left(v\log_e\hat{\sigma}^2-\sum_{i=1}^4v_i\log_e\hat{\sigma}_i^
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.2.png">
 </td>
 </tr>
@@ -424,14 +427,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.3.png">
 </td>
 </tr>
@@ -445,14 +448,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.4.png">
 </td>
 </tr>
@@ -465,14 +468,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.5.png">
 </td>
 </tr>
@@ -484,14 +487,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.6.png">
 </td>
 </tr>
@@ -607,14 +610,14 @@ F_c=\frac{\sum_{i=1}^tW_i\frac{(\bar{y}_i.-\bar{y}^*)}{(t-1)}}{1+2(t-1)\Lambda/(
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.7.png">
 </td>
 </tr>
@@ -632,24 +635,24 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.8-1.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.8-2.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.8-3.png">
 </td>
 </tr>
@@ -670,14 +673,14 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 proc mixed cl covtest data=task;<br />
 class group;<br />
 model errors=group/ddfm=kr;<br />
@@ -697,29 +700,29 @@ lsmeans group/diff cl;
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.10-1.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.10-2.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.10-3.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.10-4.png">
 </td>
 </tr>
@@ -731,19 +734,19 @@ x
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;color: white !important;background-color: white !important;font-size: 0px;">
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
 x
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.11-1.png">
 </td>
 </tr>
 <tr>
-<td style="text-align:left;">
+<td style="text-align:center;">
 <img src="table/table%202.11-2.png">
 </td>
 </tr>
