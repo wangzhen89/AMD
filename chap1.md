@@ -265,7 +265,7 @@ $$F_c=\frac{SS_{H0}/k}{\hat{\sigma}^2}$$
 
 若 $F_c>F_{\alpha,k,N-t}$，其中 $F_{\alpha,k,N-t}$ 是分子分母自由度分别为 $k$ 和 $N-t$ 的 $F$ 分布的上 $\alpha$ 分位数，假设 $H_0{:}\,\boldsymbol C\boldsymbol \mu=\boldsymbol \alpha$. 这里给出的结果是 Graybill (1976) 中定理 6.3.1 的特殊情况。
 
-当 $H_0$ 为真，$\frac{SS_{H0}/k}{\hat{\sigma}^2}$ 为 $\sigma^2$ 的无偏估计，然后将其与 ${\hat\sigma}^2$ 进行比较，而无论 $H_0$ 是否为真，${\hat\sigma}^2$ 又是 $\sigma^2$ 的无偏估计。因此若 $H_0$ 为真，上面给出的 $F$ 统计量应该接近 $1$。若 $H_0$ 为假， $SS_{H0}/k$ 是下式的无偏估计
+当 $H_0$ 为真，$\frac{SS_{H0}/k}{\hat{\sigma}^2}$ 为 $\sigma^2$ 的无偏估计，然后将其与 $\hat\sigma^2$ 进行比较，而无论 $H_0$ 是否为真，$\hat\sigma^2$ 又是 $\sigma^2$ 的无偏估计。因此若 $H_0$ 为真，上面给出的 $F$ 统计量应该接近 $1$。若 $H_0$ 为假， $SS_{H0}/k$ 是下式的无偏估计
 
 $$\sigma^2+\frac1k(\boldsymbol C\boldsymbol\mu-\boldsymbol a)^{\prime}(\boldsymbol C\boldsymbol D\boldsymbol C^{\prime})^{-1}(\boldsymbol C\boldsymbol\mu-\boldsymbol a)$$
 
