@@ -124,7 +124,7 @@ $\mu_i$ 和 $\mu_j$ 的 $\alpha100\%$[^chap3-1]显著性水平的 LSD 为
 
 ```{=tex}
 \begin{equation}
-\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat{{\sigma}}\sqrt{\frac1{n_i}+\frac1{n_j}}
+\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac1{n_i}+\frac1{n_j}}
 (#eq:3-1)
 \end{equation}
 ```
@@ -134,7 +134,7 @@ $100(1-\alpha)\%$ 置信区间为
 
 ```{=tex}
 \begin{equation}
-\hat{\mu}_i-\hat{\mu}_j\pm t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac1{n_i}+\frac1{n_j}}
+\hat{\mu}_i-\hat{\mu}_j\pm t_{\alpha/2,v}\hat\sigma\sqrt{\frac1{n_i}+\frac1{n_j}}
 (#eq:3-2)
 \end{equation}
 ```
@@ -143,7 +143,7 @@ $100(1-\alpha)\%$ 置信区间为
 
 ```{=tex}
 \begin{equation}
-\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac2n}
+\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat\sigma\sqrt{\frac2n}
 (#eq:3-3)
 \end{equation}
 ```
@@ -198,7 +198,7 @@ $\sum_{i=1}^{t}c_{i}\mu_{i}\neq0$ 如果
 
 ```{=tex}
 \begin{equation}
-\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|>t_{\alpha/2,v}\hat{\sigma}\sqrt{\sum_{i=1}^tc_i^2/n_i}
+\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|>t_{\alpha/2,v}\hat\sigma\sqrt{\sum_{i=1}^tc_i^2/n_i}
 (#eq:3-4)
 \end{equation}
 ```
@@ -213,7 +213,7 @@ $\sum_{i=1}^tc_{iq}\mu_i\neq0,q=1,2,\ldots,p$，如果
 
 ```{=tex}
 \begin{equation}
-\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|>t_{\alpha/2p,v}\hat{\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
+\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|>t_{\alpha/2p,v}\hat\sigma\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
 (#eq:3-5)
 \end{equation}
 ```
@@ -229,7 +229,7 @@ $t_{\alpha/2p,v}=2.80$. \@ref(sec3-10), \@ref(sec3-12), \@ref(sec3-14) 和
 
 ```{=tex}
 \begin{equation}
-\sum_{i=1}^tc_{iq}\hat{\boldsymbol{\mu}}_i\pm t_{\alpha/2p,v}\hat{\boldsymbol{\sigma}}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}},\quad q=1,2,\ldots,p
+\sum_{i=1}^tc_{iq}\hat{\boldsymbol{\mu}}_i\pm t_{\alpha/2p,v}\hat{\boldsymbol\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}},\quad q=1,2,\ldots,p
 (#eq:3-6)
 \end{equation}
 ```
@@ -240,14 +240,14 @@ Bonferroni's method 可应用于模型参数的任何函数集，包括方差和
 当实验者想要进行大量"计划外"比较时，建议使用此程序。计划外比较是实验者在计划实验时没有想到进行的比较。这些问题经常出现，因为实验结果经常建议实验者进行某些比较。当有大量计划的比较时，也可以使用该程序，但置信区间的宽度通常比其他程序宽，尽管并不总是如此。给定常数向量
 $\boldsymbol c$，考虑检验 $H_0{:}\,\sum_{i=1}^tc_i\mu_i=0$。我们有
 
-$$\Pr\left\{\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i{\mu}_i\right)^2}{\sum_{i=1}^tc_i^2/n_i}\leq(t-1)F_{\Tiny{\alpha,t-1,v}}\hat{{\sigma}}^2\quad\text{ for all contrast vectors }c\right\}=1-\alpha $$
+$$\Pr\left\{\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i{\mu}_i\right)^2}{\sum_{i=1}^tc_i^2/n_i}\leq(t-1)F_{\Tiny{\alpha,t-1,v}}\hat{\sigma}^2\quad\text{ for all contrast vectors }c\right\}=1-\alpha $$
 
 因此对于所有可能的 $\mu_i$ 与 $0$ 的对比，一个 FWER $=\alpha$
 的程序如下：拒绝 $H_0{:}\,\sum_{i=1}^tc_i\mu_i=0$ 如果
 
 ```{=tex}
 \begin{equation}
-\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|>\sqrt{(t-1)F_{\alpha,t-1,v}}\hat{\sigma}\sqrt{\sum_{i=1}^tc_i^2/n_i}
+\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|>\sqrt{(t-1)F_{\alpha,t-1,v}}\hat\sigma\sqrt{\sum_{i=1}^tc_i^2/n_i}
 (#eq:3-7)
 \end{equation}
 ```
@@ -276,7 +276,7 @@ $\sum_{i=1}^tc_{iq}\mu_i$ 包含在下式给出的区间内
 
 ```{=tex}
 \begin{equation}
-\sum_{i=1}^tc_{iq}\hat{\mu}_i\pm\sqrt{(t-1)F_{\alpha,t-1,v}}\hat{\sigma}\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\quad\text{ for all }q=1,2,\ldots
+\sum_{i=1}^tc_{iq}\hat{\mu}_i\pm\sqrt{(t-1)F_{\alpha,t-1,v}}\hat\sigma\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\quad\text{ for all }q=1,2,\ldots
 (#eq:3-8)
 \end{equation}
 ```
@@ -299,7 +299,7 @@ $i\ne i'$，Tukey--Kramer method 将拒绝 $H_0{:\mu_i}=\mu_{i'}$，如果
 
 ```{=tex}
 \begin{equation}
-\left|\hat{\mu}_i-\hat{\mu}_{i^{\prime}}\right|>q_{\alpha,t,v}\sqrt{\frac{\hat{\sigma}^2}2{\left(\frac1{n_i}+\frac1{n_{i^{\prime}}}\right)}}
+\left|\hat{\mu}_i-\hat{\mu}_{i^{\prime}}\right|>q_{\alpha,t,v}\sqrt{\frac{\hat\sigma^2}2{\left(\frac1{n_i}+\frac1{n_{i^{\prime}}}\right)}}
 (#eq:3-9)
 \end{equation}
 ```
@@ -309,7 +309,7 @@ $\alpha,t,v$ 的 $q_{\alpha,t,v}$ 值在附表 A.4 中。
 如果样本量都等于 $n$，对于一个对比，拒绝
 $H_0\colon\sum_{i=1}^tc_i\mu_i=0$，如果
 
-$$\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|>q_{\alpha,t,v}\frac{\hat{\sigma}}{\sqrt{n}}{\left(\frac12\sum_{i=1}^t|c_i|\right)}$$
+$$\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|>q_{\alpha,t,v}\frac{\hat\sigma}{\sqrt{n}}{\left(\frac12\sum_{i=1}^t|c_i|\right)}$$
 
 ## 模拟方法 {#sec3-8}
 
@@ -326,7 +326,7 @@ FWER，要么控制联合置信区间的 $\sum_{i=1}^tc_{iq}\mu_i$ FWER.
 1)  以与手头数据集相同的结构生成一个数据样本。如果有五个样本量为5、9、3、6和7的处理，则使用这些样本量生成数据
 2)  对生成的数据集进行分析，如同对实际数据集所做的那样，并计算 $p$ 个
     $t$ 统计量
-    $$t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i}}\quad q=1,2,\ldots,p$$
+    $$t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i}}\quad q=1,2,\ldots,p$$
 3)  计算 $t_q$ 绝对值的最大值
     $T_{s}=\max(|t_{1}|,|t_{2}|,\ldots,|t_{p}|)$.
 4)  大量重复步骤 1, 2 和 3，跟踪 $T_s$ 的计算值。确定 $T_s$ 分布的上
@@ -334,7 +334,7 @@ FWER，要么控制联合置信区间的 $\sum_{i=1}^tc_{iq}\mu_i$ FWER.
 5)  对于实际数据集，计算
     $t_q,q=1,2,\dots,p$，如果$|tq| >T,q=1,2,\dots,p$\$则拒绝第 $q$
     个假设，或者构建联合置信区间为
-    $$\sum_{i=1}^tc_{iq}\hat{{\mu}}_i\pm T_\alpha\sqrt{{\hat{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i},\quad q=1,2,\ldots,p$$
+    $$\sum_{i=1}^tc_{iq}\hat{{\mu}}_i\pm T_\alpha\sqrt{{\hat\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i},\quad q=1,2,\ldots,p$$
 
 可以使用 Edwards and Berry (1987) 的方法来指定模拟的准确性。SAS-MULTTEST
 可用于使用 bootstrap 方法获得联合推断 (Westfall et al., 1999). Bootstrap
@@ -346,7 +346,7 @@ FWER，要么控制联合置信区间的 $\sum_{i=1}^tc_{iq}\mu_i$ FWER.
 进行了修改，对每个比较使用了不同的分位数。该过程是为每个比较计算一个 $t$
 统计量
 
-$$t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p$$
+$$t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p$$
 
 计算每次比较的显著性水平，并将显著性水平从最小到最大排序为
 $p_1,p_2,\dots\p_p$. 对于 FWER $=\alpha$，如果
@@ -446,7 +446,7 @@ LSMEANS TASK/ DIFF ADJUST=SIMULATE (REPORT SEED=4938371) CL; </td>
 一个非常有趣的例子是将所有处理与对照进行比较。这种类型的推断在安全性研究中很重要，届时将不同剂量的处理与对照或安慰剂进行比较是很有意义的。Dunnett's
 test 声明处理均值 $\mu_i$ 与对照均值 $\m_0$ 存在显著差异，如果
 
-$$|\hat{\mu}_i-\hat{\mu}_0|>d_{\alpha,t,v}\sqrt{\hat{\sigma}^2{\left(\frac1{n_i}+\frac1{n_0}\right)}}$$
+$$|\hat{\mu}_i-\hat{\mu}_0|>d_{\alpha,t,v}\sqrt{\hat\sigma^2{\left(\frac1{n_i}+\frac1{n_0}\right)}}$$
 
 其中 $d_{\alpha,t,v}$ 是"多对一 $t$ 统计量" ("many-to-one
 t-statistic")(Miller, 1967) 的上 $\alpha100$ 分位数。Dunnett's method
@@ -546,7 +546,7 @@ $p$ 个线性独立的比较，结论为第 $q$ 个比较 $\sum_{i=1}^tc_{iq}\mu
 
 ```{=tex}
 \begin{equation}
-\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|>t_{\alpha/2,p,v}\hat{\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
+\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|>t_{\alpha/2,p,v}\hat\sigma\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
 (#eq:3-10)
 \end{equation}
 ```
@@ -573,14 +573,14 @@ $$\left|\sum_{i=1}^p\lambda_ql_q\right|\leq\sum_{i=1}^p\left|\lambda_q\right|c_q
 1)  令 $l_1,l_2,\dots,l_p$ 是 $\mu_i$
     的线性组合的线性独立集。这个集合被表示为实验者主要感兴趣的线性组合。对于这组比较，得出结论
     $l_q=\sum_{i=1}^tc_{iq}\mu_i$ 与零显著不同，如果 \begin{equation}
-    \left|\hat{l}_q\right|>t_{\alpha/2,p,v}\hat{\sigma}\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}
+    \left|\hat{l}_q\right|>t_{\alpha/2,p,v}\hat\sigma\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}
     (#eq:3-11)
     \end{equation}
 2)  令 $l^*$ 是任何具有次要重要性的比较，即 $l_q,q=1,2,\dots,p$
     的线性组合。也就是说，对于 $\lambda_q$
     的某个集合，$l^*=\sum_{q=1}^p\1ambda_ql_q$。称 $l^*$
     与零显著不同，如果 \begin{equation}
-    \left|\hat{l}^*\right|>t_{\alpha/2,p,\nu}\hat{\boldsymbol{\sigma}}\sum_{q=1}^p\left(\left|\lambda_q\right|\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\right)
+    \left|\hat{l}^*\right|>t_{\alpha/2,p,\nu}\hat{\boldsymbol\sigma}\sum_{q=1}^p\left(\left|\lambda_q\right|\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\right)
     (#eq:3-12)
     \end{equation}
 
@@ -658,7 +658,7 @@ al., 1999). 这些方法可用于假设检验集。设有 $p$
 个感兴趣的假设，$H_{0q}\colon\sum_{i=1}^{t}c_{iq}\mu_{i}=0\,\mathrm{~vs.~}\,H_{0q}\colon\sum_{i=1}^{t}c_{aq}\mu_{i}\neq0,q=1,2,\ldots,p$.
 计算 $p$ 个 $t$ 统计量
 
-$$t_{q}=\frac{\sum_{i=1}^{t}c_{iq}\hat{\mu}_{i}}{\sqrt{{\hat{\sigma}}^{2}\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}},\quad q=1,2,\ldots,p$$
+$$t_{q}=\frac{\sum_{i=1}^{t}c_{iq}\hat{\mu}_{i}}{\sqrt{{\hat\sigma}^{2}\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}},\quad q=1,2,\ldots,p$$
 
 设 $p_1,p_2,\dots,p_p$ 表示观察到的显著性水平。接下来，将 $p_q$
 从小到大排序为 $p_{(1)}\le p_{(2)}\le\cdots p_{(p)}$.
@@ -696,7 +696,7 @@ $$\begin{aligned}
 设感兴趣于 $p$ 个比较 $\sum_{i=1}^{t}c_{iq}\mu_{i},q=1,2,\ldots,p$. 计算
 $p$ 个 $t$ 统计量
 
-$$t_q=\frac{\sum_{i=1}^tc_{iq}\hat{\mu}_i}{\sqrt{\hat{{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p$$
+$$t_q=\frac{\sum_{i=1}^tc_{iq}\hat{\mu}_i}{\sqrt{\hat{\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p$$
 
 并令 $p_1,p_2,\dots,p_p$ 表示观察到的显著性水平。接下来，将 $p_q$
 从小到大排序为 $p_{(1)}\le p_{(2)}\le\cdots p_{(p)}$. 控制 FDR（但不控制
@@ -775,7 +775,7 @@ $\lambda_1=\lambda_2=1/2$. 用于评估 $l^*$ 的临界值（根据式
 \@ref(eq:3-12)）为
 
 $$\begin{aligned}
-t_{\alpha/2,p,v}\hat{{\sigma}}\sum_{q=1}^{p}\left(\left|\lambda_{q}\right|\sqrt{\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}\right)& =(2.649)(5.559){\left(\left|\frac12\right|\sqrt{\frac1{13}+\frac1{12}}+\left|\frac12\right|\sqrt{\frac1{13}+\frac1{10}}\right)}  \\
+t_{\alpha/2,p,v}\hat{\sigma}\sum_{q=1}^{p}\left(\left|\lambda_{q}\right|\sqrt{\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}\right)& =(2.649)(5.559){\left(\left|\frac12\right|\sqrt{\frac1{13}+\frac1{12}}+\left|\frac12\right|\sqrt{\frac1{13}+\frac1{10}}\right)}  \\
 &=\frac12(5.895)+\frac12(6.194) \\
 &\text{=6.044}
 \end{aligned}$$
@@ -810,31 +810,31 @@ EERC，但如果某些均值相等，而某些均值不相等，则无法控制 
 $\bar{y}_{(1)}\leq\bar{y}_{(2)}\leq\cdots\leq\bar{y}_{(t)}$. 接下来，$t$
 个均值的学生化极差 (Studentized range) 为
 
-$$\frac{\overline{y}_{(t)}-\overline{y}_{(1)}}{\hat{\sigma}/\sqrt{n}}$$
+$$\frac{\overline{y}_{(t)}-\overline{y}_{(1)}}{\hat\sigma/\sqrt{n}}$$
 
 并将其与临界值 $q_{\alpha,t,v}$ 比较，如果
 
-$$\overline{y}_{(t)}-\overline{y}_{(1)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t,v}$$
+$$\overline{y}_{(t)}-\overline{y}_{(1)}\leq\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t,v}$$
 
 则得出结论，$t$ 个处理均值之间没有显著差异，也不考虑进一步的检验。如果
 
-$$\overline{y}_{(t)}-\overline{y}_{(1)}>\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t,v}$$
+$$\overline{y}_{(t)}-\overline{y}_{(1)}>\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t,v}$$
 
 则得出结论，$\mu_{(t)}>\mu_{(1)}$ 或，这 $t$
 个均值存在显著的极差。接下来，对两个均值子集
 $\{\bar{y}_{(t)},\bar{y}_{(t-1)},\ldots,\bar{y}_{(2)}\}$ 和
 $\{\bar{y}_{(t-1)},\bar{y}_{(t-2)},\ldots,\bar{y}_{(1)}\}$
-进行比较。将每个子集的极差与 $[\hat{\sigma}/√(n)]q_{\alpha,t-1,v}$
+进行比较。将每个子集的极差与 $[\hat\sigma/√(n)]q_{\alpha,t-1,v}$
 比较，如果
 
-$$\bar{y}_{(t)}-\bar{y}_{(2)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}$$
+$$\bar{y}_{(t)}-\bar{y}_{(2)}\leq\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}$$
 
 则得出结论，在子集 $\{\mu_{(t)},\mu_{(t-1)},\ldots,\mu_{(2)}\}$
 中，处理均值之间没有显著[^chap3-3]差异。类似地，如果
 
 [^chap3-3]: 原文中没有 "significant" 一词，严谨起见，译者已添加。
 
-$$\bar{y}_{(t-1)}-\bar{y}_{(1)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}$$
+$$\bar{y}_{(t-1)}-\bar{y}_{(1)}\leq\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}$$
 
 则得出结论，在子集 $\{\mu_{(t-1)},\mu_{(t-2)},\ldots,\mu_{(1)}\}$
 中，处理均值之间没有显著[^chap3-4]差异。如果以上两个结论都成立，那么我们停止在均值之间进行比较的程序，并得出结论，两个均值子集中的均值没有显著差异。
@@ -843,17 +843,17 @@ $$\bar{y}_{(t-1)}-\bar{y}_{(1)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}
 
 如果
 
-$$\bar{y}_{(t)}-\bar{y}_{(2)}>\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}$$
+$$\bar{y}_{(t)}-\bar{y}_{(2)}>\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}$$
 
 则得出结论 $\mu_{(t)}>\mu_{(2)}$. 如果
 
-$$\bar{y}_{(t-1)}-\bar{y}_{(1)}>\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}$$
+$$\bar{y}_{(t-1)}-\bar{y}_{(1)}>\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}$$
 
 则得出结论 $\mu_{(t-1)}>\mu_{(1)}$.
 如果这两个结论中的任何一个成立，那么我们将在发现显著差异的子集内进行额外的比较。例如，如果前面的两个集合都包含显著差异，那么可以考虑子集
 $\{\bar{y}_{(t)},\bar{y}_{(t-1)},\ldots,\bar{y}_{(3)}\},\{\bar{y}_{(t-1)},\bar{y}_{(t-2)},\ldots,\bar{y}_{(2)}\}$
 和 $\{\bar{y}_{(t-2)},\bar{y}_{(t-2)},\ldots,\bar{y}_{(1)}\}$.
-将每个子集的极差与 $[\hat{\sigma}/√(n)]q_{\alpha,t-2,v}$
+将每个子集的极差与 $[\hat\sigma/√(n)]q_{\alpha,t-2,v}$
 进行比较。只要前一个子集具有显著的极差，则继续检查较小的均值子集。
 每次得到不显著的极差时，将所涉及的均值包括在单个组中。被分在非显著组中的均值子集以后不能被视为显著；也就是说，不应对先前分组到共同子组中的均值进行进一步检验。当所有极差检验不显著时，程序结束。被分在在同一组中的任何两个均值没有显著差异；否则，它们有显著差异。
 
@@ -867,19 +867,19 @@ $\{\bar{y}_{(t)},\bar{y}_{(t-1)},\ldots,\bar{y}_{(3)}\},\{\bar{y}_{(t-1)},\bar{y
 
 第一步是对六个均值的极差进行比较，将 $38.000-28.818=9.182$ 与
 
-$$q_{0.05,6,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(4.16)\sqrt{\frac{30.9045}{11.23}}=6.900$$
+$$q_{0.05,6,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(4.16)\sqrt{\frac{30.9045}{11.23}}=6.900$$
 
 比较。由于 $9.819>6.90$，需调查两个含有 $t-1=5$ 个均值的子集。此时，将
 $35.800-28.818=6.982$ 和 $38.000-29.500=8.500$ 与
 
-$$q_{0.05,5,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.98)\sqrt{\frac{30.9045}{11.23}}=6.593$$
+$$q_{0.05,5,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.98)\sqrt{\frac{30.9045}{11.23}}=6.593$$
 
 比较。由于 $7.619>6.60,8.5>6.60$，接着调查含有 $t-2=3$
 个均值的子集，有三个这样的子集。此时，将
 $31.923 - 28.818 = 3.105,35.800 - 29.500 = 6.300,38.0 - 31.083 = 6.917$
 与
 
-$$q_{0.05,4,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.74)\sqrt{\frac{30.9045}{11.23}}=6.195$$
+$$q_{0.05,4,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.74)\sqrt{\frac{30.9045}{11.23}}=6.195$$
 
 比较。由于 $3.105<6.195$，前四个均值被分为一组。由于
 $6.300>6.195,6.917>6.195$，剩下的四个均值组都必须进一步细分为三个均值的组。在进行下一步之前，请考虑以下示意图，说明了当前的情况，其中直线表示前四个均值为一组，并且被认为没有差异。
@@ -888,7 +888,7 @@ $6.300>6.195,6.917>6.195$，剩下的四个均值组都必须进一步细分为�
 
 四个均值的第一个子集 {29.500, 31.083, 31.923, 35.800} 包含已组合在一起的两组三个均值，即 $29.500–31.923$ 和 $28.818–31.083$. 因此，极差 $31.923 - 29.500 = 2.423$ 和 $31.083 - 28.818 = 2.265$ 不与临界点进行比较。仍需比较的极差是 $35.800 - 31.083 = 4.717$ 和 $38.0 - 31.923 = 6.077$；这些必须与
 
-$$q_{0.05,3,62}\mathrm{~}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.40)\sqrt{\frac{30.9045}{11.23}}=5.635$$
+$$q_{0.05,3,62}\mathrm{~}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.40)\sqrt{\frac{30.9045}{11.23}}=5.635$$
 
 比较。由于 $4.717 < 5.635$，这三个均值现在被为一个组，而由于 $6.077 > 5.635$，第二组必须进一步细分为每组两个均值的组。下图说明了当前情况：
 
@@ -896,7 +896,7 @@ $$q_{0.05,3,62}\mathrm{~}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.40)\sqrt{\frac
 
 只有一个大小为 2 的子集 {35.8, 38.0} 尚未合并到一个公共组中。将极差 $38.0 - 35.8 = 2.2$ 与
 
-$$q_{0.05,2,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(2.83)\sqrt{\frac{30.9045}{11.23}}=4.691$$
+$$q_{0.05,2,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(2.83)\sqrt{\frac{30.9045}{11.23}}=4.691$$
 
 比较。由于 $2.2<4.69$，最后这两个均值被分到一组。最终的示意图为：
 
@@ -920,10 +920,10 @@ $$q_{0.05,2,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(2.83)\sqrt{\frac{30.9045}{
 此过程的应用类似于 Student-Newman-Keul method 的应用，不同之处在于用于比较一组 $p$ 个均值的学生化极差临界点 $q_{\alpha,p,v}$ 替换为 $q_{\alpha_p,p,v}$，其中 $\alpha_p=1-(1-\alpha)^{p-1}$. $q_{\alpha_p,p,v}$ 的值在附表 A.5 中给出。对于上一节中的数据，此程序应用如下：
 
 1) 将 $38.000 - 28.818 = 9.182$ 与
-$$q_{\alpha_{6},6,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.198)\sqrt{\frac{30.9045}{11.23}}=5.303$$
+$$q_{\alpha_{6},6,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.198)\sqrt{\frac{30.9045}{11.23}}=5.303$$
 比较，其中 $\alpha_6=1-(1-0.05)^{6-1}=0.226$. 六个均值的极差是显著的。
 2) 将 $35.800 - 28.818 = 6.982$ 和 $38.000 - 29.500 = 8.500(3.143)(1.659) = 5.213$ 与
-$$q_{\alpha_5,5,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.143)\sqrt{\frac{30.9045}{11.23}}=5.214$$
+$$q_{\alpha_5,5,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.143)\sqrt{\frac{30.9045}{11.23}}=5.214$$
 比较，其中 $\alpha_5=1-(1-0.05)^{5-1}=0.186$. 两个极差都是显著的。
 3) 将 $31.923 - 28.818 = 3.105$，$35.800 - 29.500 = 6.300$ 和 $38.000 - 31.083 = 6.917$ 与 $(3.073)(1.659) = 5.098$ 比较。后两个极差显著，而第一个极差不显著。此时的分组为
 ![](figure/un-figure 3-4.png)

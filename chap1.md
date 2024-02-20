@@ -144,7 +144,7 @@ t_c=\frac{\sum c_i\hat{{\mu}}_i-a}{\widehat{s.e.}\left(\sum c_i\hat{\mu}_i\right
 
 对于任务数据，$\sigma^2$ 的最佳估计为
 
-$$\hat{{\sigma}}^{2}=\sum_{i=1}^{6}SS_{i}\left(N-t\right)=1,916.0761/62=30.9045$$
+$$\hat{\sigma}^{2}=\sum_{i=1}^{6}SS_{i}\left(N-t\right)=1,916.0761/62=30.9045$$
 
 基于 $62$ 个自由度。$\mu_i$ 的最佳估计分别为 $\hat\mu_1 = 31.923,\hat\mu_2 = 31.083,\hat\mu_3 = 35.800,\hat\mu_4 = 38.000,\hat\mu_5 = 29.500$ 和 $\hat\mu_6 = 28.818$.
 

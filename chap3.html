@@ -386,20 +386,20 @@ Benjamini and Hochberg (1995) 提出的方法。</li>
 多重比较法可能比其他方法使用得更多，这可能是因为它是最容易应用的方法之一。它通常用于将每个处理均值与其他处理均值进行比较，但也可以用于其他比较。用于比较
 <span class="math inline">\(\mu_i\)</span> 和 <span class="math inline">\(\mu_j\)</span> 的 <span class="math inline">\(\alpha100\%\)</span><a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>显著性水平的 LSD 为</p>
 <span class="math display" id="eq:3-1">\[\begin{equation}
-\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat{{\sigma}}\sqrt{\frac1{n_i}+\frac1{n_j}}
+\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac1{n_i}+\frac1{n_j}}
 \tag{3.1}
 \end{equation}\]</span>
 <p>当 $|_i-<em>j|&gt;</em>$ 时，结论为
 <span class="math inline">\(\mu_i\ne \mu_j\)</span>. 此程序的比较错误率等于 <span class="math inline">\(\alpha\)</span>. <span class="math inline">\(\mu_i–\mu_j\)</span> 对应的
 <span class="math inline">\(100(1-\alpha)\%\)</span> 置信区间为</p>
 <span class="math display" id="eq:3-2">\[\begin{equation}
-\hat{\mu}_i-\hat{\mu}_j\pm t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac1{n_i}+\frac1{n_j}}
+\hat{\mu}_i-\hat{\mu}_j\pm t_{\alpha/2,v}\hat\sigma\sqrt{\frac1{n_i}+\frac1{n_j}}
 \tag{3.2}
 \end{equation}\]</span>
 <p>如果所有样本量大小都相等（例如，等于 <span class="math inline">\(n\)</span> ），那么单个 LSD
 值可以用于所有成对比较。此时单个 <span class="math inline">\(\mathrm{LSD}_{\alpha}\)</span> 值由下式给出</p>
 <span class="math display" id="eq:3-3">\[\begin{equation}
-\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac2n}
+\mathrm{LSD}_\alpha=t_{\alpha/2,v}\hat\sigma\sqrt{\frac2n}
 \tag{3.3}
 \end{equation}\]</span>
 <p>假设一项研究包括 <span class="math inline">\(t\)</span> 种处理均值，并且将在 <span class="math inline">\(5\%\)</span>
@@ -452,7 +452,7 @@ procedure 中，LSD 检验是通过使用方程 <a href="chap3.html#eq:3-1">(3.1
 中的每一个都可以推广到处理均值的几个对比。此推广为：断定
 <span class="math inline">\(\sum_{i=1}^{t}c_{i}\mu_{i}\neq0\)</span> 如果</p>
 <span class="math display" id="eq:3-4">\[\begin{equation}
-\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|&gt;t_{\alpha/2,v}\hat{\sigma}\sqrt{\sum_{i=1}^tc_i^2/n_i}
+\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|&gt;t_{\alpha/2,v}\hat\sigma\sqrt{\sum_{i=1}^tc_i^2/n_i}
 \tag{3.4}
 \end{equation}\]</span>
 <p>示例见 <a href="chap3.html#sec3-10">3.10</a>, <a href="chap3.html#sec3-12">3.12</a>, <a href="chap3.html#sec3-14">3.14</a> 和 <a href="chap3.html#sec3-16">3.16</a> 节。</p>
@@ -464,7 +464,7 @@ FWER 时，推荐使用这个程序进行有计划的比较。假设实验者想
 个这样的比较。能得出结论
 <span class="math inline">\(\sum_{i=1}^tc_{iq}\mu_i\neq0,q=1,2,\ldots,p\)</span>，如果</p>
 <span class="math display" id="eq:3-5">\[\begin{equation}
-\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|&gt;t_{\alpha/2p,v}\hat{\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
+\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|&gt;t_{\alpha/2p,v}\hat\sigma\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
 \tag{3.5}
 \end{equation}\]</span>
 <p>这 <span class="math inline">\(p\)</span> 个检验的 FWER <span class="math inline">\(\le \alpha\)</span> 以及比较误差率 <span class="math inline">\(=\alpha/p\)</span>. 通常 FWER
@@ -476,7 +476,7 @@ FWER 时，推荐使用这个程序进行有计划的比较。假设实验者想
 与这里的 <span class="math inline">\(p\)</span> 是等价的。</p>
 <p>推荐使用从 Bonferroni’s method 获得的联合置信区间，其形式为</p>
 <span class="math display" id="eq:3-6">\[\begin{equation}
-\sum_{i=1}^tc_{iq}\hat{\boldsymbol{\mu}}_i\pm t_{\alpha/2p,v}\hat{\boldsymbol{\sigma}}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}},\quad q=1,2,\ldots,p
+\sum_{i=1}^tc_{iq}\hat{\boldsymbol{\mu}}_i\pm t_{\alpha/2p,v}\hat{\boldsymbol\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}},\quad q=1,2,\ldots,p
 \tag{3.6}
 \end{equation}\]</span>
 <p>Bonferroni’s method 可应用于模型参数的任何函数集，包括方差和均值。</p>
@@ -485,11 +485,11 @@ FWER 时，推荐使用这个程序进行有计划的比较。假设实验者想
 <h2><span class="header-section-number">3.6</span> Scheffé’s Procedure<a href="chap3.html#sec3-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>当实验者想要进行大量”计划外”比较时，建议使用此程序。计划外比较是实验者在计划实验时没有想到进行的比较。这些问题经常出现，因为实验结果经常建议实验者进行某些比较。当有大量计划的比较时，也可以使用该程序，但置信区间的宽度通常比其他程序宽，尽管并不总是如此。给定常数向量
 <span class="math inline">\(\boldsymbol c\)</span>，考虑检验 <span class="math inline">\(H_0{:}\,\sum_{i=1}^tc_i\mu_i=0\)</span>。我们有</p>
-<p><span class="math display">\[\Pr\left\{\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i{\mu}_i\right)^2}{\sum_{i=1}^tc_i^2/n_i}\leq(t-1)F_{\Tiny{\alpha,t-1,v}}\hat{{\sigma}}^2\quad\text{ for all contrast vectors }c\right\}=1-\alpha \]</span></p>
+<p><span class="math display">\[\Pr\left\{\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i{\mu}_i\right)^2}{\sum_{i=1}^tc_i^2/n_i}\leq(t-1)F_{\Tiny{\alpha,t-1,v}}\hat{\sigma}^2\quad\text{ for all contrast vectors }c\right\}=1-\alpha \]</span></p>
 <p>因此对于所有可能的 <span class="math inline">\(\mu_i\)</span> 与 <span class="math inline">\(0\)</span> 的对比，一个 FWER <span class="math inline">\(=\alpha\)</span>
 的程序如下：拒绝 <span class="math inline">\(H_0{:}\,\sum_{i=1}^tc_i\mu_i=0\)</span> 如果</p>
 <span class="math display" id="eq:3-7">\[\begin{equation}
-\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|&gt;\sqrt{(t-1)F_{\alpha,t-1,v}}\hat{\sigma}\sqrt{\sum_{i=1}^tc_i^2/n_i}
+\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|&gt;\sqrt{(t-1)F_{\alpha,t-1,v}}\hat\sigma\sqrt{\sum_{i=1}^tc_i^2/n_i}
 \tag{3.7}
 \end{equation}\]</span>
 <p>Scheffé’s procedure 仍然可以使用，但此时 FWER 通常会原小于 <span class="math inline">\(\alpha\)</span>.
@@ -508,7 +508,7 @@ procedure 也可用来获得 <span class="math inline">\(\mu_i\)</span>
 <span class="math inline">\(c_1,c_2,\dots,\)</span>，可有至少 <span class="math inline">\((1-\alpha)100\%\)</span> 的把握认为
 <span class="math inline">\(\sum_{i=1}^tc_{iq}\mu_i\)</span> 包含在下式给出的区间内</p>
 <span class="math display" id="eq:3-8">\[\begin{equation}
-\sum_{i=1}^tc_{iq}\hat{\mu}_i\pm\sqrt{(t-1)F_{\alpha,t-1,v}}\hat{\sigma}\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\quad\text{ for all }q=1,2,\ldots
+\sum_{i=1}^tc_{iq}\hat{\mu}_i\pm\sqrt{(t-1)F_{\alpha,t-1,v}}\hat\sigma\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\quad\text{ for all }q=1,2,\ldots
 \tag{3.8}
 \end{equation}\]</span>
 <p>如果要考虑 <span class="math inline">\(\mu_i\)</span> 所有的线性组合，而不仅仅是所有对比，则式
@@ -526,14 +526,14 @@ difference (HSD) procedure (Tukey, 1952, 1953; Kramer, 1956)
 相差不大<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>时可以使用近似程序。对于
 <span class="math inline">\(i\ne i&#39;\)</span>，Tukey–Kramer method 将拒绝 <span class="math inline">\(H_0{:\mu_i}=\mu_{i&#39;}\)</span>，如果</p>
 <span class="math display" id="eq:3-9">\[\begin{equation}
-\left|\hat{\mu}_i-\hat{\mu}_{i^{\prime}}\right|&gt;q_{\alpha,t,v}\sqrt{\frac{\hat{\sigma}^2}2{\left(\frac1{n_i}+\frac1{n_{i^{\prime}}}\right)}}
+\left|\hat{\mu}_i-\hat{\mu}_{i^{\prime}}\right|&gt;q_{\alpha,t,v}\sqrt{\frac{\hat\sigma^2}2{\left(\frac1{n_i}+\frac1{n_{i^{\prime}}}\right)}}
 \tag{3.9}
 \end{equation}\]</span>
 <p>其中 <span class="math inline">\(q_{\alpha,t,v}\)</span> 为学生化极差统计量分布的上分位数。选定
 <span class="math inline">\(\alpha,t,v\)</span> 的 <span class="math inline">\(q_{\alpha,t,v}\)</span> 值在附表 A.4 中。</p>
 <p>如果样本量都等于 <span class="math inline">\(n\)</span>，对于一个对比，拒绝
 <span class="math inline">\(H_0\colon\sum_{i=1}^tc_i\mu_i=0\)</span>，如果</p>
-<p><span class="math display">\[\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|&gt;q_{\alpha,t,v}\frac{\hat{\sigma}}{\sqrt{n}}{\left(\frac12\sum_{i=1}^t|c_i|\right)}\]</span></p>
+<p><span class="math display">\[\left|\sum_{i=1}^tc_i\hat{\mu}_i\right|&gt;q_{\alpha,t,v}\frac{\hat\sigma}{\sqrt{n}}{\left(\frac12\sum_{i=1}^t|c_i|\right)}\]</span></p>
 </div>
 <div id="sec3-8" class="section level2 hasAnchor" number="3.8">
 <h2><span class="header-section-number">3.8</span> 模拟方法<a href="chap3.html#sec3-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -549,7 +549,7 @@ FWER，要么控制联合置信区间的 <span class="math inline">\(\sum_{i=1}^
 <li>以与手头数据集相同的结构生成一个数据样本。如果有五个样本量为5、9、3、6和7的处理，则使用这些样本量生成数据</li>
 <li>对生成的数据集进行分析，如同对实际数据集所做的那样，并计算 <span class="math inline">\(p\)</span> 个
 <span class="math inline">\(t\)</span> 统计量
-<span class="math display">\[t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i}}\quad q=1,2,\ldots,p\]</span></li>
+<span class="math display">\[t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i}}\quad q=1,2,\ldots,p\]</span></li>
 <li>计算 <span class="math inline">\(t_q\)</span> 绝对值的最大值
 <span class="math inline">\(T_{s}=\max(|t_{1}|,|t_{2}|,\ldots,|t_{p}|)\)</span>.</li>
 <li>大量重复步骤 1, 2 和 3，跟踪 <span class="math inline">\(T_s\)</span> 的计算值。确定 <span class="math inline">\(T_s\)</span> 分布的上
@@ -557,7 +557,7 @@ FWER，要么控制联合置信区间的 <span class="math inline">\(\sum_{i=1}^
 <li>对于实际数据集，计算
 <span class="math inline">\(t_q,q=1,2,\dots,p\)</span>，如果<span class="math inline">\(|tq| &gt;T,q=1,2,\dots,p\)</span>$则拒绝第 <span class="math inline">\(q\)</span>
 个假设，或者构建联合置信区间为
-<span class="math display">\[\sum_{i=1}^tc_{iq}\hat{{\mu}}_i\pm T_\alpha\sqrt{{\hat{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i},\quad q=1,2,\ldots,p\]</span></li>
+<span class="math display">\[\sum_{i=1}^tc_{iq}\hat{{\mu}}_i\pm T_\alpha\sqrt{{\hat\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i},\quad q=1,2,\ldots,p\]</span></li>
 </ol>
 <p>可以使用 Edwards and Berry (1987) 的方法来指定模拟的准确性。SAS-MULTTEST
 可用于使用 bootstrap 方法获得联合推断 (Westfall et al., 1999). Bootstrap
@@ -568,7 +568,7 @@ FWER，要么控制联合置信区间的 <span class="math inline">\(\sum_{i=1}^
 <p>Šidák (1967) 对 Bonferroni’s method
 进行了修改，对每个比较使用了不同的分位数。该过程是为每个比较计算一个 <span class="math inline">\(t\)</span>
 统计量</p>
-<p><span class="math display">\[t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p\]</span></p>
+<p><span class="math display">\[t_q=\frac{\sum_{i=1}^tc_{iq}\hat{{\mu}}_i}{\sqrt{\hat{\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p\]</span></p>
 <p>计算每次比较的显著性水平，并将显著性水平从最小到最大排序为
 <span class="math inline">\(p_1,p_2,\dots\p_p\)</span>. 对于 FWER <span class="math inline">\(=\alpha\)</span>，如果
 <span class="math inline">\(p_q\le 1-(1-\alpha)^{1/p}\)</span> 或等价地
@@ -683,7 +683,7 @@ x
 <h2><span class="header-section-number">3.11</span> Dunnett’s Procedure<a href="chap3.html#sec3-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>一个非常有趣的例子是将所有处理与对照进行比较。这种类型的推断在安全性研究中很重要，届时将不同剂量的处理与对照或安慰剂进行比较是很有意义的。Dunnett’s
 test 声明处理均值 <span class="math inline">\(\mu_i\)</span> 与对照均值 <span class="math inline">\(\m_0\)</span> 存在显著差异，如果</p>
-<p><span class="math display">\[|\hat{\mu}_i-\hat{\mu}_0|&gt;d_{\alpha,t,v}\sqrt{\hat{\sigma}^2{\left(\frac1{n_i}+\frac1{n_0}\right)}}\]</span></p>
+<p><span class="math display">\[|\hat{\mu}_i-\hat{\mu}_0|&gt;d_{\alpha,t,v}\sqrt{\hat\sigma^2{\left(\frac1{n_i}+\frac1{n_0}\right)}}\]</span></p>
 <p>其中 <span class="math inline">\(d_{\alpha,t,v}\)</span> 是”多对一 <span class="math inline">\(t\)</span> 统计量” (“many-to-one
 t-statistic”)(Miller, 1967) 的上 <span class="math inline">\(\alpha100\)</span> 分位数。Dunnett’s method
 控制
@@ -797,7 +797,7 @@ x
 <span class="math inline">\(p\)</span> 个线性独立的比较，结论为第 <span class="math inline">\(q\)</span> 个比较 <span class="math inline">\(\sum_{i=1}^tc_{iq}\mu_i\neq0\)</span>
 如果</p>
 <span class="math display" id="eq:3-10">\[\begin{equation}
-\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|&gt;t_{\alpha/2,p,v}\hat{\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
+\left|\sum_{i=1}^tc_{iq}\hat{\mu}_i\right|&gt;t_{\alpha/2,p,v}\hat\sigma\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}}
 \tag{3.10}
 \end{equation}\]</span>
 <p>其中 <span class="math inline">\(t_{\alpha/2,p,v}\)</span> 是自由度为 <span class="math inline">\(v\)</span> 且相关矩阵为 <span class="math inline">\(\boldsymbol I_{p}\)</span>
@@ -819,14 +819,14 @@ x
 <li>令 <span class="math inline">\(l_1,l_2,\dots,l_p\)</span> 是 <span class="math inline">\(\mu_i\)</span>
 的线性组合的线性独立集。这个集合被表示为实验者主要感兴趣的线性组合。对于这组比较，得出结论
 <span class="math inline">\(l_q=\sum_{i=1}^tc_{iq}\mu_i\)</span> 与零显著不同，如果 <span class="math display" id="eq:3-11">\[\begin{equation}
-\left|\hat{l}_q\right|&gt;t_{\alpha/2,p,v}\hat{\sigma}\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}
+\left|\hat{l}_q\right|&gt;t_{\alpha/2,p,v}\hat\sigma\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}
 \tag{3.11}
 \end{equation}\]</span></li>
 <li>令 <span class="math inline">\(l^*\)</span> 是任何具有次要重要性的比较，即 <span class="math inline">\(l_q,q=1,2,\dots,p\)</span>
 的线性组合。也就是说，对于 <span class="math inline">\(\lambda_q\)</span>
 的某个集合，<span class="math inline">\(l^*=\sum_{q=1}^p\1ambda_ql_q\)</span>。称 <span class="math inline">\(l^*\)</span>
 与零显著不同，如果 <span class="math display" id="eq:3-12">\[\begin{equation}
-\left|\hat{l}^*\right|&gt;t_{\alpha/2,p,\nu}\hat{\boldsymbol{\sigma}}\sum_{q=1}^p\left(\left|\lambda_q\right|\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\right)
+\left|\hat{l}^*\right|&gt;t_{\alpha/2,p,\nu}\hat{\boldsymbol\sigma}\sum_{q=1}^p\left(\left|\lambda_q\right|\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\right)
 \tag{3.12}
 \end{equation}\]</span></li>
 </ol>
@@ -910,7 +910,7 @@ Bonferroni 或 Scheffé 置信区间给出的宽度。Bonferroni <span class="ma
 al., 1999). 这些方法可用于假设检验集。设有 <span class="math inline">\(p\)</span>
 个感兴趣的假设，<span class="math inline">\(H_{0q}\colon\sum_{i=1}^{t}c_{iq}\mu_{i}=0\,\mathrm{~vs.~}\,H_{0q}\colon\sum_{i=1}^{t}c_{aq}\mu_{i}\neq0,q=1,2,\ldots,p\)</span>.
 计算 <span class="math inline">\(p\)</span> 个 <span class="math inline">\(t\)</span> 统计量</p>
-<p><span class="math display">\[t_{q}=\frac{\sum_{i=1}^{t}c_{iq}\hat{\mu}_{i}}{\sqrt{{\hat{\sigma}}^{2}\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}},\quad q=1,2,\ldots,p\]</span></p>
+<p><span class="math display">\[t_{q}=\frac{\sum_{i=1}^{t}c_{iq}\hat{\mu}_{i}}{\sqrt{{\hat\sigma}^{2}\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}},\quad q=1,2,\ldots,p\]</span></p>
 <p>设 <span class="math inline">\(p_1,p_2,\dots,p_p\)</span> 表示观察到的显著性水平。接下来，将 <span class="math inline">\(p_q\)</span>
 从小到大排序为 <span class="math inline">\(p_{(1)}\le p_{(2)}\le\cdots p_{(p)}\)</span>.</p>
 <div id="sec3-15-1" class="section level3 hasAnchor" number="3.15.1">
@@ -943,7 +943,7 @@ al., 1999). 这些方法可用于假设检验集。设有 <span class="math inli
 <h3><span class="header-section-number">3.15.3</span> 控制 FDR 的 Benjamini 和 Hochberg Method<a href="chap3.html#sec3-15-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>设感兴趣于 <span class="math inline">\(p\)</span> 个比较 <span class="math inline">\(\sum_{i=1}^{t}c_{iq}\mu_{i},q=1,2,\ldots,p\)</span>. 计算
 <span class="math inline">\(p\)</span> 个 <span class="math inline">\(t\)</span> 统计量</p>
-<p><span class="math display">\[t_q=\frac{\sum_{i=1}^tc_{iq}\hat{\mu}_i}{\sqrt{\hat{{\sigma}}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p\]</span></p>
+<p><span class="math display">\[t_q=\frac{\sum_{i=1}^tc_{iq}\hat{\mu}_i}{\sqrt{\hat{\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i}},\quad q=1,2,\ldots,p\]</span></p>
 <p>并令 <span class="math inline">\(p_1,p_2,\dots,p_p\)</span> 表示观察到的显著性水平。接下来，将 <span class="math inline">\(p_q\)</span>
 从小到大排序为 <span class="math inline">\(p_{(1)}\le p_{(2)}\le\cdots p_{(p)}\)</span>. 控制 FDR（但不控制
 FWER）的调整的 <span class="math inline">\(p\)</span> 值为</p>
@@ -1025,7 +1025,7 @@ x
 <span class="math inline">\(\lambda_1=\lambda_2=1/2\)</span>. 用于评估 <span class="math inline">\(l^*\)</span> 的临界值（根据式
 <a href="chap3.html#eq:3-12">(3.12)</a>）为</p>
 <p><span class="math display">\[\begin{aligned}
-t_{\alpha/2,p,v}\hat{{\sigma}}\sum_{q=1}^{p}\left(\left|\lambda_{q}\right|\sqrt{\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}\right)&amp; =(2.649)(5.559){\left(\left|\frac12\right|\sqrt{\frac1{13}+\frac1{12}}+\left|\frac12\right|\sqrt{\frac1{13}+\frac1{10}}\right)}  \\
+t_{\alpha/2,p,v}\hat{\sigma}\sum_{q=1}^{p}\left(\left|\lambda_{q}\right|\sqrt{\sum_{i=1}^{t}c_{iq}^{2}/n_{i}}\right)&amp; =(2.649)(5.559){\left(\left|\frac12\right|\sqrt{\frac1{13}+\frac1{12}}+\left|\frac12\right|\sqrt{\frac1{13}+\frac1{10}}\right)}  \\
 &amp;=\frac12(5.895)+\frac12(6.194) \\
 &amp;\text{=6.044}
 \end{aligned}\]</span></p>
@@ -1054,32 +1054,32 @@ EERC，但如果某些均值相等，而某些均值不相等，则无法控制 
 <p>要应用此方法，请将 <span class="math inline">\(t\)</span> 个均值按升序排列为
 <span class="math inline">\(\bar{y}_{(1)}\leq\bar{y}_{(2)}\leq\cdots\leq\bar{y}_{(t)}\)</span>. 接下来，<span class="math inline">\(t\)</span>
 个均值的学生化极差 (Studentized range) 为</p>
-<p><span class="math display">\[\frac{\overline{y}_{(t)}-\overline{y}_{(1)}}{\hat{\sigma}/\sqrt{n}}\]</span></p>
+<p><span class="math display">\[\frac{\overline{y}_{(t)}-\overline{y}_{(1)}}{\hat\sigma/\sqrt{n}}\]</span></p>
 <p>并将其与临界值 <span class="math inline">\(q_{\alpha,t,v}\)</span> 比较，如果</p>
-<p><span class="math display">\[\overline{y}_{(t)}-\overline{y}_{(1)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t,v}\]</span></p>
+<p><span class="math display">\[\overline{y}_{(t)}-\overline{y}_{(1)}\leq\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t,v}\]</span></p>
 <p>则得出结论，<span class="math inline">\(t\)</span> 个处理均值之间没有显著差异，也不考虑进一步的检验。如果</p>
-<p><span class="math display">\[\overline{y}_{(t)}-\overline{y}_{(1)}&gt;\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t,v}\]</span></p>
+<p><span class="math display">\[\overline{y}_{(t)}-\overline{y}_{(1)}&gt;\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t,v}\]</span></p>
 <p>则得出结论，<span class="math inline">\(\mu_{(t)}&gt;\mu_{(1)}\)</span> 或，这 <span class="math inline">\(t\)</span>
 个均值存在显著的极差。接下来，对两个均值子集
 <span class="math inline">\(\{\bar{y}_{(t)},\bar{y}_{(t-1)},\ldots,\bar{y}_{(2)}\}\)</span> 和
 <span class="math inline">\(\{\bar{y}_{(t-1)},\bar{y}_{(t-2)},\ldots,\bar{y}_{(1)}\}\)</span>
-进行比较。将每个子集的极差与 <span class="math inline">\([\hat{\sigma}/√(n)]q_{\alpha,t-1,v}\)</span>
+进行比较。将每个子集的极差与 <span class="math inline">\([\hat\sigma/√(n)]q_{\alpha,t-1,v}\)</span>
 比较，如果</p>
-<p><span class="math display">\[\bar{y}_{(t)}-\bar{y}_{(2)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
+<p><span class="math display">\[\bar{y}_{(t)}-\bar{y}_{(2)}\leq\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
 <p>则得出结论，在子集 <span class="math inline">\(\{\mu_{(t)},\mu_{(t-1)},\ldots,\mu_{(2)}\}\)</span>
 中，处理均值之间没有显著<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>差异。类似地，如果</p>
-<p><span class="math display">\[\bar{y}_{(t-1)}-\bar{y}_{(1)}\leq\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
+<p><span class="math display">\[\bar{y}_{(t-1)}-\bar{y}_{(1)}\leq\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
 <p>则得出结论，在子集 <span class="math inline">\(\{\mu_{(t-1)},\mu_{(t-2)},\ldots,\mu_{(1)}\}\)</span>
 中，处理均值之间没有显著<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>差异。如果以上两个结论都成立，那么我们停止在均值之间进行比较的程序，并得出结论，两个均值子集中的均值没有显著差异。</p>
 <p>如果</p>
-<p><span class="math display">\[\bar{y}_{(t)}-\bar{y}_{(2)}&gt;\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
+<p><span class="math display">\[\bar{y}_{(t)}-\bar{y}_{(2)}&gt;\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
 <p>则得出结论 <span class="math inline">\(\mu_{(t)}&gt;\mu_{(2)}\)</span>. 如果</p>
-<p><span class="math display">\[\bar{y}_{(t-1)}-\bar{y}_{(1)}&gt;\frac{\hat{\sigma}}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
+<p><span class="math display">\[\bar{y}_{(t-1)}-\bar{y}_{(1)}&gt;\frac{\hat\sigma}{\sqrt{n}}q_{\alpha,t-1,v}\]</span></p>
 <p>则得出结论 <span class="math inline">\(\mu_{(t-1)}&gt;\mu_{(1)}\)</span>.
 如果这两个结论中的任何一个成立，那么我们将在发现显著差异的子集内进行额外的比较。例如，如果前面的两个集合都包含显著差异，那么可以考虑子集
 <span class="math inline">\(\{\bar{y}_{(t)},\bar{y}_{(t-1)},\ldots,\bar{y}_{(3)}\},\{\bar{y}_{(t-1)},\bar{y}_{(t-2)},\ldots,\bar{y}_{(2)}\}\)</span>
 和 <span class="math inline">\(\{\bar{y}_{(t-2)},\bar{y}_{(t-2)},\ldots,\bar{y}_{(1)}\}\)</span>.
-将每个子集的极差与 <span class="math inline">\([\hat{\sigma}/√(n)]q_{\alpha,t-2,v}\)</span>
+将每个子集的极差与 <span class="math inline">\([\hat\sigma/√(n)]q_{\alpha,t-2,v}\)</span>
 进行比较。只要前一个子集具有显著的极差，则继续检查较小的均值子集。
 每次得到不显著的极差时，将所涉及的均值包括在单个组中。被分在非显著组中的均值子集以后不能被视为显著；也就是说，不应对先前分组到共同子组中的均值进行进一步检验。当所有极差检验不显著时，程序结束。被分在在同一组中的任何两个均值没有显著差异；否则，它们有显著差异。</p>
 <p>使用 <a href="chap1.html#sec1-6">1.6</a> 节中的任务数据示例对该方法进行说明，取 <span class="math inline">\(\alpha=0.05\)</span>.
@@ -1118,24 +1118,24 @@ EERC，但如果某些均值相等，而某些均值不相等，则无法控制 
 </tbody>
 </table>
 <p>第一步是对六个均值的极差进行比较，将 <span class="math inline">\(38.000-28.818=9.182\)</span> 与</p>
-<p><span class="math display">\[q_{0.05,6,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(4.16)\sqrt{\frac{30.9045}{11.23}}=6.900\]</span></p>
+<p><span class="math display">\[q_{0.05,6,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(4.16)\sqrt{\frac{30.9045}{11.23}}=6.900\]</span></p>
 <p>比较。由于 <span class="math inline">\(9.819&gt;6.90\)</span>，需调查两个含有 <span class="math inline">\(t-1=5\)</span> 个均值的子集。此时，将
 <span class="math inline">\(35.800-28.818=6.982\)</span> 和 <span class="math inline">\(38.000-29.500=8.500\)</span> 与</p>
-<p><span class="math display">\[q_{0.05,5,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.98)\sqrt{\frac{30.9045}{11.23}}=6.593\]</span></p>
+<p><span class="math display">\[q_{0.05,5,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.98)\sqrt{\frac{30.9045}{11.23}}=6.593\]</span></p>
 <p>比较。由于 <span class="math inline">\(7.619&gt;6.60,8.5&gt;6.60\)</span>，接着调查含有 <span class="math inline">\(t-2=3\)</span>
 个均值的子集，有三个这样的子集。此时，将
 <span class="math inline">\(31.923 - 28.818 = 3.105,35.800 - 29.500 = 6.300,38.0 - 31.083 = 6.917\)</span>
 与</p>
-<p><span class="math display">\[q_{0.05,4,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.74)\sqrt{\frac{30.9045}{11.23}}=6.195\]</span></p>
+<p><span class="math display">\[q_{0.05,4,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.74)\sqrt{\frac{30.9045}{11.23}}=6.195\]</span></p>
 <p>比较。由于 <span class="math inline">\(3.105&lt;6.195\)</span>，前四个均值被分为一组。由于
 <span class="math inline">\(6.300&gt;6.195,6.917&gt;6.195\)</span>，剩下的四个均值组都必须进一步细分为三个均值的组。在进行下一步之前，请考虑以下示意图，说明了当前的情况，其中直线表示前四个均值为一组，并且被认为没有差异。</p>
 <p><img src="figure/un-figure%203-1.png" /></p>
 <p>四个均值的第一个子集 {29.500, 31.083, 31.923, 35.800} 包含已组合在一起的两组三个均值，即 <span class="math inline">\(29.500–31.923\)</span> 和 <span class="math inline">\(28.818–31.083\)</span>. 因此，极差 <span class="math inline">\(31.923 - 29.500 = 2.423\)</span> 和 <span class="math inline">\(31.083 - 28.818 = 2.265\)</span> 不与临界点进行比较。仍需比较的极差是 <span class="math inline">\(35.800 - 31.083 = 4.717\)</span> 和 <span class="math inline">\(38.0 - 31.923 = 6.077\)</span>；这些必须与</p>
-<p><span class="math display">\[q_{0.05,3,62}\mathrm{~}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.40)\sqrt{\frac{30.9045}{11.23}}=5.635\]</span></p>
+<p><span class="math display">\[q_{0.05,3,62}\mathrm{~}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.40)\sqrt{\frac{30.9045}{11.23}}=5.635\]</span></p>
 <p>比较。由于 <span class="math inline">\(4.717 &lt; 5.635\)</span>，这三个均值现在被为一个组，而由于 <span class="math inline">\(6.077 &gt; 5.635\)</span>，第二组必须进一步细分为每组两个均值的组。下图说明了当前情况：</p>
 <p><img src="figure/un-figure%203-2.png" /></p>
 <p>只有一个大小为 2 的子集 {35.8, 38.0} 尚未合并到一个公共组中。将极差 <span class="math inline">\(38.0 - 35.8 = 2.2\)</span> 与</p>
-<p><span class="math display">\[q_{0.05,2,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(2.83)\sqrt{\frac{30.9045}{11.23}}=4.691\]</span></p>
+<p><span class="math display">\[q_{0.05,2,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(2.83)\sqrt{\frac{30.9045}{11.23}}=4.691\]</span></p>
 <p>比较。由于 <span class="math inline">\(2.2&lt;4.69\)</span>，最后这两个均值被分到一组。最终的示意图为：</p>
 <p><img src="figure/un-figure%203-3.png" /></p>
 <p>说明此信息的另一种方法是，如果它们出现在同一组中，则用相同的字母标记均值；如果它们出现在不同的组中，则用不同的字母标记均值。因此，任务数据均值的比较可以表示为</p>
@@ -1180,10 +1180,10 @@ EERC，但如果某些均值相等，而某些均值不相等，则无法控制 
 <p>此过程的应用类似于 Student-Newman-Keul method 的应用，不同之处在于用于比较一组 <span class="math inline">\(p\)</span> 个均值的学生化极差临界点 <span class="math inline">\(q_{\alpha,p,v}\)</span> 替换为 <span class="math inline">\(q_{\alpha_p,p,v}\)</span>，其中 <span class="math inline">\(\alpha_p=1-(1-\alpha)^{p-1}\)</span>. <span class="math inline">\(q_{\alpha_p,p,v}\)</span> 的值在附表 A.5 中给出。对于上一节中的数据，此程序应用如下：</p>
 <ol style="list-style-type: decimal">
 <li>将 <span class="math inline">\(38.000 - 28.818 = 9.182\)</span> 与
-<span class="math display">\[q_{\alpha_{6},6,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.198)\sqrt{\frac{30.9045}{11.23}}=5.303\]</span>
+<span class="math display">\[q_{\alpha_{6},6,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.198)\sqrt{\frac{30.9045}{11.23}}=5.303\]</span>
 比较，其中 <span class="math inline">\(\alpha_6=1-(1-0.05)^{6-1}=0.226\)</span>. 六个均值的极差是显著的。</li>
 <li>将 <span class="math inline">\(35.800 - 28.818 = 6.982\)</span> 和 <span class="math inline">\(38.000 - 29.500 = 8.500(3.143)(1.659) = 5.213\)</span> 与
-<span class="math display">\[q_{\alpha_5,5,62}\frac{\hat{\sigma}}{\sqrt{\tilde{n}}}=(3.143)\sqrt{\frac{30.9045}{11.23}}=5.214\]</span>
+<span class="math display">\[q_{\alpha_5,5,62}\frac{\hat\sigma}{\sqrt{\tilde{n}}}=(3.143)\sqrt{\frac{30.9045}{11.23}}=5.214\]</span>
 比较，其中 <span class="math inline">\(\alpha_5=1-(1-0.05)^{5-1}=0.186\)</span>. 两个极差都是显著的。</li>
 <li>将 <span class="math inline">\(31.923 - 28.818 = 3.105\)</span>，<span class="math inline">\(35.800 - 29.500 = 6.300\)</span> 和 <span class="math inline">\(38.000 - 31.083 = 6.917\)</span> 与 <span class="math inline">\((3.073)(1.659) = 5.098\)</span> 比较。后两个极差显著，而第一个极差不显著。此时的分组为
 <img src="figure/un-figure%203-4.png" /></li>

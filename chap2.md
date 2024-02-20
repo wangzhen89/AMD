@@ -39,7 +39,7 @@ $$\hat{\mu}_i=\sum_{j=1}^{n_i}y_{ij}/n_i=\bar{y}_{i\cdot},\quad i=1,2,\ldots,t$$
 
 和
 
-$$\hat{\sigma}_i^2=\frac{\sum_{j=1}^{n_i}(y_{ij}-\overline{y}_i)^2}{n_i-1},\quad i=1,2,\ldots,t$$
+$$\hat\sigma_i^2=\frac{\sum_{j=1}^{n_i}(y_{ij}-\overline{y}_i)^2}{n_i-1},\quad i=1,2,\ldots,t$$
 
 与参数估计相关的抽样分布为
 
@@ -47,7 +47,7 @@ $$\hat{\mu}_i\thicksim\text{independent}\,N(\mu_i,\sigma_i^2/n_i),\quad i=1,2,\l
 
 和
 
-$$\frac{\left(n_i-1\right)\hat{\sigma}_i^2}{\sigma_i^2}\thicksim\text{independent }\,\chi_{n_i-1}^2,\quad i=1,2,\ldots,t$$
+$$\frac{\left(n_i-1\right)\hat\sigma_i^2}{\sigma_i^2}\thicksim\text{independent }\,\chi_{n_i-1}^2,\quad i=1,2,\ldots,t$$
 
 这些抽样分布被用作建立方差相等性检验的基础，并在方差不相等时提供均值分析。
 
@@ -63,7 +63,7 @@ $$H_{0}\colon\,\sigma_{1}^{2}=\sigma_{2}^{2}=\cdots=\sigma_{t}^{2}\,\mathrm{~vs.
 
 所描述的第一个检验被称为 Hartley's *F*-max检验 (Hartley, 1950). 该检验要求所有样本具有相同的大小，即 $n_1 = n_2 = \cdots= n_t$. 该检验基于统计量
 
-$$F_{\max}=\frac{\max_i\{\hat{\sigma}_i^2\}}{\min_i\{\hat{\sigma}_i^2\}}$$
+$$F_{\max}=\frac{\max_i\{\hat\sigma_i^2\}}{\min_i\{\hat\sigma_i^2\}}$$
 
 [^choice_of_alpha]: 原文为: so you are going to reject the null hypothesis more often than specified by the choice of $\alpha$.
 
@@ -76,13 +76,13 @@ $$F_{\max}=\frac{\max_i\{\hat{\sigma}_i^2\}}{\min_i\{\hat{\sigma}_i^2\}}$$
 方差齐性检验的第二个检验是 (Bartlett, 1937) 提出的检验，其优点是不要求 $n_i$ 相等。Bartlett 检验统计量为
 
 \begin{equation}
-U=\frac1C{\left[v\log_\mathrm{e}(\hat{\sigma}^2)-\sum_{i=1}^tv_i\log_\mathrm{e}(\hat{\sigma}_i^2)\right]}
+U=\frac1C{\left[v\log_\mathrm{e}(\hat\sigma^2)-\sum_{i=1}^tv_i\log_\mathrm{e}(\hat\sigma_i^2)\right]}
 (#eq:2-2)
 \end{equation}
 
 其中
 
-$$v=n_i-1,\quad v=\sum_{i=1}^tv_i,\quad\hat{\sigma}^2=\sum_{i=1}^tv_i\hat{\sigma}_i^2/v $$
+$$v=n_i-1,\quad v=\sum_{i=1}^tv_i,\quad\hat\sigma^2=\sum_{i=1}^tv_i\hat\sigma_i^2/v $$
 
 且
 
@@ -103,7 +103,7 @@ Brown and Forsythe (1974)  使用 Levene 的过程，并通过对每个处理的
 O'Brien (1979) 计算了一种得分
 
 \begin{equation}
-r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat{\sigma}_i^2(n_i-1)]/[(n_i-1)(n_i-2)]
+r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat\sigma_i^2(n_i-1)]/[(n_i-1)(n_i-2)]
 (#eq:2-3)
 \end{equation}
 
@@ -151,12 +151,12 @@ $$C=1+\frac1{3\times3}{\left(\frac16+\frac15+\frac17+\frac17-\frac1{25}\right)}$
 
 且
 
-$$\hat{\sigma}^2=\frac{6(16.2857)+5(1.8667)+7(9.6964)+7(2.7860)}{25}=7.7769$$
+$$\hat\sigma^2=\frac{6(16.2857)+5(1.8667)+7(9.6964)+7(2.7860)}{25}=7.7769$$
 
 因此
 
 $$\begin{aligned}
-U& =\frac1C{\left(v\log_e\hat{\sigma}^2-\sum_{i=1}^4v_i\log_e\hat{\sigma}_i^2\right)}  \\
+U& =\frac1C{\left(v\log_e\hat\sigma^2-\sum_{i=1}^4v_i\log_e\hat\sigma_i^2\right)}  \\
 &=\frac1{1.068}[25\log_{\mathrm{e}}(7.7769)-6\log_{\mathrm{e}}(16.2857)-5\log_{\mathrm{e}}(1.8667) \\
 &-7\log_{\mathrm{e}}(9.6964)-7\log_{\mathrm{e}}(2.7860)] \\
 &=7.8111
@@ -258,44 +258,44 @@ $$\sum_{i=1}^tc_i\hat{\mu}_i\sim N{\left(\sum_{i=1}^tc_i\mu_i,\sum_{i=1}^tc_i^2\
 
 因此
 
-$$z=\frac{\sum_{i=1}^{t}c_{i}\hat{{\mu}}_{i}-\sum_{i=1}^{t}c_{i}\mu_{i}}{\sqrt{\sum_{i=1}^{t}c_{i}^{2}{\sigma}_{i}^{2}/n_{i}}}\sim N(0,1)$$
+$$z=\frac{\sum_{i=1}^{t}c_{i}\hat{{\mu}}_{i}-\sum_{i=1}^{t}c_{i}\mu_{i}}{\sqrt{\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}}}\sim N(0,1)$$
 
 当方差未知且不等时，一个明显可用于推断 $\sum_{i=1}^tc_i\mu_i$ 的统计量为
 
-$$z=\frac{\sum_{i=1}^tc_i\hat{\mu}_i-\sum_{i=1}^tc_i{\mu}_i}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}}$$
+$$z=\frac{\sum_{i=1}^tc_i\hat{\mu}_i-\sum_{i=1}^tc_i{\mu}_i}{\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}}$$
 
 如果非零 $c_i$ 对应的 $n_i$ 都非常大，则可以合理地假设 $Z$ 具有近似 $N(0,1)$ 分布，因此 $Z$ 可以用于推断 $\sum_{i=1}^tc_i\mu_i$. 此时 $\sum_{i=1}^tc_i\mu_i$ 的近似 $(1 - \alpha)100\%$ 置信区间由下式提供：
 
-$$\sum_{i=1}^tc_i\hat{\mu}_i\pm z_{\alpha/2}\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}$$
+$$\sum_{i=1}^tc_i\hat{\mu}_i\pm z_{\alpha/2}\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}$$
 
 如果$|z| > z_{\alpha/2}$，则在显著性水平 $\alpha$ 处拒绝 $H_0$.
 
 在其他情况下，注意 $z$ 可以写为
 
-$$z=\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i\mu_i\right)\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}{\sqrt{\sum_{i=1}^tc_i^2\hat{{\sigma}}_i^2/n_i}\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}$$
+$$z=\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i\mu_i\right)\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}$$
 
 $z$ 的分子具有标准正态分布，$z$ 的分子和分母独立。$z$ 的分布可以近似为 $t(v)$ 分布，如果 $v$ 的值可以使得
 
-$$V=v\times\frac{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2\big/n_i}{\sum_{i=1}^tc_i^2\sigma_i^2\big/n_i}$$
+$$V=v\times\frac{\sum_{i=1}^tc_i^2\hat\sigma_i^2\big/n_i}{\sum_{i=1}^tc_i^2\sigma_i^2\big/n_i}$$
 
 近似服从 $\chi^2(v)$. 为了在方差不等时得到 $V$ 的分布的良好卡方近似，选择具有与 $V$ 相同的前两阶矩的卡方分布。也就是说，为了在方差不等的情况下找到 $v$，求出 $v$ 使得 $V$ 的矩等于 $\chi^2(v)$ 分布的前两阶矩（这就是所谓的 Satterthwaite's method ）。这导致自由度为：
 
-$${v}=\frac{\left(\sum_{i=1}^tc_i^2{\sigma}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]}$$
+$${v}=\frac{\left(\sum_{i=1}^tc_i^2\sigma_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]}$$
 
 不幸的是，由于 $v$ 取决于 $\sigma_1^2,\sigma_2^2,\ldots,\sigma_t^2$，因此无法精确确定。通常的程序是通过下式来估计 $v$：
 
 \begin{equation}
-\hat{{v}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\boldsymbol{\sigma}}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\hat{{\sigma}}_i^4/n_i^2(n_i-1)\right]}
+\hat{{v}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\boldsymbol\sigma}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\hat{\sigma}_i^4/n_i^2(n_i-1)\right]}
 (#eq:2-4)
 \end{equation}
 
 综上所述，拒绝 $H_0\colon\sum_{i=1}^tc_i\mu_i=a\,\mathrm{~vs.~}H_a{:}\sum_{i=1}^tc_i\mu_i\neq a$，如果
 
-$$\left|t_c\right|=\frac{\left|\sum_{i=1}^tc_i\hat{\mu}_i-a\right|}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}}>t_{\alpha/2,\hat{v}}$$
+$$\left|t_c\right|=\frac{\left|\sum_{i=1}^tc_i\hat{\mu}_i-a\right|}{\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}}>t_{\alpha/2,\hat{v}}$$
 
 其中 $\hat v$ 由式 \@ref(eq:2-4) 确定。$\sum_{i=1}^tc_i\mu_i$ 近似 $(1 - \alpha)100\%$ 置信区间由下式给出
 
-$$\sum_{i=1}^tc_i\hat{\mu}_i\pm t_{\alpha/2,\hat{v}}\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}$$
+$$\sum_{i=1}^tc_i\hat{\mu}_i\pm t_{\alpha/2,\hat{v}}\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}$$
 
 不幸的是，每当人们想要检验一个新的假设或构造另一个置信区间时，自由度 $\hat v$ 必须重新估计。可以证明 $n_*-1\leq\hat{v}\leq t(n^*-1)$ 其中 $n_*=\min\{n_1,n_2,\ldots,n_t\}$ 且 $n^*=\max\{n_1,n_2,\ldots,n_t\}$. 因此，如果 $|t_c|>t_{\alpha/2,n_*-1}$，则可以保证 $|t_c|>t_{\alpha/2,\hat{v}}$；如果 $|t_c|<t_{\alpha/2,t(n^*-1)}$，则可以保证 $|t_c|<t_{\alpha/2,\hat{v}}$. 此时我们可以避免计算 $\hat v$. 当 $t_{\alpha/2,t(n^*-1)}<|\left.t_c\right|<t_{\alpha/2,n^*-1}$，为了确定是否应该拒绝或不拒绝被检验的零假设，必须计算 $\hat v$ 的值。为了获取置信区间，通常需要计算 $\hat v$. 接下来，用药物误差的示例来证明前面的结果。
 
@@ -318,15 +318,15 @@ $$\hat{l}_1=\hat{\mu}_1-\frac{\hat{\mu}_2+\hat{\mu}_3+\hat{\mu}_4}3=4.571-\frac1
  $\hat l_1$ 相应的标准误估计为
 
 $$\begin{aligned}
-s.e.(\hat{l}_1)& =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}  \\
-&=\sqrt{\frac{\hat{\sigma}_1^2}7+\frac19{\left(\frac{\hat{\sigma}_2^2}6\right)}+\frac19{\left(\frac{\hat{\sigma}_3^2}8\right)}+\frac19{\left(\frac{\hat{\sigma}_4^2}8\right)}}\\
+s.e.(\hat{l}_1)& =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat\sigma_i^2}{n_i}\right)}  \\
+&=\sqrt{\frac{\hat\sigma_1^2}7+\frac19{\left(\frac{\hat\sigma_2^2}6\right)}+\frac19{\left(\frac{\hat\sigma_3^2}8\right)}+\frac19{\left(\frac{\hat\sigma_4^2}8\right)}}\\
 &=\sqrt{2.535}\\
 &=1.592
 \end{aligned}$$
 
 与此标准误估计相关的近似自由度通过使用
 
-$$\sum_{i=1}^4\frac{c_i^4\hat{\sigma}_i^4}{n_i^2(n_i-1)}=0.9052$$
+$$\sum_{i=1}^4\frac{c_i^4\hat\sigma_i^4}{n_i^2(n_i-1)}=0.9052$$
 
 使得
 
@@ -353,8 +353,8 @@ $$\hat l_2=\hat{\mu}_4-\frac{\hat{\mu}_2+\hat{\mu}_3}2=3.6042$$
 其估计标准误为
 
 $$\begin{aligned}
-\widehat{s.e.}(\hat{l}_{2})& =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}  \\
-&=\sqrt{\frac14\!\left(\frac{\hat{\sigma}_2^2}6\right)+\frac14\!\left(\frac{\hat{\sigma}_3^2}8\right)+\left(\frac{\hat{\sigma}_4^2}8\right)}\\
+\widehat{s.e.}(\hat{l}_{2})& =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat\sigma_i^2}{n_i}\right)}  \\
+&=\sqrt{\frac14\!\left(\frac{\hat\sigma_2^2}6\right)+\frac14\!\left(\frac{\hat\sigma_3^2}8\right)+\left(\frac{\hat\sigma_4^2}8\right)}\\
 &=\sqrt{0.7290}\\
 &=0.8538
 \end{aligned}$$
@@ -363,11 +363,11 @@ $$\begin{aligned}
 
 最后，为了检验假设以查看两种药物的均值是否不同，检验 $H_0{:}\,l_3 = \mu_2 - \mu_3 = 0 \,\mathrm{~vs.~} H_a{:}\,l_3 = \mu_2 - \mu_3 \ne 0$. 该线性组合的估计值为 $\hat l_3 = \hat\mu_2 - \hat\mu_3=3.042$，其标准误估计为
 
-$$\widehat{s.e.}(\hat{l}_3)=\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}=\sqrt{\left(\frac{\hat{\sigma}_2^2}{6}\right)+\left(\frac{\hat{\sigma}_3^2}8\right)}=\sqrt{1.523}=1.234$$
+$$\widehat{s.e.}(\hat{l}_3)=\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat\sigma_i^2}{n_i}\right)}=\sqrt{\left(\frac{\hat\sigma_2^2}{6}\right)+\left(\frac{\hat\sigma_3^2}8\right)}=\sqrt{1.523}=1.234$$
 
 近似自由度的计算通过使用：
 
-$$\sum_{i=1}^4\frac{c_i^4\hat{\sigma}_i^4}{n_i^2(n_i-1)}=0.229$$
+$$\sum_{i=1}^4\frac{c_i^4\hat\sigma_i^4}{n_i^2(n_i-1)}=0.229$$
 
 使得
 
@@ -389,9 +389,9 @@ $$q_{i}=\frac{\partial E[(s.e.(\hat{l})]^{2}}{\partial\sigma_{i}^{2}},\quad i=1,
 
 根据各处理方差的估计值评估 $q_i$ (Montgomery and Runger, 1993, 1994). 当每个样本的数据呈正态分布时，则
 
-$$\frac{(n_i-1)\hat{\sigma}_i^2}{\sigma_i^2}$$
+$$\frac{(n_i-1)\hat\sigma_i^2}{\sigma_i^2}$$
 
-为中心卡方随机变量。因此 $E(\hat{\sigma}_i^2)=\sigma_i^2$ 且 $\operatorname{Var}(\hat{\sigma}_i^2)=2\sigma_i^4/(n_i-1)$. 令感兴趣的线性组合为 $l=\sum_{i=1}^{t}c_{i}\mu_{i}$，其方差为 $\sigma_{l}^{2}=\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}$，则 $\sigma_{l}^{2}$ 关于 $\hat \sigma_{i}^{2}$ 的偏导数为
+为中心卡方随机变量。因此 $E(\hat\sigma_i^2)=\sigma_i^2$ 且 $\operatorname{Var}(\hat\sigma_i^2)=2\sigma_i^4/(n_i-1)$. 令感兴趣的线性组合为 $l=\sum_{i=1}^{t}c_{i}\mu_{i}$，其方差为 $\sigma_{l}^{2}=\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}$，则 $\sigma_{l}^{2}$ 关于 $\hat \sigma_{i}^{2}$ 的偏导数为
 
 $$\frac{\partial\sigma_l^2}{\partial\sigma_i^2}=\frac{c_i^2}{n_i}$$
 
@@ -401,13 +401,13 @@ $$\mathrm{Var}(\sigma_l^2)=\sum_{i=1}^t\left[\left[\frac{c_i^2}{n_i}\right]^2\le
 
 下一步是用提供近似自由度的相应样本估计值替换总体方差
 
-$$\hat{v}=\frac{2*\left(E\{[\widehat{s.e.}(\hat{l})]^2\}\right)^2}{\mathrm{Var}\{[\widehat{s.e.}(\hat{l})]^2\}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\sigma}_i^2\right)^2}{\sum_{i=1}^tc_i^4\hat{\sigma}_i^4/[n_i^2(n_i-1)]}$$
+$$\hat{v}=\frac{2*\left(E\{[\widehat{s.e.}(\hat{l})]^2\}\right)^2}{\mathrm{Var}\{[\widehat{s.e.}(\hat{l})]^2\}}=\frac{\left(\sum_{i=1}^tc_i^2\hat\sigma_i^2\right)^2}{\sum_{i=1}^tc_i^4\hat\sigma_i^4/[n_i^2(n_i-1)]}$$
 
 与上述 Satterthwaite 近似相同。
 
 ## 比较所有均值 {#sec2-8}
 
-如前所述，当方差不等时，通常的 $F$ 检验非常稳健，前提是样本量几乎相等，或者假设较大的样本量对应于方差差异较大的总体样本。本节提供了两个等均值假设的附加检验。等均值假设的第一个检验 $H_{0}\colon\,\mu_{1}=\mu_{2}=\cdots=\mu_{t}\,\mathrm{~vs.~}H_{a}\colon\,(\operatorname{not}H_{0}{:})$ ，由 Welch (1951) 给出，称为 Welch's test。定义权重 $W_{i}=n_{i}/\hat{\sigma}_{i}^{2}$，令 $\bar{y}^{*}=\sum_{i=1}^{t}W_{i}\bar{y}_{i\cdot}\big/\sum_{i=1}^{t}W_{i}$ 为样本均值的加权平均值，令
+如前所述，当方差不等时，通常的 $F$ 检验非常稳健，前提是样本量几乎相等，或者假设较大的样本量对应于方差差异较大的总体样本。本节提供了两个等均值假设的附加检验。等均值假设的第一个检验 $H_{0}\colon\,\mu_{1}=\mu_{2}=\cdots=\mu_{t}\,\mathrm{~vs.~}H_{a}\colon\,(\operatorname{not}H_{0}{:})$ ，由 Welch (1951) 给出，称为 Welch's test。定义权重 $W_{i}=n_{i}/\hat\sigma_{i}^{2}$，令 $\bar{y}^{*}=\sum_{i=1}^{t}W_{i}\bar{y}_{i\cdot}\big/\sum_{i=1}^{t}W_{i}$ 为样本均值的加权平均值，令
 
 $$\Lambda=\sum_{i=1}^{t}\frac{(1-W_{i}/W_{\cdot})^{2}}{n_{i}-1}$$
 

@@ -308,11 +308,11 @@ y_{ij}=\mu_{i}+\varepsilon_{ij}\quad\mathrm{for}\quad i=1,2,\ldots,t,\,j=1,2,\ld
 <p>模型中参数的最佳估计值：</p>
 <p><span class="math display">\[\hat{\mu}_i=\sum_{j=1}^{n_i}y_{ij}/n_i=\bar{y}_{i\cdot},\quad i=1,2,\ldots,t\]</span></p>
 <p>和</p>
-<p><span class="math display">\[\hat{\sigma}_i^2=\frac{\sum_{j=1}^{n_i}(y_{ij}-\overline{y}_i)^2}{n_i-1},\quad i=1,2,\ldots,t\]</span></p>
+<p><span class="math display">\[\hat\sigma_i^2=\frac{\sum_{j=1}^{n_i}(y_{ij}-\overline{y}_i)^2}{n_i-1},\quad i=1,2,\ldots,t\]</span></p>
 <p>与参数估计相关的抽样分布为</p>
 <p><span class="math display">\[\hat{\mu}_i\thicksim\text{independent}\,N(\mu_i,\sigma_i^2/n_i),\quad i=1,2,\ldots,t\]</span></p>
 <p>和</p>
-<p><span class="math display">\[\frac{\left(n_i-1\right)\hat{\sigma}_i^2}{\sigma_i^2}\thicksim\text{independent }\,\chi_{n_i-1}^2,\quad i=1,2,\ldots,t\]</span></p>
+<p><span class="math display">\[\frac{\left(n_i-1\right)\hat\sigma_i^2}{\sigma_i^2}\thicksim\text{independent }\,\chi_{n_i-1}^2,\quad i=1,2,\ldots,t\]</span></p>
 <p>这些抽样分布被用作建立方差相等性检验的基础，并在方差不相等时提供均值分析。</p>
 </div>
 <div id="sec2-3" class="section level2 hasAnchor" number="2.3">
@@ -323,18 +323,18 @@ y_{ij}=\mu_{i}+\varepsilon_{ij}\quad\mathrm{for}\quad i=1,2,\ldots,t,\,j=1,2,\ld
 <div id="sec2-3-1" class="section level3 hasAnchor" number="2.3.1">
 <h3><span class="header-section-number">2.3.1</span> Hartley’s <em>F</em>-Max Test<a href="chap2.html#sec2-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>所描述的第一个检验被称为 Hartley’s <em>F</em>-max检验 (Hartley, 1950). 该检验要求所有样本具有相同的大小，即 <span class="math inline">\(n_1 = n_2 = \cdots= n_t\)</span>. 该检验基于统计量</p>
-<p><span class="math display">\[F_{\max}=\frac{\max_i\{\hat{\sigma}_i^2\}}{\min_i\{\hat{\sigma}_i^2\}}\]</span></p>
+<p><span class="math display">\[F_{\max}=\frac{\max_i\{\hat\sigma_i^2\}}{\min_i\{\hat\sigma_i^2\}}\]</span></p>
 <p>附表 A.1 提供了 <span class="math inline">\(\alpha = 0.05\)</span> 和 <span class="math inline">\(0.01\)</span> 时 <span class="math inline">\(F_{\max}\)</span> 的百分位点。若 <span class="math inline">\(F_{\max} &gt; F_{\max,\alpha,v,k}\)</span>，其中 <span class="math inline">\(v = n - 1\)</span> 为与 <span class="math inline">\(k\)</span> 个处理方差中的每一个相关的自由度，则拒绝零假设 <span class="math inline">\(H_0\)</span>. 如果 <span class="math inline">\(n_i\)</span> 不都相等，则可以通过取 <span class="math inline">\(n=\max_i\{n_i\}-1\)</span> 来获得 <span class="math inline">\(H_0\,\mathrm{~vs.~} H_a\)</span> 的“自由” (liberal)检验。这个检验是自由的，因为它假设所有处理都有相同的（最大）样本量，所以你会比选定的显著性水平 <span class="math inline">\(\alpha\)</span> 更频繁地拒绝零假设<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>。当样本量相差不大<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>时，此程序提供了合理的检验。它还可以防止人们进行通常的方差分析，即使方差分析不合适的可能性极小。{#sec2-4} 节中有一个说明该检验使用的示例。</p>
 </div>
 <div id="sec2-3-2" class="section level3 hasAnchor" number="2.3.2">
 <h3><span class="header-section-number">2.3.2</span> Bartlett’s Test<a href="chap2.html#sec2-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>方差齐性检验的第二个检验是 (Bartlett, 1937) 提出的检验，其优点是不要求 <span class="math inline">\(n_i\)</span> 相等。Bartlett 检验统计量为</p>
 <p><span class="math display" id="eq:2-2">\[\begin{equation}
-U=\frac1C{\left[v\log_\mathrm{e}(\hat{\sigma}^2)-\sum_{i=1}^tv_i\log_\mathrm{e}(\hat{\sigma}_i^2)\right]}
+U=\frac1C{\left[v\log_\mathrm{e}(\hat\sigma^2)-\sum_{i=1}^tv_i\log_\mathrm{e}(\hat\sigma_i^2)\right]}
 \tag{2.2}
 \end{equation}\]</span></p>
 <p>其中</p>
-<p><span class="math display">\[v=n_i-1,\quad v=\sum_{i=1}^tv_i,\quad\hat{\sigma}^2=\sum_{i=1}^tv_i\hat{\sigma}_i^2/v \]</span></p>
+<p><span class="math display">\[v=n_i-1,\quad v=\sum_{i=1}^tv_i,\quad\hat\sigma^2=\sum_{i=1}^tv_i\hat\sigma_i^2/v \]</span></p>
 <p>且</p>
 <p><span class="math display">\[C=1+\frac1{3(t-1)}{\left[\sum_{i=1}^t\frac1{v_i}-\frac1v\right]}\]</span></p>
 <p>如果 <span class="math inline">\(U&gt;\chi_{\alpha,t-1}^2\)</span>，则拒绝等方差假设。方差齐性的前两个检验的缺点之一是它们对偏离正态性以及偏离等方差假设非常敏感。</p>
@@ -351,7 +351,7 @@ U=\frac1C{\left[v\log_\mathrm{e}(\hat{\sigma}^2)-\sum_{i=1}^tv_i\log_\mathrm{e}(
 <h3><span class="header-section-number">2.3.5</span> O’Brien’s Test<a href="chap2.html#sec2-3-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>O’Brien (1979) 计算了一种得分</p>
 <p><span class="math display" id="eq:2-3">\[\begin{equation}
-r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat{\sigma}_i^2(n_i-1)]/[(n_i-1)(n_i-2)]
+r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat\sigma_i^2(n_i-1)]/[(n_i-1)(n_i-2)]
 \tag{2.3}
 \end{equation}\]</span></p>
 <p>其中 <span class="math inline">\(w\)</span> 为权重参数。该程序是对计算出的得分进行方差分析。当 <span class="math inline">\(w=0.5\)</span> 时，得分的均值是样本方差 <span class="math inline">\(\hat \sigma^2_i\)</span>，因此得分均值的比较是数据方差的比较。</p>
@@ -395,10 +395,10 @@ x
 <p>Bartlett’s test 的计算为：</p>
 <p><span class="math display">\[C=1+\frac1{3\times3}{\left(\frac16+\frac15+\frac17+\frac17-\frac1{25}\right)}\]</span></p>
 <p>且</p>
-<p><span class="math display">\[\hat{\sigma}^2=\frac{6(16.2857)+5(1.8667)+7(9.6964)+7(2.7860)}{25}=7.7769\]</span></p>
+<p><span class="math display">\[\hat\sigma^2=\frac{6(16.2857)+5(1.8667)+7(9.6964)+7(2.7860)}{25}=7.7769\]</span></p>
 <p>因此</p>
 <p><span class="math display">\[\begin{aligned}
-U&amp; =\frac1C{\left(v\log_e\hat{\sigma}^2-\sum_{i=1}^4v_i\log_e\hat{\sigma}_i^2\right)}  \\
+U&amp; =\frac1C{\left(v\log_e\hat\sigma^2-\sum_{i=1}^4v_i\log_e\hat\sigma_i^2\right)}  \\
 &amp;=\frac1{1.068}[25\log_{\mathrm{e}}(7.7769)-6\log_{\mathrm{e}}(16.2857)-5\log_{\mathrm{e}}(1.8667) \\
 &amp;-7\log_{\mathrm{e}}(9.6964)-7\log_{\mathrm{e}}(2.7860)] \\
 &amp;=7.8111
@@ -511,27 +511,27 @@ x
 <p><span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的最佳估计为 <span class="math inline">\(\sum_{i=1}^tc_i\hat \mu_i\)</span>，其抽样分布为</p>
 <p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\sim N{\left(\sum_{i=1}^tc_i\mu_i,\sum_{i=1}^tc_i^2\sigma_i^2/n_i\right)}\]</span></p>
 <p>因此</p>
-<p><span class="math display">\[z=\frac{\sum_{i=1}^{t}c_{i}\hat{{\mu}}_{i}-\sum_{i=1}^{t}c_{i}\mu_{i}}{\sqrt{\sum_{i=1}^{t}c_{i}^{2}{\sigma}_{i}^{2}/n_{i}}}\sim N(0,1)\]</span></p>
+<p><span class="math display">\[z=\frac{\sum_{i=1}^{t}c_{i}\hat{{\mu}}_{i}-\sum_{i=1}^{t}c_{i}\mu_{i}}{\sqrt{\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}}}\sim N(0,1)\]</span></p>
 <p>当方差未知且不等时，一个明显可用于推断 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的统计量为</p>
-<p><span class="math display">\[z=\frac{\sum_{i=1}^tc_i\hat{\mu}_i-\sum_{i=1}^tc_i{\mu}_i}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}}\]</span></p>
+<p><span class="math display">\[z=\frac{\sum_{i=1}^tc_i\hat{\mu}_i-\sum_{i=1}^tc_i{\mu}_i}{\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}}\]</span></p>
 <p>如果非零 <span class="math inline">\(c_i\)</span> 对应的 <span class="math inline">\(n_i\)</span> 都非常大，则可以合理地假设 <span class="math inline">\(Z\)</span> 具有近似 <span class="math inline">\(N(0,1)\)</span> 分布，因此 <span class="math inline">\(Z\)</span> 可以用于推断 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span>. 此时 <span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 的近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式提供：</p>
-<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\pm z_{\alpha/2}\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\pm z_{\alpha/2}\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}\]</span></p>
 <p>如果<span class="math inline">\(|z| &gt; z_{\alpha/2}\)</span>，则在显著性水平 <span class="math inline">\(\alpha\)</span> 处拒绝 <span class="math inline">\(H_0\)</span>.</p>
 <p>在其他情况下，注意 <span class="math inline">\(z\)</span> 可以写为</p>
-<p><span class="math display">\[z=\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i\mu_i\right)\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}{\sqrt{\sum_{i=1}^tc_i^2\hat{{\sigma}}_i^2/n_i}\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}\]</span></p>
+<p><span class="math display">\[z=\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i\mu_i\right)\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}\Big/\sqrt{\sum_{i=1}^tc_i^2\sigma_i^2/n_i}}\]</span></p>
 <p><span class="math inline">\(z\)</span> 的分子具有标准正态分布，<span class="math inline">\(z\)</span> 的分子和分母独立。<span class="math inline">\(z\)</span> 的分布可以近似为 <span class="math inline">\(t(v)\)</span> 分布，如果 <span class="math inline">\(v\)</span> 的值可以使得</p>
-<p><span class="math display">\[V=v\times\frac{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2\big/n_i}{\sum_{i=1}^tc_i^2\sigma_i^2\big/n_i}\]</span></p>
+<p><span class="math display">\[V=v\times\frac{\sum_{i=1}^tc_i^2\hat\sigma_i^2\big/n_i}{\sum_{i=1}^tc_i^2\sigma_i^2\big/n_i}\]</span></p>
 <p>近似服从 <span class="math inline">\(\chi^2(v)\)</span>. 为了在方差不等时得到 <span class="math inline">\(V\)</span> 的分布的良好卡方近似，选择具有与 <span class="math inline">\(V\)</span> 相同的前两阶矩的卡方分布。也就是说，为了在方差不等的情况下找到 <span class="math inline">\(v\)</span>，求出 <span class="math inline">\(v\)</span> 使得 <span class="math inline">\(V\)</span> 的矩等于 <span class="math inline">\(\chi^2(v)\)</span> 分布的前两阶矩（这就是所谓的 Satterthwaite’s method ）。这导致自由度为：</p>
-<p><span class="math display">\[{v}=\frac{\left(\sum_{i=1}^tc_i^2{\sigma}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]}\]</span></p>
+<p><span class="math display">\[{v}=\frac{\left(\sum_{i=1}^tc_i^2\sigma_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]}\]</span></p>
 <p>不幸的是，由于 <span class="math inline">\(v\)</span> 取决于 <span class="math inline">\(\sigma_1^2,\sigma_2^2,\ldots,\sigma_t^2\)</span>，因此无法精确确定。通常的程序是通过下式来估计 <span class="math inline">\(v\)</span>：</p>
 <p><span class="math display" id="eq:2-4">\[\begin{equation}
-\hat{{v}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\boldsymbol{\sigma}}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\hat{{\sigma}}_i^4/n_i^2(n_i-1)\right]}
+\hat{{v}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\boldsymbol\sigma}_i^2/n_i\right)^2}{\sum_{i=1}^t\left[c_i^4\hat{\sigma}_i^4/n_i^2(n_i-1)\right]}
 \tag{2.4}
 \end{equation}\]</span></p>
 <p>综上所述，拒绝 <span class="math inline">\(H_0\colon\sum_{i=1}^tc_i\mu_i=a\,\mathrm{~vs.~}H_a{:}\sum_{i=1}^tc_i\mu_i\neq a\)</span>，如果</p>
-<p><span class="math display">\[\left|t_c\right|=\frac{\left|\sum_{i=1}^tc_i\hat{\mu}_i-a\right|}{\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}}&gt;t_{\alpha/2,\hat{v}}\]</span></p>
+<p><span class="math display">\[\left|t_c\right|=\frac{\left|\sum_{i=1}^tc_i\hat{\mu}_i-a\right|}{\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}}&gt;t_{\alpha/2,\hat{v}}\]</span></p>
 <p>其中 <span class="math inline">\(\hat v\)</span> 由式 <a href="chap2.html#eq:2-4">(2.4)</a> 确定。<span class="math inline">\(\sum_{i=1}^tc_i\mu_i\)</span> 近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式给出</p>
-<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\pm t_{\alpha/2,\hat{v}}\sqrt{\sum_{i=1}^tc_i^2\hat{\sigma}_i^2/n_i}\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^tc_i\hat{\mu}_i\pm t_{\alpha/2,\hat{v}}\sqrt{\sum_{i=1}^tc_i^2\hat\sigma_i^2/n_i}\]</span></p>
 <p>不幸的是，每当人们想要检验一个新的假设或构造另一个置信区间时，自由度 <span class="math inline">\(\hat v\)</span> 必须重新估计。可以证明 <span class="math inline">\(n_*-1\leq\hat{v}\leq t(n^*-1)\)</span> 其中 <span class="math inline">\(n_*=\min\{n_1,n_2,\ldots,n_t\}\)</span> 且 <span class="math inline">\(n^*=\max\{n_1,n_2,\ldots,n_t\}\)</span>. 因此，如果 <span class="math inline">\(|t_c|&gt;t_{\alpha/2,n_*-1}\)</span>，则可以保证 <span class="math inline">\(|t_c|&gt;t_{\alpha/2,\hat{v}}\)</span>；如果 <span class="math inline">\(|t_c|&lt;t_{\alpha/2,t(n^*-1)}\)</span>，则可以保证 <span class="math inline">\(|t_c|&lt;t_{\alpha/2,\hat{v}}\)</span>. 此时我们可以避免计算 <span class="math inline">\(\hat v\)</span>. 当 <span class="math inline">\(t_{\alpha/2,t(n^*-1)}&lt;|\left.t_c\right|&lt;t_{\alpha/2,n^*-1}\)</span>，为了确定是否应该拒绝或不拒绝被检验的零假设，必须计算 <span class="math inline">\(\hat v\)</span> 的值。为了获取置信区间，通常需要计算 <span class="math inline">\(\hat v\)</span>. 接下来，用药物误差的示例来证明前面的结果。</p>
 </div>
 <div id="sec2-6" class="section level2 hasAnchor" number="2.6">
@@ -548,13 +548,13 @@ x
 <p><span class="math display">\[\hat{l}_1=\hat{\mu}_1-\frac{\hat{\mu}_2+\hat{\mu}_3+\hat{\mu}_4}3=4.571-\frac13(34.042)=-6.776\]</span></p>
 <p><span class="math inline">\(\hat l_1\)</span> 相应的标准误估计为</p>
 <p><span class="math display">\[\begin{aligned}
-s.e.(\hat{l}_1)&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}  \\
-&amp;=\sqrt{\frac{\hat{\sigma}_1^2}7+\frac19{\left(\frac{\hat{\sigma}_2^2}6\right)}+\frac19{\left(\frac{\hat{\sigma}_3^2}8\right)}+\frac19{\left(\frac{\hat{\sigma}_4^2}8\right)}}\\
+s.e.(\hat{l}_1)&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat\sigma_i^2}{n_i}\right)}  \\
+&amp;=\sqrt{\frac{\hat\sigma_1^2}7+\frac19{\left(\frac{\hat\sigma_2^2}6\right)}+\frac19{\left(\frac{\hat\sigma_3^2}8\right)}+\frac19{\left(\frac{\hat\sigma_4^2}8\right)}}\\
 &amp;=\sqrt{2.535}\\
 &amp;=1.592
 \end{aligned}\]</span></p>
 <p>与此标准误估计相关的近似自由度通过使用</p>
-<p><span class="math display">\[\sum_{i=1}^4\frac{c_i^4\hat{\sigma}_i^4}{n_i^2(n_i-1)}=0.9052\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^4\frac{c_i^4\hat\sigma_i^4}{n_i^2(n_i-1)}=0.9052\]</span></p>
 <p>使得</p>
 <p><span class="math display">\[\hat{v}=\frac{(2.535)^2}{0.9052}=7.10\]</span></p>
 <p>检验统计量的值为 <span class="math inline">\(t_c=-6.776/1.992=-4.256\)</span>，观察到的显著性水平为 <span class="math inline">\(\hat \alpha= 0.0038\)</span>.</p>
@@ -568,16 +568,16 @@ s.e.(\hat{l}_1)&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\
 <p><span class="math display">\[\hat l_2=\hat{\mu}_4-\frac{\hat{\mu}_2+\hat{\mu}_3}2=3.6042\]</span></p>
 <p>其估计标准误为</p>
 <p><span class="math display">\[\begin{aligned}
-\widehat{s.e.}(\hat{l}_{2})&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}  \\
-&amp;=\sqrt{\frac14\!\left(\frac{\hat{\sigma}_2^2}6\right)+\frac14\!\left(\frac{\hat{\sigma}_3^2}8\right)+\left(\frac{\hat{\sigma}_4^2}8\right)}\\
+\widehat{s.e.}(\hat{l}_{2})&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat\sigma_i^2}{n_i}\right)}  \\
+&amp;=\sqrt{\frac14\!\left(\frac{\hat\sigma_2^2}6\right)+\frac14\!\left(\frac{\hat\sigma_3^2}8\right)+\left(\frac{\hat\sigma_4^2}8\right)}\\
 &amp;=\sqrt{0.7290}\\
 &amp;=0.8538
 \end{aligned}\]</span></p>
 <p>检验统计量的值为 <span class="math inline">\(t_c = 3.6042/0.8538 = 4.221\)</span>，因为 <span class="math inline">\(|t_c|&gt;t_{0.005,5}\)</span> 它在 <span class="math inline">\(\alpha=0.01\)</span> 水平下显著。此时 <span class="math inline">\(\hat v\)</span> 的值不需要用 <span class="math inline">\(n_ *-1\)</span> 作为近似自由度来计算，计算出的 <span class="math inline">\(\hat v\)</span> 的值为 <span class="math inline">\(16.8\)</span> ，这是构造 <span class="math inline">\(l_2\)</span> 置信区间所需要的</p>
 <p>最后，为了检验假设以查看两种药物的均值是否不同，检验 <span class="math inline">\(H_0{:}\,l_3 = \mu_2 - \mu_3 = 0 \,\mathrm{~vs.~} H_a{:}\,l_3 = \mu_2 - \mu_3 \ne 0\)</span>. 该线性组合的估计值为 <span class="math inline">\(\hat l_3 = \hat\mu_2 - \hat\mu_3=3.042\)</span>，其标准误估计为</p>
-<p><span class="math display">\[\widehat{s.e.}(\hat{l}_3)=\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\right)}=\sqrt{\left(\frac{\hat{\sigma}_2^2}{6}\right)+\left(\frac{\hat{\sigma}_3^2}8\right)}=\sqrt{1.523}=1.234\]</span></p>
+<p><span class="math display">\[\widehat{s.e.}(\hat{l}_3)=\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat\sigma_i^2}{n_i}\right)}=\sqrt{\left(\frac{\hat\sigma_2^2}{6}\right)+\left(\frac{\hat\sigma_3^2}8\right)}=\sqrt{1.523}=1.234\]</span></p>
 <p>近似自由度的计算通过使用：</p>
-<p><span class="math display">\[\sum_{i=1}^4\frac{c_i^4\hat{\sigma}_i^4}{n_i^2(n_i-1)}=0.229\]</span></p>
+<p><span class="math display">\[\sum_{i=1}^4\frac{c_i^4\hat\sigma_i^4}{n_i^2(n_i-1)}=0.229\]</span></p>
 <p>使得</p>
 <p><span class="math display">\[\hat{v}=\frac{(1.523)^2}{0.229}=10.1\]</span></p>
 <p>因此，<span class="math inline">\(t_c = 3.042/1.234 = 2.465\)</span>，观察到的显著性水平为 <span class="math inline">\(\hat\alpha = 0.0334\)</span>.</p>
@@ -589,18 +589,18 @@ s.e.(\hat{l}_1)&amp; =\sqrt{\sum_{i=1}^4\left(\frac{c_i^2\hat{\sigma}_i^2}{n_i}\
 <p>其中 <span class="math inline">\([\widehat{s.e.}(\widehat{l})]^2\)</span> 用于估计 <span class="math inline">\(E[s.e.(\hat{l})]^2\)</span>，且 <span class="math inline">\(\mathrm{Var}[\widehat{s.e.}(\hat{l})]^2\)</span> 的值由 <span class="math inline">\(\sum_{i=1}^t\left[c_i^4\sigma_i^4/n_i^2(n_i-1)\right]\)</span> 估计。对于更复杂的模型，<span class="math inline">\(\mathrm{Var}[\widehat{s.e.}(\widehat{l})]^2\)</span> 可以通过使用一阶泰勒级数 (Kendall and Stuart, 1952) 近似为 <span class="math inline">\(\boldsymbol q&#39;\boldsymbol M \boldsymbol q\)</span>，其中 <span class="math inline">\(\boldsymbol M\)</span> 是方差估计的渐近协方差矩阵估计，向量 <span class="math inline">\(\boldsymbol q\)</span> 的元素是 <span class="math inline">\(E[s.e.(\hat{l})]^2\)</span> 关于单个方差的一阶导数，即<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
 <p><span class="math display">\[q_{i}=\frac{\partial E[(s.e.(\hat{l})]^{2}}{\partial\sigma_{i}^{2}},\quad i=1,2,\ldots,t\]</span></p>
 <p>根据各处理方差的估计值评估 <span class="math inline">\(q_i\)</span> (Montgomery and Runger, 1993, 1994). 当每个样本的数据呈正态分布时，则</p>
-<p><span class="math display">\[\frac{(n_i-1)\hat{\sigma}_i^2}{\sigma_i^2}\]</span></p>
-<p>为中心卡方随机变量。因此 <span class="math inline">\(E(\hat{\sigma}_i^2)=\sigma_i^2\)</span> 且 <span class="math inline">\(\operatorname{Var}(\hat{\sigma}_i^2)=2\sigma_i^4/(n_i-1)\)</span>. 令感兴趣的线性组合为 <span class="math inline">\(l=\sum_{i=1}^{t}c_{i}\mu_{i}\)</span>，其方差为 <span class="math inline">\(\sigma_{l}^{2}=\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}\)</span>，则 <span class="math inline">\(\sigma_{l}^{2}\)</span> 关于 <span class="math inline">\(\hat \sigma_{i}^{2}\)</span> 的偏导数为</p>
+<p><span class="math display">\[\frac{(n_i-1)\hat\sigma_i^2}{\sigma_i^2}\]</span></p>
+<p>为中心卡方随机变量。因此 <span class="math inline">\(E(\hat\sigma_i^2)=\sigma_i^2\)</span> 且 <span class="math inline">\(\operatorname{Var}(\hat\sigma_i^2)=2\sigma_i^4/(n_i-1)\)</span>. 令感兴趣的线性组合为 <span class="math inline">\(l=\sum_{i=1}^{t}c_{i}\mu_{i}\)</span>，其方差为 <span class="math inline">\(\sigma_{l}^{2}=\sum_{i=1}^{t}c_{i}^{2}\sigma_{i}^{2}/n_{i}\)</span>，则 <span class="math inline">\(\sigma_{l}^{2}\)</span> 关于 <span class="math inline">\(\hat \sigma_{i}^{2}\)</span> 的偏导数为</p>
 <p><span class="math display">\[\frac{\partial\sigma_l^2}{\partial\sigma_i^2}=\frac{c_i^2}{n_i}\]</span></p>
 <p>使用泰勒级数一阶近似获得的 <span class="math inline">\(\sigma_{l}^{2}\)</span> 的近似方差为</p>
 <p><span class="math display">\[\mathrm{Var}(\sigma_l^2)=\sum_{i=1}^t\left[\left[\frac{c_i^2}{n_i}\right]^2\left[\frac{2\sigma_i^4}{n_i-1}\right]\right]^2\]</span></p>
 <p>下一步是用提供近似自由度的相应样本估计值替换总体方差</p>
-<p><span class="math display">\[\hat{v}=\frac{2*\left(E\{[\widehat{s.e.}(\hat{l})]^2\}\right)^2}{\mathrm{Var}\{[\widehat{s.e.}(\hat{l})]^2\}}=\frac{\left(\sum_{i=1}^tc_i^2\hat{\sigma}_i^2\right)^2}{\sum_{i=1}^tc_i^4\hat{\sigma}_i^4/[n_i^2(n_i-1)]}\]</span></p>
+<p><span class="math display">\[\hat{v}=\frac{2*\left(E\{[\widehat{s.e.}(\hat{l})]^2\}\right)^2}{\mathrm{Var}\{[\widehat{s.e.}(\hat{l})]^2\}}=\frac{\left(\sum_{i=1}^tc_i^2\hat\sigma_i^2\right)^2}{\sum_{i=1}^tc_i^4\hat\sigma_i^4/[n_i^2(n_i-1)]}\]</span></p>
 <p>与上述 Satterthwaite 近似相同。</p>
 </div>
 <div id="sec2-8" class="section level2 hasAnchor" number="2.8">
 <h2><span class="header-section-number">2.8</span> 比较所有均值<a href="chap2.html#sec2-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>如前所述，当方差不等时，通常的 <span class="math inline">\(F\)</span> 检验非常稳健，前提是样本量几乎相等，或者假设较大的样本量对应于方差差异较大的总体样本。本节提供了两个等均值假设的附加检验。等均值假设的第一个检验 <span class="math inline">\(H_{0}\colon\,\mu_{1}=\mu_{2}=\cdots=\mu_{t}\,\mathrm{~vs.~}H_{a}\colon\,(\operatorname{not}H_{0}{:})\)</span> ，由 Welch (1951) 给出，称为 Welch’s test。定义权重 <span class="math inline">\(W_{i}=n_{i}/\hat{\sigma}_{i}^{2}\)</span>，令 <span class="math inline">\(\bar{y}^{*}=\sum_{i=1}^{t}W_{i}\bar{y}_{i\cdot}\big/\sum_{i=1}^{t}W_{i}\)</span> 为样本均值的加权平均值，令</p>
+<p>如前所述，当方差不等时，通常的 <span class="math inline">\(F\)</span> 检验非常稳健，前提是样本量几乎相等，或者假设较大的样本量对应于方差差异较大的总体样本。本节提供了两个等均值假设的附加检验。等均值假设的第一个检验 <span class="math inline">\(H_{0}\colon\,\mu_{1}=\mu_{2}=\cdots=\mu_{t}\,\mathrm{~vs.~}H_{a}\colon\,(\operatorname{not}H_{0}{:})\)</span> ，由 Welch (1951) 给出，称为 Welch’s test。定义权重 <span class="math inline">\(W_{i}=n_{i}/\hat\sigma_{i}^{2}\)</span>，令 <span class="math inline">\(\bar{y}^{*}=\sum_{i=1}^{t}W_{i}\bar{y}_{i\cdot}\big/\sum_{i=1}^{t}W_{i}\)</span> 为样本均值的加权平均值，令</p>
 <p><span class="math display">\[\Lambda=\sum_{i=1}^{t}\frac{(1-W_{i}/W_{\cdot})^{2}}{n_{i}-1}\]</span></p>
 <p>其中 <span class="math inline">\(W_\cdot=\sum_{i=1}^tW_{i\cdot}\)</span>. 那么 Welch’s test 统计量为</p>
 <p><span class="math display" id="eq:2-5">\[\begin{equation}

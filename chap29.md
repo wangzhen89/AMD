@@ -81,7 +81,7 @@ $$\mu_{ij}=\mu+S_i+P_j+T_k$$
 
 从式 \@ref(eq:29-5) 可证明
 
-$$\begin{aligned}&\hat{\bar{\mu}}_{1\cdot}-\hat{\bar{\mu}}_{2\cdot}\thicksim N\bigg[S_{AB}-S_{BA},\bigg(\frac{{\sigma}_{\varepsilon}^{2}+2{\sigma}_{\delta}^{2}}{2}\bigg)\bigg(\frac{1}{n_{1}}+\frac{1}{n_{2}}\bigg)\bigg]\\&\hat{\bar{\mu}}_{\cdot1}-\hat{\bar{\mu}}_{\cdot2}\thicksim N\bigg[P_1-P_2,\frac{{\sigma}_{\varepsilon}^{2}}{2}\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)\bigg]\\&\frac{\hat\mu_{11}-\hat\mu_{12}-\hat\mu_{21}+\hat\mu_{22}}{2}\thicksim N\bigg[T_A-T_B,\frac{{\sigma}_{\varepsilon}^{2}}{2}\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)\bigg]\end{aligned}$$
+$$\begin{aligned}&\hat{\bar{\mu}}_{1\cdot}-\hat{\bar{\mu}}_{2\cdot}\thicksim N\bigg[S_{AB}-S_{BA},\bigg(\frac{\sigma_{\varepsilon}^{2}+2\sigma_{\delta}^{2}}{2}\bigg)\bigg(\frac{1}{n_{1}}+\frac{1}{n_{2}}\bigg)\bigg]\\&\hat{\bar{\mu}}_{\cdot1}-\hat{\bar{\mu}}_{\cdot2}\thicksim N\bigg[P_1-P_2,\frac{\sigma_{\varepsilon}^{2}}{2}\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)\bigg]\\&\frac{\hat\mu_{11}-\hat\mu_{12}-\hat\mu_{21}+\hat\mu_{22}}{2}\thicksim N\bigg[T_A-T_B,\frac{\sigma_{\varepsilon}^{2}}{2}\bigg(\frac{1}{n_1}+\frac{1}{n_2}\bigg)\bigg]\end{aligned}$$
 
 与本节讨论的两期/两处理交叉设计相对应的方差分析表的形式如表 \@ref(tab:table29-2) 所示。用于检验 $H_0: T_A = T_B$ 的 $F$ 统计量由 $F = TMS/WSEMS$ 给出，其中 $TMS$ 是表 \@ref(tab:table29-2) 中的处理均方 (treatment mean square)，$WSEMS$ 是个体内误差均方 (within subject error mea square). 若 $F>F_{\alpha,1,n_1+n_2-2}$ 则拒绝 $H_0$. $T_A-T_B$ 的 $(1-\alpha)100\%$ 置信区间由
 
@@ -467,7 +467,7 @@ RUN; </td>
 
 表 \@ref(tab:table29-3) 中的数据也可以使用表 \@ref(tab:table29-11) 中所示的命令通过 SAS Mixed 程序进行分析。由于 GLM 分析中受试者间误差均方小于受试者内误差均方，因此结果与 GLM 分析获得的结果略有不同。因此，Mixed 程序将与个体相对应的方差分量估计为 $\hat \sigma _\delta ^2 = 0$，而 GLM 将使用矩准则方法估计相同的方差分量：
 
-$$\hat{\sigma}_\delta^2=\frac{BSEMS-WSEMS}2=\frac{1.005-1.245}2=\frac{-0.240}2=-0.120$$
+$$\hat\sigma_\delta^2=\frac{BSEMS-WSEMS}2=\frac{1.005-1.245}2=\frac{-0.240}2=-0.120$$
 
 目前未给出使用表 \@ref(tab:table29-11) 中的代码的结果，感兴趣的读者需要运行表 \@ref(tab:table29-11) 中的代码。
 
@@ -1075,7 +1075,7 @@ RUN; </td>
 处理主效应均值的估计值如表 \@ref(tab:table29-28) 所示。请注意，SAS-Mixed 程序给出的值与表 \@ref(tab:table29-22) 中使用主效应平均值的第二定义计算的估计值相同。表 \@ref(tab:table29-25)  中两个 ESTIMATE 语句的结果如表 \@ref(tab:table29-29) 所示。这些估计的第一个 $\tau_A-\tau_B$ 给出了估计值的标准误估计，并给出了用于检验 $H_{01}:\tau_A=\tau_B$ 的 $t$ 统计量以及检验观察到的显著性水平。第二个 ESTIMATE 语句估计 $\lambda_A-\lambda_B$ 给出了估计值的标准误估计，并给出了用于检验 $H_{02}:\lambda_A=\lambda_B$ 的 $t$ 统计量以及检验观察到的显著性水平。读者应注意，表 \@ref(tab:table29-29) 中观察到的处理差异和延滞差异的显著性水平与表 \@ref(tab:table29-27) 中相应的观察到的显著性水平相同。处理差异估计的标准误估计可以通过将 \@ref(eq:29-11) 中的 $\sigma_\varepsilon^2$ 替换为 $\hat\sigma_\varepsilon^2$ 来计算，即
 
 $$\begin{aligned}
-\widehat{\mathrm{Var}}\left(\hat{\mu}_{11}-\frac12\hat{\mu}_{12}-\frac12\hat{\mu}_{13}-\hat{\mu}_{21}+\frac12\hat{\mu}_{22}+\frac12\hat{\mu}_{23}\right)& =\frac32\hat{\sigma}_\varepsilon^2\left(\frac1{n_1}+\frac1{n_2}\right)  \\
+\widehat{\mathrm{Var}}\left(\hat{\mu}_{11}-\frac12\hat{\mu}_{12}-\frac12\hat{\mu}_{13}-\hat{\mu}_{21}+\frac12\hat{\mu}_{22}+\frac12\hat{\mu}_{23}\right)& =\frac32\hat\sigma_\varepsilon^2\left(\frac1{n_1}+\frac1{n_2}\right)  \\
 &=\left(\frac32\right)(0.7872)\left(\frac13+\frac13\right)=0.7872
 \end{aligned}$$
 
