@@ -49,6 +49,30 @@ pre code {
   max-width: 75%;
 }
 
+
+
+
+
+.book .book-summary {
+  width: 400px;
+  position:absolute;
+  top:0;
+  left:-400px;
+}
+
+.book.with-summary .book-header.fixed {
+    left: 400px;
+}
+
+.book.with-summary .book-body {
+    left: 400px;
+}
+
+
+
+
+
+
 div.rmdwarn::before, div.rmdnote::before, div.rmdtip::before {
   display: block;
   font-size: 1.1em;
