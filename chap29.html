@@ -12,7 +12,7 @@
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
-  
+  <meta name="github-repo" content="wangzhen89/AMD" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="第 6 章 交叉设计分析 | 混乱数据分析：设计的实验" />
@@ -23,6 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
+<meta name="date" content="2024-02-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -153,6 +154,8 @@
 <li><a href="./">混乱数据分析：设计的实验</a></li>
 
 <li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>说明</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#本书框架"><i class="fa fa-check"></i>本书框架</a></li>
 <li class="chapter" data-level="1" data-path="chap1.html"><a href="chap1.html"><i class="fa fa-check"></i><b>1</b> 最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="chap1.html"><a href="chap1.html#sec1-1"><i class="fa fa-check"></i><b>1.1</b> 模型定义和假设</a></li>
@@ -249,6 +252,14 @@
 <li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> 多水平设计：裂区、裂条、重复测量及组合</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#sec5-1"><i class="fa fa-check"></i><b>5.1</b> 实验单元的尺寸识别——四种基本设计结构</a></li>
+<li class="chapter" data-level="5.2" data-path="chap5.html"><a href="chap5.html#sec5-2"><i class="fa fa-check"></i><b>5.2</b> 分层设计：一种多水平的设计结构</a></li>
+<li class="chapter" data-level="5.3" data-path="chap5.html"><a href="chap5.html#sec5-3"><i class="fa fa-check"></i><b>5.3</b> 裂区设计结构：两水平设计结构</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap5.html"><a href="chap5.html#sec5-3-1"><i class="fa fa-check"></i><b>5.3.1</b> 例 5.1：烹饪豆子——最简单的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap5.html"><a href="chap5.html#sec5-3-2"><i class="fa fa-check"></i><b>5.3.2</b> 示例5.2：磨小麦——通常的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap5.html"><a href="chap5.html#sec5-3-3"><i class="fa fa-check"></i><b>5.3.3</b> 示例5.3：烘焙面包——具有不完全块设计结构的分割图</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chap5.html"><a href="chap5.html#sec5-3-4"><i class="fa fa-check"></i><b>5.3.4</b> 示例5.4：展示柜中的肉——复杂裂区或四水平设计</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>6</b> 交叉设计分析</a>
 <ul>
@@ -281,7 +292,7 @@
 <div id="chap29" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">第 6 章</span> 交叉设计分析<a href="chap29.html#chap29" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>交叉设计 (crossover design) 用于比较按序列给予实验单元（如动物或人）的处理。也就是说，每个实验单元按照预定的序列进行每种处理。交叉设计的目的是通过观察应用于同一实验单元的处理，消除比较处理时实验单元之间的差异。</p>
-<p>尽管交叉设计消除了处理比较中实验单元之间的差异，但其他问题可能会以<strong>延滞</strong> (carryover) 或<strong>残余</strong> (residual) 效应的形式出现。例如，当首先给予处理 <span class="math inline">\(A\)</span> 并且在应用处理 <span class="math inline">\(B\)</span> 时其效应尚未消失，就会出现延滞效应。如果 <span class="math inline">\(A\)</span> 的延滞效应干扰了个体对处理 <span class="math inline">\(B\)</span> 的响应（或正向或负向），那么处理 <span class="math inline">\(A\)</span> 对处理 <span class="math inline">\(B\)</span> 有延滞效应。</p>
+<p>尽管交叉设计消除了处理比较中实验单元之间的差异，但其他问题可能会以<strong>延滞</strong> (carryover) 或<strong>残余</strong> (residual) 效应的形式出现。例如，当首先给予处理 <span class="math inline">\(A\)</span> 并且在应用处理 <span class="math inline">\(B\)</span> 时其效应尚未消失，就会出现延滞效应。如果 <span class="math inline">\(A\)</span> 的滞留效应 (lingering effect) 干扰了个体对处理 <span class="math inline">\(B\)</span> 的响应（或正向或负向），那么处理 <span class="math inline">\(A\)</span> 对处理 <span class="math inline">\(B\)</span> 有延滞效应。</p>
 <p>交叉设计模型必须包含序列效应、时期效应、处理效应、延滞效应、实验单元误差项和时间间隔误差项。第一节讨论了一般模型及其假设，最后两节分别讨论了两个时期和两个以上时期两个处理的交叉设计。</p>
 <p>在一般的交叉设计中，比较 <span class="math inline">\(t\)</span> 个处理，其中在每个实验单元上观察每个处理；也就是说，这些处理以特定的序列应用于实验单元。实验者构建 <span class="math inline">\(t\)</span> 个处理的 <span class="math inline">\(s\)</span> 个序列，并将实验单元随机分配给第 <span class="math inline">\(i\)</span> 个序列。表 <a href="chap29.html#tab:table29-1">6.1</a> 包含一组可应用于实验单元的三种处理的序列。将序列分配给个体（可能的实验单元）意味着个体是序列的实验单元；将处理分配给时间间隔意味着该时间间隔是处理的实验单元。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
