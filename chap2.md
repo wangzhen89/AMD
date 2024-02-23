@@ -113,7 +113,7 @@ r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat\sigma_i^2(n_i-1)]/[(n
 
 ### 一些建议 {#sec2-3-6}
 
-Conover (1981) 以及 Olejnik & Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene's Test 是 Conover 等人研究的更好的检验之一。O'Brien's Test 似乎提供了一个合适的大小检验，而不会损失太多功效。当分布具有重尾时，Brown–Forsyth's Test 似乎更好。根据他们的结果，我们提出以下建议：
+Conover (1981) 以及 Olejnik & Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene's Test 是 Conover 等人研究的更好的检验之一。O'Brien's Test 似乎提供了一个合适的大小检验 (size test)，而不会损失太多功效。当分布具有重尾 (heavy tails) 时，Brown–Forsyth's Test 似乎更好。根据他们的结果，我们提出以下建议：
 
 1) 如果分布具有较重的尾部，请使用 Brown–Forsyth's test.
 2) 如果分布有些偏斜，请使用 O'Brien's test.
