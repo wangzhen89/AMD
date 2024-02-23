@@ -182,6 +182,9 @@ tab:table5-42
 fig:figure5-25
 fig:figure5-26
 tab:table5-43
+eq:6-1
+eq:6-2
+eq:6-3
 tab:table29-1
 eq:29-1
 eq:29-2
@@ -332,6 +335,11 @@ sec5-6-4
 sec5-6-5
 sec5-7
 sec5-8
+chap6
+sec6-1
+sec6-1-1
+sec6-1-2
+sec6-1-3
 chap29
 sec29-1
 sec29-2

@@ -85,7 +85,7 @@ Westfall et al. (1999), SAS Institute, Inc. (1999), and Westfall (2002)
 2)  使用 Dunnett's procedure 比较一组处理和一个对照。Dunnett's procedure
     有双侧和单侧两种版本，因此可以选择一种版本来适应所考虑的情况。
 3)  对于成对比较，如果每个处理组的观察值数量相等，则使用 Tukey's method.
-    如果数据不均衡，则使用模拟 (Westfall et al., 1999)
+    如果数据**不均衡** (unbalanced)，则使用模拟 (Westfall et al., 1999)
     一个百分点的方法，考虑到观察值数量不等的模式。
 4)  如果线性组合的集合是线性无关的，那么多元 $t$
     可以用来构造置信区间或检验假设。如果线性组合是无关的或正交的，那么多元

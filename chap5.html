@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="chap4.html"/>
-<link rel="next" href="chap29.html"/>
+<link rel="next" href="chap6.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -280,13 +280,22 @@
 <li class="chapter" data-level="5.7" data-path="chap5.html"><a href="chap5.html#sec5-7"><i class="fa fa-check"></i><b>5.7</b> 结束语</a></li>
 <li class="chapter" data-level="5.8" data-path="chap5.html"><a href="chap5.html#sec5-8"><i class="fa fa-check"></i><b>5.8</b> 练习</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>6</b> 交叉设计分析</a>
+<li class="chapter" data-level="6" data-path="chap6.html"><a href="chap6.html"><i class="fa fa-check"></i><b>6</b> 模型的矩阵形式</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>6.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="6.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>6.2</b> 两时期/两处理交叉设计</a></li>
-<li class="chapter" data-level="6.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>6.3</b> 具有两个以上时期的交叉设计</a></li>
-<li class="chapter" data-level="6.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>6.4</b> 具有两种以上处理的交叉设计</a></li>
-<li class="chapter" data-level="6.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>6.5</b> 小结</a></li>
+<li class="chapter" data-level="6.1" data-path="chap6.html"><a href="chap6.html#sec6-1"><i class="fa fa-check"></i><b>6.1</b> 基本符号</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>7</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>7.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="7.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>7.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="7.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>7.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="7.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>7.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="7.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>7.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -319,7 +328,7 @@ structure)、<strong>随机完全区组设计结构</strong> (randomized complet
 <p>该实验包括评估烘烤后纸杯蛋糕 (cupcake) 的体积，其中有三种配方和两种烹饪温度；因此，处理结构由三种配方和两种烹饪温度的六种组合组成。希望每种处理组合重复 3 次；因此需要烘烤 18 个纸杯蛋糕。图 <a href="chap5.html#fig:figure5-1">5.1</a> 中的图用于演示使用完全随机设计结构的过程。该过程是将处理结构中的六种处理组合完全随机分配给设计结构中的 18 个实验单元（纸杯蛋糕）。箭头表示每个处理组合分配给三个纸杯蛋糕。通常，该过程是一次制作一个纸杯蛋糕，因此纸杯蛋糕混合和烘焙的顺序对应于实验单元。完全随机设计结构是通过混合一批给定的配方，填写一个纸杯蛋糕表格，然后在设定为特定温度的烤箱 (oven) 中烘烤纸杯蛋糕来完成的。每个纸杯蛋糕都必须由自己的批次 (batch) 制成，也就是说，每批次蛋糕配方只有一个纸杯蛋糕，每个纸杯蛋糕必须在设定的特定温度下在烤箱中自行烘焙。
 该过程需要使用 18 批蛋糕混合物和 18 次使用一个或多个烤箱来烘焙纸杯蛋糕。与完全随机化设计结构相关的误差是根据相同处理的纸杯蛋糕之间的变异性计算的。根据温度组合，每个配方中有三个纸杯蛋糕，因此三个纸杯蛋糕体积的变化提供了两个测量纸杯蛋糕误差的自由度。人们应该检验六种处理组合方差的相等性（见第 <a href="chap2.html#chap2">2</a> 章），如果可能的话，将六种处理组的误差估计值合并在一起，以提供 <span class="math inline">\(12\)</span> 个误差自由度，用于测量相同处理的纸杯蛋糕之间的变异性。可用于描述纸杯蛋糕体积的模型为</p>
 <p><span class="math display">\[y_{ijk}=\mu+\tau_{i}+\beta_{j}+(\tau\beta)_{ij}+\varepsilon_{ijk},\quad i=1,2,j=1,2,3,\mathrm{and}\,k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(y_{ijk}\)</span> 表示用第 <span class="math inline">\(j\)</span> 个配方制作并在第 <span class="math inline">\(i\)</span> 个温度下烘焙的第 <span class="math inline">\(k\)</span> 个纸杯蛋糕的体积，<span class="math inline">\(\mu\)</span> 表示总平均值，<span class="math inline">\(\tau_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个温度的效应，<span class="math inline">\(\beta_j\)</span> 表示第 <span class="math inline">\(j\)</span> 个配方的效应，<span class="math inline">\((\tau\beta)_{ij}\)</span> 是配方于温度的交互作用，以及 <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内的纸杯蛋糕以及不同烤箱烘烤的差异性。表 <a href="chap5.html#tab:table5-1">5.1</a> 包含了完全随机化设计结构中双向处理结构模型的方差分析表，其中根据实验单元或相同处理的纸杯蛋糕的变异性计算了 12 个自由度。与处理结构相关的自由度为 5 个，与设计结构相关的自由度为 12 个，所有自由度均分配给误差项。表 <a href="chap5.html#tab:table5-1">5.1</a> 中标有 <span class="math inline">\(EMS\)</span> 的列给出了方差分析表各行的预期均方形式。函数 <span class="math inline">\(\phi^2(\tau),\phi^2(\beta),\phi^2(\tau\beta)\)</span> 分别表示温度主效应均值、配方主效应均值和交互作用效应的二次函数。当相应的效应不存在时，这些函数是非负的且等于零。在本章的其余部分中可以使用类似的解释。</p>
+<p>其中 <span class="math inline">\(y_{ijk}\)</span> 表示用第 <span class="math inline">\(j\)</span> 个配方制作并在第 <span class="math inline">\(i\)</span> 个温度下烘焙的第 <span class="math inline">\(k\)</span> 个纸杯蛋糕的体积，<span class="math inline">\(\mu\)</span> 表示总平均值，<span class="math inline">\(\tau_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个温度的效应，<span class="math inline">\(\beta_j\)</span> 表示第 <span class="math inline">\(j\)</span> 个配方的效应，<span class="math inline">\((\tau\beta)_{ij}\)</span> 是配方于温度的交互作用，以及 <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内的纸杯蛋糕以及不同烤箱烘烤的差异性。表 <a href="chap5.html#tab:table5-1">5.1</a> 包含了完全随机化设计结构中双向处理结构模型的方差分析表，其中根据实验单元或相同处理的纸杯蛋糕的变异性计算了 12 个自由度。与处理结构相关的自由度为 5，与设计结构相关的自由度为 12 个，所有自由度均分配给误差项。表 <a href="chap5.html#tab:table5-1">5.1</a> 中标有 <span class="math inline">\(EMS\)</span> 的列给出了方差分析表各行的预期均方形式。函数 <span class="math inline">\(\phi^2(\tau),\phi^2(\beta),\phi^2(\tau\beta)\)</span> 分别表示温度主效应均值、配方主效应均值和交互作用效应的二次函数。当相应的效应不存在时，这些函数是非负的且等于零。在本章的其余部分中可以使用类似的解释。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-1"></span>
 <img src="figure/figure%205.1.png" alt="完全随机设计结构中双向处理结构的随机化" width="879" />
 <p class="caption">
@@ -345,9 +354,9 @@ x
 </tr>
 </tbody>
 </table>
-<p>第二种基本设计结构是随机完全区组设计，图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的图表显示了将处理从处理结构分配到设计结构中的实验单元的过程。假设研究人员每天可以制作和烘烤六个纸杯蛋糕，那么实验必须持续三天，才能实现每种处理组合的三次重复。设计结构的实验单元分为三组或六块。接下来，处理结构中的 6 个处理被随机分配到每个块内的 6 个实验单元，如图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的箭头所示。正如第 <a href="chap4.html#chap4">4</a> 章所讨论的，随机完全区组设计结构的误差平方和是通过设计结构与处理结构交互作用来计算的，或通过处理与区组的交互作用来计算的。该设计涉及六种处理和三个区组，因此处理与区组交互作用提供了 (3 - 1)(6 - 1) = 10 个与实验误差相关的自由度。这 10 个自由度合并了区组与温度、区组与配方和区组与温度与配方的交互作用相关的自由度。可用于描述随机完全区组设计结构中这种双向处理结构的纸杯蛋糕体积的模型是</p>
+<p>第二种基本设计结构是随机完全区组设计，图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的图表显示了将处理从处理结构分配到设计结构中的实验单元的过程。假设研究人员每天可以制作和烘烤六个纸杯蛋糕，那么实验必须持续三天，才能实现每种处理组合的三次重复。设计结构的实验单元分为三个尺寸为六的区组。接下来，处理结构中的六个处理被随机分配到每个块内的六个实验单元，如图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的箭头所示。正如第 <a href="chap4.html#chap4">4</a> 章所讨论的，随机完全区组设计结构的误差平方和是通过设计结构与处理结构交互作用来计算的，或通过处理与区组的交互作用来计算的。该设计涉及六种处理和三个区组，因此处理与区组交互作用提供了 (3 - 1)(6 - 1) = 10 个与实验误差相关的自由度。这 10 个自由度合并了区组与温度、区组与配方和区组与温度与配方的交互作用相关的自由度。可用于描述随机完全区组设计结构中这种双向处理结构的纸杯蛋糕体积的模型是</p>
 <p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+(\tau\beta)_{ij}+d_k+\varepsilon_{ijk},\quad i=1,2,~j=1,2,3,~\mathrm{and~}~k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(dzk\)</span> 表示第 <span class="math inline">\(k\)</span> 天的效应，即区组因子，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内纸杯蛋糕相关的变异性，以及同一天内不同烤箱烘烤的变异性。表 <a href="chap5.html#tab:table5-2">5.2</a> 包含随机完全区组设计结构中双向处理结构模型的方差分析表，其中有 10 个自由度是根据区组与处理组合的交互作用测量的相同处理的实验单元的变异性计算得出的。该分析具有与完全随机设计结构相同的与处理结构相关的 5 个自由度，但现在，设计结构的 12 个自由度分布在天数（块）和误差之间。表 5.2 中的术语 <span class="math inline">\(\sigma^2_{day}\)</span> 表示 <span class="math inline">\(d_k\)</span> 的方差，<span class="math inline">\(k = 1, 2, 3\)</span>. 在本章的其余部分中可以做出类似的解释。</p>
+<p>其中 <span class="math inline">\(dzk\)</span> 表示第 <span class="math inline">\(k\)</span> 天的效应，即区组因子，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内纸杯蛋糕相关的变异性，以及同一天内不同烤箱烘烤的变异性。表 <a href="chap5.html#tab:table5-2">5.2</a> 包含随机完全区组设计结构中双向处理结构模型的方差分析表，其中有 10 个自由度是根据区组与处理组合的交互作用测量的相同处理的实验单元的变异性计算得出的。该分析具有与完全随机设计结构相同的与处理结构相关的 5 个自由度，但现在，设计结构的 12 个自由度分布在天（区组）和误差之间。表 5.2 中的术语 <span class="math inline">\(\sigma^2_{day}\)</span> 表示 <span class="math inline">\(d_k\)</span> 的方差，<span class="math inline">\(k = 1, 2, 3\)</span>. 在本章的其余部分中可以做出类似的解释。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-2"></span>
 <img src="figure/figure%205.2.png" alt="随机完全区组设计结构中双向处理结构的随机化方案" width="998" />
 <p class="caption">
@@ -1292,7 +1301,7 @@ x
 <p>在这种比较两种处理方法的方法中，动物有两种处理分配序列——先 A 后 B 和先 B 后 A。这两个序列通常用 AB 序列和 BA 序列表示。处理结构是具有两个水平（A 和 B）的单向处理集，但由于处理按顺序应用于每个实验单元，因此生成的序列成为另一种类型的处理。因此，本实验的设计涉及双向处理结构，处理与序列交叉。</p>
 <p>这种交叉设计是一种具有两种尺寸的实验单元的重复测量设计。将处理序列分配给个体，使个体成为更大的实验单元。观察处理的时间段或时间是较小尺寸的实验单元。较大尺寸实验单元的设计是完全随机设计结构中具有两个水平的序列（两个可能的序列）的单向处理结构。尽管可以使用任何设计结构，但最常用的是完全随机设计。较小尺寸实验单元（时间间隔）的设计是完全随机区组设计结构中的单向处理结构（两个时间段或两次处理），个体是区组。数据可按表 <a href="chap5.html#tab:table5-34">5.34</a> 所示进行排列，可用于描述数据的模型为</p>
 <p><span class="math display">\[y_{ijk}=\mu_{ik}+s_{ij}+\varepsilon_{ijk},\quad\mathrm{~where~}(i,j,k)\in I_\text{D}{ , s _ { i j }}\thicksim i.i.d.\text{ N}(0,\sigma_{\mathrm{subject}}^2),\mathrm{~and~}\varepsilon_{ijk}\thicksim i.i.d.\text{ N}(0,\sigma_{\mathrm{time}}^2)\]</span></p>
-<p>其中 <span class="math inline">\(I_D\)</span> 是实验中实际使用的 <span class="math inline">\((i,j,k)\)</span> 三元组的指标集，<span class="math inline">\(\mu_{ik}\)</span> 表示第 <span class="math inline">\(i\)</span>个序列中第<span class="math inline">\(k\)</span>次处理的效应，<span class="math inline">\(s_{ij}\)</span>表示分配给第<span class="math inline">\(i\)</span>个序列的第<span class="math inline">\(j\)</span>个受试者的随机效应，<span class="math inline">\(\varepsilon_{ijk}\)</span>表示在应用第<span class="math inline">\(k\)</span>次处理的第<span class="math inline">\(i\)</span>个序列的时间段中测量的随机误差。第 <a href="chap29.html#chap29">6</a> 章介绍了一些交叉设计的分析。</p>
+<p>其中 <span class="math inline">\(I_D\)</span> 是实验中实际使用的 <span class="math inline">\((i,j,k)\)</span> 三元组的指标集，<span class="math inline">\(\mu_{ik}\)</span> 表示第 <span class="math inline">\(i\)</span>个序列中第<span class="math inline">\(k\)</span>次处理的效应，<span class="math inline">\(s_{ij}\)</span>表示分配给第<span class="math inline">\(i\)</span>个序列的第<span class="math inline">\(j\)</span>个受试者的随机效应，<span class="math inline">\(\varepsilon_{ijk}\)</span>表示在应用第<span class="math inline">\(k\)</span>次处理的第<span class="math inline">\(i\)</span>个序列的时间段中测量的随机误差。第 <a href="chap29.html#chap29">7</a> 章介绍了一些交叉设计的分析。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-34">表 5.34: </span>两阶段两处理交叉设计的数据安排
@@ -1585,7 +1594,7 @@ across locations)。可以通过忽略列来构建层的分析，这在随机完
         </div>
       </div>
 <a href="chap4.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap6.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
