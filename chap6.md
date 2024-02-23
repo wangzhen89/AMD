@@ -7,8 +7,12 @@
 
 模型的矩阵形式可以表示为
 
+$$
+\underset{n\times1}{\boldsymbol {y}}=\underset{n × p}{\vphantom{\boldsymbol {y}}\boldsymbol {X}} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol\varepsilon}
+$$
+
 \begin{equation}
-\underset{n\times1}{\boldsymbol y}=\underset{n × p}{\vphantom{\boldsymbol y}\boldsymbol X} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol \varepsilon}
+\underset{n\times1}{\boldsymbol y}=\underset{n × p}{\vphantom{\boldsymbol y}\boldsymbol X} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol\varepsilon}
 (#eq:6-1)
 \end{equation}
 
@@ -44,11 +48,7 @@ $$x_{kij}=\begin{cases}0&\text{ if the }ij\text{th observation is not from the }
 
 其中 $i=1,2,\cdots,t$，$j=1,2,\cdots,n_i$. 变量 $x_{kij}$ 被称为**指示变量** (indicator variable)，因为当它的值为 1 时，它表明观测结果来自处理 k. 当它的值为 0 时，它表明观测结果不来自处理 k. 
 
-**均值模型** (means model) 可表示为
-
-$$y_{ij}={\mu}_1x_{1ij}+{\mu}_2x_{2ij}+\cdots+{\mu}_tx_{tij}+{\varepsilon}_{ij}$$
-
-其中 $i=1,2,\cdots,t$，$j=1,2,\cdots,n_i$. 或者以矩阵表示法
+**均值模型** (means model) 可表示为 $y_{ij}={\mu}_1x_{1ij}+{\mu}_2x_{2ij}+\cdots+{\mu}_tx_{tij}+{\varepsilon}_{ij}$，其中 $i=1,2,\cdots,t$，$j=1,2,\cdots,n_i$. 或者以矩阵表示法
 
 $$\begin{bmatrix}{y}_{11}\\{y}_{12}\\\vdots\\{y}_{1n_1}\\{y}_{22}\\\vdots\\{y}_{2{n}_2}\\\vdots\\{y}_{t1}\\\vdots\\{y}_{t{n}_t}\end{bmatrix}=\begin{bmatrix}1&0&\cdots&0\\1&0&\cdots&0\\\vdots&\vdots&\vdots&\vdots\\1&0&\cdots&0\\0&1&\cdots&0\\0&1&\cdots&0\\\vdots&\vdots&\vdots&\vdots\\0&1&\cdots&0\\\vdots&\vdots&\vdots&\vdots\\0&0&\cdots&1\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&1\end{bmatrix}\begin{bmatrix}\mu_1\\\mu_2\\\vdots\\\mu_t\end{bmatrix}+\boldsymbol \varepsilon$$
 

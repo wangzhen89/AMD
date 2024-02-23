@@ -323,8 +323,11 @@
 <div id="sec6-1" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> 基本符号<a href="chap6.html#sec6-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>模型的矩阵形式可以表示为</p>
+<p><span class="math display">\[
+\underset{n\times1}{\boldsymbol {y}}=\underset{n × p}{\vphantom{\boldsymbol {y}}\boldsymbol {X}} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol\varepsilon}
+\]</span></p>
 <p><span class="math display" id="eq:6-1">\[\begin{equation}
-\underset{n\times1}{\boldsymbol y}=\underset{n × p}{\vphantom{\boldsymbol y}\boldsymbol X} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol \varepsilon}
+\underset{n\times1}{\boldsymbol y}=\underset{n × p}{\vphantom{\boldsymbol y}\boldsymbol X} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol\varepsilon}
 \tag{6.1}
 \end{equation}\]</span></p>
 <p>其中 <span class="math inline">\(\boldsymbol y\)</span> 表示 <span class="math inline">\(n \times 1\)</span> 观测向量，<span class="math inline">\(\boldsymbol X\)</span> 表示 <span class="math inline">\(n \times p\)</span> 已知常数矩阵，称为<strong>设计矩阵</strong> (designed matrix)，<span class="math inline">\(\boldsymbol \beta\)</span> 表示 <span class="math inline">\(p \times 1\)</span> 未知参数向量，<span class="math inline">\(\boldsymbol \varepsilon\)</span> 表示 <span class="math inline">\(n \times 1\)</span> 未观测的误差向量。第 <span class="math inline">\(i\)</span> 个观测值（<span class="math inline">\(\boldsymbol y\)</span> 的第 <span class="math inline">\(i\)</span> 个元素）的模型具有以下形式</p>
@@ -349,9 +352,7 @@ y_i=\beta_0+\beta_1x_{i1}+\beta_2x_{i2}+\cdots+\beta_{p-1}x_{ip-1}+\varepsilon_i
 <p>为了在完全随机设计结构中表示具有 <span class="math inline">\(t\)</span> 个处理的单向处理结构的模型，其中第 <span class="math inline">\(i\)</span> 个处理有 <span class="math inline">\(n_i\)</span> 个观测结果，设自变量 <span class="math inline">\(x_{ij}\)</span> 定义为</p>
 <p><span class="math display">\[x_{kij}=\begin{cases}0&amp;\text{ if the }ij\text{th observation is not from the }k\text{th treatment}\\1&amp;\text{ if the }ij\text{th observation is from the }k\text{th treatment}&amp;\end{cases}\]</span></p>
 <p>其中 <span class="math inline">\(i=1,2,\cdots,t\)</span>，<span class="math inline">\(j=1,2,\cdots,n_i\)</span>. 变量 <span class="math inline">\(x_{kij}\)</span> 被称为<strong>指示变量</strong> (indicator variable)，因为当它的值为 1 时，它表明观测结果来自处理 k. 当它的值为 0 时，它表明观测结果不来自处理 k.</p>
-<p><strong>均值模型</strong> (means model) 可表示为</p>
-<p><span class="math display">\[y_{ij}={\mu}_1x_{1ij}+{\mu}_2x_{2ij}+\cdots+{\mu}_tx_{tij}+{\varepsilon}_{ij}\]</span></p>
-<p>其中 <span class="math inline">\(i=1,2,\cdots,t\)</span>，<span class="math inline">\(j=1,2,\cdots,n_i\)</span>. 或者以矩阵表示法</p>
+<p><strong>均值模型</strong> (means model) 可表示为 <span class="math inline">\(y_{ij}={\mu}_1x_{1ij}+{\mu}_2x_{2ij}+\cdots+{\mu}_tx_{tij}+{\varepsilon}_{ij}\)</span>，其中 <span class="math inline">\(i=1,2,\cdots,t\)</span>，<span class="math inline">\(j=1,2,\cdots,n_i\)</span>. 或者以矩阵表示法</p>
 <p><span class="math display">\[\begin{bmatrix}{y}_{11}\\{y}_{12}\\\vdots\\{y}_{1n_1}\\{y}_{22}\\\vdots\\{y}_{2{n}_2}\\\vdots\\{y}_{t1}\\\vdots\\{y}_{t{n}_t}\end{bmatrix}=\begin{bmatrix}1&amp;0&amp;\cdots&amp;0\\1&amp;0&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\1&amp;0&amp;\cdots&amp;0\\0&amp;1&amp;\cdots&amp;0\\0&amp;1&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\0&amp;1&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\0&amp;0&amp;\cdots&amp;1\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\0&amp;0&amp;\cdots&amp;1\end{bmatrix}\begin{bmatrix}\mu_1\\\mu_2\\\vdots\\\mu_t\end{bmatrix}+\boldsymbol \varepsilon\]</span></p>
 <p>均值模型通常表示为 <span class="math inline">\(y_{ij}=\mu_i+\varepsilon_{ij}\)</span>，其中 <span class="math inline">\(i=1,2,\cdots,t\)</span>，<span class="math inline">\(j=1,2,\cdots,n_i\)</span>.</p>
 <p><strong>效应模型</strong> (effect model) 可表示为 <span class="math inline">\(y_{ij}=\mu+\tau_1x_{1ij}+\tau_2x_{2ij}+\cdots+\tau_tx_{tij}+\varepsilon_{ij}\)</span>，其中 <span class="math inline">\(i=1,2,\cdots,t\)</span>，<span class="math inline">\(j=1,2,\cdots,n_i\)</span>. 或者以矩阵表示法</p>
