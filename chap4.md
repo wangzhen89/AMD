@@ -553,9 +553,11 @@ y_{ij}=\mu_i+b_j+\boldsymbol{\varepsilon}_{ij},\quad\mathrm{for~}(i,j)\in\mathrm
 (#eq:4-14)
 \end{equation}
 
+[^connectd]: 见 \@ref(sec6-3-2) 节。
+
 [^connectedblocktreatmentdf]: 原文：The degrees of freedom associated with this connected block–treatment arrangement are computed from the degrees of freedom associated with the block by treatment interaction as if all combinations were observed minus the number of empty cells.
 
-其中 $\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (B, 4), (C, 4), (B, 5), (D, 5), (C, 6), (D, 6)\}$，且对子 $(i,j)$ 只能取如索引集所示观测到的处理 × 区组组合的值。表 \@ref(tab:table4-20) 给出了模型 \@ref(eq:4-14) 的方差分析表。与这种**相连的区组-处理** (connected block-treatment) 安排相关的自由度是如此计算的：与区组处理交互作用相关的自由度（就好像观测到了所有组合）减去空单元格的数量[^connectedblocktreatmentdf]。表 \@ref(tab:table4-21) 显示了观测到的区组-处理组合（用 "X" 表示）。有六个区组和四个处理，因此如果所有组合都存在，则区组处理交互作用将基于 $(6-1)(4-1)=15$ 个自由度。有 $12$ 个单元格缺失，因此与误差项相关的自由度为 $15-12=3$.
+其中 $\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (B, 4), (C, 4), (B, 5), (D, 5), (C, 6), (D, 6)\}$，且对子 $(i,j)$ 只能取如索引集所示观测到的处理 × 区组组合的值。表 \@ref(tab:table4-20) 给出了模型 \@ref(eq:4-14) 的方差分析表。与这种**连通的[^connectd]区组-处理** (connected block-treatment) 安排相关的自由度是如此计算的：与区组处理交互作用相关的自由度（就好像观测到了所有组合）减去空单元格的数量[^connectedblocktreatmentdf]。表 \@ref(tab:table4-21) 显示了观测到的区组-处理组合（用 "X" 表示）。有六个区组和四个处理，因此如果所有组合都存在，则区组处理交互作用将基于 $(6-1)(4-1)=15$ 个自由度。有 $12$ 个单元格缺失，因此与误差项相关的自由度为 $15-12=3$.
 
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>(\#tab:table4-19)将四种处理分配到两个实验单元的六个区组的第一种分配：提供均衡不完全区组设计结构</caption>
@@ -623,10 +625,10 @@ $$\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (A, 4), (B, 4
 
 表 \@ref(tab:table4-20) 中的方差分析表也适用于表 \@ref(tab:table4-22) 中的安排。如果希望将所有四种处理相互比较，即检验 $\mu_A = \mu_B = \mu_C = \mu_D$，则表 \@ref(tab:table4-19) 中的安排是最优的（使用 D-最优准则；St. John and Draper, 1975）。如果希望将处理 $A$ 与其他三种处理进行比较，即检验 $\mu_A = \mu_B,\mu_A = \mu_C,\mu_A = \mu_D$，则表 \@ref(tab:table4-22) 中的安排是最优的。
  
-表 \@ref(tab:table4-23) 给出了将四种处理分配到六个区组的第三种方法。将处理分为两组，其中 $A$ 和 $B$ 一起出现在三个区组中，处理 $C$ 和 $D$ 一起出现在三个区组中。处理 $A$ 不与处理 $C$ 或 $D$ 的同时出现在一个区组中。处理和区组之间的结构**不相连** (not connected)，因为处理分为这两组。定义一个新的变量“组” (group) 来表示两组处理。两组之间的比较是区组 $1,3,5$ 的平均值与区组 $2,4,6$ 的平均值之间的比较，或者说是区组间比较 (between-block comparisons). 处理 $A$ 与处理 $B$ 之间的比较以及处理 $C$ 与处理 $D$ 之间的比较属于区组内比较 (within-block comparisons). 对于处理 $A$ 和处理 $B$，处理与区组交互作用的自由度为二。同样，对于处理 $C$ 和处理 $D$，处理与区组交互作用的自由度也为二。误差平方和是将这两个处理与区组交互作用的平方和（及其自由度）合并得到的。表 \@ref(tab:table4-23) 中的安排的方差分析表见表 \@ref(tab:table4-24)。区组的平方和分为组的平方和和组内嵌套的区组的平方和。各组的平方和作为误差以检验假设 $\mu_A + \mu_B = \mu_C + \mu_D$），该假设具有由处理产生的一个自由度。两组处理与区组混杂 (confounded) 在一起；也就是说，如果两组均值之间存在差异，则不知道是由于处理集之间的差异还是由于两组区组之间的差异造成的。混杂的概念与混叠 (aliasing) 的概念类似，但混叠涉及两个（或多个）项无法区分，其中两个项都来自处理结构，而混杂涉及两个项无法区分，其中一项来自处理结构，另一项来自设计结构。
+表 \@ref(tab:table4-23) 给出了将四种处理分配到六个区组的第三种方法。将处理分为两组，其中 $A$ 和 $B$ 一起出现在三个区组中，处理 $C$ 和 $D$ 一起出现在三个区组中。处理 $A$ 不与处理 $C$ 或 $D$ 的同时出现在一个区组中。处理和区组之间的结构**不连通** (not connected)，因为处理分为这两组。定义一个新的变量“组” (group) 来表示两组处理。两组之间的比较是区组 $1,3,5$ 的平均值与区组 $2,4,6$ 的平均值之间的比较，或者说是区组间比较 (between-block comparisons). 处理 $A$ 与处理 $B$ 之间的比较以及处理 $C$ 与处理 $D$ 之间的比较属于区组内比较 (within-block comparisons). 对于处理 $A$ 和处理 $B$，处理与区组交互作用的自由度为二。同样，对于处理 $C$ 和处理 $D$，处理与区组交互作用的自由度也为二。误差平方和是将这两个处理与区组交互作用的平方和（及其自由度）合并得到的。表 \@ref(tab:table4-23) 中的安排的方差分析表见表 \@ref(tab:table4-24)。区组的平方和分为组的平方和和组内嵌套的区组的平方和。各组的平方和作为误差以检验假设 $\mu_A + \mu_B = \mu_C + \mu_D$），该假设具有由处理产生的一个自由度。两组处理与区组混杂 (confounded) 在一起；也就是说，如果两组均值之间存在差异，则不知道是由于处理集之间的差异还是由于两组区组之间的差异造成的。混杂的概念与混叠 (aliasing) 的概念类似，但混叠涉及两个（或多个）项无法区分，其中两个项都来自处理结构，而混杂涉及两个项无法区分，其中一项来自处理结构，另一项来自设计结构。
 
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
-<caption>(\#tab:table4-23)将四种处理分配给两个实验单元的六个区组的第三种分配：提供不相连不完全区组设计结构</caption>
+<caption>(\#tab:table4-23)将四种处理分配给两个实验单元的六个区组的第三种分配：提供不连通不完全区组设计结构</caption>
  <thead>
   <tr>
    <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>

@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-02-23" />
+<meta name="date" content="2024-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -287,7 +287,24 @@
 <li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
 <li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
 <li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>7</b> 交叉设计的分析</a>
 <ul>
@@ -319,13 +336,10 @@
             <section class="normal" id="section-">
 <div id="chap6" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">第 6 章</span> 模型的矩阵形式<a href="chap6.html#chap6" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>当使用不均衡 (unbalanced) 的固定效应模型、随机效应模型或混合效应模型时，求和符号变得非常费力，有时甚至几乎无法使用。这个问题可以通过使用模型的矩阵形式表达来解决。本章讨论了模型矩阵形式的构建，并描述了如何使用矩阵获得最小二乘估计、检验假设、计算最小二乘或总体边际均值以及构建置信区间。在 <a href="#sec6-3"><strong>??</strong></a> 节中讨论了可估性 (estimability) 的概念。</p>
+<p>当使用不均衡 (unbalanced) 的固定效应模型、随机效应模型或混合效应模型时，求和符号变得非常费力，有时甚至几乎无法使用。这个问题可以通过使用模型的矩阵形式表达来解决。本章讨论了模型矩阵形式的构建，并描述了如何使用矩阵获得最小二乘估计、检验假设、计算最小二乘均值或总体边际均值以及构建置信区间。在 <a href="chap6.html#sec6-3">6.3</a> 节中讨论了可估性 (estimability) 的概念。</p>
 <div id="sec6-1" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> 基本符号<a href="chap6.html#sec6-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>模型的矩阵形式可以表示为</p>
-<p><span class="math display">\[
-\underset{n\times1}{\boldsymbol {y}}=\underset{n × p}{\vphantom{\boldsymbol {y}}\boldsymbol {X}} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol\varepsilon}
-\]</span></p>
 <p><span class="math display" id="eq:6-1">\[\begin{equation}
 \underset{n\times1}{\boldsymbol y}=\underset{n × p}{\vphantom{\boldsymbol y}\boldsymbol X} \,\,\underset{p × 1}{\vphantom{\boldsymbol y}\boldsymbol \beta}+\underset{n × 1}{\vphantom{\boldsymbol y}\boldsymbol\varepsilon}
 \tag{6.1}
@@ -362,8 +376,607 @@ y_i=\beta_0+\beta_1x_{i1}+\beta_2x_{i2}+\cdots+\beta_{p-1}x_{ip-1}+\varepsilon_i
 </div>
 <div id="sec6-1-3" class="section level3 hasAnchor" number="6.1.3">
 <h3><span class="header-section-number">6.1.3</span> 双向处理结构模型<a href="chap6.html#sec6-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-
+<p>在完全随机化设计结构中，对于具有 <span class="math inline">\(t\)</span> 行处理和 <span class="math inline">\(b\)</span> 列处理的双向处理结构，模型的一种形式为</p>
+<p><span class="math display" id="eq:6-4">\[\begin{equation}
+y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,t,j=1,2,\ldots,b,\mathrm{~and~}k=1,2,\ldots,n_{ij}
+\tag{6.4}
+\end{equation}\]</span></p>
+<p>式子 <a href="chap6.html#eq:6-4">(6.4)</a> 中使用的模型称为均值模型，可以用矩阵形式表示为</p>
+<p><span class="math display">\[\begin{bmatrix}y_{111}\\y_{112}\\\vdots\\y_{11n_1}\\y_{121}\\\vdots\\y_{12n_2}\\\vdots\\y_{1b1}\\\vdots\\y_{1bn_{1b}}
+\\y_{211}\\\vdots\\y_{21n_{21}}\\\vdots\\y_{tb1}\\\vdots\\y_{tbn_{tb}}
+\end{bmatrix}=\begin{bmatrix}
+1&amp;0&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;0\\
+1&amp;0&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+1&amp;0&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;0\\
+0&amp;1&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+0&amp;1&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;1&amp;0&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;1&amp;0&amp;\cdots&amp;0\\
+0&amp;0&amp;\cdots&amp;0&amp;1&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;0&amp;1&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;1\\
+\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;0&amp;0&amp;\cdots&amp;1\end{bmatrix}
+\begin{bmatrix}\mu_{11}\\\mu_{12}\\\vdots\\\mu_{1b}\\\mu_{21}\\\vdots\\\mu_{tb}\end{bmatrix} +
+\boldsymbol \varepsilon \]</span></p>
+<p>双向效应模型可表示为</p>
+<p><span class="math display" id="eq:6-5">\[\begin{equation}
+y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,t,j=1,2,\ldots,b,k=1,2,\ldots,n_{ij}
+\tag{6.5}
+\end{equation}\]</span></p>
+<p>双向效应模型的矩阵形式为</p>
+<p><span class="math display">\[
+\begin{bmatrix}y_{111}\\y_{112}\\\vdots\\y_{11n_1}\\y_{121}\\\vdots\\y_{12n_2}\\\vdots\\y_{1b1}\\\vdots\\y_{1bn_{1b}}
+\\y_{211}\\\vdots\\y_{21n_{21}}\\\vdots\\y_{tb1}\\\vdots\\y_{tbn_{tb}}
+\end{bmatrix}=\begin{bmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+0 &amp; 1 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 1 \\
+\vdots &amp; \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0 &amp; \cdots &amp; 1 \\
+\end{bmatrix}  \begin{bmatrix}\mu_{11}\\\mu_{12}\\\vdots\\\mu_{1b}\\\mu_{21}\\\vdots\\\mu_{tb}\end{bmatrix}+
+\boldsymbol \varepsilon
+\]</span></p>
+<p>本书强调与实验设计情境相对应的模型，而不是纯粹的回归情境。接下来的两个例子将展示如何从数据结构构建这样的模型。</p>
 </div>
+<div id="sec6-1-4" class="section level3 hasAnchor" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> 示例 6.1：双向处理结构的均值模型<a href="chap6.html#sec6-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>表 <a href="chap6.html#tab:table6-1">6.1</a> 中的信息代表了一个完全随机设计结构中的双向处理结构的数据，其中有三行处理和三列处理，每个单元格有一个或两个观测值。表 <a href="chap6.html#tab:table6-1">6.1</a> 中数据的均值模型的矩阵形式为：</p>
+<p><span class="math display">\[\begin{bmatrix}3\\6\\9\\10\\2\\5\\3\\8\\4\\2\\6\end{bmatrix}=\begin{bmatrix}
+1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0\\
+0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}\mu_{11}\\\mu_{12}\\\mu_{13}\\\mu_{21}\\\mu_{22}\\\mu_{23}\\\mu_{31}\\\mu_{32}\\\mu_{33}\end{bmatrix}+\boldsymbol \varepsilon\]</span></p>
+<p>表 <a href="chap6.html#tab:table6-1">6.1</a> 中数据的效应模型的矩阵形式为</p>
+<p><span class="math display">\[
+\begin{bmatrix}3\\6\\9\\10\\2\\5\\3\\8\\4\\2\\6\end{bmatrix}=\begin{bmatrix}
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+\mu_1 \\
+\tau_1 \\
+\tau_2 \\
+\tau_3 \\
+\beta_1 \\
+\beta_2 \\
+\beta_3 \\
+\gamma_{11} \\
+\gamma_{12} \\
+\gamma_{13} \\
+\gamma_{21} \\
+\gamma_{22} \\
+\gamma_{23} \\
+\gamma_{31} \\
+\gamma_{32} \\
+\gamma_{33}
+\end{bmatrix}
++\boldsymbol \varepsilon
+\]</span></p>
+<p>或</p>
+<p><span class="math display">\[\boldsymbol y=\boldsymbol j\boldsymbol\mu+\boldsymbol X_1\boldsymbol \tau+\boldsymbol X_2\boldsymbol\beta+\boldsymbol X_3\boldsymbol \gamma+\boldsymbol\varepsilon \]</span></p>
+<p>其中，<span class="math inline">\(\boldsymbol j\)</span> 是与上述设计矩阵的第一列对应的 11×1 向量，<span class="math inline">\(\boldsymbol X_1\)</span> 是与第 2-4 列对应的 11×3 矩阵，<span class="math inline">\(\boldsymbol X_2\)</span> 是与第 5-7 列对应的 11×3 矩阵，<span class="math inline">\(\boldsymbol X_3\)</span> 是与以上设计矩阵的最后九列对应的 11×9 矩阵。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-1">表 6.1: </span>CRD 结构中双向处理结构的数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.1.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>其他处理和设计结构的设计矩阵也是以类似的方式构建的。幸运的是，大多数用于拟合非均衡数据结构的软件都会使用上述类型的表示形式，并在模型中指定分类效应 (categorical effects) 时自动生成设计矩阵的必要列。</p>
+</div>
+</div>
+<div id="sec6-2" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> 最小二乘估计<a href="chap6.html#sec6-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>一旦模型以矩阵形式指定，分析的下一步是获得参数向量 <span class="math inline">\(\boldsymbol \beta\)</span> 的<strong>最小二乘估计</strong> (least squares estimator)。最小二乘法可用于估计模型的参数。要使用此方法，假设模型可以表示为</p>
+<p><span class="math display" id="eq:6-6">\[\begin{equation}
+y_i=f(x_i;\boldsymbol{\beta})+\varepsilon_i\quad\mathrm{~for~}i=1,2,\ldots,n
+\tag{6.6}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(y_i=f(x_i;\boldsymbol{\beta})\)</span> 是由 <span class="math inline">\(x_i\)</span> 表示的设计变量向量的函数，且依赖于参数向量 <span class="math inline">\(\boldsymbol \beta\)</span>. <span class="math inline">\(\boldsymbol \beta\)</span> 的最小二乘估计通常用 <span class="math inline">\(\hat {\boldsymbol \beta}\)</span> 表示，它能最小化平方和</p>
+<p><span class="math display" id="eq:6-7">\[\begin{equation}
+SS(\boldsymbol{\beta})=\sum_{i=1}^n[y_i-f(x_i;\boldsymbol{\beta})]^2
+\tag{6.7}
+\end{equation}\]</span></p>
+<p>如果除了假设模型的形式为 <a href="chap6.html#eq:6-6">(6.6)</a> 之外，还额外假设 <span class="math inline">\(\varepsilon_i \sim i.i.d\,N(0,\sigma^2),i＝1,2,\cdots,n\)</span>，则 <span class="math inline">\(\boldsymbol \beta\)</span> 的最小二乘估计也是<strong>最大似然估计</strong> (maximum likelihood estimator).</p>
+<p>例如，完全随机设计中单向处理结构的均值模型的模型函数为</p>
+<p><span class="math display">\[f(x_{ij};\boldsymbol{\beta})=\mu_i,\quad i=1,2,\ldots,t;\quad j=1,2,\ldots,n_i\]</span></p>
+<p><span class="math inline">\(\mu_i\)</span> 的最小二乘估计记作 <span class="math inline">\(\hat \mu_1,\cdots,\hat \mu_t\)</span>，它们是这样的值，即能够最小化</p>
+<p><span class="math display">\[\begin{aligned}SS(\boldsymbol{\mu})=\sum_{i=1}^t\sum_{j=1}^{n_j}(y_{ij}-\mu_i)^2\end{aligned}\]</span></p>
+<p>完全随机设计中双向处理结构的均值模型的模型函数为</p>
+<p><span class="math display">\[f(x_{ijk};\boldsymbol{\beta})=\mu_{ij}\quad i=1,2,\ldots,t;j=1,2,\ldots,b;k=1,2,\ldots,n_{ij}\]</span></p>
+<p><span class="math inline">\(\mu_{ij}\)</span> 的最小二乘估计记作 <span class="math inline">\(\hat \mu_{11},\cdots,\hat \mu_{tb}\)</span>，它们是这样的值，即能够最小化</p>
+<p><span class="math display">\[\begin{aligned}SS(\boldsymbol{\mu})=\sum_{i=1}^{t}\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\mu_{ij})^2\end{aligned}\]</span></p>
+<p>完全随机设计中双向处理结构的效应模型的模型函数为</p>
+<p><span class="math display">\[f(x_{ijk};\boldsymbol{\beta})=\mu+\tau_i+{\beta}_j+\gamma_{ij},\quad i=1,2,\ldots,t;j=1,2,\ldots,b;k=1,2,\ldots,n_{ij}\]</span></p>
+<p><span class="math inline">\(\mu,\tau_i,\beta_j,\gamma_{ij}\)</span> 的最小二乘估计是通过最小化下式来获得的</p>
+<p><span class="math display">\[SS(\mu,\tau_i,\beta_j,\gamma_{ij})=\sum_{i=1}^t\sum_{j=1}^b\sum_{k=1}^{n_{ij}}(y_{ijk}-\mu-\tau_i-\beta_j-\gamma_{ij})^2\]</span></p>
+<p>通常，模型可以写成矩阵形式，如式 <a href="chap6.html#eq:6-1">(6.1)</a> 中的矩阵形式，并且 <span class="math inline">\(\boldsymbol \beta\)</span> 的最小二乘估计是这样的 <span class="math inline">\(\hat {\boldsymbol \beta}\)</span> ，即能最小化平方和</p>
+<p><span class="math display" id="eq:6-8">\[\begin{equation}
+SS(\boldsymbol\beta)=(\boldsymbol y-\boldsymbol X \boldsymbol\beta)^{\prime}(\boldsymbol y-\boldsymbol X \boldsymbol\beta)
+\tag{6.8}
+\end{equation}\]</span></p>
+<div id="sec6-2-1" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> 最小二乘方程组<a href="chap6.html#sec6-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>矩阵表示和计算可用于确定能使残差平方和最小化的 <span class="math inline">\(\boldsymbol\beta\)</span> 值。当进行最小化时，会得到一组 <span class="math inline">\(\hat {\boldsymbol \beta}\)</span> 必须满足的方程，这些方程被称为模型的<strong>最小二乘方程组</strong> (least squares
+equations) 或<strong>正规方程组</strong> (normal equations). 对于模型 <a href="chap6.html#eq:6-1">(6.1)</a>，正规方程组由下式给出：</p>
+<p><span class="math display" id="eq:6-9">\[\begin{equation}
+\boldsymbol X^{\prime} \boldsymbol X\hat{\boldsymbol{\beta}}=\boldsymbol X^{\prime}\boldsymbol{y}
+\tag{6.9}
+\end{equation}\]</span></p>
+<p>任何满足正规方程组的向量 <span class="math inline">\(\hat {\boldsymbol \beta}\)</span> 都是 <span class="math inline">\(\boldsymbol\beta\)</span> 的最小二乘估计。对于一些模型，最小二乘估计不必是唯一的。为了帮助读者更加熟悉正规方程组，下面提供了第 <a href="chap6.html#sec6-1">6.1</a> 节中讨论的模型的正规方程组。</p>
+<p>单向均值模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}n_1&amp;0&amp;\cdots&amp;0\\0&amp;n_2&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\0&amp;0&amp;\cdots&amp;n_t\end{bmatrix}\begin{bmatrix}\hat{\mu}_1\\\hat{\mu}_2\\\vdots\\\hat{\mu}_t\end{bmatrix}=\begin{bmatrix}y_{1\cdot}\\y_{2\cdot}\\\vdots\\y_{t\cdot}\end{bmatrix}\mathrm{~where~}y_{i\cdot}=\sum_{i=1}^{n_i}y_{ij}\]</span></p>
+<p>单向效应模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}n_{\cdot}&amp;n_1&amp;n_2&amp;\cdots&amp;n_t\\n_1&amp;n_1&amp;0&amp;\cdots&amp;0\\n_2&amp;0&amp;n_2&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\n_t&amp;0&amp;0&amp;\cdots&amp;n_t\end{bmatrix}\begin{bmatrix}\hat{\mu}\\\hat{\tau}_1\\\hat \tau_2\\\vdots\\\hat{\tau}_t\end{bmatrix}=\begin{bmatrix}y_{\cdot\cdot}\\y_{1\cdot}\\y_{2\cdot}\\\vdots\\y_{t\cdot}\end{bmatrix}\quad\mathrm{where~}y_{\cdot\cdot}=\sum_{i=1}^t\sum_{j=1}^{n_i}y_{ij}\quad\mathrm{and}\quad n_{\cdot}=\sum_{i=1}^tn_t\]</span></p>
+<p>使用表 <a href="chap6.html#tab:table6-1">6.1</a> 中数据的双向均值模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}2&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;2&amp;0&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0\\0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}\hat{\mu}_{11}\\\hat{\mu}_{12}\\\hat{\mu}_{13}\\\hat{\mu}_{21}\\\hat{\mu}_{22}\\\hat{\mu}_{23}\\\hat{\mu}_{31}\\\hat{\mu}_{32}\\\hat{\mu}_{33}\end{bmatrix}=\begin{bmatrix}y_{11\cdot}\\y_{12\cdot}\\y_{13\cdot}\\y_{21\cdot}\\y_{22\cdot}\\y_{23\cdot}\\y_{31\cdot}\\y_{32\cdot}\\y_{33\cdot}\end{bmatrix}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[y_{ij\cdot}=\sum_{k=1}^{n_{ij}}y_{ijk}\]</span></p>
+<p>与表 <a href="chap6.html#tab:table6-1">6.1</a> 中的数据相对应的双向效应模型的正规方程组为</p>
+<p>$$$$</p>
+<p><span class="math display">\[\begin{bmatrix}
+11&amp;4&amp;4&amp;3&amp;4&amp;4&amp;3&amp;2&amp;1&amp;1&amp;1&amp;2&amp;1&amp;1&amp;1&amp;1\\
+4&amp;4&amp;0&amp;0&amp;2&amp;1&amp;1&amp;2&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+4&amp;0&amp;4&amp;0&amp;1&amp;2&amp;1&amp;0&amp;0&amp;0&amp;1&amp;2&amp;1&amp;0&amp;0&amp;0\\
+3&amp;0&amp;0&amp;3&amp;1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;1&amp;1\\
+4&amp;2&amp;1&amp;1&amp;4&amp;0&amp;0&amp;2&amp;0&amp;0&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0\\
+4&amp;1&amp;2&amp;1&amp;0&amp;4&amp;0&amp;0&amp;1&amp;0&amp;0&amp;2&amp;0&amp;0&amp;1&amp;0\\
+3&amp;1&amp;1&amp;1&amp;0&amp;0&amp;3&amp;0&amp;0&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;1\\
+2&amp;2&amp;0&amp;0&amp;2&amp;0&amp;0&amp;2&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\
+1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0\\
+2&amp;0&amp;2&amp;0&amp;0&amp;2&amp;0&amp;0&amp;0&amp;0&amp;0&amp;2&amp;0&amp;0&amp;0&amp;0\\
+1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0\\
+1&amp;0&amp;0&amp;1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0\\
+1&amp;0&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1&amp;0\\
+1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;1\end{bmatrix}
+\begin{bmatrix}\hat\mu\\\hat\tau_{1}\\\hat{\tau}_2\\\hat\tau_{3}\\\hat\beta_{1}\\\hat\beta_{2}\\\hat\beta_{3}\\\hat\gamma_{11}\\\hat\gamma_{12}\\\hat\gamma_{13}\\\hat\gamma_{21}\\\hat\gamma_{22}\\\hat\gamma_{23}\\\hat\gamma_{31}\\\hat\gamma_{32}\\\hat\gamma_{33}\end{bmatrix}=\begin{bmatrix}y_{\cdot\cdot\cdot}\\y_{1\cdot\cdot}\\y_{2\cdot\cdot}\\y_{3\cdot\cdot}\\y_{\cdot1\cdot}\\y_{\cdot2\cdot}\\y_{\cdot3\cdot}\\y_{11\cdot}\\y_{12\cdot}\\y_{13\cdot}\\y_{21\cdot}\\y_{22\cdot}\\y_{23\cdot}\\y_{31\cdot}\\y_{32\cdot}\\y_{33\cdot}\end{bmatrix}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[y_{\cdot\cdot\cdot}=\sum_{i=1}^t\sum_{j=1}^b\sum_{k=1}^{n_{ij}}y_{ijk},\quad y_{i\cdot\cdot}=\sum_{j=1}^b\sum_{k=1}^{n_{ij}}y_{ijk},\quad y_{\cdot j\cdot}=\sum_{i=1}^t\sum_{k=1}^{n_{ij}}y_{ijk},\quad\mathrm{and}\quad y_{ij\cdot}=\sum_{k=1}^{n_{ij}}y_{ijk}\]</span></p>
+<p>当 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 满秩时 (Graybill, 1976)，即 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 是非奇异的，则 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 的逆存在，并且 <span class="math inline">\({\boldsymbol \beta}\)</span> 的最小二乘估计（方程 <a href="chap6.html#eq:6-9">(6.9)</a> 中 <span class="math inline">\(\hat {\boldsymbol \beta}\)</span> 的解）为</p>
+<p><span class="math display" id="eq:6-10">\[\begin{equation}
+\hat {\boldsymbol \beta}=(\boldsymbol X^\prime \boldsymbol X)^{-1}\boldsymbol{X^{\prime}y}
+\tag{6.10}
+\end{equation}\]</span></p>
+<p>当 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 是满秩时，最小二乘估计是唯一的。计算 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 的逆通常不是一项容易的任务。计算软件开发的最重要方面之一是，现在统计学家可以求超大型矩阵的逆，这在计算机出现之前是不可能的。然而，当 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 中存在某些模式时，可以利用这些模式更容易地求逆。对于单向均值模型和双向均值模型的正规方程组，<span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 是对角矩阵（所有对角元非零，非对角元为零），并且 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 的逆是通过简单地将每个对角元替换为其倒数来获得的。因此，单向均值模型的 <span class="math inline">\(\mu_i\)</span> 的最小二乘估计为</p>
+<p><span class="math display">\[\begin{bmatrix}\hat{{\mu}}_1\\\hat{{\mu}}_2\\\vdots\\\hat{{\mu}}_t\end{bmatrix}=\begin{bmatrix}\frac1{n_1}&amp;0&amp;\cdots&amp;0\\0&amp;\frac1{n_2}&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\0&amp;0&amp;\cdots&amp;\frac1{n_t}\end{bmatrix}\begin{bmatrix}y_{1\cdot}\\y_{2\cdot}\\\vdots\\y_{t\cdot}\end{bmatrix}\]</span></p>
+<p>或等价地</p>
+<p><span class="math display">\[\hat{\mu}_i=\frac{y_{i\cdot}}{n_i}=\bar{y}_{i\cdot}\quad i=1,2,\ldots,t\]</span></p>
+<p>类似地，双向均值模型 <span class="math inline">\(\mu_{ij}\)</span> 的最小二乘估计为</p>
+<p><span class="math display">\[\hat{\mu}_{ij}=\frac{y_{ij\cdot}}{n_{ij}}=\bar{y}_{ij\cdot}\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b\]</span></p>
+<p>与均值模型的正规方程组不同，效应模型的 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 是奇异的，并且 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 的逆不存在。在这种情况下，正规方程组有许多解（实际上是无穷多个最小二乘解）。效应模型被称为<strong>过度指定</strong> (overspecified models) 或<strong>奇异模型</strong> (sigular models)，因为与从收集的数据中可以唯一估计的参数相比，这些模型具有更多的参数。通常使用过度指定的模型，并且有几种方法可以求解其相应的正规方程组。以下讨论涉及完全随机设计结构中的双向处理结构，但类似的技术也可用于其他因素效应模型。</p>
+<p>理论上，广义逆可用于求解关于 <span class="math inline">\({\boldsymbol \beta}\)</span> 的正规方程组 (Graybill, 1976)，但求解过度指定模型的正规方程组的常用方法是对模型中的参数进行限制（这实际上产生了 g-inverse 解）。对模型参数施加限制可以通过多种方式实现，这里考虑其中两种方式。</p>
+</div>
+<div id="sec6-2-2" class="section level3 hasAnchor" number="6.2.2">
+<h3><span class="header-section-number">6.2.2</span> 零和限制<a href="chap6.html#sec6-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>一种常见的技术是要求某些参数的和等于零。这种方法自方差分析之初就被用来求解正规方程组。对于使用表 <a href="chap6.html#tab:table6-1">6.1</a> 中数据的双向效应模型，<strong>零和限制</strong> (Sum-to-Zero Restrictions) 为：</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;\begin{aligned}\sum_{i=1}^3\tau_i=0,\sum_{j=1}^3\beta_j=0,\sum_{i=1}^3\gamma_{i1}=0,\sum_{i=1}^3\gamma_{i2}=0,\sum_{i=1}^3\gamma_{i3}=0\end{aligned} \\
+&amp;\sum_{j=1}^3\gamma_{1j}=0,\sum_{j=1}^3\gamma_{2j}=0,\,\text{and }\sum_{j=1}^3\gamma_{3j}=0
+\end{aligned}\]</span></p>
+<p>接下来，通过在考虑限制的情况下根据其他参数求解一些参数，然后将表达式替换回模型，将这些限制合并到模型中。例如，可以替换的参数有</p>
+<p><span class="math display">\[\begin{aligned}\tau_3&amp;=-\tau_1-\tau_2,\quad\beta_3=-\beta_1-\beta_2,\quad\gamma_{13}=-\gamma_{11}-\gamma_{12}\\\gamma_{23}&amp;=-\gamma_{21}-\gamma_{22},\quad\gamma_{31}=-\gamma_{11}-\gamma_{21},\quad\gamma_{32}=-\gamma_{12}-\gamma_{22}\\\gamma_{33}&amp;=-\gamma_{13}-\gamma_{23}=-\gamma_{31}-\gamma_{32}=\gamma_{11}+\gamma_{12}+\gamma_{21}+\gamma_{22}\end{aligned}\]</span></p>
+<p>因此，替换模型中的 <span class="math inline">\(\tau_3,~\beta_3,~\gamma_{13},~\gamma_{23},~\gamma_{33},~\gamma_{31}\)</span> 和 <span class="math inline">\(\gamma_{32}\)</span>，以获得重新参数化的模型</p>
+<p><span class="math display">\[
+\begin{bmatrix}y_{111}\\y_{112}\\y_{121}\\y_{131}\\y_{211}\\y_{221}\\y_{222}\\y_{231}\\y_{311}\\y_{321}\\y_{331}\end{bmatrix}=
+\begin{bmatrix}1&amp;1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0\\1&amp;1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;-1&amp;-1&amp;-1&amp;-1&amp;0&amp;0\\1&amp;0&amp;1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0\\1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;1\\1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;1\\1&amp;0&amp;1&amp;-1&amp;-1&amp;0&amp;0&amp;-1&amp;-1\\1&amp;-1&amp;-1&amp;0&amp;0&amp;-1&amp;0&amp;-1&amp;0\\1&amp;-1&amp;-1&amp;0&amp;1&amp;0&amp;-1&amp;0&amp;-1\\1&amp;-1&amp;-1&amp;-1&amp;-1&amp;1&amp;1&amp;1&amp;1\end{bmatrix}\begin{bmatrix}\mu^*\\\tau_1^*\\\tau_2^*\\\beta_1^*\\\beta_2^*\\\gamma_{11}^*\\\gamma_{12}^*\\\gamma_{21}^*\\\gamma_{22}^*\end{bmatrix}+\boldsymbol{\varepsilon}
+\]</span></p>
+<p>其表示为</p>
+<p><span class="math display">\[\begin{aligned}\boldsymbol{y}=\boldsymbol{X}^*\boldsymbol{\beta}^*+\boldsymbol{\varepsilon}\end{aligned}\]</span></p>
+<p>表 <a href="chap6.html#tab:table6-1">6.1</a> 中数据对应的零和限制正态方程的解为 <span class="math inline">\(\hat{\boldsymbol{\beta^*}}=(\boldsymbol X^{*\prime} \boldsymbol X^*)^{-1}\boldsymbol X^{*\prime}\boldsymbol{y}\)</span>. 可得到</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{\boldsymbol \beta}^{*\prime}&amp;=[\hat{\mu}^*,\hat{\tau}_1^*,\hat{\tau}_2^*,\hat{\beta}_1^*,\hat{\beta}_2^*,\hat{\gamma}_{11}^*,\hat{\gamma}_{12}^*,\hat{\gamma}_{21}^*,\hat{\gamma}_{22}^*] \\
+&amp;=[5.500,2.333,-0.833,-2.000,-0.5000,-1.333,1.667,-0.667,-0.167]
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\boldsymbol \beta\)</span> 剩余元素的估计从如下限制中获得：</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{{\tau}}_3^*&amp;=-\hat{{\tau}}_1^*-\hat{{\tau}}_2^*=-1.500,\quad\hat{{\beta}}_3^*=-\hat{{\beta}}_1^*-\hat{{\beta}}_2^*=2.500 \\
+\hat{\gamma}_{13}^*&amp;=-\hat{\gamma}_{11}^*-\hat{\gamma}_{12}^*=-0.333,\quad\hat{\gamma}_{23}^*=-\hat{\gamma}_{21}^*-\hat{\gamma}_{22}^*=0.833 \\
+\hat{\gamma}_{31}^*&amp;=-\hat{\gamma}_{11}^*-\hat{\gamma}_{21}^*=2.000,\quad\hat{\gamma}_{32}^*=-\hat{\gamma}_{12}^*-\hat{\gamma}_{22}^*=-1.500 \\
+\hat{\gamma}_{33}^*&amp;=\hat{\gamma}_{11}^*+\hat{\gamma}_{12}^*+\hat{\gamma}_{21}^*+\hat{\gamma}_{22}^*=-0.500
+\end{aligned}\]</span></p>
+<p>关于均值模型参数 <span class="math inline">\(\mu_{ij}\)</span>，参数 <span class="math inline">\(\mu^*,t_i^*,\beta_{j}^*,\gamma^*_{ij}\)</span> 可以通过如下定义以满足零和限制</p>
+<p><span class="math display">\[\mu^*=\bar{\mu}_{\cdot\cdot},\quad\tau_i^*=\bar{\mu}_{i\cdot}-\bar{\mu}_{\cdot\cdot\cdot},\quad\beta_j^*=\bar{\mu}_{\cdot j}-\bar{\mu}_{\cdot\cdot\cdot},\quad\mathrm{and}\quad\gamma_{ij}^*=\mu_{ij}-\bar{\mu}_{i\cdot}-\bar{\mu}_{\cdot j}+\bar{\mu}_{\cdot\cdot}\]</span></p>
+</div>
+<div id="sec6-2-3" class="section level3 hasAnchor" number="6.2.3">
+<h3><span class="header-section-number">6.2.3</span> 置零限制<a href="chap6.html#sec6-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>另一种常用于求解双向效应模型正规方程组的重新参数化技术为，将每组中的最后一个参数<strong>设置为零</strong> (Set-to-Zero)（选择最后一个参数是为了方便；也可以选择第一个、第二个或任何其他参数）。对于表 <a href="chap6.html#tab:table6-1">6.1</a> 中数据的双向效应模型，限制为</p>
+<p><span class="math display">\[\tau_3=0,\beta_3=0,\gamma_{13}=0,\gamma_{23}=0,\gamma_{33}=0,\gamma_{31}=0,\mathrm{~and~}\gamma_{23}=0\]</span></p>
+<p>通过将上述限制条件纳入双向效应模型，得到重新参数化后的模型为</p>
+<p><span class="math display">\[\begin{bmatrix}y_{111}\\y_{112}\\y_{121}\\y_{131}\\y_{211}\\y_{221}\\y_{222}\\y_{231}\\y_{311}\\y_{321}\\y_{331}\end{bmatrix}=\begin{bmatrix}1&amp;1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0\\1&amp;1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0\\1&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\1&amp;0&amp;1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;0\\1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;1\\1&amp;0&amp;1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;1\\1&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\1&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0&amp;0\\1&amp;0&amp;0&amp;0&amp;1&amp;0&amp;0&amp;0&amp;0\\1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\end{bmatrix}\begin{bmatrix}\mu^+\\\tau_1^+\\\tau_2^+\\\beta_1^+\\\beta_2^+\\\gamma_{11}^+\\\gamma_{12}^+\\\gamma_{21}^+\\\gamma_{22}^+\end{bmatrix}+\boldsymbol\varepsilon  \]</span></p>
+<p>可以表示为 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X}^+\boldsymbol{\beta}^++\boldsymbol{\varepsilon}\)</span>。矩阵 <span class="math inline">\(\boldsymbol{X}^+\)</span> 是通过从双向效应模型完整设计矩阵 <span class="math inline">\(\boldsymbol X\)</span> 中删除与 <span class="math inline">\(\tau_3,\beta_3,\gamma_{31},\gamma_{32},\gamma_{33},\gamma_{13},\gamma_{23}\)</span> 对应的列而获得的。关于重新参数化模型设计矩阵的求解过程，置零限制比零和限制简单得多。置零限制对应的正规方程组的解为</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}^+=(\boldsymbol X^{+\prime}\boldsymbol X^{+})^{-1}\boldsymbol X^{+\prime}\boldsymbol y\]</span></p>
+<p>可以得到</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{\boldsymbol{\beta}}^{+\prime}&amp; =[\hat{{\mu}}^+,\hat{{\tau}}_1^+,\hat{{\tau}}_2^+,\hat{{\beta}}_1^+,\hat{{\beta}}_2^+,\hat{{\gamma}}_{11}^+,\hat{{\gamma}}_{12}^+,\hat{{\gamma}}_{21}^+,\hat{{\gamma}}_{22}^+]  \\
+&amp;=[6.0,4.0,2.0,-2.0,-4.0,-3.5,3.0,-4.0,0.0]
+\end{aligned}\]</span></p>
+<p>其余参数的估计是零，因为它们是由置零限制指定的，即，</p>
+<p><span class="math display">\[\hat{\tau}_3^+=\hat{\beta}_3^+=\hat{\gamma}_{31}^+=\hat{\gamma}_{32}^+=\hat{\gamma}_{33}^+=\hat{\gamma}_{13}^+=\hat{\gamma}_{23}^+=0\]</span></p>
+<p>为了将参数置零限制条件与均值模型参数 <span class="math inline">\(\mu_{ij}\)</span> 关联起来，定义 <span class="math inline">\(\mu^+,t_i^+,\beta_j^+,\gamma_{ij}^+\)</span></p>
+<p><span class="math display">\[\begin{aligned}\mu^+=\mu_{tb},&amp;\,\,\tau_i^+=\mu_{ib}-\mu_{tb},\,\,\beta_j^+=\mu_{tj}-\mu_{tb}\,\mathrm{~and~}\,\gamma_{ij}^+=\mu_{ij}-\mu_{tj}-\mu_{ib}+\mu_{tb}\end{aligned}\]</span></p>
+<p>当 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 的不满秩时（即 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 是奇异的），正规方程组有多个可能的解。这是因为模型参数过多，即模型中的参数（在双向效应模型的情况下为 16 个）比可用数据（有 9 个数据单元，因此最多可以估计 9 个参数）能够唯一确定的参数要多。可以唯一估计的参数数量可被称为<strong>基本</strong> (essential) 参数数量。为了应对过度参数化模型以及非唯一的最小二乘解，必须考虑可估性的概念，这是 <a href="chap6.html#sec6-3">6.3</a> 节的主题。下一个例子将给出单向处理结构效应模型的两种可能的解。</p>
+</div>
+<div id="sec6-2-4" class="section level3 hasAnchor" number="6.2.4">
+<h3><span class="header-section-number">6.2.4</span> 示例 6.2：单向处理结构<a href="chap6.html#sec6-2-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-2">表 6.2: </span>第 <a href="chap6.html#sec6-2-4">6.2.4</a> 节中均值和效应模型的单向处理结构数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.2.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>这是一个单向处理结构的示例，在完全随机设计结构中具有四种处理。数据如表 <a href="chap6.html#tab:table6-2">6.2</a> 所示。 <span class="math inline">\(\boldsymbol X^*\)</span> 矩阵是通过使用零和限制重新参数化模型来构造的；即，假设 <span class="math inline">\(\tau_1^*+\tau_2^*+\tau_3^*+\tau_4^*=0\)</span>.</p>
+<p>由此产生的设计矩阵为</p>
+<p><span class="math display">\[\boldsymbol X^*=\begin{bmatrix}
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+1 &amp; -1 &amp; -1 &amp; -1 \\
+\end{bmatrix}\]</span></p>
+<p>零和限制模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}26&amp;-1&amp;-3&amp;-2\\-1&amp;15&amp;8&amp;8\\-3&amp;8&amp;13&amp;8\\-2&amp;8&amp;8&amp;14\end{bmatrix}\begin{bmatrix}\hat{\mu}^*\\\hat{\tau}_1^*\\\hat{\tau}_2^*\\\hat{\tau}_3^*\end{bmatrix}=\begin{bmatrix}55.1\\-0.9\\-2.5\\-5.9\end{bmatrix}\]</span></p>
+<p>零和限制模型的正规方程组相应最小二乘解为</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}^*=\begin{bmatrix}\hat{{\mu}}^*\\\hat{{\tau}}_1^*\\\hat{{\tau}}_2^*\\\hat{{\tau}}_3^*\end{bmatrix}=\begin{bmatrix}2.1510\\0.0204\\0.5690\\-0.4510\end{bmatrix}\]</span></p>
+<p>以及 <span class="math inline">\(\hat{\tau}_4^*=-\hat{\tau}_1^*-\hat{\tau}_2^*-\hat{\tau}_3^*=-0.1384\)</span>. 就均值模型参数而言，零和限制参数可表示为</p>
+<p><span class="math display">\[\mu^*=\bar{\mu}_{\cdot},\quad\tau_1^*=\mu_1-\bar{\mu}_{\cdot},\quad\tau_2^*=\mu_2-\bar{\mu}_{\cdot},\quad\tau_3^*=\mu_3-\bar{\mu}_{\cdot},\quad\tau_4^*=\mu_4-\bar{\mu}_{\cdot}\]</span></p>
+<p>具有 <span class="math inline">\(\tau_ 4 ^+ = 0\)</span> 的置零限制设计矩阵 <span class="math inline">\(\boldsymbol X^+\)</span> 是通过在 <span class="math inline">\(\boldsymbol X^*\)</span> 中用“0”替换“-1”来构建的。置零限制模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}26&amp;7&amp;5&amp;6\\7&amp;7&amp;0&amp;0\\5&amp;0&amp;5&amp;0\\6&amp;0&amp;0&amp;6\end{bmatrix}\begin{bmatrix}\hat{{\mu}}^+\\\hat{{\tau}}_1^+\\\hat{{\tau}}_2^+\\\hat{{\tau}}_3^+\end{bmatrix}=\begin{bmatrix}55.1\\15.2\\13.6\\10.2\end{bmatrix}\]</span></p>
+<p>置零限制模型的最小二乘解为</p>
+<p><span class="math display">\[\boldsymbol{\hat{\beta}}^+=\begin{bmatrix}{\hat{\mu}}^+\\{\hat{\tau}}_1^+\\{\hat{\tau}}_2^+\\{\hat{\tau}}_3^+\end{bmatrix}=\begin{bmatrix}2.0125\\0.1589\\0.7075\\-0.3125\end{bmatrix}\]</span></p>
+<p>且 <span class="math inline">\(\tau_ 4 ^+ = 0\)</span>. 就均值模型参数而言，置零限制参数可表示为</p>
+<p><span class="math display">\[\mu^+=\mu_4,\quad\tau_1^+=\mu_1-\mu_4,\quad\tau_2^+=\mu_2-\mu_4,\quad\tau_3^+=\mu_3-\mu_4,\quad\tau_4^+=\mu_4-\mu_4=0\]</span></p>
+<p>需要估计的最后一个参数是总体方差 <span class="math inline">\(\sigma^2\)</span>. 基于 <span class="math inline">\(\boldsymbol \beta\)</span> 最小二乘解的 <span class="math inline">\(\sigma^2\)</span> 的估计为</p>
+<p><span class="math display" id="eq:6-10">\[\begin{equation}
+\begin{align}
+\hat{\sigma}^2&amp; =\frac{1}{n-r}(\boldsymbol y-X\hat{\boldsymbol \beta})&#39;(\boldsymbol y-\boldsymbol X\hat{\boldsymbol \beta})  \\
+&amp;=\frac1{n-r}\sum_{i=1}^n{(y_i-\hat{\beta}_0-\hat{\beta}_1x_{i1}-\hat{\beta}_2x_{i2}-\cdots-\hat{\beta}_{p-1}x_{ip-1})^2}
+\end{align}
+\tag{6.10}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(r=\operatorname{rank}(\boldsymbol X)\)</span>.</p>
+<p>如果假设误差独立分布，且前四阶矩等于正态分布的前四阶矩，那么 <span class="math inline">\(\hat \sigma^2\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的最佳二次无偏估计 (best quadratic unbiased estimate). 如果误差也服从正态分布，那么 <span class="math inline">\(\hat \sigma^2\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的最佳无偏估计 (best unbiased estimate)，且 <span class="math inline">\((n - r)\hat \sigma^2 /\sigma^2\)</span> 的抽样分布是自由度为 <span class="math inline">\(n - r\)</span> 的中心卡方分布。</p>
+</div>
+</div>
+<div id="sec6-3" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> 可估性和连通的设计<a href="chap6.html#sec6-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>当过度指定模型或非满秩模型用于实验情况时，存在许多不同的最小二乘解（实际上有无限多个解）。如果两名研究人员分析上述两个数据集，一个使用零和限制，另一个使用置零限制，他们可能会得出不同的结论。对于上一节中的双向示例，<span class="math inline">\(\tau_2^* = -0.833, \tau_2^+ = 2.000\)</span>；因此，一位研究人员可能会说 <span class="math inline">\(\tau_2\)</span> 很可能为负，而另一位研究人员可能会说 <span class="math inline">\(\tau_2\)</span> 很可能为正——<strong>而这两种说法都是错误的</strong>。</p>
+<div id="sec6-3-1" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> 可估函数<a href="chap6.html#sec6-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>由于两位研究人员都在分析相同的数据集，因此他们似乎应该只考虑对两个重新参数化模型具有相同估计的参数或参数的函数。这种参数函数称为<strong>参数的可估函数</strong> (estimable functions of the parameters).</p>
+<div class="definition">
+<p><span id="def:6-1" class="definition"><strong>定义 6.1  </strong></span>♦
+参数或参数的函数 <span class="math inline">\(f(\boldsymbol \beta)\)</span> 是可估的，当且仅当参数或参数的函数的估计值对于最小二乘解的选择是不变的；也就是说，无论使用正规方程组的哪个解，估计值都是相同的。</p>
+</div>
+<p>如果两位研究人员对参数的可估函数进行了估计，即使他们采用了两种不同的最小二乘解，他们也会得到相同的估计值。因此，他们对于参数的可估函数会得出相同的结论。对于矩阵模型，<span class="math inline">\(\boldsymbol \beta\)</span> 的线性可估函数表现为参数向量的线性组合，如 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span>，其中 <span class="math inline">\(\boldsymbol a^\prime\)</span> 是一个 p × 1 的常数向量。线性函数 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span> 是可估的，当且仅当存在向量 <span class="math inline">\(r\)</span>，使得 <span class="math inline">\(\boldsymbol a =\boldsymbol X ^\prime \boldsymbol X r\)</span>. 每个形如 <span class="math inline">\(\boldsymbol x^\prime_i \boldsymbol \beta\)</span> 的函数都是可估的，其中 <span class="math inline">\(\boldsymbol x^\prime_i\)</span> 是 <span class="math inline">\(\boldsymbol X\)</span> 的第 <span class="math inline">\(i\)</span> 行。此外，<span class="math inline">\(\boldsymbol x^\prime_i \boldsymbol \beta\)</span> 的任何线性组合都是可估的函数。考虑 <a href="chap6.html#sec6-2">6.2</a> 节中单向示例的两个解。由于每个参数 <span class="math inline">\(\mu,\tau_1,\tau_2,\tau_3,\tau_4\)</span> 都有两个不同的解，因此这些参数被认为是<strong>不可估的</strong> (nonestimable). 但是，通过计算每种方法关于 <span class="math inline">\(\mu + \tau_i\)</span> 的估计值，可以发现</p>
+<p><span class="math display">\[\hat{\mu}^*+\hat{\tau}_i^*=\hat{\mu}^++\hat{\tau}_i^+,\quad i=1,2,3,4\]</span></p>
+<p>证明 <span class="math inline">\(\mu + \tau_i\)</span> 是参数的可估函数。</p>
+<p><span class="math inline">\(\tau_i\)</span> 的所有对比，如差异 <span class="math inline">\({\tau}_1{-\tau}_2{,\tau}_1{-\tau}_3{,\tau}_2{-\tau}_3\)</span> 或者 <span class="math inline">\(\sum_{i=1}^tc_i\tau_i\)</span> 其中 <span class="math inline">\(\sum_{i=1}^tc_i=0\)</span>，可证明是单向模型的可估函数。</p>
+<p>对于双向效应模型，一些可估函数为</p>
+<p><span class="math inline">\(\mu+\tau_i+\beta_j+\gamma_{ij},\quad\gamma_{ij}-\gamma_{ij^\prime}-\gamma_{i^\prime j}+\gamma_{i^\prime j^\prime},\quad\beta_j-\beta_j+\bar{\gamma}_{\cdot j}-\bar{\gamma}_{\cdot j^\prime},\quad\tau_i-\tau_i+\bar{\gamma}_{i\cdot}-\bar{\gamma}_{i^\prime\cdot}\)</span></p>
+<p>可估函数在第 <a href="#chap10"><strong>??</strong></a> 章进行了更详细的讨论。这里需记住的重点是可估函数的定义。从数据集中进行推断时，必须只考虑可估的参数函数，因为它们是参数的函数，其估计值不依赖于选择的最小二乘解。SAS<sup>®</sup>-GLM 和 SAS<sup>®</sup>-Mixed 都会检查所请求估计的参数或参数函数是否确实是可估的。如果参数或参数函数不可估，则不提供估计值。</p>
+</div>
+<div id="sec6-3-2" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> 连通性<a href="chap6.html#sec6-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>与可估函数相关的另一个概念是双向处理结构的<strong>连通性</strong> (connectedness). 如果可以假设行处理和列处理的水平之间没有交互作用，那么可以将处理组合平均值建模为</p>
+<p><span class="math display" id="eq:6-12">\[\begin{equation}
+\mu_{ij}=\mu+\tau_i+\beta_j,\quad i=1,2,\ldots,b,j=1,2,\ldots,t
+\tag{6.11}
+\end{equation}\]</span></p>
+<p>如果双向处理结构中的数据以这样的方式出现在双向单元格中，即对于模型 <a href="chap6.html#eq:6-12">(6.11)</a> 中的所有 <span class="math inline">\(j\ne j^\prime\)</span> 以及 <span class="math inline">\(i\ne i^\prime\)</span>，<span class="math inline">\(\beta_j-\beta_{j^\prime}\)</span> 和 <span class="math inline">\(\tau_i-\tau_{i^\prime}\)</span> 都是可估的，则该双向处理结构被称为<strong>连通的</strong> (connected)。图 <a href="#fig:figure6-1"><strong>??</strong></a> 中的安排 I 是一个连通的实验，而安排 II 不是。例如，使用安排 I，</p>
+<p><span class="math display">\[\beta_1-\beta_2=(\mu+\tau_1+\beta_1)-(\mu+\tau_1+\beta_5)+(\mu+\tau_2+\beta_5)-(\mu+\tau_2+\beta_2)\]</span></p>
+<p>我们可以得到单元格均值的线性组合，因此 <span class="math inline">\(\beta_1-\beta_2\)</span> 是可估的。对于安排 II，没有这样的单元格均值的线性组合可以得到 <span class="math inline">\(\beta_1-\beta_2\)</span>，因此 <span class="math inline">\(\beta_1-\beta_2\)</span> 是不可估的。下一节将讨论关于参数的可估函数的假设检验。</p>
+</div>
+</div>
+<div id="sec6-4" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> 关于线性模型参数的检验假设<a href="chap6.html#sec6-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>对于线性模型中参数线性函数的假设检验，有多种方法可以开发适当的统计量。这里使用的方法用矩阵表示法，相当于条件误差原理（第 <a href="chap1.html#chap1">1</a> 章）和似然比统计量。讨论仅限于检验关于参数的可估函数的假设。特别是，考虑检验假设</p>
+<p><span class="math display" id="eq:6-13">\[\begin{equation}
+H_0{:\boldsymbol{H\beta}}=\boldsymbol{h}\mathrm{~vs~}H_a{:\boldsymbol{H\beta}}\neq\boldsymbol{h}
+\tag{6.12}
+\end{equation}\]</span></p>
+<p>其中线性组合 <span class="math inline">\(\boldsymbol{H\beta}\)</span> 是 <span class="math inline">\(\boldsymbol \beta\)</span> 的可估函数，<span class="math inline">\(\boldsymbol H\)</span> 是秩为 <span class="math inline">\(q\)</span> 的 q × p矩阵（即，<span class="math inline">\(\boldsymbol H\)</span> 的所有行是线性无关的）。相应的检验统计量为</p>
+<p><span class="math display">\[F_c=\frac{SSH_0/q}{\hat{\sigma}^2}\]</span></p>
+<p>其中 <span class="math inline">\(\hat \sigma^2\)</span> 由式 <a href="#eq:6-11">(<strong>??</strong>)</a> 给出，并且</p>
+<p><span class="math display">\[SSH_0=(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)^{\prime}\left[\boldsymbol H(\boldsymbol X^{\prime}\boldsymbol X)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)\]</span></p>
+<p>这被称为<strong>因偏离零假设而产生的平方和</strong> (sum of squares due to deviations from the null hypothesis)（记号 “<span class="math inline">\((\boldsymbol X^{\prime}\boldsymbol X)^{-}\)</span>” 表示矩阵 <span class="math inline">\(\boldsymbol X^{\prime}\boldsymbol X\)</span> 的广义逆，Graybill, 1976）。在误差向量元素为 <span class="math inline">\(i.i.d.\,N(0,\sigma^2)\)</span> 的假设下，<span class="math inline">\(F_c\)</span> 服从自由度为 <span class="math inline">\(q,n-r\)</span> 的 <span class="math inline">\(F\)</span> 分布。</p>
+<p>式 <a href="chap6.html#eq:6-13">(6.12)</a> 中的假设总是可以用重新参数模型 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X}^*\boldsymbol{\beta}^*+\boldsymbol \varepsilon\)</span> 来等价地表述为下式，其中 <span class="math inline">\(\boldsymbol X^{*\prime}\boldsymbol X^*\)</span> 是非奇异的</p>
+<p><span class="math display">\[H_0{:}H^*\boldsymbol{\beta}^*=\boldsymbol{h}^*\mathrm{~vs~}H_a{:}H^*\boldsymbol{\beta}^*\neq\boldsymbol{h}^*\]</span></p>
+<p>则式 <a href="#eq:6-16">(<strong>??</strong>)</a> 的 <span class="math inline">\(SSH_0\)</span> 可计算为</p>
+<p><span class="math display">\[SSH_0=(\boldsymbol H^*\hat{\boldsymbol{\beta}}^*-\boldsymbol{h}^*)^{\prime}[\boldsymbol H^*(\boldsymbol X^{*\prime}\boldsymbol X^*)^{-1}(\boldsymbol{H}^*{}^{\prime}\hat{\boldsymbol{\beta}}^*-\boldsymbol{h}^*)]\]</span></p>
+<p>对于单向模型，在原始效应模型中检验假设</p>
+<p><span class="math display">\[\begin{aligned}H_0\colon\tau_1=\tau_2=\cdots=\tau_t\text{ vs }H_a\colon\tau_i\neq\tau_{i&#39;}\quad\text{for some }i\neq i&#39;\end{aligned}\]</span></p>
+<p>相当于在置零重新参数化模型中检验</p>
+<p><span class="math display">\[\begin{aligned}H_0\colon\tau_1^*=\tau_2^*=&amp;\cdots=\tau_{t-1}^*=0\text{ vs }H_a{:}\tau_i^*\neq0\quad\text{for some }i\leq t\text{ -1}\end{aligned}\]</span></p>
+<p>对于示例 <a href="chap6.html#sec6-2-4">6.2</a> 关于 <span class="math inline">\(\boldsymbol \beta^*\)</span> 的零假设是</p>
+<p><span class="math display">\[H_0{:}\begin{bmatrix}0&amp;1&amp;0&amp;0\\0&amp;0&amp;1&amp;0\\0&amp;0&amp;0&amp;1\end{bmatrix}\begin{bmatrix}\mu^*\\\tau_1^*\\\tau_2^*\\\tau_3^*\end{bmatrix}=0\quad\mathrm{or}\quad \boldsymbol H^*\boldsymbol \beta^*=0\]</span></p>
+<p>偏离 <span class="math inline">\(H_0\)</span> 而产生的平方和为</p>
+<p><span class="math display">\[SSH_0=(\hat{\tau}_1^*\quad\hat{\tau}_1^*\quad\hat{\tau}_1^*)\,\boldsymbol{Z}^{-1}\begin{bmatrix}\hat{\tau}_1^*\\\hat{\tau}_2^*\\\hat{\tau}_3^*\end{bmatrix}\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{Z}=\boldsymbol{H}^*(\boldsymbol{X}^*\boldsymbol{&#39;}\boldsymbol{X}^*)^{-1}\boldsymbol{H}^*\boldsymbol{&#39;}\)</span>. 这是矩阵 <span class="math inline">\((\boldsymbol{X}^*\boldsymbol{&#39;}\boldsymbol{X}^*)^{-1}\)</span> 中与 <span class="math inline">\(\tau_1,\tau_2,\tau_3)\)</span> 相关的行和列的部分。</p>
+<p>可估函数 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span> 的一个 <span class="math inline">\((1-\alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\boldsymbol a^{\prime}\hat{\boldsymbol \beta}-[t_{\alpha/2,n-p}]S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}\leq a^{\prime}\boldsymbol{\beta}\leq a^{\prime}\hat{\beta}+[t_{\alpha/2,n-p}]S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}\]</span></p>
+<p>其中 <span class="math inline">\(S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}^2=\hat{\sigma}^2\boldsymbol{a}^{\prime}(\boldsymbol X^{\prime}\boldsymbol X})^{-1}\boldsymbol{a}\)</span>. 通过使用第 <a href="chap3.html#chap3">3</a> 章中讨论的多重比较程序，可以构造关于几个可估函数的同时置信区间 (simultaneous confidence intervals).</p>
+</div>
+<div id="sec6-5" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> 总体边际均值<a href="chap6.html#sec6-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在通过方差分析对交叉分类数据集进行分析后，实验者通常对估计特定效应或单元格均值感兴趣。<strong>总体边际均值</strong> (population marginal means) 被定义为在特定类别上平均化的参数线性组合，就好像每个单元格中都有一个观测值一样 (Searle et al., 1980). 如果每个单元格中至少有一个观测值，那么所有的总体边际均值都是可估的，而如果某些单元格为空，则它们不一定可估。这个定义不依赖于单元格中的样本量。如果数据代表单元格的比例抽样，那么实验者可能希望考虑单元格均值的加权平均值，其中权重由样本量给出（参见第 <a href="#chap10"><strong>??</strong></a> 章）。或者，可能需要使用其他加权方案来对各个单元格进行平均。本节末尾提供了一个示例，以演示不同的可能性。</p>
+<p>对于完全随机设计的单向处理结构，第 <span class="math inline">\(i\)</span> 个处理的总体边际平均值为 <span class="math inline">\(\mu+\tau_i=\mu_i\)</span>，并由下式估计</p>
+<p><span class="math display">\[\widehat{\mu+\tau_i}=\hat{\mu}+\hat{\tau_i}\]</span></p>
+<p>其中 <span class="math inline">\(\hat \mu,\hat \tau\)</span> 是从正规方程组的任何解得到的。这些估计值被称为<strong>总体边际均值估计</strong> (estimated population marginal means).</p>
+<p>对于完全随机设计中的双向处理结构，第 <span class="math inline">\((i,j)\)</span> 个单元格的总体边际平均值为 <span class="math inline">\(\begin{aligned}\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij}\end{aligned}\)</span>. 第 <span class="math inline">\(i\)</span> 行的总体边际均值是该行中 <span class="math inline">\(\mu_{ij}\)</span> 的平均值，或者</p>
+<p><span class="math display">\[\bar{\mu}_{i\cdot}=\sum_{j=1}^b\frac{\mu_{ij}}b=\mu+\tau_i+\bar{\beta}_{\cdot}+\bar{\gamma}_{i\cdot}\]</span></p>
+<p>第 <span class="math inline">\(j\)</span> 列的总体边际均值是该列中 <span class="math inline">\(\mu_{ij}\)</span> 的平均值，或者</p>
+<p><span class="math display">\[\bar{{\mu}}_{\cdot j}=\sum_{i=1}^t\frac{{\mu}_{ij}}t={\mu}+\bar{{\tau}}_{\cdot}+{\beta}_j+\bar{{\gamma}}_{\cdot j}\]</span></p>
+<p>总体边际均值估计分别为</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{{\mu}}_{ij} &amp;=\hat{\mu}+\hat{\tau}_i+\hat{\beta}_j+\hat{\gamma}_{ij},  \\
+\hat{\bar{{\mu}}}_{i\cdot} &amp;=\hat{\mu}+\hat{\tau}_i+\sum_{j=1}^b\frac{\hat{\beta}_j}b+\sum_{j=1}^b\frac{\hat{\gamma}_{ij}}b,\\
+\hat{\bar{{\mu}}}_{\cdot j}&amp;=\hat{{\mu}}+\sum_{i=1}^t\frac{\hat{{\tau}}_i}t+\hat{{\beta}}_j+\sum_{i=1}^t\frac{\hat{{\gamma}}_{ij}}t
+\end{aligned}\]</span></p>
+<p>这些估计对于任何可能的最小二乘解都是唯一的</p>
+<p><span class="math display">\[\hat{\mu},\hat{\tau}_1,\hat{\tau}_2,\ldots,\hat{\tau}_t,\hat{\beta}_1,\hat{\beta}_2,\ldots,\hat{\beta}_b,\hat{\gamma}_{11},\hat{\gamma}_{12},\ldots,\hat{\gamma}_{tb}\]</span></p>
+<p>根据零和限制模型，表 <a href="chap6.html#tab:table6-1">6.1</a> 中双向示例的总体边际平均值 <span class="math inline">\(\hat{\bar\mu}_{1\cdot}\)</span> 的估计为</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{\bar{\mu}}_{1\cdot}&amp; =\hat{\mu}^*+\hat{\tau}_1^*+\frac{\hat{\beta}_1^*+\hat{\beta}_2^*+\hat{\beta}_3^*}3+\frac{\hat{\gamma}_{11}^*+\hat{\gamma}_{12}^*+\hat{\gamma}_{13}^*}3  \\
+&amp;=5.500+2.333+\frac{-2.000-0.500+2.500}3+\frac{-1.333+1.667-0.333}3 \\
+&amp;=7.833
+\end{aligned}\]</span></p>
+<p>当按预期使用置零限制的最小二乘解时，可以获得与 <span class="math inline">\(\hat{\bar\mu}_{1\cdot}\)</span> 相同的值，因为 <span class="math inline">\({\bar\mu}_{1\cdot}\)</span> 在这个例子中是可估的。</p>
+<p>当没有空单元格时，所有的总体边际均值都是可估的。如果有空单元格，那么任何涉及一个或多个缺失单元格的总体边际均值都是不可估的。例如，如果 <span class="math inline">\((2,2)\)</span> 单元格在 2×2 处理结构中缺失，则没有关于 <span class="math inline">\(\mu_{22}\)</span> 的信息，因此 <span class="math inline">\(\mu_{22}\)</span> 是不可估的。第 2 列的总体边际均值为</p>
+<p><span class="math display">\[\bar{\mu}_{\cdot 2}=\frac{\mu_{12}+\mu_{22}}2\]</span></p>
+<p>由于 <span class="math inline">\(\bar{\mu}_{\cdot 2}\)</span> 依赖于 <span class="math inline">\(\mu_{22}\)</span>，因此 <span class="math inline">\(\bar{\mu}_{\cdot 2}\)</span> 是不可估的（<span class="math inline">\(\bar{\mu}_{2\cdot }\)</span> 也不可估）。</p>
+<p><strong>任何可估的总体边际均值都可以表示为重新参数化模型参数向量元素的线性组合</strong>；也就是说，对于 <span class="math inline">\(\boldsymbol a\)</span> 的适当选择，总体边际均值可以表示为 <span class="math inline">\(\boldsymbol a^\prime\boldsymbol \beta^*\)</span>. 总体边际均值估计的方差为</p>
+<p><span class="math display">\[\mathrm{Var}(\boldsymbol a^{\prime}\hat{\boldsymbol{\beta}^*})=\sigma^2 \boldsymbol a^{\prime}(\boldsymbol X^{*\prime}\boldsymbol X^*)^{-1}\boldsymbol a\]</span></p>
+<p>且 <span class="math inline">\(\boldsymbol a^\prime\boldsymbol \beta^*\)</span> 的标准误估计为</p>
+<p><span class="math display">\[\widehat{s.e.}(\boldsymbol a^{\prime}\hat{\boldsymbol \beta}^*)=\hat{\sigma}\sqrt{\boldsymbol a^{\prime}(\boldsymbol X^{*\prime} \boldsymbol X^*)^{-1}\boldsymbol a}\]</span></p>
+<p>对于置零限制的单向模型，总体边际均值估计为</p>
+<p><span class="math display">\[\widehat{\mu+\tau_i}=\hat{\mu}^*+\hat{\tau}_i^*,\quad i=1,2,\ldots,t-1\]</span></p>
+<p>且</p>
+<p><span class="math display">\[\widehat{{\mu}+{\tau}_t}=\hat{{\mu}}^*\]</span></p>
+<p>这些总体边际均值估计的方差为</p>
+<p><span class="math display">\[\mathrm{Var}(\widehat{\mu+\tau_i})=\mathrm{Var}(\hat{\mu}^*)+2\mathrm{Cov}(\hat{\mu}^*,\hat{\tau}_i^*)+\mathrm{Var}(\hat{\tau}_i^*)\quad i=1,2,\ldots,t-1\]</span></p>
+<p>且</p>
+<p><span class="math display">\[\mathrm{Var}(\widehat{\mu+\tau_t})=\mathrm{Var}(\hat{\mu}^*)\]</span></p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-3">表 6.3: </span>双向处理结构的平均绩点数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap6.html#tab:table6-3">6.3</a> 中的数据是一所学校学生样本的平均绩点 (GPA)，学生按学年和性别进行分类。双向模型</p>
+<p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk}\quad i=1,2,3,4,\quad j=1,2,\quad k=1,2,\ldots,n_{ij}\]</span></p>
+<p>用于描述数据，其中 <span class="math inline">\(y_{ijk}\)</span> 是 GPA 值，<span class="math inline">\(\tau_i\)</span> 是第 <span class="math inline">\(i\)</span> 年的效应，<span class="math inline">\(\beta_j\)</span> 是第 <span class="math inline">\(j\)</span> 个性别的效应，<span class="math inline">\(\gamma_{ij}\)</span> 是交互作用效应。参数的置零最小二乘解如表 <a href="chap6.html#tab:table6-4">6.4</a> 所示。对于那些置零的参数，标准误估计为零。第 <span class="math inline">\(1\)</span> 学年和女性的单元格均值估计为</p>
+<p><span class="math display">\[\hat{\mu}_{1f}=\hat{\mu}+\hat{\tau}_1+\hat{\beta}_f+\hat{\gamma}_{1f}=3.333-0.133-0.033+0.205=3.372\]</span></p>
+<p>其余单元格均值可类似计算，如表 <a href="chap6.html#tab:table6-6">6.6</a> 所示。表 <a href="chap6.html#tab:table6-6">6.6</a> 和 <a href="chap6.html#tab:table6-7">6.7</a> 提供了边际年份和边际性别的均值估计。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-4">表 6.4: </span>双向处理结构中 GPA 数据的最小二乘解
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-5">表 6.5: </span>单元格均值及标准误估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-6">表 6.6: </span>跨性别水平的年份原始均值、最小二乘均值和加权平均值
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.6.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-7">表 6.7: </span>跨年份水平的女性和男性平均原始均值、最小二乘均值和加权平均值
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>原始均值</strong> (raw measn) 是各个单元格均值的加权平均值，使用单元格中的观测数量作为权重。例如，第 1 年的原始均值或<strong>未调整的均值</strong> (unadjusted mean) 计算为</p>
+<p><span class="math display">\[\hat{\bar{\mu}}_{1\cdot}=\frac{7^*3.371+5^*3.200}{7+5}=3.300\]</span></p>
+<p>年份和性别效应的<strong>最小二乘均值</strong> (least square means) 是相应单元格均值的未加权平均值，第 1 年的最小二乘均值为</p>
+<p><span class="math display">\[\hat{\bar{\mu}}_{1\cdot}=\frac{3.371+3.200}2=3.286\]</span></p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-8">表 6.8: </span>平均成绩研究中的学生在班级中的分布
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>在论述边际年份或边际性别效应时，人们可能想要使用原始均值（根据观察到的单元格大小进行加权）或最小二乘均值（每个单元格均值具有相同的权重，就好像单元格大小相同一样）。对于设计的实验，最小二乘均值可能是人们感兴趣的均值，因为您可能设计了一个每个单元格中观测数量相等的实验，因此，即使某些数据可能缺失，提供假设单元格大小相等的边际均值估计也是一个合理的解决方案。但是，如果数据来自观察性研究，则未加权的均值可能不是人们感兴趣的边际均值。如果数据来自总体的简单随机样本，那么单元格大小可能反映了总体的比例成员结构 (proportional membership structure). 如果情况确实如此，那么原始均值或按样本量加权的均值就是感兴趣的边际均值。但如果单元格中的样本量不代表总体结构，那么最小二乘均值和原始均值都不是感兴趣的指标。当总体中的某些部分因设计或偶然原因被过度采样或采样不足时，就会出现这种现象。当已知总体结构，即每个单元格的总体比例已知时，通过使用已知的总体比例作为权重，可以获得感兴趣的边际均值。例如，假设研究每年中男性和女性的比例如表 <a href="chap6.html#tab:table6-8">6.8</a> 所示。使用权重估计的第 1 年的边际均值为：</p>
+<p><span class="math display">\[\hat{\tilde{\mu}}_{1\cdot}=\frac{11^*3.371+22^*3.200}{33}=3.257\]</span></p>
+<p>使用权重对女性所有年份的边际均值估计为</p>
+<p><span class="math display">\[\hat{\tilde{\mu}}_{\cdot f}=\frac{11^*3.371+12^*3.180+10^*3.475+8^*3.300}{41}=3.327\]</span></p>
+<p>使用权重对男性所有年份的边际均值估计为</p>
+<p><span class="math display">\[\hat{\tilde{\mu}}_{\cdot m}=\frac{22^*3.200+14^*3.300+13^*3.267+10^*3.333}{59}=3.261\]</span></p>
+<p>计算几种调整的均值并从中选择你喜欢的值并不是问题，但有必要尽可能准确地指定总体结构中的比例，然后使用这些权重计算的边际平均估计。这可以通过允许使用 <code>estimate</code> 语句的软件包来完成，其中提供了所需边际均值的估计和标准误的估计。表 <a href="chap6.html#tab:table6-9">6.9</a> 包含使用 SAS-GLM 程序的代码，以表 <a href="chap6.html#tab:table6-8">6.8</a> 中的比例作为权重提供边际均值的估计。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table6-9">表 6.9: </span>带 <code>estimate</code> 语句的SAS<sup>®</sup>-GLM代码，使用表 <a href="chap6.html#tab:table6-8">6.8</a> 中的权重提供性别和年份水平的总体边际均值估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%206.9.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec6-6" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> 结束语<a href="chap6.html#sec6-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本章仅供对理论背景感兴趣的人阅读，介绍了最小二乘估计程序，并讨论了可估性的重要概念。还讨论了总体边际均值的定义和估计。本章为那些想开发供自己使用的统计软件的人提供了通用公式。</p>
+</div>
+<div id="sec6-7" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> 练习<a href="chap6.html#sec6-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
 </div>
 </div>
             </section>

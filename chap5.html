@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-02-23" />
+<meta name="date" content="2024-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -287,7 +287,24 @@
 <li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
 <li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
 <li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>7</b> 交叉设计的分析</a>
 <ul>
@@ -319,16 +336,15 @@
             <section class="normal" id="section-">
 <div id="chap5" class="section level1 hasAnchor" number="5">
 <h1><span class="header-section-number">第 5 章</span> 多水平设计：裂区、裂条区、重复测量及其组合<a href="chap5.html#chap5" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>咨询统计学家并不总是有机会设计他们必须帮助构建适当分析的实验。相反，统计学家必须首先确定研究人员使用的设计实验的类型。识别过程中的第一步也是最重要的一步是确定是否使用了不止一种<strong>尺寸</strong> (size) 的实验单元，如果使用了，则需要识别每种尺寸的实验单元。正如在本节中显而易见的那样，每种尺寸的实验单元都将具有相关的设计结构和处理结构。在识别出不同尺寸的实验单元后，可以通过组合用于描述与每个尺寸的实验单元对应的设计结构和处理结构的模型，从而构建用于进行适当分析的模型。</p>
+<p>统计学家在咨询工作中并不总是有机会设计他们必须帮助构建适当分析的实验。相反，统计学家首先需要确定研究人员所采用的设计实验的类型。识别过程中的第一步也是最重要的一步是确定是否使用了不止一种<strong>尺寸</strong> (size) 的实验单元，如果使用了，则需要识别每种尺寸的实验单元。正如在本节中显而易见的那样，每种尺寸的实验单元都将具有相关的设计结构和处理结构。在识别出不同尺寸的实验单元后，可以通过组合用于描述与每个尺寸的实验单元对应的设计结构和处理结构的模型，从而构建用于进行适当分析的模型。</p>
 <div id="sec5-1" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> 识别实验单元的尺寸——四种基本设计结构<a href="chap5.html#sec5-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>涉及一种以上尺寸的实验单元的设计结构被称为<strong>多水平设计结构</strong> (multilevel designs structures)，并且包括<strong>裂区</strong> (split-plot) 类型的设计结构、<strong>裂条区</strong> (strip-plot) 设计结构、<strong>重复测量</strong> (repeated measures) 设计结构、<strong>分层</strong> (hierarchical) 或<strong>嵌套</strong> (nested) 类型的设计结构以及涉及上述各种组合的设计结构。重复测量和裂区类型的设计结构是相似的，尽管用于进行分析的假设可能不同。裂区和裂条区设计结构是从农业科学发展而来的，但在包括工程和制造业在内的许多其他学科中都有使用，第 <a href="#chap24"><strong>??</strong></a> 章和第 <a href="#chap25"><strong>??</strong></a> 章讨论了它们的分析。重复测量设计在社会科学和生物科学中广泛使用，但在大多数领域都适用，因为随着时间的推移，评估处理效应是有意义的，其分析见第 <a href="#chap26"><strong>??</strong></a> - <a href="#chap28"><strong>??</strong></a> 章。嵌套处理结构不同于重复测量和裂区设计使用的处理结构，嵌套处理结构在第 <a href="#chap30"><strong>??</strong></a> 章中进行了描述。</p>
 <p>有四种基本的设计结构，而最复杂的设计结构是这些结构的组合。四种基本设计结构是<strong>完全随机设计结构</strong> (completely randomized design
 structure)、<strong>随机完全区组设计结构</strong> (randomized complete block design structure)、<strong>裂区设计结构</strong> (split-plot design structure) 和<strong>裂条区设计结构</strong> (strip-plot design structure). 这些基本设计结构中的每一个都有自己的分析，计算所需误差平方和的过程也是独特的。本节介绍了基本设计结构以及计算误差平方和所需的过程。讨论中使用了一个例子，其中处理结构是双向的，一个因素有两个水平，另一个因素有三个水平，设计结构涉及 18 个实验单元。</p>
-<p>该实验包括评估烘烤后纸杯蛋糕 (cupcake) 的体积，其中有三种配方和两种烹饪温度；因此，处理结构由三种配方和两种烹饪温度的六种组合组成。希望每种处理组合重复 3 次；因此需要烘烤 18 个纸杯蛋糕。图 <a href="chap5.html#fig:figure5-1">5.1</a> 中的图用于演示使用完全随机设计结构的过程。该过程是将处理结构中的六种处理组合完全随机分配给设计结构中的 18 个实验单元（纸杯蛋糕）。箭头表示每个处理组合分配给三个纸杯蛋糕。通常，该过程是一次制作一个纸杯蛋糕，因此纸杯蛋糕混合和烘焙的顺序对应于实验单元。完全随机设计结构是通过混合一批给定的配方，填写一个纸杯蛋糕表格，然后在设定为特定温度的烤箱 (oven) 中烘烤纸杯蛋糕来完成的。每个纸杯蛋糕都必须由自己的批次 (batch) 制成，也就是说，每批次蛋糕配方只有一个纸杯蛋糕，每个纸杯蛋糕必须在设定的特定温度下在烤箱中自行烘焙。
-该过程需要使用 18 批蛋糕混合物和 18 次使用一个或多个烤箱来烘焙纸杯蛋糕。与完全随机化设计结构相关的误差是根据相同处理的纸杯蛋糕之间的变异性计算的。根据温度组合，每个配方中有三个纸杯蛋糕，因此三个纸杯蛋糕体积的变化提供了两个测量纸杯蛋糕误差的自由度。人们应该检验六种处理组合方差的相等性（见第 <a href="chap2.html#chap2">2</a> 章），如果可能的话，将六种处理组的误差估计值合并在一起，以提供 <span class="math inline">\(12\)</span> 个误差自由度，用于测量相同处理的纸杯蛋糕之间的变异性。可用于描述纸杯蛋糕体积的模型为</p>
+<p>该实验包括评估纸杯蛋糕 (cupcake) 烘焙后的体积，其中有三种配方和两种烹饪温度；因此，处理结构由三种配方和两种烹饪温度的六种组合组成。希望每种处理组合重复 3 次；因此需要烘焙 18 个纸杯蛋糕。图 <a href="chap5.html#fig:figure5-1">5.1</a> 中的图用于演示使用完全随机设计结构的过程。该过程是将处理结构中的六种处理组合完全随机分配给设计结构中的 18 个实验单元（纸杯蛋糕）。箭头表示每个处理组合分配给三个纸杯蛋糕。通常，该过程是一次制作一个纸杯蛋糕，因此纸杯蛋糕混合和烘焙的顺序与实验单元相对应。完全随机设计结构是通过混合一批给定的配方，填充一个纸杯蛋糕形状，然后在设置为特定温度的烤箱 (oven) 中烘焙纸杯蛋糕来完成的。每个纸杯蛋糕都必须用单独一批材料制作，也就是说，每个批次的蛋糕配方只能制作一个纸杯蛋糕，并且每个纸杯蛋糕都必须在设置为特定温度的烤箱中单独烘烤。该过程需要使用 18 批蛋糕混合物和 18 次使用一个或多个烤箱来烘焙纸杯蛋糕。与完全随机设计结构相关的误差是根据相同处理的纸杯蛋糕之间的变异性计算的。根据温度组合，每个配方中有三个纸杯蛋糕，因此三个纸杯蛋糕体积的变异提供了两个测量纸杯蛋糕误差的自由度。人们应该检验六种处理组合方差的相等性（见第 <a href="chap2.html#chap2">2</a> 章），如果可能的话，将六种处理组的误差估计值合并在一起，以提供 <span class="math inline">\(12\)</span> 个误差自由度，用于测量相同处理的纸杯蛋糕之间的变异性。可用于描述纸杯蛋糕体积的模型为</p>
 <p><span class="math display">\[y_{ijk}=\mu+\tau_{i}+\beta_{j}+(\tau\beta)_{ij}+\varepsilon_{ijk},\quad i=1,2,j=1,2,3,\mathrm{and}\,k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(y_{ijk}\)</span> 表示用第 <span class="math inline">\(j\)</span> 个配方制作并在第 <span class="math inline">\(i\)</span> 个温度下烘焙的第 <span class="math inline">\(k\)</span> 个纸杯蛋糕的体积，<span class="math inline">\(\mu\)</span> 表示总平均值，<span class="math inline">\(\tau_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个温度的效应，<span class="math inline">\(\beta_j\)</span> 表示第 <span class="math inline">\(j\)</span> 个配方的效应，<span class="math inline">\((\tau\beta)_{ij}\)</span> 是配方于温度的交互作用，以及 <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内的纸杯蛋糕以及不同烤箱烘烤的差异性。表 <a href="chap5.html#tab:table5-1">5.1</a> 包含了完全随机化设计结构中双向处理结构模型的方差分析表，其中根据实验单元或相同处理的纸杯蛋糕的变异性计算了 12 个自由度。与处理结构相关的自由度为 5，与设计结构相关的自由度为 12 个，所有自由度均分配给误差项。表 <a href="chap5.html#tab:table5-1">5.1</a> 中标有 <span class="math inline">\(EMS\)</span> 的列给出了方差分析表各行的预期均方形式。函数 <span class="math inline">\(\phi^2(\tau),\phi^2(\beta),\phi^2(\tau\beta)\)</span> 分别表示温度主效应均值、配方主效应均值和交互作用效应的二次函数。当相应的效应不存在时，这些函数是非负的且等于零。在本章的其余部分中可以使用类似的解释。</p>
+<p>其中 <span class="math inline">\(y_{ijk}\)</span> 表示用第 <span class="math inline">\(j\)</span> 个配方制作并在第 <span class="math inline">\(i\)</span> 个温度下烘焙的第 <span class="math inline">\(k\)</span> 个纸杯蛋糕的体积，<span class="math inline">\(\mu\)</span> 表示总平均值，<span class="math inline">\(\tau_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个温度的效应，<span class="math inline">\(\beta_j\)</span> 表示第 <span class="math inline">\(j\)</span> 个配方的效应，<span class="math inline">\((\tau\beta)_{ij}\)</span> 是温度与配方交互作用，以及 <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内的纸杯蛋糕以及不同烤箱烘焙的差异相关的变异性。表 <a href="chap5.html#tab:table5-1">5.1</a> 包含了完全随机设计结构中双向处理结构模型的方差分析表，其中根据实验单元或相同处理的纸杯蛋糕的变异性计算了 12 个自由度。与处理结构相关的自由度为 5，与设计结构相关的自由度为 12 个，所有自由度均分配给误差项。表 <a href="chap5.html#tab:table5-1">5.1</a> 中标有 <span class="math inline">\(EMS\)</span> 的列给出了方差分析表各行的预期均方形式。函数 <span class="math inline">\(\phi^2(\tau),\phi^2(\beta),\phi^2(\tau\beta)\)</span> 分别表示温度主效应均值、配方主效应均值和交互作用效应的二次函数。当相应的效应不存在时，这些函数是非负的且等于零。在本章的其余部分中可以使用类似的解释。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-1"></span>
 <img src="figure/figure%205.1.png" alt="完全随机设计结构中双向处理结构的随机化" width="879" />
 <p class="caption">
@@ -354,9 +370,9 @@ x
 </tr>
 </tbody>
 </table>
-<p>第二种基本设计结构是随机完全区组设计，图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的图表显示了将处理从处理结构分配到设计结构中的实验单元的过程。假设研究人员每天可以制作和烘烤六个纸杯蛋糕，那么实验必须持续三天，才能实现每种处理组合的三次重复。设计结构的实验单元分为三个尺寸为六的区组。接下来，处理结构中的六个处理被随机分配到每个块内的六个实验单元，如图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的箭头所示。正如第 <a href="chap4.html#chap4">4</a> 章所讨论的，随机完全区组设计结构的误差平方和是通过设计结构与处理结构交互作用来计算的，或通过处理与区组的交互作用来计算的。该设计涉及六种处理和三个区组，因此处理与区组交互作用提供了 (3 - 1)(6 - 1) = 10 个与实验误差相关的自由度。这 10 个自由度合并了区组与温度、区组与配方和区组与温度与配方的交互作用相关的自由度。可用于描述随机完全区组设计结构中这种双向处理结构的纸杯蛋糕体积的模型是</p>
+<p>第二种基本设计结构是随机完全区组设计，图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的图表显示了将处理从处理结构分配到设计结构中的实验单元的过程。假设研究人员每天可以制作和烘焙六个纸杯蛋糕，那么实验必须持续三天，才能实现每种处理组合的三次重复。设计结构的实验单元分为三个尺寸为六的区组。接下来，处理结构中的六个处理被随机分配到每个块内的六个实验单元，如图 <a href="chap5.html#fig:figure5-2">5.2</a> 中的箭头所示。正如第 <a href="chap4.html#chap4">4</a> 章所讨论的，随机完全区组设计结构的误差平方和是通过设计结构与处理结构交互作用来计算的，或通过处理与区组的交互作用来计算的。该设计涉及六种处理和三个区组，因此处理与区组交互作用提供了 (3 - 1)(6 - 1) = 10 个与实验误差相关的自由度。这 10 个自由度合并了区组与温度、区组与配方和区组与温度与配方的交互作用相关的自由度。可用于描述随机完全区组设计结构中这种双向处理结构的纸杯蛋糕体积的模型是</p>
 <p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+(\tau\beta)_{ij}+d_k+\varepsilon_{ijk},\quad i=1,2,~j=1,2,3,~\mathrm{and~}~k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(dzk\)</span> 表示第 <span class="math inline">\(k\)</span> 天的效应，即区组因素，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内纸杯蛋糕相关的变异性，以及同一天内不同烤箱烘烤的变异性。表 <a href="chap5.html#tab:table5-2">5.2</a> 包含随机完全区组设计结构中双向处理结构模型的方差分析表，其中有 10 个自由度是根据区组与处理组合的交互作用测量的相同处理的实验单元的变异性计算得出的。该分析具有与完全随机设计结构相同的与处理结构相关的 5 个自由度，但现在，设计结构的 12 个自由度分布在天（区组）和误差之间。表 5.2 中的术语 <span class="math inline">\(\sigma^2_{day}\)</span> 表示 <span class="math inline">\(d_k\)</span> 的方差，<span class="math inline">\(k = 1, 2, 3\)</span>. 在本章的其余部分中可以做出类似的解释。</p>
+<p>其中 <span class="math inline">\(d_k\)</span> 表示第 <span class="math inline">\(k\)</span> 天的效应，即区组因素，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示与批次、批次内纸杯蛋糕相关的变异性，以及同一天内不同烤箱烘焙的变异性。表 <a href="chap5.html#tab:table5-2">5.2</a> 包含随机完全区组设计结构中双向处理结构模型的方差分析表，其中有 10 个自由度是根据区组与处理组合的交互作用测量的相同处理的实验单元的变异性计算得出的。该分析具有与完全随机设计结构相同的与处理结构相关的 5 个自由度，但现在，设计结构的 12 个自由度分布在天（区组）和误差之间。表 <a href="chap5.html#tab:table5-2">5.2</a> 中的 <span class="math inline">\(\sigma^2_{day}\)</span> 项表示 <span class="math inline">\(d_k\)</span> 的方差，<span class="math inline">\(k = 1, 2, 3\)</span>. 在本章的其余部分中可以做出类似的解释。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-2"></span>
 <img src="figure/figure%205.2.png" alt="随机完全区组设计结构中双向处理结构的随机化方案" width="998" />
 <p class="caption">
@@ -382,17 +398,17 @@ x
 </tr>
 </tbody>
 </table>
-<p>第三种基本设计结构是裂区设计结构。这里 18 个纸杯蛋糕被分成 6 个尺寸为 3 的区组，如图 <a href="chap5.html#fig:figure5-3">5.3</a> 所示。由于处理结构中有六种处理组合，所有六种处理不能发生在一个区组内，因此这是一个不完全区组设计结构。三个纸杯蛋糕，每个配方各一个，将在同一烤箱中在指定温度下烘烤（前两个基本设计结构仅在烤箱中烘烤一个纸杯蛋糕）。图 <a href="chap5.html#fig:figure5-3">5.3</a> 中的图表显示处理结构已分为两部分，一部分指定为纸杯蛋糕部分，另一部分指定为烤箱部分。分配给每个烤箱的尺寸为三的区组或三个纸杯蛋糕构成温度水平的实验单元。随机化程序的第一部分是将每个温度随机分配给三个烤箱或区组，如图 <a href="chap5.html#fig:figure5-3">5.3</a> 中从温度水平到烤箱的箭头所示。烤箱内的纸杯蛋糕是配方水平的实验单元，随机化程序是将配方水平随机分配给每个烤箱内的一个纸杯蛋糕。实验单元有两种尺寸，有两种设计和处理结构。烤箱实验单元的处理和设计结构由一个单向处理结构（两个温度水平）组成，该结构为具有六个烤箱的完全随机设计结构。对于单个纸杯蛋糕，处理和设计结构由随机完全区组设计结构中的单向处理结构（配方的三个水平）组成，其中烤箱代表类似实验单元的区组。因此烤箱是温度的实验单元。</p>
+<p>第三种基本设计结构是裂区设计结构。这里 18 个纸杯蛋糕被分成六个尺寸为三的区组，如图 <a href="chap5.html#fig:figure5-3">5.3</a> 所示。由于处理结构中有六种处理组合，所有六种处理不能发生在一个区组内，因此这是一个不完全区组设计结构。三个纸杯蛋糕，每个配方各一个，将在同一烤箱中在指定温度下烘焙（前两个基本设计结构仅在一个烤箱中烘焙一个纸杯蛋糕）。图 <a href="chap5.html#fig:figure5-3">5.3</a> 中的图表显示处理结构分为两部分，一部分指定为纸杯蛋糕部分，另一部分指定为烤箱部分。分配给每个烤箱的尺寸为三的区组或三个纸杯蛋糕构成温度水平的实验单元。随机化程序的第一部分是将每个温度随机分配给三个烤箱或区组，如图 <a href="chap5.html#fig:figure5-3">5.3</a> 中从温度水平到烤箱的箭头所示。烤箱内的纸杯蛋糕是配方水平的实验单元，随机化程序是将配方水平随机分配给每个烤箱内的一个纸杯蛋糕。实验单元有两种尺寸，有两种设计和处理结构。烤箱实验单元的处理和设计结构由单向处理结构（两个温度水平）和完全随机设计结构（六个烤箱）组成。对于单个纸杯蛋糕，处理和设计结构由随机完全区组设计结构中的单向处理结构（配方的三个水平）组成，其中烤箱代表类似实验单元的区组。因此烤箱是温度的实验单元。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-3"></span>
 <img src="figure/figure%205.3.png" alt="采用完全随机整区设计结构的裂区随机化方案" width="1004" />
 <p class="caption">
 图 5.3: 采用完全随机整区设计结构的裂区随机化方案
 </p>
 </div>
-<p>这种设计结构是嵌套或分层结构，因为纸杯蛋糕嵌套在烤箱内。因此，裂区设计也是一种分层设计结构。由于实验单元有两种尺寸，因此称为多水平设计。烤箱是较大尺寸的实验单元，通常被称为<strong>整区</strong> (whole-plot) 。纸杯蛋糕是较小尺寸的实验单元，通常称为<strong>子区</strong> (subplot) 或裂区。</p>
+<p>这种设计结构是嵌套或分层结构，因为纸杯蛋糕嵌套在烤箱内。因此，<strong>裂区设计也是一种分层设计结构</strong>。由于实验单元有两种尺寸，因此称为多水平设计。烤箱是较大尺寸的实验单元，通常被称为<strong>整区</strong> (whole-plot) 。纸杯蛋糕是较小尺寸的实验单元，通常称为<strong>子区</strong> (subplot) 或裂区。</p>
 <p>分析这种裂区设计的第一步是忽略单个纸杯蛋糕或配方，只考虑两个温度和六个烤箱。图 <a href="chap5.html#fig:figure5-4">5.4</a> 的显示表明，与实验单元烤箱尺寸对应的设计是完全随机设计结构中的单向处理结构。描述在每个烤箱上测量的响应的模型是</p>
 <p><span class="math display">\[y_{ik}^*=\mu+\tau_i+e_{ik},\quad i=1,2,\mathrm{~and~}k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(y_{ik}^*\)</span> 表示在分配给第 <span class="math inline">\(i\)</span> 个温度的第 <span class="math inline">\(k\)</span> 个烤箱上测量的响应，<span class="math inline">\(\varepsilon_{ik}\)</span> 表示与烤箱相关的误差项。表 <a href="chap5.html#tab:table5-3">5.3</a> 包含烤箱模型的方差分析表。对于每种温度水平，都有三个相同处理的烤箱，因此每个温度都有两个自由度，可以测量烤箱在相同处理时的变化。如果烤箱在两个温度之间的方差相等，则可以将这两个方差合并，以提供具有四个自由度的烤箱的误差项。</p>
+<p>其中 <span class="math inline">\(y_{ik}^*\)</span> 表示在分配给第 <span class="math inline">\(i\)</span> 个温度的第 <span class="math inline">\(k\)</span> 个烤箱上测量的响应，<span class="math inline">\(\varepsilon_{ik}\)</span> 表示与烤箱相关的误差项。表 <a href="chap5.html#tab:table5-3">5.3</a> 包含烤箱模型的方差分析表。对于每种温度水平，都有三个相同处理的烤箱，因此每个温度都有两个自由度，可以测量烤箱在相同处理时的变异。如果烤箱在两个温度之间的方差相等，则可以将这两个方差合并，以提供具有四个自由度的烤箱的误差项。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-4"></span>
 <img src="figure/figure%205.4.png" alt="用于裂区设计的烤箱设计和处理结构" width="994" />
 <p class="caption">
@@ -418,9 +434,9 @@ x
 </tr>
 </tbody>
 </table>
-<p>分析的下一步是忽略温度水平，从而提供一种设计，该设计是随机完全区组设计结构（六个块）中的单向处理结构（三个配方）。随机化过程如图 <a href="chap5.html#fig:figure5-5">5.5</a> 所示。可以用来描述纸杯蛋糕体积的模型是</p>
+<p>分析的下一步是忽略温度水平，从而提供一种设计，该设计是随机完全区组设计结构（六个区组）中的单向处理结构（三个配方）。随机化过程如图 <a href="chap5.html#fig:figure5-5">5.5</a> 所示。可以用来描述纸杯蛋糕体积的模型是</p>
 <p><span class="math display">\[y_{ijk}=\mu+\beta_j+o_{ik}+\varepsilon_{ijk}^*,\quad i=1,2,\quad j=1,2,3,\mathrm{~and~}\quad k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(o_{ik}\)</span> 表示区组效应或烤箱效应，<span class="math inline">\(\varepsilon_{ijk}^*\)</span> 表示与纸杯蛋糕相关的误差。方差分析表在表 <a href="chap5.html#tab:table5-4">5.4</a> 中，其中残余平方和由配方与烤箱交互作用组成。如果所有烤箱都进行同样的处理，则残差平方和将提供纸杯蛋糕与纸杯蛋糕之间变异性的估计。然而，一些烤箱经受一种温度而另一些烤箱经受另一种温度；因此，配方与烤箱交互作用包括温度与配方交互作用。表 <a href="chap5.html#tab:table5-4">5.4</a> 中的预期均方并不完全由该模型确定，这由表中的“？”表示。为了获得纸杯蛋糕之间的变异性，需要在设计上进行一次额外的缩简 (reduction). 只考虑那些温度为1的烤箱，如图 <a href="chap5.html#fig:figure5-6">5.6</a> 中的黑线所示。缩简设计是指随机完全区组设计结构中的单向处理结构，其中三个区组中的处理相同（温度1），方差分析表如表 <a href="chap5.html#tab:table5-5">5.5</a> 所示。配方与烤箱交互作用提供了烤箱中经过相同处理的纸杯蛋糕变异的测量。该过程通过在第二温度下考虑其他三个烤箱而继续，其中配方与烤箱交互作用提供了额外的四个自由度，用于测量纸杯蛋糕在烤箱内进行相同处理时的变化。当两个温度下蛋糕的方差相等时（参见第 <a href="chap2.html#chap2">2</a> 章的检验），可以将两个源合并在一起，以提供误差平方和，用于测量蛋糕在 8 个自由度下的变异情况。纸杯蛋糕误差平方和通过计算温度内的烤箱与配方交互作用来计算。表 <a href="chap5.html#tab:table5-6">5.6</a> 给出了最终完整的裂区方差分析表，其中配方与温度交互作用从纸杯蛋糕残差中分离出来。描述具有完全随机设计整区设计结构的裂区设计结构中双向处理结构的数据的模型是</p>
+<p>其中 <span class="math inline">\(o_{ik}\)</span> 表示区组效应或烤箱效应，<span class="math inline">\(\varepsilon_{ijk}^*\)</span> 表示与纸杯蛋糕相关的误差。方差分析表在表 <a href="chap5.html#tab:table5-4">5.4</a> 中，其中残差平方和由配方与烤箱交互作用组成。如果所有烤箱都进行同样的处理，则残差平方和将提供纸杯蛋糕与纸杯蛋糕之间变异性的估计。然而，一些烤箱经受一种温度而另一些烤箱经受另一种温度；因此，配方与烤箱交互作用包括温度与配方交互作用。表 <a href="chap5.html#tab:table5-4">5.4</a> 中的预期均方并不完全由该模型确定，这由表中的“?”表示。为了获得纸杯蛋糕之间的变异性，需要在设计上进行一次额外的缩简 (reduction). 只考虑那些温度为 1 的烤箱，如图 <a href="chap5.html#fig:figure5-6">5.6</a> 中的黑线所示。缩简设计是指随机完全区组设计结构中的单向处理结构，其中三个区组中的处理相同（温度 1），方差分析表如表 <a href="chap5.html#tab:table5-5">5.5</a> 所示。配方与烤箱交互作用提供了烤箱中经相同处理的纸杯蛋糕变异的测量。该过程继续考虑第二温度下的其他三个烤箱，其中配方与烤箱交互作用提供了额外的四个自由度，用于测量纸杯蛋糕在烤箱内经相同处理时的变异。当两个温度下蛋糕的方差相等时（参见第 <a href="chap2.html#chap2">2</a> 章的检验），可以将两个来源合并在一起，提供八个自由度的误差平方和以测量蛋糕的变异情况。纸杯蛋糕的误差平方和是通过计算每个温度下烤箱与配方的交互作用，并将这些交互作用在不同温度下进行合并来计算的 (computing the oven by recipe interaction within a temperature pooled across temperatures). 表 <a href="chap5.html#tab:table5-6">5.6</a> 给出了最终完整的裂区方差分析表，其中配方与温度交互作用从纸杯蛋糕残差中分离出来。描述在裂区设计结构中具有完全随机设计整区设计结构的双向处理结构数据的模型是</p>
 <p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+(\tau\beta)_{ij}+o_{ik}+\varepsilon_{ijk},\quad i=1,2,~j=1,2,3,\mathrm{~and~}~k=1,2,3\]</span></p>
 <p>其中 <span class="math inline">\(o_{ik}\)</span> 表示温度范围内的烤箱变异，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示烤箱内纸杯蛋糕的变异。表 <a href="chap5.html#tab:table5-6">5.6</a> 中仍有 5 个与处理结构相关的自由度，但与设计结构相关的 12 个自由度分布在两个误差项之间，其中有 4 个与烤箱误差分量相关的自由度和 8 个与纸杯蛋糕误差分量相关的自由度。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-5"></span>
@@ -492,7 +508,7 @@ x
 </tr>
 </tbody>
 </table>
-<p>作为裂区设计结构的变体，假设研究人员一天内只能运行两次烤箱；因此，这些烤箱被分为三组，每组两个，研究需要三天时间才能完成。图 <a href="chap5.html#fig:figure5-7">5.7</a> 中的图表描述了每天向烤箱随机分配温度水平，然后随机分配每个烤箱内的配方水平。烤箱设计结构是随机完全区组设计，因此烤箱误差项通过天与温度交互作用来计算。在烤箱或整区上施加区组结构不会改变纸杯蛋糕或子区的设计结构。仍有六个尺寸为三的区组，所以分析中的纸杯蛋糕部分没有改变。描述具有随机完全区组全区设计结构的裂区设计结构中双向处理结构的纸杯蛋糕体积的模型为</p>
+<p>作为裂区设计结构的变体，假设研究人员一天内只能运行两次烤箱；因此，这些烤箱被分为三组，每组两个，研究需要三天时间才能完成。图 <a href="chap5.html#fig:figure5-7">5.7</a> 中的图表描述了每天向烤箱随机分配温度水平，然后随机分配每个烤箱内的配方水平。烤箱设计结构是随机完全区组设计，因此烤箱误差项通过天与温度交互作用来计算。在烤箱或整区上施加区组结构不会改变纸杯蛋糕或子区的设计结构。仍有六个尺寸为三的区组，所以分析中的纸杯蛋糕部分没有改变。描述在裂区设计结构中具有完全随机区组整区设计结构的双向处理结构纸杯蛋糕体积的模型为</p>
 <p><span class="math display">\[y_{iik}=\mu+\tau_i+\beta_j+(\tau\beta)_{ij}+d_k+o_{ik}+\varepsilon_{iik},\quad i=1,2,~j=1,2,3,~\mathrm{and~}~k=1,2,3\]</span></p>
 <p>其中 <span class="math inline">\(d_k\)</span> 表示天的效应，<span class="math inline">\(o_{ik}\)</span> 表示一天内的烤箱变异，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示一天内烤箱内纸杯蛋糕的变异。表 <a href="chap5.html#tab:table5-7">5.7</a> 给出了与上述模型相对应的方差分析表，其中包括天、error (oven) 和 error (cupcake) 的行。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-7"></span>
@@ -527,16 +543,16 @@ x
 图 5.8: 裂区设计结构表示为不完全区组设计结构
 </p>
 </div>
-<p>第四种基本设计结构是裂条区。 裂条区设计结构的构建方法是首先将实验单元排列成具有行和列的矩形，如图 <a href="chap5.html#fig:figure5-9">5.9</a> 所示。在此实验中，使用其中一种配方混合一批蛋糕面团，并从该批次中提取两个纸杯蛋糕。批次是由配方制成的实体，因此批次是配方水平的实验单元。其中一个纸杯蛋糕将在温度 1 下烘烤，另一个纸杯蛋糕将在温度 2 下烘烤。因此，每个烤箱将包含三个纸杯蛋糕，每个配方各有一个。烤箱是分配温度水平的实体，并且是温度水平的实验单元。</p>
+<p>第四种基本设计结构是裂条区。 裂条区设计结构的构建方法是首先将实验单元排列成具有行和列的矩形，如图 <a href="chap5.html#fig:figure5-9">5.9</a> 所示。在此实验中，使用其中一种配方混合一批蛋糕面团，并从该批次中提取两个纸杯蛋糕。由于这批面团是由一个配方制成的，因此批次是配方水平的实验单元。其中一个纸杯蛋糕将在温度 1 下烘焙，另一个纸杯蛋糕将在温度 2 下烘焙。因此，每个烤箱将包含三个纸杯蛋糕，每个配方各有一个。烤箱是分配温度水平的实体，并且是温度水平的实验单元。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-9"></span>
 <img src="figure/figure%205.9.png" alt="纸杯蛋糕实验裂条区设计结构图" width="984" />
 <p class="caption">
 图 5.9: 纸杯蛋糕实验裂条区设计结构图
 </p>
 </div>
-<p>图 <a href="chap5.html#fig:figure5-9">5.9</a> 中矩形的列对应于蛋糕面团的批次，三种配方被随机分配到列中；也就是说，一列中的两个纸杯蛋糕都来自同一批次，该批次是配方水平的实验单元。行由三个纸杯蛋糕组成，与烤箱相对应，烤箱是温度水平的实验单元。该设计的分析可以通过考虑每种尺寸的实验单元的设计和处理结构来构建。首先，忽略配方，只考虑矩形的行，那么烤箱设计是随机完全区组设计结构中的单向处理结构。如表 <a href="chap5.html#tab:table5-8">5.8</a> 所示，与烤箱对应的误差项通过矩形（或天）与温度交互作用来计算，这为 error (oven) 提供了两个自由度。接下来，忽略温度，只考虑矩形的列，那么批次设计是随机完全区组设计结构中的单向处理结构。如表 <a href="chap5.html#tab:table5-9">5.9</a> 所示，与批次对应的误差项通过矩形（或天）与配方交互作用来计算，为 error (batch) 提供了四个自由度。最后，配方与温度交互作用是没有行效应和列效应的对比 (contrasts that are free of the row effects and free of the column effects)，使纸杯蛋糕成为交互作用比较的实验单元。配方、温度和矩形之间的交互作用提供了纸杯蛋糕误差项，在这种情况下，它有四个自由度。该设计涉及三种尺寸的实验单元，可用于描述该结构数据的模型是</p>
+<p>图 <a href="chap5.html#fig:figure5-9">5.9</a> 中矩形的列对应于蛋糕面团的批次，三种配方被随机分配到列中；也就是说，一列中的两个纸杯蛋糕都来自同一批次，该批次是配方水平的实验单元。行由三个纸杯蛋糕组成，与烤箱相对应，烤箱是温度水平的实验单元。该设计的分析可以通过考虑每种尺寸的实验单元的设计和处理结构来构建。首先，忽略配方，只考虑矩形的行，那么烤箱设计是随机完全区组设计结构中的单向处理结构。如表 <a href="chap5.html#tab:table5-8">5.8</a> 所示，与烤箱对应的误差项通过矩形（或天）与温度交互作用来计算，这为 error (oven) 提供了两个自由度。接下来，忽略温度，只考虑矩形的列，那么批次设计是随机完全区组设计结构中的单向处理结构。如表 <a href="chap5.html#tab:table5-9">5.9</a> 所示，与批次对应的误差项通过矩形（或天）与配方交互作用来计算，为 error (batch) 提供了四个自由度。最后，配方与温度交互作用是通过排除行效应和列效应的对比来计算的 (contrasts that are free of the row effects and free of the column effects)，使纸杯蛋糕成为交互作用比较的实验单元。配方、温度和矩形之间的交互作用提供了纸杯蛋糕误差项，在这种情况下，它有四个自由度。该设计涉及三种尺寸的实验单元，可用于描述该结构数据的模型是</p>
 <p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+(\tau\beta)_{ij}+d_k+o_{ik}+b_{jk}+\varepsilon_{ijk},\quad i=1,2,\quad j=1,2,3,\mathrm{~and~}\quad k=1,2,3\]</span></p>
-<p>其中 <span class="math inline">\(d_k\)</span> 表示矩形或天的效应，<span class="math inline">\(o_{ik}\)</span> 表示矩形内的烤箱效应，<span class="math inline">\(b_{jk}\)</span> 表示矩形内的批次效应，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示批次、烤箱和矩形内的纸杯蛋糕效应。裂条区模型对应的方差分析表如表 <a href="chap5.html#tab:table5-10">5.10</a> 所示，其中有 3 个误差项。仍有 5 个与处理结构相关的自由度，但与设计结构相关的 12 个自由度分布为两个矩形、两个 error (oven)、四个 error (batch) 和四个 error (cupcake). 裂条区设计结构是一种多水平设计，但它不是分层设计结构，因为行不嵌套在列内，列也不嵌套在行内。行和列嵌套在一个矩形内，但这就是嵌套停止的地方。</p>
+<p>其中 <span class="math inline">\(d_k\)</span> 表示矩形或天的效应，<span class="math inline">\(o_{ik}\)</span> 表示矩形内的烤箱效应，<span class="math inline">\(b_{jk}\)</span> 表示矩形内的批次效应，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示批次、烤箱和矩形内的纸杯蛋糕效应。裂条区模型对应的方差分析表如表 <a href="chap5.html#tab:table5-10">5.10</a> 所示，其中包含了三个误差项。处理结构仍然与五个自由度相关联，而与设计结构相关的12个自由度则分配为：两个用于矩形、两个用于 error (oven)、四个用于 error (batch) 以及四个用于 error (cupcake). <strong>裂条区设计结构是一种多水平设计，但它不是分层设计结构</strong>，因为行不嵌套在列内，列也不嵌套在行内。行和列是嵌套在矩形（或天）内的，但嵌套结构在这里就停止了。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-8">表 5.8: </span>裂条区设计结构中处理结构温度部分的方差分析表
@@ -594,10 +610,10 @@ x
 </tr>
 </tbody>
 </table>
-<p>正如第 <a href="#chap20"><strong>??</strong></a> 章所讨论的，与效应相对应的预期均方将指示在评估与该效应相关联的假设时使用哪个误差项。一些预期均方涉及带“*”上标的方差，以表明除下标所示之外，还有其他因素影响变异性。</p>
-<p>在方差分析表中写入误差项的过程中，只要研究涉及一个以上的实验单元，将与误差相关的实验单元的尺寸包括在括号中，这是本书其余部分中使用的惯例。这一惯例使研究人员能够容易地确定研究中的变异来源。</p>
-<p>更复杂的设计结构通常在进行研究所需的材料和时间方面更节省。对于纸杯蛋糕烘焙实验，完全随机和随机完全区组设计结构需要制作 18 批纸杯蛋糕面团，并且需要使用 18 次烤箱进行 18 次烘焙。裂区设计结构涉及 18 批蛋糕面团（每个纸杯蛋糕一个），但只有六次烘焙。因此，裂区设计只使用了完全随机设计所需的三分之一的时间来烘焙纸杯蛋糕。裂条区需要九批蛋糕面团和六次烘焙。裂条区设计结构只使用了一半批次的蛋糕面团和三分之一的烘焙时间。使用更复杂的设计结构通常节省时间和资源，并且是执行实验更方便的方式，前提是可以解决如上所述的必要的误差项。</p>
-<p>随着在设计上施加更多的结构，与最小实验单元尺寸对应的误差相关的自由度会减小。然而，在前面的例子中，与完全随机设计相关的误差包括由于一个批次中的烤箱、批次和纸杯蛋糕引起的变异。裂区设计有两个误差项，其中一部分误差被指定为烤箱之间的变异性，另一部分是纸杯蛋糕之间的变异性（也包括批次间的可变性）。裂条区设计有三个误差项，其中研究中的变异性分为烤箱间的变异性、批次间的变异性和批次内纸杯蛋糕间的变异性。使用更复杂的设计结构为纸杯蛋糕误差项提供了更少的自由度，但该误差项被细化为裂条区设计结构中纸杯蛋糕与纸杯蛋糕之间的变异性，其中涉及完全随机和随机化完全区组中烤箱和批次变异性以及裂区的批次变异性。因此，自由度较小的事实并不一定意味着处理因素之间比较的功效较小，因为重要方差分量的大小也可以减小，从而增大功效。与更简单的设计结构的误差项相比，更复杂的设计具有更少可变性来源的误差项。表 <a href="chap5.html#tab:table5-11">5.11</a> 总结了与纸杯蛋糕设计的每个误差项相关的变异性来源。</p>
+<p>正如第 <a href="#chap20"><strong>??</strong></a> 章所讨论的，与效应相对应的预期均方将指示在评估与该效应相关的假设时使用哪个误差项。一些预期均方涉及带“*”上标的方差，以表明除下标所示之外，还有其他因素影响变异性。</p>
+<p>在向方差分析表中写入误差项的过程中，只要设计涉及一个以上尺寸的实验单元，将与误差相关的实验单元的尺寸包括在括号中，这是本书其余部分中使用的惯例。这一惯例使研究人员能够轻松地识别研究的变异来源。</p>
+<p>更复杂的设计结构在材料和时间方面往往更加节约。对于纸杯蛋糕烘焙实验，完全随机和随机完全区组设计结构需要制作 18 批纸杯蛋糕面团，并且需要使用 18 次烤箱进行 18 次烘焙。裂区设计结构涉及 18 批蛋糕面团（每个纸杯蛋糕一批），但只需要烘焙六次。因此，与完全随机设计相比，裂区设计只使用了三分之一的时间来烘焙纸杯蛋糕。裂条区需要九批蛋糕面团和六次烘焙。裂条区设计结构只使用了一半的蛋糕面团批次和三分之一的烘焙时间。如上所述，<strong>只要能够解决必要的误差项，使用更复杂的设计结构通常可以节省时间和资源，并且是进行实验的更方便的方式</strong>。</p>
+<p>随着在设计上施加更多的结构，与最小实验单元尺寸对应的误差自由度会减少。然而，在前面的例子中，与完全随机设计相关的误差包括烤箱、批次和纸杯蛋糕引起的变异。裂区设计有两个误差项，其中一部分误差是由于烤箱之间的变异性，另一部分是由于纸杯蛋糕之间的变异性（也包括批次间的变异性）。裂条区设计有三个误差项，其中研究中的变异性分为烤箱间的变异性、批次间的变异性和批次内纸杯蛋糕间的变异性。使用更复杂的设计结构为纸杯蛋糕误差项提供了更少的自由度，但该误差项在裂条区设计结构中被细化为纸杯蛋糕与纸杯蛋糕之间的变异性，其中涉及在完全随机和随机完全区组设计中的烤箱和批次的变异性，以及裂区设计中的批次的变异性。因此，尽管自由度较少，但并不一定意味着处理因素之间比较的功效较小，因为重要方差分量的幅度也可能减小，从而增大功效。与更简单的设计结构的误差项相比，更复杂的设计具有更少变异性来源的误差项。表 <a href="chap5.html#tab:table5-11">5.11</a> 总结了与纸杯蛋糕设计的每个误差项相关的变异性来源。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-11">表 5.11: </span>与纸杯蛋糕示例相关的各种设计的每个误差项的变异性来源
@@ -617,16 +633,16 @@ x
 </tr>
 </tbody>
 </table>
-<p>以下部分提供了几个多水平设计的示例，每个多水平设计可以表示为上述四种基本设计结构中的一种或几种的组合。能够识别与四种基本设计结构中的一个相对应的设计成分，为确定研究中每个尺寸的实验单元的误差源提供了一种方法。能够描述模型中的所有误差项是很重要的，因为在使用软件提取适当的分析时需要这些描述。当在模型的残差或最小实验单元水平上存在重复测量或不等方差时，需要残差平方和的表达式，以便软件对适当的方差和协变量进行建模。重复测量实验的建模将需要知道如何计算残差平方和。大多数作者通过减法计算残差平方和，<strong>但当需要对残差方差和协方差进行建模时，减法方法是不够的</strong>。</p>
-<p>多水平设计有两个重要特点。首先，处理结构至少由一组双向处理组合组成。将多水平设计与第 <a href="chap4.html#chap4">4</a> 章中的设计区分开来的第二个特征是，在一个实验中使用了多个尺寸的实验单元。在设计结构中，每个水平都有一个尺寸的实验单元。每种尺寸的实验单元都有自己的设计结构和处理结构，可以通过组合每种尺寸实验单元的模型来构建模型。由于存在不止一种尺寸的实验单元，因此在分析中使用了不止一个误差项；也就是说，实验中每个实验单元的尺寸都有一个误差项，该误差项也反映在模型中。</p>
-<p>本章提供了几个例子来证明使用第 <a href="chap5.html#sec5-2">5.2</a> 节中讨论的四个基本设计结构所需的原则，以正确识别研究中使用的设计实验。一旦实验者能够使用这些原理来识别本章中讨论的设计实验，她将能够使用它们来识别其他设计的特征。</p>
-<p>多水平设计可以用许多不同的方式进行结构化。接下来的一系列例子用于演示识别不同尺寸实验单元的过程，然后将这些信息用于构建一个适当的模型，作为分析的基础。每个例子都包括一个方差分析表，其中列出了变异源、自由度和预期均方（关于计算预期均方的讨论，请参见第 <a href="#chap18"><strong>??</strong></a>。设计结构与四个基本设计结构相关，从而可以确定误差项的形式。在对数据进行计算机分析之前，列出适当的变化源和相应的分析自由度是很重要的，因为这可以很好地检查是否使用了适当的模型指定来描述数据。</p>
+<p>以下各节提供了几个多水平设计的示例，每个多水平设计可以表示为上述四种基本设计结构中的一种或几种的组合。能够识别对应于四种基本设计结构之一的设计部分，为确定研究中每个实验单元尺寸的误差来源提供了一种方法。能够描述模型中的所有误差项是很重要的，因为在使用软件进行适当的分析时需要这些描述。当在模型的残差或最小实验单元水平上存在重复测量或不等方差时，需要残差平方和的表达式，以便软件对适当的方差和协变量进行建模。重复测量实验的建模将需要知道如何计算残差平方和。大多数作者通过减法计算残差平方和，<strong>但当需要对残差方差和协方差建模时，减法方法是不够的</strong>。</p>
+<p>多水平设计有两个重要特点。首先，处理结构至少由一组双向处理组合组成。将多水平设计与第 <a href="chap4.html#chap4">4</a> 章中的设计区分开来的第二个特征是，在一个实验中使用了多个尺寸的实验单元。在设计结构中，每个水平都有一种尺寸的实验单元。每种尺寸的实验单元都有自己的设计结构和处理结构，并且可以通过组合每种尺寸实验单元的模型来构建模型。由于存在不止一种尺寸的实验单元，因此在分析中使用了多个误差项；也就是说，实验中每种尺寸的实验单元都有一个误差项，这也反映在模型中。</p>
+<p>本章提供了几个例子来演示使用第 <a href="chap5.html#sec5-2">5.2</a> 节中讨论的四个基本设计结构所需的原则，以正确识别研究中使用的设计实验。一旦实验者能够使用这些原则来识别本章中讨论的设计实验，她就能够使用它们来识别其他设计的特征。</p>
+<p>多水平设计可以用许多不同的方式进行结构化。接下来的一系列例子用于演示识别不同尺寸实验单元的过程，然后将这些信息用于构建一个适当的模型，作为分析的基础。每个例子都包括一个方差分析表，其中列出了变异来源、自由度和预期均方（关于计算预期均方的讨论，请参见第 <a href="#chap18"><strong>??</strong></a>。设计结构与四个基本设计结构相关，从而可以确定误差项的形式。在对数据进行计算机分析之前，列出适当的变异来源和相应的自由度进行分析是很重要的，因为这可以很好地检查是否使用了适当的模型指定来描述数据。</p>
 </div>
 <div id="sec5-2" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> 分层设计：一种多水平的设计结构<a href="chap5.html#sec5-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>社会科学中经常使用分层设计，其中个体的组形成较大尺寸的实验单元，而组内的个体是较小尺寸的实验单元。例如，一项评估五年级学生数学教学方法的研究涉及从学校系统中选择五年级学生的六个班级，并随机将两种方法中的每一种分配给其中三个班级。班级是教学方法的实验单元。确定教学方法是否对男女学生产生不同的影响是很有意义的。学生是学生性别的实验单元。个体嵌套于班级中的学生性别中，班级又嵌套于教学方法中。本研究采用嵌套设计结构和双向处理结构，采用两种教学方法，由两种性别的学生进行。可以用来描述学生在接受其中一种教学方法后的数学测试成绩的模型是</p>
+<p>社会科学中经常使用分层设计，其中个体的组形成较大尺寸的实验单元，而组内的个体是较小尺寸的实验单元。例如，一项评估五年级学生数学教学方法的研究涉及从学校系统中选择五年级学生的六个班级，并随机将两种方法中的每一种分配给其中三个班级。班级是教学方法的实验单元。确定教学方法是否对男女学生产生不同的影响是很有意义的。学生是学生性别的实验单元。个体嵌套于班级中的学生性别中，班级又嵌套于教学方法中。这项研究涉及嵌套设计结构和双向处理结构，其中有两种教学方法和两种性别的学生。可以使用以下模型来描述学生在接受其中一种教学方法后在数学测试中的得分</p>
 <p><span class="math display">\[y_{ijkm}=\mu+\tau_i+c_{ij}+\beta_k+(\tau\beta)_{jk}+\varepsilon_{ijkm},\quad i=1,2,j=1,2,3,k=1,2,m=1,2,\ldots,n_{ijk}\]</span></p>
-<p>其中 <span class="math inline">\(y_{ijkm}\)</span> 为第 <span class="math inline">\(i\)</span> 个方法授课的第 <span class="math inline">\(j\)</span> 个班级第 <span class="math inline">\(k\)</span> 个性别的第 <span class="math inline">\(m\)</span> 个学生的成绩，<span class="math inline">\(\mu\)</span> 表示平均分，<span class="math inline">\(\tau_i\)</span> 表示教学方法效应，<span class="math inline">\(c_{ij}\)</span> 表示第 <span class="math inline">\(i\)</span> 个方法授课的第 <span class="math inline">\(j\)</span> 个班级的效应， <span class="math inline">\(\beta_k\)</span> 表示第 <span class="math inline">\(k\)</span> 个性别效应，<span class="math inline">\((\tau\beta)_{jk}\)</span> 表示通过性别互动的教学方法，<span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示通过教学方法教授的教室的性别内的学生效应。上述模型的方差分析表如表 <a href="chap5.html#tab:table5-12">5.12</a> 所示，其中班级和学生被假定为随机效应（见第 <a href="#chap18"><strong>??</strong></a> 章）。系数 <span class="math inline">\(k_1\)</span> 和 <span class="math inline">\(k_2\)</span> 取决于教室内每个性别的学生人数（有关预期均方的评估，请参阅第 <a href="#chap18"><strong>??</strong></a> 章）。该模型有两个误差项，一项针对班级，一项针对学生，这与裂区设计结构中的结构类似。因此，分层设计与裂区基本设计结构相同。</p>
+<p>其中 <span class="math inline">\(y_{ijkm}\)</span> 为第 <span class="math inline">\(i\)</span> 个方法授课的第 <span class="math inline">\(j\)</span> 个班级第 <span class="math inline">\(k\)</span> 个性别的第 <span class="math inline">\(m\)</span> 个学生的成绩，<span class="math inline">\(\mu\)</span> 表示平均分，<span class="math inline">\(\tau_i\)</span> 表示教学方法效应，<span class="math inline">\(c_{ij}\)</span> 表示第 <span class="math inline">\(i\)</span> 个方法授课的第 <span class="math inline">\(j\)</span> 个班级的效应， <span class="math inline">\(\beta_k\)</span> 表示第 <span class="math inline">\(k\)</span> 个性别效应，<span class="math inline">\((\tau\beta)_{jk}\)</span> 表示教学方法与性别交互作用，<span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示采用某种教学方法的班级内某个性别的学生效应。上述模型的方差分析表如表 <a href="chap5.html#tab:table5-12">5.12</a> 所示，其中班级和学生被假定为随机效应（见第 <a href="#chap18"><strong>??</strong></a> 章）。系数 <span class="math inline">\(k_1\)</span> 和 <span class="math inline">\(k_2\)</span> 取决于每个班级内每个性别的学生人数（有关预期均方的评估，请参阅第 <a href="#chap18"><strong>??</strong></a> 章）。该模型有两个误差项，一项针对班级，一项针对学生，这与裂区设计结构中的结构类似。因此，分层设计与裂区基本设计结构相同。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-12">表 5.12: </span>分层或裂区设计结构的教学方法研究方差分析表
@@ -649,10 +665,10 @@ x
 </div>
 <div id="sec5-3" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> 裂区设计结构：两水平设计结构<a href="chap5.html#sec5-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>裂区设计主要用于农业、工业和生物研究，但也可以有效地用于大多数其他研究领域。裂区设计结构是具有两个或多个水平的多水平设计。裂区设计涉及两种或多种处理结构，具有不完全区组设计结构和至少两个不同尺寸的实验单元。裂区设计与重复测量设计的区别在于，处理结构中每个因素的水平可以随机应用于各种规模的实验单元。相反，重复测量设计涉及这样一个步骤：处理结构中至少一个因素（通常是时间）的水平不能随机分配给各个实验单元。以下示例演示了裂区设计的用途，并为识别适当的设计提供指南。</p>
+<p>裂区设计主要用于农业、工业和生物研究，但也可以有效地用于大多数其他研究领域。裂区设计结构是具有两个或多个水平的多水平设计。裂区设计涉及两种或多种处理结构，具有不完全区组设计结构和至少两种不同尺寸的实验单元。裂区设计与重复测量设计的区别在于，处理结构中每个因素的水平可以随机应用于各种尺寸的实验单元。相反，重复测量设计涉及这样一个步骤：处理结构中至少一个因素（通常是时间）的水平不能随机分配给各个实验单元。以下示例演示了裂区设计的用途，并为识别适当的设计提供指南。</p>
 <div id="sec5-3-1" class="section level3 hasAnchor" number="5.3.1">
 <h3><span class="header-section-number">5.3.1</span> 示例 5.1：烹饪大豆——最简单的裂区或两水平设计结构<a href="chap5.html#sec5-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>一位实验者想要研究五种大豆对三种烹饪方法的响应。感兴趣的因变量是大豆煮熟后的嫩度和风味。实验者有一个由 15 个同质行 (rows) 组成的区域。他将五种单向处理结构中的每一种随机分配到三行，从而在完全随机设计结构中生成单向处理结构。品种被分配到行中，如图 <a href="chap5.html#fig:figure5-10">5.10</a> 所示；因此，行是与品种相关的实验单元。收获时节，每行的大豆都会被放入一个盒子中。对于对一行大豆（或一个盒子）进行的某些测量，该行实验单元的模型是</p>
+<p>一位实验者想要研究五种大豆对三种烹饪方法的响应。感兴趣的因变量是大豆煮熟后的嫩度和风味。实验者有一个由 15 个同质行 (rows) 组成的区域。他将五种单向处理结构中的每一种随机分配到三行，从而在完全随机设计结构中生成单向处理结构。品种被分配到行中，如图 <a href="chap5.html#fig:figure5-10">5.10</a> 所示；因此，行是与品种相关的实验单元。在收获时节，每行的大豆都会被放入一个盒子 (box) 中。对一行大豆（或一个盒子）进行的某些测量，行实验单元的模型是</p>
 <p><span class="math display">\[y_{ij}=\mu_i+r_{ij},\quad i=1,2,3,4,5,\quad j=1,2,3\]</span></p>
 <p>其中 <span class="math inline">\(\mu_i\)</span> 表示第 <span class="math inline">\(i\)</span> 个品种的平均值，<span class="math inline">\(r_{ij}\)</span> 表示与分配给第 <span class="math inline">\(j\)</span> 行的第 <span class="math inline">\(i\)</span> 个品种相关的误差。表 <a href="chap5.html#tab:table5-13">5.13</a> 给出了用于比较品种平均响应的行模型的分析或方差表。每个品种分配了三行，因此，品种内相同处理的行之间的变异性为 error (row) 提供了两个自由度。如果五个品种内的行方差相等，则将方差合并在一起以提供与 error (row) 相关的 10 个自由度。行设计是完全随机设计结构。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-10"></span>
@@ -680,7 +696,7 @@ x
 </tr>
 </tbody>
 </table>
-<p>接下来，实验者想要检查烹饪方法。有几种可能的方法来进行这部分实验，这里讨论了两种。首先，实验者可以为种植了给定品种的三行中的每一行分配不同的烹饪方法，如图 <a href="chap5.html#fig:figure5-11">5.11</a> 所示。图<a href="chap5.html#fig:figure5-11">5.11</a> 中的排列产生了一个完全随机设计结构中的双向处理结构，其中行是实验单元。然而，每个品种与烹饪方法的组合只有一次重复或行。因此，没有相同处理的行，这意味着并没有实验误差或行方差的度量。方差分析表的结果如表 <a href="chap5.html#tab:table5-14">5.14</a> 所示。</p>
+<p>接下来，实验者想要检查烹饪方法。有几种可能的方法来进行这部分实验，这里讨论了两种。首先，实验者可以为种植了给定品种的三行中的每一行分配不同的烹饪方法，如图 <a href="chap5.html#fig:figure5-11">5.11</a> 所示。图 <a href="chap5.html#fig:figure5-11">5.11</a> 中的安排产生了一个完全随机设计结构中的双向处理结构，其中行是实验单元。然而，每个品种与烹饪方法的组合只有一次重复或行。因此，没有相同处理的行，这意味着并没有实验误差或行方差的度量。方差分析表的结果如表 <a href="chap5.html#tab:table5-14">5.14</a> 所示。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-11"></span>
 <img src="figure/figure%205.11.png" alt="将烹饪方法分配到每个品种内的行的随机化方案，以烹饪大豆为例" width="995" />
 <p class="caption">
@@ -734,7 +750,7 @@ x
 </tr>
 </tbody>
 </table>
-<p>行的平方和包括变化的平方和加上表 <a href="chap5.html#tab:table5-13">5.13</a> 中 error (row) 的平方和。如果所有行都经相同处理，则烹饪方法与行的交互作用将提供批次误差项，但一些行种植了品种 1，另一些行种植了品种 2，依此类推。因此，烹饪方法与行的交互作用包括了烹饪方法与品种的交互作用。所以，只考虑种植了品种 1 的那些行。品种 1 中的烹饪方法与行的交互作用提供了 (3-1)*(3-1)=4 个自由度，用于测量在同一行中经相同处理的批次的变异。批次误差平方和是通过在五个品种中合并烹饪方法与品种交互作用平方和而获得的 (obtained by pooling the row by cooking method interaction sum of squares within a variety across the five varieties)，从而为 error (batch) 提供 20 个自由度。描述烹饪大豆示例数据的模型如下</p>
+<p>行的平方和包括品种的平方和加上表 <a href="chap5.html#tab:table5-13">5.13</a> 中 error (row) 的平方和。如果所有行都经相同处理，则烹饪方法与行的交互作用将提供批次误差项，但一些行种植了品种 1，另一些行种植了品种 2，依此类推。因此，烹饪方法与行的交互作用包括了烹饪方法与品种的交互作用。所以，只考虑种植了品种 1 的那些行。品种 1 中的烹饪方法与行的交互作用提供了 (3-1)*(3-1)=4 个自由度，用于测量在同一行中经相同处理的批次的变异。批次误差平方和是通过在五个品种中合并烹饪方法与品种交互作用平方和而获得的 (obtained by pooling the row by cooking method interaction sum of squares within a variety across the five varieties)，从而为 error (batch) 提供 20 个自由度。描述烹饪大豆示例数据的模型如下</p>
 <p><span class="math display">\[y_{ijk}=\mu_{ik}+r_{ij}+\varepsilon_{ijk},\quad i=1,2,3,4,5,j=1,2,3,k=1,2,3\]</span></p>
 <p>其中，<span class="math inline">\(\mu_{ik}\)</span> 表示通过第 <span class="math inline">\(k\)</span> 种方法烹饪的第 <span class="math inline">\(i\)</span> 个品种的平均值，<span class="math inline">\(r_{ij}\)</span> 是分配给第 <span class="math inline">\(i\)</span> 个品种的第 <span class="math inline">\(j\)</span> 行的随机效应，假设其分布为 <span class="math inline">\(N(0,\sigma^2_{\mathrm{row}})\)</span>， <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示用第 <span class="math inline">\(k\)</span> 种方法烹饪的第 <span class="math inline">\(i\)</span> 个品种的第 <span class="math inline">\(j\)</span> 行的批次的随机效应，假设其分布为 <span class="math inline">\(N(0,\sigma^2_{\mathrm{batch}})\)</span>，还假设 <span class="math inline">\(r_{ij}\)</span> 和 <span class="math inline">\(\varepsilon_{ijk}\)</span> 是独立的随机变量。</p>
 <p>在效应模型中，均值 <span class="math inline">\(\mu_{ik}\)</span> 可表示为</p>
@@ -765,9 +781,9 @@ x
 </div>
 <div id="sec5-3-2" class="section level3 hasAnchor" number="5.3.2">
 <h3><span class="header-section-number">5.3.2</span> 示例 5.2：磨小麦——通常的裂区或两水平设计结构<a href="chap5.html#sec5-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>谷物碾磨实验包括在将小麦粒碾磨或研磨成小麦粉后评估各种小麦品种的特性。实验包括将研磨辊之间的间隙（称为辊缝 (roll gap)）设置为一个值，然后研磨每种品种的一批（按随机顺序）。接下来，将辊缝更改为另一个值，并研磨新的批次。假设研究人员希望评估三个辊缝和五个品种。因此，五个品种的三个辊缝的双向处理结构的一次重复需要 15 次轧机的运行 (runs)。一个工作日可以完成一次重复或 15 次运行，因此需要四天时间才能获得四次重复。环境条件如湿度可能会对研磨过程产生影响，并且这些条件可能每天都不同。因此，为了帮助控制这些条件，将天用作区组因素，其中在一天内获得 15 种处理组合的一次复制。随机化过程是将三个辊隙的顺序随机分配给每天运行的一个辊缝，然后在每个辊缝内，将品种的顺序随机指定给要研磨的批次。图 <a href="chap5.html#fig:figure5-13">5.13</a> 显示了随机化过程，其中一天对应于一个区组，一天内的一组五次运行是整区实验单元，单次运行是子区实验单元。并不是所有显示品种分配给运行的箭头都会显示出来，因为完整的一组线会使展示混乱不堪。整区设计结构是一个随机完全区组，有四个尺寸为三的区组。整区模型可以表示为</p>
+<p>谷物碾磨实验包括在将小麦粒碾磨或研磨成小麦粉后评估各种小麦品种 (variety) 的特性。实验包括将研磨辊之间的间隙[称为辊缝 (roll gap)]设置为一个值，然后研磨每种品种的一批（按随机顺序）。接下来，将辊缝更改为另一个值，并研磨新的批次。假设研究人员希望评估三个辊缝和五个品种。因此，五个品种的三个辊缝的双向处理结构的一次重复需要 15 次轧机的运行 (runs)。一个工作日 (day) 可以完成一次重复或 15 次运行，因此需要四天时间才能获得四次重复。环境条件如湿度可能会对研磨过程产生影响，并且这些条件可能每天都不同。因此，为了帮助控制这些条件，将天用作区组因素，其中在一天内获得 15 种处理组合的一次重复。随机化过程是将三个辊隙的顺序随机分配给每天运行的一个辊缝，然后在每个辊缝内，将品种的顺序随机指定给要研磨的批次。图 <a href="chap5.html#fig:figure5-13">5.13</a> 显示了随机化过程，其中一天对应于一个区组，一天内的一组五次运行是整区实验单元，单次运行是子区实验单元。未显示所有将品种分配给运行的箭头，因为完整的一组线会使展示混乱不堪。整区设计结构是一个随机完全区组，有四个尺寸为三的区组。整区模型可以表示为</p>
 <p><span class="math display">\[y_{ij}=\mu+R_i+d_j+e_{ij},\quad i=1,2,3,j=1,2,3,4,\mathrm{~where~}d_j\thicksim i.i.d.\mathrm{~N}(0,\sigma_{\mathrm{day}}^2)\mathrm{~and~}e_{ij}\thicksim i.i.d.\mathrm{~N}(0,\sigma_{\mathrm{run}}^2)\]</span></p>
-<p>其中 <span class="math inline">\(R_i\)</span> 表示辊缝效应，<span class="math inline">\(d_j\)</span> 表示随机天效应 (random day effect )，<span class="math inline">\(e_{ij}\)</span> 表示随机辊缝运行效应或整区误差。整区方差分析表如表 <a href="chap5.html#tab:table5-17">5.17</a> 所示，其中运行或整区误差是通过天与辊缝交互作用计算的；也就是说，随机完全区组设计结构的误差是处理结构与设计结构的交互作用。分析的下一步是确定批此误差的来源。这是通过仅考虑具有一个辊缝（例如 1.5mm）的品种来实现的。表 <a href="chap5.html#tab:table5-18">5.18</a> 中显示了用于比较 1.5mm 辊缝下品种的方差分析表。误差项是通过天与品种（或一天内的运行，因为给定的某天只进行一次运行）的交互作用来计算的，这提供了 12 个自由度来测量在一次运行中相同处理的批次如何变化。这一过程是针对其他两个辊缝设置执行的，每个设置都为批次误差提供 12 个自由度。如果这三个方差相等，那么它们可以合并到具有 36 个自由度的批次误差项中。批次误差项可以表示为品种×天（辊缝），也可以表示为“跨辊缝水平的品种与天交互作用” (variety by day interaction pooled across the levels of roll gap).</p>
+<p>其中 <span class="math inline">\(R_i\)</span> 表示辊缝效应，<span class="math inline">\(d_j\)</span> 表示随机天效应 (random day effect)，<span class="math inline">\(e_{ij}\)</span> 表示随机辊缝运行效应或整区误差。整区方差分析表如表 <a href="chap5.html#tab:table5-17">5.17</a> 所示，其中运行或整区误差是通过天与辊缝交互作用计算的；也就是说，随机完全区组设计结构的误差是处理结构与设计结构的交互作用。分析的下一步是确定批次误差的来源。这是通过仅考虑具有一个辊缝（例如 1.5mm）的品种来实现的。表 <a href="chap5.html#tab:table5-18">5.18</a> 中显示了用于比较 1.5mm 辊缝下品种的方差分析表。误差项是通过天与品种（或一天内的运行，因为给定的某天只进行一次运行）的交互作用来计算的，这提供了 12 个自由度来测量在一次运行中相同处理的批次如何变异。这一过程是针对其他两个辊缝设置执行的，每个设置都为批次误差提供 12 个自由度。如果这三个方差相等，那么它们可以合并到具有 36 个自由度的批次误差项中。批次误差项可以表示为 variety × day (roll gap)，也可以表示为“跨辊缝水平的品种与天交互作用” (variety by day interaction pooled across the levels of roll gap).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-13"></span>
 <img src="figure/figure%205.13.png" alt="磨粉实验随机化过程的显示" width="998" />
 <p class="caption">
@@ -840,11 +856,11 @@ x
 </div>
 <div id="sec5-3-3" class="section level3 hasAnchor" number="5.3.3">
 <h3><span class="header-section-number">5.3.3</span> 示例 5.3：烘焙面包——具有不完全块设计结构的裂区<a href="chap5.html#sec5-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>一位烘焙科学家设计了一项研究，以评估温度对由两种不同配方制成并在三种不同温度下烘焙的面包 (bread) 体积的影响。图 <a href="chap5.html#fig:figure5-14">5.14</a> 显示了本实验的随机化过程。一天只有两个烤箱可用，而且当天只能使用一次。每个烤箱可以容纳每个配方中的一条面包，但在一天中只能观察到三种温度中的两种。研究人员希望对每个温度进行四次重复，这意味着该研究需要在不同的六天进行。表 <a href="chap5.html#tab:table5-20">5.20</a> 包含六天的温度分配。图 <a href="chap5.html#fig:figure5-14">5.14</a> 显示了将温度随机分配到烤箱的情况，其中天是区组，烤箱是温度水平的实验单元。烤箱设计是一种不完全区组设计结构中的单向处理结构（温度的水平）。可以用来描述每个烤箱数据的模型是</p>
+<p>一位烘焙科学家设计了一项研究，以评估温度对由两种不同配方制成并在三种不同温度下烘焙的面包 (bread) 体积的影响。图 <a href="chap5.html#fig:figure5-14">5.14</a> 显示了本实验的随机化过程。一天 (day) 只有两个烤箱 (oven) 可用，而且当天只能使用一次。每个烤箱可以容纳每种配方下的一条面包，但在一天中只能观察到三种温度中的两种。研究人员希望对每个温度进行四次重复，这意味着该研究需要在不同的六天进行。表 <a href="chap5.html#tab:table5-20">5.20</a> 包含六天的温度分配。图 <a href="chap5.html#fig:figure5-14">5.14</a> 显示了将温度随机分配到烤箱的情况，其中天是区组，烤箱是温度水平的实验单元。烤箱设计是一种不完全区组设计结构中的单向处理结构（温度的水平）。可以用来描述每个烤箱数据的模型是</p>
 <p><span class="math display">\[y_{ij}=\mu+T_i+d_j+o_{ij},\quad(i,j)\in\{(1,1),(2,1),(1,2),(3,2),(2,3),(3,3),(1,4),(3,4),(2,5),(3,5),(1,6),(2,6)\}\]</span></p>
 <p>其中</p>
 <p><span class="math display">\[d_j\thicksim i.i.d.N(0,\sigma_{\mathrm{day}}^2)\quad\mathrm{and}\quad o_{ij}\thicksim i.i.d.N(0,\sigma_{\mathrm{oven}}^2)\]</span></p>
-<p>下标 <span class="math inline">\((i,j\)</span> 在上述指标集中取值，方差分析表见表 <a href="chap5.html#tab:table5-21">5.21</a>. 预期均方是为III型平方和计算的（见第 <a href="#chap10"><strong>??</strong></a> 章）。烤箱误差项是根据设计结构与处理结构交互作用 （或天与温度的交互作用）来计算的。如果观察到表 <a href="chap5.html#tab:table5-20">5.20</a> 中的所有单元格，则烤箱误差将有 (3-1)(6-1)=10 个自由度，但其中六个单元格为空，为烤箱误差提供 10-6=4 个自由度。面包设计是一种随机完全区组设计结构中的单向处理结构（配方的水平），其中烤箱是区组。并不是所有区组都是一样的，所以考虑那些温度相同的烤箱。温度为 160°C 的处理结构部分如表 <a href="chap5.html#tab:table5-22">5.22</a> 所示。表 <a href="chap5.html#tab:table5-22">5.22</a> 中的设计是具有四个区组或烤箱或天的随机完全区组设计结构中的单向处理结构（两个配方）。根据 160°C 的温度数据，面包误差项有三个自由度，对应于配方与天的交互作用。160°C 下面包分析的方差分析表如表 <a href="chap5.html#tab:table5-23">5.23</a> 所示。可以为每个温度计算面包误差，如果方差相等，则将三个方差合并，为 error (bread) 提供九个自由度。可以用来表示所有数据的模型是</p>
+<p>下标 <span class="math inline">\((i,j)\)</span> 在上述指标集中取值，方差分析表见表 <a href="chap5.html#tab:table5-21">5.21</a>. 预期均方是根据III型平方和计算的（见第 <a href="#chap10"><strong>??</strong></a> 章）。烤箱误差项是根据设计结构与处理结构交互作用 （或天与温度的交互作用）来计算的。如果观察到表 <a href="chap5.html#tab:table5-20">5.20</a> 中的所有单元格，则烤箱误差将有 (3-1)(6-1)=10 个自由度，但其中六个单元格为空，从而为烤箱误差提供 10-6=4 个自由度。面包设计是一种随机完全区组设计结构中的单向处理结构（配方的水平），其中烤箱是区组。并不是所有区组都是一样的，所以考虑那些温度相同的烤箱。温度为 160°C 的处理结构部分如表 <a href="chap5.html#tab:table5-22">5.22</a> 所示。表 <a href="chap5.html#tab:table5-22">5.22</a> 中的设计是具有四个区组或烤箱或天的随机完全区组设计结构中的单向处理结构（两个配方）。根据 160°C 的温度数据，面包误差项有三个自由度，对应于配方与天的交互作用。160°C 下面包分析的方差分析表如表 <a href="chap5.html#tab:table5-23">5.23</a> 所示。可以为每个温度计算面包误差，如果方差相等，则将三个方差合并，为 error (bread) 提供九个自由度。可以用来表示所有数据的模型是</p>
 <p><span class="math display">\[\begin{aligned}
 &amp;y_{ijk}=\mu+T_i+d_j+o_{ij}+R_k+(TR)_{ik}+\varepsilon_{ijk} \\
 &amp;(i,j)\in\{(1,1),(2,1),(1,2),(3,2),(2,3),(3,3),(1,4),(3,4),(2,5),(3,5),(1,6),(2,6)\},k=1,2
@@ -940,7 +956,7 @@ x
 </tr>
 </tbody>
 </table>
-<p>该模型的最终方差分析表见表 <a href="chap5.html#tab:table5-24">5.24</a>，其中预期均方是根据III型平方和计算的。由于不完全区组整区设计结构，因此使用了III型平方和。该模型的烤箱部分为 <span class="math inline">\(\mu+T_i+d_j+o_{ij}\)</span>，这也是该模型面包部分的阻塞结构。模型的面包部分是 <span class="math inline">\(R_k+(TR)_{ik}+\varepsilon_{ijk}\)</span>. 这个例子表明，<strong>任何类型的设计结构都可以用于实验单元的每个水平或每种尺寸</strong>。</p>
+<p>该模型的最终方差分析表见表 <a href="chap5.html#tab:table5-24">5.24</a>，其中预期均方是根据III型平方和计算的。由于不完全区组整区设计结构，因此使用了III型平方和。该模型的烤箱部分为 <span class="math inline">\(\mu+T_i+d_j+o_{ij}\)</span>，这也是该模型面包部分的区组结构。模型的面包部分是 <span class="math inline">\(R_k+(TR)_{ik}+\varepsilon_{ijk}\)</span>. 这个例子表明，<strong>任何类型的设计结构都可以用于实验单元的每个水平或每种尺寸</strong>。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-24">表 5.24: </span>采用不完全区组整区设计结构的面包烘焙研究的完整方差分析表，预期均方(EMS)根据III型平方和计算（见第 <a href="#chap10"><strong>??</strong></a> 章）
@@ -963,8 +979,8 @@ x
 </div>
 <div id="sec5-3-4" class="section level3 hasAnchor" number="5.3.4">
 <h3><span class="header-section-number">5.3.4</span> 示例 5.4：展示柜中的肉——复杂裂区或四水平设计<a href="chap5.html#sec5-3-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>一位肉类科学家想研究三个水平的温度（T）、两个水平的包装类型（P）、四个水平的光照类型（L）和四个水平的光照强度（I）对在肉类冷却器 (cooler) 中储存七天的肉的颜色的影响。实验有六个冷却器，三种温度（1、3和5°C）分别随机分配给两个冷却器，如图 <a href="chap5.html#fig:figure5-15">5.15</a> 所示。</p>
-<p>每个冷却器在一个 4×4 的网格上分为 16 个隔间（图 <a href="chap5.html#fig:figure5-16">5.16</a>）。光照强度通过它们在冷却器表面上方的距离来调节，因此，一列 (column) 中的所有分区 (partitions) 都被分配相同的光照强度。四种类型的照明随机分配到每列内的四个分区。最后，将两种包装分配给牛排，并将两种包装放入每个分区中。图 <a href="chap5.html#fig:figure5-16">5.16</a> 显示了这种冷却器的安排方式。</p>
+<p>一位肉类科学家想研究三个水平的温度（temperature, T）、两个水平的包装类型（packaging, P）、四个水平的光照类型（lightning, L）和四个水平的光照强度（intensity, I）对在肉类冷却器 (cooler) 中储存七天的肉的颜色的影响。实验有六个冷却器，三种温度（1、3和5°C）分别随机分配给两个冷却器，如图 <a href="chap5.html#fig:figure5-15">5.15</a> 所示。</p>
+<p>每个冷却器在一个 4×4 的网格上分为 16 个分区 (partitions)（图 <a href="chap5.html#fig:figure5-16">5.16</a>）。光照强度通过它们在冷却器表面上方的距离来调节，因此，一列 (column) 中的所有分区都被分配相同的光照强度。四种类型的光照随机分配到每列内的四个分区。最后，将两种包装分配给牛排，并将两种包装放入每个分区中。图 <a href="chap5.html#fig:figure5-16">5.16</a> 显示了这种冷却器的安排方式。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-15"></span>
 <img src="figure/figure%205.15.png" alt="展示柜研究中肉类冷却器的温度分配" width="680" />
 <p class="caption">
@@ -972,9 +988,9 @@ x
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-16"></span>
-<img src="figure/figure%205.16.png" alt="在展示柜研究中，为每个冷却器中的肉分配列的光照强度、分区的照明类型和半分区的包装类型" width="710" />
+<img src="figure/figure%205.16.png" alt="在展示柜研究中，为每个冷却器中的肉分配列的光照强度、分区的光照类型和半分区的包装类型" width="710" />
 <p class="caption">
-图 5.16: 在展示柜研究中，为每个冷却器中的肉分配列的光照强度、分区的照明类型和半分区的包装类型
+图 5.16: 在展示柜研究中，为每个冷却器中的肉分配列的光照强度、分区的光照类型和半分区的包装类型
 </p>
 </div>
 <p>在构建适当的分析之前，必须首先正确识别实验单元的不同尺寸或实验水平。温度水平的实验单元是冷却器。冷却器设计是一种完全随机设计结构中的单向处理结构（T 或温度水平）。如果对每个冷却器进行一次测量，则响应可以通过以下方式建模</p>
@@ -999,31 +1015,31 @@ x
 </tr>
 </tbody>
 </table>
-<p>光照强度水平的实验单元是冷却器中的四个分区的列。列设计由单向处理结构（I 或强度水平）组成，采用随机完全区组设计结构，具有六个区组或冷却器。如果所有冷却器都经相同处理，那么列误差项将根据强度与冷却器交互作用来计算。但有三种不同的温度，因此将分析限制在分配给 1°C 的两个冷却器上。分配给 1°C 的两个冷却器如图 <a href="chap5.html#fig:figure5-17">5.17</a> 所示。在这一点上，设计是一个单向处理结构（I的四个水平）的随机完全区组设计结构（两个冷却器）。如果对这两个冷却器的每个列进行测量，则可用于描述响应的模型为</p>
+<p>光照强度水平的实验单元是冷却器中四个分区所在的列。列设计由单向处理结构（I 或强度水平）组成，采用随机完全区组设计结构，具有六个区组或冷却器。如果所有冷却器都经相同处理，那么列误差项将根据强度与冷却器交互作用来计算。但有三种不同的温度，因此将分析限制在分配给 1°C 的两个冷却器上。分配给 1°C 的两个冷却器如图 <a href="chap5.html#fig:figure5-17">5.17</a> 所示。这时，设计是一个单向处理结构（I 的四个水平）的随机完全区组设计结构（两个冷却器）。如果对这两个冷却器的每个列进行测量，则可用于描述响应的模型为</p>
 <p><span class="math display">\[y_{1jk}=\mu+I_k+c_{1j}+d_{1jk},\quad j=1,2,\,k=1,2,3,4,\,c_{1j}\sim i.i.d. N(0,\sigma_{\mathrm{cooler}}^2)\,\mathrm{~and~}\,d_{1jk}\sim i.i.d.N(0,\sigma_{\mathrm{colum}n}^2)\]</span></p>
-<p>列模型的方差分析表如图 <a href="chap5.html#fig:figure5-17">5.17</a> 所示，其中列误差项是通过强度与冷却器交互作用来计算的，提供三个自由度。对于另外两个温度重复该过程，每个温度都提供具有三个自由度的列误差项。如果这三个方差相等，则可以将它们合并到具有九个自由度的 error (column) 中。error (column) 可以用强度×冷却器（温度）表示，读作“跨温度水平的强度与冷却器交互作用” (intensity by cooler interaction pooled across the levels of temperature).</p>
+<p>列模型的方差分析表如图 <a href="chap5.html#fig:figure5-17">5.17</a> 所示，其中列误差项是通过强度与冷却器交互作用来计算的，提供三个自由度。对于另外两个温度重复该过程，每个温度都提供具有三个自由度的列误差项。如果这三个方差相等，则可以将它们合并到具有九个自由度的 error (column) 中。error (column) 可以用 intensity × cooler (temperature) 表示，读作“跨温度水平的强度与冷却器交互作用” (intensity by cooler interaction pooled across the levels of temperature).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-17"></span>
 <img src="figure/figure%205.17.png" alt="展示柜研究中，比较温度 1 下的强度水平以开始列分析" width="849" />
 <p class="caption">
 图 5.17: 展示柜研究中，比较温度 1 下的强度水平以开始列分析
 </p>
 </div>
-<p>照明类型水平的实验单元是列的分区。分区设计是一种单向处理结构（L的水平），采用随机完全区组设计结构，有 24 个区组，由六个冷却器的四个列组成。如果所有列都经相同处理，则分区误差项将通过照明类型与列交互作用来计算。但所有列的处理方式并不相同，因为有三种温度和四种强度水平。将结构限制为仅涉及温度为 1°C 且强度为 I<sub>1</sub> 的那些列，如图 <a href="chap5.html#fig:figure5-18">5.18</a> 所示。与图 <a href="chap5.html#fig:figure5-18">5.18</a> 相关的设计是随机完全区组设计结构（两个列，但每个列来自不同的冷却器）中的单向处理结构（照明类型的四个水平）。如果对图 <a href="chap5.html#fig:figure5-18">5.18</a> 中的每个分区进行一次测量，则可用于描述响应的模型为</p>
+<p>光照类型水平的实验单元是列的分区。分区设计是一种单向处理结构（L 的水平），采用随机完全区组设计结构，有 24 个区组，由六个冷却器的四个列组成。如果所有列都经相同处理，则分区误差项将通过光照类型与列交互作用来计算。但所有列的处理方式并不相同，因为有三种温度和四种强度水平。将结构限制为仅涉及温度为 1°C 且强度为 I<sub>1</sub> 的那些列，如图 <a href="chap5.html#fig:figure5-18">5.18</a> 所示。与图 <a href="chap5.html#fig:figure5-18">5.18</a> 相关的设计是随机完全区组设计结构（两个列，但每个列来自不同的冷却器）中的单向处理结构（光照类型的四个水平）。如果对图 <a href="chap5.html#fig:figure5-18">5.18</a> 中的每个分区进行一次测量，则可用于描述响应的模型为</p>
 <p><span class="math display">\[\begin{aligned}y_{1j1m}&amp;=\mu+L_m+d_{1j1}^*+p_{1j1m},\quad j=1,2,m=1,2,3,4,d_{1j1}^*\thicksim i.i.d.N(0,\sigma_{\mathrm{column}}^{2^*})\mathrm{~and}\\p_{1j1m}&amp;\sim i.i.d.N(0,\sigma_{\mathrm{partition}}^2)\end{aligned}\]</span></p>
-<p>其中 <span class="math inline">\(d_{1j1}^*\)</span> 表示冷却器和该冷却器效果的列的组合<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>。该分区模型的方差分析表如图 <a href="chap5.html#fig:figure5-18">5.18</a> 所示，其中分区误差项通过照明类型与冷却器交互作用来计算，提供三个自由度。这个过程需要对12种温度和强度的组合进行，每种组合为 error (partition) 提供三个自由度。如果这 12 个方差相等，则可以将它们合并为一个项，为 error (partition) 提供三个自由度提供 36 个自由度。error (partition) 项可以表示为光照×强度×冷却器（温度）。</p>
+<p>其中 <span class="math inline">\(d_{1j1}^*\)</span> 表示冷却器和该冷却器效果的列的组合 (the combination of cooler and column of that cooler effect). 该分区模型的方差分析表如图 <a href="chap5.html#fig:figure5-18">5.18</a> 所示，其中分区误差项通过光照类型与冷却器交互作用来计算，提供三个自由度。这个过程需要对 12 种温度和强度的组合进行，每种组合为 error (partition) 提供三个自由度。如果这 12 个方差相等，则可以将它们合并为一个项，为 error (partition) 提供三个自由度提供 36 个自由度。error (partition) 项可以表示为 light × intensity × cooler (temperature).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-18"></span>
-<img src="figure/figure%205.18.png" alt="展示柜研究中，比较温度 1 和强度 1 下的照明水平以开始分区分析" width="811" />
+<img src="figure/figure%205.18.png" alt="展示柜研究中，比较温度 1 和强度 1 下的光照水平以开始分区分析" width="811" />
 <p class="caption">
-图 5.18: 展示柜研究中，比较温度 1 和强度 1 下的照明水平以开始分区分析
+图 5.18: 展示柜研究中，比较温度 1 和强度 1 下的光照水平以开始分区分析
 </p>
 </div>
-<p>最后，包装水平的实验单元是半分区 (half-partitions)（或牛排）。半分区设计是一种单向处理结构（包装的水平或 P），采用随机完全区组设计结构，具有 96 个分区，由六个冷却器的四个列中的四个分区组成。如果所有分区都经相同处理，那么半分区误差项将通过包装与分区交互作用来计算。但并不是所有的分区都经相同处理，因为它们被分配到三个温度水平、四个强度水平和四个照明水平。选择分配给温度为 1°C、强度为 I<sub>1</sub> 和照明为 L<sub>1</sub> 的分区，如图 <a href="chap5.html#fig:figure5-19">5.19</a> 所示。如果在图 <a href="chap5.html#fig:figure5-19">5.19</a> 中对每块牛排或半分区进行一次测量，则可用于描述响应的模型为</p>
+<p>最后，包装水平的实验单元是半分区 (half-partitions)（或牛排）。半分区设计是一种单向处理结构（包装的水平或 P），采用随机完全区组设计结构，具有 96 个分区，由六个冷却器的四个列中的四个分区组成。如果所有分区都经相同处理，那么半分区误差项将通过包装与分区交互作用来计算。但并不是所有的分区都经相同处理，因为它们被分配到三个温度水平、四个强度水平和四个光照水平。选择分配给温度为 1°C、强度为 I<sub>1</sub> 和光照为 L<sub>1</sub> 的分区，如图 <a href="chap5.html#fig:figure5-19">5.19</a> 所示。如果在图 <a href="chap5.html#fig:figure5-19">5.19</a> 中对每块牛排或半分区进行一次测量，则可用于描述响应的模型为</p>
 <p><span class="math display">\[\begin{aligned}y_{1j11n}&amp;=\mu+P_n+p_{1j1n}^*+\varepsilon_{1j11n},\quad j=1,2,n=1,2,p_{1j1m}^*\thicksim i.i.d.N(0,\sigma_{\mathrm{partition}}^{2*})\quad\mathrm{and}\\\varepsilon_{1j11n}&amp;\sim i.i.d.N(0,\sigma_{\frac12\text{partition}} ^ 2 ) \end{aligned}\]</span></p>
-<p>该半分区模型的方差分析表如图 <a href="chap5.html#fig:figure5-19">5.19</a> 所示，其中半分区误差项通过包装与冷却器交互作用来计算，提供一个自由度。这个过程需要对 48 种温度、强度和光照的组合进行。这 48 个平方和合并在一起为 error (half-partition) 提供 48 个自由度。error (half-partition) 项可以表示为包装×光照×强度×冷却器（温度）。</p>
+<p>该半分区模型的方差分析表如图 <a href="chap5.html#fig:figure5-19">5.19</a> 所示，其中半分区误差项通过包装与冷却器交互作用来计算，提供一个自由度。这个过程需要对 48 种温度、强度和光照的组合进行。这 48 个平方和合并在一起为 error (half-partition) 提供 48 个自由度。error (half-partition) 项可以表示为 packaging × light × intensity × cooler (temperature).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-19"></span>
-<img src="figure/figure%205.19.png" alt="展示柜研究中，比较温度 1、强度 1 和照明 1 下的包装水平以开始半分区分析" width="716" />
+<img src="figure/figure%205.19.png" alt="展示柜研究中，比较温度 1、强度 1 和光照 1 下的包装水平以开始半分区分析" width="716" />
 <p class="caption">
-图 5.19: 展示柜研究中，比较温度 1、强度 1 和照明 1 下的包装水平以开始半分区分析
+图 5.19: 展示柜研究中，比较温度 1、强度 1 和光照 1 下的包装水平以开始半分区分析
 </p>
 </div>
 <p>上述讨论提供了研究中的四个水平的模型：冷却器模型、列模型、分区模型和半分区模型。这些模型可以组合成一个模型，其中因素之间的交互作用被加在一起。由于基本设计结构是每个水平的裂区，因此每个水平的处理结构以及与其上一水平处理结构的交互作用都包含在模型的该水平部分中。可以用来描述数据的模型是</p>
@@ -1071,7 +1087,7 @@ x
 <h3><span class="header-section-number">5.4.1</span> 示例 5.5：制作奶酪<a href="chap5.html#sec5-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>一位乳制品科学家设计了一项奶酪制造研究，涉及两种脂肪水平、三种奶酪类型、两种储存温度和两种储存湿度。该实验是一个分两步进行的过程，第一步是用两种脂肪水平为每种类型的奶酪制作一批 (batch) 奶酪。每批奶酪要制成四包一磅重的奶酪块 (cheese block). 第二步是将奶酪储存在一系列环境条件下，用四周的时间使其固化。该研究的储存部分包括将每批奶酪中的一包放入一个指定储存温度和湿度的室 (chamber) 中。这个过程相当于将 24 包奶酪排列成四行六列的矩形。该列对应一批奶酪，该行对应一个环境室，如图 <a href="chap5.html#fig:figure5-20">5.20</a> 所示。这位奶制品科学家有四个实验室可用于研究，但他希望有四次重复。因此，通过在四个不同的月份进行实验获得了四次重复。可以通过评估每种尺寸的实验单元的处理和设计结构来构建模型并分析。室设计如图 <a href="chap5.html#fig:figure5-21">5.21</a> 所示，其中仅显示了四个月中每个月的温度和湿度水平。室设计是一种双向处理结构（温度水平与湿度水平），采用随机完全区组设计结构，每个月为一个区组。可用于描述在每个室中进行的测量的模型为</p>
 <p><span class="math display">\[\begin{aligned}y_{ijk}=&amp;\mu+T_j+H_k+(TH)_{jk}+m_i+c_{ijk},\quad i=1,2,3,4,j=1,2,k=1,2\\&amp;m_i\sim i.i.d.N(0,\sigma_{\mathrm{month}}^2),\text{ and }c_{ijk}\thicksim i.i.d.N(0,\sigma_{\mathrm{chamber}}^2)\end{aligned}\]</span></p>
-<p>表 <a href="chap5.html#tab:table5-27">5.27</a> 包含室模型的方差分析表，其中室误差项是处理结构与设计结构的交互作用。在处理结构中有四种处理组合，在设计结构中有四个区组；因此，室误差项基于九个自由度。error (chamber) 项是温度与月交互作用、湿度与月交互作用和温度与湿度与月交互作用项的总和。如果在 SAS-Mixed 程序中使用三向交互项，则三个交互项将合并为一个误差项。室的方差分量用星号表示，因为它也包括由于干酪块引起的变化。月份的方差分量用星号表示，因为它还包括由于批次和奶酪区组引起的变异。</p>
+<p>表 <a href="chap5.html#tab:table5-27">5.27</a> 包含室模型的方差分析表，其中室误差项是处理结构与设计结构的交互作用。在处理结构中有四种处理组合，在设计结构中有四个区组；因此，室误差项基于九个自由度。error (chamber) 项是温度与月交互作用、湿度与月交互作用和温度与湿度与月交互作用项的总和。如果在 SAS-Mixed 程序中使用三向交互项，则三个交互项将合并为一个误差项。室的方差分量用星号表示，因为它也包括由于奶酪块引起的变异。月份的方差分量用星号表示，因为它还包括由于批次和奶酪区组引起的变异。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-20"></span>
 <img src="figure/figure%205.20.png" alt="采用裂条区设计结构的奶酪制作实验的随机化方案" width="1006" />
 <p class="caption">
@@ -1079,9 +1095,9 @@ x
 </p>
 </div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-21"></span>
-<img src="figure/figure%205.21.png" alt="干酪制作实验中室设计的随机化方案" width="855" />
+<img src="figure/figure%205.21.png" alt="奶酪制作实验中室设计的随机化方案" width="855" />
 <p class="caption">
-图 5.21: 干酪制作实验中室设计的随机化方案
+图 5.21: 奶酪制作实验中室设计的随机化方案
 </p>
 </div>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -1107,9 +1123,9 @@ x
 <p><span class="math display">\[\begin{aligned}y_{imn}=&amp;\mu+F_m+C_n+(FC)_{mn}+m_i+b_{imn},\quad i=1,2,3,4,m=1,2,n=1,2,3,\\&amp;m_i\thicksim i.i.d.N(0,\sigma_{\mathrm{month}}^2)\mathrm{~and~}b_{imn}\thicksim i.i.d.N(0,\sigma_{\mathrm{batch}}^2)\end{aligned}\]</span></p>
 <p>表 <a href="chap5.html#tab:table5-28">5.28</a> 包含室模型的方差分析表，其中室误差项是处理结构与设计结构的交互作用。处理结构中有六种处理组合，设计结构中有四个区组，因此批次误差项基于 15 个自由度。error (batch) 项是月份与脂肪、月份与奶酪类型以及脂肪与奶酪类型与月份交互作用项的总和。如果在 SAS-Mixed 程序中使用三向交互项，则三个交互项将合并为一个误差项。批次的方差分量用星号表示，因为它还包括由于奶酪块引起的变异。</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure5-22"></span>
-<img src="figure/figure%205.22.png" alt="干酪制作实验的批设计的随机化方案。为了简化绘图，有些线没有包括在内" width="924" />
+<img src="figure/figure%205.22.png" alt="奶酪制作实验的批设计的随机化方案。为了简化绘图，有些线没有包括在内" width="924" />
 <p class="caption">
-图 5.22: 干酪制作实验的批设计的随机化方案。为了简化绘图，有些线没有包括在内
+图 5.22: 奶酪制作实验的批设计的随机化方案。为了简化绘图，有些线没有包括在内
 </p>
 </div>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -1325,7 +1341,7 @@ x
 </div>
 <div id="sec5-6" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> 涉及嵌套因素的设计<a href="chap5.html#sec5-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>在给定的设计中，可能在设计结构、处理结构或两个结构中都具有<strong>嵌套效应</strong> (nested effects). 嵌套最常见于实验的设计结构中，其中较小尺寸的实验单元嵌套在较大尺寸的实验中。如果每个较大实验单元中的较小实验单元都不同，那么一个尺寸的实验单元就嵌套在另一个较大的尺寸中。当设计结构由几种不同规模的实验单元组成，并且存在一种排序：最小尺寸嵌套在次小尺寸内，直到次大尺寸嵌套在最大尺寸的实验单元内，这种设计也称为分层设计结构。本章前几节讨论的裂区设计和重复测量设计是这样的设计结构的良好示例：其中较小尺寸实验单元嵌套在较大尺寸实验单元内。当一个因素的水平仅与第二个因素的一个水平一起出现时，处理结构中就会出现嵌套。在这种情况下，第一个因素的水平被认为是嵌套在第二个因素的水平内。表 <a href="chap5.html#tab:table5-35">5.35</a> 说明了示例 <a href="chap4.html#sec4-3-2">4.2</a> 第二部分的设计结构中的嵌套，其中房屋嵌套在方块内（“X”表示房屋包含在相应的方块内）。每个方块是较大的实验单元或房屋区组，而房屋是较小的实验单元。由于第一个方块的房屋与第二个方块的房屋不同，因此房屋嵌套在方块内。这种嵌套效应通常在模型中用 <span class="math inline">\(s_k + h_{m(k)}\)</span> 表示，其中 <span class="math inline">\(s_k\)</span> 表示第 <span class="math inline">\(k\)</span> 个方块的效应，<span class="math inline">\(h_{m(k)}\)</span> 表示嵌套在第 <span class="math inline">\(k\)</span> 个方块中的第 <span class="math inline">\(m\)</span> 个房屋的效应。方块和方块内房屋的平方和分别用 SSSQUARE 和 SSHOUSES(SQUARES) 表示。如果模型中包含房屋而不是方块，则只有一个由房屋（SSHOUSES）引起的平方和，可以将其划分为 SSHOUSES = SSSQUARES + SSHOUSES(SQUARES)。此过程可以再进行一步，其中房屋的侧面嵌套房屋内（而房屋又嵌套在方块内）。这样，这三种尺寸的实验单元就形成了一个分层设计结构。</p>
+<p>在给定的设计中，可能在设计结构、处理结构或两个结构中都具有<strong>嵌套效应</strong> (nested effects). 嵌套最常见于实验的设计结构中，其中较小尺寸的实验单元嵌套在较大尺寸的实验中。如果每个较大实验单元中的较小实验单元都不同，那么一个尺寸的实验单元就嵌套在另一个较大的尺寸中。当设计结构由几种不同尺寸的实验单元组成，并且存在一种排序：最小尺寸嵌套在次小尺寸内，直到次大尺寸嵌套在最大尺寸的实验单元内，这种设计也称为分层设计结构。本章前几节讨论的裂区设计和重复测量设计是这样的设计结构的良好示例：其中较小尺寸实验单元嵌套在较大尺寸实验单元内。当一个因素的水平仅与第二个因素的一个水平一起出现时，处理结构中就会出现嵌套。在这种情况下，第一个因素的水平被认为是嵌套在第二个因素的水平内。表 <a href="chap5.html#tab:table5-35">5.35</a> 说明了示例 <a href="chap4.html#sec4-3-2">4.2</a> 第二部分的设计结构中的嵌套，其中房屋嵌套在方块内（“X”表示房屋包含在相应的方块内）。每个方块是较大的实验单元或房屋区组，而房屋是较小的实验单元。由于第一个方块的房屋与第二个方块的房屋不同，因此房屋嵌套在方块内。这种嵌套效应通常在模型中用 <span class="math inline">\(s_k + h_{m(k)}\)</span> 表示，其中 <span class="math inline">\(s_k\)</span> 表示第 <span class="math inline">\(k\)</span> 个方块的效应，<span class="math inline">\(h_{m(k)}\)</span> 表示嵌套在第 <span class="math inline">\(k\)</span> 个方块中的第 <span class="math inline">\(m\)</span> 个房屋的效应。方块和方块内房屋的平方和分别用 SSSQUARE 和 SSHOUSES(SQUARES) 表示。如果模型中包含房屋而不是方块，则只有一个由房屋（SSHOUSES）引起的平方和，可以将其划分为 SSHOUSES = SSSQUARES + SSHOUSES(SQUARES)。此过程可以再进行一步，其中房屋的侧面嵌套房屋内（而房屋又嵌套在方块内）。这样，这三种尺寸的实验单元就形成了一个分层设计结构。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-35">表 5.35: </span>显示嵌套在方块内的房屋的设计
@@ -1581,12 +1597,6 @@ across locations)。可以通过忽略列来构建层的分析，这在随机完
 <h2><span class="header-section-number">5.8</span> 练习<a href="chap5.html#sec5-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="19">
-<li id="fn19"><p>原文为：the combination of cooler and column of that cooler effect<a href="chap5.html#fnref19" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
             </section>
 

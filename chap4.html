@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-02-23" />
+<meta name="date" content="2024-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -287,7 +287,24 @@
 <li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
 <li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
 <li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>7</b> 交叉设计的分析</a>
 <ul>
@@ -894,7 +911,7 @@ x
 y_{ij}=\mu_i+b_j+\boldsymbol{\varepsilon}_{ij},\quad\mathrm{for~}(i,j)\in\mathrm{Index}
 \tag{4.14}
 \end{equation}\]</span></p>
-<p>其中 <span class="math inline">\(\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (B, 4), (C, 4), (B, 5), (D, 5), (C, 6), (D, 6)\}\)</span>，且对子 <span class="math inline">\((i,j)\)</span> 只能取如索引集所示观测到的处理 × 区组组合的值。表 <a href="chap4.html#tab:table4-20">4.20</a> 给出了模型 <a href="chap4.html#eq:4-14">(4.14)</a> 的方差分析表。与这种<strong>相连的区组-处理</strong> (connected block-treatment) 安排相关的自由度是如此计算的：与区组处理交互作用相关的自由度（就好像观测到了所有组合）减去空单元格的数量<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>。表 <a href="chap4.html#tab:table4-21">4.21</a> 显示了观测到的区组-处理组合（用 “X” 表示）。有六个区组和四个处理，因此如果所有组合都存在，则区组处理交互作用将基于 <span class="math inline">\((6-1)(4-1)=15\)</span> 个自由度。有 <span class="math inline">\(12\)</span> 个单元格缺失，因此与误差项相关的自由度为 <span class="math inline">\(15-12=3\)</span>.</p>
+<p>其中 <span class="math inline">\(\mathrm{Index}=\{(A, 1), (B, 1), (A, 2), (C, 2), (A, 3), (D, 3), (B, 4), (C, 4), (B, 5), (D, 5), (C, 6), (D, 6)\}\)</span>，且对子 <span class="math inline">\((i,j)\)</span> 只能取如索引集所示观测到的处理 × 区组组合的值。表 <a href="chap4.html#tab:table4-20">4.20</a> 给出了模型 <a href="chap4.html#eq:4-14">(4.14)</a> 的方差分析表。与这种<strong>连通的<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a>区组-处理</strong> (connected block-treatment) 安排相关的自由度是如此计算的：与区组处理交互作用相关的自由度（就好像观测到了所有组合）减去空单元格的数量<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a>。表 <a href="chap4.html#tab:table4-21">4.21</a> 显示了观测到的区组-处理组合（用 “X” 表示）。有六个区组和四个处理，因此如果所有组合都存在，则区组处理交互作用将基于 <span class="math inline">\((6-1)(4-1)=15\)</span> 个自由度。有 <span class="math inline">\(12\)</span> 个单元格缺失，因此与误差项相关的自由度为 <span class="math inline">\(15-12=3\)</span>.</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table4-19">表 4.19: </span>将四种处理分配到两个实验单元的六个区组的第一种分配：提供均衡不完全区组设计结构
@@ -974,10 +991,10 @@ x
 </tbody>
 </table>
 <p>表 <a href="chap4.html#tab:table4-20">4.20</a> 中的方差分析表也适用于表 <a href="chap4.html#tab:table4-22">4.22</a> 中的安排。如果希望将所有四种处理相互比较，即检验 <span class="math inline">\(\mu_A = \mu_B = \mu_C = \mu_D\)</span>，则表 <a href="chap4.html#tab:table4-19">4.19</a> 中的安排是最优的（使用 D-最优准则；St. John and Draper, 1975）。如果希望将处理 <span class="math inline">\(A\)</span> 与其他三种处理进行比较，即检验 <span class="math inline">\(\mu_A = \mu_B,\mu_A = \mu_C,\mu_A = \mu_D\)</span>，则表 <a href="chap4.html#tab:table4-22">4.22</a> 中的安排是最优的。</p>
-<p>表 <a href="chap4.html#tab:table4-23">4.23</a> 给出了将四种处理分配到六个区组的第三种方法。将处理分为两组，其中 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 一起出现在三个区组中，处理 <span class="math inline">\(C\)</span> 和 <span class="math inline">\(D\)</span> 一起出现在三个区组中。处理 <span class="math inline">\(A\)</span> 不与处理 <span class="math inline">\(C\)</span> 或 <span class="math inline">\(D\)</span> 的同时出现在一个区组中。处理和区组之间的结构<strong>不相连</strong> (not connected)，因为处理分为这两组。定义一个新的变量“组” (group) 来表示两组处理。两组之间的比较是区组 <span class="math inline">\(1,3,5\)</span> 的平均值与区组 <span class="math inline">\(2,4,6\)</span> 的平均值之间的比较，或者说是区组间比较 (between-block comparisons). 处理 <span class="math inline">\(A\)</span> 与处理 <span class="math inline">\(B\)</span> 之间的比较以及处理 <span class="math inline">\(C\)</span> 与处理 <span class="math inline">\(D\)</span> 之间的比较属于区组内比较 (within-block comparisons). 对于处理 <span class="math inline">\(A\)</span> 和处理 <span class="math inline">\(B\)</span>，处理与区组交互作用的自由度为二。同样，对于处理 <span class="math inline">\(C\)</span> 和处理 <span class="math inline">\(D\)</span>，处理与区组交互作用的自由度也为二。误差平方和是将这两个处理与区组交互作用的平方和（及其自由度）合并得到的。表 <a href="chap4.html#tab:table4-23">4.23</a> 中的安排的方差分析表见表 <a href="chap4.html#tab:table4-24">4.24</a>。区组的平方和分为组的平方和和组内嵌套的区组的平方和。各组的平方和作为误差以检验假设 <span class="math inline">\(\mu_A + \mu_B = \mu_C + \mu_D\)</span>），该假设具有由处理产生的一个自由度。两组处理与区组混杂 (confounded) 在一起；也就是说，如果两组均值之间存在差异，则不知道是由于处理集之间的差异还是由于两组区组之间的差异造成的。混杂的概念与混叠 (aliasing) 的概念类似，但混叠涉及两个（或多个）项无法区分，其中两个项都来自处理结构，而混杂涉及两个项无法区分，其中一项来自处理结构，另一项来自设计结构。</p>
+<p>表 <a href="chap4.html#tab:table4-23">4.23</a> 给出了将四种处理分配到六个区组的第三种方法。将处理分为两组，其中 <span class="math inline">\(A\)</span> 和 <span class="math inline">\(B\)</span> 一起出现在三个区组中，处理 <span class="math inline">\(C\)</span> 和 <span class="math inline">\(D\)</span> 一起出现在三个区组中。处理 <span class="math inline">\(A\)</span> 不与处理 <span class="math inline">\(C\)</span> 或 <span class="math inline">\(D\)</span> 的同时出现在一个区组中。处理和区组之间的结构<strong>不连通</strong> (not connected)，因为处理分为这两组。定义一个新的变量“组” (group) 来表示两组处理。两组之间的比较是区组 <span class="math inline">\(1,3,5\)</span> 的平均值与区组 <span class="math inline">\(2,4,6\)</span> 的平均值之间的比较，或者说是区组间比较 (between-block comparisons). 处理 <span class="math inline">\(A\)</span> 与处理 <span class="math inline">\(B\)</span> 之间的比较以及处理 <span class="math inline">\(C\)</span> 与处理 <span class="math inline">\(D\)</span> 之间的比较属于区组内比较 (within-block comparisons). 对于处理 <span class="math inline">\(A\)</span> 和处理 <span class="math inline">\(B\)</span>，处理与区组交互作用的自由度为二。同样，对于处理 <span class="math inline">\(C\)</span> 和处理 <span class="math inline">\(D\)</span>，处理与区组交互作用的自由度也为二。误差平方和是将这两个处理与区组交互作用的平方和（及其自由度）合并得到的。表 <a href="chap4.html#tab:table4-23">4.23</a> 中的安排的方差分析表见表 <a href="chap4.html#tab:table4-24">4.24</a>。区组的平方和分为组的平方和和组内嵌套的区组的平方和。各组的平方和作为误差以检验假设 <span class="math inline">\(\mu_A + \mu_B = \mu_C + \mu_D\)</span>），该假设具有由处理产生的一个自由度。两组处理与区组混杂 (confounded) 在一起；也就是说，如果两组均值之间存在差异，则不知道是由于处理集之间的差异还是由于两组区组之间的差异造成的。混杂的概念与混叠 (aliasing) 的概念类似，但混叠涉及两个（或多个）项无法区分，其中两个项都来自处理结构，而混杂涉及两个项无法区分，其中一项来自处理结构，另一项来自设计结构。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
-<span id="tab:table4-23">表 4.23: </span>将四种处理分配给两个实验单元的六个区组的第三种分配：提供不相连不完全区组设计结构
+<span id="tab:table4-23">表 4.23: </span>将四种处理分配给两个实验单元的六个区组的第三种分配：提供不连通不完全区组设计结构
 </caption>
 <thead>
 <tr>
@@ -1100,7 +1117,8 @@ x
 <ol start="16">
 <li id="fn16"><p>也可译作 “排”，即图 <a href="chap4.html#fig:figure4-1">4.1</a> 中的竖线。<a href="chap4.html#fnref16" class="footnote-back">↩︎</a></p></li>
 <li id="fn17"><p>这里的 <span class="math inline">\(\mu\)</span> 还不足以称为“总体平均值”，严谨地说是“截距”，如果对模型其他参数施加约束才可称为“总体平均值”。更多的讨论详见 Stroup (2012)，例如前言的 xxi 页以及 P.54 的 Note.<a href="chap4.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p>原文：The degrees of freedom associated with this connected block–treatment arrangement are computed from the degrees of freedom associated with the block by treatment interaction as if all combinations were observed minus the number of empty cells.<a href="chap4.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn18"><p>见 <a href="chap6.html#sec6-3-2">6.3.2</a> 节。<a href="chap4.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<li id="fn19"><p>原文：The degrees of freedom associated with this connected block–treatment arrangement are computed from the degrees of freedom associated with the block by treatment interaction as if all combinations were observed minus the number of empty cells.<a href="chap4.html#fnref19" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

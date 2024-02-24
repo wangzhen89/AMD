@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-02-23" />
+<meta name="date" content="2024-02-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -287,7 +287,24 @@
 <li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
 <li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
 <li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
 </ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>7</b> 交叉设计的分析</a>
 <ul>
@@ -330,7 +347,7 @@
 个显著差异。因此，如果实验者用一个实验回答大量问题（我们认为应该这样做），那么最好有一个程序来表明这些差异是否只是偶然的结果。Fisher
 (1949) 提出了受保护<strong>最小显著差异</strong> (<strong>least significant difference</strong>,
 <strong>LSD</strong>）程序，解决了这一问题。从那时起，许多作者对多重检验领域做出了贡献，此领域已经开发了多种设置的程序。</p>
-<p>在本章中，讨论并比较了几种著名且常用的多重推断程序。其中一些程序主要用于检验假设，而另一些程序也可用于获得<strong>联合置信区间</strong>
+<p>在本章中，讨论并比较了几种著名且常用的多重推断程序。其中一些程序主要用于检验假设，而另一些程序也可用于获得<strong>同时置信区间</strong>
 (<strong>simultaneous confidence intervals</strong>)；也就是说，对于 <span class="math inline">\(\mu_i\)</span>
 的一组函数，可以导出一组置信区间。对于这些置信区间，有 <span class="math inline">\(95\%\)</span>
 的把握认为所有的置信区间同时 (simultaneously) 包含它们各自的 <span class="math inline">\(\mu_i\)</span>
@@ -378,7 +395,7 @@ FWER 固定在某个规定的水平上，如 <span class="math inline">\(0.05\)<
 <h2><span class="header-section-number">3.2</span> 建议<a href="chap3.html#sec3-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>多重比较问题有五种基本类型：1) 将一组处理与一个对照或标准进行比较；2)
 在一组 <span class="math inline">\(t\)</span> 个均值之间进行所有成对比较；3)
-构造一组联合置信区间或假设的联合检验 (simultaneous confidence intervals
+构造一组同时置信区间或假设的联合检验 (simultaneous confidence intervals
 or simultaneous tests of hypotheses)；4) 探索性实验并进行大量检验；以及
 5) 数据窥探 (data snooping)，其中<strong>比较</strong> (<strong>comparisons</strong>)
 可能是数据驱动的。在前四种情况下，在数据被分析之前，比较的数量或置信区间或推入族是已知的。在最后一种情况下，没有固定的比较数量，最终的比较数量可能很大。2本章给出的建议是基于
@@ -399,7 +416,7 @@ Westfall et al. (1999), SAS Institute, Inc. (1999), and Westfall (2002)
 <span class="math inline">\(t\)</span>
 。每个处理组观察次数不等的大多数情况提供的是相关的线性组合，应使用模拟方法。</li>
 <li>Bonferroni method
-可用于构建联合置信区间或对选定数量的均值的线性组合进行检验，但如果感兴趣的组合数量很大（比如20个或更多），则
+可用于构建同时置信区间或对选定数量的均值的线性组合进行检验，但如果感兴趣的组合数量很大（比如20个或更多），则
 Scheffé procedure
 通常会产生较短的置信区间，因此请进行检查。对于一组假设，可以有效地使用
 Šidák (1967), Holm (1979), 或 Šidák–Holm
@@ -486,7 +503,7 @@ procedure 中，LSD 检验是通过使用方程 <a href="chap3.html#eq:3-1">(3.1
 将用于进行所有成对比较。如果处理的子集具有等均值，则更多的成对比较将被检测为与预期显著不同。因此，FWER
 不被维持。只有当完全零假设为真时，才能推荐 Fisher’s LSD.</p>
 <p>不建议将这两种 LSD’s procedure 用于在 <span class="math inline">\(\mu_i\)</span>
-的特定对比上构建联合置信区间，因为获得的置信区间通常太窄。</p>
+的特定对比上构建同时置信区间，因为获得的置信区间通常太窄。</p>
 <p>上述 LSD’s procedure
 中的每一个都可以推广到处理均值的几个对比。此推广为：断定
 <span class="math inline">\(\sum_{i=1}^{t}c_{i}\mu_{i}\neq0\)</span> 如果</p>
@@ -513,7 +530,7 @@ FWER 时，推荐使用这个程序进行有计划的比较。假设实验者想
 <span class="math inline">\(t_{\alpha/2p,v}=2.80\)</span>. <a href="chap3.html#sec3-10">3.10</a>, <a href="chap3.html#sec3-12">3.12</a>, <a href="chap3.html#sec3-14">3.14</a> 和
 <a href="chap3.html#sec3-16">3.16</a> 节中的示例演示了 Bonferroni’s method 的使用。表中 <span class="math inline">\(m\)</span>
 与这里的 <span class="math inline">\(p\)</span> 是等价的。</p>
-<p>推荐使用从 Bonferroni’s method 获得的联合置信区间，其形式为</p>
+<p>推荐使用从 Bonferroni’s method 获得的同时置信区间，其形式为</p>
 <span class="math display" id="eq:3-6">\[\begin{equation}
 \sum_{i=1}^tc_{iq}\hat{\boldsymbol{\mu}}_i\pm t_{\alpha/2p,v}\hat{\boldsymbol\sigma}\sqrt{\sum_{i=1}^t\frac{c_{iq}^2}{n_i}},\quad q=1,2,\ldots,p
 \tag{3.6}
@@ -582,7 +599,7 @@ FWER
 <p>假设对 <span class="math inline">\(\mu_i\)</span> 的 <span class="math inline">\(p\)</span> 个线性组合感兴趣，例如
 <span class="math inline">\(\sum_{i=1}^{t}c_{iq}\mu_{i},q=1,2,\dots,p\)</span>. 希望有程序要么控制假设集合
 <span class="math inline">\(H_{0}\colon\,\sum_{i=1}^{t}c_{iq}\mu_{i}=0,q=1,2,\ldots,p\)</span> 的
-FWER，要么控制联合置信区间的 <span class="math inline">\(\sum_{i=1}^tc_{iq}\mu_i\)</span> FWER.
+FWER，要么控制同时置信区间的 <span class="math inline">\(\sum_{i=1}^tc_{iq}\mu_i\)</span> FWER.
 这个过程是：</p>
 <ol style="list-style-type: decimal">
 <li>以与手头数据集相同的结构生成一个数据样本。如果有五个样本量为5、9、3、6和7的处理，则使用这些样本量生成数据</li>
@@ -595,7 +612,7 @@ FWER，要么控制联合置信区间的 <span class="math inline">\(\sum_{i=1}^
 <span class="math inline">\(\alpha100\)</span> 分位数，并用 <span class="math inline">\(T_\alpha\)</span> 表示该百分位数。</li>
 <li>对于实际数据集，计算
 <span class="math inline">\(t_q,q=1,2,\dots,p\)</span>，如果<span class="math inline">\(|tq| &gt;T,q=1,2,\dots,p\)</span>$则拒绝第 <span class="math inline">\(q\)</span>
-个假设，或者构建联合置信区间为
+个假设，或者构建同时置信区间为
 <span class="math display">\[\sum_{i=1}^tc_{iq}\hat{{\mu}}_i\pm T_\alpha\sqrt{{\hat\sigma}^2\sum_{i=1}^tc_{iq}^2/n_i},\quad q=1,2,\ldots,p\]</span></li>
 </ol>
 <p>可以使用 Edwards and Berry (1987) 的方法来指定模拟的准确性。SAS-MULTTEST
@@ -742,7 +759,7 @@ FWER。如果样本量不等，模拟程序可以考虑样本量结构，并可�
 和 Šidák 分位数的大小。Scheffé 分位数与表 <a href="chap3.html#tab:table3-4">3.4</a>
 中的相同，这对于无限数量的比较非常有用。观察到的差异超过临界差异的唯一比较是将任务4与对照(任务2)进行比较。将差异估计加减表
 <a href="chap3.html#tab:table3-8">3.8</a>
-中的临界差异，可以构建一组关于处理和对照均值之间所有差异的联合置信区间。例如，使用模拟方法，<span class="math inline">\(\mu_1-\mu_2\)</span>
+中的临界差异，可以构建一组关于处理和对照均值之间所有差异的同时置信区间。例如，使用模拟方法，<span class="math inline">\(\mu_1-\mu_2\)</span>
 的联合 <span class="math inline">\(95\%\)</span> 置信区间为 <span class="math inline">\(0.840 \pm 5.765\)</span>. 表 <a href="chap3.html#tab:table3-9">3.9</a>
 中列出了每种方法的调整的 <span class="math inline">\(p\)</span> 值。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
@@ -842,7 +859,7 @@ x
 <p>其中 <span class="math inline">\(t_{\alpha/2,p,v}\)</span> 是自由度为 <span class="math inline">\(v\)</span> 且相关矩阵为 <span class="math inline">\(\boldsymbol I_{p}\)</span>
 的 <span class="math inline">\(p\)</span> 元 <span class="math inline">\(t\)</span> 分布的上 <span class="math inline">\(\alpha/2\)</span> 分位数。选定 <span class="math inline">\(\alpha,p,v\)</span> 的
 <span class="math inline">\(t_{\alpha/2,p,v}\)</span> 的值在附表 A.3 中给出。基于多元 <span class="math inline">\(t\)</span>
-方法的联合置信区间是合适的，并且可以推荐表 A.3 中 <span class="math inline">\(m=p\)</span> 的情况。</p>
+方法的同时置信区间是合适的，并且可以推荐表 A.3 中 <span class="math inline">\(m=p\)</span> 的情况。</p>
 <p>多元 <span class="math inline">\(t\)</span> 方法的 FWER <span class="math inline">\(\le\alpha\)</span>。如果线性组合
 <span class="math inline">\(\sum_{i=1}^tc_{iq}\hat\mu_i\)</span> 在统计上独立或不相关，则 FWER 恰好
 <span class="math inline">\(=\alpha\)</span>。对于一组特定的线性独立比较，多元 <span class="math inline">\(t\)</span>
