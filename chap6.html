@@ -529,11 +529,11 @@ SS(\boldsymbol{\beta})=\sum_{i=1}^n[y_i-f(x_i;\boldsymbol{\beta})]^2
 <p>例如，完全随机设计中单向处理结构的均值模型的模型函数为</p>
 <p><span class="math display">\[f(x_{ij};\boldsymbol{\beta})=\mu_i,\quad i=1,2,\ldots,t;\quad j=1,2,\ldots,n_i\]</span></p>
 <p><span class="math inline">\(\mu_i\)</span> 的最小二乘估计记作 <span class="math inline">\(\hat \mu_1,\cdots,\hat \mu_t\)</span>，它们是这样的值，即能够最小化</p>
-<p><span class="math display">\[\begin{aligned}SS(\boldsymbol{\mu})=\sum_{i=1}^t\sum_{j=1}^{n_j}(y_{ij}-\mu_i)^2\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}SS({\mu})=\sum_{i=1}^t\sum_{j=1}^{n_j}(y_{ij}-\mu_i)^2\end{aligned}\]</span></p>
 <p>完全随机设计中双向处理结构的均值模型的模型函数为</p>
 <p><span class="math display">\[f(x_{ijk};\boldsymbol{\beta})=\mu_{ij}\quad i=1,2,\ldots,t;j=1,2,\ldots,b;k=1,2,\ldots,n_{ij}\]</span></p>
 <p><span class="math inline">\(\mu_{ij}\)</span> 的最小二乘估计记作 <span class="math inline">\(\hat \mu_{11},\cdots,\hat \mu_{tb}\)</span>，它们是这样的值，即能够最小化</p>
-<p><span class="math display">\[\begin{aligned}SS(\boldsymbol{\mu})=\sum_{i=1}^{t}\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\mu_{ij})^2\end{aligned}\]</span></p>
+<p><span class="math display">\[\begin{aligned}SS({\mu})=\sum_{i=1}^{t}\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\mu_{ij})^2\end{aligned}\]</span></p>
 <p>完全随机设计中双向处理结构的效应模型的模型函数为</p>
 <p><span class="math display">\[f(x_{ijk};\boldsymbol{\beta})=\mu+\tau_i+{\beta}_j+\gamma_{ij},\quad i=1,2,\ldots,t;j=1,2,\ldots,b;k=1,2,\ldots,n_{ij}\]</span></p>
 <p><span class="math inline">\(\mu,\tau_i,\beta_j,\gamma_{ij}\)</span> 的最小二乘估计是通过最小化下式来获得的</p>
@@ -710,13 +710,11 @@ x
 <p>且 <span class="math inline">\(\tau_ 4 ^+ = 0\)</span>. 就均值模型参数而言，置零限制参数可表示为</p>
 <p><span class="math display">\[\mu^+=\mu_4,\quad\tau_1^+=\mu_1-\mu_4,\quad\tau_2^+=\mu_2-\mu_4,\quad\tau_3^+=\mu_3-\mu_4,\quad\tau_4^+=\mu_4-\mu_4=0\]</span></p>
 <p>需要估计的最后一个参数是总体方差 <span class="math inline">\(\sigma^2\)</span>. 基于 <span class="math inline">\(\boldsymbol \beta\)</span> 最小二乘解的 <span class="math inline">\(\sigma^2\)</span> 的估计为</p>
-<p><span class="math display" id="eq:6-10">\[\begin{equation}
-\begin{align}
+<p><span class="math display" id="eq:6-11">\[\begin{align}
 \hat{\sigma}^2&amp; =\frac{1}{n-r}(\boldsymbol y-X\hat{\boldsymbol \beta})&#39;(\boldsymbol y-\boldsymbol X\hat{\boldsymbol \beta})  \\
 &amp;=\frac1{n-r}\sum_{i=1}^n{(y_i-\hat{\beta}_0-\hat{\beta}_1x_{i1}-\hat{\beta}_2x_{i2}-\cdots-\hat{\beta}_{p-1}x_{ip-1})^2}
-\end{align}
-\tag{6.10}
-\end{equation}\]</span></p>
+\tag{6.11}
+\end{align}\]</span></p>
 <p>其中 <span class="math inline">\(r=\operatorname{rank}(\boldsymbol X)\)</span>.</p>
 <p>如果假设误差独立分布，且前四阶矩等于正态分布的前四阶矩，那么 <span class="math inline">\(\hat \sigma^2\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的最佳二次无偏估计 (best quadratic unbiased estimate). 如果误差也服从正态分布，那么 <span class="math inline">\(\hat \sigma^2\)</span> 是 <span class="math inline">\(\sigma^2\)</span> 的最佳无偏估计 (best unbiased estimate)，且 <span class="math inline">\((n - r)\hat \sigma^2 /\sigma^2\)</span> 的抽样分布是自由度为 <span class="math inline">\(n - r\)</span> 的中心卡方分布。</p>
 </div>
@@ -728,8 +726,8 @@ x
 <h3><span class="header-section-number">6.3.1</span> 可估函数<a href="chap6.html#sec6-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>由于两位研究人员都在分析相同的数据集，因此他们似乎应该只考虑对两个重新参数化模型具有相同估计的参数或参数的函数。这种参数函数称为<strong>参数的可估函数</strong> (estimable functions of the parameters).</p>
 <div class="definition">
-<p><span id="def:6-1" class="definition"><strong>定义 6.1  </strong></span>♦
-参数或参数的函数 <span class="math inline">\(f(\boldsymbol \beta)\)</span> 是可估的，当且仅当参数或参数的函数的估计值对于最小二乘解的选择是不变的；也就是说，无论使用正规方程组的哪个解，估计值都是相同的。</p>
+<p><span id="def:6-1" class="definition"><strong>定义 6.1  </strong></span>♦</p>
+<p>参数或参数的函数 <span class="math inline">\(f(\boldsymbol \beta)\)</span> 是可估的，当且仅当参数或参数的函数的估计值对于最小二乘解的选择是不变的；也就是说，无论使用正规方程组的哪个解，估计值都是相同的。</p>
 </div>
 <p>如果两位研究人员对参数的可估函数进行了估计，即使他们采用了两种不同的最小二乘解，他们也会得到相同的估计值。因此，他们对于参数的可估函数会得出相同的结论。对于矩阵模型，<span class="math inline">\(\boldsymbol \beta\)</span> 的线性可估函数表现为参数向量的线性组合，如 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span>，其中 <span class="math inline">\(\boldsymbol a^\prime\)</span> 是一个 p × 1 的常数向量。线性函数 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span> 是可估的，当且仅当存在向量 <span class="math inline">\(r\)</span>，使得 <span class="math inline">\(\boldsymbol a =\boldsymbol X ^\prime \boldsymbol X r\)</span>. 每个形如 <span class="math inline">\(\boldsymbol x^\prime_i \boldsymbol \beta\)</span> 的函数都是可估的，其中 <span class="math inline">\(\boldsymbol x^\prime_i\)</span> 是 <span class="math inline">\(\boldsymbol X\)</span> 的第 <span class="math inline">\(i\)</span> 行。此外，<span class="math inline">\(\boldsymbol x^\prime_i \boldsymbol \beta\)</span> 的任何线性组合都是可估的函数。考虑 <a href="chap6.html#sec6-2">6.2</a> 节中单向示例的两个解。由于每个参数 <span class="math inline">\(\mu,\tau_1,\tau_2,\tau_3,\tau_4\)</span> 都有两个不同的解，因此这些参数被认为是<strong>不可估的</strong> (nonestimable). 但是，通过计算每种方法关于 <span class="math inline">\(\mu + \tau_i\)</span> 的估计值，可以发现</p>
 <p><span class="math display">\[\hat{\mu}^*+\hat{\tau}_i^*=\hat{\mu}^++\hat{\tau}_i^+,\quad i=1,2,3,4\]</span></p>
@@ -744,11 +742,17 @@ x
 <p>与可估函数相关的另一个概念是双向处理结构的<strong>连通性</strong> (connectedness). 如果可以假设行处理和列处理的水平之间没有交互作用，那么可以将处理组合平均值建模为</p>
 <p><span class="math display" id="eq:6-12">\[\begin{equation}
 \mu_{ij}=\mu+\tau_i+\beta_j,\quad i=1,2,\ldots,b,j=1,2,\ldots,t
-\tag{6.11}
+\tag{6.12}
 \end{equation}\]</span></p>
-<p>如果双向处理结构中的数据以这样的方式出现在双向单元格中，即对于模型 <a href="chap6.html#eq:6-12">(6.11)</a> 中的所有 <span class="math inline">\(j\ne j^\prime\)</span> 以及 <span class="math inline">\(i\ne i^\prime\)</span>，<span class="math inline">\(\beta_j-\beta_{j^\prime}\)</span> 和 <span class="math inline">\(\tau_i-\tau_{i^\prime}\)</span> 都是可估的，则该双向处理结构被称为<strong>连通的</strong> (connected)。图 <a href="#fig:figure6-1"><strong>??</strong></a> 中的安排 I 是一个连通的实验，而安排 II 不是。例如，使用安排 I，</p>
+<p>如果双向处理结构中的数据以这样的方式出现在双向单元格中，即对于模型 <a href="chap6.html#eq:6-12">(6.12)</a> 中的所有 <span class="math inline">\(j\ne j^\prime\)</span> 以及 <span class="math inline">\(i\ne i^\prime\)</span>，<span class="math inline">\(\beta_j-\beta_{j^\prime}\)</span> 和 <span class="math inline">\(\tau_i-\tau_{i^\prime}\)</span> 都是可估的，则该双向处理结构被称为<strong>连通的</strong> (connected)。图 <a href="chap6.html#fig:figure6-1">6.1</a> 中的安排 I 是一个连通的实验，而安排 II 不是。例如，使用安排 I，</p>
 <p><span class="math display">\[\beta_1-\beta_2=(\mu+\tau_1+\beta_1)-(\mu+\tau_1+\beta_5)+(\mu+\tau_2+\beta_5)-(\mu+\tau_2+\beta_2)\]</span></p>
 <p>我们可以得到单元格均值的线性组合，因此 <span class="math inline">\(\beta_1-\beta_2\)</span> 是可估的。对于安排 II，没有这样的单元格均值的线性组合可以得到 <span class="math inline">\(\beta_1-\beta_2\)</span>，因此 <span class="math inline">\(\beta_1-\beta_2\)</span> 是不可估的。下一节将讨论关于参数的可估函数的假设检验。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure6-1"></span>
+<img src="figure/figure%206.1.png" alt="连通和非连通的双向处理结构" width="972" />
+<p class="caption">
+图 6.1: 连通和非连通的双向处理结构
+</p>
+</div>
 </div>
 </div>
 <div id="sec6-4" class="section level2 hasAnchor" number="6.4">
@@ -756,16 +760,22 @@ x
 <p>对于线性模型中参数线性函数的假设检验，有多种方法可以开发适当的统计量。这里使用的方法用矩阵表示法，相当于条件误差原理（第 <a href="chap1.html#chap1">1</a> 章）和似然比统计量。讨论仅限于检验关于参数的可估函数的假设。特别是，考虑检验假设</p>
 <p><span class="math display" id="eq:6-13">\[\begin{equation}
 H_0{:\boldsymbol{H\beta}}=\boldsymbol{h}\mathrm{~vs~}H_a{:\boldsymbol{H\beta}}\neq\boldsymbol{h}
-\tag{6.12}
+\tag{6.13}
 \end{equation}\]</span></p>
 <p>其中线性组合 <span class="math inline">\(\boldsymbol{H\beta}\)</span> 是 <span class="math inline">\(\boldsymbol \beta\)</span> 的可估函数，<span class="math inline">\(\boldsymbol H\)</span> 是秩为 <span class="math inline">\(q\)</span> 的 q × p矩阵（即，<span class="math inline">\(\boldsymbol H\)</span> 的所有行是线性无关的）。相应的检验统计量为</p>
-<p><span class="math display">\[F_c=\frac{SSH_0/q}{\hat{\sigma}^2}\]</span></p>
-<p>其中 <span class="math inline">\(\hat \sigma^2\)</span> 由式 <a href="#eq:6-11">(<strong>??</strong>)</a> 给出，并且</p>
-<p><span class="math display">\[SSH_0=(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)^{\prime}\left[\boldsymbol H(\boldsymbol X^{\prime}\boldsymbol X)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)\]</span></p>
+<p><span class="math display" id="eq:6-14">\[\begin{equation}
+F_c=\frac{SSH_0/q}{\hat{\sigma}^2}
+\tag{6.14}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(\hat \sigma^2\)</span> 由式 <a href="chap6.html#eq:6-11">(6.11)</a> 给出，并且</p>
+<p><span class="math display" id="eq:6-15">\[\begin{equation}
+SSH_0=(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)^{\prime}\left[\boldsymbol H(\boldsymbol X^{\prime}\boldsymbol X)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)
+\tag{6.15}
+\end{equation}\]</span></p>
 <p>这被称为<strong>因偏离零假设而产生的平方和</strong> (sum of squares due to deviations from the null hypothesis)（记号 “<span class="math inline">\((\boldsymbol X^{\prime}\boldsymbol X)^{-}\)</span>” 表示矩阵 <span class="math inline">\(\boldsymbol X^{\prime}\boldsymbol X\)</span> 的广义逆，Graybill, 1976）。在误差向量元素为 <span class="math inline">\(i.i.d.\,N(0,\sigma^2)\)</span> 的假设下，<span class="math inline">\(F_c\)</span> 服从自由度为 <span class="math inline">\(q,n-r\)</span> 的 <span class="math inline">\(F\)</span> 分布。</p>
-<p>式 <a href="chap6.html#eq:6-13">(6.12)</a> 中的假设总是可以用重新参数模型 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X}^*\boldsymbol{\beta}^*+\boldsymbol \varepsilon\)</span> 来等价地表述为下式，其中 <span class="math inline">\(\boldsymbol X^{*\prime}\boldsymbol X^*\)</span> 是非奇异的</p>
+<p>式 <a href="chap6.html#eq:6-13">(6.13)</a> 中的假设总是可以用重新参数模型 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X}^*\boldsymbol{\beta}^*+\boldsymbol \varepsilon\)</span> 来等价地表述为下式，其中 <span class="math inline">\(\boldsymbol X^{*\prime}\boldsymbol X^*\)</span> 是非奇异的</p>
 <p><span class="math display">\[H_0{:}H^*\boldsymbol{\beta}^*=\boldsymbol{h}^*\mathrm{~vs~}H_a{:}H^*\boldsymbol{\beta}^*\neq\boldsymbol{h}^*\]</span></p>
-<p>则式 <a href="#eq:6-16">(<strong>??</strong>)</a> 的 <span class="math inline">\(SSH_0\)</span> 可计算为</p>
+<p>则式 <a href="chap6.html#eq:6-15">(6.15)</a> 的 <span class="math inline">\(SSH_0\)</span> 可计算为</p>
 <p><span class="math display">\[SSH_0=(\boldsymbol H^*\hat{\boldsymbol{\beta}}^*-\boldsymbol{h}^*)^{\prime}[\boldsymbol H^*(\boldsymbol X^{*\prime}\boldsymbol X^*)^{-1}(\boldsymbol{H}^*{}^{\prime}\hat{\boldsymbol{\beta}}^*-\boldsymbol{h}^*)]\]</span></p>
 <p>对于单向模型，在原始效应模型中检验假设</p>
 <p><span class="math display">\[\begin{aligned}H_0\colon\tau_1=\tau_2=\cdots=\tau_t\text{ vs }H_a\colon\tau_i\neq\tau_{i&#39;}\quad\text{for some }i\neq i&#39;\end{aligned}\]</span></p>
@@ -778,14 +788,14 @@ H_0{:\boldsymbol{H\beta}}=\boldsymbol{h}\mathrm{~vs~}H_a{:\boldsymbol{H\beta}}\n
 <p>其中 <span class="math inline">\(\boldsymbol{Z}=\boldsymbol{H}^*(\boldsymbol{X}^*\boldsymbol{&#39;}\boldsymbol{X}^*)^{-1}\boldsymbol{H}^*\boldsymbol{&#39;}\)</span>. 这是矩阵 <span class="math inline">\((\boldsymbol{X}^*\boldsymbol{&#39;}\boldsymbol{X}^*)^{-1}\)</span> 中与 <span class="math inline">\(\tau_1,\tau_2,\tau_3)\)</span> 相关的行和列的部分。</p>
 <p>可估函数 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span> 的一个 <span class="math inline">\((1-\alpha)100\%\)</span> 置信区间为</p>
 <p><span class="math display">\[\boldsymbol a^{\prime}\hat{\boldsymbol \beta}-[t_{\alpha/2,n-p}]S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}\leq a^{\prime}\boldsymbol{\beta}\leq a^{\prime}\hat{\beta}+[t_{\alpha/2,n-p}]S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}\]</span></p>
-<p>其中 <span class="math inline">\(S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}^2=\hat{\sigma}^2\boldsymbol{a}^{\prime}(\boldsymbol X^{\prime}\boldsymbol X})^{-1}\boldsymbol{a}\)</span>. 通过使用第 <a href="chap3.html#chap3">3</a> 章中讨论的多重比较程序，可以构造关于几个可估函数的同时置信区间 (simultaneous confidence intervals).</p>
+<p>其中 <span class="math inline">\(S_{\boldsymbol a&#39;\boldsymbol{\beta}}^2=\hat{\sigma}^2\boldsymbol{a&#39;}(\boldsymbol{X&#39;}\boldsymbol{X})^{-1}\boldsymbol{a}\)</span>. 通过使用第 <a href="chap3.html#chap3">3</a> 章中讨论的多重比较程序，可以构造关于几个可估函数的同时置信区间 (simultaneous confidence intervals).</p>
 </div>
 <div id="sec6-5" class="section level2 hasAnchor" number="6.5">
 <h2><span class="header-section-number">6.5</span> 总体边际均值<a href="chap6.html#sec6-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>在通过方差分析对交叉分类数据集进行分析后，实验者通常对估计特定效应或单元格均值感兴趣。<strong>总体边际均值</strong> (population marginal means) 被定义为在特定类别上平均化的参数线性组合，就好像每个单元格中都有一个观测值一样 (Searle et al., 1980). 如果每个单元格中至少有一个观测值，那么所有的总体边际均值都是可估的，而如果某些单元格为空，则它们不一定可估。这个定义不依赖于单元格中的样本量。如果数据代表单元格的比例抽样，那么实验者可能希望考虑单元格均值的加权平均值，其中权重由样本量给出（参见第 <a href="#chap10"><strong>??</strong></a> 章）。或者，可能需要使用其他加权方案来对各个单元格进行平均。本节末尾提供了一个示例，以演示不同的可能性。</p>
 <p>对于完全随机设计的单向处理结构，第 <span class="math inline">\(i\)</span> 个处理的总体边际平均值为 <span class="math inline">\(\mu+\tau_i=\mu_i\)</span>，并由下式估计</p>
 <p><span class="math display">\[\widehat{\mu+\tau_i}=\hat{\mu}+\hat{\tau_i}\]</span></p>
-<p>其中 <span class="math inline">\(\hat \mu,\hat \tau\)</span> 是从正规方程组的任何解得到的。这些估计值被称为<strong>总体边际均值估计</strong> (estimated population marginal means).</p>
+<p>其中 <span class="math inline">\(\hat \mu,\hat \tau_i\)</span> 是从正规方程组的任何解得到的。这些估计值被称为<strong>总体边际均值估计</strong> (estimated population marginal means).</p>
 <p>对于完全随机设计中的双向处理结构，第 <span class="math inline">\((i,j)\)</span> 个单元格的总体边际平均值为 <span class="math inline">\(\begin{aligned}\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij}\end{aligned}\)</span>. 第 <span class="math inline">\(i\)</span> 行的总体边际均值是该行中 <span class="math inline">\(\mu_{ij}\)</span> 的平均值，或者</p>
 <p><span class="math display">\[\bar{\mu}_{i\cdot}=\sum_{j=1}^b\frac{\mu_{ij}}b=\mu+\tau_i+\bar{\beta}_{\cdot}+\bar{\gamma}_{i\cdot}\]</span></p>
 <p>第 <span class="math inline">\(j\)</span> 列的总体边际均值是该列中 <span class="math inline">\(\mu_{ij}\)</span> 的平均值，或者</p>

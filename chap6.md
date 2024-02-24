@@ -232,7 +232,7 @@ $$f(x_{ij};\boldsymbol{\beta})=\mu_i,\quad i=1,2,\ldots,t;\quad j=1,2,\ldots,n_i
 
 $\mu_i$ 的最小二乘估计记作 $\hat \mu_1,\cdots,\hat \mu_t$，它们是这样的值，即能够最小化
 
-$$\begin{aligned}SS(\boldsymbol{\mu})=\sum_{i=1}^t\sum_{j=1}^{n_j}(y_{ij}-\mu_i)^2\end{aligned}$$
+$$\begin{aligned}SS({\mu})=\sum_{i=1}^t\sum_{j=1}^{n_j}(y_{ij}-\mu_i)^2\end{aligned}$$
 
 完全随机设计中双向处理结构的均值模型的模型函数为
 
@@ -240,7 +240,7 @@ $$f(x_{ijk};\boldsymbol{\beta})=\mu_{ij}\quad i=1,2,\ldots,t;j=1,2,\ldots,b;k=1,
 
 $\mu_{ij}$ 的最小二乘估计记作 $\hat \mu_{11},\cdots,\hat \mu_{tb}$，它们是这样的值，即能够最小化
 
-$$\begin{aligned}SS(\boldsymbol{\mu})=\sum_{i=1}^{t}\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\mu_{ij})^2\end{aligned}$$
+$$\begin{aligned}SS({\mu})=\sum_{i=1}^{t}\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\mu_{ij})^2\end{aligned}$$
 
 完全随机设计中双向处理结构的效应模型的模型函数为
 
@@ -486,13 +486,11 @@ $$\mu^+=\mu_4,\quad\tau_1^+=\mu_1-\mu_4,\quad\tau_2^+=\mu_2-\mu_4,\quad\tau_3^+=
 
 需要估计的最后一个参数是总体方差 $\sigma^2$. 基于 $\boldsymbol \beta$ 最小二乘解的 $\sigma^2$ 的估计为
 
-\begin{equation}
 \begin{align}
 \hat{\sigma}^2& =\frac{1}{n-r}(\boldsymbol y-X\hat{\boldsymbol \beta})'(\boldsymbol y-\boldsymbol X\hat{\boldsymbol \beta})  \\
 &=\frac1{n-r}\sum_{i=1}^n{(y_i-\hat{\beta}_0-\hat{\beta}_1x_{i1}-\hat{\beta}_2x_{i2}-\cdots-\hat{\beta}_{p-1}x_{ip-1})^2}
+(#eq:6-11)
 \end{align}
-(#eq:6-10)
-\end{equation}
 
 其中 $r=\operatorname{rank}(\boldsymbol X)$.
 
@@ -508,6 +506,7 @@ $$\mu^+=\mu_4,\quad\tau_1^+=\mu_1-\mu_4,\quad\tau_2^+=\mu_2-\mu_4,\quad\tau_3^+=
 
 ::: {.definition #6-1}
 ♦
+
 参数或参数的函数 $f(\boldsymbol \beta)$ 是可估的，当且仅当参数或参数的函数的估计值对于最小二乘解的选择是不变的；也就是说，无论使用正规方程组的哪个解，估计值都是相同的。
 :::
 
@@ -540,6 +539,11 @@ $$\beta_1-\beta_2=(\mu+\tau_1+\beta_1)-(\mu+\tau_1+\beta_5)+(\mu+\tau_2+\beta_5)
 
 我们可以得到单元格均值的线性组合，因此 $\beta_1-\beta_2$ 是可估的。对于安排 II，没有这样的单元格均值的线性组合可以得到 $\beta_1-\beta_2$，因此 $\beta_1-\beta_2$ 是不可估的。下一节将讨论关于参数的可估函数的假设检验。
 
+<div class="figure" style="text-align: center">
+<img src="figure/figure 6.1.png" alt="连通和非连通的双向处理结构" width="972" />
+<p class="caption">(\#fig:figure6-1)连通和非连通的双向处理结构</p>
+</div>
+
 ## 关于线性模型参数的检验假设 {#sec6-4}
 
 对于线性模型中参数线性函数的假设检验，有多种方法可以开发适当的统计量。这里使用的方法用矩阵表示法，相当于条件误差原理（第 \@ref(chap1) 章）和似然比统计量。讨论仅限于检验关于参数的可估函数的假设。特别是，考虑检验假设
@@ -551,11 +555,17 @@ H_0{:\boldsymbol{H\beta}}=\boldsymbol{h}\mathrm{~vs~}H_a{:\boldsymbol{H\beta}}\n
 
 其中线性组合 $\boldsymbol{H\beta}$ 是 $\boldsymbol \beta$ 的可估函数，$\boldsymbol H$ 是秩为 $q$ 的 q × p矩阵（即，$\boldsymbol H$ 的所有行是线性无关的）。相应的检验统计量为
 
-$$F_c=\frac{SSH_0/q}{\hat{\sigma}^2}$$
+\begin{equation}
+F_c=\frac{SSH_0/q}{\hat{\sigma}^2}
+(#eq:6-14)
+\end{equation}
 
 其中 $\hat \sigma^2$ 由式 \@ref(eq:6-11) 给出，并且
 
-$$SSH_0=(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)^{\prime}\left[\boldsymbol H(\boldsymbol X^{\prime}\boldsymbol X)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)$$
+\begin{equation}
+SSH_0=(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)^{\prime}\left[\boldsymbol H(\boldsymbol X^{\prime}\boldsymbol X)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)
+(#eq:6-15)
+\end{equation}
 
 这被称为**因偏离零假设而产生的平方和** (sum of squares due to deviations from the null hypothesis)（记号 "$(\boldsymbol X^{\prime}\boldsymbol X)^{-}$" 表示矩阵 $\boldsymbol X^{\prime}\boldsymbol X$ 的广义逆，Graybill, 1976）。在误差向量元素为 $i.i.d.\,N(0,\sigma^2)$ 的假设下，$F_c$ 服从自由度为 $q,n-r$ 的 $F$ 分布。
 
@@ -563,7 +573,7 @@ $$SSH_0=(\boldsymbol H\hat{\boldsymbol{\beta}}-\boldsymbol h)^{\prime}\left[\bol
 
 $$H_0{:}H^*\boldsymbol{\beta}^*=\boldsymbol{h}^*\mathrm{~vs~}H_a{:}H^*\boldsymbol{\beta}^*\neq\boldsymbol{h}^*$$
 
-则式 \@ref(eq:6-16) 的 $SSH_0$ 可计算为
+则式 \@ref(eq:6-15) 的 $SSH_0$ 可计算为
 
 $$SSH_0=(\boldsymbol H^*\hat{\boldsymbol{\beta}}^*-\boldsymbol{h}^*)^{\prime}[\boldsymbol H^*(\boldsymbol X^{*\prime}\boldsymbol X^*)^{-1}(\boldsymbol{H}^*{}^{\prime}\hat{\boldsymbol{\beta}}^*-\boldsymbol{h}^*)]$$
 
@@ -589,7 +599,7 @@ $$SSH_0=(\hat{\tau}_1^*\quad\hat{\tau}_1^*\quad\hat{\tau}_1^*)\,\boldsymbol{Z}^{
 
 $$\boldsymbol a^{\prime}\hat{\boldsymbol \beta}-[t_{\alpha/2,n-p}]S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}\leq a^{\prime}\boldsymbol{\beta}\leq a^{\prime}\hat{\beta}+[t_{\alpha/2,n-p}]S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}$$
 
-其中 $S_{\boldsymbol a^{\prime}\hat{\boldsymbol \beta}}^2=\hat{\sigma}^2\boldsymbol{a}^{\prime}(\boldsymbol X^{\prime}\boldsymbol X})^{-1}\boldsymbol{a}$. 通过使用第 \@ref(chap3) 章中讨论的多重比较程序，可以构造关于几个可估函数的同时置信区间 (simultaneous confidence intervals).
+其中 $S_{\boldsymbol a'\boldsymbol{\beta}}^2=\hat{\sigma}^2\boldsymbol{a'}(\boldsymbol{X'}\boldsymbol{X})^{-1}\boldsymbol{a}$. 通过使用第 \@ref(chap3) 章中讨论的多重比较程序，可以构造关于几个可估函数的同时置信区间 (simultaneous confidence intervals).
 
 ## 总体边际均值 {#sec6-5}
 
@@ -599,7 +609,7 @@ $$\boldsymbol a^{\prime}\hat{\boldsymbol \beta}-[t_{\alpha/2,n-p}]S_{\boldsymbol
 
 $$\widehat{\mu+\tau_i}=\hat{\mu}+\hat{\tau_i}$$
 
-其中 $\hat \mu,\hat \tau$ 是从正规方程组的任何解得到的。这些估计值被称为**总体边际均值估计** (estimated population marginal means).
+其中 $\hat \mu,\hat \tau_i$ 是从正规方程组的任何解得到的。这些估计值被称为**总体边际均值估计** (estimated population marginal means).
 
 对于完全随机设计中的双向处理结构，第 $(i,j)$ 个单元格的总体边际平均值为 $\begin{aligned}\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij}\end{aligned}$. 第 $i$ 行的总体边际均值是该行中 $\mu_{ij}$ 的平均值，或者
 
