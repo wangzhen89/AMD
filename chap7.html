@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>混乱数据分析：设计的实验</title>
+  <title>第 7 章 均衡双向处理结构 | 混乱数据分析：设计的实验</title>
   <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="混乱数据分析：设计的实验" />
+  <meta property="og:title" content="第 7 章 均衡双向处理结构 | 混乱数据分析：设计的实验" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="github-repo" content="wangzhen89/AMD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="混乱数据分析：设计的实验" />
+  <meta name="twitter:title" content="第 7 章 均衡双向处理结构 | 混乱数据分析：设计的实验" />
   
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="chap1.html"/>
+<link rel="prev" href="chap6.html"/>
+<link rel="next" href="chap29.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -348,42 +348,87 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">混乱数据分析：设计的实验</h1>
-<p class="author"><em>Wang Zhen</em></p>
-<p class="date"><em>2024-02-24</em></p>
+<div id="chap7" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">第 7 章</span> 均衡双向处理结构<a href="chap7.html#chap7" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>第 <a href="chap4.html#chap4">4</a> 章和第 <a href="chap5.html#chap5">5</a> 章讨论了如何分析实验的设计结构。本章将讨论分析实验的处理结构的方法。特别是，本章将重点分析双向交叉分类的处理结构。假设存在两组处理 <span class="math inline">\(T_1,T_2,\cdots,T_t\)</span> 和 <span class="math inline">\(B_1,B_2,\cdots,B_b\)</span>. 每个 <span class="math inline">\(T\)</span> 处理要与每个 <span class="math inline">\(B\)</span> 处理结合，并分配给一个实验单位。为方便起见，假设实验单位完全随机地分配给处理组合。或者，假设从大量实验单位中随机抽取了一个样本，并且可以根据 <span class="math inline">\(T_1,T_2,\cdots,T_t\)</span> 和 <span class="math inline">\(B_1,B_2,\cdots,B_b\)</span> 的值将样本中的实验单位分配给不同的类别。在这两种情况下，在交叉分类的处理结构中，对总共 <span class="math inline">\(bt\)</span> 个总体进行了抽样。</p>
+<p>分析实验的处理结构和设计结构通常是独立进行的，除非是区组设计和重复测量设计，以及本书后面章节中考虑的这些设计的变体。因此，无论实验单位是分组为完全区组、均衡的不完全区组、拉丁方还是其他分组方式，处理结构的分析对于大多数标准设计来说都是相似的，几乎没有区别。由于对 <span class="math inline">\(bt\)</span> 个总体进行了抽样，因此在检验等处理均值的假设时，平方和的自由度为 <span class="math inline">\(bt-1\)</span>，即假设 <span class="math inline">\(\mu_{11}=\mu_{12}=\cdots=\mu_{tb}\)</span>. 本章考虑了处理平方和的不同划分，以检验实验者通常感兴趣的不同类型的假设。</p>
+<div id="sec7-1" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> 模型定义和假设<a href="chap7.html#sec7-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="sec7-1-1" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> 均值模型<a href="chap7.html#sec7-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>均值模型</strong> (means model) 定义为</p>
+<p><span class="math display" id="eq:7-1">\[\begin{equation}
+Y_{ijk}=\mu_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b,\quad k=1,2,\ldots,n
+\tag{7.1}
+\end{equation}\]</span></p>
+<p>其中假设 <span class="math inline">\(\varepsilon_{ijk}\sim i.i.d.N(0,\sigma^2),i=1,2,\ldots,t,j=1,2,\ldots,b,k=1,2,\ldots,n\)</span>，且当处理组合 <span class="math inline">\((T_i,B_j)\)</span> 被分配到随机选择的实验单元时，<span class="math inline">\(\mu_{ij}\)</span> 是预期的响应。</p>
 </div>
-<div id="介绍" class="section level2 unnumbered hasAnchor">
-<h2>介绍<a href="index.html#介绍" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><a href="https://github.com/wangzhen89/AMD">混乱数据分析：设计的实验</a> 为 <em><a href="https://doi.org/10.1201/EBK1584883340">Analysis of Messy Data Volume 1: Designed Experiments, 2nd edn</a></em> 的翻译。</p>
-<p>本书/翻译基于 <a href="https://bookdown.org/xiangyun/elegantbookdown/">Elegant Bookdown Template</a>，进度还处于早期。尚未包括每章的练习。</p>
-<blockquote>
-<p>本书探讨了多重比较程序、随机效应模型、混合模型、裂区实验和重复测量设计的各种技术。作者使用几个统计软件包简化了这些技术，并强调了设计结构和处理结构之间的区别。他们用例子介绍每一个主题，接着进行理论讨论，最后进行案例研究。本书向您展示如何有效地分析现实世界中的非标准数据集。</p>
-</blockquote>
-<p>本书需要读者对统计学基本概念有一定的了解，并且最好有线性模型和实验设计的基础知识。在本书阅读过程中常常需要交替往返地进行查阅（或向前或向后）以获得完整的学习过程，出于此特殊结构，本书不适合作为入门级教科书，而是适合作为学习完线性模型和实验设计后的一本进阶学习资料或案头参考书。</p>
-<p>本书涉及丰富且有趣的例子，如探究饮食对减肥的影响、房屋油漆承受环境条件的能力、油漆保护钢板耐高温的能力、氮和钾的组合如何影响玉米产量、豆子煮熟后的风味、磨小麦时辊缝对小麦粉的影响、温度如何影响面包烘焙后的体积、展示柜中的肉的颜色如何受温度、包装、光照类型及强度的影响……统计分析当然重要，但良好的设计是良好的分析的前提，本书在这些实例的设计和分析方面给予了连贯的解释，展示了丰富的图表，罗列了大量公式，详尽地阐明了分析步骤并给出了相应的软件代码。</p>
-<p>站在巨人的肩膀上，才有了本书。希望你喜欢。</p>
-<p>若有帮助，欢迎转发。能力不足，水平有限，望不吝批评：<a href="mailto:1210683652@qq.com" class="email">1210683652@qq.com</a></p>
-<p><strong>由于公式较多，每章可能需要加载数秒</strong>。</p>
+<div id="sec7-1-2" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> 效应模型<a href="chap7.html#sec7-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>具有双向处理结构的实验中另一个常见模型称为<strong>效应模型</strong> (effects model)，其由式 <a href="chap7.html#eq:7-1">(7.1)</a> 定义，且 <span class="math inline">\(\mu_{ij}\)</span> 替换为</p>
+<p><span class="math display" id="eq:7-2">\[\begin{equation}
+\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij},\quad i=1,2,\ldots,t,j=1,2,\ldots,b
+\tag{7.2}
+\end{equation}\]</span></p>
+<p>从哲学角度看，效应模型在直觉上很有吸引力，因为它可能是基于这样的假设：<span class="math inline">\(\mu\)</span> 代表某种总体平均效应，<span class="math inline">\(\tau_i\)</span> 代表将 <span class="math inline">\(T_i\)</span> 分配给实验单位后对均值的效应，<span class="math inline">\(\beta_j\)</span> 代表将 <span class="math inline">\(B_j\)</span> 分配给实验单位后的效应，而 <span class="math inline">\(\gamma_{ij}\)</span> 代表同时使用 <span class="math inline">\(T_i\)</span> 和 <span class="math inline">\(B_j\)</span> 时可能对实验单位产生的任何额外的正面或负面效应。然而，如第 <a href="chap6.html#chap6">6</a> 章所指出的，效应模型存在一些可估性问题。下面将讨论这两种模型。</p>
 </div>
-<div id="本书框架" class="section level2 unlisted unnumbered hasAnchor">
-<h2>本书框架<a href="index.html#本书框架" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>作为开篇，第 <a href="chap1.html#chap1">1</a> 章讨论了最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构。在这类实验中，研究人员希望考察某（一）种因素对响应变量的影响，并假定响应变量在该因素的不同水平中的方差相等。</p>
-<p>第 <a href="chap2.html#chap2">2</a> 章接续第 <a href="chap1.html#chap1">1</a> 章的基本结构，但将同质误差改为异质误差，即该因素可能会改变响应变量的方差。本章着重讨论了有关方差齐性检验的一系列技术。</p>
-<p>第 <a href="chap3.html#chap3">3</a> 章重点关注实验中常常出现的一个问题：如何控制多重比较中的各种错误率？本章回顾了多重比较的一系列技术并给出了建议。</p>
-<p>第 <a href="chap4.html#chap4">4</a> 章对实验设计基本概念进行了详尽的描述。并强调了重复和复制的区别，提醒研究者勿将子样本或重复测量误认为重复。此外本章还讨论了其他实验设计教科书较少着墨甚至忽略的内容：将设计实验的结构划分为处理结构和设计结构，并列举了这两种结构常用的类型。最后结合两种结构的划分讨论了一些示例。</p>
-<p>第 <a href="chap5.html#chap5">5</a> 章讨论了多水平设计结构这一重要概念，包括裂区设计、裂条设计、重复测量设计及这些设计的组合。本章重点介绍了当实验包含不止一种尺寸的实验单元时，如何识别每种尺寸的实验单元，这对于计算所需误差平方和的过程至关重要。通过大量的例子来阐述不同设计结构的这些过程。</p>
-<p>第 <a href="chap6.html#chap6">6</a> 章仅供对理论背景感兴趣的人阅读，介绍了最小二乘估计程序，并讨论了可估性的重要概念。还讨论了总体边际均值的定义和估计。</p>
-<p>第 <a href="chap29.html#chap29">8</a> 章讨论了交叉设计的分析。</p>
+</div>
+<div id="sec7-2" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> 参数估计<a href="chap7.html#sec7-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在大多数情况下，<span class="math inline">\(\sigma^2\)</span> 的估计仅来自对实验设计结构的分析。然而，在某些情况下，实验者可能能够对 <span class="math inline">\(\mu_{ij}\)</span> 或处理效果做出某些假设，这些假设可能会提供一些关于 <span class="math inline">\(\sigma^2\)</span> 的额外信息。例如，如果实验者知道 <span class="math inline">\(\mu_{11}=\mu_{12}\)</span>，那么可以将来自均值为 <span class="math inline">\(\mu_{11}\)</span> 和 <span class="math inline">\(\mu_{12}\)</span> 的总体的样本组合起来，以提供用于估计 <span class="math inline">\(\sigma^2\)</span> 的额外自由度。在这种情况下，相应的单自由度平方和由 <span class="math inline">\(n(\bar{y}_{11\cdot}-\bar{y}_{12\cdot})^2/2\)</span> 给出。</p>
+<p>大多数实验者不会倾向于相信 <span class="math inline">\(\mu_{11}=\mu_{12}\)</span>，但还有其他可能合适的信念 (beliefs). 其中一个信念是，两组处理的效应是<strong>加性的</strong> (additive). 也就是说，两组处理不会发生交互 (interact). 如果这是真的，那么额外的信息将可用于估计 <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>如果将 <span class="math inline">\(bt\)</span> 种组合视为 <span class="math inline">\(bt\)</span> 个不同的处理，则第 <a href="chap1.html#chap1">1</a> 章至第 <a href="chap3.html#chap3">3</a> 章中针对单向处理结构提供的所有讨论都适用于双向处理结构；也就是说，比如 <span class="math inline">\([\mu_{11},\mu_{12},\ldots,\mu_{1b},\ldots,\mu_{t1},\mu_{t2},\ldots,\mu_{tb}]=[\mu_1,\mu_{2},\ldots,\mu_{tb}]\)</span>.</p>
+<p>因此，均值模型中参数的最佳估计为</p>
+<p><span class="math display">\[\hat{\mu}_{ij}=\frac1n\sum_{k=1}^ny_{ijk}=\bar{y}_{ij\cdot},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\hat{\sigma}^2=\frac1{N-bt}\sum_{ijk}(y_{ijk}-\bar{y}_{ij\cdot})^2\]</span></p>
+<p>其中 <span class="math inline">\(N=nbt\)</span>. <span class="math inline">\(\hat \mu_{ij}\)</span> 的抽样分布为 <span class="math inline">\(N(\mu_{ij},\sigma^2/n)\)</span>，其中 <span class="math inline">\(i=1,2\cdots,t,\,j=1,2,\cdots,b\)</span>. 且 <span class="math inline">\((N-bt)\hat{\sigma}^2/\sigma^2\)</span> 的抽样分布为 <span class="math inline">\(\chi^2(N^-bt)\)</span>. 另外，<span class="math inline">\(\hat{\mu}_{11},\hat{\mu}_{12},\ldots,\hat{\mu}_{tb}\)</span> 和 <span class="math inline">\(\sigma^2\)</span> 有独立的概率分布。</p>
+<p>大多数情况下，实验者想要回答以下问题：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(T\)</span> 处理如何影响响应？</li>
+<li><span class="math inline">\(B\)</span> 处理如何影响响应？</li>
+</ol>
+</div>
+<div id="sec7-3" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> 交互作用及它们的重要性<a href="chap7.html#sec7-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>为了很好地回答上述问题，实验者必须首先确定这两组处理是否发生交互。交互作用假设 (interaction hypothesis) 可以用几种等效的方式来表述。下面给出了其中一些。</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(H_0\colon{{\mu}}_{ij}-\mu_{ij}=\mu_{i&#39;j}-\mu_{i&#39;j&#39;}\)</span> 对于所有的 <span class="math inline">\(i\ne i&#39;\)</span> 和 <span class="math inline">\(j\ne j&#39;\)</span></li>
+<li><span class="math inline">\(H_0\colon\mu_{ij}-\mu_{i&#39;j}=\mu_{ij&#39;}-\mu_{i&#39;j&#39;}\)</span> 对于所有的 <span class="math inline">\(i\ne i&#39;\)</span> 和 <span class="math inline">\(j\ne j&#39;\)</span></li>
+<li><span class="math inline">\(H_0\colon{\mu_{ij}-\mu_{i&#39;j}-\mu_{ij&#39;}+\mu_{i&#39;j&#39;}=0}\)</span> 对于所有的 <span class="math inline">\(i\ne i&#39;\)</span> 和 <span class="math inline">\(j\ne j&#39;\)</span></li>
+<li><span class="math inline">\(H_0\colon\mu_{ij}=\mu+\tau_i+\beta_j\)</span> 对于所有的 <span class="math inline">\(i\)</span> 和 <span class="math inline">\(j\)</span> 以及一些参数集 <span class="math inline">\({\mu},{\tau}_1,{\tau}_2,...,{\tau}_t,{\beta}_1,{\beta}_2,\cdots,{\beta}_b\)</span></li>
+</ol>
+<p>1-4 中的每一个都意味着两组处理效应之间没有交互作用。对 1 的解释是，任何一对 B 处理之间的差异都是相同的，无论它们与哪种 T 处理相结合。类似地，对 2 的解释是，任何一对 T 处理之间的差异都是相同的，无论它们与哪种 B 处理相结合。1 和 2 在代数上都等价于 3，3 通常被称为所有可能的二乘二表格差异的集合 (the set of all possible two by two table differences). 对 4 的解释是，这两组处理的效应是加性的。如果 1-4 中的任何一个是真的，那么说明 T 处理和 B 处理之间没有相互作用。</p>
+<p>如果两组处理不发生交互，则一组处理的效应可以如此进行最佳比较：对另一组处理的效应进行平均之后。这样的比较是最佳的，是因为平均化增加了比较两个或多个处理效应的统计功效，或者等价地，平均化对效应差异给出了尽可能短的置信区间。如果两组处理发生交互，那么一组处理效应之间的差异将依赖于与它们结合的第二组处理的水平，这会使实验分析稍微复杂一些。</p>
+</div>
+<div id="sec7-4" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> 主效应<a href="chap7.html#sec7-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>如果实验者得出结论，这两组处理没有交互作用，那么关于<strong>主效应</strong> (main effects) 的假设就可以进行检验。这些假设可以写成：</p>
+<p><span class="math display">\[\begin{aligned}H_{01}\colon\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\cdots=\bar{\mu}_{t\cdot}\quad\text{and}\quad H_{02}\colon\bar{\mu}_{\cdot1}=\bar{\mu}_{\cdot2}=\cdots=\bar{\mu}_{\cdot b}\end{aligned}\]</span></p>
+<p>即使实验中存在交互作用，上述两个假设仍然可以检验。然而，这两种情况对检验结果的解释将截然不同。</p>
+</div>
+<div id="sec7-5" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> 计算机分析<a href="chap7.html#sec7-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>大多数统计分析包都会自动给出前两节中描述的两个主效应假设和交互作用假设的检验，前提是指定了以下形式的模型</p>
+<p><span class="math display">\[y=T\mathrm{~}B\mathrm{~}T\times B\]</span></p>
+<p>大多还具有一个选项，允许用户通过使用第 <a href="chap3.html#chap3">3</a> 章中讨论的一个或多个多重比较程序来相互比较主效应均值。大多数软件包还允许用户指定和检验用户自己选择的对比。如果确定两组处理发生交互，则实验者可能想要比较所有 <span class="math inline">\(bt\)</span> 个处理组合两两之间的差异。如果所使用的统计包无法进行此类比较，则可以手动完成此操作。或者，如果统计分析包不允许对 <span class="math inline">\(T\times B\)</span> 单元格均值进行多重比较，通常可以通过一些技巧使其能够完成。为此，可以在数据文件中包含一个新的识别变量，使该新变量具有 <span class="math inline">\(bt\)</span> 个不同的值，对应 <span class="math inline">\(bt\)</span> 个处理组合。这个新变量可用于重新分析数据，作为单因素处理结构，从而得出双向单元格均值的多重比较。实验者可能还感兴趣于如何对多重检验进行调整，如第 <a href="chap3.html#chap3">3</a> 章所述。</p>
+</div>
+<div id="sec7-6" class="section level2 hasAnchor" number="7.6">
+<h2><span class="header-section-number">7.6</span> 结束语<a href="chap7.html#sec7-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>当处理以双向处理结构进行安排时，通常会检验三个基本的前提假设。其中最重要的是交互作用假设。如果没有交互作用，那么通过对其他处理水平的平均化，可以最好地比较每种处理的主效应。如果存在交互作用，那么在比较第一种处理的效应时，实验者必须小心以确定对第二种处理的水平进行平均是否有意义。<strong>通常这样做是没有意义的</strong>。</p>
+</div>
+<div id="sec7-6" class="section level2 hasAnchor" number="7.7">
+<h2><span class="header-section-number">7.7</span> 练习<a href="chap7.html#sec7-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="chap1.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

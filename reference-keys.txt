@@ -208,6 +208,8 @@ tab:table6-6
 tab:table6-7
 tab:table6-8
 tab:table6-9
+eq:7-1
+eq:7-2
 tab:table29-1
 eq:29-1
 eq:29-2
@@ -376,6 +378,15 @@ sec6-4
 sec6-5
 sec6-6
 sec6-7
+chap7
+sec7-1
+sec7-1-1
+sec7-1-2
+sec7-2
+sec7-3
+sec7-4
+sec7-5
+sec7-6
 chap29
 sec29-1
 sec29-2

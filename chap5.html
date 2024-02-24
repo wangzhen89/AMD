@@ -306,13 +306,27 @@
 <li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
 <li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>7</b> 交叉设计的分析</a>
+<li class="chapter" data-level="7" data-path="chap7.html"><a href="chap7.html"><i class="fa fa-check"></i><b>7</b> 均衡双向处理结构</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>7.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="7.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>7.2</b> 两时期/两处理交叉设计</a></li>
-<li class="chapter" data-level="7.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>7.3</b> 具有两个以上时期的交叉设计</a></li>
-<li class="chapter" data-level="7.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>7.4</b> 具有两种以上处理的交叉设计</a></li>
-<li class="chapter" data-level="7.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>7.5</b> 小结</a></li>
+<li class="chapter" data-level="7.1" data-path="chap7.html"><a href="chap7.html#sec7-1"><i class="fa fa-check"></i><b>7.1</b> 模型定义和假设</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap7.html"><a href="chap7.html#sec7-1-1"><i class="fa fa-check"></i><b>7.1.1</b> 均值模型</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap7.html"><a href="chap7.html#sec7-1-2"><i class="fa fa-check"></i><b>7.1.2</b> 效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap7.html"><a href="chap7.html#sec7-2"><i class="fa fa-check"></i><b>7.2</b> 参数估计</a></li>
+<li class="chapter" data-level="7.3" data-path="chap7.html"><a href="chap7.html#sec7-3"><i class="fa fa-check"></i><b>7.3</b> 交互作用及它们的重要性</a></li>
+<li class="chapter" data-level="7.4" data-path="chap7.html"><a href="chap7.html#sec7-4"><i class="fa fa-check"></i><b>7.4</b> 主效应</a></li>
+<li class="chapter" data-level="7.5" data-path="chap7.html"><a href="chap7.html#sec7-5"><i class="fa fa-check"></i><b>7.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="7.6" data-path="chap7.html"><a href="chap7.html#sec7-6"><i class="fa fa-check"></i><b>7.6</b> 结束语</a></li>
+<li class="chapter" data-level="7.7" data-path="chap7.html"><a href="chap7.html#sec7-6"><i class="fa fa-check"></i><b>7.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>8</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>8.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="8.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>8.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="8.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>8.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="8.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>8.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="8.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>8.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1317,7 +1331,7 @@ x
 <p>在这种比较两种处理方法的方法中，动物有两种处理分配序列——先 A 后 B 和先 B 后 A。这两个序列通常用 AB 序列和 BA 序列表示。处理结构是具有两个水平（A 和 B）的单向处理集，但由于处理按顺序应用于每个实验单元，因此生成的序列成为另一种类型的处理。因此，本实验的设计涉及双向处理结构，处理与序列交叉。</p>
 <p>这种交叉设计是一种具有两种尺寸的实验单元的重复测量设计。将处理序列分配给个体，使个体成为更大的实验单元。观察处理的时间段或时间是较小尺寸的实验单元。较大尺寸实验单元的设计是完全随机设计结构中具有两个水平的序列（两个可能的序列）的单向处理结构。尽管可以使用任何设计结构，但最常用的是完全随机设计。较小尺寸实验单元（时间间隔）的设计是完全随机区组设计结构中的单向处理结构（两个时间段或两次处理），个体是区组。数据可按表 <a href="chap5.html#tab:table5-34">5.34</a> 所示进行排列，可用于描述数据的模型为</p>
 <p><span class="math display">\[y_{ijk}=\mu_{ik}+s_{ij}+\varepsilon_{ijk},\quad\mathrm{~where~}(i,j,k)\in I_\text{D}{ , s _ { i j }}\thicksim i.i.d.\text{ N}(0,\sigma_{\mathrm{subject}}^2),\mathrm{~and~}\varepsilon_{ijk}\thicksim i.i.d.\text{ N}(0,\sigma_{\mathrm{time}}^2)\]</span></p>
-<p>其中 <span class="math inline">\(I_D\)</span> 是实验中实际使用的 <span class="math inline">\((i,j,k)\)</span> 三元组的指标集，<span class="math inline">\(\mu_{ik}\)</span> 表示第 <span class="math inline">\(i\)</span>个序列中第<span class="math inline">\(k\)</span>次处理的效应，<span class="math inline">\(s_{ij}\)</span>表示分配给第<span class="math inline">\(i\)</span>个序列的第<span class="math inline">\(j\)</span>个受试者的随机效应，<span class="math inline">\(\varepsilon_{ijk}\)</span>表示在应用第<span class="math inline">\(k\)</span>次处理的第<span class="math inline">\(i\)</span>个序列的时间段中测量的随机误差。第 <a href="chap29.html#chap29">7</a> 章介绍了一些交叉设计的分析。</p>
+<p>其中 <span class="math inline">\(I_D\)</span> 是实验中实际使用的 <span class="math inline">\((i,j,k)\)</span> 三元组的指标集，<span class="math inline">\(\mu_{ik}\)</span> 表示第 <span class="math inline">\(i\)</span>个序列中第<span class="math inline">\(k\)</span>次处理的效应，<span class="math inline">\(s_{ij}\)</span>表示分配给第<span class="math inline">\(i\)</span>个序列的第<span class="math inline">\(j\)</span>个受试者的随机效应，<span class="math inline">\(\varepsilon_{ijk}\)</span>表示在应用第<span class="math inline">\(k\)</span>次处理的第<span class="math inline">\(i\)</span>个序列的时间段中测量的随机误差。第 <a href="chap29.html#chap29">8</a> 章介绍了一些交叉设计的分析。</p>
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table5-34">表 5.34: </span>两阶段两处理交叉设计的数据安排
