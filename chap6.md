@@ -61,7 +61,7 @@ $$\begin{bmatrix}{y}_{11}\\{y}_{12}\\\vdots\\{y}_{1{n}_1}\\{y}_{21}\\{y}_{22}\\\
 
 ### 双向处理结构模型 {#sec6-1-3}
 
-在完全随机化设计结构中，对于具有 $t$ 行处理和 $b$ 列处理的双向处理结构，模型的一种形式为
+在完全随机设计结构中，对于具有 $t$ 行处理和 $b$ 列处理的双向处理结构，模型的一种形式为
 
 \begin{equation}
 y_{ijk}=\mu_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,t,j=1,2,\ldots,b,\mathrm{~and~}k=1,2,\ldots,n_{ij}

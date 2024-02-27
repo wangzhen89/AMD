@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 10 章 使用效应模型分析子类数不等的均衡双向处理结构 | 混乱数据分析：设计的实验</title>
+  <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 10 章 使用效应模型分析子类数不等的均衡双向处理结构 | 混乱数据分析：设计的实验" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="github-repo" content="wangzhen89/AMD" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 10 章 使用效应模型分析子类数不等的均衡双向处理结构 | 混乱数据分析：设计的实验" />
+  
+  <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  
+
+<meta name="author" content="Wang Zhen" />
+
+
+<meta name="date" content="2024-02-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap9.html"/>
+<link rel="next" href="chap11.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        },
+        extensions: ["cancel.js"]
+      }
+    });
+</script>
+
+<!-- add line break after theorem title -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    for (let s of document.querySelectorAll("span.theorem, span.lemma, span.proposition, span.corollary")) {
+      s.insertAdjacentHTML('afterend', '<br style="line-height:2px;"/>');
+    }
+  });
+</script>
+
+<!-- check if --themcolor in style.css matches one of elegantbook theme colors. If so, generates the color palette  -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const cssroot = document.querySelector(':root');
+    let theme_color = getComputedStyle(document.documentElement).getPropertyValue('--themecolor').trim();
+  
+    // blue is the default option
+
+    switch (theme_color) {
+      case 'green': 
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,120,2)');
+        cssroot.style.setProperty('--main', 'rgb(70,70,70)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(115,45,2)');
+        cssroot.style.setProperty('--secondbg', 'rgba(115,45,2,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,80,80)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,80,80,0.05)');
+      break;
+      case 'cyan':
+        cssroot.style.setProperty('--structurecolor', 'rgb(31,186,190)');
+        cssroot.style.setProperty('--main', 'rgb(59,180,5)');
+        cssroot.style.setProperty('--mainbg', 'rgba(59,180,5,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(175,153,8)');
+        cssroot.style.setProperty('--secondbg', 'rgba(175,153,8,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(244,105,102)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(244,105,102,0.05)');
+      break;
+      case 'gray':
+        cssroot.style.setProperty('--structurecolor', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--main', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--mainbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--secondbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(150,150,150,0.05)');
+      break;
+      case 'black':
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--main', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--secondbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,0,0,0.05)');
+      break;
+    default:
+        cssroot.style.setProperty('--structurecolor', 'rgb(60,113,183)');
+        cssroot.style.setProperty('--main', 'rgb(0,166,82)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(255,134,24)');
+        cssroot.style.setProperty('--secondbg', 'rgba(255,134,24,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,174,247)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,174,247,0.05)');
+    }
+  });
+  </script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">混乱数据分析：设计的实验</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>介绍</a></li>
+<li class="part"><span><b>I 热身部分</b></span></li>
+<li class="chapter" data-level="1" data-path="chap1.html"><a href="chap1.html"><i class="fa fa-check"></i><b>1</b> 最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap1.html"><a href="chap1.html#sec1-1"><i class="fa fa-check"></i><b>1.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="1.2" data-path="chap1.html"><a href="chap1.html#sec1-2"><i class="fa fa-check"></i><b>1.2</b> 参数估计</a></li>
+<li class="chapter" data-level="1.3" data-path="chap1.html"><a href="chap1.html#sec1-3"><i class="fa fa-check"></i><b>1.3</b> 线性组合的推断：检验与置信区间</a></li>
+<li class="chapter" data-level="1.4" data-path="chap1.html"><a href="chap1.html#sec1-4"><i class="fa fa-check"></i><b>1.4</b> 示例：任务和脉搏率</a></li>
+<li class="chapter" data-level="1.5" data-path="chap1.html"><a href="chap1.html#sec1-5"><i class="fa fa-check"></i><b>1.5</b> 几个线性组合的同时检验</a></li>
+<li class="chapter" data-level="1.6" data-path="chap1.html"><a href="chap1.html#sec1-6"><i class="fa fa-check"></i><b>1.6</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.7" data-path="chap1.html"><a href="chap1.html#sec1-7"><i class="fa fa-check"></i><b>1.7</b> 检验所有均值相等</a></li>
+<li class="chapter" data-level="1.8" data-path="chap1.html"><a href="chap1.html#sec1-8"><i class="fa fa-check"></i><b>1.8</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.9" data-path="chap1.html"><a href="chap1.html#sec1-9"><i class="fa fa-check"></i><b>1.9</b> 比较两种模型的一般方法：条件误差原理</a></li>
+<li class="chapter" data-level="1.10" data-path="chap1.html"><a href="chap1.html#sec1-10"><i class="fa fa-check"></i><b>1.10</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
+<li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
+<li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap2.html"><a href="chap2.html#sec2-1"><i class="fa fa-check"></i><b>2.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="2.2" data-path="chap2.html"><a href="chap2.html#sec2-2"><i class="fa fa-check"></i><b>2.2</b> 参数估计</a></li>
+<li class="chapter" data-level="2.3" data-path="chap2.html"><a href="chap2.html#sec2-3"><i class="fa fa-check"></i><b>2.3</b> 方差齐性检验</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap2.html"><a href="chap2.html#sec2-3-1"><i class="fa fa-check"></i><b>2.3.1</b> Hartley’s <em>F</em>-Max Test</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap2.html"><a href="chap2.html#sec2-3-2"><i class="fa fa-check"></i><b>2.3.2</b> Bartlett’s Test</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap2.html"><a href="chap2.html#sec2-3-3"><i class="fa fa-check"></i><b>2.3.3</b> Levene’s Test</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap2.html"><a href="chap2.html#sec2-4-4"><i class="fa fa-check"></i><b>2.3.4</b> Brown and Forsythe’s Test</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap2.html"><a href="chap2.html#sec2-3-5"><i class="fa fa-check"></i><b>2.3.5</b> O’Brien’s Test</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap2.html"><a href="chap2.html#sec2-3-6"><i class="fa fa-check"></i><b>2.3.6</b> 一些建议</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chap2.html"><a href="chap2.html#sec2-4"><i class="fa fa-check"></i><b>2.4</b> 示例：药物和错误</a></li>
+<li class="chapter" data-level="2.5" data-path="chap2.html"><a href="chap2.html#sec2-5"><i class="fa fa-check"></i><b>2.5</b> 关于线性组合的推断</a></li>
+<li class="chapter" data-level="2.6" data-path="chap2.html"><a href="chap2.html#sec2-6"><i class="fa fa-check"></i><b>2.6</b> 示例：药物和错误（续）</a></li>
+<li class="chapter" data-level="2.7" data-path="chap2.html"><a href="chap2.html#sec2-7"><i class="fa fa-check"></i><b>2.7</b> 自由度的一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
+<li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
+<li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>II 理论背景</b></span></li>
+<li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 联合推断程序和多重比较</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap3.html"><a href="chap3.html#sec3-1"><i class="fa fa-check"></i><b>3.1</b> 错误率</a></li>
+<li class="chapter" data-level="3.2" data-path="chap3.html"><a href="chap3.html#sec3-2"><i class="fa fa-check"></i><b>3.2</b> 建议</a></li>
+<li class="chapter" data-level="3.3" data-path="chap3.html"><a href="chap3.html#sec3-3"><i class="fa fa-check"></i><b>3.3</b> 最小显著差异</a></li>
+<li class="chapter" data-level="3.4" data-path="chap3.html"><a href="chap3.html#sec3-4"><i class="fa fa-check"></i><b>3.4</b> Fisher’s LSD Procedure</a></li>
+<li class="chapter" data-level="3.5" data-path="chap3.html"><a href="chap3.html#sec3-5"><i class="fa fa-check"></i><b>3.5</b> Bonferroni’s Method</a></li>
+<li class="chapter" data-level="3.6" data-path="chap3.html"><a href="chap3.html#sec3-6"><i class="fa fa-check"></i><b>3.6</b> Scheffé’s Procedure</a></li>
+<li class="chapter" data-level="3.7" data-path="chap3.html"><a href="chap3.html#sec3-7"><i class="fa fa-check"></i><b>3.7</b> Tukey–Kramer Method</a></li>
+<li class="chapter" data-level="3.8" data-path="chap3.html"><a href="chap3.html#sec3-8"><i class="fa fa-check"></i><b>3.8</b> 模拟方法</a></li>
+<li class="chapter" data-level="3.9" data-path="chap3.html"><a href="chap3.html#sec3-9"><i class="fa fa-check"></i><b>3.9</b> Šidák Procedure</a></li>
+<li class="chapter" data-level="3.10" data-path="chap3.html"><a href="chap3.html#sec3-10"><i class="fa fa-check"></i><b>3.10</b> 示例：成对比较</a></li>
+<li class="chapter" data-level="3.11" data-path="chap3.html"><a href="chap3.html#sec3-11"><i class="fa fa-check"></i><b>3.11</b> Dunnett’s Procedure</a></li>
+<li class="chapter" data-level="3.12" data-path="chap3.html"><a href="chap3.html#sec3-12"><i class="fa fa-check"></i><b>3.12</b> 示例：与对照比较</a></li>
+<li class="chapter" data-level="3.13" data-path="chap3.html"><a href="chap3.html#sec3-13"><i class="fa fa-check"></i><b>3.13</b> 多元 <span class="math inline">\(t\)</span></a></li>
+<li class="chapter" data-level="3.14" data-path="chap3.html"><a href="chap3.html#sec3-14"><i class="fa fa-check"></i><b>3.14</b> 示例：线性独立比较</a></li>
+<li class="chapter" data-level="3.15" data-path="chap3.html"><a href="chap3.html#sec3-15"><i class="fa fa-check"></i><b>3.15</b> 序贯拒绝方法</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="chap3.html"><a href="chap3.html#sec3-15-1"><i class="fa fa-check"></i><b>3.15.1</b> Bonferroni–Holm Method</a></li>
+<li class="chapter" data-level="3.15.2" data-path="chap3.html"><a href="chap3.html#sec3-15-2"><i class="fa fa-check"></i><b>3.15.2</b> Šidák–Holm Method</a></li>
+<li class="chapter" data-level="3.15.3" data-path="chap3.html"><a href="chap3.html#sec3-15-3"><i class="fa fa-check"></i><b>3.15.3</b> 控制 FDR 的 Benjamini 和 Hochberg Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="chap3.html"><a href="chap3.html#sec3-16"><i class="fa fa-check"></i><b>3.16</b> 示例：线性相关比较</a></li>
+<li class="chapter" data-level="3.17" data-path="chap3.html"><a href="chap3.html#sec3-17"><i class="fa fa-check"></i><b>3.17</b> 多重极差检验</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="chap3.html"><a href="chap3.html#sec3-17-1"><i class="fa fa-check"></i><b>3.17.1</b> Student–Newman–Keul’s Method</a></li>
+<li class="chapter" data-level="3.17.2" data-path="chap3.html"><a href="chap3.html#sec3-17-2"><i class="fa fa-check"></i><b>3.17.2</b> Duncan’s New Multiple Range Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="chap3.html"><a href="chap3.html#sec3-18"><i class="fa fa-check"></i><b>3.18</b> Waller–Duncan Procedure</a></li>
+<li class="chapter" data-level="3.19" data-path="chap3.html"><a href="chap3.html#sec3-19"><i class="fa fa-check"></i><b>3.19</b> 示例：成对比较的多重极差</a></li>
+<li class="chapter" data-level="3.20" data-path="chap3.html"><a href="chap3.html#sec3-20"><i class="fa fa-check"></i><b>3.20</b> 警示</a></li>
+<li class="chapter" data-level="3.21" data-path="chap3.html"><a href="chap3.html#sec3-21"><i class="fa fa-check"></i><b>3.21</b> 结束语</a></li>
+<li class="chapter" data-level="3.22" data-path="chap3.html"><a href="chap3.html#sec3-22"><i class="fa fa-check"></i><b>3.22</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap3.html"><a href="chap3.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap4.html"><a href="chap4.html"><i class="fa fa-check"></i><b>4</b> 实验设计基础</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap4.html"><a href="chap4.html#sec4-1"><i class="fa fa-check"></i><b>4.1</b> 介绍基本概念</a></li>
+<li class="chapter" data-level="4.2" data-path="chap4.html"><a href="chap4.html#sec4-2"><i class="fa fa-check"></i><b>4.2</b> 设计实验的结构</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap4.html"><a href="chap4.html#sec4-2-1"><i class="fa fa-check"></i><b>4.2.1</b> 设计结构类型</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap4.html"><a href="chap4.html#sec4-2-2"><i class="fa fa-check"></i><b>4.2.2</b> 处理结构类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap4.html"><a href="chap4.html#sec4-3"><i class="fa fa-check"></i><b>4.3</b> 不同设计实验的示例</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap4.html"><a href="chap4.html#sec4-3-1"><i class="fa fa-check"></i><b>4.3.1</b> 示例 4.1: 饮食</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap4.html"><a href="chap4.html#sec4-3-2"><i class="fa fa-check"></i><b>4.3.2</b> 示例 4.2: 房屋油漆</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap4.html"><a href="chap4.html#sec4-3-3"><i class="fa fa-check"></i><b>4.3.3</b> 示例 4.3: 钢板</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap4.html"><a href="chap4.html#sec4-3-4"><i class="fa fa-check"></i><b>4.3.4</b> 示例 4.4: 氮和钾的水平</a></li>
+<li class="chapter" data-level="4.3.5" data-path="chap4.html"><a href="chap4.html#sec4-3-5"><i class="fa fa-check"></i><b>4.3.5</b> 示例 4.5: 区组和重复</a></li>
+<li class="chapter" data-level="4.3.6" data-path="chap4.html"><a href="chap4.html#sec4-3-6"><i class="fa fa-check"></i><b>4.3.6</b> 示例 4.6：行区组和列区组</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap4.html"><a href="chap4.html#sec4-4"><i class="fa fa-check"></i><b>4.4</b> 结束语</a></li>
+<li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#sec4-5"><i class="fa fa-check"></i><b>4.5</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap4.html"><a href="chap4.html#参考文献-1"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> 多水平设计：裂区、裂条区、重复测量及其组合</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#sec5-1"><i class="fa fa-check"></i><b>5.1</b> 识别实验单元的尺寸——四种基本设计结构</a></li>
+<li class="chapter" data-level="5.2" data-path="chap5.html"><a href="chap5.html#sec5-2"><i class="fa fa-check"></i><b>5.2</b> 分层设计：一种多水平的设计结构</a></li>
+<li class="chapter" data-level="5.3" data-path="chap5.html"><a href="chap5.html#sec5-3"><i class="fa fa-check"></i><b>5.3</b> 裂区设计结构：两水平设计结构</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap5.html"><a href="chap5.html#sec5-3-1"><i class="fa fa-check"></i><b>5.3.1</b> 示例 5.1：烹饪大豆——最简单的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap5.html"><a href="chap5.html#sec5-3-2"><i class="fa fa-check"></i><b>5.3.2</b> 示例 5.2：磨小麦——通常的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap5.html"><a href="chap5.html#sec5-3-3"><i class="fa fa-check"></i><b>5.3.3</b> 示例 5.3：烘焙面包——具有不完全块设计结构的裂区</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chap5.html"><a href="chap5.html#sec5-3-4"><i class="fa fa-check"></i><b>5.3.4</b> 示例 5.4：展示柜中的肉——复杂裂区或四水平设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap5.html"><a href="chap5.html#sec5-4"><i class="fa fa-check"></i><b>5.4</b> 裂条区设计结构：一种无层次的多水平设计</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="chap5.html"><a href="chap5.html#sec5-4-1"><i class="fa fa-check"></i><b>5.4.1</b> 示例 5.5：制作奶酪</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap5.html"><a href="chap5.html#sec5-5"><i class="fa fa-check"></i><b>5.5</b> 重复测量设计</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chap5.html"><a href="chap5.html#sec5-5-1"><i class="fa fa-check"></i><b>5.5.1</b> 示例 5.6：马足——基本重复测量设计</a></li>
+<li class="chapter" data-level="5.5.2" data-path="chap5.html"><a href="chap5.html#sec5-5-2"><i class="fa fa-check"></i><b>5.5.2</b> 示例 5.7：舒适度研究——重复测量设计</a></li>
+<li class="chapter" data-level="5.5.3" data-path="chap5.html"><a href="chap5.html#示例-5.8交叉或转换设计"><i class="fa fa-check"></i><b>5.5.3</b> 示例 5.8：交叉或转换设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap5.html"><a href="chap5.html#sec5-6"><i class="fa fa-check"></i><b>5.6</b> 涉及嵌套因素的设计</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chap5.html"><a href="chap5.html#sec5-6-1"><i class="fa fa-check"></i><b>5.6.1</b> 示例 5.9：动物遗传学</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap5.html"><a href="chap5.html#sec5-6-2"><i class="fa fa-check"></i><b>5.6.2</b> 示例 5.10：大豆的生育期组</a></li>
+<li class="chapter" data-level="5.6.3" data-path="chap5.html"><a href="chap5.html#sec5-6-3"><i class="fa fa-check"></i><b>5.6.3</b> 示例 5.11：飞机引擎</a></li>
+<li class="chapter" data-level="5.6.4" data-path="chap5.html"><a href="chap5.html#sec5-6-4"><i class="fa fa-check"></i><b>5.6.4</b> 示例 5.12：简单的舒适度实验</a></li>
+<li class="chapter" data-level="5.6.5" data-path="chap5.html"><a href="chap5.html#sec5-6-5"><i class="fa fa-check"></i><b>5.6.5</b> 示例 5.13：重复测量的多地点研究</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap5.html"><a href="chap5.html#sec5-7"><i class="fa fa-check"></i><b>5.7</b> 结束语</a></li>
+<li class="chapter" data-level="5.8" data-path="chap5.html"><a href="chap5.html#sec5-8"><i class="fa fa-check"></i><b>5.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap6.html"><a href="chap6.html"><i class="fa fa-check"></i><b>6</b> 模型的矩阵形式</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap6.html"><a href="chap6.html#sec6-1"><i class="fa fa-check"></i><b>6.1</b> 基本符号</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>III 处理结构的分析</b></span></li>
+<li class="chapter" data-level="7" data-path="chap7.html"><a href="chap7.html"><i class="fa fa-check"></i><b>7</b> 均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap7.html"><a href="chap7.html#sec7-1"><i class="fa fa-check"></i><b>7.1</b> 模型定义和假设</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap7.html"><a href="chap7.html#sec7-1-1"><i class="fa fa-check"></i><b>7.1.1</b> 均值模型</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap7.html"><a href="chap7.html#sec7-1-2"><i class="fa fa-check"></i><b>7.1.2</b> 效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap7.html"><a href="chap7.html#sec7-2"><i class="fa fa-check"></i><b>7.2</b> 参数估计</a></li>
+<li class="chapter" data-level="7.3" data-path="chap7.html"><a href="chap7.html#sec7-3"><i class="fa fa-check"></i><b>7.3</b> 交互作用及它们的重要性</a></li>
+<li class="chapter" data-level="7.4" data-path="chap7.html"><a href="chap7.html#sec7-4"><i class="fa fa-check"></i><b>7.4</b> 主效应</a></li>
+<li class="chapter" data-level="7.5" data-path="chap7.html"><a href="chap7.html#sec7-5"><i class="fa fa-check"></i><b>7.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="7.6" data-path="chap7.html"><a href="chap7.html#sec7-6"><i class="fa fa-check"></i><b>7.6</b> 结束语</a></li>
+<li class="chapter" data-level="7.7" data-path="chap7.html"><a href="chap7.html#sec7-7"><i class="fa fa-check"></i><b>7.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap8.html"><a href="chap8.html"><i class="fa fa-check"></i><b>8</b> 案例研究：均衡双向实验的完整分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap8.html"><a href="chap8.html#sec8-1"><i class="fa fa-check"></i><b>8.1</b> 主效应均值对比</a></li>
+<li class="chapter" data-level="8.2" data-path="chap8.html"><a href="chap8.html#sec8-2"><i class="fa fa-check"></i><b>8.2</b> 交互对比</a></li>
+<li class="chapter" data-level="8.3" data-path="chap8.html"><a href="chap8.html#sec8-3"><i class="fa fa-check"></i><b>8.3</b> 油漆铺路示例</a></li>
+<li class="chapter" data-level="8.4" data-path="chap8.html"><a href="chap8.html#sec8-4"><i class="fa fa-check"></i><b>8.4</b> 分析定量处理因素</a></li>
+<li class="chapter" data-level="8.5" data-path="chap8.html"><a href="chap8.html#sec8-5"><i class="fa fa-check"></i><b>8.5</b> 多重检验</a></li>
+<li class="chapter" data-level="8.6" data-path="chap8.html"><a href="chap8.html#sec8-6"><i class="fa fa-check"></i><b>8.6</b> 结束语</a></li>
+<li class="chapter" data-level="8.7" data-path="chap8.html"><a href="chap8.html#sec8-7"><i class="fa fa-check"></i><b>8.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap9.html"><a href="chap9.html"><i class="fa fa-check"></i><b>9</b> 使用均值模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap9.html"><a href="chap9.html#sec9-1"><i class="fa fa-check"></i><b>9.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="9.2" data-path="chap9.html"><a href="chap9.html#sec9-2"><i class="fa fa-check"></i><b>9.2</b> 参数估计</a></li>
+<li class="chapter" data-level="9.3" data-path="chap9.html"><a href="chap9.html#sec9-3"><i class="fa fa-check"></i><b>9.3</b> 检验所有均值是否相等</a></li>
+<li class="chapter" data-level="9.4" data-path="chap9.html"><a href="chap9.html#sec9-4"><i class="fa fa-check"></i><b>9.4</b> 交互作用和主效应假设</a></li>
+<li class="chapter" data-level="9.5" data-path="chap9.html"><a href="chap9.html#sec9-5"><i class="fa fa-check"></i><b>9.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="9.6" data-path="chap9.html"><a href="chap9.html#sec9-6"><i class="fa fa-check"></i><b>9.6</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="9.7" data-path="chap9.html"><a href="chap9.html#sec9-7"><i class="fa fa-check"></i><b>9.7</b> 结束语</a></li>
+<li class="chapter" data-level="9.8" data-path="chap9.html"><a href="chap9.html#sec9-8"><i class="fa fa-check"></i><b>9.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap10.html"><a href="chap10.html"><i class="fa fa-check"></i><b>10</b> 使用效应模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap10.html"><a href="chap10.html#sec10-1"><i class="fa fa-check"></i><b>10.1</b> 模型定义</a></li>
+<li class="chapter" data-level="10.2" data-path="chap10.html"><a href="chap10.html#sec10-2"><i class="fa fa-check"></i><b>10.2</b> 参数估计和 I 型分析</a></li>
+<li class="chapter" data-level="10.3" data-path="chap10.html"><a href="chap10.html#sec10-3"><i class="fa fa-check"></i><b>10.3</b> 在 SAS 中使用可估函数</a></li>
+<li class="chapter" data-level="10.4" data-path="chap10.html"><a href="chap10.html#sec10-4"><i class="fa fa-check"></i><b>10.4</b> I–IV 型假设</a></li>
+<li class="chapter" data-level="10.5" data-path="chap10.html"><a href="chap10.html#sec10-5"><i class="fa fa-check"></i><b>10.5</b> 在 SAS-GLM 中使用 I–IV 型可估函数</a></li>
+<li class="chapter" data-level="10.6" data-path="chap10.html"><a href="chap10.html#sec10-6"><i class="fa fa-check"></i><b>10.6</b> 总体边际均值与最小二乘均值</a></li>
+<li class="chapter" data-level="10.7" data-path="chap10.html"><a href="chap10.html#sec10-7"><i class="fa fa-check"></i><b>10.7</b> 计算机分析</a></li>
+<li class="chapter" data-level="10.8" data-path="chap10.html"><a href="chap10.html#sec10-8"><i class="fa fa-check"></i><b>10.8</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap11.html"><a href="chap11.html"><i class="fa fa-check"></i><b>11</b> 分析子类数不等的大型均衡双向实验</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap11.html"><a href="chap11.html#sec11-1"><i class="fa fa-check"></i><b>11.1</b> 可行性问题</a></li>
+<li class="chapter" data-level="11.2" data-path="chap11.html"><a href="chap11.html#sec11-2"><i class="fa fa-check"></i><b>11.2</b> 未加权均值法</a></li>
+<li class="chapter" data-level="11.3" data-path="chap11.html"><a href="chap11.html#sec11-3"><i class="fa fa-check"></i><b>11.3</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="11.4" data-path="chap11.html"><a href="chap11.html#sec11-4"><i class="fa fa-check"></i><b>11.4</b> 未加权均值的示例</a></li>
+<li class="chapter" data-level="11.5" data-path="chap11.html"><a href="chap11.html#sec11-5"><i class="fa fa-check"></i><b>11.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="11.6" data-path="chap11.html"><a href="chap11.html#sec11-6"><i class="fa fa-check"></i><b>11.6</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap12.html"><a href="chap12.html"><i class="fa fa-check"></i><b>12</b> 案例研究：子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="chap12.html"><a href="chap12.html#sec12-1"><i class="fa fa-check"></i><b>12.1</b> 脂肪-表面活性剂示例</a></li>
+<li class="chapter" data-level="12.2" data-path="chap12.html"><a href="chap12.html#sec12-2"><i class="fa fa-check"></i><b>12.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap13.html"><a href="chap13.html"><i class="fa fa-check"></i><b>13</b> 使用均值模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap13.html"><a href="chap13.html#sec13-1"><i class="fa fa-check"></i><b>13.1</b> 参数估计</a></li>
+<li class="chapter" data-level="13.2" data-path="chap13.html"><a href="chap13.html#sec13-2"><i class="fa fa-check"></i><b>13.2</b> 假设检验和置信区间</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="chap13.html"><a href="chap13.html#sec13-2-1"><i class="fa fa-check"></i><b>13.2.1</b> 示例 13.1</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="chap13.html"><a href="chap13.html#sec13-3"><i class="fa fa-check"></i><b>13.3</b> 计算机分析</a></li>
+<li class="chapter" data-level="13.4" data-path="chap13.html"><a href="chap13.html#sec13-4"><i class="fa fa-check"></i><b>13.4</b> 结束语</a></li>
+<li class="chapter" data-level="13.5" data-path="chap13.html"><a href="chap13.html#sec13-5"><i class="fa fa-check"></i><b>13.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>14</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>14.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="14.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>14.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="14.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>14.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="14.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>14.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="14.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>14.5</b> 小结</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">混乱数据分析：设计的实验</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap10" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">第 10 章</span> 使用效应模型分析子类数不等的均衡双向处理结构<a href="chap10.html#chap10" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>第 <a href="chap9.html#chap9">9</a> 章讨论了使用均值模型分析具有不等子类数的双向处理结构。本章考虑在相同情况下使用效应模型。所有可以使用效应模型回答的问题也可以使用均值模型回答，反之亦然。之所以讨论效应模型，是因为当使用统计计算软件包分析双向处理结构时，效应模型常常是一个重要的工具。因为统计软件通常会自动产生主效应和交互效应的检验统计量，以及边际均值、双向均值及其标准误估计。</p>
+<div id="sec10-1" class="section level2 hasAnchor" number="10.1">
+<h2><span class="header-section-number">10.1</span> 模型定义<a href="chap10.html#sec10-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>与均值模型 <a href="chap9.html#eq:9-1">(9.1)</a> 对应的效应模型定义如下</p>
+<p><span class="math display" id="eq:10-1">\[\begin{equation}
+y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;~j=1,2,\ldots,b;~k=1,2,\ldots,n_{ij}
+\tag{10.1}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\({\varepsilon}_{ijk}\thicksim i.i.d.N(0,{\sigma}^2)\)</span>.</p>
+</div>
+<div id="sec10-2" class="section level2 hasAnchor" number="10.2">
+<h2><span class="header-section-number">10.2</span> 参数估计和 I 型分析<a href="chap10.html#sec10-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>除了第 <a href="chap9.html#chap9">9</a> 章介绍的那些平方和，在分析具有不等子类数量的双向处理结构时，还会涉及其他一些平方和。本章将探讨其中两种。首先是一系列平方和，它们涉及通过推广第 @ref(#sec3-2) 节所述的模型比较方法，以序贯 (sequential) 的方式将双向效应模型逐步拟合到观测数据上。常用的一种序列步骤如下</p>
+<ol style="list-style-type: decimal">
+<li>第一步. 拟合 <span class="math inline">\(y_{ijk}=\mu+\varepsilon_{ijk}\)</span>，将其残差平方和表示为 <span class="math inline">\(RSS_1\)</span>.</li>
+<li>第二步. 拟合 <span class="math inline">\(y_{ijk}=\mu+\tau_i+\varepsilon_{ijk}\)</span>，将其残差平方和表示为 <span class="math inline">\(RSS_2\)</span>.</li>
+<li>第三步. 拟合 <span class="math inline">\(y_{ijk}=\mu+\tau_i+\beta_j+\varepsilon_{ijk}\)</span>，将其残差平方和表示为 <span class="math inline">\(RSS_3\)</span>.</li>
+<li>第四步. 拟合 <span class="math inline">\(y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk}\)</span>，将其残差平方和表示为 <span class="math inline">\(RSS_4\)</span>.</li>
+</ol>
+<p><span class="math inline">\(RSS_i\)</span> 为第 <span class="math inline">\(i(i=1,2,3,4)\)</span> 步拟合模型之后的残差平方和。<span class="math inline">\(RSS_1\)</span> 与 <span class="math inline">\(RSS_2\)</span> 之间的差记作 <span class="math inline">\(R(\tau|\mu)\)</span>，称为调整 <span class="math inline">\(\mu\)</span> 后 <span class="math inline">\(\tau\)</span> 引起的缩减。即 <span class="math inline">\(R(\tau|\mu)=RSS_1-RSS_2\)</span>. 这个缩减给出了通过考虑将 <span class="math inline">\(\tau_i\)</span> 也包含在内的模型，可以减小第一步中模型的残差平方和。<span class="math inline">\(R(\tau|\mu)\)</span> 越大，模型中包含 <span class="math inline">\(\tau_i\)</span> 就越重要。因此，<span class="math inline">\(R(\tau|\mu)\)</span> 处理 T 不同可能性的效应的度量。<span class="math inline">\(R(\beta|\mu,\tau)=RSS_2-RSS_3\)</span> 称为同时调整 <span class="math inline">\(\mu\)</span> 和 <span class="math inline">\(\tau\)</span> 后 <span class="math inline">\(\beta\)</span> 引起的缩减。它表示通过在模型中进一步包含 <span class="math inline">\(\beta_j\)</span>，能够额外减少第二步模型残差平方和的量。<span class="math inline">\(R(\beta|\mu,\tau)\)</span> 是对处理 B 不同可能性的效应的一种度量，该效应独立于并超越了处理 T 的效应。最后，<span class="math inline">\(R(\gamma|\mu,\tau,\beta)=RSS_3-RSS_4\)</span> 称为同时调整 <span class="math inline">\(\mu,\tau,\beta\)</span> 后 <span class="math inline">\(\gamma\)</span> 引起的缩减。它表示通过在模型的第三步中添加交互参数 <span class="math inline">\(\gamma_{ij}\)</span>，可以进一步减少模型残差平方和的额外量。显然，<span class="math inline">\(R(\gamma|\mu,\tau,\beta)\)</span> 是交互作用的度量，因为第三步中的模型是一个加性模型，当且仅当没有交互作用时才成立。</p>
+<p>表 <a href="chap10.html#tab:table10-1">10.1</a> 给出了与<strong>序贯分析</strong> (sequential analysis) 对应的方差分析表。这种分析称为 I 型分析。表 <a href="chap10.html#tab:table10-1">10.1</a> 最后四行的平方和在统计上是独立的，并且 T, B 和 T × B 均方与误差均方的比都服从非中心 <span class="math inline">\(F\)</span> 分布。确定表 <a href="chap10.html#tab:table10-1">10.1</a> 中每个 <span class="math inline">\(F\)</span> 统计量所检验的确切假设非常有趣且具有信息价值。所检验的假设在第 <a href="chap10.html#sec10-4">10.4</a> 节中给出。</p>
+<table>
+<caption>
+<span id="tab:table10-1">表 10.1: </span>序贯分析的方差分析表（I 型分析）
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.1.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>为了说明这一点，对于 I 型分析所需的四个模型，均需拟合到表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据。要理解此处进行的计算，需要熟悉第 <a href="chap6.html#chap6">6</a> 章的内容。然而，对于那些愿意利用统计计算软件包执行所需计算的读者来说，这种理解不是必需的。对详细内容感兴趣的读者可以考虑接下来的几页内容进行深入学习和探讨。第一步中给出的模型为 <span class="math inline">\(y_{ijk}={\mu}+{\varepsilon}_{ijk}\)</span>. 该模型中 <span class="math inline">\(\mu\)</span> 的最佳估计是所有观测值的平均值 <span class="math inline">\(\hat{{\mu}}=\bar{y}_{\cdot\cdot\cdot}=24.9375\)</span>，残差平方和为</p>
+<p><span class="math display">\[RSS_1=\sum_{i,j,k}(y_{ijk}-\hat{\mu})^2=\sum_{i,j,k}y_{ijk}^2-n_{\cdot\cdot}\bar{y}^2_{\cdot\cdot\cdot}=10209-16(24.9375)^2=258.9375\]</span></p>
+<p>该残差平方和基于 <span class="math inline">\(n_{\cdot\cdot} = 16 - 1 = 15\)</span> 个自由度。</p>
+<p>第二步中定义的模型的正规方程组为：</p>
+<p><span class="math display">\[\begin{bmatrix}16&amp;8&amp;8\\8&amp;8&amp;0\\8&amp;0&amp;8\end{bmatrix}\begin{bmatrix}\hat{{\mu}}\\\hat{{\tau}}_1\\\hat{{\tau}}_2\end{bmatrix}=\begin{bmatrix}399\\182\\217\end{bmatrix}\]</span></p>
+<p>这些方程的一种可能解是通过使用第 <a href="chap6.html#sec6-2">6.2</a> 节中讨论的置零限制获得的，可得 <span class="math inline">\(\hat{{\tau}}_2=0,\hat{{\tau}}_1=-4.375,\hat \mu=27.125\)</span> （回想第 <a href="chap6.html#chap6">6</a> 章，不存在唯一解）。残差平方和为</p>
+<p><span class="math display">\[
+\begin{aligned}RSS_2=\sum_{i,j,k}(y_{ijk}-\hat{\mu}-\hat{\tau}_i)^2&amp;=\sum_{i,j,k}y_{ijk}^2-\hat{\mu}\cdot y_{\cdot\cdot\cdot}-\hat{\tau}_1\cdot y_{1\cdot\cdot}-\hat{\tau}_{2} \cdot y_{2\cdot\cdot} \\
+&amp;=10209-27.125\cdot399-(-4.375)\cdot 182-0\cdot 217 \\
+&amp;=182.375
+\end{aligned}
+\]</span></p>
+<p>基于 16-2=14 个自由度。因此，<span class="math inline">\(R(\tau|\mu)=258.9375-182.375=76.5625\)</span> 基于 15-14=1 个自由度。</p>
+<p>第三步中模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}16&amp;8&amp;8&amp;5&amp;5&amp;6\\8&amp;8&amp;0&amp;3&amp;2&amp;3\\8&amp;0&amp;8&amp;2&amp;3&amp;3\\5&amp;3&amp;2&amp;5&amp;0&amp;0\\5&amp;2&amp;3&amp;0&amp;5&amp;0\\6&amp;3&amp;3&amp;0&amp;0&amp;6\end{bmatrix}\begin{bmatrix}\hat{\mu}\\\hat{\tau}_1\\\hat{\tau}_2\\\hat{\beta}_1\\\hat{\beta}_2\\\hat{\beta}_3\end{bmatrix}=\begin{bmatrix}399\\182\\217\\112\\119\\168\end{bmatrix}\]</span></p>
+<p>为获得一个解，可以令 <span class="math inline">\(\tau_2 = 0\)</span> 且 <span class="math inline">\(\beta_3 = 0\)</span>（参见第 <a href="chap6.html#chap6">6</a> 章）。然后，通过删除对应于 <span class="math inline">\(\tau = 0\)</span> 和 <span class="math inline">\(\beta = 0\)</span> 的行和列，可以将该方程组简化为等价的方程组。该系统简化为：</p>
+<p><span class="math display">\[\begin{bmatrix}16&amp;8&amp;5&amp;5\\8&amp;8&amp;3&amp;2\\5&amp;3&amp;5&amp;0\\5&amp;2&amp;0&amp;5\end{bmatrix}\begin{bmatrix}\hat{\mu}\\\hat{\tau}_1\\\hat{\beta}_1\\\hat{\beta}_2\end{bmatrix}=\begin{bmatrix}399\\182\\112\\119\end{bmatrix}\]</span></p>
+<p>该简化系统的解为 <span class="math inline">\(\hat{\mu}=30.154,\hat{\tau}_1=-4.308,\hat{\beta}_1=-5.169,\hat{\beta}_2=-4.631\)</span>。该模型的残差平方和为</p>
+<p><span class="math display">\[\begin{aligned}
+RSS_3&amp; =\sum_{i,j,k}y_{ijk}^2-\hat{\mu}\cdot y_{\cdot\cdot\cdot}-\hat{\tau}_1\cdot y_{1\cdot\cdot}-\hat{\beta}_1\cdot y_{\cdot1\cdot}-\hat{\beta}_2\cdot y_{\cdot2\cdot}  \\
+&amp;=10209-30.154\cdot399-(-4.308)\cdot182-(-5.169)\cdot112-(-4.631)\cdotp119 \\
+&amp;=91.631
+\end{aligned}\]</span></p>
+<p>基于 16-4=12 个自由度。因此 <span class="math inline">\(R(\beta|\mu,\tau)=RSS_2-RSS_3=182.375-91.631=90.744\)</span> 基于 14-12=2 个自由度。</p>
+<p>第四步中模型的正规方程组为</p>
+<p><span class="math display">\[\begin{bmatrix}16&amp;8&amp;8&amp;5&amp;5&amp;6&amp;3&amp;2&amp;3&amp;2&amp;3&amp;3\\8&amp;8&amp;0&amp;3&amp;2&amp;3&amp;3&amp;2&amp;3&amp;0&amp;0&amp;0\\8&amp;0&amp;8&amp;2&amp;3&amp;3&amp;0&amp;0&amp;0&amp;2&amp;3&amp;3\\5&amp;3&amp;2&amp;5&amp;0&amp;0&amp;3&amp;0&amp;0&amp;2&amp;0&amp;0\\5&amp;2&amp;3&amp;0&amp;5&amp;0&amp;0&amp;2&amp;0&amp;0&amp;3&amp;0\\6&amp;3&amp;3&amp;0&amp;0&amp;6&amp;0&amp;0&amp;3&amp;0&amp;0&amp;3\\3&amp;3&amp;0&amp;3&amp;0&amp;0&amp;3&amp;0&amp;0&amp;0&amp;0&amp;0\\2&amp;2&amp;0&amp;0&amp;2&amp;0&amp;0&amp;2&amp;0&amp;0&amp;0&amp;0\\3&amp;3&amp;0&amp;0&amp;0&amp;3&amp;0&amp;0&amp;3&amp;0&amp;0&amp;0\\2&amp;0&amp;2&amp;2&amp;0&amp;0&amp;0&amp;0&amp;0&amp;2&amp;0&amp;0\\3&amp;0&amp;3&amp;0&amp;3&amp;0&amp;0&amp;0&amp;0&amp;0&amp;3&amp;0\\3&amp;0&amp;3&amp;0&amp;0&amp;3&amp;0&amp;0&amp;0&amp;0&amp;0&amp;3\end{bmatrix}\left.\left[\begin{array}{c}\hat{\mu}\\\hat{\tau}_1\\\hat{\tau}_2\\\hat{\beta}_1\\\hat{\beta}_2\\\hat{\beta}_3\\\hat{\gamma}_{11}\\\hat{\gamma}_{12}\\\hat{\gamma}_{13}\\\hat{\gamma}_{21}\\\hat{\gamma}_{22}\\\hat{\gamma}_{23}\end{array}\right.\right]=\begin{bmatrix}399\\182\\217\\112\\119\\168\\60\\50\\72\\52\\69\\96\end{bmatrix}\]</span></p>
+<p>为获得一个解，令 <span class="math inline">\(\hat{\tau}_2=0,\hat{\beta}_3=0,\hat{\gamma}_{13}=0,\hat{\gamma}_{21}=0,\hat{\gamma}_{22}=0,\hat{\gamma}_{23}=0\)</span> （参见第 <a href="chap6.html#chap6">6</a> 章）。使用缩减技术，系统简化为</p>
+<p><span class="math display">\[\begin{bmatrix}16&amp;8&amp;5&amp;5&amp;3&amp;2\\8&amp;8&amp;3&amp;2&amp;3&amp;2\\5&amp;3&amp;5&amp;0&amp;3&amp;0\\5&amp;2&amp;0&amp;5&amp;0&amp;2\\3&amp;3&amp;3&amp;0&amp;3&amp;0\\2&amp;2&amp;0&amp;2&amp;0&amp;2\end{bmatrix}\begin{bmatrix}\hat{\mu}\\\hat{\tau}_1\\\hat{\beta}_1\\\hat{\beta}_2\\\hat{\gamma}_{11}\\\hat{\gamma}_{12}\end{bmatrix}=\begin{bmatrix}399\\182\\112\\119\\60\\50\end{bmatrix}\]</span></p>
+<p>该简化系统的解为 <span class="math inline">\(\hat{\mu}=32,\hat{\tau}_1=-8,\hat{\beta}_1=-6,\hat{\beta}_2=-9,\hat{\gamma}_{11}=2,\hat{\gamma}_{12}=10\)</span>. 因此 <span class="math inline">\(\hat\sigma^2=2\)</span>，因为完全模型 (full model) 的残差平方和为 <span class="math inline">\(RSS_4=10,209-10,189=20\)</span>，基于 10 个自由度。而且 <span class="math inline">\(R(\gamma|\mu,\tau,\beta)=RSS_3-RSS_4=91.631-20=71.631\)</span> 基于 12-10=2 个自由度。所有前面的结果都可以总结在方差分析表中，如表 <a href="chap10.html#tab:table10-2">10.2</a> 所示。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-2">表 10.2: </span>I 型方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.2.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>I 型分析中的平方和以及交互作用的检验统计量与第 <a href="chap9.html#chap9">9</a> 章中使用均值模型和矩阵程序获得的结果相同；然而，这两个程序对于 T 和 B 主效应给出了不同的平方和和检验统计量。双向处理结构中的数据也可以通过先拟合 <span class="math inline">\(\mu\)</span> 后 <span class="math inline">\(\beta\)</span> 再 <span class="math inline">\(\tau\)</span>，最后 <span class="math inline">\(\gamma\)</span> 来分析。表 <a href="chap10.html#tab:table10-2">10.2</a> 中尚未给出的唯一所需的新平方和是 <span class="math inline">\(R(\beta|\mu)\)</span> 和 <span class="math inline">\(R(\tau|\mu,\beta)\)</span>. 对于不均衡数据情况，T 和 B 主效应的相应 <span class="math inline">\(F\)</span> 检验通常与按表 <a href="chap10.html#tab:table10-1">10.1</a> 和/或表 <a href="chap10.html#tab:table10-2">10.2</a> 中给出的顺序拟合效应所获得的结果不同。</p>
+<p>应回忆第 <a href="chap6.html#chap6">6</a> 章中的参数估计 <span class="math inline">\(\hat{{\mu}}=32,\hat{{\tau}}_1=-8,\hat{{\beta}}_1=-6,\hat{\beta}_2=-9,\hat{\gamma}_{11}=2,\hat{\gamma}_{12}=10\)</span> 不是相应参数 <span class="math inline">\(\mu,\tau_1,\beta_1,\beta_2,\gamma_{11},\gamma_{12}\)</span> 的无偏估计。事实上，这些单独的参数是不可估的。在用于求解正规方程组的置零限制下，可以证明</p>
+<p><span class="math display" id="eq:10-2">\[\begin{align}
+&amp;\hat{\mu} \,\,\text{is an unbiased estimate of}\,\, \mu+\tau_2+\beta_3+\gamma_{23} \hat{\tau}_1 \,\,\text{is an unbiased estimate of}\,\, \tau_1-\tau_2+\gamma_{13}-\gamma_{23}  -\gamma_{23} \\
+&amp;\hat{\beta}_1 \,\,\text{is an unbiased estimate of}\,\, \beta_1-\beta_3+\gamma_{21}-\gamma_{23} -\gamma_{23} \boldsymbol{\beta}_3+\boldsymbol{\gamma}_{21}
+\\
+&amp;\hat{\beta}_2 \,\,\text{is an unbiased estimate of}\,\, \beta_2-\beta_3+\gamma_{22}-\gamma_{23} \gamma_{23}\\
+&amp;\hat{\gamma}_{11} \,\,\text{is an unbiased estimate of}\,\, \gamma_{11}-\gamma_{13}-\gamma_{21}+\gamma_{23}\\
+&amp;\hat{\gamma}_{12} \,\,\text{is an unbiased estimate of}\,\, \gamma_{12}-\gamma_{13}-\gamma_{22}+\gamma_{23}
+\tag{10.2}
+\end{align}\]</span></p>
+<p>有关可估函数及其估计的更多信息，请参阅下一节。</p>
+</div>
+<div id="sec10-3" class="section level2 hasAnchor" number="10.3">
+<h2><span class="header-section-number">10.3</span> 在 SAS 中使用可估函数<a href="chap10.html#sec10-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>SAS<sup>®</sup>-GLM 程序有一个选项，可用于识别模型参数的可估函数（不使用 SAS 的读者可以跳过本节）。由于使用示例来描述可估函数是最简单的，因此请再次考虑表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据。可以使用以下语句获得该数据的 SAS-GLM 分析：</p>
+<pre class="sas"><code>PROC GLM; 
+CLASSES T B;
+MODEL y = T B T*B/&lt;selected options&gt;;</code></pre>
+<p>许多选项可以与 MODEL 语句一起使用。其中最重要的选项之一是 <code>E</code> 选项。此选项要求 SAS-GLM 打印模型参数可估函数的一般形式。回想一下第 <a href="chap6.html#chap6">6</a> 章，设计模型中参数的所有线性函数不一定都是可估的。使用 <code>E</code> 选项，SAS-GLM 会打印信息，这些信息可用于确定可估参数和不可估参数的线性组合。</p>
+<p>SAS-GLM 给出的可估函数的一般形式如表 <a href="chap10.html#tab:table10-3">10.3</a> 所示。这意味着模型参数的线性函数 <span class="math inline">\(\boldsymbol\ell^\prime\boldsymbol \beta\)</span> （其中 <span class="math inline">\(\boldsymbol\ell^{\prime}=[\ell_1,\ell_2,\ldots,\ell_{12}]\)</span> 和 <span class="math inline">\(\boldsymbol\beta^{\prime}=[\mu,\tau_1,\tau_2,\beta_1,\beta_2,\beta_3,\gamma_{11},\gamma_{12},\gamma_{13},\gamma_{21},\gamma_{22},\gamma_{23}]\)</span>）是可估的当且仅当存在常数 <span class="math inline">\(L1,L2,L4,L5,L7,L8\)</span> 使得</p>
+<p><span class="math display">\[\begin{aligned}
+\boldsymbol{\ell&#39;\beta} =
+&amp;({Ll})\mu+({L2})\tau_1+({L1}-{L2})\tau_2+({L4})\beta_1+({L5})\beta_2+({L1}-{L4}-{L5})\beta_3+({L7})\gamma_{11}\\&amp;+(\mathrm{L}8)\gamma_{12}+(\mathrm{L}2-\mathrm{L}7-\mathrm{L}8)\gamma_{13}+(\mathrm{L}4-\mathrm{L}7)\gamma_{21}+(\mathrm{L}5-\mathrm{L}8)\gamma_{22} \\
+&amp;+(L1-L2-L4-L5+L7+L8)\gamma_{23}
+\end{aligned}\]</span></p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-3">表 10.3: </span>可估函数的一般形式
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>例如，从可估函数的一般形式，我们可以看到：</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\mu\)</span> 是不可估的。因为要使得 <span class="math inline">\(\mu\)</span> 可估，至少需要同时满足 <span class="math inline">\(L1 = 1,L2 = 0\)</span> 以及 <span class="math inline">\(L1 - L2 = 0\)</span> 这三个条件，而这三个条件无法同时为真。</li>
+<li><span class="math inline">\(\tau_1\)</span> 是不可估的。因为要使得 <span class="math inline">\(\tau_1\)</span> 可估，至少需要同时满足 <span class="math inline">\(L1 = 0、L2 = 0\)</span> 以及 <span class="math inline">\(L1 - L2 = 0\)</span> 这三个条件，而这三个条件无法同时为真。</li>
+<li><span class="math inline">\(\tau_1 - \tau_2\)</span> 不可估。因为要使得 <span class="math inline">\(\tau_1 - \tau_2\)</span> 可估，至少需要同时满足 <span class="math inline">\(L1 = 0,L2 = 1,L1 - L2 =-1,L4 = 0,L5 = 0,L1 - L4 - L5 = 0,L7 = 0,L 8 = 0\)</span> 以及 <span class="math inline">\(L2 - L7 -L 8 = 0\)</span>. 然而 <span class="math inline">\(L2=1,L7=0,L8=0,L2-L7-L8\)</span> 无法同时为真。</li>
+</ol>
+<p>很明显，模型参数有许多函数是不可估的，那么模型参数有哪些有趣的函数是可估的呢？从第 <a href="chap6.html#chap6">6</a> 章中，我们知道模型参数存在可估的函数。实际上，模型参数的一组可估函数基 (a basis set of estimable functions) 定义为一组线性独立的可估函数，这样的一组函数确保了任何其他的可估函数都能够表示为此集合内可估函数的线性组合。在可估函数的一般形式中，我们可以看到，我们可以自由地选择 <span class="math inline">\(L\)</span> 中的六个，即 <span class="math inline">\(L1,L2,L4,L5,L7,L8\)</span>. 因此在一个基中有六个线性无关的可估函数，一个容易得到的基是依次让六个 <span class="math inline">\(L\)</span> 中的一个 等于 1，其余的 <span class="math inline">\(L\)</span> 都等于 0. 例如，取 <span class="math inline">\(L1 = 1\)</span> 和 <span class="math inline">\(L2 = L4 = L5 = L7 = L8 = 0\)</span>，一般形式简化为 <span class="math inline">\(\mu + \tau_2 + \beta_3 + \gamma_{23}\)</span>，这给出了一个模型参数的可估线性函数。取 <span class="math inline">\(L2 = 1\)</span> 其它的 <span class="math inline">\(L\)</span> 等于 0，一般形式简化为 <span class="math inline">\(\tau_1-\tau_2+\gamma_{13}-\gamma_{23}\)</span>，这给出了令一个模型参数的可估线性函数。以如此方式继续可得到表 <a href="chap10.html#tab:table10-4">10.4</a> 中给出的可估函数的一组基。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-4">表 10.4: </span>可估函数的一组基
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>请注意，在该基中的线性函数数量为六，这与第 <a href="chap6.html#chap6">6</a> 章讨论的 <span class="math inline">\(\boldsymbol X^\prime\boldsymbol X\)</span> 矩阵的秩相等，并且也等于该 2×3 实验中处理组合的数量。另外，请注意表 <a href="chap10.html#tab:table10-4">10.4</a> 中的可估函数与满足置零限制正规方程组的解所估计的函数完全相同（如方程 <a href="chap10.html#eq:10-2">(10.2)</a> 所示）。这不是巧合；在使用 SAS-GLM 分析数据时，可以通过将一般形式中的每个 L 设为 1，其他 L 设为 0，从而找到由正规方程组置零解估计的函数，这总是成立的。</p>
+<p>可估函数的基不是唯一的，表 <a href="chap10.html#tab:table10-5">10.5</a> 给出了另一个可估函数的基，还给出了产生这个基的 <span class="math inline">\(L1,L2,L4,L5,L7, L8\)</span> 的值。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-5">表 10.5: </span>可估函数的另一组基
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>当在 SAS-GLM model 语句上使用 <code>SOLUTION</code> 选项时，计算机将使用置零限制打印出模型参数的最小二乘估计。<code>SOLUTION</code> 选项的结果如表 <a href="chap10.html#tab:table10-6">10.6</a> 所示。注意，该 <code>SOLUTION</code> 选项的结果与第 <a href="chap10.html#sec10-2">10.2</a> 节中给出的置零解一致，为方便起见，在此重复：</p>
+<p><span class="math display">\[\hat{\mu}=32,\hat{\tau}_1=8,\hat{\beta}_1=-6,\hat{\beta}_2=-9,\hat{\gamma}_{11}=2,\hat{\gamma}_{12}=10\]</span></p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;border-bottom: 0;">
+<caption>
+<span id="tab:table10-6">表 10.6: </span>SAS-GLM 中使用 <code>SOLUTION</code> 选项获得的结果
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.6.png">
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">注释: </span> <sup></sup> 已发现 <span class="math inline">\(\boldsymbol X^\prime \boldsymbol X\)</span> 矩阵是奇异的，并且使用广义逆来求解正规方程。估计值后面跟着字母“B”的项不是唯一可估的
+</td>
+</tr>
+</tfoot>
+</table>
+<p>然而，如前所述，这些最小二乘估计值实际上并不直接估计它们各自对应的参数。事实上，正如先前所展示的那样，各个单独参数是不可估的。SAS-GLM 通过在表 <a href="chap10.html#tab:table10-6">10.6</a> 中每个最小二乘估计旁边放置字母 B 来表明这一点。表 <a href="chap10.html#tab:table10-4">10.4</a> 给出了这些估计是真正无偏估计的参数函数<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>。也就是说，<span class="math inline">\(\hat{\mu}=32\)</span> 是 <span class="math inline">\(\mu+\tau_2+\beta_3+\gamma_{23}\)</span> 的最佳无偏估计，<span class="math inline">\(\hat{{\tau}}_1={-}8\)</span> 是 <span class="math inline">\(\tau_1-\tau_2+\gamma_{13}-\gamma_{23}\)</span> 的最佳无偏估计，<span class="math inline">\(\hat{{\tau}}_2=0\)</span> 估计值为 0（这意味着它在估计零值上做得相当好），<span class="math inline">\(\hat{{\beta}}_1=-6\)</span> 是 <span class="math inline">\(\beta_1-\beta_3+\gamma_{21}-\gamma_{23}\)</span> 的最佳无偏估计，以此类推。表 <a href="chap10.html#tab:table10-6">10.6</a> 中打印的标准误是估计的实际标准误估计。即，<span class="math inline">\(\widehat {s.e.}( \hat{\mu})=0.8165,\widehat{s.e.}(\hat{\tau}_1)=1.1547\)</span>，以此类推。表 <a href="chap10.html#tab:table10-6">10.6</a> 中的 <span class="math inline">\(t\)</span> 统计量检验被估计的相应函数是否等于零。例如对应于 <span class="math inline">\(\hat \mu\)</span> 的 <span class="math inline">\(t=39.19\)</span>，检验 <span class="math inline">\(H_0\colon\mu+\tau_2+\beta_3+\gamma_{23}=0\)</span>. 这样的检验通常不是很有趣。通过在 SAS-GLM 程序中使用 CONTRAST 或 ESTIMATE 语句，人们可以对选择考虑的参数的任何可估线性组合进行推断。线性组合不必是对比，但它必须是可估的。幸运的是，SAS-GLM 总是检查指定的线性组合是否是可估的函数。如果是，则 ESTIMATE 语句给出其最佳无偏估计、标准误估计并检验被估参数函数是否等于零的 <span class="math inline">\(t\)</span> 统计量和 <span class="math inline">\(p\)</span> 值。CONTRAST 语句允许同时检验几个可估函数，并给出 <span class="math inline">\(F\)</span> 统计量及其 <span class="math inline">\(p\)</span> 值，如第 <a href="chap1.html#chap1">1</a> 章所述。在我们的例子中，正确使用 ESTIMATE 语句需要以下形式：</p>
+<pre class="sas"><code>ESTIMATE &#39;label&#39; INTERCEPT C1 T C2 C3 B C4 C5 C6 T*B C7 C8 C9 C10 C11 C12;</code></pre>
+<p>如果一个特定效应的所有系数都为零，则该效应及其系数不需要包含在 ESTIMATE 语句中。要使用 CONTRAST 语句，只需在上述形式中将单词 ESTIMATE 替换为 CONTRAST。例如，要获得表 <a href="chap10.html#tab:table10-5">10.5</a> 中给出的可估函数的最佳估计，可以使用：</p>
+<ol style="list-style-type: decimal">
+<li><code>ESTIMATE 'OVERALL MEAN' INTERCEPT 1 T -5 -5 B .33333 .33333 .33333 T*B .16667 .16667 .16667 .16667 .16667 .16667;</code></li>
+<li><code>ESTIMATE 'TI -T2' T 1 —1 T*B .33333 .33333 .33333 —.33333 —.33333 -.33333;</code></li>
+<li><code>ESTIMATE 'Bl -B3' B 1 0 -1 T*B .5 0 -.5 .5 0 -.5;</code></li>
+<li><code>ESTIMATE 'B2 —B3' B 0 1 -1 T*B 0 .5 -.5 0 .5 -.5;</code></li>
+<li><code>ESTIMATE 'INT1' T*B 1 0 -1 -1 0 1</code>;</li>
+<li><code>ESTIMATE 'INT2' T*B O 1 -1 0 -1 1</code>;</li>
+</ol>
+</div>
+<div id="sec10-4" class="section level2 hasAnchor" number="10.4">
+<h2><span class="header-section-number">10.4</span> I–IV 型假设<a href="chap10.html#sec10-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本书的许多读者可能已经意识到，SAS-GLM 为用户提供了从四种类型的平方和中选择一种来检验假设的选项。本节主要涉及定义和解释相应的四种类型的假设。表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据将用于说明这些假设。如第 <a href="chap10.html#sec10-2">10.2</a> 节所述，I 型平方和是通过以序贯方式拟合双向效应模型获得的。每一步所获平方和是衡量该步添加特定项的重要性的指标，是通过在模型中包含该项可以减少残差平方和的量。II 型分析也是利用模型比较技术获得的。针对模型中处于相同或较低水平的每个其他效应，调整与每个效应对应的平方和。因此，对应于 T 效应的 II 型平方和为 <span class="math inline">\(R(\tau|\mu,\beta)\)</span>，对应于 B 效应的 II 型平方和为 <span class="math inline">\(R(\beta|\mu,\tau)\)</span>. 稍有困惑的读者应该参阅第 <a href="#sec16-3"><strong>??</strong></a> 节，因为三向处理结构的 I 型和 II 型分析的定义将有助于澄清 I 型平方和与 II 型平方和之间的差异。表 <a href="chap10.html#tab:table10-7">10.7</a> 显示了双向效应模型的 I 型和 II 型平方和，表 <a href="chap10.html#tab:table10-8">10.8</a> 给出了表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的 II 型平方和以及检验统计量。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-7">表 10.7: </span>I 型和 II 型平方和的定义
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-8">表 10.8: </span>II 型方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>我们建议实验者根据均值模型中的参数而不是效应模型中的参数来思考。使用效应模型来拟合双向实验的主要优点是，许多有趣的假设能够被自动检验；这使得实验者进行相关工作变得更为便捷。效应模型的缺点是实验者很难准确理解 I 型和 II 型平方和检验的内容。均值模型的主要优点是能够准确地理解正在检验和/或估计的内容。均值模型的缺点是实验者必须编写自己的 ESTIMATE 和 CONTRAST 语句来获得感兴趣的检验统计量。<strong>我们希望实验者对效应模型和均值模型都有所了解：效果模型可用于自动获得许多感兴趣的统计量，均值模型可用于识别感兴趣统计量所估计或检验的内容</strong>。</p>
+<p>I 型和 II 型平方和检验了哪些假设？用 I 型平方和检验的假设称为 I 型假设。表 <a href="chap10.html#tab:table10-9">10.9</a> 给出了 I 型分析检验的假设，对应的模型是在均值模型参数框架下的模型 <a href="chap10.html#eq:10-1">(10.1)</a>，数据来源于表 <a href="chap9.html#tab:table9-1">9.1</a> <a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> 。稍后我们将展示如何从 SAS-GLM 程序中确定这些假设。显然，实验者很少对表 <a href="chap10.html#tab:table10-9">10.9</a> 中对应于 T 和 B 的假设感兴趣，并且随着表 <a href="chap9.html#eq:9-1">(9.1)</a> 中一个或多个单元格中样本量的变化，假设也会发生变化。与 T×B 对应的假设相当于检验无交互作用假设。也就是说，在这个特定示例中，对比</p>
+<p><span class="math display">\[\mu_{11}-\mu_{13}-\mu_{21}+\mu_{23}\quad\mathrm{and}\quad\mu_{12}-\mu_{13}-\mu_{22}+\mu_{23}\]</span></p>
+<p>张成交互作用空间 (span the iteraction space). 表 <a href="chap10.html#tab:table10-10">10.10</a> 给出了以均值模型参数表示的双向实验的 I 型假设的一般公式。注意，从一般形式中我们可以看到，T 的 I 型假设使用每个单元格内的样本量作为权重来比较行单元格均值的加权平均值。例如，对于表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据，T 的 I 型假设可以写成</p>
+<p><span class="math display">\[H_0{:}\frac{3\mu_{11}+2\mu_{12}+3\mu_{13}}8=\frac{2\mu_{21}+3\mu_{212}+3\mu_{213}}8\]</span></p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-9">表 10.9: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的均值模型 I 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.9.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-10">表 10.10: </span>用均值模型参数表示的双向效应模型 I 型假设的一般形式
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.10.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>对于表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据，表 <a href="chap10.html#tab:table10-11">10.11</a> 中给出了根据平均模型参数进行 II 型分析检验的假设。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-11">表 10.11: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的均值模型进行 II 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.11.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>对于一般模型，T 效应对应的行检验的 II 型假设为</p>
+<p><span class="math display" id="eq:10-3">\[\begin{equation}
+\sum_{j=1}^b\left(n_{ij}-\frac{n_{ij}^2}{n_{\cdot j}}\right)\mu_{ij}=\sum_{i^{\prime}=1}^t\sum_{j=1}^b\frac{n_{ij}n_{i^{\prime}j}}{n_{\cdot j}}\mu_{i^{\prime}j},\quad i=1,2,\ldots,t
+\tag{10.3}
+\end{equation}\]</span></p>
+<p>表 <a href="chap10.html#tab:table10-12">10.12</a> 和表 <a href="chap10.html#tab:table10-13">10.13</a> 给出了根据方程 <a href="chap10.html#eq:10-1">(10.1)</a> 中的效应模型参数对表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据进行的 I 型和 II 型假设。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-12">表 10.12: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的效应模型进行 I 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.12.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-13">表 10.13: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的效应模型进行 II 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.13.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>对表 <a href="chap10.html#tab:table10-10">10.10</a>-<a href="chap10.html#tab:table10-13">10.13</a> 的检查表明，I 型和 II 型分析检验的主效应假设可能不是很有趣。此外，拒绝或接受这些假设可能不容易解释。</p>
+<p>计算效应模型平方和的第三种方法如下：</p>
+<ol style="list-style-type: decimal">
+<li>对于处理 T 的 t 个水平，生成 t - 1 个哑变量 (dummy variables)，对于处理 B 的 b 个水平，生成 b - 1 个哑变量。创建与 <span class="math inline">\(\tau\)</span> 和 <span class="math inline">\(\beta\)</span> 对应的哑变量，以便在具有哑变量的模型中有 <span class="math inline">\(\tau_t=-(\tau_1+\tau_2+\cdots+\tau_{t-1})\)</span> 和 <span class="math inline">\(\beta_t=-(\beta_1+\beta_2+\cdots+\beta_{t-1})\)</span>.</li>
+<li>T 和 B 之间的交互作用由它们相应的哑变量的乘积表示。特别的，对于 <span class="math inline">\(j=1,2,\cdots,b\)</span> 有 <span class="math inline">\(\gamma_{tj}=-(\gamma_{1j}+\gamma_{2j}+\cdots+\gamma_{t-1j})\)</span> 以及对于 <span class="math inline">\(i=1,2,\cdots,t\)</span> 有 <span class="math inline">\(\gamma_{ib}=-(\gamma_{i1}+\gamma_{i2}+\cdots+\gamma_{ib-1})\)</span>.</li>
+<li>拟合具有处理变量所有哑变量及其交互作用的模型，并获得残差平方和。这相当于全效应模型 (full-effects model) 的残差平方和。</li>
+<li>接下来，拟合一个模型，其中包含所有哑变量，除了与正在检验的主效应或交互作用对应的哑变量。该简化模型的残差平方和与步骤 3 中模型的残差平方和之间的差值就是与该效应对应的平方和。</li>
+</ol>
+<p>由此产生的分析称为 III 型分析。它也被称为 Yates’s weighted squares of means technique. 当观测到所有处理组合时，III 型分析检验的假设与均衡数据集检验的假设相同。表 <a href="chap10.html#tab:table10-14">10.14</a> 给出了这些 III 型假设的平均模型参数，表 <a href="chap10.html#tab:table10-15">10.15</a> 给出了效应模型参数。这些假设通常是实验者想要的，表 <a href="chap10.html#tab:table10-16">10.16</a> 给出了表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的 III 型平方和。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-14">表 10.14: </span>基于均值模型的效应模型的 III 型假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.14.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-15">表 10.15: </span>根据效应模型参数对效应模型的 III 型假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.15.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-16">表 10.16: </span>III 型方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.16.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>对于表 <a href="chap9.html#tab:table9-3">9.3</a> 中的数据，通过 Yates’s method 重新参数化的模型的矩阵形式为</p>
+<p><span class="math display">\[\begin{bmatrix}19\\20\\21\\24\\22\\25\\25\\25\\27\\21\\24\\21\\32\\33\end{bmatrix}=\begin{bmatrix}1&amp;-1&amp;1&amp;0&amp;-1&amp;0\\1&amp;-1&amp;1&amp;0&amp;-1&amp;0\\1&amp;-1&amp;0&amp;1&amp;0&amp;-1\\1&amp;-1&amp;0&amp;1&amp;0&amp;-1\\1&amp;-1&amp;0&amp;1&amp;0&amp;-1\\1&amp;-1&amp;-1&amp;-1&amp;1&amp;1\\1&amp;-1&amp;-1&amp;-1&amp;1&amp;1\\1&amp;-1&amp;-1&amp;-1&amp;1&amp;1\\1&amp;1&amp;1&amp;0&amp;1&amp;0\\1&amp;1&amp;1&amp;0&amp;1&amp;0\\1&amp;1&amp;1&amp;0&amp;1&amp;0\\1&amp;1&amp;0&amp;1&amp;0&amp;1\\1&amp;1&amp;0&amp;1&amp;0&amp;1\\1&amp;1&amp;-1&amp;-1&amp;-1&amp;-1\\1&amp;1&amp;-1&amp;-1&amp;-1&amp;-1\\1&amp;1&amp;-1&amp;-1&amp;-1&amp;-1\end{bmatrix}\begin{bmatrix}\mu\\\tau_1\\\beta_1\\\beta_2\\\gamma_{11}\\\gamma_{12}\end{bmatrix}+\begin{bmatrix}{\varepsilon}_{111}\\{\varepsilon}_{112}\\{\varepsilon}_{113}\\{\varepsilon}_{121}\\{\varepsilon}_{122}\\{\varepsilon}_{131}\\{\varepsilon}_{132}\\{\varepsilon}_{133}\\{\varepsilon}_{211}\\{\varepsilon}_{212}\\{\varepsilon}_{213}\\{\varepsilon}_{221}\\{\varepsilon}_{222}\\{\varepsilon}_{231}\\{\varepsilon}_{232}\\{\varepsilon}_{233}\end{bmatrix}\]</span></p>
+<p>请注意，上述设计矩阵中的第五列（对应于 <span class="math inline">\(\gamma_{11}\)</span>）是第二列和第三列（对应于 <span class="math inline">\(\tau_{1}\)</span> 和 <span class="math inline">\(\beta_1\)</span>）的乘积，第六列（对应于 <span class="math inline">\(\gamma_{12}\)</span>）是第二列和第四列的乘积（对应于 <span class="math inline">\(\tau_1\)</span> 和 <span class="math inline">\(\beta_2\)</span>）。</p>
+<p>SAS-GLM 引入了第四种生成与主效应及其交互作用对应的平方和的方法。当观测到所有处理组合时，IV 型分析检验的假设与 III 型分析检验的假设相同；然而，当未观测到某些处理组合时，III 型和 IV 型分析不一致。我们将在第 <a href="#chap14"><strong>??</strong></a> 章讨论 IV 型假设的构建。</p>
+<p>作为本节的总结，在分析没有缺失处理组合的双向处理结构模型中的数据时，我们提出以下建议：</p>
+<ol style="list-style-type: decimal">
+<li>如果实验者想比较两种处理的效应，她应该关注 III 型分析所检验的假设。这些假设等价于在均衡或相等子类数量情况下检验的假设。</li>
+<li>如果实验者有兴趣建立一个模型来预测特定处理组合的效应，那么她可以使用 I 型和/或 II 型分析。</li>
+<li>在抽样调查实验中，每个处理组合的观测数量通常与这些组合在总体中实际发生的频率成正比。在这种情况下，实验者可能对基于 <span class="math inline">\(R(\tau|\mu,\beta)\)</span> 和 <span class="math inline">\(R(\beta|\mu,\tau)\)</span> 的假设最感兴趣，因为这些平方和检验了有关行均值和列均值的加权平均值的假设，权重与观测到的样本量成正比。如果使用 SAS-GLM，这可能需要两次 I 型分析，一次先在模型中纳入 T，另一次则先在模型中纳入 B.</li>
+</ol>
+</div>
+<div id="sec10-5" class="section level2 hasAnchor" number="10.5">
+<h2><span class="header-section-number">10.5</span> 在 SAS-GLM 中使用 I–IV 型可估函数<a href="chap10.html#sec10-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在本节中，我们展示了如何使用 SAS-GLM 提供的信息来确定由不同类型的平方和检验的假设（不使用 SAS-GLM 的读者可以跳过本节）。在第 <a href="chap10.html#sec10-3">10.3</a> 节中，我们讨论了通过使用 MODEL 语句上的 <code>E</code> 选项获得的可估函数的一般形式。如果选择了 <code>E1</code> 选项，SAS-GLM 将为每个效应打印 I 型可估函数的一般形式。当使用效应模型时，该选项对表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的结果如表 <a href="chap10.html#tab:table10-17">10.17</a> 所示。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-17">表 10.17: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的 SAS-GLM 的 I 型可估函数
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.17.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>根据表 <a href="chap10.html#tab:table10-17">10.17</a>，我们发现 <span class="math inline">\(\boldsymbol \beta=[\mu,\tau_1,\tau_2,\beta_1,\beta_2,\beta_3,\gamma_{11},\gamma_{12},\gamma_{13},\gamma_{21},\gamma_{22},\gamma_{23}]\)</span> 的线性组合 <span class="math inline">\(\boldsymbol \ell^\prime \boldsymbol \beta\)</span> 是 I 型可估函数当且仅当存在常数 <span class="math inline">\(L2\)</span> 使得</p>
+<p><span class="math display">\[\begin{aligned}
+\boldsymbol \ell^\prime \boldsymbol \beta  =&amp;(L2)\tau_1-(L2)\tau_2+(0.125\cdot L2)\beta_1-(0.125\cdot L2)\beta_2 \\
+&amp;+(0.375\cdot L2)\gamma_{11}+(0.25\cdot L2)\gamma_{12}+(0.375\cdot L2)\gamma_{13} \\
+&amp;-(0.25\cdot L2)\gamma_{21}-(0.375\cdot L2)\gamma_{22}-(0.375\cdot L2)\gamma_{23}
+\end{aligned}\]</span></p>
+<p>T 的 I 型可估函数的基可以通过选择 <span class="math inline">\(L2\)</span> 的特定值来获得，例如 <span class="math inline">\(L2 = 1\)</span> 或 <span class="math inline">\(L2 = 8\)</span>. 我们可以自由地仅选择可估函数一般形式的 <span class="math inline">\(L\)</span> 中的一个，其对应于与 T 的 I 型平方和相关的 1 个自由度；剩下的所有 <span class="math inline">\(L\)</span> 都由我们对 <span class="math inline">\(L2\)</span> 的选择决定。对于我们的示例，<span class="math inline">\(L1 = 0,L4 = 0.125 · L,L5 = -0.125 · L2,L7 = 0.375 · L2\)</span> 和 <span class="math inline">\(L8 = 0.25 · L2\)</span>.</p>
+<p>取 <span class="math inline">\(L2=1\)</span>，I 型可估函数的基为</p>
+<p><span class="math display">\[\{\tau_1-\tau_2+(1/8)(\beta_1-\beta_2)+(1/8)(3\gamma_{11}+2\gamma_{12}+3\gamma_{13}-2\gamma_{21}-3\gamma_{22}-3\gamma_{23})\}\]</span></p>
+<p>该参数函数是通过 I 型分析与零进行比较的函数。参见表 <a href="chap10.html#tab:table10-11">10.11</a>. 另一个基可以通过取 <span class="math inline">\(L2 = 8\)</span> 来构造，由下式给出</p>
+<p><span class="math display">\[\{8\tau_1-8\tau_2+\beta_1-\beta_2+3\gamma_{11}+2\gamma_{12}+3\gamma_{13}-2\gamma_{21}-3\gamma_{22}-3\gamma_{23}\}\]</span></p>
+<p>由于 <span class="math inline">\(\mu_{ij} = \mu + \tau_i + \beta_j + \gamma_{ij}\)</span>，在均值模型参数框架下所检验的假设可以通过将效应模型表示中的 <span class="math inline">\(\gamma_{ij}\)</span> 上的系数分配给均值模型表示中的 <span class="math inline">\(\mu_{ij}\)</span> 来确定。因此，以均值模型参数表达的 T 的 I 型假设为</p>
+<p><span class="math display">\[\begin{array}{l}(3\mu_{11}+2\mu_{12}+3\mu_{13}-2\mu_{21}-3\mu_{22}-3\mu_{23})/8=0\text{ or equivalently that}\\3\mu_{11}+2\mu_{12}+3\mu_{13}-2\mu_{21}-3\mu_{22}-3\mu_{23}=0\end{array}\]</span></p>
+<p>这是表 <a href="chap10.html#tab:table10-9">10.9</a> 中给出的关于 T 的假设。</p>
+<p>如果选择 MODEL 语句上的 <code>E2</code> 选项，SAS-GLM 将打印每种效应的 II 型可估函数的一般形式。表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据结果如表 <a href="chap10.html#tab:table10-18">10.18</a> 所示。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-18">表 10.18: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的 SAS-GLM 的 II 型可估函数
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.18.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>根据表 <a href="chap10.html#tab:table10-18">10.18</a> 可以看出，<span class="math inline">\(\boldsymbol \ell^\prime \boldsymbol \beta\)</span> 是 II 型可估函数当且仅当存在常数 <span class="math inline">\(L4,L5\)</span> 使得</p>
+<p><span class="math display">\[
+\begin{aligned}\boldsymbol{\ell}^{\prime}\boldsymbol{\beta} =&amp;(L4)\beta_1+(L5)\beta_2+(-L4-L5)\cdot\beta_3+(0.5692\cdot L4+0.0308\cdot L5)\gamma_{11}\\
+&amp;+(-0.0308\cdot L4+0.4308\cdot L5)\gamma_{12}+(-0.5385\cdot L4-0.4615\cdot L5)\gamma_{13} \\
+&amp;+(0.4308\cdot\text{L4- }0.0308\cdot L5)\gamma_{21}+(0.0308\cdot L4+0.5692\cdot L5)\gamma_{22} \\
+&amp;+(-0.4615\cdot L4-0.5385\cdot L5)\gamma_{23} \end{aligned}
+\]</span></p>
+<p>在这种情况下，我们可以选择两个 L 的值，即 <span class="math inline">\(L4\)</span> 和 <span class="math inline">\(L5\)</span>. 因此，B 的 II 型平方和有 2 个自由度。运气好的话，或者使用表 <a href="chap10.html#tab:table10-9">10.9</a> 中给出的一般形式，我们可以确定上述表达式中给出的十进制数有一个最小公分母 65. 选择 <span class="math inline">\(L4 = 1\)</span> 和 <span class="math inline">\(L5 = 0\)</span>，然后选择 <span class="math inline">\(L4 = 0\)</span> 和 <span class="math inline">\(L5 = 1\)</span>， 可以为 B 的 II 类可估函数提供一个基，在效应模型参数框架下为</p>
+<p><span class="math display">\[\begin{array}{l}\{\beta_1-\beta_3+(1/65)(37\gamma_{11}-2\gamma_{12}-35\gamma_{13}+28\gamma_{21}+2\gamma_{22}-30\gamma_{23})\mathrm{~and}\\\beta_2-\beta_3+(1/65)(2\gamma_{11}+28\gamma_{12}-30\gamma_{13}-2\gamma_{21}+37\gamma_{22}-35\gamma_{23})\}\end{array}\]</span></p>
+<p>对于第一个函数，令 <span class="math inline">\(L4 = 65\)</span> 且 <span class="math inline">\(L5 = 0\)</span>；对于第二个函数，令 <span class="math inline">\(L4 = 0\)</span> 且 <span class="math inline">\(L5 = 65\)</span>，可得到在均值模型参数框架下的基</p>
+<p><span class="math display">\[\begin{gathered}
+\{37{\mu}_{11}-2{\mu}_{12}-35{\mu}_{13}+28{\mu}_{21}+2{\mu}_{22}-30{\mu}_{23}\mathrm{~and} \\
+2\mu_{11}+28\mu_{12}-30\mu_{13}-2\mu_{21}+37\mu_{22}-35\mu_{23}\}
+\end{gathered}\]</span></p>
+<p>从表 <a href="chap10.html#tab:table10-17">10.17</a> 和/或表 <a href="chap10.html#tab:table10-18">10.18</a> 中 T × B 的 I 型和/或 II 型可估函数的一般形式，可以看出有两个 L 值可供选择。 通过令 <span class="math inline">\(L7 = 1\)</span> 和 <span class="math inline">\(L8 = 0\)</span>，然后令 <span class="math inline">\(L7 = 0\)</span> 和 <span class="math inline">\(L8 = 1\)</span>，可以得到 T × B 的 I 型可估函数的一个基，在效应模型参数框架下将产生</p>
+<p><span class="math display">\[\{\gamma_{11}-\gamma_{13}-\gamma_{21}+\gamma_{23}\mathrm{~and~}\gamma_{12}-\gamma_{13}-\gamma_{22}+\gamma_{23}\}\]</span></p>
+<p>在均值模型参数框架下将产生</p>
+<p><span class="math display">\[\{\mu_{11}-\mu_{13}-\mu_{21}+\mu_{23}\mathrm{~and~}\mu_{12}-\mu_{13}-\gamma_{22}+\mu_{23}\}\]</span></p>
+<p>读者可能希望验证，对于所有 <span class="math inline">\(i\ne i^\prime\)</span> 和 <span class="math inline">\(j\ne j^\prime\)</span>，每个 2 × 2 表的差 <span class="math inline">\(\mu_{ij}-\mu_{ij&#39;}-\mu_{i&#39;j}+\mu_{i&#39;j&#39;}=0\)</span> 都可以作为这个基中这两个函数的线性组合。</p>
+<p>根据表 <a href="chap10.html#tab:table10-18">10.18</a>，T 的 II 型可估函数的一般形式由下式给出</p>
+<p><span class="math display">\[\begin{array}{c}(L2)\tau_1-(L2)\tau_2+(0.3077\cdot L2)\gamma_{11}+(0.3077\cdot L2)\gamma_{12}+(0.3846\cdot L2)\gamma_{13}\\+(-0.3077\cdot L2)\gamma_{21}+(-0.3077\cdot L2)\gamma_{22}+(-0.3846\cdot L2)\gamma_{23}\end{array}\]</span></p>
+<p>这些十进制分数的最小公分母是 13；因此，取 <span class="math inline">\(L2 = 1\)</span>，T 的 II 类可估函数的基，在效应模型参数框架下为</p>
+<p><span class="math display">\[\{\tau_1-\tau_2+(1/13)(4\gamma_{11}+4\gamma_{12}+5\gamma_{13}-4\gamma_{21}-4\gamma_{22}-5\gamma_{23})\}\]</span></p>
+<p>在均值模型参数框架下为（取 <span class="math inline">\(L2=13\)</span>）</p>
+<p><span class="math display">\[\{4\mu_{11}+4\mu_{12}+5\mu_{13}-4\mu_{21}-4\mu_{22}-5\mu_{23}\}\]</span></p>
+<p>最后，我们考虑 III 和 IV 型可估函数。对于表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据，它们是相同的；如表 <a href="chap10.html#tab:table10-19">10.19</a> 所示。T 的 III 型可估函数的基，在效应模型参数框架下为</p>
+<p><span class="math display">\[\{\tau_1-\tau_2+\bar{\gamma}_{1\cdot}-\bar{\gamma}_{2\cdot}\}\]</span></p>
+<p>在均值模型参数框架下为（在两种情况下都取 <span class="math inline">\(L2=1\)</span>）</p>
+<p><span class="math display">\[\{\bar{\mu}_{\cdot 1}-\bar{\mu}_{\cdot 2}\}\]</span></p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-19">表 10.19: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的 SAS-GLM 的 III 型可估函数
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.19.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>以类似的方式，我们可得到 B 的 III 型可估函数的基，在效应模型参数框架下为</p>
+<p><span class="math display">\[\{\beta_1-\beta_3+\bar{\gamma}_{\cdot1}-\bar{\gamma}_{\cdot 3}\mathrm{~and~}\beta_2-\beta_3+\bar{\gamma}_{\cdot 2}-\bar{\gamma}_{\cdot 3}\}\]</span></p>
+<p>在均值模型参数框架下为</p>
+<p><span class="math display">\[\{\bar{\mu}_{\cdot1}-\bar{\mu}_{\cdot3}\mathrm{~and~}\bar{\mu}_{\cdot2}-\bar{\mu}_{\cdot3}\}\]</span></p>
+<p>请注意，<span class="math inline">\(H_0\colon\bar{{\mu}}_{\cdot1}-\bar{{\mu}}_{\cdot3}=0\mathrm{~and~}\bar{{\mu}}_{\cdot2}-\bar{{\mu}}_{\cdot3}=0\)</span> 为真当且仅当 <span class="math inline">\(H_0\colon\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\bar{\mu}_{3\cdot}\)</span> 为真。读者可以验证表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据的 IV 型可估函数与 III 型可估函数是否相同。</p>
+</div>
+<div id="sec10-6" class="section level2 hasAnchor" number="10.6">
+<h2><span class="header-section-number">10.6</span> 总体边际均值与最小二乘均值<a href="chap10.html#sec10-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>双向效应模型的总体边际均值定义为，对于处理 T</p>
+<p><span class="math display">\[\bar{\mu}_{i\cdot}=\mu+\tau_i+\bar{\beta}_{\cdot}+\bar{\gamma}_{i\cdot},\quad i=1,2,\ldots,t\]</span></p>
+<p>对于处理 B</p>
+<p><span class="math display">\[\bar{\mu}_{\cdot j}=\mu+\bar{\tau}_{\cdot}+\bar{\beta}_j+\overline{\gamma}_{\cdot j},\quad j=1,2,\ldots,b\]</span></p>
+<p>这些边际均值的最佳估计分别为</p>
+<p><span class="math display">\[\hat{\bar{\mu}}_{i\cdot}=\hat{\mu}+\hat{\tau}_i+\hat{\bar{\beta}}_{\cdot}+\hat{\bar{\gamma}}_i.,i=1,2,\ldots,t\quad\mathrm{and}\quad\hat{\bar{\mu}}_{\cdot j}=\hat{\mu}+\hat{\bar{\tau}}_{\cdot}+\hat{\bar{\beta}}_j+\hat{\bar{\gamma}}_{\cdot j},~j=1,2,\ldots,b\]</span></p>
+<p>这些边际均值的估计通常被称为最小二乘均值。它们各自的标准误由方程 <a href="chap9.html#eq:9-5">(9.5)</a> 和 <a href="chap9.html#eq:9-7">(9.7)</a> 给出。为了对总体边际均值的线性组合进行推断，可以使用 <a href="chap9.html#eq:9-5">(9.5)</a> 和 <a href="chap9.html#eq:9-6">(9.6)</a>。如果在 SAS-GLM 程序中使用</p>
+<pre class="sas"><code>LSMEANS T B T*B/PDIFF;</code></pre>
+<p>选项，则得到边际均值和双向单元格均值的最佳无偏估计，以及这些均值某些子集之间的成对比较。这些数据如表 <a href="chap10.html#tab:table10-20">10.20</a> 所示。请注意，T 和 B 的最小二乘均值与表 <a href="chap9.html#tab:table9-2">9.2</a> 中给出的 T 和 B 均值相同，双向均值与表 <a href="chap9.html#tab:table9-2">9.2</a> 中的单元格均值相同。表 <a href="chap10.html#tab:table10-20">10.20</a> 还提供了最小二乘均值的标准误估计和用于最小二乘均值之间成对比较的 <span class="math inline">\(p\)</span> 值。例如，<span class="math inline">\(\hat{{\mu}}_{1\cdot}\)</span> 的标准误估计为 0.51，这与第 <a href="chap9.html#sec9-5">9.5</a> 节中计算的标准误估计一致。此外，表 <a href="chap10.html#tab:table10-20">10.20</a> 中给出了将 <span class="math inline">\(\hat{{\mu}}_{1\cdot}\)</span> 与 <span class="math inline">\(\hat{{\mu}}_{2\cdot}\)</span> 进行比较的 <span class="math inline">\(p=0.0002\)</span>，这与第 <a href="chap9.html#sec9-5">9.5</a> 节中计算的 <span class="math inline">\(t\)</span> 统计量的 <span class="math inline">\(p\)</span> 值一致。可以对其他估计、标准误和检验统计量进行类似的比较。</p>
+<table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:table10-20">表 10.20: </span>边际均值和单元格均值的最佳估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.20-1.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.20-2.png">
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2010.20-3.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec10-7" class="section level2 hasAnchor" number="10.7">
+<h2><span class="header-section-number">10.7</span> 计算机分析<a href="chap10.html#sec10-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>几乎所有的统计计算包都是为了处理效应模型而不是均值模型而开发的</strong>。由于三种主要类型的假设可以检验具有不相等子类数量的均衡双向处理结构，因此必须小心确定所使用的统计软件包检验的是哪种类型。尽管这些计算软件包是为了处理效应模型而开发的，但均值模型也可以很容易地实现。使用均值模型允许用户指定处理均值之间的有意义对比。本讨论中使用的名称，即 I, II, III 和 IV 型，与 SAS 使用的名称相对应。SPSS 使用相同的表示法，并将生成 I, II 和 III 型分析。SPSS 默认使用 III 型分析。默认情况下，SAS-GLM 同时生成 I 型和 III 型分析。鼓励使用其他计算软件包的读者分析表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据，然后将其分析结果与本章和第 <a href="chap9.html#chap9">9</a> 章中的分析进行比较。这种比较应该能够揭示出他们的计算软件包生成的是哪种类型的分析。SAS-GLM 还允许如下语句来计算均值</p>
+<pre class="sas"><code>MEANS T B T*B/&lt;options&gt;;</code></pre>
+<p>然而，对于不均衡的数据，Means 语句并没有给出总体边际均值的无偏估计，而是计算行均值和列均值的加权平均值的估计值。也就是说，上述 Means 选项给出了加权均值的最佳无偏估计，其定义为</p>
+<p><span class="math display">\[\tilde{\mu}_{i.}=\frac1{n_{i\cdot}}\sum_{j=1}^{b}n_{ij}\mu_{ij},\mathrm{~}i=1,2,\ldots,t\quad\mathrm{and~}\quad\tilde{\mu}_{\cdot j}=\frac1{n_{\cdot j}}\sum_{i=1}^{t}n_{ij}\mu_{ij},\mathrm{~}j=1,2,\ldots,b\]</span></p>
+<p>实验者可能对这些加权平均值感兴趣的唯一情况可能是抽样调查实验（见第 <a href="chap10.html#sec10-4">10.4</a> 节末尾的第三条建议）。</p>
+<p>对于表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据，这些加权平均值的最佳估计值，T 加权均值为 <span class="math inline">\(\bar y_{1\cdot\cdot}=22.75\)</span> 和 <span class="math inline">\(\bar y_{2\cdot\cdot}=27.125\)</span>，B 加权均值为 <span class="math inline">\(\bar y_{\cdot1\cdot}=22.2,\bar y_{\cdot2\cdot}=23.8\)</span> 和 <span class="math inline">\(\bar y_{\cdot3\cdot}=28.0\)</span>.</p>
+</div>
+<div id="sec10-8" class="section level2 hasAnchor" number="10.8">
+<h2><span class="header-section-number">10.8</span> 结束语<a href="chap10.html#sec10-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在本章中，假设所有处理组合都被观测到，使用效应模型对子类数量不等的双向处理结构进行了分析。尽管均值模型可以回答所有可能提出的问题，但在这里使用了效应模型，因为现有的大部分统计计算软件都使用效应模型。讨论了 I–III 型分析以及每种分析类型的使用条件。在几乎所有情况下，III 型分析将是首选的分析。III 型分析与第九章中给出的分析相同。将总体边际均值与加权边际均值进行对比，并考虑每种均值的适用性。</p>
+<p>值得注意的是，如果关于表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据建立双向加性模型，</p>
+<p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+\varepsilon_{ijk},\quad i=1,2,\ldots,t;\quad j=1,2,\ldots,b;\quad k=1,2,\ldots,n_{ij}\]</span></p>
+<p>在包括交互项的双向模型分析中，T 和 B 的 II 型和 III 型平方和将彼此相同，并且它们都等于包含交互项的双向模型分析中 T 和 B 的 II 型平方和。</p>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="20">
+<li id="fn20"><p>The functions of the parameters that these estimators are really unbiased estimates of are those given in Table 10.4.<a href="chap10.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>原文：Table 10.9 gives the hypotheses tested by a type I analysis of the data in Table 9.1 for model (10.1) in terms of the parameters in a means model.<a href="chap10.html#fnref21" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap9.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap11.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": false,
+"smooth_scroll": false,
+"search": {
+"engine": "lunr"
+}
+},
+"toc_float": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,273 @@
+
+# 使用均值模型分析缺失处理组合的双向处理结构 {#chap13}
+
+在本章和接下来的两章中，我们讨论从未观测到某些处理组合时双向处理结构的分析。这类实验情况在实践中经常发生，大部分是偶然的，但有时是有意为之。当实验者确实可以控制实验时，应格外小心以确保观测到所有处理组合。
+
+许多统计软件包包含计算缺失处理组合的实验的检验统计量的例程，但本章显示这些检验统计量的观测值（如果有的话）通常没有什么意义。因此，当实际上自动提供的分析通常不是感兴趣的分析时，可用的统计包可能给实验者关于分析的虚假的安全感。以下各节指出了一些问题并提供了获得适当、有意义的分析方法。
+
+## 参数估计 {#sec13-1}
+
+正如在第 \@ref(chap9) 章中一样，缺失处理组合的影响使分析变得足够复杂，以至于使用了一组非常简单的假设数据来帮助讨论。第 \@ref(chap15) 章讨论了一个现实的例子。
+
+<table>
+<caption>(\#tab:table13-1)缺失处理组合的双向实验</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.1.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+考虑表 \@ref(tab:table13-1) 中的假设数据，来自完全随机设计的双向处理结构，其中处理 T 和 B 各有三个水平。设 $\mu_{ij}$ 表示当处理 $T_i$ 和 $B_j$ 被施加到随机选择的实验单元时的预期响应。这个实验的一般均值模型是
+
+\begin{equation}
+Y_{ijk}=\mu_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;\quad j=1,2,\ldots,b;\quad k=1,2,\ldots,n_{ij}
+(#eq:13-1)
+\end{equation}
+
+其中 ${\varepsilon}_{i{j}k}\thicksim{i}.{i}.{d}.{N}(0,{\sigma}^2)$. 如果对任何 $i $和 $j$ 都有 $n_{ij}=0$，则处理组合 $T_i$ 和 $B_j$ 未观测到。表 \@ref(tab:table13-2) 包含至少观测到一次的那些处理组合的单元格均值参数。注意，即使表 \@ref(tab:table13-2) 没有对应于 $(1，2)$ 单元格和 $(3，3)$ 单元格的单元格均值参数，也假设存在这样的参数。也就是说，我们令 $\mu_{12}$ 和 $\mu_{33}$ 分别表示对应于 $(1，2)$ 单元格和 $(3，3)$ 单元格的均值模型参数。
+
+<table>
+<caption>(\#tab:table13-2)表 \@ref(tab:table13-1) 中数据的单元格均值参数</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.2.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+每当处理组合缺失时，如果不对模型中的参数做出一些额外的假设，就无法检验某些假设。涉及与缺失单元格对应参数的假设通常不能被检验。例如，如果不对 $\mu_{12}$ 和/或 $\mu_{33}$ 进行一些假设 (assumptions)，就无法检验涉及 $\mu_{12}$ 和/或 $\mu_{33}$ 的假设 (hypothesis). 例如，如果能够假设 $\mu_{12}=\mu_{11}$，则可以检验涉及 $\mu_{12}$ 的假设，因为对于表 \@ref(tab:table13-1) 中的数据，可以通过 $\hat \mu_{11}=(2+4)/2=3$ 来估计 $\mu_{12}$. 大多数实验者不愿意做出这种假设。对于表 \@ref(tab:table13-1) 中的数据，除非人们愿意对这两个参数做出一些假设，否则不可能估计（或检验）涉及参数 $\mu_{12}$ 和 $\mu_{33}$ 的线性组合。一个常见的假设是，T 的水平和 B 的水平之间没有交互作用。这相当于假设 (assuming)
+
+$$\mu_{12}=\mu_{11}-\mu_{21}+\mu_{22}\quad\mathrm{and}\quad\mu_{33}=-\mu_{22}+\mu_{23}+\mu_{32}$$
+
+以及假设
+
+$$\mu_{11}-\mu_{13}-\mu_{21}+\mu_{23}=0\quad\mathrm{and}\quad\mu_{21}-\mu_{22}-\mu_{31}+\mu_{32}=0$$
+
+在我们看来，如果没有一些支持性的实验证据表明这些假设可能是真实的，就不应该做出这样的假设。实验者往往愿意假设他们的任何实验中的因素或处理之间不存在交互作用，主要是因为他们不知道如何处理这种交互作用，或者因为他们认为自己对此不感兴趣。这两者都不是假设两组处理之间没有交互作用的正当理由。如果存在交互作用，实验者必须处理它，并且必须有兴趣对交互作用进行推断。在第 \@ref(chap8) 章中，我们讨论了当观察到所有处理组合时处理交互作用的方法。彼时考虑的问题类型也可以在此时考虑。
+
+如前所述，不可能对涉及缺失处理组合参数的函数做出推断。例如，不可能检验 $\bar \mu_{1\cdot}=\bar \mu_{2\cdot}=\bar \mu_{3\cdot}$ 或 $\bar \mu_{\cdot1}=\bar \mu_{\cdot2}=\bar \mu_{\cdot3}$，因为这些假设涉及我们没有任何信息的参数。事实上，估计所有总体边际均值也是不可能的。对于上述数据，无法估计 $\bar \mu_{1\cdot}$ 和 $\bar \mu_{3\cdot}$ ，也无法估计 $\bar \mu_{\cdot2}$ 和 $\bar \mu_{\cdot3}$. 然而，我们可以估计 $\bar \mu_{2\cdot}$ 和 $\bar \mu_{\cdot1}$ 因为这些边际均值参数不涉及与缺失单元格对应的参数。正如人们所期望的那样，模型 \@ref(eq:13-1) 参数的最佳估计是
+
+$$\hat{\mu}_{ij}=\bar{y}_{ij\cdot}\quad i=1,2,\ldots,t;j=1,2,\ldots,b\mathrm{~if~}n_{ij}>0$$
+
+以及
+
+$$\hat{{\sigma}}^2=\frac{\sum_{ijk}(y_{ijk}-\bar{y}_{ij\cdot})^2}{N-C}$$
+
+其中 $N = n_{\cdot\cdot}$ 且 C = 观测到的处理组合总数。如果 $n_{ij} > 0$，则 $\hat\mu_{ ij}$ 的抽样分布为 $N(\mu_{ij}, \sigma^2 /n_{ij}), i = 1, 2, \cdots , t; j = 1, 2, \cdots , b$ 且 $(N - C)\hat\sigma^2/\sigma^2$ 的抽样分布为 $\chi^2(N - C)$. 另外，$\hat\mu_{ ij}, i = 1, 2, \cdots , t; j = 1, 2, \cdots , b$ 和 $\hat\sigma^2$ 在统计上是独立的。
+
+## 假设检验和置信区间 {#sec13-2}
+
+显然，分析缺少处理组合的实验的一种方法是使用第 \@ref(chap1) 章中讨论的程序；事实上，这往往是最好的方法。也就是说，第 \@ref(chap1) 章中的程序可用于检验与观测到的处理组合对应的 $\mu_{ij}$ 的任何线性组合的假设。我们使用表 \@ref(tab:table13-1) 中的数据进行说明。
+
+### 示例 13.1 {#sec13-2-1}
+
+假设我们希望获得表 \@ref(tab:table13-1) 中 $\bar\mu_{2\cdot}$ 的 95% 置信区间。首先，观测单元格中的均值估计为 $\hat\mu_{11}=3,\hat\mu_{13}=6.5,\hat\mu_{21}=3,\hat\mu_{22}=14,\hat\mu_{23}=9.5,\hat\mu_{31}=6,\hat\mu_{32}=9$，并且 $\sigma^2$ 的估计为
+
+$$
+\begin{aligned}
+\hat\sigma^2=&\frac{1}{11-7}[(2-3)^2+(4-3)^2+(7-6.5)^2+(6-6.5)^2+(3-3)^2+(14-14)^2\\
+&+(10-9.5)^2+(9-9.5)^2+(6-6)^2+(6-6)^2+(9-9)^2]\\
+=&\frac{3}{4}\\=&0.75
+\end{aligned}
+$$
+
+此外，实验误差 $\sigma^2$ 的估计基于 4 个自由度。 $\bar\mu_{2\cdot}$ 的最佳估计为 $\hat{\bar\mu}_{2\cdot} = (3 + 14 + 9.5)/3 = 5.5$ ，其估计标准误差为
+
+$$\widehat{s.e.}(\hat{\bar{\mu}}_{2\cdot})=\frac{\sqrt{\hat{\sigma}^2\left(\frac1{n_{21}}+\frac1{n_{22}}+\frac1{n_{23}}\right)}}b=\frac{\sqrt{0.75\left(\frac11+\frac11+\frac12\right)}}3=0.4564$$
+
+因此，$\bar\mu_{2\cdot}$ 的 95% 置信区间为 $5.5 ± (2.776)(0.4564) = 5.5 ± 1.267$ 或 $4.233 < \bar\mu_{2\cdot}< 6.767$.
+
+假设我们希望确定在这个双向实验中是否存在与缺失单元格相关的交互作用。一般来说，如果观察到所有九种处理组合，则 3 × 3 实验中的交互作用检验将基于 4 个自由度，但由于缺少两个单元格，因此在这种情况下只有两个线性独立的对比来衡量交互作用。衡量相互作用的两个线性相关对比是
+
+$$\mu_{11}-\mu_{13}-\mu_{21}+\mu_{23}\quad\mathrm{~and~}\quad\mu_{21}-\mu_{22}-\mu_{31}+\mu_{32}$$
+
+因此，考虑检验
+
+$$H_{0T\times B}\colon\mu_{11}-\mu_{13}-\mu_{21}+\mu_{23}=0\quad\mathrm{and}\quad\mu_{21}-\mu_{22}-\mu_{31}+\mu_{32}=0$$
+
+使用第 \@ref(chap1) 章中介绍的矩阵程序，我们可以通过检验 $\boldsymbol C\boldsymbol \mu = \boldsymbol 0$ 来检验上述假设，其中
+
+$$\boldsymbol{C}=\begin{bmatrix}1&-1&-1&0&1&0&0\\0&0&1&-1&0&-1&1\end{bmatrix}\quad\mathrm{and}\quad\boldsymbol{\mu}=\begin{bmatrix}\mu_{11}\\\mu_{13}\\\mu_{21}\\\mu_{22}\\\mu_{23}\\\mu_{31}\\\mu_{32}\end{bmatrix}$$
+
+因 $H_{0T\times B}$ 而导致的平方和为
+
+$$SS_{T\times B}=(\boldsymbol C\hat{\boldsymbol\mu})^{\prime}(\boldsymbol C\boldsymbol D\boldsymbol C)^{-1}\left.(\boldsymbol C\hat{\boldsymbol \mu})^{\prime}\quad\mathrm{where~}D=\mathrm{Diag}\left(\frac12,\frac12,1,1,\frac12,\frac12,1\right)\right. $$
+
+我们得到
+
+$$SS_{T\times B}=\begin{bmatrix}3&-8\end{bmatrix}\begin{bmatrix}\frac52&-1\\-1&\frac72\end{bmatrix}^{-1}\begin{bmatrix}3\\-8\end{bmatrix}=18.5161$$
+
+此平方和基于 2 个自由度。相应的 $F$ 统计量为 $F = 18.5161/0.75 = 12.34$，具有 2 和 4 个自由度；该 $F$ 在 0.0194 水平上显著。
+
+由于缺少两个单元格，无法关于 \@ref(tab:table13-1) 中的数据检验 $\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\bar{\mu}_{3\cdot}$。不过，可以检验
+
+$$H_{0T}{:}(\mu_{11}+\mu_{13})/2=(\mu_{21}+\mu_{23})/2\quad\mathrm{and}\quad(\mu_{21}+\mu_{22})/2=(\mu_{31}+\mu_{32})/2$$
+
+从广义上讲，这些是 T 主效应类的假设，因为第一个方程在对 $B_1$ 和 $B_3$ 进行平均后将 $T_1$ 与 $T_2$ 进行比较，而第二个方程在对 $B_1$ 和 $B_2$ 进行平均后将 $T_2$ 与 $T_3$ 进行比较。实验者必须单独或同时确定这些假设中的任何一个是否有意义；我们用它们来说明这个方法。
+
+为了检验 $H_{0T}$ 给出的假设，我们可以取
+
+$$\boldsymbol C=\begin{bmatrix}1&1&-1&0&-1&0&0\\0&0&1&1&0&-1&-1\end{bmatrix}$$
+
+再取 $D=\mathrm{Diag}\left(\frac12,\frac12,1,1,\frac12,\frac12,1\right)$. 那么因 $H_{0T}$ 而导致的平方和为
+
+$$SS_T=(\boldsymbol C\hat{\boldsymbol{\mu}})^{\prime}(\boldsymbol C\boldsymbol D\boldsymbol C)^{-1}(\boldsymbol C\hat{\boldsymbol{\mu}})^{\prime}=\begin{bmatrix}-3&2\end{bmatrix}\begin{bmatrix}\frac52&-1\\-1&\frac72\end{bmatrix}^{-1}\begin{bmatrix}-3\\2\end{bmatrix}=3.8065$$
+
+有 2 个自由度。合适的 $F$ 统计量为 $F = (3.8065/2)/0.75 = 2.5377$，自由度为 2 和 4，相应的 $ $值为 0.1943，因此不能拒绝 $H_{0T}$.
+
+读者可能已经注意到，对于最后两个示例，$\boldsymbol C\boldsymbol D\boldsymbol C$ 是相同的；这是巧合，一般情况下并不如此。当未观测到某些处理组合时，通常最好将实验视为单向实验，并使用类似于第 \@ref(sec1-7) 节中描述的计算例程来回答重要问题。然而，由于许多统计软件包在使用效应模型时自动提供某些检验，因此许多实验者更喜欢它们。第 \@ref(chap14) 章描述了此类分析。
+
+## 计算机分析 {#sec13-3}
+
+表 \@ref(tab:table13-1) 中的数据可以使用表 \@ref(tab:table13-3) 中的语句使用 SAS^®^-GLM 程序进行分析。由于 T 和 B 主效应不包含在 Model 语句中，并且 `Noint` 选项用作 Model 语句的选项，因而使用的是双向均值模型来刻画这些数据。分析中使用的两个 Contrast 语句对应于第 \@ref(sec13-2) 节中计算的两个平方和，即 $H_{0T×B}$ 和 $H_{0T}$ 的平方和。
+
+<table>
+<caption>(\#tab:table13-3)SAS-GLM 命令</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.3.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+数据列表如表 \@ref(tab:table13-4) 所示，可估函数的一般形式如表 \@ref(tab:table13-5) 所示。对表 \@ref(tab:table13-5) 的检查表明，单元格均值的每个线性组合都是可估的。还要注意，在可估函数的一般形式中，没有对应于两个缺失单元格的行。
+
+<table>
+<caption>(\#tab:table13-4)示例 13.1 的数据</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.4.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+<table>
+<caption>(\#tab:table13-5)可估函数</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.5.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+方差分析表如表 \@ref(tab:table13-6) 所示。F 值 122.10 对应于 I 型分析和 III 型分析正在检验所有 $\mu_{ij}$ 都等于 0 的假设的模型；也就是说，$F=122.10$ 用于检验
+
+$$H_{0}\colon\mu_{11}=\mu_{13}=\mu_{21}=\mu_{22}=\mu_{23}=\mu_{31}=\mu_{32}=0$$
+
+<table>
+<caption>(\#tab:table13-6)示例 13.1 的方差分析表</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.6.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+还应注意，误差均方为 0.75，这与第 \@ref(sec13-2) 节中给出的 $\sigma^2$ 的估计值一致。
+
+两个 Contrasts 语句的结果如表 \@ref(tab:table13-7) 所示。请注意，这些与上一节中显示的计算结果一致。Estimates 语句的结果如表 \@ref(tab:table13-8) 所示。这对应于上一节给出的 $T_2$ 主效应平均值。表 \@ref(tab:table13-9) 包含 `Solution` 选项的结果，这些结果是每个单元格均值参数的估计和标准误。这些估计值与表 \@ref(tab:table13-10) 中的估计值相同，表 \@ref(tab:table13-10) 来自 LSMeans 语句。表 \@ref(tab:table13-10) 还给出了所有双向单元格均值之间的成对比较，这些是通过在 LSMeans 语句中包含 `pdiff` 选项产生的。
+
+<table>
+<caption>(\#tab:table13-7)示例 13.1 Contrast 语句的结果</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.7.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+<table>
+<caption>(\#tab:table13-8)示例 13.1 Estimate 语句的结果</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.8.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+<table>
+<caption>(\#tab:table13-9)示例 13.1 Model 语句 `Solution` 选项的结果</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.9.png">
+</td>
+  </tr>
+</tbody>
+</table>
+
+<table style="NAborder-bottom: 0;">
+<caption>(\#tab:table13-10)示例 13.1 双向最小二乘均值</caption>
+ <thead>
+  <tr>
+   <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:center;">  <img src="table/table%2013.10.png">
+</td>
+  </tr>
+</tbody>
+<tfoot><tr><td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">注释: </span> <sup></sup> 为了确保整体保护水平，应仅使用与预先计划的比较相关的概率</td></tr></tfoot>
+</table>
+
+## 结束语 {#sec13-4}
+
+在本章中，我们讨论了在没有观测到某些处理组合的情况下会出现的一些并发症。在本章中，我们使用了均值模型（第 \@ref(chap14) 章使用了效应模型）来描述可能的分析类型。当没有观测到一些处理组合时，需记住的是，除非可以对模型中的参数做出一些额外的假设，否则一些感兴趣的假设可能是不可检验的。然而，在没有证据支持的情况下，不应做出此类假设。
+
+## 练习 {#sec13-5}
