@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 11 章 分析子类数不等的大型均衡双向实验 | 混乱数据分析：设计的实验</title>
+  <title>第 14 章 使用效应模型分析缺失处理组合的双向处理结构 | 混乱数据分析：设计的实验</title>
   <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 11 章 分析子类数不等的大型均衡双向实验 | 混乱数据分析：设计的实验" />
+  <meta property="og:title" content="第 14 章 使用效应模型分析缺失处理组合的双向处理结构 | 混乱数据分析：设计的实验" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="github-repo" content="wangzhen89/AMD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 11 章 分析子类数不等的大型均衡双向实验 | 混乱数据分析：设计的实验" />
+  <meta name="twitter:title" content="第 14 章 使用效应模型分析缺失处理组合的双向处理结构 | 混乱数据分析：设计的实验" />
   
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap10.html"/>
-<link rel="next" href="chap12.html"/>
+<link rel="prev" href="chap13.html"/>
+<link rel="next" href="chap15.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -438,37 +438,17 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap11" class="section level1 hasAnchor" number="11">
-<h1><span class="header-section-number">第 11 章</span> 分析子类数不等的大型均衡双向实验<a href="chap11.html#chap11" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>在本章中，我们提出了一种方法，用于获得均衡处理结构实验的近似分析，这些实验在每个单元格中具有不等数量的观测结果。</p>
-<div id="sec11-1" class="section level2 hasAnchor" number="11.1">
-<h2><span class="header-section-number">11.1</span> 可行性问题<a href="chap11.html#sec11-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>我们通常建议使用通用计算包，如第 <a href="chap10.html#sec10-7">10.7</a> 节中讨论的计算包，来分析不均衡的数据集，其中每个处理组合至少观察一次。然而，在实践中出现了许多这样做可能不可行的情况，特别是在发展中国家，人们可能有几个处理因素，每个因素都有几个不同的水平。在这些情况下，精确的程序需要进行多次矩阵求逆，而要求逆的矩阵的大小可能超过研究人员和可用计算机的能力。</p>
-<p>例如，考虑一个有四个因素的实验，每个因素都发生在五个水平上。为了获得精确的分析，必须能够对几个大矩阵求逆。在这种情况下，为了进行精确分析，需要求逆的最大矩阵的大小是不均衡情况下的 624×624 矩阵。显然，这样的实验并不罕见。此外，一些大型实验可能需要良好的初始起始值，以便迭代算法能够收敛到合理的解。本章中的方法可以让研究人员在难以使程序收敛的情况下找到良好的初始起始值。</p>
-<p>分析这些类型的混乱数据情况的另一种方法称为未加权均值法 (methods of unweighted means)（Bancroft 1968）。第 <a href="chap11.html#sec11-2">11.2</a> 节对双向处理结构的方法进行了描述。虽然人们很少遇到无法通过一般计算程序进行分析的双向实验，但对于双向实验，未加权均值法很容易被讨论和理解，并且这种讨论很容易推广到更大的实验情况。在继续之前，我们想指出的不是测量到的观测结果的数量使一般程序不可行，而是正在研究的处理组合的数量。</p>
-</div>
-<div id="sec11-2" class="section level2 hasAnchor" number="11.2">
-<h2><span class="header-section-number">11.2</span> 未加权均值法<a href="chap11.html#sec11-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>基本上，未加权均值法通过使用各种处理组合的观测均值来近似对应于每个效应的平方和。这里给出的公式是用于等样本量的公式；然而，如果样本量只是略有不同，它们仍然可以给出相当准确的结果。正确的平方和可以通过使用 III 型分析获得，本章中给出的公式近似于 III 型平方和。</p>
-<p>考虑第 <a href="chap9.html#chap9">9</a> 章和第 <a href="chap10.html#chap10">10</a> 章中描述的双向模型，其中因素 T 有 t 种可能性，因素 B 有 b 种可能性。令 <span class="math inline">\(\mu_{ij}\)</span> 代表人们期望在随机选择的实验单元上观测的响应，该实验单元接收 <span class="math inline">\(T_i\)</span> 与 <span class="math inline">\(B_j\)</span> 交叉的组合。令</p>
-<p><span class="math display">\[\hat{\mu}_{ij}=\bar{y}_{ij\cdot}\quad i=1,2,\ldots,t,j=1,2,\ldots,b\]</span></p>
-<p>并令</p>
-<p><span class="math display">\[\hat{\bar{\mu}_{i\cdot}}=\frac1b\sum_{j=1}^b\hat{\mu}_{ij}\quad\mathrm{~and~}\quad\hat{\bar{\mu}}_{\cdot j}=\frac1t\sum_{i=1}^t\hat{\mu}_{ij}\]</span></p>
-<p>对于检验 <span class="math inline">\(H_{0T}\colon\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\cdots=\bar{\mu}_{t\cdot}\)</span>，我们计算</p>
-<p><span class="math display">\[\begin{aligned}SST=b\sum_{i=1}^t(\hat{\bar{\mu}}_{i\cdot}-\hat{\bar{\mu}}_{\cdot\cdot})^2=\sum_{i=1}^tb\hat{\bar{\mu}}_{i\cdot}^2-bt\hat{\bar{\mu}}_{\cdot\cdot}^2\end{aligned}\]</span></p>
-<p>基于 t-1 个自由度。对于检验 <span class="math inline">\(H_{0B}{\colon}\bar{{\mu}}_{\cdot1}=\bar{{\mu}}_{\cdot2}=\cdots=\bar{{\mu}}_{\cdot b}\)</span>，我们计算</p>
-<p><span class="math display">\[SSB=t\sum_{j=1}^b(\hat{\bar{\mu}}_{\cdot j}-\hat{\bar{\mu}}_{\cdot\cdot})^2=t\sum_{j=1}^b\hat{\bar{\mu}}_{\cdot j}^2-bt\hat{\bar{\mu}}_{\cdot\cdot}^2\]</span></p>
-<p>基于 b-1 个自由度。对于所有 <span class="math inline">\(i\ne i^\prime\)</span> 和 <span class="math inline">\(j\ne j^\prime\)</span> 的检验 <span class="math inline">\(H_{0T\times B}{:{\mu}_{ij}-{\mu}_{i&#39;j}-{\mu}_{ij&#39;}+{\mu}_{i&#39;j&#39;}=0}\)</span>，我们计算</p>
-<p><span class="math display">\[SST\times B=\sum_{i=1}^t\sum_{j=1}^b(\hat{\mu}_{ij}-\hat{\bar{\mu}}_{i\cdot}-\hat{\bar{\mu}}_{\cdot j}+\hat{\bar{\mu}}_{\cdot\cdot})^2=\sum_{i=1}^t\sum_{j=1}^b\hat{\mu}_{ij}^2-b\sum_{i=1}^t\hat{\bar{\mu}}_{i\cdot}^2-t\sum_{j=1}^b\hat{\bar{\mu}}_{\cdot j}^2+bt\hat{\bar{\mu}}_{\cdot\cdot}^2\]</span></p>
-<p>基于 (t-1)(b-1) 个自由度。由于上述平方和是根据平均值计算的，因此通常的误差平方和</p>
-<p><span class="math display">\[SSError=\sum_{i=1}^t\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\bar{y}_{ij\cdot})^2\]</span></p>
-<p>需要调整。因为 <span class="math inline">\(\hat\mu_{ij}\)</span> 的方差由 <span class="math inline">\(\sigma^2/n_{ij}\)</span> 给出而不是由 <span class="math inline">\(y_{ijk}\)</span> 的方差 <span class="math inline">\(\sigma^2\)</span> 给出。该调整是通过将误差平方和除以</p>
-<p><span class="math display">\[\tilde{n}=\left[\frac1{bt}{\left(\sum_{i=1}^{t}\sum_{j=1}^{b}\frac1{n_{ij}}\right)}\right]^{-1}\]</span></p>
-<p>单元格样本量的调和平均值以给出。</p>
-<p><span class="math inline">\(\tilde{n}\)</span> 是样本量的调和平均值，它是 <span class="math inline">\(n_{ij}\)</span> 的一种可能平均值。误差自由度仍然是 N - bt. 表 <a href="chap11.html#tab:table11-1">11.1</a> 给出了未加权均值分析的方差分析表。当单元格样本量相差不大时，此分析会产生 <span class="math inline">\(F\)</span> 分布的合理近似值。通常的建议是，如果样本量的变化不超过 2 倍，则该分析是可以接受的。</p>
+<div id="chap14" class="section level1 hasAnchor" number="14">
+<h1><span class="header-section-number">第 14 章</span> 使用效应模型分析缺失处理组合的双向处理结构<a href="chap14.html#chap14" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>在第 <a href="chap13.html#chap13">13</a> 章中，我们讨论了当某些处理组合未观测到时，如何使用均值模型来分析双向处理结构。在本章中，我们考虑使用效应模型来分析相同类型的情况。使用效应模型并不能回答任何使用均值模型无法回答的问题，反之亦然。虽然均值模型非常简单且易于理解，但效应模型似乎比实际情况复杂得多。我们更喜欢使用均值模型，并且在这里讨论效应模型只是因为许多统计包似乎推荐并鼓励使用效应模型。本章考虑的效应模型是</p>
+<p><span class="math display">\[y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;~j=1,2,\ldots,b;~k=0,1,2,\ldots,n_{ij}\]</span></p>
+<p>其中 <span class="math inline">\(\varepsilon_{ijk}\sim i.i.d.N(0,\sigma^2)\)</span> 且 <span class="math inline">\(n_{ij}=0\)</span> 表示第 (i,j) 个处理组合未观测到。</p>
+<div id="i-型和-ii-型假设" class="section level2 hasAnchor" number="14.1">
+<h2><span class="header-section-number">14.1</span> I 型和 II 型假设<a href="chap14.html#i-型和-ii-型假设" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>对于缺少处理组合的双向处理结构的 I 型和 II 型分析可以定义为观测到所有组合的处理结构。也就是说，可以拟合连续的模型，并在将不同效应添加到模型中时确定残差平方和的减少量。 为了说明这一点，请考虑对表 <a href="chap13.html#tab:table13-1">13.1</a> 中的数据进行 I 型分析。我们在这里只考虑结果。对实际模型拟合结果感兴趣的读者可以参考本书的上一版本。表 <a href="chap14.html#tab:table14-1">14.1</a> 和 <a href="chap14.html#tab:table14-2">14.2</a> 分别给出了这些数据的 I 型和 II 型方差分析表。</p>
 <table>
 <caption>
-<span id="tab:table11-1">表 11.1: </span>未加权均值的方差分析表
+<span id="tab:table14-1">表 14.1: </span>I 型方差分析表
 </caption>
 <thead>
 <tr>
@@ -480,43 +460,14 @@ x
 <tbody>
 <tr>
 <td style="text-align:center;">
-<img src="table/table%2011.1.png">
+<img src="table/table%2014.1.png">
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="sec11-3" class="section level2 hasAnchor" number="11.3">
-<h2><span class="header-section-number">11.3</span> 同时推断与多重比较<a href="chap11.html#sec11-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>T 边际均值和 B 边际均值的定义与第 <a href="chap9.html#chap9">9</a> 章和第 <a href="chap10.html#chap10">10</a> 章相同。因此，T 边际均值由 <span class="math inline">\(\bar{{\mu}}_{i\cdot},i=1,2,\ldots,t\)</span> 给出，和B的边际平均值由 <span class="math inline">\(\bar{{\mu}}_{\cdot j},j=1,2,\ldots,b\)</span> 给出。这些边际均值的最佳估计分别为</p>
-<p><span class="math display">\[\hat{\bar{{\mu}}}_{i\cdot}=\frac1b\sum_{j=1}^b\hat{{\mu}}_{ij},\quad i=1,2,\ldots,t\]</span></p>
-<p>以及</p>
-<p><span class="math display">\[\hat{\bar{{\mu}}}_{\cdot j}=\frac1b\sum_{i=1}^t\hat{{\mu}}_{ij},\quad i=1,2,\ldots,t\]</span></p>
-<p><span class="math inline">\(\hat{\bar{\mu}}_{i\cdot}\)</span> 标准误的精确估计 (exact estimated standard error) 为</p>
-<p><span class="math display">\[\widehat{s.e.}(\hat{\bar{\mu}}_{i\cdot})=\frac{\hat{\sigma}}b\sqrt{\sum_{j=1}^b\frac1{n_{ij}}}\]</span></p>
-<p><span class="math inline">\(\hat{\bar{\mu}}_{\cdot j}\)</span> 标准误的精确估计 (exact estimated standard error) 为</p>
-<p><span class="math display">\[\widehat{s.e.}(\hat{\bar{\mu}}_{\cdot j})=\frac{\hat{\sigma}}t\sqrt{\sum_{i=1}^t\frac1{n_{ij}}}\]</span></p>
-<p>其中</p>
-<p><span class="math display">\[\hat{\sigma}=\sqrt{\frac{\sum_{i=1}^{t}\sum_{j=1}^{b}\sum_{k=1}^{n_{ij}}(y_{ijk}-\bar y_{ij\cdot})^2}{N-tb}}=\sqrt{ErrorMS}\]</span></p>
-<p>如果单元格样本量相差不大，则这些标准误可以分别用 <span class="math inline">\(\hat \sigma/\sqrt{}(b\tilde n)\)</span> 和 <span class="math inline">\(\hat \sigma/\sqrt{}(t\tilde n)\)</span> 近似。<span class="math inline">\(\hat{\bar{\mu}}_{i\cdot}-\hat{\bar{\mu}}_{i&#39;\cdot}\)</span> 的标准误估计为</p>
-<p><span class="math display">\[\widehat{s.e.}(\hat{\bar{\mu}}_{i\cdot}-\hat{\bar{\mu}}_{i&#39;\cdot})=\frac{\hat{\sigma}}{b}\sqrt{\sum_{j=1}^b\frac1{n_{ij}}+\sum_{j=1}^b\frac1{n_{i&#39;j}}}\]</span></p>
-<p>可用 <span class="math inline">\(\hat \sigma\sqrt{}2/\sqrt{}(b\tilde n)\)</span> 近似。类似地，</p>
-<p><span class="math display">\[\widehat{s.e.}(\hat{\bar{\mu}}_{\cdot j}-\hat{\bar{\mu}}_{\cdot j&#39;})=\frac{\hat{\sigma}}{t}\sqrt{\sum_{i=1}^t\frac1{n_{ij}}+\sum_{i=1}^t\frac1{n_{ij&#39;}}}\]</span></p>
-<p>可用 <span class="math inline">\(\hat \sigma\sqrt{}2/\sqrt{}(t\tilde n)\)</span> 近似。</p>
-<p>接下来考虑对于 <span class="math inline">\(i\ne i^\prime\)</span> 和 <span class="math inline">\(j\ne j^\prime\)</span> 的 2×2 交互对比 <span class="math inline">\(\mu_{ij}-\mu_{i&#39;j}-\mu_{ij&#39;}+\mu_{i&#39;j&#39;}\)</span>. 这种交互对比的最佳估计为 <span class="math inline">\(\hat\mu_{ij}-\hat\mu_{i&#39;j}-\hat\mu_{ij&#39;}+\hat\mu_{i&#39;j&#39;}\)</span>，其标准误估计为</p>
-<p><span class="math display">\[\widehat{s.e.}(\hat{\mu}_{ij}-\hat{\mu}_{i^{\prime}j}-\hat{\mu}_{ij^{\prime}}+\hat{\mu}_{i^{\prime}j^{\prime}})=\hat{\sigma}\sqrt{\frac1{n_{ij}}+\frac1{n_{i^{\prime}j}}+\frac1{n_{ij^{\prime}}}+\frac1{n_{i^{\prime}j}}}\]</span></p>
-<p>如果样本量相差不大，可用 <span class="math inline">\(\hat \sigma/\sqrt{}(4/\tilde n)\)</span> 近似。</p>
-<p>对于单元格均值参数的上述函数中的每一个，检验统计量由下式给出</p>
-<p><span class="math display">\[t_c=\frac{\mathrm{estimate}}{\text{estimated standard error}}\]</span></p>
-<p>其中如果 <span class="math inline">\(|t_c|&gt;t_{\alpha/2,N-tb}\)</span>，则拒绝相应的假设。此外，一个 <span class="math inline">\((1-\alpha)100\%\)</span> 置信区间为</p>
-<p><span class="math display">\[\mathrm{estimate}\pm t_{\alpha/2,N-tb}(\text{estimated standard error})\]</span></p>
-<p>可以使用第 <a href="chap3.html#chap3">3</a> 章中描述的同时推断程序，并鼓励研究人员这样做。这些想法可以推广到单元格均值和/或边际均值的更一般的对比中。如果简单地用 <span class="math inline">\(\tilde n\)</span> 代替 <span class="math inline">\(n\)</span>，则可以近似第 <a href="chap8.html#chap8">8</a> 章中的所有公式。</p>
-</div>
-<div id="sec11-4" class="section level2 hasAnchor" number="11.4">
-<h2><span class="header-section-number">11.4</span> 未加权均值的示例<a href="chap11.html#sec11-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <table>
 <caption>
-<span id="tab:table11-2">表 11.2: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中的单元格均值和边际均值
+<span id="tab:table14-2">表 14.2: </span>II 型方差分析表
 </caption>
 <thead>
 <tr>
@@ -528,26 +479,15 @@ x
 <tbody>
 <tr>
 <td style="text-align:center;">
-<img src="table/table%2011.2.png">
+<img src="table/table%2014.2.png">
 </td>
 </tr>
 </tbody>
 </table>
-<p>作为示例，请再次考虑表 <a href="chap9.html#tab:table9-1">9.1</a> 中的数据。回想一下，误差平方和为 20，自由度为 10，并且均值表在表 <a href="chap11.html#tab:table11-2">11.2</a> 中重复。<span class="math inline">\(\tilde n\)</span> 的值为</p>
-<p><span class="math display">\[\tilde{n}=\left[\frac1{bt}\left(\sum_{i=1}^t\sum_{j=1}^b\frac1{n_{ij}}\right)\right]^{-1}=\left[\frac1{(3)(2)}\left(\frac13+\frac12+\frac13+\frac12+\frac13+\frac13+\frac13\right)\right]^{-1}=\left(\frac7{18}\right)^{-1}=2.5714\]</span></p>
-<p>接着注意到</p>
-<p><span class="math display">\[\begin{aligned}
-&amp;\sum_{i,j}{\hat{\mu}}_{ij}^2 =20^2+25^2+\cdots+28^2=3830  \\
-&amp;\sum_{i,j}\hat{\bar{\mu}}_{i\cdot}^2 =23^2+27^2=1258  \\
-&amp;\sum_j\hat{\bar{\mu}}_{\cdot j}^2 =23^2+24^2+28^2=1889 \\
-&amp; \hat{\bar{\mu}}_{\cdot \cdot}^2=(25)^2=625
-\end{aligned}\]</span></p>
-<p>因此</p>
-<p><span class="math display">\[\begin{aligned}SST&amp;=3(1258)-6(625)=24\\SSB&amp;=2(1889)-6(625)=28\\SST \times B &amp;= 3830 - 3(1258) - 2(1889) + 6(625) = 28\end{aligned}\]</span></p>
-<p>方差分析表见表 <a href="chap11.html#tab:table11-3">11.3</a>。请注意，表 <a href="chap11.html#tab:table11-3">11.3</a> 中的 <span class="math inline">\(F\)</span> 统计量与表 <a href="chap9.html#tab:table9-3">9.3</a> 中给出的精确 <span class="math inline">\(F\)</span> 统计量非常相似。</p>
+<p>在第 <a href="chap10.html#chap10">10</a> 章中已经指出，当数据不均衡时，即使所有的处理组合都至少被观测一次，I 型和 II 型假设也可能没有多大意义。那么很明显，在有缺失处理组合的情况下，这两种假设也不会突然有意义。事实上，为了证明这一点是正确的，表 <a href="chap14.html#tab:table14-3">14.3</a> 和表 <a href="chap14.html#tab:table14-4">14.4</a> 给出了 I 型和 II 型分析检验的假设（均值模型），表 <a href="chap14.html#tab:table14-5">14.5</a> 和表 <a href="chap14.html#tab:table14-6">14.6</a> 给出了效应模型。这些表中的条目可以通过 SAS<sup>®</sup>-GLM 对表 <a href="chap13.html#tab:table13-1">13.1</a> 中的数据进行分析来确定，也可以使用表 <a href="chap10.html#tab:table10-9">10.9</a> 和公式 <a href="chap10.html#tab:table10-3">10.3</a> 中给出的通用公式来确定，因为这些公式也适用于缺失单元格的问题。</p>
 <table>
 <caption>
-<span id="tab:table11-3">表 11.3: </span>表 <a href="chap9.html#tab:table9-1">9.1</a> 中数据未加权均值方差分析表
+<span id="tab:table14-3">表 14.3: </span>根据均值模型对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据进行 I 型分析的假设
 </caption>
 <thead>
 <tr>
@@ -559,32 +499,14 @@ x
 <tbody>
 <tr>
 <td style="text-align:center;">
-<img src="table/table%2011.3.png">
+<img src="table/table%2014.3.png">
 </td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="sec11-5" class="section level2 hasAnchor" number="11.5">
-<h2><span class="header-section-number">11.5</span> 计算机分析<a href="chap11.html#sec11-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>尽管我们不推荐这样做，但未加权均值分析所需的统计量可以在 Excel<sup>®</sup> 和其他电子表格程序中获得。通过将实验视为单向实验并利用均值模型，可以最有效地获得未调整误差平方和。要获得未加权均值分析所需的 T, B 和 T × B 平方和，可以按照以下步骤操作。</p>
-<ol style="list-style-type: decimal">
-<li>获取每种处理组合的单元格均值。</li>
-<li>获取 T 边际均值、B 边际均值和总体均值。</li>
-<li>计算单元格均值、T 边际均值和 B 边际均值的方差。分别记为 <span class="math inline">\(S_{TB}^2,S_{B}^2,S_{T}^2\)</span>.</li>
-<li>那么</li>
-</ol>
-<p><span class="math display" id="eq:11-1">\[\begin{align}
-\text{error } SS&amp; =\sum_{i,j,k}y_{ijk}^2-(bt-1)S_{TB}^2+bt\hat{\bar{\mu}}_{\cdot\cdot}^2  \\
-SST&amp; =b(t-1)S_T^2  \\
-SSB&amp; =t(b-1)S_B^2 \\
-SST\times B&amp;=(bt-1)S_{TB}^2-b(t-1)S_T^2-t(b-1)S_B^2
-\tag{11.1}
-\end{align}\]</span></p>
-<p>如果有可以执行单向方差分析的程序，以及一个可以针对均衡数据进行双向方差分析的程序，那么她可以通过将双向处理结构视为使用均值模型的单向处理结构，从单向方差分析程序中获取误差平方和。通过用双向方差分析程序分析单元格均值，可以获得 T, B和 T×B 的平方和。表 <a href="chap11.html#tab:table11-4">11.4</a> 给出了 SAS<sup>®</sup> 代码，该代码提供执行未加权均值分析所需的统计量。如果读者希望运行此代码，那么将由她自己决定。</p>
 <table>
 <caption>
-<span id="tab:table11-4">表 11.4: </span>提供未加权均值分析所需统计量的 SAS 代码
+<span id="tab:table14-4">表 14.4: </span>根据均值模型对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据进行 II 型分析的假设
 </caption>
 <thead>
 <tr>
@@ -596,15 +518,267 @@ x
 <tbody>
 <tr>
 <td style="text-align:center;">
-<img src="table/table%2011.4.png">
+<img src="table/table%2014.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table14-5">表 14.5: </span>根据效应模型对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据进行 I 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table14-6">表 14.6: </span>根据效应模型对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据进行 II 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.6.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>接下来，我们讨论 I 型和 II 型主效应假设的可能解释。I 型和 II 型假设通常没有多大意义，除非目标是建立一个简单的模型来进行预测，而不是检验有关不同处理组合效果的假设。对于模型构建，解释与第 <a href="chap10.html#chap10">10</a> 章中的解释完全相同，我们在第 <a href="chap10.html#chap10">10</a> 章中讨论了没有缺失处理组合的案例。如第 <a href="chap10.html#chap10">10</a> 章所示，如果每个单元格中的观测数量与总体中存在的每种处理组合的实际数量成正比，那么实验者可能会对 <span class="math inline">\(R(\tau|\mu)\)</span> 和 <span class="math inline">\(R(\beta|\mu)\)</span> 感兴趣。两者都可以通过进行两个 I 型分析来获得，一个是 model 语句中首先出现 T，另一个是model 语句中首先出现 B.</p>
+</div>
+<div id="iii-型假设" class="section level2 hasAnchor" number="14.2">
+<h2><span class="header-section-number">14.2</span> III 型假设<a href="chap14.html#iii-型假设" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>当观测到所有处理组合时，III 型假设与子类数相等时检验的假设相同。当某些处理组合缺失时，无法检验此类假设，因为它们涉及没有相关信息的参数。对于表 <a href="chap13.html#tab:table13-1">13.1</a> 中的数据，我们无法估计 <span class="math inline">\(\hat \mu_{1\cdot}\)</span> 和 <span class="math inline">\(\hat \mu_{3\cdot}\)</span>，因为我们无法估计 <span class="math inline">\(\mu_{12}\)</span> 和 <span class="math inline">\(\mu_{33}\)</span>. 同样，我们也无法估计 <span class="math inline">\(\hat \mu_{\cdot 2}\)</span> 和 <span class="math inline">\(\hat \mu_{\cdot 3}\)</span>. 因此无法检验 <span class="math inline">\(\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\bar{\mu}_{3\cdot}\)</span> 或 <span class="math inline">\(\bar{\mu}_{\cdot 1}=\bar{\mu}_{\cdot 2}=\bar{\mu}_{\cdot 3}\)</span>.</p>
+<p>主效应的 I 型和 II 型假设都取决于每个单元格中的观测次数。只要在一个单元格中至少有一个观测结果，那么该单元格均值是可估的。因此，可估计的参数函数仅取决于观测到哪种处理组合，而不取决于观测了多少次。</p>
+<p>III 型假设的发展使得它们不依赖于单元格的大小，而仅依赖于观测到的单元格。这与双向实验的 III 型假设的定义一致，其中观测到所有处理组合。即，假设 <span class="math inline">\(\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\bar{\mu}_{3\cdot}\)</span> 和 <span class="math inline">\(\bar{\mu}_{\cdot 1}=\bar{\mu}_{\cdot 2}=\bar{\mu}_{\cdot 3}\)</span> 不依赖于单元格大小。我们不打算讨论缺失数据情况下 III 型假设的构建。尽管目标可能看起来合理，但我们认为当存在缺失单元格时， III 型假设是最糟糕的假说，因为似乎没有合理的方法来解释它们。为了便于说明，表 <a href="chap14.html#tab:table14-7">14.7</a> 中给出了表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据的 III 型分析。表 <a href="chap14.html#tab:table14-8">14.8</a> 和 <a href="chap14.html#tab:table14-9">14.9</a> 给出了通过 III 型分析测试的假设。对表 <a href="chap14.html#tab:table14-8">14.8</a> 和 <a href="chap14.html#tab:table14-9">14.9</a> 的研究表明，除了 T×B 交互作用之外，III 型假设没有意义。表 <a href="chap14.html#tab:table14-7">14.7</a> - <a href="chap14.html#tab:table14-9">14.9</a> 中的结果取自 SAS-GLM 对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据的分析。</p>
+<table>
+<caption>
+<span id="tab:table14-7">表 14.7: </span>III 型方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table14-8">表 14.8: </span>根据均值模型对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据进行 III 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table14-9">表 14.9: </span>根据效应模型对表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据进行 III 型分析的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.9.png">
 </td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="sec11-6" class="section level2 hasAnchor" number="11.6">
-<h2><span class="header-section-number">11.6</span> 结束语<a href="chap11.html#sec11-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>在本章中，我们介绍了一种方法，用于对涉及大量不同处理组合的实验进行满意的统计分析，其中每个处理组合至少观察一次。这些技术对于可能无法使用高级统计软件程序的人员来说是有用的。</p>
+<div id="sec14-3" class="section level2 hasAnchor" number="14.3">
+<h2><span class="header-section-number">14.3</span> IV 型假设<a href="chap14.html#sec14-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在前两节中我们试图表明当存在缺失处理组合时，通过 I 型、II 型或 III 型分析检验的所谓主效应假设中没有一个是完全令人满意的，因为如果两个因素之间存在交互作用的可能性，它们很少有任何合理的解释。这种假设极难解释，因为发生在同一行或同一列中的单元格均值系数很少相同。构建 IV 型假设，使得单元格均值系数是平衡的；因此，由此产生的假设是可解释的。</p>
+<p>为了说明这一点，让我们看看表 <a href="chap13.html#tab:table13-1">13.1</a> 数据集中所有可能的 IV 型假设。表 <a href="chap14.html#tab:table14-10">14.10</a> 给出了非缺失单元格的单元格均值参数。<strong>基本上，对于双向处理结构，如果假设比较的是一个处理水平在另一个处理的一个或多个共同水平上的平均值，那么该假设就被定义为 IV 型假设</strong>。因此，这些假设应该是边际均值假设，只不过当处理组合缺失时，人们不能对所有其他处理水平进行平均，而只能对其他因素的部分水平进行平均。</p>
+<table>
+<caption>
+<span id="tab:table14-10">表 14.10: </span>表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据的单元格均值参数
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.10.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>在对 <span class="math inline">\(B_1\)</span> 和 <span class="math inline">\(B_3\)</span> 求平均后比较 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span> 的 IV 型假设是：<span class="math inline">\(H_0{:}(\mu_{11}+\mu_{13})/2=(\mu_{21}+\mu_{23})/2\)</span>. 另一种比较 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span> 的 IV 型假设是 <span class="math inline">\(H_0{:\mu_{11}}=\mu_{21}\)</span>. 后一种假设仅在 <span class="math inline">\(B_1\)</span> 上求平均后比较比较 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_2\)</span>. 关于均值模型参数的 T 的所有可能 IV 型假设见表 <a href="chap14.html#tab:table14-11">14.11</a>. <span class="math inline">\(B\)</span> 的 IV 型假设是类似的。表 <a href="chap14.html#tab:table14-12">14.12</a> 给出了 B 的所有可能的 IV 型假设。</p>
+<table style="NAborder-bottom: 0;">
+<caption>
+<span id="tab:table14-11">表 14.11: </span>表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据关于 T 的所有可能的 IV 型假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.11.png">
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">*: </span> <sup></sup> 通过 SAS-GLM IV 型分析自动检验的假设
+</td>
+</tr>
+</tfoot>
+</table>
+<table style="NAborder-bottom: 0;">
+<caption>
+<span id="tab:table14-12">表 14.12: </span>表 <a href="chap13.html#tab:table13-1">13.1</a> 中数据关于 B 的所有可能的 IV 型假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.12.png">
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">*: </span> <sup></sup> 通过 SAS-GLM IV 型分析自动检验的假设
+</td>
+</tr>
+</tfoot>
+</table>
+<p>SAS-GLM 会自动生成通常可以解释的 IV 型假设，但在解释这些假设之前，首先需要检查 IV 型可估函数，以明确 SAS-GLM 生成了哪些假设。也就是说，与没有缺失处理组合的情况不同，不存在适合所有数据集的唯一解释。事实上，在分析之前对处理重新标记 (relabeling) 可能会导致生成不同的 IV 型假设，因此在 IV 型分析中会有不同的平方和以及 <span class="math inline">\(F\)</span> 值。因此，获得的 IV 型分析并不是数据的唯一特征，而是取决于处理是如何标记的 (labeled). 显然，这并不是非常理想的，但也是不可避免的。SAS-GLM 通过在打印的自由度上放置星号，并指出 “Other Type IV Testable Hypotheses exist which may yield different SS.” 来表示这种情况已经发生。对于表 <a href="chap13.html#tab:table13-1">13.1</a> 中的数据，SAS-GLM 分析自动检验的 T 的 IV 型假设等价于同时检验</p>
+<p><span class="math display">\[\mu_{11}=\mu_{31}\quad\mathrm{and}\quad\frac{\mu_{21}+\mu_{22}}2=\frac{\mu_{31}+\mu_{32}}2\]</span></p>
+<p>因此，T 的 IV 型假设同时比较了 <span class="math inline">\(B_1\)</span> 上 <span class="math inline">\(T_1\)</span> 和 <span class="math inline">\(T_3\)</span> 的效应以及 <span class="math inline">\(B_1\)</span> 和 <span class="math inline">\(B_2\)</span> 上 <span class="math inline">\(T_2\)</span> 和 <span class="math inline">\(T_3\)</span> 的平均效应。这两个函数在表 <a href="chap14.html#tab:table14-11">14.11</a> 中用星号标识。我们注意到，<span class="math inline">\(B_3\)</span> 根本不涉及此特定集合。由 SAS-GLM 得到的 IV 型方差分析表如表 <a href="chap14.html#tab:table14-13">14.13</a> 所示。</p>
+<table style="NAborder-bottom: 0;">
+<caption>
+<span id="tab:table14-13">表 14.13: </span>IV 型方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.13.png">
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">*: </span> <sup></sup> 存在其他可检验的 IV 型假设，这些假设可能产生不同的 <span class="math inline">\(SS\)</span>
+</td>
+</tr>
+</tfoot>
+</table>
+<p>表 <a href="chap14.html#tab:table14-11">14.11</a> 中给出了未经 SAS-GLM 检验的 IV 型假设，但对于实验者来说可能与自动检验的假设一样有趣。为了检验这种有趣的 IV 型假设，人们可以（并且应该）使用 Estimate 或 Contrast 语句。例如，要在使用效应模型时检验表 <a href="chap14.html#tab:table14-11">14.11</a> 中的所有 IV 型假设，我们将在 SAS-GLM 分析中使用以下 Estimate 语句</p>
+<pre class="sas"><code>ESTIMATE &#39;T1 VS T2 AVE OVER Bl AND B3&#39; T 1 —1 0 T*B .5 .5 —.5 0 —.5 0 0;
+ESTIMATE &#39;T2 VS T3 AVE OVER Bl AND B2&#39; T 0 1 —1 T*B 0 0 .5 .5 0 —.5 —.5;
+ESTIMATE &#39;T1 VS T2 AT Bl&#39; T 1 —1 0 T*B 1 0 —1 0 0 0 0;
+ESTIMATE &#39;TI VS T3 AT Bl&#39; T 1 0 —1 T*B 1 0 0 0 0 —1 0;
+ESTIMATE &#39;T2 VS T3 AT B1&#39; T 0 1 —1 T*B 0 0 1 0 0 —1 0;
+ESTIMATE &#39;T2 VS T3 AT B2&#39; T 0 1 —1 T*B 0 0 0 1 0 0 —1;
+ESTIMATE &#39;T1 VS T2 AT B3&#39; T 1 —1 0 T*B 0 1 0 0 —1 0 0;</code></pre>
+<p>上述 Estimate 语句的结果如表 <a href="chap14.html#tab:table14-14">14.14</a> 所示。</p>
+<table>
+<caption>
+<span id="tab:table14-14">表 14.14: </span><code>Estimate</code> 选项的结果
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2014.14.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>如果读者没有可用的 SAS-GLM，则可以使用与第 <a href="chap13.html#sec13-2">13.2</a> 节中给出的类似的均值模型和程序来检验表 <a href="chap14.html#tab:table14-11">14.11</a> 和 <a href="chap14.html#tab:table14-12">14.12</a> 中的所有假设。</p>
+</div>
+<div id="sec14-4" class="section level2 hasAnchor" number="14.4">
+<h2><span class="header-section-number">14.4</span> 总体边际均值和最小二乘均值<a href="chap14.html#sec14-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>总体边际均值和最小二乘均值的定义方式与第 <a href="chap9.html#sec9-5">9.5</a> 节和第 <a href="chap10.html#sec10-6">10.6</a> 节中的定义方式相同。然而，如果没有观测到特定处理与其他处理因素的所有可能性，则相应的总体边际平均值是不可估的。在这种情况下，双向单元格均值表（例如 <span class="math inline">\(\bar \mu_{ij}\)</span>）可用于将每个观测到的处理组合与所有其他观测到的处理组合进行比较。如果数据集非常稀疏，则很少有总体边际均值可估计。</p>
+<p>对于表 <a href="chap13.html#tab:table13-1">13.1</a> 中的数据，<span class="math inline">\(\bar\mu_{2\cdot}\)</span> 和<span class="math inline">\(\bar\mu_{1\cdot}\)</span> 是唯一可估的总体边际均值。它们的最佳估计值分别为 <span class="math inline">\(\hat{\bar\mu}_{2\cdot}=8.333\)</span> 和 <span class="math inline">\(\hat{\bar\mu}_{1\cdot}=4.00\)</span>. 一般来说，<span class="math inline">\(\sum_{i,j}c_{ij}\mu_{ij}\)</span> 的最佳估计为 <span class="math inline">\(\sum_{i,j}c_{ij}\hat{\mu}_{ij}\)</span>，且标准误估计为 <span class="math inline">\({\hat{\sigma}}\sqrt{\Sigma_{i,j}(c_{ij}^2/n_{ij})}\)</span>，其中关于所有非空单元格求和。<span class="math inline">\(\sum_{i,j}c_{ij}\mu_{ij}\)</span> 的一个 <span class="math inline">\((1-\alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\sum_{i,j}c_{ij}\hat{\mu}_{ij}\pm t_{\alpha/2,v}\hat{\sigma}\sqrt{\frac{c_{ij}^2}{n_{ij}}}\]</span></p>
+<p>用于检验 <span class="math inline">\(\sum_{i,j}c_{ij}\mu_{ij}=0\)</span> 自由度为 <span class="math inline">\(v\)</span> 的 <span class="math inline">\(t\)</span> 统计量为</p>
+<p><span class="math display">\[t=\frac{\sum_{i,j}c_{ij}\hat{{\mu}}_{ij}}{\hat{{\sigma}}\sqrt{\sum_{i,j}\frac{c_{ij}^2}{n_{ij}}}}\]</span></p>
+<p>在这两种情况下，<span class="math inline">\(n\)</span> 是对应于误差均方 <span class="math inline">\(\hat\sigma^2\)</span> 的自由度。</p>
+<p>对于希望进行多重比较的研究人员，我们建议在比较所有处理组合的 <span class="math inline">\(F\)</span> 值显著时，使用上述 <span class="math inline">\(t\)</span> 检验给出的观察到的 <span class="math inline">\(p\)</span> 值。如果该 <span class="math inline">\(F\)</span> 值不显著，那么应该在所有感兴趣的比较中使用 Bonferroni’s method。也就是说，如果获得的 <span class="math inline">\(p\)</span>值小于 <span class="math inline">\(\alpha/p\)</span>，其中 <span class="math inline">\(p\)</span> 是计划比较的总次数，则声明线性组合与零显著不同。对于数据窥探和计划外比较，应使用 Scheffé’s procedure.</p>
+</div>
+<div id="sec14-5" class="section level2 hasAnchor" number="14.5">
+<h2><span class="header-section-number">14.5</span> 计算机分析<a href="chap14.html#sec14-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>读者应该使用他或她自己的统计软件包来分析本章以及第 <a href="chap15.html#chap15">15</a> 章和第 <a href="chap17.html#chap17">17</a> 章中给出的例子。将由此获得的分析结果与本书中给出的结果进行比较，将使读者对她习惯使用的软件包所检验的各种假设有宝贵的见解。<strong>据我们所知，没有任何一个包能够充分或完整地处理缺失处理组合的数据分析</strong>。有几个软件包能够很好地处理不均衡数据，前提是没有缺失处理组合。</p>
+</div>
+<div id="sec14-6" class="section level2 hasAnchor" number="14.6">
+<h2><span class="header-section-number">14.6</span> 结束语<a href="chap14.html#sec14-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>总之，对于存在缺失处理组合的数据，要做出可接受的分析需要深思熟虑。实验人员或统计学家不能仅仅在计算机程序上运行数据，然后从该程序中选取数字来撰写论文。不幸的是，这种做法已经被不知情的实验人员和数据分析师采用，并且还在被采用。<strong>我们希望学习过本章的人再也不会这样做</strong>。对于那些愿意付出必要努力来正确分析数据的人，建议使用第 <a href="chap13.html#chap13">13</a> 章中讨论的均值模型。</p>
+<p>第 <a href="chap15.html#chap15">15</a> 章将讨论一个更现实的例子。</p>
 
 </div>
 </div>
@@ -613,8 +787,8 @@ x
           </div>
         </div>
       </div>
-<a href="chap10.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap12.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap13.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap15.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
