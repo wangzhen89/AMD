@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 12 章 案例研究：子类数不等的均衡双向处理结构 | 混乱数据分析：设计的实验</title>
+  <title>第 20 章 方差分量的推断方法 | 混乱数据分析：设计的实验</title>
   <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 12 章 案例研究：子类数不等的均衡双向处理结构 | 混乱数据分析：设计的实验" />
+  <meta property="og:title" content="第 20 章 方差分量的推断方法 | 混乱数据分析：设计的实验" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="github-repo" content="wangzhen89/AMD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 12 章 案例研究：子类数不等的均衡双向处理结构 | 混乱数据分析：设计的实验" />
+  <meta name="twitter:title" content="第 20 章 方差分量的推断方法 | 混乱数据分析：设计的实验" />
   
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap11.html"/>
-<link rel="next" href="chap13.html"/>
+<link rel="prev" href="chap19.html"/>
+<link rel="next" href="chap29.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -490,134 +490,103 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap12" class="section level1 hasAnchor" number="12">
-<h1><span class="header-section-number">第 12 章</span> 案例研究：子类数不等的均衡双向处理结构<a href="chap12.html#chap12" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>在本章中，我们分析了在随机完全区组设计中进行的双向处理结构产生的一组数据。实验本应是均衡的，但由于不可预见的情况，一些区组缺少一些处理组合。然而，我们仍然假设每种处理组合至少观察一次。第 <a href="chap13.html#chap13">13</a>-<a href="chap15.html#chap15">15</a> 章讨论了从未观测到某些处理组合的情况。</p>
-<div id="sec12-1" class="section level2 hasAnchor" number="12.1">
-<h2><span class="header-section-number">12.1</span> 脂肪-表面活性剂示例<a href="chap12.html#sec12-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>一位烘焙科学家希望研究三种不同脂肪分别与三种不同表面活性剂 (surfactant) 混合对面包体积的影响，这些面包由九种不同处理组合（即每种脂肪与表面活性剂的搭配）所制备的面团烘焙而成。实验中采用了四个相同类型但来源各异的面粉 (flour) 作为区组因子，这意味着每种面粉都要使用全部九种处理组合来制作面包。遗憾的是，其中一批酵母失效了，因此使用这批酵母制作出的 10 个面包的数据无法纳入分析范围。庆幸的是，所有九种脂肪与表面活性剂的组合至少有一次观测结果。具体数据见表 <a href="chap12.html#tab:table12-1">12.1</a>.</p>
-<table>
-<caption>
-<span id="tab:table12-1">表 12.1: </span>烘焙实验中的特定体积
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
-x
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-<img src="table/table%2012.1.png">
-</td>
-</tr>
-</tbody>
-</table>
-<p>表 <a href="chap12.html#tab:table12-1">12.1</a> 中的数据采用 SAS<sup>®</sup>-GLM 程序进行分析。由于所有处理组合都至少观测一次，并且在每个区组 （面粉） 中观测到一些相同的处理组合，III 型平方和检验了有趣且易于解释的假设。III 型分析检验的假设与没有缺失数据的情况下检验的假设相同。因此，我们可以预测这些假设是什么，并且我们不需要包括 <code>E3</code> 选项来识别正在检验的假设。正规方程是使用零和限制来求解的，因此 <code>SOLUTION</code> 选项的结果将不令人感兴趣，因此该选项不用于 SAS-GLM 分析。所有边际均值都是可估的，并且它们的估计值是通过使用 <code>LSMeans</code> 选项获得的。</p>
-<p>使用表 <a href="chap12.html#tab:table12-2">12.2</a> 中给出的 SAS 命令对数据进行分析。表 <a href="chap12.html#tab:table12-3">12.3</a> 给出了表 <a href="chap12.html#tab:table12-2">12.2</a> 中命令的方差分析结果。脂肪与表面活性剂交互作用的 III 型 <span class="math inline">\(F\)</span>值为 <span class="math inline">\(F=8.52\)</span>，这在 <span class="math inline">\(p=0.0011\)</span> 水平上显著。因此，应在每个脂肪水平内比较表面活性剂，并在每个表面活性剂水平内比较脂肪。因此，表 <a href="chap12.html#tab:table12-4">12.4</a> 给出了脂肪表面活性剂最小二乘均值，表 <a href="chap12.html#tab:table12-5">12.5</a> 给出了这些双向最小二乘均值之间的成对比较。</p>
-<table>
-<caption>
-<span id="tab:table12-2">表 12.2: </span>表 <a href="chap12.html#tab:table12-1">12.1</a> 中数据的 SAS 分析
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
-x
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-<img src="table/table%2012.2.png">
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption>
-<span id="tab:table12-3">表 12.3: </span>模型方差分析以及主效应和交互作用的检验
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
-x
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-<img src="table/table%2012.3.png">
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<caption>
-<span id="tab:table12-4">表 12.4: </span>脂肪 × 表面活性剂最小二乘均值
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
-x
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-<img src="table/table%2012.4.png">
-</td>
-</tr>
-</tbody>
-</table>
-<p>图 <a href="chap12.html#fig:figure12-1">12.1</a> 给出了双向最小二乘均值的图形；位于同一圆圈内的样本均值没有显著差异。使用的 <span class="math inline">\(p\)</span> 值如表 <a href="chap12.html#tab:table12-5">12.5</a> 所示。</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure12-1"></span>
-<img src="figure/figure%2012.1.png" alt="最小二乘均值图。位于同一圆圈内的均值没有显著差异" width="758" />
-<p class="caption">
-图 12.1: 最小二乘均值图。位于同一圆圈内的均值没有显著差异
-</p>
+<div id="方差分量的推断方法" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">第 20 章</span> 方差分量的推断方法<a href="chap20.html#方差分量的推断方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>当研究者设计一个涉及随机效应因素的实验时，她通常希望根据模型中指定的特定方差分量做出推断。特别是，如果 <span class="math inline">\(\sigma_u^2\)</span> 是对应于因素 A 水平分布的方差分量，实验者可能希望确定是否有足够的证据得出 <span class="math inline">\(\sigma_u^2&gt;0\)</span> 的结论。可以通过以下方式做出适当的决定：1）检验假设 <span class="math inline">\(H_0{:}\sigma_u^2=0\mathrm{~vs~}{H_a}{:}\sigma_u^2&gt;0\)</span>；2）构建关于 <span class="math inline">\(\sigma_u^2\)</span> 的置信区间；或 3）为 <span class="math inline">\(\sigma_u^2\)</span> 构建置信下限。本章讨论了随机效应模型的这些推断程序，其中假设检验方法在第 <a href="chap20.html#sec20-1">20.1</a> 节中描述，置信区间（下界）的构造在第 <a href="#sec20-2"><strong>??</strong></a> 节中描述。方差分量的置信区间构建一直是研究的一个活跃领域，许多作者已经为方差分量参数的特定函数开发了专门的置信区间。本章中描述的方法可在当前软件中使用，有些可用于特定问题。讨论并不全面，而是指出了已经解决的置信区间类型。在 Burdick and Graybill (1992) 以及当前统计期刊的论文中，有更为完整的讨论。</p>
+<div id="sec20-1" class="section level2 hasAnchor" number="20.1">
+<h2><span class="header-section-number">20.1</span> 假设检验<a href="chap20.html#sec20-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>有两种基本技术来检验关于方差分量的假设。第一种技术使用方差分析表中的平方和来构建 <span class="math inline">\(F\)</span> 统计量。对于大多数均衡模型，<span class="math inline">\(F\)</span> 统计量的分布与 <span class="math inline">\(F\)</span> 分布完全相同，而对于不均衡模型，分布由 <span class="math inline">\(F\)</span> 分布近似，随着设计变得越来越不均衡，近似值变得越来越差。第二种技术基于似然比检验 (likelihood rato test)，渐近分布于卡方分布。对于均衡设计，<span class="math inline">\(F\)</span> 统计量方法可能比似然比检验更好，而对于不均衡设计，没有明确的选择。读者可能希望在决定使用哪种方法来检验感兴趣的假设之前，使用与感兴趣的数据集类似的数据结构进行模拟实验，以研究检验统计量的分布。</p>
+<div id="sec20-1-1" class="section level3 hasAnchor" number="20.1.1">
+<h3><span class="header-section-number">20.1.1</span> 使用方差分析表<a href="chap20.html#sec20-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>如果数据集是均衡的，那么通过常规方差分析获得的平方和独立分布于卡方随机变量的标量倍数<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>。令 <span class="math inline">\(Q\)</span> 表示基于自由度为 v 的平方和，其中其预期均方是四个方差分量的函数。也就是说，假设</p>
+<p><span class="math display">\[E(Q/\nu)=\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2\]</span></p>
+<p>然后，假设数据服从正态分布，</p>
+<p><span class="math display">\[W=\frac Q{\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2}\]</span></p>
+<p>通常分布为具有 n 个自由度的卡方随机变量。对于许多形如 <span class="math inline">\(H_0{:}\sigma_1^2=0\mathrm{~vs~}{H_a}{:}\sigma_1^2&gt;0\)</span> 的假设，有两个独立的平方和，用 <span class="math inline">\(Q_1\)</span> 和 <span class="math inline">\(Q_2\)</span> 表示，分别基于 v<sub>1</sub> 和 v<sub>2</sub> 自由度，期望为</p>
+<p><span class="math display">\[\begin{aligned}E(Q_1/n_1)&amp;=\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2\\E(Q_2/n_2)&amp;=\sigma_\varepsilon^2+k_2\sigma_2^2+k_3\sigma_3^2\end{aligned}\]</span></p>
+<p>假设 <span class="math inline">\(H_0{:}\sigma_1^2=0\mathrm{~vs~}{H_a}{:}\sigma_1^2&gt;0\)</span> 等价于</p>
+<p><span class="math display">\[\begin{aligned}H_0\colon E\left(Q_1/v_1\right)&amp;=E(Q_2/v_2)\text{ vs }H_a\colon E(Q_1/v_1)&gt;E(Q_2/v_2)\end{aligned}\]</span></p>
+<p>用于检验该假设的统计量为 <span class="math inline">\(F = (Q_1/v_1)/(Q_2/v_2)\)</span>，在 <span class="math inline">\(H_0\)</span> 条件下，该统计量通常分布为具有 v<sub>1</sub> 和 v<sub>2</sub> 自由度的中心 <span class="math inline">\(F\)</span> 分布。对于较大的 <span class="math inline">\(F\)</span> 值，该假设被拒绝。此过程涉及获取平方和，然后使用其预期均方来确定每个感兴趣假设的适当除数。以下两个示例演示了此程序。</p>
 </div>
-<table>
-<caption>
-<span id="tab:table12-5">表 12.5: </span>脂肪 × 表面活性剂最小二乘均值之间的成对比较
-</caption>
-<thead>
-<tr>
-<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
-x
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;">
-<img src="table/table%2012.5.png">
-</td>
-</tr>
-</tbody>
-</table>
-<p>从图 <a href="chap12.html#fig:figure12-1">12.1</a> 中，我们可以得出以下观察结果
-1. 脂肪 3 与表面活性剂 3 的组合给出的响应显著高于所有其它处理组合给出的响应。
-2. 脂肪 3 通常给出的响应显著高于脂肪 1 给出的响应。
-3. 与脂肪 1 一起使用时，表面活性剂水平没有差异。</p>
+<div id="sec20-1-2" class="section level3 hasAnchor" number="20.1.2">
+<h3><span class="header-section-number">20.1.2</span> 示例 20.1：完全随机设计结构中的双向随机效应检验统计量<a href="chap20.html#sec20-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>在完全随机设计结构中，两个因素均为随机的双向处理结构的模型为</p>
+<p><span class="math display">\[y_{ijk}=\mu+a_i+b_j+c_{ij}+\varepsilon_{ijk}\quad\mathrm{~for~}i=1,2,\ldots,a,j=1,2,\ldots,b,\mathrm{~and~}k=1,2,\ldots,n\]</span></p>
+<p>其中 <span class="math inline">\(a_i\thicksim i.i.d.\,N(0,\sigma_a^2),b_j\thicksim i.i.d.\,N(0,\sigma_b^2),c_{ij}\thicksim i.i.d.\,N(0,\sigma_c^2),\varepsilon_{ijk}\thicksim i.i.d.\,N(0,\sigma_\varepsilon^2)\)</span>，且随机变量 <span class="math inline">\(a_i,b_j,c_{ij},\varepsilon_{ijk}\)</span> 独立分布。</p>
+<p>表 <a href="#tab:table20-1"><strong>??</strong></a> 显示了模型的方差分析表以及模型的平方和和预期均方。通过检查预期均方来选择适当的分子和分母来构建检验统计量。用于检验假设 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span> 的统计量是通过在 <span class="math inline">\(MSA\)</span> 的预期均方中设置 <span class="math inline">\(\sigma_a^2=0\)</span> 来构建的。接下来，当 <span class="math inline">\(H_0\)</span> 为真时，找到与 <span class="math inline">\(MSA\)</span> 具有相同预期均方的另一个均方，并使用该均方作为除数。要检验 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSAB\)</span>；要检验 <span class="math inline">\(H_0{:}\sigma_b^2=0\mathrm{~vs~}{H_u}{:}\sigma_b^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSAB\)</span>；要检验 <span class="math inline">\(H_0{:}\sigma_c^2=0\mathrm{~vs~}{H_u}{:}\sigma_c^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSResidual\)</span>. 决策规则是拒绝 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span> 如果 <span class="math inline">\(F = MSA/MSAB&gt;F_{\alpha,(a-1),(a-1)(b-1)}\)</span>，其中 <span class="math inline">\(\alpha\)</span> 为所选的 I 类错误率。对于 <span class="math inline">\(\sigma_b^2\)</span> 和 <span class="math inline">\(\sigma_c^2\)</span> 可以类似地确定检验统计量。表 <a href="#tab:table20-1"><strong>??</strong></a> 包含假设列表和相应的检验统计量。很可能，当 <span class="math inline">\(F\)</span> 统计量不超过指定的分位数时，结论并不是方差成分为零，而是与系统中其他变异源相比，方差分量的大小可以忽略不计。</p>
 </div>
-<div id="sec12-2" class="section level2 hasAnchor" number="12.2">
-<h2><span class="header-section-number">12.2</span> 结束语<a href="chap12.html#sec12-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>在下一章中，我们将讨论某些处理组合从未被观测到的情况。这种情况下，在选择合适分析方法时需要格外注意。本章中，我们探讨了随机完全区组设计下，当某些处理组合在某些区组中缺失时，如何对均衡双向处理结构进行分析。所描述的分析方法仅适用于每个处理组合至少被观测一次的情况。这里使用 SAS-GLM 进行了数据分析。正如第 <a href="#chap22"><strong>??</strong></a> 章讨论的那样，<strong>若将面粉来源视为随机效应，则能更恰当地分析这份数据</strong>。</p>
+<div id="sec20-1-3" class="section level3 hasAnchor" number="20.1.3">
+<h3><span class="header-section-number">20.1.3</span> 示例 20.2：复杂三向随机效应检验统计量<a href="chap20.html#sec20-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>表 <a href="#tab:table20-2"><strong>??</strong></a> 中的数据来自一个设计，其中处理结构中的三个因素的水平是随机效应，A 的水平与 B 的水平交叉，C 的水平嵌套在 B 的水平内，所有这些都在一个完全随机设计结构中。一个描述与表 <a href="#tab:table20-2"><strong>??</strong></a> 结构相似的大型数据集的一般模型是</p>
+<p><span class="math display">\[\begin{aligned}&amp;y_{ijkm}=\mu+a_i+b_j+(ab)_{ij}+c_{k(j)}+(ac)_{ik(j)}+\varepsilon_{ijkm}\\&amp;\mathrm{for~}i=1,2,\ldots,a,j=1,2,\ldots,b,k=1,2,\ldots,c,\mathrm{~and~}m=1,2,\ldots,n\end{aligned}\]</span></p>
+<p>参数 <span class="math inline">\(\mu\)</span> 表示总体均值，<span class="math inline">\(a_i\)</span> 表示因子 A 水平 i 的效应，<span class="math inline">\(b_j\)</span> 表示因子 B 水平 j 的效应，<span class="math inline">\((ab)_{ij}\)</span> 表示因子 A 和因子 B 水平之间的交互作用，<span class="math inline">\(c_{k(j)}\)</span> 表示嵌套在因子 B 第 j 个水平内的因子 C 水平 k 的效应，<span class="math inline">\((ac)_{ik(j)}\)</span> 表示嵌套在 B 水平内的因子 A 和因子 C 水平之间的交互作用，以及 <span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示实验单元或抽样误差。在理想条件下，<span class="math inline">\(a_i\thicksim i.i.d.~N(0,\sigma_a^2),~b_j\thicksim i.i.d.~N(0,~\sigma_b^2),~(ab)_{ij}\thicksim i.i.d.~N(0,~\sigma_{ab}^2),~(ac)_{ik(j)}\thicksim i.i.d.~N(0,~\sigma_{ac(b)}^2)\)</span> 以及 <span class="math inline">\(\varepsilon_{ijkm}\thicksim i.i.d.~N(0,~\sigma_{\varepsilon}^2)\)</span>. 此外， <span class="math inline">\(a_i,b_j,(ab)_{ij},c_{k(j)},(ac)_{ik(j)}\)</span> 和 <span class="math inline">\(\varepsilon_{ijkm}\)</span> 独立分布。一般情况下的期望均方方差分析表如表 <a href="#tab:table20-3"><strong>??</strong></a> 所示。通过检查期望均方，可以构建 <span class="math inline">\(F\)</span> 统计量来检验每个方差分量的假设。用于检验以下假设的统计量是</p>
+<ol style="list-style-type: decimal">
+<li>要检验 <span class="math inline">\(H_0\colon{\sigma}_a^2=0\mathrm{~vs~}H_a\colon{\sigma}_a^2&gt;0\)</span>，则 <span class="math inline">\(F_a=MSA/MSAB\)</span>.</li>
+<li>要检验 <span class="math inline">\(H_0\colon{\sigma}_{ab}^2=0\mathrm{~vs~}H_a\colon{\sigma}_{ab}^2&gt;0\)</span>，则 <span class="math inline">\(F_{ab}=MSAB/MSAC(B)\)</span>.</li>
+<li>要检验 <span class="math inline">\(H_0\colon{\sigma}_{c(b)}^2=0\mathrm{~vs~}H_a\colon{\sigma}_{c(b)}^2&gt;0\)</span>，则 <span class="math inline">\(F_{c(b)}=MSC(B)/MSAC(B)\)</span>.</li>
+<li>要检验 <span class="math inline">\(H_0\colon{\sigma}_{ac(b)}^2=0\mathrm{~vs~}H_a\colon{\sigma}_{ac(b)}^2&gt;0\)</span>，则 <span class="math inline">\(F_{ac(b)}=MSAC(B)/MSResidual\)</span>.</li>
+</ol>
+<p>然而，没有 <span class="math inline">\(F\)</span> 统计量来检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_b\colon{\sigma}_a^2&gt;0\)</span>，因为不涉及 <span class="math inline">\(\sigma^2_b\)</span> 的均方都不具有预期值 <span class="math inline">\(\sigma_\varepsilon^2+n\sigma_{ac(b)}^2+na\sigma_{c(b)}^2+nc\sigma_{ab}^2\)</span>，这是当 <span class="math inline">\(\sigma^2_b=0\)</span> 时 <span class="math inline">\(MSB\)</span> 的期望值。但存在一个均方的线性组合（不包括 <span class="math inline">\(MSB\)</span>）具有所需的期望值，即，<span class="math inline">\(E[MSC(B)+MSAB-MSAC(B)]=\sigma_\varepsilon^2+n\sigma_{ac(b)}^2+na\sigma_{c(b)}^2+nc\sigma_{ab}^2\)</span>. 令 <span class="math inline">\(Q=MSC(B)+MSAB-MSAC(B)\)</span>，那么用于检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_b\colon{\sigma}_a^2&gt;0\)</span> 的统计量为 <span class="math inline">\(F_b=MSB/Q\)</span>. <span class="math inline">\(F_b\)</span> 的抽样分布可以用自由度为 b-1 和 r 的 <span class="math inline">\(F\)</span> 分布来近似。分母自由度 r 的确定是通过使用第 <a href="chap2.html#chap2">2</a> 章中讨论的 Satterthwaite (1946) 近似，将 <span class="math inline">\(rQ/E(Q)\)</span> 的分布近似为卡方分布来完成的。Satterthwaite 近似用于近似 <span class="math inline">\(Q = q_1MS_1 + q_2MS_2 + \cdots + q_kMS_k\)</span> 的抽样分布，其中 <span class="math inline">\(MS_i\)</span> 表示基于自由度为 <span class="math inline">\(f_i\)</span> 的均方，均方独立分布，<span class="math inline">\(q_i\)</span> 是已知常数。那么 <span class="math inline">\(rQ/E(Q)\)</span> 近似分布为基于自由度为 r 的中心卡方随机变量，其中</p>
+<p><span class="math inline">\(r=\frac{(Q)^2}{\sum_{i=1}^k\frac{\left(q_iMS_i\right)^2}{f_i}}\)</span></p>
+<p>假设 <span class="math inline">\(U\)</span> 是基于 f 个自由度的均方，独立分布于 <span class="math inline">\(MS_1,MS_2,\cdots,MS_k\)</span>，期望为 <span class="math inline">\(E(U) = E(Q) + k_0\sigma^2_0\)</span>. 检验 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span> 的统计量为 <span class="math inline">\(F = U/Q\)</span>，其近似分布为具有 f 和 r 自由度的 <span class="math inline">\(F\)</span> 分布。</p>
+<p>检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_a\colon{\sigma}_b^2&gt;0\)</span> 的统计量为 <span class="math inline">\(F_b = MSB/Q\)</span>，近似分布为具有 b-1 和 r 自由度的 <span class="math inline">\(F\)</span> 分布，其中</p>
+<p><span class="math display">\[r=\frac{(Q)^2}{\frac{[MSC(B)]^2}{b(c-1)}+\frac{[MSAB]^2}{(a-1)(b-1)}+\frac{[MSAC(B)]^2}{b(a-1)(c-1)}}\]</span></p>
+<p>表 <a href="#tab:table20-4"><strong>??</strong></a> 包含表 <a href="#tab:table20-3"><strong>??</strong></a> 中数据的方差分析表，其中包括除数（用误差项表示）和用于检验各个假设的 <span class="math inline">\(F\)</span> 统计量。要检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_a\colon{\sigma}_b^2&gt;0\)</span>，令</p>
+<p><span class="math display">\[\begin{aligned}
+Q&amp; =MSC(B)+MSAB-MSAC(B)  \\
+&amp;=12.0625+10.5625-0.8125=21.8125
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(Q\)</span> 对应的自由度为</p>
+<p><span class="math display">\[\begin{aligned}
+r&amp; =\frac{(21.8125)^2}{(12.0625)^2/2+(10.5625)^2/1+(0.8125)^2/2}  \\
+&amp;=\frac{475.7852}{184.9785}=2.57
+\end{aligned}\]</span></p>
+<p>检验统计量 <span class="math inline">\(F = 770.0625/21.8125 = 35.304\)</span> 基于 1 和 2.57 自由度。检验的显著性水平为 0.0144，表明有证据表明 <span class="math inline">\({\sigma}_b^2 &gt; 0\)</span>，或者由于因子 B 水平总体引起的变异是系统总变异的重要组成部分。</p>
+<p>为了检验均衡设计中方差分量的假设，应尽可能使用根据两个均方之比构建的 <span class="math inline">\(F\)</span> 检验。当无法使用两个均方之比时，Satterthwaite 近似是可接受的替代方案。</p>
+<p>当设计不均衡时，几乎总是需要某种 Satterthwaite 近似来检验有关方差分量的假设。此外，方差分析表中的平方和可能不具有独立分布，尽管平方和集对于某些特殊情况可能是独立的。残差或误差平方和始终独立于方差分析表中的其他平方和。因此，对于任何期望为 <span class="math inline">\({\sigma}_{{\varepsilon}}^2+{k}_0{\sigma}_0^2\)</span> 的均方 <span class="math inline">\(U\)</span>，统计量 <span class="math inline">\(F_0 = U/MSResidual\)</span> 提供了对假设 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span> 的检验。在 <span class="math inline">\(H_0\)</span> 的条件下，<span class="math inline">\(F\)</span> 分布为具有 u 和 v 自由度的中心 <span class="math inline">\(F\)</span> 分布，其中 u 是与 <span class="math inline">\(U\)</span> 相关的自由度，v 是与 <span class="math inline">\(MSResidual\)</span> 相关的自由度。</p>
+<p>期望值涉及超过两个方差分量的均方通常不能用于获得具有精确 <span class="math inline">\(F\)</span> 抽样分布的单个方差分量的检验统计量。某些均衡设计会出现精确的 <span class="math inline">\(F\)</span> 分布，如前两个示例所示。比率不精确分布于 <span class="math inline">\(F\)</span> 的一个原因是各自的均方不是独立分布的。如果设计不太不均衡，那么使用 <span class="math inline">\(F\)</span> 分布作为近似应该是足够的。此外，当设计不均衡时，平方和（残差除外）不会分布为卡方分布的标量倍数。</p>
+<p>一般来说，为了检验 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span>，将有一个均方，记为 <span class="math inline">\(U_1\)</span>，期望为</p>
+<p><span class="math display">\[E(U_1)=\sigma_\varepsilon^2+k_{1a}\sigma_a^2+k_{1b}\sigma_b^2+k_{1c}\sigma_c^2\]</span></p>
+<p>但不会有其他均方具有期望 <span class="math inline">\(\sigma_\varepsilon^2+k_{1b}\sigma_b^2+k_{1c}\sigma_c^2\)</span>；也就是说，没有一个均方是合适的除数。方法是找到其他均方的线性组合，如 <span class="math inline">\(Q=\sum_{i=1}^kq_iMS_i\)</span> 其中 <span class="math inline">\(E(Q)=\sigma_\varepsilon^2+k_{1b}\sigma_b^2+k_{1c}\sigma_c^2\)</span>. Satterthwaite 近似可用于近似 <span class="math inline">\(Q\)</span> 的抽样分布，即，求 r，使得 <span class="math inline">\(rQ/E(Q)\)</span> 近似分布为具有 r 个自由度的卡方随机变量。该近似是双重的，因为 1) 自由度是近似的，2) 组成 <span class="math inline">\(Q\)</span> 的均方不一定按照近似所要求的那样独立分布为卡方随机变量。</p>
+<p>SAS<sup>®</sup>-Mixed 代码和使用 III 型平方和得出的方差分析表，用于示例 <a href="chap19.html#sec19-1-2">19.2</a> 中的小麦虫害数据，如表 <a href="#tab:table20-5"><strong>??</strong></a> 所示。variaty 均方的期望值是 <span class="math inline">\(\sigma_\varepsilon^2+3.1795\sigma_\mathrm{var}^2\)</span>》 为了检验假设 <span class="math inline">\(H_0\colon\sigma_{\text{var}}^2=0\text{ vs }H_a\colon\sigma_{\text{var}}^2&gt;0\)</span>，适当的除数是残差均方，它提供的 <span class="math inline">\(F\)</span> 统计量为 4.79. 将计算出的 <span class="math inline">\(F\)</span> 统计量与具有 3 和 9 个自由度的 <span class="math inline">\(F\)</span> 分布进行比较；其显著性水平为 0.0293. 由于这是一个单向实验，因此 I 型分析与 III 型分析相同。</p>
+<p>表 <a href="#tab:table20-6"><strong>??</strong></a> 显示了根据示例 <a href="chap19.html#sec19-1-3">19.3</a> 的双向随机效应数据的 I 型平方和构建的 SAS-Mixed 代码和方差分析表。为了检验假设 <span class="math inline">\(H_0\colon{\sigma}_{\mathrm{row}\times\mathrm{col}}^2=0\text{ vs }H_a\colon{\sigma}_{\mathrm{row}\times\mathrm{col}}^2&gt;0\)</span>，适当的除数是残差均方，它提供的 <span class="math inline">\(F\)</span> 统计量为 14.24. 将计算出的 <span class="math inline">\(F\)</span> 统计量与自由度为 2 和 8 的 <span class="math inline">\(F\)</span> 分布进行比较，提供的显著性水平为 0.0023. 没有精确的检验可用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{row}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{row}}&gt;0\)</span> 和 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{col}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{col}}&gt;0\)</span>，因此需要构建近似测试。用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{row}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{row}}&gt;0\)</span> 的 <span class="math inline">\(MS_{\text{Row}}\)</span> 的适当除数计算如下</p>
+<p><span class="math display">\[\begin{aligned}
+Q_{row} =&amp;\,\frac{0.1429}{4.5714}MSCol+\frac1{2.2588}{\left[2.4286-\frac{0.1429}{4.5714}\times2.3126\right]}MSRow\times Col  \\
+&amp;+\left[1-\frac{0.1429}{4.5714}-\frac1{2.2588}{\left(2.4286-\frac{0.1429}{4.5714}\times2.3126\right)}\right]MSResidual \\   
+=&amp;\,0.0313\times MSCol+1.0432 \,MSRow\times Col-0.0744\,MSResidual\\
+=&amp;\,55.7806
+\end{aligned}\]</span></p>
+<p>与 <span class="math inline">\(Q_{\mathrm{row}\)</span> 相关的 Satterthwaite 近似自由度计算如下</p>
+<p><span class="math display">\[\begin{aligned}df_{Q_{\mathrm{row}}}&amp;=\frac{(Q_{\mathrm{row}})^2}{\frac{(0.0313\times MSCol)^2}2+\frac{(1.0432\times MSRow\times Col)^2}2+\frac{(0.0744\times MSResidual)^2}8}\\&amp;=1.9961\end{aligned}\]</span></p>
+<p>生成的 <span class="math inline">\(F\)</span> 统计量为 <span class="math inline">\(F_{\mathrm{row}}=MSRow/Q_{\mathrm{row}}=0.0113\)</span>，显著性水平为 0.9251. 用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{col}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{col}}&gt;0\)</span> 的 <span class="math inline">\(MSCol\)</span> 的适当除数计算为</p>
+<p><span class="math display">\[\begin{aligned}
+Q_{\text{col}}&amp; =\frac{2.3126}{2.2588}MSRow\times Col+\left[1-\frac{2.3126}{2.2588}\right]MSResidual  \\
+&amp;=1.0238\,MSRow\times Col-0.0238\,MSResidual \\
+&amp;=56.8729
+\end{aligned}\]</span></p>
+<p>与 <span class="math inline">\(Q_{\mathrm{col}\)</span> 相关的 Satterthwaite 近似自由度计算如下</p>
+<p><span class="math display">\[\begin{aligned}df_{Q_{\mathrm{col}}}&amp;=\frac{(Q_{\mathrm{col}})^2}{\frac{(1.0238\times MSRow\times Col)^2}2+\frac{(0.0238\times MSResidual)^2}8}\\&amp;=1.9935\end{aligned}\]</span></p>
+<p>生成的 <span class="math inline">\(F\)</span> 统计量为 <span class="math inline">\(F_{\mathrm{col}}=MSCol/Q_{\mathrm{col}}=0.1323\)</span>，显著性水平为 0.8832.</p>
+</div>
+<div id="sec20-1-4" class="section level3 hasAnchor" number="20.1.4">
+<h3><span class="header-section-number">20.1.4</span> 似然比检验<a href="chap20.html#sec20-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 
 </div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="27">
+<li id="fn27"><p>原文：“then sums of squares obtained by the usual analysis of variance are independently distributed as scalar multiples of chi-square random variables.”<a href="chap20.html#fnref27" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="chap11.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap13.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap19.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

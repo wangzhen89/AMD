@@ -66,7 +66,7 @@ $$y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;">  <img src="table/table%2014.3.png">
+   <td style="text-align:center;">  <img src="table/table%2014.4.png">
 </td>
   </tr>
 </tbody>
@@ -102,7 +102,7 @@ $$y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;
 </tbody>
 </table>
 
-接下来，我们讨论 I 型和 II 型主效应假设的可能解释。I 型和 II 型假设通常没有多大意义，除非目标是建立一个简单的模型来进行预测，而不是检验有关不同处理组合效果的假设。对于模型构建，解释与第 \@ref(chap10) 章中的解释完全相同，我们在第 \@ref(chap10) 章中讨论了没有缺失处理组合的案例。如第 \@ref(chap10) 章所示，如果每个单元格中的观测数量与总体中存在的每种处理组合的实际数量成正比，那么实验者可能会对 $R(\tau|\mu)$ 和 $R(\beta|\mu)$ 感兴趣。两者都可以通过进行两个 I 型分析来获得，一个是 model 语句中首先出现 T，另一个是model 语句中首先出现 B.
+接下来，我们讨论 I 型和 II 型主效应假设的可能解释。I 型和 II 型假设通常没有多大意义，除非目标是建立一个简单的模型来进行预测，而不是检验有关不同处理组合效应的假设。对于模型构建，解释与第 \@ref(chap10) 章中的解释完全相同，我们在第 \@ref(chap10) 章中讨论了没有缺失处理组合的案例。如第 \@ref(chap10) 章所示，如果每个单元格中的观测数量与总体中存在的每种处理组合的实际数量成正比，那么实验者可能会对 $R(\tau|\mu)$ 和 $R(\beta|\mu)$ 感兴趣。两者都可以通过进行两个 I 型分析来获得，一个是 model 语句中首先出现 T，另一个是 model 语句中首先出现 B.
 
 ## III 型假设
 
