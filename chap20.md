@@ -37,7 +37,7 @@ $$y_{ijk}=\mu+a_i+b_j+c_{ij}+\varepsilon_{ijk}\quad\mathrm{~for~}i=1,2,\ldots,a,
 
 其中 $a_i\thicksim i.i.d.\,N(0,\sigma_a^2),b_j\thicksim i.i.d.\,N(0,\sigma_b^2),c_{ij}\thicksim i.i.d.\,N(0,\sigma_c^2),\varepsilon_{ijk}\thicksim i.i.d.\,N(0,\sigma_\varepsilon^2)$，且随机变量 $a_i,b_j,c_{ij},\varepsilon_{ijk}$ 独立分布。
 
-表 \@ref(tab:table20-1) 显示了模型的方差分析表以及模型的平方和和预期均方。通过检查预期均方来选择适当的分子和分母来构建检验统计量。用于检验假设 $H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2>0$ 的统计量是通过在 $MSA$ 的预期均方中设置 $\sigma_a^2=0$ 来构建的。接下来，当 $H_0$ 为真时，找到与 $MSA$ 具有相同预期均方的另一个均方，并使用该均方作为除数。要检验 $H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2>0$，适当的除数是 $MSAB$；要检验 $H_0{:}\sigma_b^2=0\mathrm{~vs~}{H_u}{:}\sigma_b^2>0$，适当的除数是 $MSAB$；要检验 $H_0{:}\sigma_c^2=0\mathrm{~vs~}{H_u}{:}\sigma_c^2>0$，适当的除数是 $MSResidual$. 决策规则是拒绝 $H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2>0$ 如果 $F = MSA/MSAB>F_{\alpha,(a-1),(a-1)(b-1)}$，其中 $\alpha$ 为所选的 I 类错误率。对于 $\sigma_b^2$ 和 $\sigma_c^2$ 可以类似地确定检验统计量。表 \@ref(tab:table20-1) 包含假设列表和相应的检验统计量。很可能，当 $F$ 统计量不超过指定的分位数时，结论并不是方差成分为零，而是与系统中其他变异源相比，方差分量的大小可以忽略不计。
+表 \@ref(tab:table20-1) 显示了模型的方差分析表以及模型的平方和和预期均方。通过检查预期均方来选择适当的分子和分母来构建检验统计量。用于检验假设 $H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2>0$ 的统计量是通过在 $MSA$ 的预期均方中设置 $\sigma_a^2=0$ 来构建的。接下来，当 $H_0$ 为真时，找到与 $MSA$ 具有相同预期均方的另一个均方，并使用该均方作为除数。要检验 $H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2>0$，适当的除数是 $MSAB$；要检验 $H_0{:}\sigma_b^2=0\mathrm{~vs~}{H_u}{:}\sigma_b^2>0$，适当的除数是 $MSAB$；要检验 $H_0{:}\sigma_c^2=0\mathrm{~vs~}{H_u}{:}\sigma_c^2>0$，适当的除数是 $MSResidual$. 决策规则是拒绝 $H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2>0$ 如果 $F = MSA/MSAB>F_{\alpha,(a-1),(a-1)(b-1)}$，其中 $\alpha$ 为所选的 I 类错误率。对于 $\sigma_b^2$ 和 $\sigma_c^2$ 可以类似地确定检验统计量。表 \@ref(tab:table20-1) 包含假设列表和相应的检验统计量。很可能，当 $F$ 统计量不超过指定的分位数时，结论并不是方差分量为零，而是与系统中其他变异源相比，方差分量的大小可以忽略不计。
 
 ### 示例 20.2：复杂三向随机效应检验统计量 {#sec20-1-3}
 
@@ -54,7 +54,7 @@ $$\begin{aligned}&y_{ijkm}=\mu+a_i+b_j+(ab)_{ij}+c_{k(j)}+(ac)_{ik(j)}+\varepsil
 
 然而，没有 $F$ 统计量来检验 $H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_b\colon{\sigma}_a^2>0$，因为不涉及 $\sigma^2_b$ 的均方都不具有预期值 $\sigma_\varepsilon^2+n\sigma_{ac(b)}^2+na\sigma_{c(b)}^2+nc\sigma_{ab}^2$，这是当 $\sigma^2_b=0$ 时 $MSB$ 的期望值。但存在一个均方的线性组合（不包括 $MSB$）具有所需的期望值，即，$E[MSC(B)+MSAB-MSAC(B)]=\sigma_\varepsilon^2+n\sigma_{ac(b)}^2+na\sigma_{c(b)}^2+nc\sigma_{ab}^2$. 令 $Q=MSC(B)+MSAB-MSAC(B)$，那么用于检验 $H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_b\colon{\sigma}_a^2>0$ 的统计量为 $F_b=MSB/Q$. $F_b$ 的抽样分布可以用自由度为 b-1 和 r 的 $F$ 分布来近似。分母自由度 r 的确定是通过使用第 \@ref(chap2) 章中讨论的 Satterthwaite (1946) 近似，将 $rQ/E(Q)$ 的分布近似为卡方分布来完成的。Satterthwaite 近似用于近似 $Q = q_1MS_1 + q_2MS_2 + \cdots + q_kMS_k$ 的抽样分布，其中 $MS_i$ 表示基于自由度为 $f_i$ 的均方，均方独立分布，$q_i$ 是已知常数。那么 $rQ/E(Q)$ 近似分布为基于自由度为 r 的中心卡方随机变量，其中
 
-$r=\frac{(Q)^2}{\sum_{i=1}^k\frac{\left(q_iMS_i\right)^2}{f_i}}$
+$$r=\frac{(Q)^2}{\sum_{i=1}^k\frac{\left(q_iMS_i\right)^2}{f_i}}$$
 
 假设 $U$ 是基于 f 个自由度的均方，独立分布于 $MS_1,MS_2,\cdots,MS_k$，期望为 $E(U) = E(Q) + k_0\sigma^2_0$. 检验 $H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2>0$ 的统计量为 $F = U/Q$，其近似分布为具有 f 和 r 自由度的 $F$ 分布。
 
@@ -101,11 +101,12 @@ Q_{row} =&\,\frac{0.1429}{4.5714}MSCol+\frac1{2.2588}{\left[2.4286-\frac{0.1429}
 =&\,55.7806
 \end{aligned}$$
 
-与 $Q_{\mathrm{row}$ 相关的 Satterthwaite 近似自由度计算如下
+与 $Q_{\mathrm{row}}$ 相关的 Satterthwaite 近似自由度计算如下
 
 $$\begin{aligned}df_{Q_{\mathrm{row}}}&=\frac{(Q_{\mathrm{row}})^2}{\frac{(0.0313\times MSCol)^2}2+\frac{(1.0432\times MSRow\times Col)^2}2+\frac{(0.0744\times MSResidual)^2}8}\\&=1.9961\end{aligned}$$
 
-生成的 $F$ 统计量为 $F_{\mathrm{row}}=MSRow/Q_{\mathrm{row}}=0.0113$，显著性水平为 0.9251. 用于检验 $H_0\colon{\sigma^2}_{\text{col}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{col}}>0$ 的 $MSCol$ 的适当除数计算为
+生成的 $F$ 统计量为 $F_{\mathrm{row}}=MSRow/Q_{\mathrm{row}}=0.0113$，显著性水平为 0.9251. 
+用于检验 $H_0\colon{\sigma^2}_{\text{col}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{col}}>0$ 的 $MSCol$ 的适当除数计算为
 
 $$\begin{aligned}
 Q_{\text{col}}& =\frac{2.3126}{2.2588}MSRow\times Col+\left[1-\frac{2.3126}{2.2588}\right]MSResidual  \\
@@ -113,7 +114,7 @@ Q_{\text{col}}& =\frac{2.3126}{2.2588}MSRow\times Col+\left[1-\frac{2.3126}{2.25
 &=56.8729
 \end{aligned}$$
 
-与 $Q_{\mathrm{col}$ 相关的 Satterthwaite 近似自由度计算如下
+与 $Q_{\mathrm{col}}$ 相关的 Satterthwaite 近似自由度计算如下
 
 $$\begin{aligned}df_{Q_{\mathrm{col}}}&=\frac{(Q_{\mathrm{col}})^2}{\frac{(1.0238\times MSRow\times Col)^2}2+\frac{(0.0238\times MSResidual)^2}8}\\&=1.9935\end{aligned}$$
 
