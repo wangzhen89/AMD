@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-03-01" />
+<meta name="date" content="2024-03-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="chap19.html"/>
-<link rel="next" href="chap29.html"/>
+<link rel="next" href="chap21.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -451,6 +451,7 @@
 </ul></li>
 <li class="chapter" data-level="19.5" data-path="chap19.html"><a href="chap19.html#sec19-5"><i class="fa fa-check"></i><b>19.5</b> 使用 JMP 估计方差分量</a></li>
 <li class="chapter" data-level="19.6" data-path="chap19.html"><a href="chap19.html#sec19-6"><i class="fa fa-check"></i><b>19.6</b> 结束语</a></li>
+<li class="chapter" data-level="19.7" data-path="chap19.html"><a href="chap19.html#sec19-7"><i class="fa fa-check"></i><b>19.7</b> 练习</a></li>
 </ul></li>
 <li class="chapter" data-level="20" data-path="chap20.html"><a href="chap20.html"><i class="fa fa-check"></i><b>20</b> 方差分量的推断方法</a>
 <ul>
@@ -460,15 +461,63 @@
 <li class="chapter" data-level="20.1.2" data-path="chap20.html"><a href="chap20.html#sec20-1-2"><i class="fa fa-check"></i><b>20.1.2</b> 示例 20.1：完全随机设计结构中的双向随机效应检验统计量</a></li>
 <li class="chapter" data-level="20.1.3" data-path="chap20.html"><a href="chap20.html#sec20-1-3"><i class="fa fa-check"></i><b>20.1.3</b> 示例 20.2：复杂三向随机效应检验统计量</a></li>
 <li class="chapter" data-level="20.1.4" data-path="chap20.html"><a href="chap20.html#sec20-1-4"><i class="fa fa-check"></i><b>20.1.4</b> 似然比检验</a></li>
+<li class="chapter" data-level="20.1.5" data-path="chap20.html"><a href="chap20.html#sec20-1-5"><i class="fa fa-check"></i><b>20.1.5</b> 示例 20.3：小麦品种——单向随机效应模型</a></li>
+<li class="chapter" data-level="20.1.6" data-path="chap20.html"><a href="chap20.html#sec20-1-6"><i class="fa fa-check"></i><b>20.1.6</b> 示例 20.4：不均衡双向</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="21" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>21</b> 交叉设计的分析</a>
+<li class="chapter" data-level="20.2" data-path="chap20.html"><a href="chap20.html#sec20-2"><i class="fa fa-check"></i><b>20.2</b> 构造置信区间</a>
 <ul>
-<li class="chapter" data-level="21.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>21.1</b> 定义，假设和模型</a></li>
-<li class="chapter" data-level="21.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>21.2</b> 两时期/两处理交叉设计</a></li>
-<li class="chapter" data-level="21.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>21.3</b> 具有两个以上时期的交叉设计</a></li>
-<li class="chapter" data-level="21.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>21.4</b> 具有两种以上处理的交叉设计</a></li>
-<li class="chapter" data-level="21.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>21.5</b> 小结</a></li>
+<li class="chapter" data-level="20.2.1" data-path="chap20.html"><a href="chap20.html#sec20-2-1"><i class="fa fa-check"></i><b>20.2.1</b> 残差方差 <span class="math inline">\(\sigma^2_\varepsilon\)</span></a></li>
+<li class="chapter" data-level="20.2.2" data-path="chap20.html"><a href="chap20.html#sec20-2-2"><i class="fa fa-check"></i><b>20.2.2</b> 一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="20.2.3" data-path="chap20.html"><a href="chap20.html#sec20-2-3"><i class="fa fa-check"></i><b>20.2.3</b> 方差分量函数的近似置信区间</a></li>
+<li class="chapter" data-level="20.2.4" data-path="chap20.html"><a href="chap20.html#sec20-2-4"><i class="fa fa-check"></i><b>20.2.4</b> 方差分量的 Wald 型置信区间</a></li>
+<li class="chapter" data-level="20.2.5" data-path="chap20.html"><a href="chap20.html#sec20-2-5"><i class="fa fa-check"></i><b>20.2.5</b> 一些精确的置信区间</a></li>
+<li class="chapter" data-level="20.2.6" data-path="chap20.html"><a href="chap20.html#sec20-2-6"><i class="fa fa-check"></i><b>20.2.6</b> 示例 20.5：均衡单向随机效应处理结构</a></li>
+<li class="chapter" data-level="20.2.7" data-path="chap20.html"><a href="chap20.html#sec20-2-7"><i class="fa fa-check"></i><b>20.2.7</b> 示例 20.6</a></li>
+<li class="chapter" data-level="20.2.8" data-path="chap20.html"><a href="chap20.html#sec20-2-8"><i class="fa fa-check"></i><b>20.2.8</b> 示例 20.6 （续）</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="chap20.html"><a href="chap20.html#sec20-3"><i class="fa fa-check"></i><b>20.3</b> 模拟研究</a></li>
+<li class="chapter" data-level="20.4" data-path="chap20.html"><a href="chap20.html#sec20-4"><i class="fa fa-check"></i><b>20.4</b> 结束语</a></li>
+<li class="chapter" data-level="20.5" data-path="chap20.html"><a href="chap20.html#sec20-5"><i class="fa fa-check"></i><b>20.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="chap21.html"><a href="chap21.html"><i class="fa fa-check"></i><b>21</b> 案例研究：随机效应模型分析</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="chap21.html"><a href="chap21.html#sec21-1"><i class="fa fa-check"></i><b>21.1</b> 数据集</a></li>
+<li class="chapter" data-level="21.2" data-path="chap21.html"><a href="chap21.html#sec21-2"><i class="fa fa-check"></i><b>21.2</b> 估计</a></li>
+<li class="chapter" data-level="21.3" data-path="chap21.html"><a href="chap21.html#sec21-3"><i class="fa fa-check"></i><b>21.3</b> 模型构建</a></li>
+<li class="chapter" data-level="21.4" data-path="chap21.html"><a href="chap21.html#sec21-4"><i class="fa fa-check"></i><b>21.4</b> 缩减模型</a></li>
+<li class="chapter" data-level="21.5" data-path="chap21.html"><a href="chap21.html#sec21-5"><i class="fa fa-check"></i><b>21.5</b> 置信区间</a></li>
+<li class="chapter" data-level="21.6" data-path="chap21.html"><a href="chap21.html#sec21-6"><i class="fa fa-check"></i><b>21.6</b> 使用 JMP 进行计算</a></li>
+<li class="chapter" data-level="21.7" data-path="chap21.html"><a href="chap21.html#sec21-7"><i class="fa fa-check"></i><b>21.7</b> 结束语</a></li>
+<li class="chapter" data-level="21.8" data-path="chap21.html"><a href="chap21.html#sec21-8"><i class="fa fa-check"></i><b>21.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="chap22.html"><a href="chap22.html"><i class="fa fa-check"></i><b>22</b> 混合模型的分析</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="chap22.html"><a href="chap22.html#sec22-1"><i class="fa fa-check"></i><b>22.1</b> 混合模型简介</a></li>
+<li class="chapter" data-level="22.2" data-path="chap22.html"><a href="chap22.html#sec22-2"><i class="fa fa-check"></i><b>22.2</b> 混合模型随机效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="chap22.html"><a href="chap22.html#sec22-2-1"><i class="fa fa-check"></i><b>22.2.1</b> 矩法</a></li>
+<li class="chapter" data-level="22.2.2" data-path="chap22.html"><a href="chap22.html#sec22-2-2"><i class="fa fa-check"></i><b>22.2.2</b> 最大似然方法</a></li>
+<li class="chapter" data-level="22.2.3" data-path="chap22.html"><a href="chap22.html#sec22-2-3"><i class="fa fa-check"></i><b>22.2.3</b> 残差最大似然法</a></li>
+<li class="chapter" data-level="22.2.4" data-path="chap22.html"><a href="chap22.html#sec22-2-4"><i class="fa fa-check"></i><b>22.2.4</b> MINQUE 法</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="chap22.html"><a href="chap22.html#sec22-3"><i class="fa fa-check"></i><b>22.3</b> 混合模型固定效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="chap22.html"><a href="chap22.html#sec22-3-1"><i class="fa fa-check"></i><b>22.3.1</b> 估计</a></li>
+<li class="chapter" data-level="22.3.2" data-path="chap22.html"><a href="chap22.html#sec22-3-2"><i class="fa fa-check"></i><b>22.3.2</b> 置信区间的构建</a></li>
+<li class="chapter" data-level="22.3.3" data-path="chap22.html"><a href="chap22.html#sec22-3-3"><i class="fa fa-check"></i><b>22.3.3</b> 假设检验</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="chap22.html"><a href="chap22.html#sec22-4"><i class="fa fa-check"></i><b>22.4</b> 最佳线性无偏预测</a></li>
+<li class="chapter" data-level="22.5" data-path="chap22.html"><a href="chap22.html#sec22-5"><i class="fa fa-check"></i><b>22.5</b> 混合模型方程组</a></li>
+<li class="chapter" data-level="22.6" data-path="chap22.html"><a href="chap22.html#sec22-6"><i class="fa fa-check"></i><b>22.6</b> 结束语</a></li>
+<li class="chapter" data-level="22.7" data-path="chap22.html"><a href="chap22.html#sec22-7"><i class="fa fa-check"></i><b>22.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>23</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>23.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="23.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>23.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="23.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>23.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="23.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>23.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="23.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>23.5</b> 小结</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -490,36 +539,94 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="方差分量的推断方法" class="section level1 hasAnchor" number="20">
-<h1><span class="header-section-number">第 20 章</span> 方差分量的推断方法<a href="chap20.html#方差分量的推断方法" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>当研究者设计一个涉及随机效应因素的实验时，她通常希望根据模型中指定的特定方差分量做出推断。特别是，如果 <span class="math inline">\(\sigma_u^2\)</span> 是对应于因素 A 水平分布的方差分量，实验者可能希望确定是否有足够的证据得出 <span class="math inline">\(\sigma_u^2&gt;0\)</span> 的结论。可以通过以下方式做出适当的决定：1）检验假设 <span class="math inline">\(H_0{:}\sigma_u^2=0\mathrm{~vs~}{H_a}{:}\sigma_u^2&gt;0\)</span>；2）构建关于 <span class="math inline">\(\sigma_u^2\)</span> 的置信区间；或 3）为 <span class="math inline">\(\sigma_u^2\)</span> 构建置信下限。本章讨论了随机效应模型的这些推断程序，其中假设检验方法在第 <a href="chap20.html#sec20-1">20.1</a> 节中描述，置信区间（下界）的构造在第 <a href="#sec20-2"><strong>??</strong></a> 节中描述。方差分量的置信区间构建一直是研究的一个活跃领域，许多作者已经为方差分量参数的特定函数开发了专门的置信区间。本章中描述的方法可在当前软件中使用，有些可用于特定问题。讨论并不全面，而是指出了已经解决的置信区间类型。在 Burdick and Graybill (1992) 以及当前统计期刊的论文中，有更为完整的讨论。</p>
+<div id="chap20" class="section level1 hasAnchor" number="20">
+<h1><span class="header-section-number">第 20 章</span> 方差分量的推断方法<a href="chap20.html#chap20" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>当研究者设计一个涉及随机效应因素的实验时，她通常希望根据模型中指定的特定方差分量做出推断。特别是，如果 <span class="math inline">\(\sigma_u^2\)</span> 是对应于因素 A 水平分布的方差分量，实验者可能希望确定是否有足够的证据得出 <span class="math inline">\(\sigma_u^2&gt;0\)</span> 的结论。可以通过以下方式做出适当的决定：1）检验假设 <span class="math inline">\(H_0{:}\sigma_u^2=0\mathrm{~vs~}{H_a}{:}\sigma_u^2&gt;0\)</span>；2）构造关于 <span class="math inline">\(\sigma_u^2\)</span> 的置信区间；或 3）为 <span class="math inline">\(\sigma_u^2\)</span> 构造置信下限。本章讨论了随机效应模型的这些推断程序，其中假设检验方法在第 <a href="chap20.html#sec20-1">20.1</a> 节中描述，置信区间（下界）的构造在第 <a href="chap20.html#sec20-2">20.2</a> 节中描述。方差分量的置信区间构造一直是研究的一个活跃领域，许多作者已经为方差分量参数的特定函数开发了专门的置信区间。本章中描述的方法可在现行软件中使用，有些可用于特定问题。讨论并不全面，而是指出了已经解决的置信区间类型。在 Burdick and Graybill (1992) 以及当前统计期刊的论文中，有更为完整的讨论。</p>
 <div id="sec20-1" class="section level2 hasAnchor" number="20.1">
 <h2><span class="header-section-number">20.1</span> 假设检验<a href="chap20.html#sec20-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>有两种基本技术来检验关于方差分量的假设。第一种技术使用方差分析表中的平方和来构建 <span class="math inline">\(F\)</span> 统计量。对于大多数均衡模型，<span class="math inline">\(F\)</span> 统计量的分布与 <span class="math inline">\(F\)</span> 分布完全相同，而对于不均衡模型，分布由 <span class="math inline">\(F\)</span> 分布近似，随着设计变得越来越不均衡，近似值变得越来越差。第二种技术基于似然比检验 (likelihood rato test)，渐近分布于卡方分布。对于均衡设计，<span class="math inline">\(F\)</span> 统计量方法可能比似然比检验更好，而对于不均衡设计，没有明确的选择。读者可能希望在决定使用哪种方法来检验感兴趣的假设之前，使用与感兴趣的数据集类似的数据结构进行模拟实验，以研究检验统计量的分布。</p>
+<p>有两种基本技术来检验关于方差分量的假设。第一种技术使用方差分析表中的平方和来构造 <span class="math inline">\(F\)</span> 统计量。对于大多数均衡模型，<span class="math inline">\(F\)</span> 统计量的分布与 <span class="math inline">\(F\)</span> 分布完全相同，而对于不均衡模型，分布由 <span class="math inline">\(F\)</span> 分布近似，随着设计变得越来越不均衡，近似值变得越来越差。第二种技术基于似然比检验 (likelihood rato test)，渐近分布于卡方分布。对于均衡设计，<span class="math inline">\(F\)</span> 统计量方法可能比似然比检验更好，而对于不均衡设计，没有明确的选择。读者可能希望在决定使用哪种方法来检验感兴趣的假设之前，使用与感兴趣的数据集类似的数据结构进行模拟实验，以研究检验统计量的分布。</p>
 <div id="sec20-1-1" class="section level3 hasAnchor" number="20.1.1">
 <h3><span class="header-section-number">20.1.1</span> 使用方差分析表<a href="chap20.html#sec20-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>如果数据集是均衡的，那么通过常规方差分析获得的平方和独立分布于卡方随机变量的标量倍数<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>。令 <span class="math inline">\(Q\)</span> 表示基于自由度为 v 的平方和，其中其预期均方是四个方差分量的函数。也就是说，假设</p>
-<p><span class="math display">\[E(Q/\nu)=\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2\]</span></p>
+<p>如果数据集是均衡的，那么通过常规方差分析获得的平方和独立分布于卡方随机变量的标量倍数<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>。令 <span class="math inline">\(Q\)</span> 表示基于自由度 v 的平方和，其中其期望均方是四个方差分量的函数。也就是说，假设</p>
+<p><span class="math display">\[E(Q/v)=\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2\]</span></p>
 <p>然后，假设数据服从正态分布，</p>
 <p><span class="math display">\[W=\frac Q{\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2}\]</span></p>
 <p>通常分布为具有 n 个自由度的卡方随机变量。对于许多形如 <span class="math inline">\(H_0{:}\sigma_1^2=0\mathrm{~vs~}{H_a}{:}\sigma_1^2&gt;0\)</span> 的假设，有两个独立的平方和，用 <span class="math inline">\(Q_1\)</span> 和 <span class="math inline">\(Q_2\)</span> 表示，分别基于 v<sub>1</sub> 和 v<sub>2</sub> 自由度，期望为</p>
 <p><span class="math display">\[\begin{aligned}E(Q_1/n_1)&amp;=\sigma_\varepsilon^2+k_1\sigma_1^2+k_2\sigma_2^2+k_3\sigma_3^2\\E(Q_2/n_2)&amp;=\sigma_\varepsilon^2+k_2\sigma_2^2+k_3\sigma_3^2\end{aligned}\]</span></p>
 <p>假设 <span class="math inline">\(H_0{:}\sigma_1^2=0\mathrm{~vs~}{H_a}{:}\sigma_1^2&gt;0\)</span> 等价于</p>
 <p><span class="math display">\[\begin{aligned}H_0\colon E\left(Q_1/v_1\right)&amp;=E(Q_2/v_2)\text{ vs }H_a\colon E(Q_1/v_1)&gt;E(Q_2/v_2)\end{aligned}\]</span></p>
-<p>用于检验该假设的统计量为 <span class="math inline">\(F = (Q_1/v_1)/(Q_2/v_2)\)</span>，在 <span class="math inline">\(H_0\)</span> 条件下，该统计量通常分布为具有 v<sub>1</sub> 和 v<sub>2</sub> 自由度的中心 <span class="math inline">\(F\)</span> 分布。对于较大的 <span class="math inline">\(F\)</span> 值，该假设被拒绝。此过程涉及获取平方和，然后使用其预期均方来确定每个感兴趣假设的适当除数。以下两个示例演示了此程序。</p>
+<p>用于检验该假设的统计量为 <span class="math inline">\(F = (Q_1/v_1)/(Q_2/v_2)\)</span>，在 <span class="math inline">\(H_0\)</span> 条件下，该统计量通常分布为具有 v<sub>1</sub> 和 v<sub>2</sub> 自由度的中心 <span class="math inline">\(F\)</span> 分布。对于较大的 <span class="math inline">\(F\)</span> 值，该假设被拒绝。此过程涉及获取平方和，然后使用其期望均方来确定每个感兴趣假设的适当除数。以下两个示例演示了此程序。</p>
 </div>
 <div id="sec20-1-2" class="section level3 hasAnchor" number="20.1.2">
 <h3><span class="header-section-number">20.1.2</span> 示例 20.1：完全随机设计结构中的双向随机效应检验统计量<a href="chap20.html#sec20-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>在完全随机设计结构中，两个因素均为随机的双向处理结构的模型为</p>
 <p><span class="math display">\[y_{ijk}=\mu+a_i+b_j+c_{ij}+\varepsilon_{ijk}\quad\mathrm{~for~}i=1,2,\ldots,a,j=1,2,\ldots,b,\mathrm{~and~}k=1,2,\ldots,n\]</span></p>
 <p>其中 <span class="math inline">\(a_i\thicksim i.i.d.\,N(0,\sigma_a^2),b_j\thicksim i.i.d.\,N(0,\sigma_b^2),c_{ij}\thicksim i.i.d.\,N(0,\sigma_c^2),\varepsilon_{ijk}\thicksim i.i.d.\,N(0,\sigma_\varepsilon^2)\)</span>，且随机变量 <span class="math inline">\(a_i,b_j,c_{ij},\varepsilon_{ijk}\)</span> 独立分布。</p>
-<p>表 <a href="#tab:table20-1"><strong>??</strong></a> 显示了模型的方差分析表以及模型的平方和和预期均方。通过检查预期均方来选择适当的分子和分母来构建检验统计量。用于检验假设 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span> 的统计量是通过在 <span class="math inline">\(MSA\)</span> 的预期均方中设置 <span class="math inline">\(\sigma_a^2=0\)</span> 来构建的。接下来，当 <span class="math inline">\(H_0\)</span> 为真时，找到与 <span class="math inline">\(MSA\)</span> 具有相同预期均方的另一个均方，并使用该均方作为除数。要检验 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSAB\)</span>；要检验 <span class="math inline">\(H_0{:}\sigma_b^2=0\mathrm{~vs~}{H_u}{:}\sigma_b^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSAB\)</span>；要检验 <span class="math inline">\(H_0{:}\sigma_c^2=0\mathrm{~vs~}{H_u}{:}\sigma_c^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSResidual\)</span>. 决策规则是拒绝 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span> 如果 <span class="math inline">\(F = MSA/MSAB&gt;F_{\alpha,(a-1),(a-1)(b-1)}\)</span>，其中 <span class="math inline">\(\alpha\)</span> 为所选的 I 类错误率。对于 <span class="math inline">\(\sigma_b^2\)</span> 和 <span class="math inline">\(\sigma_c^2\)</span> 可以类似地确定检验统计量。表 <a href="#tab:table20-1"><strong>??</strong></a> 包含假设列表和相应的检验统计量。很可能，当 <span class="math inline">\(F\)</span> 统计量不超过指定的分位数时，结论并不是方差分量为零，而是与系统中其他变异源相比，方差分量的大小可以忽略不计。</p>
+<p>表 <a href="chap20.html#tab:table20-1">20.1</a> 显示了模型的方差分析表以及模型的平方和和期望均方。通过检查期望均方来选择适当的分子和分母来构造检验统计量。用于检验假设 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span> 的统计量是通过在 <span class="math inline">\(MSA\)</span> 的期望均方中设置 <span class="math inline">\(\sigma_a^2=0\)</span> 来构造的。接下来，当 <span class="math inline">\(H_0\)</span> 为真时，找到与 <span class="math inline">\(MSA\)</span> 具有相同期望均方的另一个均方，并使用该均方作为除数。要检验 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSAB\)</span>；要检验 <span class="math inline">\(H_0{:}\sigma_b^2=0\mathrm{~vs~}{H_u}{:}\sigma_b^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSAB\)</span>；要检验 <span class="math inline">\(H_0{:}\sigma_c^2=0\mathrm{~vs~}{H_u}{:}\sigma_c^2&gt;0\)</span>，适当的除数是 <span class="math inline">\(MSResidual\)</span>. 决策规则是拒绝 <span class="math inline">\(H_0{:}\sigma_a^2=0\mathrm{~vs~}{H_u}{:}\sigma_a^2&gt;0\)</span> 如果 <span class="math inline">\(F = MSA/MSAB&gt;F_{\alpha,(a-1),(a-1)(b-1)}\)</span>，其中 <span class="math inline">\(\alpha\)</span> 为所选的 I 类错误率。对于 <span class="math inline">\(\sigma_b^2\)</span> 和 <span class="math inline">\(\sigma_c^2\)</span> 可以类似地确定检验统计量。表 <a href="chap20.html#tab:table20-1">20.1</a> 包含假设列表和相应的检验统计量。很可能，当 <span class="math inline">\(F\)</span> 统计量不超过指定的分位数时，结论并不是方差分量为零，而是与系统中其他变异源相比，方差分量的大小可以忽略不计。</p>
+<table>
+<caption>
+<span id="tab:table20-1">表 20.1: </span>示例 <a href="chap20.html#sec20-1-2">20.1</a> 双向随机效应模型方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.1.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="sec20-1-3" class="section level3 hasAnchor" number="20.1.3">
 <h3><span class="header-section-number">20.1.3</span> 示例 20.2：复杂三向随机效应检验统计量<a href="chap20.html#sec20-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>表 <a href="#tab:table20-2"><strong>??</strong></a> 中的数据来自一个设计，其中处理结构中的三个因素的水平是随机效应，A 的水平与 B 的水平交叉，C 的水平嵌套在 B 的水平内，所有这些都在一个完全随机设计结构中。一个描述与表 <a href="#tab:table20-2"><strong>??</strong></a> 结构相似的大型数据集的一般模型是</p>
+<table>
+<caption>
+<span id="tab:table20-2">表 20.2: </span>示例 <a href="chap20.html#sec20-1-3">20.2</a> 数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.2.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap20.html#tab:table20-2">20.2</a> 中的数据来自一个设计，其中处理结构中的三个因素的水平是随机效应，A 的水平与 B 的水平交叉，C 的水平嵌套在 B 的水平内，所有这些都在一个完全随机设计结构中。一个描述与表 <a href="chap20.html#tab:table20-2">20.2</a> 结构相似的大型数据集的一般模型是</p>
 <p><span class="math display">\[\begin{aligned}&amp;y_{ijkm}=\mu+a_i+b_j+(ab)_{ij}+c_{k(j)}+(ac)_{ik(j)}+\varepsilon_{ijkm}\\&amp;\mathrm{for~}i=1,2,\ldots,a,j=1,2,\ldots,b,k=1,2,\ldots,c,\mathrm{~and~}m=1,2,\ldots,n\end{aligned}\]</span></p>
-<p>参数 <span class="math inline">\(\mu\)</span> 表示总体均值，<span class="math inline">\(a_i\)</span> 表示因子 A 水平 i 的效应，<span class="math inline">\(b_j\)</span> 表示因子 B 水平 j 的效应，<span class="math inline">\((ab)_{ij}\)</span> 表示因子 A 和因子 B 水平之间的交互作用，<span class="math inline">\(c_{k(j)}\)</span> 表示嵌套在因子 B 第 j 个水平内的因子 C 水平 k 的效应，<span class="math inline">\((ac)_{ik(j)}\)</span> 表示嵌套在 B 水平内的因子 A 和因子 C 水平之间的交互作用，以及 <span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示实验单元或抽样误差。在理想条件下，<span class="math inline">\(a_i\thicksim i.i.d.~N(0,\sigma_a^2),~b_j\thicksim i.i.d.~N(0,~\sigma_b^2),~(ab)_{ij}\thicksim i.i.d.~N(0,~\sigma_{ab}^2),~(ac)_{ik(j)}\thicksim i.i.d.~N(0,~\sigma_{ac(b)}^2)\)</span> 以及 <span class="math inline">\(\varepsilon_{ijkm}\thicksim i.i.d.~N(0,~\sigma_{\varepsilon}^2)\)</span>. 此外， <span class="math inline">\(a_i,b_j,(ab)_{ij},c_{k(j)},(ac)_{ik(j)}\)</span> 和 <span class="math inline">\(\varepsilon_{ijkm}\)</span> 独立分布。一般情况下的期望均方方差分析表如表 <a href="#tab:table20-3"><strong>??</strong></a> 所示。通过检查期望均方，可以构建 <span class="math inline">\(F\)</span> 统计量来检验每个方差分量的假设。用于检验以下假设的统计量是</p>
+<p>参数 <span class="math inline">\(\mu\)</span> 表示总体均值，<span class="math inline">\(a_i\)</span> 表示因子 A 水平 i 的效应，<span class="math inline">\(b_j\)</span> 表示因子 B 水平 j 的效应，<span class="math inline">\((ab)_{ij}\)</span> 表示因子 A 和因子 B 水平之间的交互作用，<span class="math inline">\(c_{k(j)}\)</span> 表示嵌套在因子 B 第 j 个水平内的因子 C 水平 k 的效应，<span class="math inline">\((ac)_{ik(j)}\)</span> 表示因子 A 与嵌套在因子 B 内的因子 C 水平之间的交互作用，以及 <span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示实验单元或抽样误差。在理想条件下，<span class="math inline">\(a_i\thicksim i.i.d.~N(0,\sigma_a^2),~b_j\thicksim i.i.d.~N(0,~\sigma_b^2),~(ab)_{ij}\thicksim i.i.d.~N(0,~\sigma_{ab}^2),~(ac)_{ik(j)}\thicksim i.i.d.~N(0,~\sigma_{ac(b)}^2)\)</span> 以及 <span class="math inline">\(\varepsilon_{ijkm}\thicksim i.i.d.~N(0,~\sigma_{\varepsilon}^2)\)</span>. 此外， <span class="math inline">\(a_i,b_j,(ab)_{ij},c_{k(j)},(ac)_{ik(j)}\)</span> 和 <span class="math inline">\(\varepsilon_{ijkm}\)</span> 独立分布。一般情况下的期望均方方差分析表如表 <a href="chap20.html#tab:table20-3">20.3</a> 所示。</p>
+<table>
+<caption>
+<span id="tab:table20-3">表 20.3: </span>示例 <a href="chap20.html#sec20-1-3">20.2</a> 方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>通过检查期望均方，可以构造 <span class="math inline">\(F\)</span> 统计量来检验每个方差分量的假设。用于检验以下假设的统计量是</p>
 <ol style="list-style-type: decimal">
 <li>要检验 <span class="math inline">\(H_0\colon{\sigma}_a^2=0\mathrm{~vs~}H_a\colon{\sigma}_a^2&gt;0\)</span>，则 <span class="math inline">\(F_a=MSA/MSAB\)</span>.</li>
 <li>要检验 <span class="math inline">\(H_0\colon{\sigma}_{ab}^2=0\mathrm{~vs~}H_a\colon{\sigma}_{ab}^2&gt;0\)</span>，则 <span class="math inline">\(F_{ab}=MSAB/MSAC(B)\)</span>.</li>
@@ -531,7 +638,26 @@
 <p>假设 <span class="math inline">\(U\)</span> 是基于 f 个自由度的均方，独立分布于 <span class="math inline">\(MS_1,MS_2,\cdots,MS_k\)</span>，期望为 <span class="math inline">\(E(U) = E(Q) + k_0\sigma^2_0\)</span>. 检验 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span> 的统计量为 <span class="math inline">\(F = U/Q\)</span>，其近似分布为具有 f 和 r 自由度的 <span class="math inline">\(F\)</span> 分布。</p>
 <p>检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_a\colon{\sigma}_b^2&gt;0\)</span> 的统计量为 <span class="math inline">\(F_b = MSB/Q\)</span>，近似分布为具有 b-1 和 r 自由度的 <span class="math inline">\(F\)</span> 分布，其中</p>
 <p><span class="math display">\[r=\frac{(Q)^2}{\frac{[MSC(B)]^2}{b(c-1)}+\frac{[MSAB]^2}{(a-1)(b-1)}+\frac{[MSAC(B)]^2}{b(a-1)(c-1)}}\]</span></p>
-<p>表 <a href="#tab:table20-4"><strong>??</strong></a> 包含表 <a href="#tab:table20-3"><strong>??</strong></a> 中数据的方差分析表，其中包括除数（用误差项表示）和用于检验各个假设的 <span class="math inline">\(F\)</span> 统计量。要检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_a\colon{\sigma}_b^2&gt;0\)</span>，令</p>
+<table>
+<caption>
+<span id="tab:table20-4">表 20.4: </span>关示示例 <a href="chap20.html#sec20-1-3">20.2</a> 的数据，使用 I 型平方和的 Proc Mixed 代码的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap20.html#tab:table20-4">20.4</a> 包含表 <a href="chap20.html#tab:table20-3">20.3</a> 中数据的方差分析表，其中包括除数（用误差项表示）和用于检验各个假设的 <span class="math inline">\(F\)</span> 统计量。要检验 <span class="math inline">\(H_0\colon{\sigma}_b^2=0\mathrm{~vs~}H_a\colon{\sigma}_b^2&gt;0\)</span>，令</p>
 <p><span class="math display">\[\begin{aligned}
 Q&amp; =MSC(B)+MSAB-MSAC(B)  \\
 &amp;=12.0625+10.5625-0.8125=21.8125
@@ -542,14 +668,52 @@ r&amp; =\frac{(21.8125)^2}{(12.0625)^2/2+(10.5625)^2/1+(0.8125)^2/2}  \\
 &amp;=\frac{475.7852}{184.9785}=2.57
 \end{aligned}\]</span></p>
 <p>检验统计量 <span class="math inline">\(F = 770.0625/21.8125 = 35.304\)</span> 基于 1 和 2.57 自由度。检验的显著性水平为 0.0144，表明有证据表明 <span class="math inline">\({\sigma}_b^2 &gt; 0\)</span>，或者由于因子 B 水平总体引起的变异是系统总变异的重要组成部分。</p>
-<p>为了检验均衡设计中方差分量的假设，应尽可能使用根据两个均方之比构建的 <span class="math inline">\(F\)</span> 检验。当无法使用两个均方之比时，Satterthwaite 近似是可接受的替代方案。</p>
-<p>当设计不均衡时，几乎总是需要某种 Satterthwaite 近似来检验有关方差分量的假设。此外，方差分析表中的平方和可能不具有独立分布，尽管平方和集对于某些特殊情况可能是独立的。残差或误差平方和始终独立于方差分析表中的其他平方和。因此，对于任何期望为 <span class="math inline">\({\sigma}_{{\varepsilon}}^2+{k}_0{\sigma}_0^2\)</span> 的均方 <span class="math inline">\(U\)</span>，统计量 <span class="math inline">\(F_0 = U/MSResidual\)</span> 提供了对假设 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span> 的检验。在 <span class="math inline">\(H_0\)</span> 的条件下，<span class="math inline">\(F\)</span> 分布为具有 u 和 v 自由度的中心 <span class="math inline">\(F\)</span> 分布，其中 u 是与 <span class="math inline">\(U\)</span> 相关的自由度，v 是与 <span class="math inline">\(MSResidual\)</span> 相关的自由度。</p>
-<p>期望值涉及超过两个方差分量的均方通常不能用于获得具有精确 <span class="math inline">\(F\)</span> 抽样分布的单个方差分量的检验统计量。某些均衡设计会出现精确的 <span class="math inline">\(F\)</span> 分布，如前两个示例所示。比率不精确分布于 <span class="math inline">\(F\)</span> 的一个原因是各自的均方不是独立分布的。如果设计不太不均衡，那么使用 <span class="math inline">\(F\)</span> 分布作为近似应该是足够的。此外，当设计不均衡时，平方和（残差除外）不会分布为卡方分布的标量倍数。</p>
+<p><strong>为了检验均衡设计中方差分量的假设，应尽可能使用根据两个均方之比构造的 <span class="math inline">\(F\)</span> 检验。当无法使用两个均方之比时，Satterthwaite 近似是可接受的替代方案</strong>。</p>
+<p><strong>当设计不均衡时，几乎总是需要某种 Satterthwaite 近似来检验有关方差分量的假设</strong>。此外，方差分析表中的平方和可能不具有独立分布，尽管平方和集对于某些特殊情况可能是独立的。残差或误差平方和始终独立于方差分析表中的其他平方和。因此，对于任何期望为 <span class="math inline">\({\sigma}_{{\varepsilon}}^2+{k}_0{\sigma}_0^2\)</span> 的均方 <span class="math inline">\(U\)</span>，统计量 <span class="math inline">\(F_0 = U/MSResidual\)</span> 提供了对假设 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span> 的检验。在 <span class="math inline">\(H_0\)</span> 的条件下，<span class="math inline">\(F\)</span> 分布为具有 u 和 v 自由度的中心 <span class="math inline">\(F\)</span> 分布，其中 u 是与 <span class="math inline">\(U\)</span> 相关的自由度，v 是与 <span class="math inline">\(MSResidual\)</span> 相关的自由度。</p>
+<p>期望值涉及超过两个方差分量的均方通常不能用于获得具有精确 <span class="math inline">\(F\)</span> 抽样分布的单个方差分量的检验统计量。某些均衡设计会出现精确的 <span class="math inline">\(F\)</span> 分布，如前两个示例所示。比率不精确分布于 <span class="math inline">\(F\)</span> 的一个原因是各自的均方不是独立分布的。<strong>如果设计不太不均衡，那么使用 <span class="math inline">\(F\)</span> 分布作为近似应该是足够的</strong>。此外，当设计不均衡时，平方和（残差除外）不会分布为卡方分布的标量倍数。</p>
 <p>一般来说，为了检验 <span class="math inline">\(H_0\colon{\sigma}_0^2=0\mathrm{~vs~}H_a\colon{\sigma}_0^2&gt;0\)</span>，将有一个均方，记为 <span class="math inline">\(U_1\)</span>，期望为</p>
 <p><span class="math display">\[E(U_1)=\sigma_\varepsilon^2+k_{1a}\sigma_a^2+k_{1b}\sigma_b^2+k_{1c}\sigma_c^2\]</span></p>
 <p>但不会有其他均方具有期望 <span class="math inline">\(\sigma_\varepsilon^2+k_{1b}\sigma_b^2+k_{1c}\sigma_c^2\)</span>；也就是说，没有一个均方是合适的除数。方法是找到其他均方的线性组合，如 <span class="math inline">\(Q=\sum_{i=1}^kq_iMS_i\)</span> 其中 <span class="math inline">\(E(Q)=\sigma_\varepsilon^2+k_{1b}\sigma_b^2+k_{1c}\sigma_c^2\)</span>. Satterthwaite 近似可用于近似 <span class="math inline">\(Q\)</span> 的抽样分布，即，求 r，使得 <span class="math inline">\(rQ/E(Q)\)</span> 近似分布为具有 r 个自由度的卡方随机变量。该近似是双重的，因为 1) 自由度是近似的，2) 组成 <span class="math inline">\(Q\)</span> 的均方不一定按照近似所要求的那样独立分布为卡方随机变量。</p>
-<p>SAS<sup>®</sup>-Mixed 代码和使用 III 型平方和得出的方差分析表，用于示例 <a href="chap19.html#sec19-1-2">19.2</a> 中的小麦虫害数据，如表 <a href="#tab:table20-5"><strong>??</strong></a> 所示。variaty 均方的期望值是 <span class="math inline">\(\sigma_\varepsilon^2+3.1795\sigma_\mathrm{var}^2\)</span>》 为了检验假设 <span class="math inline">\(H_0\colon\sigma_{\text{var}}^2=0\text{ vs }H_a\colon\sigma_{\text{var}}^2&gt;0\)</span>，适当的除数是残差均方，它提供的 <span class="math inline">\(F\)</span> 统计量为 4.79. 将计算出的 <span class="math inline">\(F\)</span> 统计量与具有 3 和 9 个自由度的 <span class="math inline">\(F\)</span> 分布进行比较；其显著性水平为 0.0293. 由于这是一个单向实验，因此 I 型分析与 III 型分析相同。</p>
-<p>表 <a href="#tab:table20-6"><strong>??</strong></a> 显示了根据示例 <a href="chap19.html#sec19-1-3">19.3</a> 的双向随机效应数据的 I 型平方和构建的 SAS-Mixed 代码和方差分析表。为了检验假设 <span class="math inline">\(H_0\colon{\sigma}_{\mathrm{row}\times\mathrm{col}}^2=0\text{ vs }H_a\colon{\sigma}_{\mathrm{row}\times\mathrm{col}}^2&gt;0\)</span>，适当的除数是残差均方，它提供的 <span class="math inline">\(F\)</span> 统计量为 14.24. 将计算出的 <span class="math inline">\(F\)</span> 统计量与自由度为 2 和 8 的 <span class="math inline">\(F\)</span> 分布进行比较，提供的显著性水平为 0.0023. 没有精确的检验可用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{row}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{row}}&gt;0\)</span> 和 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{col}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{col}}&gt;0\)</span>，因此需要构建近似测试。用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{row}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{row}}&gt;0\)</span> 的 <span class="math inline">\(MS_{\text{Row}}\)</span> 的适当除数计算如下</p>
+<p>SAS<sup>®</sup>-Mixed 代码和使用 III 型平方和得出的方差分析表，用于示例 <a href="chap19.html#sec19-1-2">19.2</a> 中的小麦虫害数据，如表 <a href="chap20.html#tab:table20-5">20.5</a> 所示。variaty 均方的期望值是 <span class="math inline">\(\sigma_\varepsilon^2+3.1795\sigma_\mathrm{var}^2\)</span>. 为了检验假设 <span class="math inline">\(H_0\colon\sigma_{\text{var}}^2=0\text{ vs }H_a\colon\sigma_{\text{var}}^2&gt;0\)</span>，适当的除数是残差均方，它提供的 <span class="math inline">\(F\)</span> 统计量为 4.79. 将计算出的 <span class="math inline">\(F\)</span> 统计量与具有 3 和 9 个自由度的 <span class="math inline">\(F\)</span> 分布进行比较；其显著性水平为 0.0293. 由于这是一个单向实验，因此 I 型分析与 III 型分析相同。</p>
+<table>
+<caption>
+<span id="tab:table20-5">表 20.5: </span>示例 <a href="chap19.html#sec19-1-2">19.2</a> 中数据含期望均方和 <span class="math inline">\(F\)</span> 统计量的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table20-6">表 20.6: </span>示例 <a href="chap19.html#sec19-1-3">19.3</a> 的双向随机效应数据的 I 型分析，其中预期均方和误差项用于计算 <span class="math inline">\(F\)</span> 统计量
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.6.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap20.html#tab:table20-6">20.6</a> 显示了根据示例 <a href="chap19.html#sec19-1-3">19.3</a> 的双向随机效应数据的 I 型平方和构造的 SAS-Mixed 代码和方差分析表。为了检验假设 <span class="math inline">\(H_0\colon{\sigma}_{\mathrm{row}\times\mathrm{col}}^2=0\text{ vs }H_a\colon{\sigma}_{\mathrm{row}\times\mathrm{col}}^2&gt;0\)</span>，适当的除数是残差均方，它提供的 <span class="math inline">\(F\)</span> 统计量为 14.24. 将计算出的 <span class="math inline">\(F\)</span> 统计量与自由度为 2 和 8 的 <span class="math inline">\(F\)</span> 分布进行比较，提供的显著性水平为 0.0023. 没有精确的检验可用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{row}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{row}}&gt;0\)</span> 和 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{col}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{col}}&gt;0\)</span>，因此需要构造近似检验。用于检验 <span class="math inline">\(H_0\colon{\sigma^2}_{\text{row}}=0\text{ vs }H_a\colon{\sigma^2}_{\text{row}}&gt;0\)</span> 的 <span class="math inline">\(MS_{\text{Row}}\)</span> 的适当除数计算如下</p>
 <p><span class="math display">\[\begin{aligned}
 Q_{row} =&amp;\,\frac{0.1429}{4.5714}MSCol+\frac1{2.2588}{\left[2.4286-\frac{0.1429}{4.5714}\times2.3126\right]}MSRow\times Col  \\
 &amp;+\left[1-\frac{0.1429}{4.5714}-\frac1{2.2588}{\left(2.4286-\frac{0.1429}{4.5714}\times2.3126\right)}\right]MSResidual \\   
@@ -571,8 +735,373 @@ Q_{\text{col}}&amp; =\frac{2.3126}{2.2588}MSRow\times Col+\left[1-\frac{2.3126}{
 </div>
 <div id="sec20-1-4" class="section level3 hasAnchor" number="20.1.4">
 <h3><span class="header-section-number">20.1.4</span> 似然比检验<a href="chap20.html#sec20-1-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-
+<p>检验方差分量假设的第二种方法基于似然比程序，该程序涉及评估完全模型的似然函数值以及评估在 <span class="math inline">\(H_0\)</span> 条件下模型的似然函数值。</p>
+<p>方程 <a href="chap18.html#eq:18-3">(18.3)</a> 的一般随机模型是</p>
+<p><span class="math display">\[\boldsymbol y=\boldsymbol j_n\mu+\boldsymbol Z_1 \boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol\varepsilon \]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{u}_1\thicksim N(0,{\sigma}_1^2\boldsymbol{I}_{t_1}),\boldsymbol{u}_2\thicksim N(0,{\sigma}_2^2\boldsymbol{I}_{t_2}),...,\boldsymbol{u}_r\thicksim N(0,{\sigma}_r^2\boldsymbol{I}_{t_r}),{\varepsilon}\thicksim N(0,{\sigma}_\varepsilon^2\boldsymbol{I}_N)\)</span> 且这些随机变量独立分布。分布假设意味着 <span class="math inline">\(\boldsymbol y\)</span> 的边际分布为 <span class="math inline">\(N(\boldsymbol j_n\mu,\boldsymbol \Sigma)\)</span> 其中 <span class="math inline">\(\boldsymbol \Sigma=\sigma_\varepsilon^2\boldsymbol I_n+\sigma_1^2\boldsymbol Z_1\boldsymbol Z_1^{\prime}+\sigma_2^2\boldsymbol Z_2\boldsymbol Z_2^{\prime}+\cdots+\sigma_k^2\boldsymbol Z_k\boldsymbol Z_k^{\prime}\)</span>. 似然方程是</p>
+<p><span class="math display">\[L(\mu,\sigma_\varepsilon^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)=(2\pi)^{-n/2}|\boldsymbol \Sigma|^{-1/2}\exp\left[-\frac12(\boldsymbol y-\boldsymbol j_n\mu)^{\prime}\boldsymbol\Sigma^{-1}(\boldsymbol y-\boldsymbol j_n\mu)\right]\]</span></p>
+<p><span class="math inline">\(H_0{:{\sigma_1^2}}=0\)</span> 条件下的似然函数为</p>
+<p><span class="math display">\[L_0(\mu,\sigma_\varepsilon^2,0,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)=(2\pi)^{-n/2}\left|\boldsymbol \Sigma_0\right|^{-1/2}\exp\left[-\frac12(\boldsymbol y-\boldsymbol j_n\mu)^{\prime}\boldsymbol \Sigma_0^{-1}(\boldsymbol y-\boldsymbol j_n\mu)\right]\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol \Sigma_0=\sigma_\varepsilon^2\boldsymbol I_n+\sigma_2^2\boldsymbol Z_2\boldsymbol Z_2^{\prime}+\sigma_3^2\boldsymbol Z_3\boldsymbol Z_3^{\prime}+\cdots+\sigma_k^2\boldsymbol Z_k\boldsymbol Z_k^{\prime}\)</span>.</p>
+<p>该过程是获得两个似然函数的参数的最大似然估计，并根据其估计的值评估每个似然函数。似然比检验统计量为</p>
+<p><span class="math display">\[LR(\sigma_1^2=0)=\frac{L_0(\hat{\mu}_0,\hat{\sigma}_{\varepsilon0}^2,0,\hat{\sigma}_{20}^2,\hat{\sigma}_{30}^2,\ldots,\hat{\sigma}_{k0}^2|\boldsymbol y)}{L(\hat{\mu},\hat{\sigma}_{\varepsilon}^2,\hat{\sigma}_1^2,\hat{\sigma}_2^2,\ldots,\hat{\sigma}_k^2|\boldsymbol y)}\]</span></p>
+<p>其中 <span class="math inline">\(\hat{\sigma}_{i0}^2\)</span> 表示，在 <span class="math inline">\(H_0{:{\sigma_1^2}}=0\)</span> 条件下从似然函数中得到的 <span class="math inline">\({\sigma}_{i0}^2\)</span> 的最大似然估计。当 <span class="math inline">\(H_0{:{\sigma_1^2}}=0\)</span> 为真，</p>
+<p><span class="math display">\[\begin{aligned}-2\log[LR(\sigma_1^2=0)]=&amp;-2\log_{\mathrm{e}}[L_0(\hat{\mu}_0,\hat{\sigma}_{\varepsilon0}^2,0,\hat{\sigma}_{20}^2,\hat{\sigma}_{30}^2,\ldots,\hat{\sigma}_{k0}^2| \boldsymbol y)]\\&amp;+2\log_{\mathrm{e}}[L(\hat{\mu},\hat{\sigma}_{\varepsilon}^2,\hat{\sigma}_1^2,\hat{\sigma}_2^2,\ldots,\hat{\sigma}_k^2|\boldsymbol y)]\end{aligned}\]</span></p>
+<p>的渐近抽样分布为自由度为 1 的中心卡方分布。存在一个自由度的原因是 <span class="math inline">\(L_0(·)\)</span> 中的参数比 <span class="math inline">\(L_1(·)\)</span> 中少一个。<strong>决策规则是如果 <span class="math inline">\(-2\log[LR(\sigma_1^2=0)]&gt;\chi_{\alpha,1}^2\)</span>，则拒绝 <span class="math inline">\(H_0\)</span></strong>. 似然比检验统计量可以使用 SAS-Mixed 计算，其中 METHOD = ML 用作方差分量估计程序。</p>
 </div>
+<div id="sec20-1-5" class="section level3 hasAnchor" number="20.1.5">
+<h3><span class="header-section-number">20.1.5</span> 示例 20.3：小麦品种——单向随机效应模型<a href="chap20.html#sec20-1-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>表 <a href="chap20.html#tab:table20-7">20.7</a> 中给出了 SAS-Mixed 代码以及获得示例 <a href="chap19.html#sec19-1-2">19.2</a> 完全模型参数的最大似然估计结果。描述示例 <a href="chap19.html#sec19-1-2">19.2</a> 数据的模型的参数最大似然估计为 <span class="math inline">\(\hat{\mu}=3.9909,\hat{\sigma}_\varepsilon^2=0.05749\)</span> 和 <span class="math inline">\(\hat{\sigma}_\mathrm{var}^2=0.04855\)</span> 以及 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{\mu},\hat{\sigma}_{\varepsilon^{}}^2,\hat{\sigma}_{\mathrm{var}}^2|\boldsymbol y)\)</span> 的值为 4.96762. 缩减模型使用表 <a href="chap20.html#tab:table20-8">20.8</a> 中的 SAS-Mixed 代码拟合数据，其中从表 <a href="chap20.html#tab:table20-7">20.7</a> 的模型中删除了语句 “Random Variety;”. 在<span class="math inline">\(H_0{:{\sigma_1^2}}=0\)</span> 条件下，参数的最大似然估计为 <span class="math inline">\(\hat{\mu}=4.0269,\hat{\sigma}_\varepsilon^2=0.1014\)</span> 和 <span class="math inline">\(\hat{\sigma}_\mathrm{var}^2=0\)</span> 以及 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{\mu},\hat{\sigma}_{\varepsilon^{}}^2,\hat{\sigma}_{\mathrm{var}}^2|\boldsymbol y)\)</span> 的值为 7.13832. 检验 <span class="math inline">\(H_0\)</span> 的似然比检验的 -2log<sub>e</sub> 值为 <span class="math inline">\(7.13832 - 4.96762 = 2.1707\)</span>. 值 2.171 与具有一个自由度的中心卡方分布的分位数进行比较。此检验的显著性水平为 0.1407。使用表 <a href="chap20.html#tab:table20-5">20.5</a> 中的期望均方构造的 <span class="math inline">\(F\)</span> 检验提供了 0.0293 的显著性水平。<strong>似然比检验的抽样分布是渐近分布，对于大样本量来说是可以接受的</strong>，而在本例中，样本量很小。前面给出的 <span class="math inline">\(F\)</span> 检验的抽样分布是准确的。<strong>对于涉及超过两个方差分量的模型，其他方差分量的 <span class="math inline">\(F\)</span> 检验是小样本量的近似检验，通常相当充分，并且对于小样本量的情况，可能比基于渐近分布的检验更好</strong>。</p>
+<table>
+<caption>
+<span id="tab:table20-7">表 20.7: </span>示例 <a href="chap19.html#sec19-1-2">19.2</a> 使用 Method = ML 评估似然函数的 Proc Mixed 代码和拟合完全模型的结果
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table20-8">表 20.8: </span>示例 <a href="chap19.html#sec19-1-2">19.2</a> 拟合缩减模型的 Proc Mixed 代码和结果，使用 Method = ML 评估当 <span class="math inline">\(\sigma^2_{\text{var}} = 0\)</span> 时的似然函数
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec20-1-6" class="section level3 hasAnchor" number="20.1.6">
+<h3><span class="header-section-number">20.1.6</span> 示例 20.4：不均衡双向<a href="chap20.html#sec20-1-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>为检验示例 <a href="chap19.html#sec19-1-3">19.3</a> 中的双向随机效应数据的假设 <span class="math inline">\(H_0\)</span>，似然比统计量是通过拟合一个在 random 语句中包含了所有项的模型，然后拟合一个在 random 语句中不包含 row × col 项的模型来获得的，如表 <a href="chap20.html#tab:table20-9">20.9</a> 所示。用于拟合这两个模型的 SAS-Mixed 代码包含在表 <a href="chap20.html#tab:table20-9">20.9</a> 中。不包含行效应和列效应的模型拟合结果也包含在内，但没有提供相应的 SAS-Mixed 代码。给出了方差分量的最大似然估计、截距估计和 -2log(likelihood) 值。用于假设 <span class="math inline">\(H_0:\sigma_{\mathrm{~row\times col}}^2=0\mathrm{~vs~}H_a{:}\sigma_{\mathrm{~row\times col}}^2&gt;0\)</span> 的似然比统计量为 <span class="math inline">\(73.4-68.7=4.7\)</span>，其在 <span class="math inline">\(H_0\)</span> 条件下为具有单自由度的卡方抽样分布。显著性水平为 0.030，表明有足够的信息去相信 <span class="math inline">\(\sigma_{\mathrm{~row\times col}}^2&gt;0\)</span>. 对于检验行和列方差分量是否等于零的假设，似然比统计量的值均为零。这是因为两个方差分量的最大似然估计均为零。因此，在检验行方差分量是否为零时，无论行是否包含在 random 语句中，-2log(likelihood) 的值都保持不变。</p>
+<table>
+<caption>
+<span id="tab:table20-9">表 20.9: </span>各种模型的方差分量最大似然估计，以便计算似然比检验统计量来检验每个单独方差分量为零的假设
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.9.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="sec20-2" class="section level2 hasAnchor" number="20.2">
+<h2><span class="header-section-number">20.2</span> 构造置信区间<a href="chap20.html#sec20-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>有些程序可以为某些模型中的某些方差分量提供精确的置信区间，但大多数情况下，所获得的置信区间都是近似的，并依赖于某种类型的近似。</p>
+<div id="sec20-2-1" class="section level3 hasAnchor" number="20.2.1">
+<h3><span class="header-section-number">20.2.1</span> 残差方差 <span class="math inline">\(\sigma^2_\varepsilon\)</span><a href="chap20.html#sec20-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>对于一般随机模型，<span class="math inline">\(\sigma^2_\varepsilon\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\frac{v\hat{\sigma}_\varepsilon^2}{\chi_{(\alpha/2),v}^2}\leq\sigma_\varepsilon^2\leq\frac{v\hat{\sigma}_\varepsilon^2}{\chi_{1-(\alpha/2),v}^2}\]</span></p>
+<p>其中 <span class="math inline">\(\hat{\sigma}_\varepsilon^2=\text{SSRESIDUAL}/v\)</span>，v 表示与 <span class="math inline">\(\hat{\sigma}_\varepsilon^2\)</span> 相关的自由度。<span class="math inline">\(\chi_{1-(\alpha/2),v}^2,\chi_{\alpha/2,v}^2\)</span> 表示自由度为 v 的卡方分布的下 <span class="math inline">\(\alpha/2\)</span> 和上 <span class="math inline">\(\alpha/2\)</span> 分位点。</p>
+</div>
+<div id="sec20-2-2" class="section level3 hasAnchor" number="20.2.2">
+<h3><span class="header-section-number">20.2.2</span> 一般 Satterthwaite 近似<a href="chap20.html#sec20-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>方差分量抽样分布的<strong>一般 Satterthwaite 近似</strong> (general Satterthwaite approximation) 是通过将 <span class="math inline">\(r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)\)</span> 的前两阶矩与基于 r 个自由度的卡方分布的前两个阶相等，然后解出 r 来获得的。卡方分布的一阶矩等于其自由度 r. 因此，令 <span class="math inline">\(r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)\)</span> 的一阶矩等于自由度为 r 的卡方分布的一阶矩，并不能提供有关 r 的信息。自由度为 r 的卡方分布的方差等于 2r. 令 <span class="math inline">\(r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)\)</span> 的方差等于自由度为 r 的卡方分布的方差，得到</p>
+<p><span class="math display">\[\mathrm{Var}\left(\frac{r\hat{\sigma}_i^2}{E(\hat{\sigma}_i^2)}\right)=2r\quad\mathrm{or}\quad\frac{r^2}{\left[E(\hat{\sigma}_i^2)\right]^2}\mathrm{Var}(\hat{\sigma}_i^2)=2r\]</span></p>
+<p>这意味着</p>
+<p><span class="math display">\[r=\frac{2[\operatorname{E}(\hat{\sigma}_i^2)]^2}{\operatorname{Var}(\hat{\sigma}_i^2)}\]</span></p>
+<p>r 的值是通过将 <span class="math inline">\(E(\hat{\sigma}_i^2)\)</span> 替换为 <span class="math inline">\(\hat{\sigma}_i^2\)</span> ，并将 <span class="math inline">\({\operatorname{Var}(\hat{\sigma}_i^2)}\)</span> 替换为其方差的估计值来估计的。如果获得了 REML 或 ML 解，则可以使用信息矩阵的逆来提供方差分量估计的方差的估计 (estimates of the variances of the estimated variance components). SAS-Mixed 使用在方差分量估计值处评估的信息矩阵的逆来提供估计方差分量的方差和协方差的渐近估计值。</p>
+<p>表 <a href="chap20.html#tab:table20-10">20.10</a> 包含使用 <code>covtest</code>, <code>cl</code> 和 <code>asycov</code> 选项的 SAS-Mixed 代码，以生成方差分量估计的标准误估计，将每个估计值与其标准误估计的比值计算为 Z 值，将 Satterthwaite 类型的置信区间标记为 Lower 和 Upper，以及方差分量估计值的渐近协方差阵。表 <a href="chap20.html#tab:table20-10">20.10</a> 中的 data step 计算了与每个方差分量估计相关的近似自由度，然后使用这些自由度来计算 Satterthwaite 置信区间。<span class="math inline">\(\hat{\sigma}_{\text{var}}^2\)</span> 和 <span class="math inline">\(\hat{\sigma}_{\varepsilon}^2\)</span> 的近似自由度分别为 1.758 和 8.828。重新计算的置信区间与 SAS-Mixed 提供的置信区间相同。</p>
+<table>
+<caption>
+<span id="tab:table20-10">表 20.10: </span>SAS-Mixed 代码，采用 Method = REML 和 Data Step 来计算示例 <a href="chap19.html#sec19-1-2">19.2</a> 中小麦昆虫损害的方差分量的 Satterthwaite 类型置信区间
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.10.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap20.html#tab:table20-11">20.11</a> 中的 SAS-Mixed 代码为示例 <a href="chap20.html#sec20-1-2">20.1</a> 中的数据提供了方差分量的 REML 估计。方差分量的置信区间是使用 <span class="math inline">\(df = 2(\text{Z-value})^2\)</span> 计算的，分别提供了 0.50, 0.95, 0.84, 1.73, 0 和 8 个自由度。应该注意到，当与随机效应相关的水平数非常少，因此自由度非常小，所得到的置信区间将非常宽。</p>
+<table>
+<caption>
+<span id="tab:table20-11">表 20.11: </span>用于提供方差分量的 REML 估计和 Satterwaite 置信区间的 SAS-Mixed 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.11.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec20-2-3" class="section level3 hasAnchor" number="20.2.3">
+<h3><span class="header-section-number">20.2.3</span> 方差分量函数的近似置信区间<a href="chap20.html#sec20-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>研究人员通常希望构造关于模型中方差分量的某些函数的置信区间。如下一节所述，涉及均衡模型的某些情况下存在精确的置信区间。</p>
+<p>在本节中，使用一阶泰勒级数 (Kendall and Stuart, 1973) 来估计方差函数的方差，然后使用它来构造 Satterthwaite 类型的置信区间。设 <span class="math inline">\(\sigma\)</span> 表示方差分量的向量，<span class="math inline">\(\text{Var}(\sigma)\)</span> 表示方差分量的方差估计和协方差阵估计。假设感兴趣的方差分量的函数为 <span class="math inline">\({\varphi}({\sigma})\)</span>，且 <span class="math inline">\({\varphi}({\sigma})\)</span> 具有连续的一阶导数。<span class="math inline">\({\varphi}({\sigma})\)</span> 的最大似然估计是 <span class="math inline">\({\varphi}(\hat{\sigma})\)</span>，其中 <span class="math inline">\(\hat{\sigma}\)</span> 表示 <span class="math inline">\(\sigma\)</span> 的最大似然估计。与方差分量对应的信息矩阵的逆的估计是 <span class="math inline">\(\hat{{V}}(\hat{{\sigma}})\)</span>，它提供了 <span class="math inline">\(\text{Var}(\sigma)\)</span> 的估计。计算 <span class="math inline">\({\varphi}({\sigma})\)</span> 关于每个方差分量的导数，并在 <span class="math inline">\(\hat{\sigma}\)</span> 处评估它们。然后令</p>
+<p><span class="math inline">\({\varphi}(\hat{\sigma})\)</span> 的近似方差为 <span class="math inline">\({\sigma}_{{\varphi}(\hat{\sigma})}^2=\hat{\boldsymbol{f}}^{\prime}\hat{\boldsymbol{V}}(\hat{{\sigma}})\hat{\boldsymbol{f}}\)</span>. 与该估计对应的 Satterthwaite 近似自由度计算如下</p>
+<p><span class="math display">\[r=\frac{2[\varphi(\hat{\sigma})]^2}{\hat{\sigma}_{\varphi(\hat{\sigma})}^2}\]</span></p>
+<p>假设研究人员有兴趣估计示例 <a href="chap19.html#sec19-1-3">19.2</a> 的昆虫损害研究数据的总变异性；也就是说，研究人员想要估计 <span class="math inline">\(\varphi(\sigma)=\sigma^2_{\text{var}}+\sigma^2_{\varepsilon}\)</span>. <span class="math inline">\(\varphi(\sigma)\)</span> 的一阶导数向量为</p>
+<p><span class="math display">\[\boldsymbol f=\begin{bmatrix}\frac{\partial\varphi(\sigma)}{\partial\sigma_\mathrm{var}^2}\\\frac{\partial\varphi(\sigma)}{\partial\sigma_\varepsilon^2}\end{bmatrix}=\begin{bmatrix}1\\1\end{bmatrix}\]</span></p>
+<p>方差分量估计的协方差阵为</p>
+<p><span class="math display">\[\hat{\boldsymbol V}(\hat{\sigma})=\begin{bmatrix}\hat{\sigma}_{\hat{\sigma}_{\mathrm{var}}^2}^2&amp;\hat{\sigma}_{\hat{\sigma}_{\mathrm{var}}^2,\hat{\sigma}_{\hat{\varepsilon}}^2}^2\\\hat{\sigma}_{\hat{\sigma}_{\mathrm{var}}^2,\hat{\sigma}_{\hat{\varepsilon}}^2}^2&amp;\hat{\sigma}_{\hat{\sigma}_{\hat{\varepsilon}}^2}^2\end{bmatrix}\]</span></p>
+<p>因此 <span class="math inline">\(\varphi(\hat{\sigma})\)</span> 的近似方差为 <span class="math display">\[\hat{\sigma}_{\varphi(\hat{\sigma})}^2=\hat{\sigma}_{\hat{\sigma}_\mathrm{var}^2}^2+\hat{\sigma}_{\hat{\sigma}_\varepsilon^2}^2+2\hat{\sigma}_{\hat{\sigma}_\mathrm{var}^2\hat{\sigma}_\varepsilon^2}\]</span>. 使用表 <a href="chap20.html#tab:table20-10">20.10</a> 中的信息可以得到</p>
+<p><span class="math display">\[\varphi(\hat{\sigma})=0.07316+0.05700=0.13010\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\hat{\sigma}_{\varphi(\hat{\sigma})}^2=0.006087+0.000736-2(0.00031)=0.006203\]</span></p>
+<p>方差估计对应的近似自由度为</p>
+<p><span class="math display">\[r=\frac{2(0.13010)^2}{0.006203}=5.46\]</span></p>
+<p>最后，<span class="math inline">\(\varphi(\sigma)=\sigma_{\mathrm{var}}^2+\sigma_{\varepsilon}^2\)</span> 的 95% 置信区间为</p>
+<p><span class="math display">\[0.052287&lt;\sigma_\mathrm{var}^2+\sigma_\varepsilon^2&lt;0.70253\]</span></p>
+<p>作为第二个例子，组内相关系数定义为</p>
+<p><span class="math display">\[\rho=\frac{\sigma_\mathrm{var}^2}{\sigma_\varepsilon^2+\sigma_\mathrm{var}^2}\]</span></p>
+<p>可以使用泰勒级数方法构造近似置信区间，其中</p>
+<p><span class="math display">\[\varphi(\rho)=\frac{\sigma_\mathrm{var}^2}{\sigma_\varepsilon^2+\sigma_\mathrm{var}^2}\]</span></p>
+<p><span class="math inline">\(\rho=\frac{\sigma_\mathrm{var}^2}{\sigma_\varepsilon^2+\sigma_\mathrm{var}^2}\)</span> 导数的估计向量的转置为</p>
+<p><span class="math display">\[\hat{\boldsymbol f}^{\prime}=\left[\frac{(\hat{\sigma}_\varepsilon^2+\hat{\sigma}_\mathrm{var}^2)-(\hat{\sigma}_\mathrm{var}^2)}{(\hat{\sigma}_\varepsilon^2+\hat{\sigma}_\mathrm{var}^2)^2},\frac{-(\hat{\sigma}_\mathrm{var}^2)}{(\hat{\sigma}_\varepsilon^2+\hat{\sigma}_\mathrm{var}^2)^2}\right]\]</span></p>
+<p>使用表 <a href="chap20.html#tab:table20-10">20.10</a> 中的信息，组内相关性的估计值为 <span class="math inline">\(\hat\rho = 0.5621\)</span>，其方差估计为 0.2156。相应的近似自由度为 <span class="math inline">\(r = 2.93\)</span>. 得到的组内相关系数的近似置信区间为 (0.1785, 8.214)，可以简化为 (0.1785, 1)，因为类内相关系数不能大于 1. <strong>对于方差分量的线性函数，一阶泰勒级数方法非常有效，而对于如组内相关性这样的非线性函数，其效果较差</strong>。组内相关性的置信区间更好，将在第 <a href="chap20.html#sec20-2-3">20.2.3</a> 节中描述。</p>
+<p>当使用平方和的方法获得方差分量的估计值时，可以使用<strong>通常的 Satterthwaite 近似</strong> (usual Satterthwaite approximation) 来构造置信区间。假设每个方差分量的估计值可以表示为方差分析表中给出的均方值的线性组合，如 <span class="math inline">\(\hat{{\sigma}}_s^2=\sum_{i=1}^kc_{is}MS_i+c_{\varepsilon s}MSResidual\)</span>. 然后自由度的近似数计算为</p>
+<p><span class="math display">\[r_s=\frac{(\hat{\sigma}_s^2)^2}{\sum_{i=1}^k\frac{\left(c_{is}MS_i\right)^2}{df_{_{MS_i}}}+\frac{\left(c_{_{\mathbf{\varepsilon}s}}MSResidual\right)^2}{df_{_{MSResidual}}}}\]</span></p>
+<p><span class="math inline">\(\sigma^2_s\)</span> 的近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\frac{r_s\hat{\sigma}_s^2}{\chi_{\alpha/2,r_s}^2}\leq\sigma_s^2\leq\frac{r_s\hat{\sigma}_s^2}{\chi_{1-(\alpha/2),r_s}^2}\]</span></p>
+<p>当使用平方和方法估计方差分量时，可以很容易地从期望均方和 SAS-Mixed 提供的误差项获得均方系数。例如，示例 <a href="chap20.html#sec20-1-3">20.2</a> 中 <span class="math inline">\(\sigma^2_a\)</span> 的估计为</p>
+<p><span class="math display">\[\hat{\sigma}_a^2=\frac18{\left[MSA-MS(A\times B)\right]}=\frac18(39.0625-10.5625)=3.5625\]</span></p>
+<p>自由度的近似数为</p>
+<p><span class="math display">\[\begin{aligned}r&amp;=\frac{(3.5625)^2}{\frac{[(1/8)39.0625]^2}1+\frac{[(1/8)10.5625]^2}1}=0.305\end{aligned}\]</span></p>
+<p><span class="math inline">\(\sigma^2_a\)</span> 的最终置信区间为 (0.4226, 27556199203.09)，这是由于自由度数非常低 (0.305) 而导致的非常宽的区间。另外，示例 <a href="chap20.html#sec20-1-3">20.2</a> 中 <span class="math inline">\(\sigma^2_b\)</span> 的估计为</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{\sigma}_b^2&amp; =\frac18\{MSB-[MS(A\times B)+MS(C(B))-MS(A\times C(B))]\}  \\
+&amp;=\frac18(770.0625-12.0625-10.5625+0.8125) \\
+&amp;=93.5313
+\end{aligned}\]</span></p>
+<p>自由度的近似数为</p>
+<p><span class="math display">\[\begin{aligned}r&amp;=\frac{(93.5313)^2}{\frac{[(1/8)770.0625]^2}1+\frac{[(1/8)12.0625]^2}2\frac{[(1/8)10.5625]^2}{1}\frac{[(1/8)0.8125]^2}2}\\ &amp;=0.944 \end{aligned}\]</span></p>
+<p><span class="math inline">\(\sigma^2_b\)</span> 的最终置信区间为 (18.1347, 141493.19)，这也是由于自由度数较少而导致的较宽区间。<strong>基本上，当只有少量自由度可用于估计方差分量时，对该方差分量将会知之甚少</strong>。</p>
+</div>
+<div id="sec20-2-4" class="section level3 hasAnchor" number="20.2.4">
+<h3><span class="header-section-number">20.2.4</span> 方差分量的 Wald 型置信区间<a href="chap20.html#sec20-2-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Wald 型置信区间可以使用最大似然估计的渐近正态性来计算。方差分量 <span class="math inline">\(\sigma^2_s\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> Wald 置信区间为 <span class="math inline">\(\hat{{\sigma}}_s^2-Z_{\alpha/2}\sqrt{\hat{\sigma}_{\hat{{\sigma}}_s^2}^2}\leq{\sigma}_s^2\leq\hat{{\sigma}}_s^2+Z_{\alpha/2}\sqrt{\hat{\sigma}_{\hat{{\sigma}}_s^2}^2}\)</span>. Wald 置信区间关于 <span class="math inline">\(\hat{{\sigma}}_s^2\)</span> 对称。在数据正态性的假设下，与方差相关的抽样分布是不对称的卡方分布。但随着自由度数量的增加，卡方分布的形状变得更加对称。因此，<strong>当与方差分量相关的自由度较大时，Wald 置信区间应该足够，但当自由度数量较小时，Satterthwaite 型置信区间将更接近于现实</strong>。当在 SAS-Mixed 中使用 METHOD = TYPEx 并请求置信区间时，除残差方差分量计算的是 Satterthwaite 置信区间外，所有方差分量都提供 Wald 置信区间。</p>
+</div>
+<div id="sec20-2-5" class="section level3 hasAnchor" number="20.2.5">
+<h3><span class="header-section-number">20.2.5</span> 一些精确的置信区间<a href="chap20.html#sec20-2-5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>由均衡模型的方差分析表中的所有平方和（不包括 <span class="math inline">\(SSRESIDUAL\)</span>）与残差平方和无关，因此可以使用下一个结果来构造方差分量的置信区间，如 <span class="math inline">\(\sigma^2_1\)</span>，当模型中存在期望为 <span class="math inline">\(\sigma_\varepsilon^2+a\sigma_1^2\)</span> 的均方时，其置信系数至少为 <span class="math inline">\(1-\alpha\)</span>. 令 <span class="math inline">\(Q_1=MSRESIDUAL\)</span> 并假设其基于 u<sub>1</sub> 个自由度，并令 <span class="math inline">\(Q_2\)</span> 为基于 u<sub>2</sub> 个自由度，期望为 <span class="math inline">\(\sigma_\varepsilon^2+a\sigma_1^2\)</span>. 关于 <span class="math inline">\(\sigma_\varepsilon^2\)</span> 和 <span class="math inline">\(\sigma_\varepsilon^2+a\sigma_1^2\)</span> 的一组精确同时 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式给出</p>
+<p><span class="math display">\[\begin{aligned}&amp;\frac{u_1Q_1}{\chi_{\rho/2,u_1}^2}\leq\sigma_\varepsilon^2\leq\frac{u_1Q_1}{\chi_{1-(\rho/2),u_1}^2}\\&amp;\frac{u_2Q_2}{\chi_{\rho/2,u_2}^2}\leq\sigma_\varepsilon^2+a\sigma_1^2\leq\frac{u_2Q_2}{\chi_{1-(\rho/2),u_2}^2}\end{aligned}\]</span></p>
+<p>其中 <span class="math inline">\(\rho=1-\sqrt{1-\alpha}\)</span>. 这两个区域在 <span class="math inline">\((\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 平面上的交集为 <span class="math inline">\((\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 提供了 <span class="math inline">\((1 - \alpha)100\%\)</span> 同时置信域 (simultaneous confidence region). 置信域图如图 <a href="chap20.html#fig:figure20-1">20.1</a> 所示。通过确定置信域内 <span class="math inline">\(\sigma_1^2\)</span> 的最大值和最小值，可以获得关于 <span class="math inline">\(\sigma_1^2\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间。图 <a href="chap20.html#fig:figure20-1">20.1</a> 中交集区域中 <span class="math inline">\(\sigma_1^2\)</span> 的最小值由 c 给出，最大值由 d 给出。 c 和 d 的值可以通过求解相应的线相交处的 <span class="math inline">\(\sigma_1^2\)</span> 的值来确定。两组线相交于</p>
+<p><span class="math display">\[\begin{aligned}c&amp;=\frac{u_2Q_2/\chi_{\rho/2,u_2}^2-u_2Q_2/\chi_{1-(\rho/2),u_2}^2}a\\d&amp;=\frac{u_2Q_2/\chi_{1-(\rho/2),u_2}^2-u_1Q_1/\chi_{\rho/2,u_2}^2}a\end{aligned}\]</span></p>
+<p>从而提供 <span class="math inline">\(c\leq\sigma_1^2\leq d\)</span> 作为关于 <span class="math inline">\(\sigma_1^2\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间。c 的值对应于如下两条线相交时 <span class="math inline">\(\sigma_1^2\)</span> 的值</p>
+<p><span class="math display">\[\sigma_\varepsilon^2=u_1Q_1/\chi_{1-(\rho/2),u_1}^2\quad\mathrm{and}\quad\sigma_\varepsilon^2=-a\sigma_1^2+u_2Q_2/\chi_{\rho/2,u_2}^2\]</span></p>
+<p>d 的值对应于如下两条线相交时 <span class="math inline">\(\sigma_1^2\)</span> 的值</p>
+<p><span class="math display">\[\sigma_\varepsilon^2=u_1Q_1/\chi_{\rho/2,u_1}^2\quad\mathrm{~and~}\quad\sigma_\varepsilon^2=-a\sigma_1^2+u_2Q_2/\chi_{1-(\rho/2),u_2}^2\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure20-1"></span>
+<img src="figure/figure%2020.1.png" alt="$\sigma_{\varepsilon}^2,\sigma_1^2$ 的置信域图" width="1065" />
+<p class="caption">
+图 20.1: <span class="math inline">\(\sigma_{\varepsilon}^2,\sigma_1^2\)</span> 的置信域图
+</p>
+</div>
+<p>上述关于 <span class="math inline">\((\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 的联合置信域可用于构造任意关于 <span class="math inline">\(\sigma_{\varepsilon^{}}^2\)</span> 和 <span class="math inline">\(\sigma_1^2\)</span> 的连续函数的置信区间。令 <span class="math inline">\(\varphi(\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 表示 <span class="math inline">\(\sigma_{\varepsilon^{}}^2\)</span> 和 <span class="math inline">\(\sigma_1^2\)</span> 在 <span class="math inline">\((\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 空间上的连续函数，并令 <span class="math inline">\(\mathfrak{R}_\alpha(\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 表示 <span class="math inline">\(\sigma_{\varepsilon^{}}^2\)</span> 和 <span class="math inline">\(\sigma_1^2\)</span> 的联合置信域 (joint confidence region). <span class="math inline">\(\varphi(\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 的置信下限为</p>
+<p><span class="math display">\[L=\min_{(\sigma_\varepsilon^2,\sigma_1^2)\in\Re_\alpha(\sigma_\varepsilon^2,\sigma_1^2)}[\varphi(\sigma_\varepsilon^2,\sigma_1^2)]\]</span></p>
+<p><span class="math inline">\(\varphi(\sigma_{\varepsilon^{}}^2,\sigma_1^2)\)</span> 的置信上限为</p>
+<p><span class="math display">\[U=\max_{(\sigma_\varepsilon^2,\sigma_1^2)\in\Re_\alpha(\sigma_\varepsilon^2,\sigma_1^2)}[\varphi(\sigma_\varepsilon^2,\sigma_1^2)]\]</span></p>
+<p>例如，如果</p>
+<p><span class="math display">\[\varphi(\sigma_\varepsilon^2,\sigma_1^2)=\frac{\sigma_1^2}{\sigma_\varepsilon^2+\sigma_1^2}\]</span></p>
+<p>最大值出现在 <span class="math inline">\((u_1Q_1/\chi_{1-(\alpha/2),{u_1}}^2C)\)</span>，最小值出现在 <span class="math inline">\((u_1Q_1/\chi_{\alpha/2,u_1}^2,d)\)</span>. 因此，使用示例 <a href="chap20.html#sec20-1-2">20.1</a> 中的数据，得到的 <span class="math inline">\(\frac{\sigma_1^2}{\sigma_\varepsilon^2+\sigma_1^2}\)</span> 的置信区间约为</p>
+<p><span class="math display">\[-0.048511&lt;\frac{\sigma_1^2}{\sigma_\varepsilon^2+\sigma_1^2}&lt;1.89748\]</span></p>
+<p>或</p>
+<p><span class="math display">\[0&lt;\frac{\sigma_1^2}{\sigma_\varepsilon^2+\sigma_1^2}&lt;1\]</span></p>
+<p>因为众所周知 <span class="math inline">\(\frac{\sigma_1^2}{\sigma_\varepsilon^2+\sigma_1^2}\)</span> 必须大于 0 且小于 1. 当自由度数很小时，最小化和最大化方法可能会导致疯狂的结果，特别是当 <span class="math inline">\(\varphi(\sigma_\varepsilon^2,\sigma_1^2)\)</span> 是非线性函数时。</p>
+<p>Williams (1962) 提出的 <span class="math inline">\(\sigma_1^2\)</span> 的另一个置信区间具有由下式给出的置信下限和上限：</p>
+<p><span class="math display">\[\begin{aligned}c_1&amp;=\frac{u_2[Q_2-Q_1F_{\alpha/2,u_2,u_1}]}{a\chi_{\alpha/2,u_2}^2}\quad\text{and}\quad d_1=\frac{u_2[Q_2-Q_1F_{1-(\alpha/2),u_2,u_1}]}{a\chi_{1-(\alpha/2),u_2}^2}\end{aligned}\]</span></p>
+<p>其置信系数至少为 <span class="math inline">\(1 - 2\alpha\)</span>. 模拟研究（Boardman, 1974；以及作者未发表的研究）表明，如果取 <span class="math inline">\(\rho=\alpha\)</span> 为而不是 <span class="math inline">\(\rho=1-√(1-\alpha)\)</span>，如上所述，第一种程序为 <span class="math inline">\(\sigma_1^2s\)</span> 提供的置信区间的置信系数不小于 <span class="math inline">\(1-\alpha\)</span>. 类似的模拟表明，Williams 提出的区间的置信系数不小于 <span class="math inline">\(1-\alpha\)</span>. Williams 的区间比 <span class="math inline">\(c\leq\sigma_1^2\leq d\)</span> 刻画的区间稍短。因此 (c, d) 区间比 Williams 区间稍微保守一些。</p>
+</div>
+<div id="sec20-2-6" class="section level3 hasAnchor" number="20.2.6">
+<h3><span class="header-section-number">20.2.6</span> 示例 20.5：均衡单向随机效应处理结构<a href="chap20.html#sec20-2-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<caption>
+<span id="tab:table20-12">表 20.12: </span>示例 <a href="chap20.html#sec20-2-6">20.5</a> 数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.12.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap20.html#tab:table20-12">20.12</a> 中的数据来自单向处理结构，其中从工厂工作的工人总体中随机选择了五名工人。工人的水平是随机效应，研究是在完全随机设计结构下进行的，其中五名工人，每名工人三个观测值，响应是在固定时间段内装配的单元数。可用于刻画这些数据的模型是</p>
+<p><span class="math display">\[y_{ij}=\mu+iv_i+\varepsilon_{ij},\quad i=1,2,\ldots,5,j=1,2,3,w_i\thicksim i.i.d.N(0,\sigma_{w}^2)\mathrm{~and~}\varepsilon_{ij}\thicksim i.i.d.N(0,\sigma_{\varepsilon}^2)\]</span></p>
+<table>
+<caption>
+<span id="tab:table20-13">表 20.13: </span>示例 <a href="chap20.html#sec20-2-6">20.5</a> 工人数据的 SAS-Mixed 代码和方差分析表结果
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.13.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap20.html#tab:table20-13">20.13</a> 提供了包括期望均方的方差分析表。<span class="math inline">\(\sigma_\varepsilon^2\)</span> 的 95% 置信区间为</p>
+<p><span class="math display">\[\frac{16}{20.483}\leq\sigma_\varepsilon^2\leq\frac{16}{3.247}\quad\mathrm{or}\quad0.781\leq\sigma_\varepsilon^2\leq4.928\]</span></p>
+<p><span class="math inline">\(\sigma_\varepsilon^2+3\sigma_w^2\)</span> 的 95% 置信区间为</p>
+<p><span class="math display">\[\frac{128}{11.143}\leq\sigma_\varepsilon^2+3\sigma_w^2\leq\frac{128}{0.484}\quad\mathrm{or}\quad11.487\leq\sigma_\varepsilon^2+3\sigma_w^2\leq264.463\]</span></p>
+<p>通过使用这两个区间相交产生的联合置信域，关于 <span class="math inline">\(\sigma_w^2\)</span> 的近似 95% 置信区间为 <span class="math inline">\(c\leq\sigma_w^2\leq d\)</span>，其中</p>
+<p><span class="math display">\[\begin{aligned}c&amp;=\frac{11.487-4.928}3=2.186\quad\mathrm{and}\quad d=\frac{264.463-0.781}3=87.818\end{aligned}\]</span></p>
+<p>因此，可以得到 <span class="math inline">\(2.186\leq\sigma_w^2\leq 87.818\)</span> 作为 <span class="math inline">\(\sigma_w^2\)</span> 的近似 95% 置信区间。</p>
+<p>这种程序可用于构造关于任何方差分量（例如 <span class="math inline">\(\sigma_1^2\)</span>）的置信区间，当存在两个使得 <span class="math inline">\(E(Q_2) = E(Q_1) + \sigma_1^2\)</span> 的独立均方 <span class="math inline">\(Q_1\)</span> 和 <span class="math inline">\(Q_2\)</span>，分别基于 u<sub>1</sub> 和 u<sub>2</sub> 自由度。令 <span class="math inline">\({\sigma}_0^2=E(Q_1)\)</span> ，并在之前的开发中用 <span class="math inline">\(\sigma^2_0\)</span> 替换 <span class="math inline">\(\sigma^2_\varepsilon\)</span>；那么 <span class="math inline">\(\sigma_1^2\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 近似置信区间为 <span class="math inline">\(c\leq\sigma_1^2\leq d\)</span>. Williams (1962) 的结果也适用于这种情况 (Graybill, 1976, 定理 15.3.5).</p>
+</div>
+<div id="sec20-2-7" class="section level3 hasAnchor" number="20.2.7">
+<h3><span class="header-section-number">20.2.7</span> 示例 20.6<a href="chap20.html#sec20-2-7" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>为了演示上述更一般的程序，对示例 <a href="chap20.html#sec20-1-3">20.2</a> 中的数据构造了关于 <span class="math inline">\(\sigma_a^2\)</span> 的 90% 置信区间，其中数据在表 <a href="chap20.html#tab:table20-2">20.2</a> 中，期望均方在表 <a href="chap20.html#tab:table20-3">20.3</a> 中，并且方差分析表数据见表 <a href="chap20.html#tab:table20-4">20.4</a>. 令 <span class="math inline">\(Q_2=MSA\)</span> 且 <span class="math inline">\(Q_1=MSAB\)</span>，两者都基于 1 个自由度。它们的期望分别是</p>
+<p><span class="math display">\[E(Q_1)=\sigma_\varepsilon^2+2\sigma_{ac(b)}^2+4\sigma_{ab}^2\quad\mathrm{~and~}\quad E(Q_2)=\sigma_\varepsilon^2+2\sigma_{ac(b)}^2+4\sigma_{ab}^2+8\sigma_a^2,\]</span></p>
+<p>令 <span class="math inline">\(\sigma_0^2=\sigma_\varepsilon^2+2\sigma_{ac(b)}^2+4\sigma_{ab}^2,\sigma_1^2=\sigma_a^2\)</span> 以及 <span class="math inline">\(a=8\)</span>. 那么 <span class="math inline">\(\sigma_0^2\)</span> 的置信限为</p>
+<p><span class="math display">\[\begin{aligned}c&amp;=\frac{(1\times39.0625/3.8415)-(1\times10.5625/0.00393)}8=-334.69\\d&amp;=\frac{(1\times39.0625/0.00393)-(1\times10.5625/3.8415)}8=1242.10\end{aligned}\]</span></p>
+<p>或</p>
+<p><span class="math display">\[-334.69\leq\sigma_a^2\leq1242.10\]</span></p>
+<p>在此示例中，图 <a href="chap20.html#fig:figure20-1">20.1</a> 中确定 c 值的两条线在参数空间之外相交，因此下限被截断为零，因此置信区间仅包括参数空间中 <span class="math inline">\(\sigma_a^2\)</span> 的值。因此，<span class="math inline">\(\sigma_a^2\)</span> 的置信区间为 <span class="math inline">\(0 \le \sigma_a^2 \le 1242.10\)</span>. 类似的技术可用于构造关于 <span class="math inline">\(\sigma_{ab}^2,\sigma_{ac(b)}^2\)</span> 和 <span class="math inline">\(\sigma_{c(b)}^2\)</span> 的置信区间，但不能用于获取关于 <span class="math inline">\(\sigma_b^2\)</span> 的置信区间。</p>
+<p>Burdick and Graybill (1992) 提出了几种可以获得方差分量精确置信区间的情况。他们还提出了方差分量几个函数的近似置信区间。对于每个单元格中观测值数量相等且没有缺失单元格的均衡设计，通常可以获得精确的置信区间。这些区间基于分析中的一组平方和，这些平方和作为独立的卡方随机变量进行分布。Burdick and Graybill (1992) 介绍了 Graybill and Wang (1980), Lu et al. (1989) 以及 Ting et al. (1990) 为方差分量的各种函数开发的置信区间。以下讨论是关于与在完全随机设计结构中进行的均衡单向随机效应处理结构相关的置信区间，Burdick and Graybill 称之为单层嵌套设计 (one-fold nested design). 该模型是</p>
+<p><span class="math display">\[\begin{aligned}&amp;y_{ij}=\mu+u_i+\varepsilon_{ij},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,n\\&amp;u_i\thicksim i.i.d.N(0,\sigma_u^2),\varepsilon_{ij}\thicksim i.i.d.N(0,\sigma_\varepsilon^2)\end{aligned}\]</span></p>
+<p>其中 <span class="math inline">\(u_i,\varepsilon_{ij}\)</span> 为独立随机变量。</p>
+<p>该模型的方差分析表基于两个平方和</p>
+<p><span class="math display">\[\begin{aligned}\mathrm{SSBetween}&amp;=n\sum_{i=1}^t{(\bar{y}_{i\cdot}-\bar{y}_{\cdot\cdot})^2}=(t-1)Q_1\\\text{SSWithin}&amp;=\sum_{i=1}^t\sum_{j=1}^n{(y_{ij}-\bar{y}_{i\cdot})^2}=t(n-1)Q_2\end{aligned}\]</span></p>
+<p>其中 <span class="math inline">\(Q_1\)</span> 和 <span class="math inline">\(Q_2\)</span> 为各自的均方。与平方和对应的期望均方为</p>
+<p><span class="math display">\[\begin{aligned}E(\text{MSBetween})&amp;=E(Q_1)=\sigma_\varepsilon^2+n\sigma_u^2\quad\mathrm{~and~}\quad E(\text{MSWITHIN})=E(Q_2)=\sigma_\varepsilon^2\end{aligned}\]</span></p>
+<p>两个平方和是具有如下抽样分布的独立随机变量</p>
+<p><span class="math display">\[\frac{(t-1)Q_1}{\sigma_\varepsilon^2+n\sigma_u^2}\thicksim\chi_{t-1}^2\quad\mathrm{and}\quad\frac{t(n-1)Q_2}{\sigma_\varepsilon^2}\thicksim\chi_{t(n-1)}^2\]</span></p>
+<p><span class="math inline">\(\sigma^2_\varepsilon\)</span> 的 95% 精确置信区间为</p>
+<p><span class="math display">\[\left[\frac{Q_2}{F_{\alpha/2,t(n-1),\infty}}\leq\sigma_\varepsilon^2\leq\frac{Q_2}{F_{1-(\alpha/2),t(n-1),\infty}}\right]\]</span></p>
+<p>其中 <span class="math inline">\(F_{\alpha/2,t(n-1),\infty}\)</span> 和 <span class="math inline">\(F_{1-(\alpha/2),t(n-1),\infty}\)</span> 为分子分母自由度分别为 <span class="math inline">\(t(n-1)\)</span> 和 <span class="math inline">\(\infty\)</span> 的 <span class="math inline">\(F\)</span> 分布的上分位数和下分位数。可以注意到 <span class="math inline">\(F_{\alpha/2,t(n-1),\infty}=\chi_{\alpha/2,t(n-1)}^2/[t(n-1)]\)</span> 以及 <span class="math inline">\(F_{1-(\alpha/2),t(n-1),\infty}=\chi_{1-(\alpha/2),t(n-1)}^2/[t(n-1)]\)</span>. 使用这些分位数表示法，上述关于 <span class="math inline">\(\sigma^2_\varepsilon\)</span> 的置信区间与第 <a href="chap20.html#sec20-2-1">20.2.1</a> 节中的区间相同。</p>
+<p>由 Burdick and Graybill (1992) 给出的关于 <span class="math inline">\(\sigma^2_u\)</span> 的 <span class="math inline">\((1-\alpha)100\%\)</span> 近似置信区间为</p>
+<p><span class="math display">\[\left[\frac{Q_1-Q_2-\sqrt{V_L}}n\leq\sigma_u^2\leq\frac{Q_1-Q_2+\sqrt{V_U}}n\right]\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[V_L=G_1^2Q_1^2+H_2^2Q_2^2+G_{12}Q_1Q_2\quad V_U=H_1^2Q_1^2+G_2^2Q_2^2+H_{12}Q_1Q_2\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\begin{aligned}
+G_{1} &amp;=1-\frac1{F_{\alpha/2,t-1,\infty}},\quad G_2=1-\frac1{F_{\alpha/2,t(n-1),\infty}} \\
+H_{1} &amp;=\frac1{F_{1-(\alpha/2),t-1,\infty}}-1,~H_2=\frac1{F_{1-(\alpha/2),t(n-1),\infty}}-1 \\
+G_{12} &amp;=\frac{(F_{\alpha/2,t-1,t(n-1)}-1)^2-G_1^2F_{\alpha/2,t-1,t(n-1)}^2-H_2^2}{F_{\alpha/2,t-1,t(n-1)}} \\
+H_{12} &amp;=\frac{(1-F_{1-(\alpha/2),t-1,t(n-1)})^2-H_1^2F_{1-(\alpha/2),t-1,t(n-1)}^2-G_2^2}{F_{1-(\alpha/2),t-1,t(n-1)}}
+\end{aligned}\]</span></p>
+<p>当下界为负时，下限设置为 0. 当 <span class="math inline">\(Q_1/Q_2&lt;F_{\alpha/2,t-1,t(n-1)}\)</span> 时下界为负。 使用 <span class="math inline">\(Q_1/Q_2&gt;F_{\alpha,t-1,t(n-1)}\)</span> 作为决策规则来拒绝 <span class="math inline">\(H_0{:}\sigma_u^2=0\mathrm{~vs~}{H_a}{:}\sigma_u^2&gt;0\)</span>，这提供了一个精确检验，是一个<strong>一致最有效无偏检验</strong> (uniformly most powerful unbiased test) (Lehmann, 1986).</p>
+<p>由 Burdick and Graybill (1992) 给出的关于 <span class="math inline">\(\sigma_\varepsilon^2+\sigma_u^2\)</span> 的近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\left[\hat{\sigma}_\varepsilon^2+\hat{\sigma}_u^2-\frac{\sqrt{G_1^2Q_1^2+G_2^2(n-1)Q_2^2}}n\leq\sigma_\varepsilon^2+\sigma_u^2\leq\hat{\sigma}_\varepsilon^2+\hat{\sigma}_u^2+\frac{\sqrt{H_1^2Q_1^2+H_2^2(n-1)Q_2^2}}n\right]\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\begin{aligned}G_1&amp;=1-\frac1{F_{\alpha/2,t-1,\infty}},\quad G_2=1-\frac1{F_{\alpha/2,t(n-1),\infty}}\\H_1&amp;=\frac1{F_{1-(\alpha/2),t-1,\infty}}-1,\quad H_2=\frac1{F_{1-(\alpha/2),t(n-1),\infty}}-1\end{aligned}\]</span></p>
+<p>组内相关性 <span class="math inline">\(\rho=\frac{\sigma_u^2}{\sigma_e^2+\sigma_u^2}\)</span> 的近似 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\begin{aligned}\left[\frac{L^*-1}{L^*-1+n}\le\rho\le\frac{U^*-1}{U^*-1+n}\right]\end{aligned}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[L^*=\frac{Q_1}{Q_2F_{\alpha/2,t-1,t(n-1)}}\quad\mathrm{and}\quad U^*=\frac{Q_1}{Q_2F_{1-(\alpha/2),t-1,t(n-1)}}\]</span></p>
+<p>比率 <span class="math inline">\(\sigma_{u}^2/\sigma_{\varepsilon}^2\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式给出</p>
+<p><span class="math display">\[\left[\frac{L^*-1}n\leq\frac{\sigma_u^2}{\sigma_\varepsilon^2}\leq\frac{U^*-1}n\right]\]</span></p>
+<p>Burdick and Graybill (1992) 还描述了当模型中存在两个或多个方差分量时，为均衡和不均衡设计构造关于方差分量和方差分量函数的置信区间的方法。本节的讨论仅限于具有两个方差分量的模型。以下示例用于演示这些置信区间的计算。</p>
+</div>
+<div id="sec20-2-8" class="section level3 hasAnchor" number="20.2.8">
+<h3><span class="header-section-number">20.2.8</span> 示例 20.6 （续）<a href="chap20.html#sec20-2-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>示例 <a href="chap20.html#sec20-2-6">20.5</a> 的数据用于演示 <span class="math inline">\(\sigma_\varepsilon^2,\sigma_w^2,\sigma_w^2/\sigma_\varepsilon^2\)</span> 和 <span class="math inline">\(\rho\)</span> 置信区间的计算。两个平方和为 <span class="math inline">\(Q_1=32.0,Q_2=1.6\)</span>，且 <span class="math inline">\(n=3, t-1=4,t(n-1)=10,F_{0.025,3,10}=4.46834,F_{0.975,3,10}=0.11307,F_{0.025,3,\infty}=2.78582,F_{0.025,10,\infty}=2.04832, -0.11208,H_{12}=-8.15882,V_\text{L}{ = 4 2 6 . 1 2 9 , V _\text{U}{ = 5 3 5 1 5 7 1 , L }^{*}=}4.47593\)</span> 以及 <span class="math inline">\(U^{*}=176.878\)</span>. <span class="math inline">\(\sigma_\varepsilon^2,\sigma_w^2,\sigma_w^2/\sigma_\varepsilon^2\)</span> 和 <span class="math inline">\(\rho\)</span> 的 95% 置信区间分别为 <span class="math inline">\([0.78113\leq\sigma_{\varepsilon}^2\leq4.92767],[3.25237\leq\sigma_{w^{}}^2\leq87.2449],[4.78382\leq\sigma_{\varepsilon}^2+\sigma_{u}^2\leq89.1765],[1.15864\leq(\sigma_{w^{}}^2/\sigma_{\varepsilon}^2)\leq58.6259]\)</span> 和 <span class="math inline">\([0.53675\leq\rho\leq0.98323]\)</span>.</p>
+<p>REML 解的 Satterthwaite 类型置信区间显示在表 <a href="chap20.html#tab:table20-14">20.14</a> 中。使用三种方法构造关于 <span class="math inline">\(\sigma^2_w\)</span> 的置信区间。三个 95% 置信区间是 Burdick and Graybill <span class="math inline">\((3.25237\leq\sigma_w^2\leq87.2449)\)</span>, REML <span class="math inline">\((3.4964\leq\sigma_w^2\leq99.2870)\)</span> 以及联合置信域 <span class="math inline">\((2.186\leq\sigma_w^2\leq 87.818)\)</span>. 三个区间之间没有太大差异，并且随着方差分量对应的随机效应水平的增加，差异会减小。</p>
+<table>
+<caption>
+<span id="tab:table20-14">表 20.14: </span>示例 <a href="chap20.html#sec20-2-6">20.5</a> 工人数据的 SAS-Mixed 代码和方差分量的 REML 估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.14.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="sec20-3" class="section level2 hasAnchor" number="20.3">
+<h2><span class="header-section-number">20.3</span> 模拟研究<a href="chap20.html#sec20-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>由于计算置信区间的选项众多，可以使用给定数据的结构进行模拟研究，以提供有关置信区间程序性能的信息。例如，表 <a href="chap20.html#tab:table20-15">20.15</a> 中的信息包含 SAS data step 代码，用于对示例 <a href="chap20.html#sec20-2-6">20.5</a> 中数据集的结构进行模拟，其中每个数据集有五名工人，每个工人有三个观测值。模拟中使用的方差分量值对应于表 <a href="chap20.html#tab:table20-15">20.15</a> 中示例 <a href="chap20.html#sec20-2-6">20.5</a> 的 REML 估计值（请注意，在这种情况下，矩估计与 REML 估计值相同）。模拟结果表明，96.63% 的置信区间覆盖 <span class="math inline">\({\sigma_w^2}\)</span> 的真实值，95.26% 的置信区间覆盖 <span class="math inline">\({\sigma_\varepsilon^2}\)</span> 的真实值。这两个经验置信率都非常接近人们期望的 95% 覆盖率。当数据服从正态分布时，对于这种尺寸的设计，每个 Satterthwaite 置信区间的覆盖率都相当充足。</p>
+<table>
+<caption>
+<span id="tab:table20-15">表 20.15: </span>用于单向随机效应 Satterthwaite 置信区间覆盖范围检查的模拟代码和结果
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2020.15.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>对于不均衡模型，方差分析表中的平方和并不一定具有独立的卡方分布。因此，用于均衡模型的技术不能直接应用于不均衡模型，否则会违反假设。如果模型不太不均衡，平方和将几乎是独立的卡方随机变量，均衡模型技术应该提供有效的置信区间。对于不均衡模型和大样本量，可以使用最大似然估计及其渐近性质来构造关于方差分量的置信区间。上述示例说明了对于任何给定问题，不同的置信区间可能会有何不同。当设计不均衡且样本量不大时，一种建议是使用最宽的置信区间。评估特定方法有效性的另一种技术是使用模拟。</p>
+</div>
+<div id="sec20-4" class="section level2 hasAnchor" number="20.4">
+<h2><span class="header-section-number">20.4</span> 结束语<a href="chap20.html#sec20-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本章介绍关于方差分量和方差分量函数的假设检验和构造置信区间的方法。假设检验是使用平方和方法完成的，其中使用期望均方或使用似然比检验构造检验统计量。基于平方和方法的检验似乎比基于似然比的检验对于小样本量实验具有更好的覆盖范围。SAS-Mixed 提供的置信区间以及其他特殊情况下的置信区间也得到了描述。如第 <a href="chap20.html#sec20-3">20.3</a> 节所述，<strong>可以通过模拟研究来评估特定置信区间对于给定数据结构的实用性</strong>。针对不均衡模型和一些均衡模型的情况，描述了围绕 Satterthwaite 近似值的近似方法。还包括了几个示例来演示这些技术。SAS-Mixed 提供的置信区间对于各个方差分量似乎是足够的，但对于方差分量的非线性函数（如组内相关系数或两个方差分量的比率）的置信区间，则需要专门的方法。</p>
+</div>
+<div id="sec20-5" class="section level2 hasAnchor" number="20.5">
+<h2><span class="header-section-number">20.5</span> 练习<a href="chap20.html#sec20-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
 </div>
 </div>
 <div class="footnotes">
@@ -587,7 +1116,7 @@ Q_{\text{col}}&amp; =\frac{2.3126}{2.2588}MSRow\times Col+\left[1-\frac{2.3126}{
         </div>
       </div>
 <a href="chap19.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap21.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -114,12 +114,12 @@ t_c=\frac{\sum c_i\hat{{\mu}}_i-a}{\widehat{s.e.}\left(\sum c_i\hat{\mu}_i\right
 [^alpha=100]: 原文为 $\alpha=100\%$，应为笔误。
 [^criticalpoint]: 原文为critical point，后同。
 
-如果 $|t_{c}| >t_{\alpha/2,\nu}$，其中 $v=N-t$，那么 $H_{01}$ 在 $\alpha100\%$[^alpha=100]显著性水平下被拒绝，其中 $t_{\alpha/2,\nu}$ 是自由度为 $v$ 的 $t$ 分布的上 $\alpha/2$ 分位数[^criticalpoint]。$\sum_{i=1}^{t}c_{i}\mu_{i}$ 的 一个 $(1-\alpha)100\%$ 置信区间为
+如果 $|t_{c}| >t_{\alpha/2,v}$，其中 $v=N-t$，那么 $H_{01}$ 在 $\alpha100\%$[^alpha=100]显著性水平下被拒绝，其中 $t_{\alpha/2,v}$ 是自由度为 $v$ 的 $t$ 分布的上 $\alpha/2$ 分位数[^criticalpoint]。$\sum_{i=1}^{t}c_{i}\mu_{i}$ 的 一个 $(1-\alpha)100\%$ 置信区间为
 
 
 ```{=tex}
 \begin{equation}
-\sum c_i\hat{\mu}_i\pm t_{\alpha/2,\nu}\widehat{s.e.}\left(\sum c_i\hat{\mu}_i\right)
+\sum c_i\hat{\mu}_i\pm t_{\alpha/2,v}\widehat{s.e.}\left(\sum c_i\hat{\mu}_i\right)
 (\#eq:1-7)
 \end{equation}
 ```
@@ -369,19 +369,19 @@ $$SS_{H0}=(\boldsymbol C\hat{\boldsymbol{\mu}}-\boldsymbol{a})^{\prime}(\boldsym
 
 ## 比较两种模型的一般方法：条件误差原理 {#sec1-9}
 
-计算检验统计量的第二个过程是比较两个模型的拟合度。在本节中，比较的两个模型是 $y_{ij} = \mu_i + \varepsilon_{ij}$，这叫做一般 (general) 或**未缩简模型** (**unreduced model**)，$y_{ij} = \mu_i + \varepsilon_{ij}$，这是如果 $H_0:\,\mu_1 = \mu_2 = \cdots = \mu_t = \mu$（假设）成立时得到的模型。第一个模型称为**完全模型** (**full model**) 或**无约束模型** (**unrestricted model**)，第二个模型称为**缩简模型** (**reduced model**) 或**约束模型** (**restricted model**).
+计算检验统计量的第二个过程是比较两个模型的拟合度。在本节中，比较的两个模型是 $y_{ij} = \mu_i + \varepsilon_{ij}$，这叫做一般 (general) 或**未缩减模型** (**unreduced model**)，$y_{ij} = \mu_i + \varepsilon_{ij}$，这是如果 $H_0:\,\mu_1 = \mu_2 = \cdots = \mu_t = \mu$（假设）成立时得到的模型。第一个模型称为**完全模型** (**full model**) 或**无约束模型** (**unrestricted model**)，第二个模型称为**缩减模型** (**reduced model**) 或**约束模型** (**restricted model**).
 
-**条件误差原理** (**principle of conditional error**) 用于比较两个模型，其中一个模型是通过对另一个模型的参数施加限制而获得的。该原理非常简单，要求获得完全模型和缩简模型的残差或误差平方和。令 $ESS_F$ 表示拟合完全模型得到的误差平方和，$ESS_R$ 表示拟合缩减模型得到的误差平方和。则由于假设的限制而导致的，或由于偏离零假设的平方和为 $SS_{H0}=ESS_R-ESS_F$. $ESS_R$ 和 $ESS_F$ 的自由度由数据集中的观测总数与待估计的（基本）参数数量之差给出 [**基本参数** (**essential parameters**) 将在第 \@ref(chap6) 章中讨论]。分别用 $df_R$ 和 $df_F$ 表示与 $ESS_R$ 和 $ESS_F$ 对应的自由度。对应于 $SS_{H0}$ 的自由度为 $df_{H0} = df_R - df_F$. 用于检验 $H_0$ 的 $F$ 统计量由下式给出：
+**条件误差原理** (**principle of conditional error**) 用于比较两个模型，其中一个模型是通过对另一个模型的参数施加限制而获得的。该原理非常简单，要求获得完全模型和缩减模型的残差或误差平方和。令 $ESS_F$ 表示拟合完全模型得到的误差平方和，$ESS_R$ 表示拟合缩减模型得到的误差平方和。则由于假设的限制而导致的，或由于偏离零假设的平方和为 $SS_{H0}=ESS_R-ESS_F$. $ESS_R$ 和 $ESS_F$ 的自由度由数据集中的观测总数与待估计的（基本）参数数量之差给出 [**基本参数** (**essential parameters**) 将在第 \@ref(chap6) 章中讨论]。分别用 $df_R$ 和 $df_F$ 表示与 $ESS_R$ 和 $ESS_F$ 对应的自由度。对应于 $SS_{H0}$ 的自由度为 $df_{H0} = df_R - df_F$. 用于检验 $H_0$ 的 $F$ 统计量由下式给出：
 
 $$F_c=\frac{SS_{H0}/df_{H0}}{ESS_F/df_F}$$
 
 若 $F_{c}>F_{\alpha,df_{{H0}},df_{F}}$，则在显著性水平下拒绝 $H_0$.
 
-对于上面讨论的情况，$y_{ij} = \mu_i + \varepsilon_{ij}$ 是完全模型而 $y_{ij} = \mu + \varepsilon_{ij}$ 是缩简模型。完全模型的误差平方和为
+对于上面讨论的情况，$y_{ij} = \mu_i + \varepsilon_{ij}$ 是完全模型而 $y_{ij} = \mu + \varepsilon_{ij}$ 是缩减模型。完全模型的误差平方和为
 
 $$ESS_{F}=\sum_{i=1}^{t}\sum_{j=1}^{n_{i}}(y_{ij}-\overline{y}_{i\cdot})^{2}=(N-t)\hat{\sigma}^{2}$$
 
-其自由度 $df_F=N-t$. 缩简模型的误差平方和为
+其自由度 $df_F=N-t$. 缩减模型的误差平方和为
 
 $$ESS_{_R}=\sum_{i=1}^{t}\sum_{j=1}^{n_{i}}(y_{_{ij}}-\overline{y}_{\cdot\cdot})^{2}$$
 
@@ -420,7 +420,7 @@ $$\begin{array}{ll}y_{ij}=\mu_0+\varepsilon_{ij}&\mathrm{~for~}i=1,2,3\\y_{ij}=\
 
 ## 计算机分析 {#sec1-11}
 
-将条件误差原理应用于 \@ref(sec1-4) 节的任务和脉搏率数据，以提供等均值假设的检验，$H_{0}\colon\,\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}=\mu_{5}=\mu_{6}\,\mathrm{~vs.~}\,H_{a}\colon(\mathrm{not}\,H_{0})$. 完全模型的误差平方和为 $ESS_F=1916.076$, $df_F=62$. 缩简模型的误差平方和为 $ESS_R=73593-(2197)^2/68=2610.545$, $df_R=67$. 因此，$SS_{H0}=2610.545-1916.076=694.439$, $df_{H0}=67-62=5$. 汇总这些计算的方差分析表如表 \@ref(tab:table1-3) 所示。
+将条件误差原理应用于 \@ref(sec1-4) 节的任务和脉搏率数据，以提供等均值假设的检验，$H_{0}\colon\,\mu_{1}=\mu_{2}=\mu_{3}=\mu_{4}=\mu_{5}=\mu_{6}\,\mathrm{~vs.~}\,H_{a}\colon(\mathrm{not}\,H_{0})$. 完全模型的误差平方和为 $ESS_F=1916.076$, $df_F=62$. 缩减模型的误差平方和为 $ESS_R=73593-(2197)^2/68=2610.545$, $df_R=67$. 因此，$SS_{H0}=2610.545-1916.076=694.439$, $df_{H0}=67-62=5$. 汇总这些计算的方差分析表如表 \@ref(tab:table1-3) 所示。
 
 <table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:table1-3)任务和脉搏率数据检验均值相等的方差分析表</caption>

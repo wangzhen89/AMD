@@ -40,7 +40,7 @@ $$\mu_{ijk}=\mu+\tau_i+\beta_j+\xi_k+\gamma_{ij}+\eta_{ik}+\theta_{jk}\quad\text
 
 $$\begin{aligned}y_{ijk\ell}&=\mu+T_i+B_j+(TB)_{ij}+C_k+(TC)_{ik}+(BC)_{jk}+(TBC)_{ijk}+\varepsilon_{ijk\ell}\\&\mathrm{for~}i=1,2,\ldots,t,~j=1,2,\ldots,b;~k=1,2,\ldots,c;~\mathrm{and}~\ell=1,2,\ldots,n_{ijk}\end{aligned}$$
 
-假设对于所有 $i,j,k$ 有 $n_{ijk}>0$. 也就是说，每个三向单元格至少观测一次。表 \@ref(tab:table16-1) 显示了使用第 \@ref(chap10) 章中描述的简化符号的 I 型和 II 型平方和及其相应的自由度。
+假设对于所有 $i,j,k$ 有 $n_{ijk}>0$. 也就是说，每个三向单元格至少观测一次。表 \@ref(tab:table16-1) 显示了使用第 \@ref(chap10) 章中描述的缩减符号的 I 型和 II 型平方和及其相应的自由度。
 
 <table>
 <caption>(\#tab:table16-1)在每个单元格中至少有一次观测的三向实验的 I 型和 II 型平方和</caption>

@@ -2,7 +2,7 @@
 title: "混乱数据分析：设计的实验"
 author: 
   - Wang Zhen
-date: "2024-03-01"
+date: "2024-03-03"
 site: bookdown::bookdown_site
 documentclass: elegantbook
 bibliography: 
@@ -44,7 +44,7 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
 
 ## 本书框架 {.unlisted .unnumbered}
 
-译者将本书划分为 “热身”，“磨刀” 和 “砍柴” 三个部分。第一部分主要回顾了单向方差分析作为后续内容的热身；后两部分的主题分别是 “基本理论背景” 和 “处理结构的分析”。俗话说磨刀不误砍柴工，“磨刀” 的第 \@ref(chap4) - \@ref(chap5) 章可能需要研究者重点关注。“砍柴” 大部分内容都是先以若干章节讨论更具体处理结构的理论分析，再以案例研究收尾。三个部分的开头章节分别为第 \@ref(chap1) 章、第 \@ref(chap3) 章和第 \@ref(chap7) 章。左上角第一个选项用于展开/关闭左侧的导航窗格。接下来简要介绍各章内容（各章节均标了星星 “*” ，加载时长与星星数量成正比。**恭喜您成为观星师！**建议尽可能关闭后台程序以缩短加载时间）
+译者将本书划分为 “热身”，“磨刀” 和 “砍柴” 三个部分。第一部分主要回顾了单向方差分析作为后续内容的热身；后两部分的主题分别是 “基本理论背景” 和 “处理结构的分析”。俗话说磨刀不误砍柴工，“磨刀” 的第 \@ref(chap4) - \@ref(chap5) 章可能需要研究者重点关注。“砍柴” 大部分内容都是先以若干章节讨论更具体处理结构的理论分析，再以案例研究收尾。三个部分的开头章节分别为第 \@ref(chap1) 章、第 \@ref(chap3) 章和第 \@ref(chap7) 章。左上角的<img src="figure/toggle logo.png" width="14" />选项用于展开/关闭左侧的导航窗格。接下来简要介绍各章内容（各章节均标了星星 “*” ，加载时长与星星数量成正比。**恭喜您成为观星师！**建议尽可能关闭后台程序以缩短加载时间）
 
 + “热身”
 
@@ -92,4 +92,27 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
     
     + 第 \@ref(chap19) 章\*\*\*介绍了四种用于估计随机效应模型方差分量的方法：矩法、最大似然、受限或残差最大似然和 MIVQUE.
     
+    + 第 \@ref(chap20) 章\*\*\*介绍关于方差分量和方差分量函数的假设检验和构造置信区间的方法。有多种计算置信区间的方法，对于给定的数据结构，可以通过模拟研究来评估特定置信区间方法的实用性。
+    
+    + 第 \@ref(chap21) 章\*\*讨论了一个工厂-地点-工人案例研究，以提供一个复杂的随机效应模型分析，其中包括方差分量估计、模型构建、假设检验和置信区间的估计。
+    
+    + 第 \@ref(chap22) 章\*\*\*给出了混合模型的一般定义，分别讨论了随机效应部分和固定效应部分的分析。介绍了 BLUE, BLUP 和混合模型方程组等重要概念。
+    
     + 第 \@ref(chap29) 章\*\*\*讨论了交叉设计的分析。
+
+## 术语规范 {.unlisted .unnumbered}
+
++ Estimation, estimate, estimator 统一译作 “估计”，不论语境。
+
++ Treatment 统一译作 “处理”，不论语境。
+
++ Population 大多译作 “总体”。
+
++ Subject 统一译作 “个体”，不论语境。虽然 Subject 更多地翻译为 “受试者”、“主体”，而且 Subject 甚至没有 “个体” 这种翻译，译者如此翻译是出于统一以及特定上下文适用性的目的。对于后一个目的，例如，很难想象将农田里的作物、烘烤的面包译作 “受试者” 或 “主体”，如此翻译稍显奇怪。当然，本书原文更多地用 experimental unit 而不是 subject 来表示实验（最小）单元。
+
++ 矩阵以**加粗**字体${\Large{\text{大写}}}$英文/希腊字母表示，向量以**加粗**字体字体${\Tiny{\text{小写}}}$英文/希腊字母表示，标量以普通字体英文/希腊字母表示，如
+    + 观测向量 $\boldsymbol y$，设计矩阵及其转置 $\boldsymbol X,\boldsymbol X^\prime$，误差向量 $\boldsymbol\varepsilon$，协方差阵及其逆 $\boldsymbol \Sigma,\boldsymbol \Sigma^{-1}$，n 阶单位阵 $\boldsymbol I_n$，n 阶全 1 向量 $\boldsymbol j_n$，n 阶全 1 矩阵 $\boldsymbol J_n$
+    + 总均值 $\mu$，方差 $\sigma^2_\varepsilon$，方差估计 $\hat \sigma^2_\varepsilon$
+
+
+未完待续……

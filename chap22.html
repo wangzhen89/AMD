@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 22 章 混合模型的分析 | 混乱数据分析：设计的实验</title>
+  <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 22 章 混合模型的分析 | 混乱数据分析：设计的实验" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="github-repo" content="wangzhen89/AMD" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 22 章 混合模型的分析 | 混乱数据分析：设计的实验" />
+  
+  <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  
+
+<meta name="author" content="Wang Zhen" />
+
+
+<meta name="date" content="2024-03-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap21.html"/>
+<link rel="next" href="chap29.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        },
+        extensions: ["cancel.js"]
+      }
+    });
+</script>
+
+<!-- add line break after theorem title -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    for (let s of document.querySelectorAll("span.theorem, span.lemma, span.proposition, span.corollary")) {
+      s.insertAdjacentHTML('afterend', '<br style="line-height:2px;"/>');
+    }
+  });
+</script>
+
+<!-- check if --themcolor in style.css matches one of elegantbook theme colors. If so, generates the color palette  -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const cssroot = document.querySelector(':root');
+    let theme_color = getComputedStyle(document.documentElement).getPropertyValue('--themecolor').trim();
+  
+    // blue is the default option
+
+    switch (theme_color) {
+      case 'green': 
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,120,2)');
+        cssroot.style.setProperty('--main', 'rgb(70,70,70)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(115,45,2)');
+        cssroot.style.setProperty('--secondbg', 'rgba(115,45,2,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,80,80)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,80,80,0.05)');
+      break;
+      case 'cyan':
+        cssroot.style.setProperty('--structurecolor', 'rgb(31,186,190)');
+        cssroot.style.setProperty('--main', 'rgb(59,180,5)');
+        cssroot.style.setProperty('--mainbg', 'rgba(59,180,5,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(175,153,8)');
+        cssroot.style.setProperty('--secondbg', 'rgba(175,153,8,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(244,105,102)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(244,105,102,0.05)');
+      break;
+      case 'gray':
+        cssroot.style.setProperty('--structurecolor', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--main', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--mainbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--secondbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(150,150,150,0.05)');
+      break;
+      case 'black':
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--main', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--secondbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,0,0,0.05)');
+      break;
+    default:
+        cssroot.style.setProperty('--structurecolor', 'rgb(60,113,183)');
+        cssroot.style.setProperty('--main', 'rgb(0,166,82)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(255,134,24)');
+        cssroot.style.setProperty('--secondbg', 'rgba(255,134,24,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,174,247)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,174,247,0.05)');
+    }
+  });
+  </script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">混乱数据分析：设计的实验</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>介绍</a></li>
+<li class="part"><span><b>I 热身</b></span></li>
+<li class="chapter" data-level="1" data-path="chap1.html"><a href="chap1.html"><i class="fa fa-check"></i><b>1</b> 最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap1.html"><a href="chap1.html#sec1-1"><i class="fa fa-check"></i><b>1.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="1.2" data-path="chap1.html"><a href="chap1.html#sec1-2"><i class="fa fa-check"></i><b>1.2</b> 参数估计</a></li>
+<li class="chapter" data-level="1.3" data-path="chap1.html"><a href="chap1.html#sec1-3"><i class="fa fa-check"></i><b>1.3</b> 线性组合的推断：检验与置信区间</a></li>
+<li class="chapter" data-level="1.4" data-path="chap1.html"><a href="chap1.html#sec1-4"><i class="fa fa-check"></i><b>1.4</b> 示例：任务和脉搏率</a></li>
+<li class="chapter" data-level="1.5" data-path="chap1.html"><a href="chap1.html#sec1-5"><i class="fa fa-check"></i><b>1.5</b> 几个线性组合的同时检验</a></li>
+<li class="chapter" data-level="1.6" data-path="chap1.html"><a href="chap1.html#sec1-6"><i class="fa fa-check"></i><b>1.6</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.7" data-path="chap1.html"><a href="chap1.html#sec1-7"><i class="fa fa-check"></i><b>1.7</b> 检验所有均值相等</a></li>
+<li class="chapter" data-level="1.8" data-path="chap1.html"><a href="chap1.html#sec1-8"><i class="fa fa-check"></i><b>1.8</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.9" data-path="chap1.html"><a href="chap1.html#sec1-9"><i class="fa fa-check"></i><b>1.9</b> 比较两种模型的一般方法：条件误差原理</a></li>
+<li class="chapter" data-level="1.10" data-path="chap1.html"><a href="chap1.html#sec1-10"><i class="fa fa-check"></i><b>1.10</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
+<li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
+<li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap2.html"><a href="chap2.html#sec2-1"><i class="fa fa-check"></i><b>2.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="2.2" data-path="chap2.html"><a href="chap2.html#sec2-2"><i class="fa fa-check"></i><b>2.2</b> 参数估计</a></li>
+<li class="chapter" data-level="2.3" data-path="chap2.html"><a href="chap2.html#sec2-3"><i class="fa fa-check"></i><b>2.3</b> 方差齐性检验</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap2.html"><a href="chap2.html#sec2-3-1"><i class="fa fa-check"></i><b>2.3.1</b> Hartley’s <em>F</em>-Max Test</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap2.html"><a href="chap2.html#sec2-3-2"><i class="fa fa-check"></i><b>2.3.2</b> Bartlett’s Test</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap2.html"><a href="chap2.html#sec2-3-3"><i class="fa fa-check"></i><b>2.3.3</b> Levene’s Test</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap2.html"><a href="chap2.html#sec2-4-4"><i class="fa fa-check"></i><b>2.3.4</b> Brown and Forsythe’s Test</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap2.html"><a href="chap2.html#sec2-3-5"><i class="fa fa-check"></i><b>2.3.5</b> O’Brien’s Test</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap2.html"><a href="chap2.html#sec2-3-6"><i class="fa fa-check"></i><b>2.3.6</b> 一些建议</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chap2.html"><a href="chap2.html#sec2-4"><i class="fa fa-check"></i><b>2.4</b> 示例：药物和错误</a></li>
+<li class="chapter" data-level="2.5" data-path="chap2.html"><a href="chap2.html#sec2-5"><i class="fa fa-check"></i><b>2.5</b> 关于线性组合的推断</a></li>
+<li class="chapter" data-level="2.6" data-path="chap2.html"><a href="chap2.html#sec2-6"><i class="fa fa-check"></i><b>2.6</b> 示例：药物和错误（续）</a></li>
+<li class="chapter" data-level="2.7" data-path="chap2.html"><a href="chap2.html#sec2-7"><i class="fa fa-check"></i><b>2.7</b> 自由度的一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
+<li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
+<li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>II 磨刀</b></span></li>
+<li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 联合推断程序和多重比较</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap3.html"><a href="chap3.html#sec3-1"><i class="fa fa-check"></i><b>3.1</b> 错误率</a></li>
+<li class="chapter" data-level="3.2" data-path="chap3.html"><a href="chap3.html#sec3-2"><i class="fa fa-check"></i><b>3.2</b> 建议</a></li>
+<li class="chapter" data-level="3.3" data-path="chap3.html"><a href="chap3.html#sec3-3"><i class="fa fa-check"></i><b>3.3</b> 最小显著差异</a></li>
+<li class="chapter" data-level="3.4" data-path="chap3.html"><a href="chap3.html#sec3-4"><i class="fa fa-check"></i><b>3.4</b> Fisher’s LSD Procedure</a></li>
+<li class="chapter" data-level="3.5" data-path="chap3.html"><a href="chap3.html#sec3-5"><i class="fa fa-check"></i><b>3.5</b> Bonferroni’s Method</a></li>
+<li class="chapter" data-level="3.6" data-path="chap3.html"><a href="chap3.html#sec3-6"><i class="fa fa-check"></i><b>3.6</b> Scheffé’s Procedure</a></li>
+<li class="chapter" data-level="3.7" data-path="chap3.html"><a href="chap3.html#sec3-7"><i class="fa fa-check"></i><b>3.7</b> Tukey–Kramer Method</a></li>
+<li class="chapter" data-level="3.8" data-path="chap3.html"><a href="chap3.html#sec3-8"><i class="fa fa-check"></i><b>3.8</b> 模拟方法</a></li>
+<li class="chapter" data-level="3.9" data-path="chap3.html"><a href="chap3.html#sec3-9"><i class="fa fa-check"></i><b>3.9</b> Šidák Procedure</a></li>
+<li class="chapter" data-level="3.10" data-path="chap3.html"><a href="chap3.html#sec3-10"><i class="fa fa-check"></i><b>3.10</b> 示例：成对比较</a></li>
+<li class="chapter" data-level="3.11" data-path="chap3.html"><a href="chap3.html#sec3-11"><i class="fa fa-check"></i><b>3.11</b> Dunnett’s Procedure</a></li>
+<li class="chapter" data-level="3.12" data-path="chap3.html"><a href="chap3.html#sec3-12"><i class="fa fa-check"></i><b>3.12</b> 示例：与对照比较</a></li>
+<li class="chapter" data-level="3.13" data-path="chap3.html"><a href="chap3.html#sec3-13"><i class="fa fa-check"></i><b>3.13</b> 多元 <span class="math inline">\(t\)</span></a></li>
+<li class="chapter" data-level="3.14" data-path="chap3.html"><a href="chap3.html#sec3-14"><i class="fa fa-check"></i><b>3.14</b> 示例：线性独立比较</a></li>
+<li class="chapter" data-level="3.15" data-path="chap3.html"><a href="chap3.html#sec3-15"><i class="fa fa-check"></i><b>3.15</b> 序贯拒绝方法</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="chap3.html"><a href="chap3.html#sec3-15-1"><i class="fa fa-check"></i><b>3.15.1</b> Bonferroni–Holm Method</a></li>
+<li class="chapter" data-level="3.15.2" data-path="chap3.html"><a href="chap3.html#sec3-15-2"><i class="fa fa-check"></i><b>3.15.2</b> Šidák–Holm Method</a></li>
+<li class="chapter" data-level="3.15.3" data-path="chap3.html"><a href="chap3.html#sec3-15-3"><i class="fa fa-check"></i><b>3.15.3</b> 控制 FDR 的 Benjamini 和 Hochberg Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="chap3.html"><a href="chap3.html#sec3-16"><i class="fa fa-check"></i><b>3.16</b> 示例：线性相关比较</a></li>
+<li class="chapter" data-level="3.17" data-path="chap3.html"><a href="chap3.html#sec3-17"><i class="fa fa-check"></i><b>3.17</b> 多重极差检验</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="chap3.html"><a href="chap3.html#sec3-17-1"><i class="fa fa-check"></i><b>3.17.1</b> Student–Newman–Keul’s Method</a></li>
+<li class="chapter" data-level="3.17.2" data-path="chap3.html"><a href="chap3.html#sec3-17-2"><i class="fa fa-check"></i><b>3.17.2</b> Duncan’s New Multiple Range Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="chap3.html"><a href="chap3.html#sec3-18"><i class="fa fa-check"></i><b>3.18</b> Waller–Duncan Procedure</a></li>
+<li class="chapter" data-level="3.19" data-path="chap3.html"><a href="chap3.html#sec3-19"><i class="fa fa-check"></i><b>3.19</b> 示例：成对比较的多重极差</a></li>
+<li class="chapter" data-level="3.20" data-path="chap3.html"><a href="chap3.html#sec3-20"><i class="fa fa-check"></i><b>3.20</b> 警示</a></li>
+<li class="chapter" data-level="3.21" data-path="chap3.html"><a href="chap3.html#sec3-21"><i class="fa fa-check"></i><b>3.21</b> 结束语</a></li>
+<li class="chapter" data-level="3.22" data-path="chap3.html"><a href="chap3.html#sec3-22"><i class="fa fa-check"></i><b>3.22</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap3.html"><a href="chap3.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap4.html"><a href="chap4.html"><i class="fa fa-check"></i><b>4</b> 实验设计基础</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap4.html"><a href="chap4.html#sec4-1"><i class="fa fa-check"></i><b>4.1</b> 介绍基本概念</a></li>
+<li class="chapter" data-level="4.2" data-path="chap4.html"><a href="chap4.html#sec4-2"><i class="fa fa-check"></i><b>4.2</b> 设计实验的结构</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap4.html"><a href="chap4.html#sec4-2-1"><i class="fa fa-check"></i><b>4.2.1</b> 设计结构类型</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap4.html"><a href="chap4.html#sec4-2-2"><i class="fa fa-check"></i><b>4.2.2</b> 处理结构类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap4.html"><a href="chap4.html#sec4-3"><i class="fa fa-check"></i><b>4.3</b> 不同设计实验的示例</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap4.html"><a href="chap4.html#sec4-3-1"><i class="fa fa-check"></i><b>4.3.1</b> 示例 4.1: 饮食</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap4.html"><a href="chap4.html#sec4-3-2"><i class="fa fa-check"></i><b>4.3.2</b> 示例 4.2: 房屋油漆</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap4.html"><a href="chap4.html#sec4-3-3"><i class="fa fa-check"></i><b>4.3.3</b> 示例 4.3: 钢板</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap4.html"><a href="chap4.html#sec4-3-4"><i class="fa fa-check"></i><b>4.3.4</b> 示例 4.4: 氮和钾的水平</a></li>
+<li class="chapter" data-level="4.3.5" data-path="chap4.html"><a href="chap4.html#sec4-3-5"><i class="fa fa-check"></i><b>4.3.5</b> 示例 4.5: 区组和重复</a></li>
+<li class="chapter" data-level="4.3.6" data-path="chap4.html"><a href="chap4.html#sec4-3-6"><i class="fa fa-check"></i><b>4.3.6</b> 示例 4.6：行区组和列区组</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap4.html"><a href="chap4.html#sec4-4"><i class="fa fa-check"></i><b>4.4</b> 结束语</a></li>
+<li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#sec4-5"><i class="fa fa-check"></i><b>4.5</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap4.html"><a href="chap4.html#参考文献-1"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> 多水平设计：裂区、裂条区、重复测量及其组合</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#sec5-1"><i class="fa fa-check"></i><b>5.1</b> 识别实验单元的尺寸——四种基本设计结构</a></li>
+<li class="chapter" data-level="5.2" data-path="chap5.html"><a href="chap5.html#sec5-2"><i class="fa fa-check"></i><b>5.2</b> 分层设计：一种多水平的设计结构</a></li>
+<li class="chapter" data-level="5.3" data-path="chap5.html"><a href="chap5.html#sec5-3"><i class="fa fa-check"></i><b>5.3</b> 裂区设计结构：两水平设计结构</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap5.html"><a href="chap5.html#sec5-3-1"><i class="fa fa-check"></i><b>5.3.1</b> 示例 5.1：烹饪大豆——最简单的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap5.html"><a href="chap5.html#sec5-3-2"><i class="fa fa-check"></i><b>5.3.2</b> 示例 5.2：磨小麦——通常的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap5.html"><a href="chap5.html#sec5-3-3"><i class="fa fa-check"></i><b>5.3.3</b> 示例 5.3：烘焙面包——具有不完全块设计结构的裂区</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chap5.html"><a href="chap5.html#sec5-3-4"><i class="fa fa-check"></i><b>5.3.4</b> 示例 5.4：展示柜中的肉——复杂裂区或四水平设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap5.html"><a href="chap5.html#sec5-4"><i class="fa fa-check"></i><b>5.4</b> 裂条区设计结构：一种无层次的多水平设计</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="chap5.html"><a href="chap5.html#sec5-4-1"><i class="fa fa-check"></i><b>5.4.1</b> 示例 5.5：制作奶酪</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap5.html"><a href="chap5.html#sec5-5"><i class="fa fa-check"></i><b>5.5</b> 重复测量设计</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chap5.html"><a href="chap5.html#sec5-5-1"><i class="fa fa-check"></i><b>5.5.1</b> 示例 5.6：马足——基本重复测量设计</a></li>
+<li class="chapter" data-level="5.5.2" data-path="chap5.html"><a href="chap5.html#sec5-5-2"><i class="fa fa-check"></i><b>5.5.2</b> 示例 5.7：舒适度研究——重复测量设计</a></li>
+<li class="chapter" data-level="5.5.3" data-path="chap5.html"><a href="chap5.html#示例-5.8交叉或转换设计"><i class="fa fa-check"></i><b>5.5.3</b> 示例 5.8：交叉或转换设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap5.html"><a href="chap5.html#sec5-6"><i class="fa fa-check"></i><b>5.6</b> 涉及嵌套因素的设计</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chap5.html"><a href="chap5.html#sec5-6-1"><i class="fa fa-check"></i><b>5.6.1</b> 示例 5.9：动物遗传学</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap5.html"><a href="chap5.html#sec5-6-2"><i class="fa fa-check"></i><b>5.6.2</b> 示例 5.10：大豆的生育期组</a></li>
+<li class="chapter" data-level="5.6.3" data-path="chap5.html"><a href="chap5.html#sec5-6-3"><i class="fa fa-check"></i><b>5.6.3</b> 示例 5.11：飞机引擎</a></li>
+<li class="chapter" data-level="5.6.4" data-path="chap5.html"><a href="chap5.html#sec5-6-4"><i class="fa fa-check"></i><b>5.6.4</b> 示例 5.12：简单的舒适度实验</a></li>
+<li class="chapter" data-level="5.6.5" data-path="chap5.html"><a href="chap5.html#sec5-6-5"><i class="fa fa-check"></i><b>5.6.5</b> 示例 5.13：重复测量的多地点研究</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap5.html"><a href="chap5.html#sec5-7"><i class="fa fa-check"></i><b>5.7</b> 结束语</a></li>
+<li class="chapter" data-level="5.8" data-path="chap5.html"><a href="chap5.html#sec5-8"><i class="fa fa-check"></i><b>5.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap6.html"><a href="chap6.html"><i class="fa fa-check"></i><b>6</b> 模型的矩阵形式</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap6.html"><a href="chap6.html#sec6-1"><i class="fa fa-check"></i><b>6.1</b> 基本符号</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>III 砍柴</b></span></li>
+<li class="chapter" data-level="7" data-path="chap7.html"><a href="chap7.html"><i class="fa fa-check"></i><b>7</b> 均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap7.html"><a href="chap7.html#sec7-1"><i class="fa fa-check"></i><b>7.1</b> 模型定义和假设</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap7.html"><a href="chap7.html#sec7-1-1"><i class="fa fa-check"></i><b>7.1.1</b> 均值模型</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap7.html"><a href="chap7.html#sec7-1-2"><i class="fa fa-check"></i><b>7.1.2</b> 效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap7.html"><a href="chap7.html#sec7-2"><i class="fa fa-check"></i><b>7.2</b> 参数估计</a></li>
+<li class="chapter" data-level="7.3" data-path="chap7.html"><a href="chap7.html#sec7-3"><i class="fa fa-check"></i><b>7.3</b> 交互作用及它们的重要性</a></li>
+<li class="chapter" data-level="7.4" data-path="chap7.html"><a href="chap7.html#sec7-4"><i class="fa fa-check"></i><b>7.4</b> 主效应</a></li>
+<li class="chapter" data-level="7.5" data-path="chap7.html"><a href="chap7.html#sec7-5"><i class="fa fa-check"></i><b>7.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="7.6" data-path="chap7.html"><a href="chap7.html#sec7-6"><i class="fa fa-check"></i><b>7.6</b> 结束语</a></li>
+<li class="chapter" data-level="7.7" data-path="chap7.html"><a href="chap7.html#sec7-7"><i class="fa fa-check"></i><b>7.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap8.html"><a href="chap8.html"><i class="fa fa-check"></i><b>8</b> 案例研究：均衡双向实验的完整分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap8.html"><a href="chap8.html#sec8-1"><i class="fa fa-check"></i><b>8.1</b> 主效应均值对比</a></li>
+<li class="chapter" data-level="8.2" data-path="chap8.html"><a href="chap8.html#sec8-2"><i class="fa fa-check"></i><b>8.2</b> 交互对比</a></li>
+<li class="chapter" data-level="8.3" data-path="chap8.html"><a href="chap8.html#sec8-3"><i class="fa fa-check"></i><b>8.3</b> 油漆铺路示例</a></li>
+<li class="chapter" data-level="8.4" data-path="chap8.html"><a href="chap8.html#sec8-4"><i class="fa fa-check"></i><b>8.4</b> 分析定量处理因素</a></li>
+<li class="chapter" data-level="8.5" data-path="chap8.html"><a href="chap8.html#sec8-5"><i class="fa fa-check"></i><b>8.5</b> 多重检验</a></li>
+<li class="chapter" data-level="8.6" data-path="chap8.html"><a href="chap8.html#sec8-6"><i class="fa fa-check"></i><b>8.6</b> 结束语</a></li>
+<li class="chapter" data-level="8.7" data-path="chap8.html"><a href="chap8.html#sec8-7"><i class="fa fa-check"></i><b>8.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap9.html"><a href="chap9.html"><i class="fa fa-check"></i><b>9</b> 使用均值模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap9.html"><a href="chap9.html#sec9-1"><i class="fa fa-check"></i><b>9.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="9.2" data-path="chap9.html"><a href="chap9.html#sec9-2"><i class="fa fa-check"></i><b>9.2</b> 参数估计</a></li>
+<li class="chapter" data-level="9.3" data-path="chap9.html"><a href="chap9.html#sec9-3"><i class="fa fa-check"></i><b>9.3</b> 检验所有均值是否相等</a></li>
+<li class="chapter" data-level="9.4" data-path="chap9.html"><a href="chap9.html#sec9-4"><i class="fa fa-check"></i><b>9.4</b> 交互作用和主效应假设</a></li>
+<li class="chapter" data-level="9.5" data-path="chap9.html"><a href="chap9.html#sec9-5"><i class="fa fa-check"></i><b>9.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="9.6" data-path="chap9.html"><a href="chap9.html#sec9-6"><i class="fa fa-check"></i><b>9.6</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="9.7" data-path="chap9.html"><a href="chap9.html#sec9-7"><i class="fa fa-check"></i><b>9.7</b> 结束语</a></li>
+<li class="chapter" data-level="9.8" data-path="chap9.html"><a href="chap9.html#sec9-8"><i class="fa fa-check"></i><b>9.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap10.html"><a href="chap10.html"><i class="fa fa-check"></i><b>10</b> 使用效应模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap10.html"><a href="chap10.html#sec10-1"><i class="fa fa-check"></i><b>10.1</b> 模型定义</a></li>
+<li class="chapter" data-level="10.2" data-path="chap10.html"><a href="chap10.html#sec10-2"><i class="fa fa-check"></i><b>10.2</b> 参数估计和 I 型分析</a></li>
+<li class="chapter" data-level="10.3" data-path="chap10.html"><a href="chap10.html#sec10-3"><i class="fa fa-check"></i><b>10.3</b> 在 SAS 中使用可估函数</a></li>
+<li class="chapter" data-level="10.4" data-path="chap10.html"><a href="chap10.html#sec10-4"><i class="fa fa-check"></i><b>10.4</b> I–IV 型假设</a></li>
+<li class="chapter" data-level="10.5" data-path="chap10.html"><a href="chap10.html#sec10-5"><i class="fa fa-check"></i><b>10.5</b> 在 SAS-GLM 中使用 I–IV 型可估函数</a></li>
+<li class="chapter" data-level="10.6" data-path="chap10.html"><a href="chap10.html#sec10-6"><i class="fa fa-check"></i><b>10.6</b> 总体边际均值与最小二乘均值</a></li>
+<li class="chapter" data-level="10.7" data-path="chap10.html"><a href="chap10.html#sec10-7"><i class="fa fa-check"></i><b>10.7</b> 计算机分析</a></li>
+<li class="chapter" data-level="10.8" data-path="chap10.html"><a href="chap10.html#sec10-8"><i class="fa fa-check"></i><b>10.8</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap11.html"><a href="chap11.html"><i class="fa fa-check"></i><b>11</b> 分析子类数不等的大型均衡双向实验</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap11.html"><a href="chap11.html#sec11-1"><i class="fa fa-check"></i><b>11.1</b> 可行性问题</a></li>
+<li class="chapter" data-level="11.2" data-path="chap11.html"><a href="chap11.html#sec11-2"><i class="fa fa-check"></i><b>11.2</b> 未加权均值法</a></li>
+<li class="chapter" data-level="11.3" data-path="chap11.html"><a href="chap11.html#sec11-3"><i class="fa fa-check"></i><b>11.3</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="11.4" data-path="chap11.html"><a href="chap11.html#sec11-4"><i class="fa fa-check"></i><b>11.4</b> 未加权均值的示例</a></li>
+<li class="chapter" data-level="11.5" data-path="chap11.html"><a href="chap11.html#sec11-5"><i class="fa fa-check"></i><b>11.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="11.6" data-path="chap11.html"><a href="chap11.html#sec11-6"><i class="fa fa-check"></i><b>11.6</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap12.html"><a href="chap12.html"><i class="fa fa-check"></i><b>12</b> 案例研究：子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="chap12.html"><a href="chap12.html#sec12-1"><i class="fa fa-check"></i><b>12.1</b> 脂肪-表面活性剂示例</a></li>
+<li class="chapter" data-level="12.2" data-path="chap12.html"><a href="chap12.html#sec12-2"><i class="fa fa-check"></i><b>12.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap13.html"><a href="chap13.html"><i class="fa fa-check"></i><b>13</b> 使用均值模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap13.html"><a href="chap13.html#sec13-1"><i class="fa fa-check"></i><b>13.1</b> 参数估计</a></li>
+<li class="chapter" data-level="13.2" data-path="chap13.html"><a href="chap13.html#sec13-2"><i class="fa fa-check"></i><b>13.2</b> 假设检验和置信区间</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="chap13.html"><a href="chap13.html#sec13-2-1"><i class="fa fa-check"></i><b>13.2.1</b> 示例 13.1</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="chap13.html"><a href="chap13.html#sec13-3"><i class="fa fa-check"></i><b>13.3</b> 计算机分析</a></li>
+<li class="chapter" data-level="13.4" data-path="chap13.html"><a href="chap13.html#sec13-4"><i class="fa fa-check"></i><b>13.4</b> 结束语</a></li>
+<li class="chapter" data-level="13.5" data-path="chap13.html"><a href="chap13.html#sec13-5"><i class="fa fa-check"></i><b>13.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap14.html"><a href="chap14.html"><i class="fa fa-check"></i><b>14</b> 使用效应模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap14.html"><a href="chap14.html#i-型和-ii-型假设"><i class="fa fa-check"></i><b>14.1</b> I 型和 II 型假设</a></li>
+<li class="chapter" data-level="14.2" data-path="chap14.html"><a href="chap14.html#iii-型假设"><i class="fa fa-check"></i><b>14.2</b> III 型假设</a></li>
+<li class="chapter" data-level="14.3" data-path="chap14.html"><a href="chap14.html#sec14-3"><i class="fa fa-check"></i><b>14.3</b> IV 型假设</a></li>
+<li class="chapter" data-level="14.4" data-path="chap14.html"><a href="chap14.html#sec14-4"><i class="fa fa-check"></i><b>14.4</b> 总体边际均值和最小二乘均值</a></li>
+<li class="chapter" data-level="14.5" data-path="chap14.html"><a href="chap14.html#sec14-5"><i class="fa fa-check"></i><b>14.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="14.6" data-path="chap14.html"><a href="chap14.html#sec14-6"><i class="fa fa-check"></i><b>14.6</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="chap15.html"><a href="chap15.html"><i class="fa fa-check"></i><b>15</b> 案例研究：缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap15.html"><a href="chap15.html#sec15-1"><i class="fa fa-check"></i><b>15.1</b> 案例研究</a></li>
+<li class="chapter" data-level="15.2" data-path="chap15.html"><a href="chap15.html#sec15-2"><i class="fa fa-check"></i><b>15.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap16.html"><a href="chap16.html"><i class="fa fa-check"></i><b>16</b> 分析三向和高阶处理结构</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap16.html"><a href="chap16.html#sec16-1"><i class="fa fa-check"></i><b>16.1</b> 一般策略</a></li>
+<li class="chapter" data-level="16.2" data-path="chap16.html"><a href="chap16.html#sec16-2"><i class="fa fa-check"></i><b>16.2</b> 均衡和不均衡实验</a></li>
+<li class="chapter" data-level="16.3" data-path="chap16.html"><a href="chap16.html#sec16-3"><i class="fa fa-check"></i><b>16.3</b> I 型和 II 型分析</a></li>
+<li class="chapter" data-level="16.4" data-path="chap16.html"><a href="chap16.html#sec16-4"><i class="fa fa-check"></i><b>16.4</b> 结束语</a></li>
+<li class="chapter" data-level="16.5" data-path="chap16.html"><a href="chap16.html#sec16-5"><i class="fa fa-check"></i><b>16.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap17.html"><a href="chap17.html"><i class="fa fa-check"></i><b>17</b> 案例研究：具有许多缺失处理组合的三向处理结构</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap17.html"><a href="chap17.html#sec17-1"><i class="fa fa-check"></i><b>17.1</b> 营养评分示例</a></li>
+<li class="chapter" data-level="17.2" data-path="chap17.html"><a href="chap17.html#sec17-2"><i class="fa fa-check"></i><b>17.2</b> SAS-GLM 分析</a></li>
+<li class="chapter" data-level="17.3" data-path="chap17.html"><a href="chap17.html#sec17-3"><i class="fa fa-check"></i><b>17.3</b> 一个完整的分析</a></li>
+<li class="chapter" data-level="17.4" data-path="chap17.html"><a href="chap17.html#sec17-4"><i class="fa fa-check"></i><b>17.4</b> 结束语</a></li>
+<li class="chapter" data-level="17.5" data-path="chap17.html"><a href="chap17.html#sec17-5"><i class="fa fa-check"></i><b>17.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chap18.html"><a href="chap18.html"><i class="fa fa-check"></i><b>18</b> 随机效应模型和方差分量</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="chap18.html"><a href="chap18.html#sec18-1"><i class="fa fa-check"></i><b>18.1</b> 介绍</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="chap18.html"><a href="chap18.html#sec18-1-1"><i class="fa fa-check"></i><b>18.1.1</b> 示例 18.1：随机效应嵌套处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="chap18.html"><a href="chap18.html#sec18-2"><i class="fa fa-check"></i><b>18.2</b> 矩阵表示法中的一般随机效应模型</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="chap18.html"><a href="chap18.html#sec18-2-1"><i class="fa fa-check"></i><b>18.2.1</b> 示例 18.2：单向随机效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="chap18.html"><a href="chap18.html#sec18-3"><i class="fa fa-check"></i><b>18.3</b> 计算期望均方</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="chap18.html"><a href="chap18.html#sec18-3-1"><i class="fa fa-check"></i><b>18.3.1</b> 代数方法</a></li>
+<li class="chapter" data-level="18.3.2" data-path="chap18.html"><a href="chap18.html#sec18-3-2"><i class="fa fa-check"></i><b>18.3.2</b> Hartley 综合法的计算</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="chap18.html"><a href="chap18.html#sec18-4"><i class="fa fa-check"></i><b>18.4</b> 结束语</a></li>
+<li class="chapter" data-level="18.5" data-path="chap18.html"><a href="chap18.html#sec18-5"><i class="fa fa-check"></i><b>18.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap19.html"><a href="chap19.html"><i class="fa fa-check"></i><b>19</b> 方差分量的估计方法</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap19.html"><a href="chap19.html#sec19-1"><i class="fa fa-check"></i><b>19.1</b> 矩法</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="chap19.html"><a href="chap19.html#sec19-1-1"><i class="fa fa-check"></i><b>19.1.1</b> 应用。示例 19.1：不均衡单向模型</a></li>
+<li class="chapter" data-level="19.1.2" data-path="chap19.html"><a href="chap19.html#sec19-1-2"><i class="fa fa-check"></i><b>19.1.2</b> 示例 19.2：单向随机效应模型中的小麦品种</a></li>
+<li class="chapter" data-level="19.1.3" data-path="chap19.html"><a href="chap19.html#sec19-1-3"><i class="fa fa-check"></i><b>19.1.3</b> 示例 19.3：表 18.2 中的双向设计数据</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="chap19.html"><a href="chap19.html#sec19-2"><i class="fa fa-check"></i><b>19.2</b> 最大似然</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="chap19.html"><a href="chap19.html#sec19-2-1"><i class="fa fa-check"></i><b>19.2.1</b> 示例 19.4：均衡单向模型的最大似然解</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="chap19.html"><a href="chap19.html#sec19-3"><i class="fa fa-check"></i><b>19.3</b> 受限或残差最大似然估计</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="chap19.html"><a href="chap19.html#sec19-3-1"><i class="fa fa-check"></i><b>19.3.1</b> 示例 19.5：均衡单向模型的 REML 解</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="chap19.html"><a href="chap19.html#sec19-4"><i class="fa fa-check"></i><b>19.4</b> MIVQUE 法</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="chap19.html"><a href="chap19.html#sec19-4-1"><i class="fa fa-check"></i><b>19.4.1</b> 方法说明</a></li>
+<li class="chapter" data-level="19.4.2" data-path="chap19.html"><a href="chap19.html#sec19-4-2"><i class="fa fa-check"></i><b>19.4.2</b> 应用。示例 19.6：MIVQUE 用于不均衡单向设计</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="chap19.html"><a href="chap19.html#sec19-5"><i class="fa fa-check"></i><b>19.5</b> 使用 JMP 估计方差分量</a></li>
+<li class="chapter" data-level="19.6" data-path="chap19.html"><a href="chap19.html#sec19-6"><i class="fa fa-check"></i><b>19.6</b> 结束语</a></li>
+<li class="chapter" data-level="19.7" data-path="chap19.html"><a href="chap19.html#sec19-7"><i class="fa fa-check"></i><b>19.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap20.html"><a href="chap20.html"><i class="fa fa-check"></i><b>20</b> 方差分量的推断方法</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap20.html"><a href="chap20.html#sec20-1"><i class="fa fa-check"></i><b>20.1</b> 假设检验</a>
+<ul>
+<li class="chapter" data-level="20.1.1" data-path="chap20.html"><a href="chap20.html#sec20-1-1"><i class="fa fa-check"></i><b>20.1.1</b> 使用方差分析表</a></li>
+<li class="chapter" data-level="20.1.2" data-path="chap20.html"><a href="chap20.html#sec20-1-2"><i class="fa fa-check"></i><b>20.1.2</b> 示例 20.1：完全随机设计结构中的双向随机效应检验统计量</a></li>
+<li class="chapter" data-level="20.1.3" data-path="chap20.html"><a href="chap20.html#sec20-1-3"><i class="fa fa-check"></i><b>20.1.3</b> 示例 20.2：复杂三向随机效应检验统计量</a></li>
+<li class="chapter" data-level="20.1.4" data-path="chap20.html"><a href="chap20.html#sec20-1-4"><i class="fa fa-check"></i><b>20.1.4</b> 似然比检验</a></li>
+<li class="chapter" data-level="20.1.5" data-path="chap20.html"><a href="chap20.html#sec20-1-5"><i class="fa fa-check"></i><b>20.1.5</b> 示例 20.3：小麦品种——单向随机效应模型</a></li>
+<li class="chapter" data-level="20.1.6" data-path="chap20.html"><a href="chap20.html#sec20-1-6"><i class="fa fa-check"></i><b>20.1.6</b> 示例 20.4：不均衡双向</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="chap20.html"><a href="chap20.html#sec20-2"><i class="fa fa-check"></i><b>20.2</b> 构造置信区间</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="chap20.html"><a href="chap20.html#sec20-2-1"><i class="fa fa-check"></i><b>20.2.1</b> 残差方差 <span class="math inline">\(\sigma^2_\varepsilon\)</span></a></li>
+<li class="chapter" data-level="20.2.2" data-path="chap20.html"><a href="chap20.html#sec20-2-2"><i class="fa fa-check"></i><b>20.2.2</b> 一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="20.2.3" data-path="chap20.html"><a href="chap20.html#sec20-2-3"><i class="fa fa-check"></i><b>20.2.3</b> 方差分量函数的近似置信区间</a></li>
+<li class="chapter" data-level="20.2.4" data-path="chap20.html"><a href="chap20.html#sec20-2-4"><i class="fa fa-check"></i><b>20.2.4</b> 方差分量的 Wald 型置信区间</a></li>
+<li class="chapter" data-level="20.2.5" data-path="chap20.html"><a href="chap20.html#sec20-2-5"><i class="fa fa-check"></i><b>20.2.5</b> 一些精确的置信区间</a></li>
+<li class="chapter" data-level="20.2.6" data-path="chap20.html"><a href="chap20.html#sec20-2-6"><i class="fa fa-check"></i><b>20.2.6</b> 示例 20.5：均衡单向随机效应处理结构</a></li>
+<li class="chapter" data-level="20.2.7" data-path="chap20.html"><a href="chap20.html#sec20-2-7"><i class="fa fa-check"></i><b>20.2.7</b> 示例 20.6</a></li>
+<li class="chapter" data-level="20.2.8" data-path="chap20.html"><a href="chap20.html#sec20-2-8"><i class="fa fa-check"></i><b>20.2.8</b> 示例 20.6 （续）</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="chap20.html"><a href="chap20.html#sec20-3"><i class="fa fa-check"></i><b>20.3</b> 模拟研究</a></li>
+<li class="chapter" data-level="20.4" data-path="chap20.html"><a href="chap20.html#sec20-4"><i class="fa fa-check"></i><b>20.4</b> 结束语</a></li>
+<li class="chapter" data-level="20.5" data-path="chap20.html"><a href="chap20.html#sec20-5"><i class="fa fa-check"></i><b>20.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="chap21.html"><a href="chap21.html"><i class="fa fa-check"></i><b>21</b> 案例研究：随机效应模型分析</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="chap21.html"><a href="chap21.html#sec21-1"><i class="fa fa-check"></i><b>21.1</b> 数据集</a></li>
+<li class="chapter" data-level="21.2" data-path="chap21.html"><a href="chap21.html#sec21-2"><i class="fa fa-check"></i><b>21.2</b> 估计</a></li>
+<li class="chapter" data-level="21.3" data-path="chap21.html"><a href="chap21.html#sec21-3"><i class="fa fa-check"></i><b>21.3</b> 模型构建</a></li>
+<li class="chapter" data-level="21.4" data-path="chap21.html"><a href="chap21.html#sec21-4"><i class="fa fa-check"></i><b>21.4</b> 缩减模型</a></li>
+<li class="chapter" data-level="21.5" data-path="chap21.html"><a href="chap21.html#sec21-5"><i class="fa fa-check"></i><b>21.5</b> 置信区间</a></li>
+<li class="chapter" data-level="21.6" data-path="chap21.html"><a href="chap21.html#sec21-6"><i class="fa fa-check"></i><b>21.6</b> 使用 JMP 进行计算</a></li>
+<li class="chapter" data-level="21.7" data-path="chap21.html"><a href="chap21.html#sec21-7"><i class="fa fa-check"></i><b>21.7</b> 结束语</a></li>
+<li class="chapter" data-level="21.8" data-path="chap21.html"><a href="chap21.html#sec21-8"><i class="fa fa-check"></i><b>21.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="chap22.html"><a href="chap22.html"><i class="fa fa-check"></i><b>22</b> 混合模型的分析</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="chap22.html"><a href="chap22.html#sec22-1"><i class="fa fa-check"></i><b>22.1</b> 混合模型简介</a></li>
+<li class="chapter" data-level="22.2" data-path="chap22.html"><a href="chap22.html#sec22-2"><i class="fa fa-check"></i><b>22.2</b> 混合模型随机效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="chap22.html"><a href="chap22.html#sec22-2-1"><i class="fa fa-check"></i><b>22.2.1</b> 矩法</a></li>
+<li class="chapter" data-level="22.2.2" data-path="chap22.html"><a href="chap22.html#sec22-2-2"><i class="fa fa-check"></i><b>22.2.2</b> 最大似然方法</a></li>
+<li class="chapter" data-level="22.2.3" data-path="chap22.html"><a href="chap22.html#sec22-2-3"><i class="fa fa-check"></i><b>22.2.3</b> 残差最大似然法</a></li>
+<li class="chapter" data-level="22.2.4" data-path="chap22.html"><a href="chap22.html#sec22-2-4"><i class="fa fa-check"></i><b>22.2.4</b> MINQUE 法</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="chap22.html"><a href="chap22.html#sec22-3"><i class="fa fa-check"></i><b>22.3</b> 混合模型固定效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="chap22.html"><a href="chap22.html#sec22-3-1"><i class="fa fa-check"></i><b>22.3.1</b> 估计</a></li>
+<li class="chapter" data-level="22.3.2" data-path="chap22.html"><a href="chap22.html#sec22-3-2"><i class="fa fa-check"></i><b>22.3.2</b> 置信区间的构建</a></li>
+<li class="chapter" data-level="22.3.3" data-path="chap22.html"><a href="chap22.html#sec22-3-3"><i class="fa fa-check"></i><b>22.3.3</b> 假设检验</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="chap22.html"><a href="chap22.html#sec22-4"><i class="fa fa-check"></i><b>22.4</b> 最佳线性无偏预测</a></li>
+<li class="chapter" data-level="22.5" data-path="chap22.html"><a href="chap22.html#sec22-5"><i class="fa fa-check"></i><b>22.5</b> 混合模型方程组</a></li>
+<li class="chapter" data-level="22.6" data-path="chap22.html"><a href="chap22.html#sec22-6"><i class="fa fa-check"></i><b>22.6</b> 结束语</a></li>
+<li class="chapter" data-level="22.7" data-path="chap22.html"><a href="chap22.html#sec22-7"><i class="fa fa-check"></i><b>22.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>23</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>23.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="23.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>23.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="23.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>23.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="23.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>23.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="23.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>23.5</b> 小结</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">混乱数据分析：设计的实验</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap22" class="section level1 hasAnchor" number="22">
+<h1><span class="header-section-number">第 22 章</span> 混合模型的分析<a href="chap22.html#chap22" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>混合模型用于刻画来自实验或研究的数据，这些数据需要多个方差-协方差参数，并涉及一些固定效应参数。第 <a href="chap2.html#chap2">2</a> 章的不等方差模型是混合模型，因为它们涉及多个方差分量。第 <a href="chap18.html#chap18">18</a> - <a href="chap21.html#chap21">21</a> 章描述的模型称为随机效应模型，但每个模型都有一个未知的均值参数，因此这些模型本质上是混合模型。第 <a href="chap18.html#chap18">18</a> 章中使用的混合模型的定义围绕着具有固定效应和多个方差分量的一些处理结构。因此，<strong>混合模型的一般定义是具有一些固定效应参数和协方差结构中多于一个参数的模型</strong>。符合此定义的模型包括随机完全区组模型 (randomized complete blocks models)、不完全区组模型 (incomplete blocks models)、裂区型模型 (split-plot-type models)、裂条区型模型 (strip-plot-type models)、重复测量型模型 (repeated measures type models)、随机系数模型 (random coefficients models)、多水平模型 (multilevel models) 和分层模型 (hierarchical models).</p>
+<p>混合模型包含三部分：1）模型的固定效应部分；2）模型的随机效应部分；3）模型的残差部分。因此，混合模型的分析包括两种类型的分析，一种是模型随机效应和残差部分的分析，另一种是模型固定效应部分的分析。本章讨论混合模型的构建以及分析模型随机效应部分和固定效应部分所需的步骤。本章的结果为理论结果和概念理解之间提供了桥梁。</p>
+<div id="sec22-1" class="section level2 hasAnchor" number="22.1">
+<h2><span class="header-section-number">22.1</span> 混合模型简介<a href="chap22.html#sec22-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>描述同时具有随机效应因子和固定效应因子的实验的模型称为混合模型。由于存在两种类型的因子，因此所得到的模型具有两个部分，随机效应部分和固定效应部分。为了构造这样的模型，使用以下规则来确定特定交互作用是随机效应还是固定效应。</p>
+<div class="rmdnote">
+<p><strong>规则</strong>：如果主效应是随机效应，则涉及该主效应的任何交互作用也是随机效应。只有那些所有对应的主效应都是固定效应的交互作用才是固定效应。</p>
+</div>
+<p>例如，三因素处理结构，其中 A 和 B 的水平为固定效应，C 的水平为随机效应，模型为</p>
+<p><span class="math display">\[y_{ijkm}=\mu+\alpha_i+\beta_j+\gamma_{ij}+c_k+d_{ik}+f_{jk}+g_{ijk}+\varepsilon_{ijkm}\]</span></p>
+<p>其中 <span class="math inline">\(\mu\)</span> 表示平均响应，<span class="math inline">\(\alpha_i\)</span> 表示固定因子 A 第 i 个水平的效应，<span class="math inline">\(\beta_j\)</span> 表示固定因子 B 第 j 个水平的效应，<span class="math inline">\(\gamma_{ij}\)</span> 表示 A 水平和 B 水平之间交互作用，<span class="math inline">\(c_k\)</span> 表示随机因子 C 第 k 个水平的效应，<span class="math inline">\(d_{ik}\)</span> 表示 A 水平和 C 水平之间的交互作用，<span class="math inline">\(f_{jk}\)</span> 表示 B 水平和 C 水平之间的交互作用，<span class="math inline">\(g_{ijk}\)</span> 表示 A, B, C 水平之间的三向交互作用，<span class="math inline">\(\varepsilon_{ijkm}\)</span> 表示残差效应。</p>
+<p>模型的固定效应部分为 <span class="math inline">\(\mu+\alpha_i+\beta_j+\gamma_{ij}\)</span>，随机效应部分为 <span class="math inline">\(c_k+d_{ik}+f_{jk}+g_{ijk}\)</span>，残差效应部分为 <span class="math inline">\(\varepsilon_{ijkm}\)</span>. 关于随机效应项和模型残差部分的简单假设如下 <span class="math inline">\(c_k\thicksim i.i.d.N(0,\sigma_c^2),d_{ik}\thicksim i.i.d.N(0,\sigma_d^2),f_{jk}\sim i.i.d.N(0,\sigma_f^2),g_{ijk}\sim i.i.d.N(0,\sigma_g^2),\varepsilon_{ijkm}\sim i.i.d.N(0,\sigma_\varepsilon^2)\)</span> 并且 <span class="math inline">\(c_k,d_{ik},f_{jk},g_{ijk},\varepsilon_{ijkm}\)</span> 为独立随机变量。A 和 B 之间的交互作用（由 <span class="math inline">\(\gamma_{ij}\)</span> 表示）是固定效应，而所有其他交互作用都是随机效应，因为它们都涉及由下标 k 表示的随机因子 C. 通常，混合模型还将涉及与设计结构对应的项，但这些项不包括在上述模型中。</p>
+<p>一般线性混合模型的矩阵表示是</p>
+<p><span class="math display">\[\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol y\)</span> 为 N × 1 数据向量，<span class="math inline">\(\boldsymbol X\boldsymbol{\beta}\)</span> 为模型的固定效应部分，<span class="math inline">\(\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k\)</span> 为模型的随机效应部分，以及 <span class="math inline">\(\boldsymbol{\varepsilon}\)</span> 为模型的残差部分。理想条件为 <span class="math inline">\(\boldsymbol {u}_{i}\thicksim N(\boldsymbol0,{\sigma}_{i}^{2}\boldsymbol{I}_{n_{i}}),i=1,2,\ldots,k;\boldsymbol{\varepsilon}\thicksim N(\boldsymbol{0},{\sigma}_{\varepsilon}^{2}\boldsymbol{I}_{N})\)</span> 且 <span class="math inline">\(\boldsymbol{u}_i\left(i=1,2,\ldots,k\right),\boldsymbol \varepsilon\)</span> 为独立随机变量。</p>
+<p>给定 <span class="math inline">\(\boldsymbol u_1,\boldsymbol u_2,\ldots,\boldsymbol u_k\)</span> 的 <span class="math inline">\(\boldsymbol y\)</span> 的条件分布由固定效应模型表示：<span class="math inline">\(\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}\)</span> 其中 <span class="math inline">\(\boldsymbol{\varepsilon}\thicksim N(\boldsymbol{0},{\sigma}_{\varepsilon}^{2}\boldsymbol{I}_{N})\)</span> 且其中的 <span class="math inline">\(\boldsymbol u_1,\boldsymbol u_2,\ldots,\boldsymbol u_k\)</span> 为固定效应（因为取了条件）。<span class="math inline">\(\boldsymbol{y}\)</span> 的边际分布为 <span class="math inline">\(\boldsymbol{y}\thicksim N(\boldsymbol{X\beta},\boldsymbol{\Sigma})\)</span>，或 <span class="math inline">\(\boldsymbol{\Sigma}={\sigma}_1^2\boldsymbol{Z}_1\boldsymbol{Z}_1&#39;+{\sigma}_2^2\boldsymbol{Z}_2\boldsymbol{Z}_2&#39;+\cdots+{\sigma}_k^2\boldsymbol{Z}_k\boldsymbol{Z}_k&#39;+{\sigma}_\varepsilon^2\boldsymbol{I}_N\)</span>，或等价地 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{e}\)</span> 其中 <span class="math inline">\(\boldsymbol{e}\thicksim N(\boldsymbol{0},\boldsymbol{\Sigma})\)</span>.</p>
+<p>混合模型的总体参数为 <span class="math inline">\(\boldsymbol{\beta},{\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2\)</span> 和 <span class="math inline">\({\sigma}_\varepsilon^2\)</span>. 模型随机效应的分析部分包括方差分量 <span class="math inline">\({\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2\)</span> 和 <span class="math inline">\({\sigma}_\varepsilon^2\)</span> 的估计、检验假设和置信区间的构建。模型固定效应部分的分析包括 <span class="math inline">\(\boldsymbol \beta\)</span> 的可估函数的 估计、检验假设和置信区间的构建。 <span class="math inline">\(\boldsymbol y\)</span> 的这种边际分布基于这样的假设：随机效应的协方矩阵是单位阵的标量倍数。混合效应模型更一般的形式是 <span class="math inline">\(\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}\)</span>，其中 <span class="math inline">\(\boldsymbol u_i\sim N(\mathbf{0},\boldsymbol{G}_i),i=1,2,\ldots,k,\boldsymbol{\varepsilon}\thicksim N(\mathbf{0},\boldsymbol{R})\)</span>，且 <span class="math inline">\(\boldsymbol u_i\,(i=1,2,\ldots,k)\)</span> 和 <span class="math inline">\(\boldsymbol{\varepsilon}\)</span> 为独立随机变量。<span class="math inline">\(\boldsymbol y\)</span> 的边际分布可以用更一般的术语表示为 <span class="math inline">\(\boldsymbol{y}\thicksim N(\boldsymbol{X\beta},\boldsymbol{\Sigma})\)</span> 其中
+<span class="math inline">\(\boldsymbol{\Sigma}=\boldsymbol{Z}_1\boldsymbol{G}_1\boldsymbol{Z}_1^{\prime}+\boldsymbol{Z}_2\boldsymbol{G}_2\boldsymbol{Z}_2^{\prime}+\cdots+\boldsymbol{Z}_k\boldsymbol{G}_k\boldsymbol{Z}_k^{\prime}+\boldsymbol{R}\)</span>，或等价地 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{e}\)</span> 其中 <span class="math inline">\(\boldsymbol{e}\thicksim N(\boldsymbol{0},\boldsymbol{\Sigma})\)</span>.</p>
+<p>理想情况下，矩阵 <span class="math inline">\(\boldsymbol G_1,\boldsymbol G_1,\ldots,\boldsymbol G_k\)</span> 和 <span class="math inline">\(\boldsymbol R\)</span> 是正定的，并且包含对随机效应和模型残差部分的协方差结构进行建模所需的参数。混合模型的分析将在接下来的两节中介绍，每节对应一个分析部分。首先考虑模型的随机效应和残差部分的分析。</p>
+</div>
+<div id="sec22-2" class="section level2 hasAnchor" number="22.2">
+<h2><span class="header-section-number">22.2</span> 混合模型随机效应部分的分析<a href="chap22.html#sec22-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>通过首先拟合模型的固定效应部分，然后计算该模型的残差，可以从一般线性混合模型构建随机效应模型。生成的模型不依赖于模型的固定效应部分。表示为 <span class="math inline">\(\boldsymbol y\)</span> 边际分布的一般线性混合模型是</p>
+<p><span class="math display">\[\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol e\quad\mathrm{where~}\boldsymbol e\thicksim N(\boldsymbol{0},\boldsymbol{\Sigma})\mathrm{~and~}\boldsymbol{\Sigma}=\sigma_1^2\boldsymbol{Z}_1\boldsymbol{Z}_1^{\prime}+\sigma_2^2\boldsymbol{Z}_2\boldsymbol{Z}_2^{\prime}+\cdots+\sigma_k^2\boldsymbol{Z}_k\boldsymbol{Z}_k^{\prime}+\sigma_\varepsilon^2\boldsymbol{I}_N\]</span></p>
+<p><span class="math inline">\(\boldsymbol \beta\)</span> 的（普通）最小二乘估计为 <span class="math inline">\(\boldsymbol{\hat{\beta}}=(\boldsymbol X^{\prime}\boldsymbol{X})^-\boldsymbol{X^{\prime}}\boldsymbol{y}\)</span> 其中 <span class="math inline">\((\boldsymbol X^{\prime}\boldsymbol{X})^-\)</span> 表示 <span class="math inline">\(\boldsymbol X^{\prime}\boldsymbol{X}\)</span> 的 Moore–Penrose 广义逆。残差向量为</p>
+<p><span class="math display">\[\boldsymbol r=\boldsymbol y-\boldsymbol X\hat{\boldsymbol{\beta}}=(\boldsymbol I-\boldsymbol X\boldsymbol X^-)\boldsymbol y\]</span></p>
+<p>残差向量的模型（称为残差模型）为</p>
+<p><span class="math display">\[\boldsymbol r=(\boldsymbol I-\boldsymbol X\boldsymbol X^-)\boldsymbol Z_1\boldsymbol u_1+(\boldsymbol I-\boldsymbol X\boldsymbol X^-)\boldsymbol Z_2\boldsymbol u_2+\cdots+(\boldsymbol I-\boldsymbol X\boldsymbol X^-)\boldsymbol Z_k\boldsymbol u_k+(\boldsymbol I-\boldsymbol X\boldsymbol X^-)\boldsymbol{\varepsilon}\]</span></p>
+<p>残差模型不依赖于固定效应参数或模型的固定效应部分 <span class="math inline">\(\boldsymbol {Xb}\)</span>，因此残差模型是随机效应模型。第 <a href="chap18.html#chap18">18</a> - <a href="chap20.html#chap20">20</a> 章中讨论的随机效应模型分析方法可用于分析残差随机效应模型。矩法、最大似然法、REML 法和 MINQUE 法这四种技术是接下来四小节的主题。第 <a href="#chap23"><strong>??</strong></a> 章通过两个例子演示了这些方法，一个是均衡数据集，一个是不均衡数据集。</p>
+<div id="sec22-2-1" class="section level3 hasAnchor" number="22.2.1">
+<h3><span class="header-section-number">22.2.1</span> 矩法<a href="chap22.html#sec22-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>正如第 <a href="chap19.html#chap19">19</a> 章中描述的随机效应模型分析，矩法技术需要计算平方和，确定其期望，然后从方程组中估计方差分量，该方程组通过将观测到的均方与其期望值相等而获得。为了估计方差分量，必须获得其期望值不依赖于模型的混合效应部分的平方和。第 <a href="chap18.html#sec18-3">18.3</a> 节讨论的拟合常数的方法提供了这样的平方和：首先拟合模型的固定效应部分，然后拟合随机效应部分。</p>
+<p>为了演示混合模型随机效应部分的分析，考虑完全随机设计结构中的双向处理结构，其中一个混合因子用 B 表示，另一个随机因子用 T 表示。得到的双向混合模型为</p>
+<p><span class="math display">\[y_{ijk}=\mu+\beta_i+t_j+g_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,b\quad j=1,2,\ldots,t\quad k=1,2,\ldots,n_{ij}\]</span></p>
+<p>其中假设 <span class="math inline">\(t_i \thicksim i.i.d.N(0,\sigma_t^2),g_{ij} \thicksim i.i.d.N(0,\sigma_g^2)\)</span> 以及 <span class="math inline">\(\varepsilon_{ijk}\thicksim i.i.d.N(0,\sigma_\varepsilon^2)\)</span>. 从拟合常数方法获得的平方和为 <span class="math inline">\(R(\beta|\mu),R(t|\mu,\beta),R(g|\mu,\beta,t)\)</span> 以及 <span class="math inline">\(SSERROR\)</span>. 对于某些常数 <span class="math inline">\(k_1,k_2,k_3\)</span>，最后三个均方的期望值分别具有以下形式</p>
+<p><span class="math display">\[\begin{aligned}E[MSR(t|\mu,\beta)]&amp;=\sigma_\varepsilon^2+k_1\sigma_g^2+k_2\sigma_\varepsilon^2\\E[MSR(g|\mu,\beta,t)]&amp;=\sigma_\varepsilon^2+k_3\sigma_g^2\\E[MSERROR]&amp;=\sigma_\varepsilon^2\end{aligned}\]</span></p>
+<p><span class="math inline">\(k_1,k_2,k_3\)</span> 的值将取决于样本量和数据结构。这些均方期望不涉及混合效应参数，因此均方可用于估计方差分量，也可以用于检验关于它们的假设。</p>
+<p>方程组是通过将观测到的均方等于期望均方来构建的，其中 <span class="math inline">\(\tilde{{\sigma}}_{{\varepsilon}}^2,\tilde{{\sigma}}_t^2\)</span> 和 <span class="math inline">\(\tilde{{\sigma}}_g^2\)</span> 表示解；即，</p>
+<p><span class="math display">\[\begin{aligned}
+MSR(t|\mu,\beta)&amp; =\tilde{{\sigma}}_\varepsilon^2+k_1\tilde{{\sigma}}_g^2+k_2\tilde{{\sigma}}_\varepsilon^2  \\
+MSR(g|\mu,\beta,t)&amp; =\tilde{\sigma}_\varepsilon^2+k_3\tilde{\sigma}_g^2  \\
+MSERROR&amp; =\tilde{{\sigma}}_\varepsilon^2
+\end{aligned}\]</span></p>
+<p>解为</p>
+<p><span class="math display">\[\begin{aligned}
+\tilde{{\sigma}}_\varepsilon^2 &amp; =MSERROR  \\
+\tilde{{\sigma}}_g^2&amp; =[MSR(g|\mu,\beta,t)-\tilde{\sigma}_\varepsilon^2]/k_3  \\
+\tilde{{\sigma}}_t^2&amp;=[MSR(t|\mu,\beta)-k_1\tilde{\sigma}_g^2-\tilde{\sigma}_\varepsilon^2]/k_2
+\end{aligned}\]</span></p>
+<p>方差分量的估计为</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;\hat{{\sigma}}_\varepsilon^2 =\tilde{\sigma}_\varepsilon^2  \\
+&amp;\hat{{\sigma}}_g^2 =\begin{cases}\tilde{{\sigma}}_g^2&amp;\mathrm{~if~}\tilde{{\sigma}}_g^2\geq0\\0&amp;\mathrm{~if~}\tilde{{\sigma}}_g^2&lt;0&amp;\end{cases}  \\
+&amp;\hat{{\sigma}}_t^2 =\begin{cases}\tilde{{\sigma}}_t^2&amp;\mathrm{~if~}\tilde{{\sigma}}_t^2\geq0\\0&amp;\mathrm{~if~}\tilde{{\sigma}}_t^2&lt;0&amp;\end{cases}
+\end{aligned}\]</span></p>
+<p>方差分量的近似 <span class="math inline">\((1-\alpha)100\%\)</span> 置信区间为</p>
+<p><span class="math display">\[\frac{df_{\hat{\sigma}_r^2}\hat{\sigma}_r^2}{\chi^2_{\alpha/2,df_{\hat{\sigma}_r^2}}}\leq\sigma_r^2\leq\frac{df_{\hat{\sigma}_r^2}\hat{\sigma}_r^2}{\chi^2_{1-(\alpha/2),df_{\hat{\sigma}_r^2}}},\quad r=t,g,\varepsilon \]</span></p>
+<p>其中</p>
+<p><span class="math display">\[df_{\hat{\sigma}_\varepsilon^2}=df_{MSERROR},\quad df_{\hat{\sigma}_s^2}=\frac{(\hat{\sigma}_g^2)^2}{\frac{\left[(1/k_3)MSR(g|\mu,\beta,t)\right]^2}{df_{MSR(g|\mu,\beta,t)}}+\frac{[(1/k_3)MSERROR]^2}{df_{MSERROR}}}\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[df_{\hat{\sigma}_t^2}=\frac{(\hat{\sigma}_t^2)^2}{\frac{\left[(1/k_3)MSR(t|\mu,\beta)\right]^2}{df_{MSR(t|\mu,\beta)}}+\frac{\left[(k_1/k_3k_2)MSR(g|\mu,\beta,t)\right]^2}{df_{MSR(g|\mu,\beta,t)}}+\frac{\left[(1/k_2)(1-(k_1/k_3))MSERROR\right]^2}{df_{MSERROR}}}\]</span></p>
+<p>期望均方可用于构建关于模型中方差分量假设的检验。检验 <span class="math inline">\(H_{0}\colon{\sigma}_{t}^{2}=0\operatorname{vs}H_{a}\colon{\sigma}_{t}^{2}&gt;0\)</span> 的统计量为</p>
+<p><span class="math display">\[\begin{aligned}F_{tc}&amp;=\frac{MSR(t\mid\mu,\beta)}{Q}\quad\mathrm{where~}Q=\frac{k_1}{k_3}MSR(g|\mu,\beta,t)+\left(1-\frac{k_1}{k_3}\right)MSERROR\end{aligned}\]</span></p>
+<p>其具有近似 <span class="math inline">\(F\)</span> 的抽样分布，分子自由度为 <span class="math inline">\(df_{MSR(t|\mu,\beta)}\)</span>，分母自由度为 v，其中</p>
+<p><span class="math display">\[v=\frac{Q^2}{\frac{\left[(k_1/k_3)MSR(g|\mu,\beta,t)\right]^2}{df_{MSR(g|\mu,\beta,t)}}+\frac{\left[\left(1-(k_1/k_3)\right)MSERROR\right]^2}{df_{MSERROR}}}\]</span></p>
+<p>由 Satterthwaite 近似确定。</p>
+<p>用于检验 <span class="math inline">\(H_{0}\colon{\sigma}_{g}^{2}=0\operatorname{vs}H_{a}\colon{\sigma}_{g}^{2}&gt;0\)</span> 的统计量为</p>
+<p><span class="math display">\[F_{gc}=\frac{MSR(g|\mu,\beta,t)}{MSERROR}\]</span></p>
+<p>其具有近似 <span class="math inline">\(F\)</span> 的抽样分布，分子自由度为 <span class="math inline">\(df_{MSR(g|\mu,\beta,t)}\)</span>，分母自由度为 <span class="math inline">\(df_{MSERROR}\)</span>.</p>
+</div>
+<div id="sec22-2-2" class="section level3 hasAnchor" number="22.2.2">
+<h3><span class="header-section-number">22.2.2</span> 最大似然方法<a href="chap22.html#sec22-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>最大似然方法可应用于完全似然函数，记作 <span class="math inline">\(L(\boldsymbol{\beta},\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2)=(2\pi)^{-n/2}|\boldsymbol{\Sigma}|^{-1/2}\exp[-\frac12(\boldsymbol{y}-\boldsymbol X\boldsymbol{\beta})^{\prime}\boldsymbol{\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol X\boldsymbol{\beta})]\)</span>. 关于所有参数最大化该似然函数或等价地最小化 <span class="math inline">\(-2\log[L(\boldsymbol{\beta},\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2)]\)</span>，提供了用于同时估计固定参数和随机效应参数的方程组 (Hartley and Rao, 1967). 所需的方程组为</p>
+<p><span class="math display">\[\left.\frac{\partial l}{\partial\boldsymbol\beta}\right|_{\boldsymbol\beta=\hat{\boldsymbol\beta},\sigma=\hat{\sigma}}=0,\quad\left.\frac{\partial l}{\partial\sigma_1^2}\right|_{\boldsymbol\beta=\hat{\boldsymbol\beta},\sigma=\hat{\sigma}}=0,\quad\left.\frac{\partial l}{\partial\sigma_2^2}\right|_{\boldsymbol\beta=\hat{\boldsymbol\beta},\sigma=\hat{\sigma}}=0,\ldots,\quad\left.\frac{\partial l}{\partial\sigma_k^2}\right|_{\boldsymbol\beta=\hat{\boldsymbol\beta},\sigma=\hat{\sigma}}=0,\quad\left.\frac{\partial l}{\partial\sigma_\varepsilon^2}\right|_{\boldsymbol\beta=\hat{\boldsymbol\beta},\sigma=\hat{\sigma}}=0\]</span></p>
+<p>其中 <span class="math inline">\(l=-2\log[L(\boldsymbol{\beta},{\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2,{\sigma}_\varepsilon^2)],{\sigma}^{\prime}=[{\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2,{\sigma}_\varepsilon^2]\)</span> 以及 <span class="math inline">\(\hat{{\sigma}}^{\prime}=[\hat{{\sigma}}_1^2,\hat{{\sigma}}_2^2,\ldots,\hat{{\sigma}}_k^2,\hat{{\sigma}}_\varepsilon^2]\)</span>.</p>
+<p>具有相等观测次数的双向混合模型用于演示最大似然估计的计算。该模型可以表示为</p>
+<p><span class="math display">\[y_{ijk}=\mu_i+a_j+g_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,a,\quad k=1,2,\ldots,n\]</span></p>
+<p>其中 <span class="math inline">\(\mu_i\)</span> 表示混合效应因子 T 第 i 个水平的均值，<span class="math inline">\(\alpha_j\)</span> 表示随机效应因子 A 的第 j 个水平的效应，<span class="math inline">\(\gamma_{ij}\)</span> 表示随机相互作用效应，<span class="math inline">\(\varepsilon_{ijk}\)</span> 表示残差效应。在理想条件下，<span class="math inline">\(a_j\thicksim i.i.d.N(0,\sigma_a^2),g_{ij}\thicksim i.i.d.N(0,\sigma_g^2),\varepsilon_{ijk}\thicksim i.i.d.N(0,\sigma_e^2)\)</span>，且 <span class="math inline">\(a_j,g_{ij},\varepsilon_{ijk}\)</span> 为独立随机变量。数据向量的方差为</p>
+<p><span class="math display">\[\begin{aligned}
+\boldsymbol{\Sigma}=&amp;\,{\sigma}_a^2[\boldsymbol{J}_n\otimes\boldsymbol{I}_a\otimes\boldsymbol{J}_t]+{\sigma}_g^2[\boldsymbol{J}_n\otimes\boldsymbol{I}_a\otimes\boldsymbol{I}_t]+{\sigma}_\varepsilon^2[\boldsymbol{I}_n\otimes\boldsymbol{I}_a\otimes\boldsymbol{I}_t] \\
+=&amp;\,(\sigma_\varepsilon^2+n\sigma_g^2+nt\sigma_a^2)\left[\frac1{n}\boldsymbol J_n\otimes \boldsymbol I_a\otimes\frac1t\boldsymbol J_t\right]+(\sigma_\varepsilon^2+n\sigma_g^2)\left[\frac1{n}\boldsymbol J_n\otimes \boldsymbol I_a\otimes(\boldsymbol I_t-\frac1t\boldsymbol J_t)\right] \\
+&amp;+\sigma_\varepsilon^2\left[(\boldsymbol I_n-\frac1n\boldsymbol J_n)\otimes \boldsymbol I_a\otimes \boldsymbol I_t\right] \\
+=&amp;\,\lambda_1\boldsymbol V_1+\lambda_2\boldsymbol V_2+\lambda_3\boldsymbol V_3\text{ (say)}
+\end{aligned}\]</span></p>
+<p>其中 <span class="math inline">\(\lambda_1=\sigma_\varepsilon^2+n\sigma_g^2+nt\sigma_a^2,\lambda_2=\sigma_\varepsilon^2+n\sigma_g^2,\lambda_3=\sigma_\varepsilon^2\)</span> 以及 <span class="math inline">\(\boldsymbol V_1,\boldsymbol V_2,\boldsymbol V_3\)</span> 为幂等阵且两两正交。记号 <span class="math inline">\(\boldsymbol A\otimes \boldsymbol B\)</span> 表示矩阵 <span class="math inline">\(\boldsymbol A,\boldsymbol B\)</span> 的直积 (direct product) (Graybill 1976). 因此，<span class="math inline">\(|\boldsymbol{\Sigma}|=\lambda_1^{a}\lambda_2^{a(t-1)}\lambda_3^{at(n-1)}\)</span> 且 <span class="math inline">\(\boldsymbol{\Sigma}^{-1}=(1/\lambda_1)\boldsymbol{V}_1+(1/\lambda_2)\boldsymbol{V}_2+(1/\lambda_3)\boldsymbol{V}_3\)</span>. <span class="math inline">\(l=-2\log (L)\)</span> 的值可表示为 <span class="math inline">\(l=nta\log(2\pi)+a\log(\lambda_1)+a(t-1)\log(\lambda_2)+at(n-1)\log(\lambda_3)+Q\)</span> 其中 <span class="math inline">\(Q=[\boldsymbol{y}-(\boldsymbol{j}_n\otimes\boldsymbol{j}_a\otimes\boldsymbol{I}_t)\boldsymbol{\mu}]&#39;\boldsymbol{\Sigma}^{-1}[\boldsymbol{y}-(\boldsymbol{j}_n\otimes\boldsymbol{j}_a\otimes\boldsymbol{I}_t)\boldsymbol{\mu}]\)</span>. 使用一些代数计算，并利用上述关系，<span class="math inline">\(Q\)</span> 的值可以表示为</p>
+<p><span class="math display">\[Q=\frac1{\lambda_1}\boldsymbol y^{\prime}\boldsymbol A_1\boldsymbol y+\frac1{\lambda_2}\boldsymbol y^{\prime}\boldsymbol A_2\boldsymbol y+\frac1{\lambda_3}\boldsymbol y^{\prime}\boldsymbol A_3\boldsymbol y+\frac1{\lambda_1}nat(\bar{y}_{\cdot\cdot\cdot}-\bar{\mu}_{\cdot})^2+\frac{na}{\lambda_2}\sum_{i=1}^t(\bar{y}_{i\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot}+\bar{\mu}_{\cdot}-\mu_{i})^2\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;\boldsymbol{y^{\prime}}\boldsymbol A_1\boldsymbol{y} \left.=\boldsymbol y^{\prime}{\left[\frac1n\boldsymbol J_n\right.}\otimes\left(\boldsymbol I_a-\frac1a\boldsymbol J_a\right)\otimes\frac1t\boldsymbol J_t\right]\boldsymbol{y}=SSA  \\
+&amp;\boldsymbol{y&#39;A}_2\boldsymbol{y} \left.=\boldsymbol y^{\prime}{\left[\frac1n\boldsymbol J_n\right.}\otimes\left(\boldsymbol I_a-\frac1a\boldsymbol J_a\right)\otimes\left(\boldsymbol I_t-\frac1t\boldsymbol J_t\right)\right]\boldsymbol{y}=SSTA  \\
+&amp;\boldsymbol{y&#39;A_3}\boldsymbol{y} =\boldsymbol y^{\prime}\bigg[\left(\boldsymbol I_n-\frac1n\boldsymbol J_n\right)\otimes \boldsymbol I_a\otimes \boldsymbol I_t\bigg]\boldsymbol{y}=SSERROR
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(-2 \log(\text{likelihood})\)</span> 的值可以表示为</p>
+<p><span class="math display">\[\begin{aligned}
+l =&amp;\,nta\log(2\pi)+a\log(\lambda_1)+a(t-1)\log(\lambda_2)+at(n-1)\log(\lambda_3)  \\
+&amp;+\frac1{\lambda_3}SSERROR+\frac1{\lambda_1}SSA+\frac1{\lambda_2}SSTA+\frac1{\lambda_1}nat(\bar{y}_{\cdot\cdot\cdot}-\bar{\mu}_{\cdot})^2 \\
+&amp;+\frac{na}{\lambda_2}\sum_{i=1}^{t}(\bar{y}_{i\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot}+\bar{\mu}_{\cdot}-\mu_i)^2
+\end{aligned}\]</span></p>
+<p>接下来，关于 <span class="math inline">\(\lambda_1,\lambda_2,\lambda_3,\bar\mu_{\cdot}\)</span> 和 <span class="math inline">\((\mu_i-\bar\mu_{\cdot})\)</span> 对 <span class="math inline">\(l\)</span> 进行微分，并将导数设置为零，以提供方程组：</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;\left.\frac{\partial l}{\partial\lambda_3}\right|_{{\mu}=\hat{{\mu}},{\lambda}=\hat{{\lambda}}} =-\frac{at(n-1)}{\hat{\lambda}_3}+\frac{SSERROR}{\hat{\lambda}_3^2}=0\Longrightarrow\hat{\lambda}_3^2=\frac{SSERROR}{at(n-1)}=\hat{\sigma}_\varepsilon^2  \\
+&amp;\left.\frac{\partial l}{\partial\lambda_2}\right|_{{\mu}=\hat{{\mu}},{\lambda}=\hat{{\lambda}}} =-\frac{a(n-1)}{\hat{\lambda}_2}+\frac{SSTA}{\hat{\lambda}_2^2}=0\Longrightarrow\hat{\lambda}_2^2=\frac{SSTA}{a(n-1)}  \\
+&amp;\left.\frac{\partial l}{\partial\lambda_1}\right|_{{\mu}=\hat{{\mu}},{\lambda}=\hat{{\lambda}}} =-\frac a{\hat{\lambda}_1}+\frac{SSA}{\hat{\lambda}_1^2}=0\Longrightarrow\hat{\lambda}_1^2=\frac{SSA}a  \\
+&amp;\left.\frac{\partial l}{\partial\bar{\mu}.}\right|_{{\mu}=\hat{{\mu}},{\lambda}=\hat{{\lambda}}} =\frac{-2nat(\bar{y}_{\cdot\cdot\cdot}-\hat{\bar{\mu}}_{\cdot\cdot\cdot})}{\hat{\lambda}_1^2}=0\Longrightarrow\hat{\bar{\mu}}_{\cdot\cdot\cdot}=\bar{y}_{\cdot\cdot\cdot}
+\end{aligned}\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\left.\frac{\partial l}{\partial\mu_i-\bar{\mu}_{\cdot}}\right|_{{\mu}=\hat{{\mu}},{\lambda}=\hat{{\lambda}}}=\frac{-2na(\bar{y}_{i\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot}+(\hat{\mu}_i-\hat{\bar{\mu}}_\cdot))}{\hat{\lambda}_2}=0\Longrightarrow(\hat{\mu}_i-\hat{\bar{\mu}}_{\cdot})=\bar{y}_{i\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot}\]</span></p>
+<p>或 <span class="math inline">\(\hat{\bar{{\mu}}_i}=\bar{y}_{i\cdot\cdot}\)</span>.</p>
+<p>利用 <span class="math inline">\(\lambda_1=\sigma_\varepsilon^2+n\sigma_g^2+nt\sigma_a^2,\lambda_2=\sigma_\varepsilon^2+n\sigma_g^2\)</span> 以及 <span class="math inline">\(\lambda_3=\sigma_\varepsilon^2\)</span> 的事实，方差分量的最大似然估计为：</p>
+<p><span class="math display">\[\hat{\sigma}_\varepsilon^2=\hat{\lambda}_g,\quad\hat{\sigma}_g^2=\begin{cases}\dfrac{\hat{\lambda}_2-\hat{\lambda}_3}n&amp;\mathrm{if~}\hat{\lambda}_2\geq\hat{\lambda}_3\\0&amp;\mathrm{if~}\hat{\lambda}_2&lt;\hat{\lambda}_3\end{cases},\quad\mathrm{and}\quad\hat{\sigma}_a^2=\begin{cases}\dfrac{\hat{\lambda}_1-\hat{\lambda}_2}{nt}&amp;\mathrm{if~}\hat{\lambda}_1\geq\hat{\lambda}_2\\0&amp;\mathrm{if~}\hat{\lambda}_1&lt;\hat{\lambda}_2\end{cases}\]</span></p>
+<p>请注意，<span class="math inline">\(\hat{\sigma}_\varepsilon^2\)</span> 是 <span class="math inline">\({\sigma}_\varepsilon^2\)</span> 的无偏估计，而 <span class="math inline">\(\hat{\sigma}_a^2,\hat{\sigma}_g^2\)</span> 分别为 <span class="math inline">\({\sigma}_a^2,{\sigma}_g^2\)</span> 的有偏估计。</p>
+</div>
+<div id="sec22-2-3" class="section level3 hasAnchor" number="22.2.3">
+<h3><span class="header-section-number">22.2.3</span> 残差最大似然法<a href="chap22.html#sec22-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Corbeil and Searle (1976) 将似然函数分为两部分，一部分涉及固定效应，另一部分不包含固定效应。然后，他们从没有固定效应的模型部分获得了方差分量的最大似然估计，他们将其称为<strong>受限最大似然估计</strong> (restricted maximum likelihood estimators) 或 REML 估计。为了说明这一点，请再次考虑一般线性混合模型 <span class="math inline">\(\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}\)</span> 以及第 <a href="chap22.html#sec22-1">22.1</a> 节中给出的通常假设。假设 <span class="math inline">\(\boldsymbol X\)</span> 的秩为 p. 为了构造受限似然函数，令 <span class="math inline">\(H\)</span> 为秩为 N-p 的 N × (N - p) 矩阵，使得 <span class="math inline">\(\boldsymbol {HH}^\prime = (\boldsymbol I - \boldsymbol X\boldsymbol X^- )\)</span>。定义变换</p>
+<p><span class="math display">\[\boldsymbol z=\begin{bmatrix}\boldsymbol z_1\\\boldsymbol z_2\end{bmatrix}=\begin{bmatrix}\boldsymbol X^{\prime}\\\boldsymbol H^{\prime}\end{bmatrix}\boldsymbol y\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\begin{bmatrix}\boldsymbol X^{\prime}\\\boldsymbol H^{\prime}\end{bmatrix}\]</span></p>
+<p>为 N × N 非奇异矩阵。因此从 <span class="math inline">\(\boldsymbol y\)</span> 到 <span class="math inline">\(\boldsymbol z\)</span> 的变换是一对一的变换。</p>
+<p><span class="math display">\[\boldsymbol z=\begin{bmatrix}\boldsymbol{z}_1\\\boldsymbol{z}_2\end{bmatrix}\]</span></p>
+<p>的分布为</p>
+<p><span class="math display">\[\left.\begin{bmatrix}\boldsymbol z_1\\\boldsymbol z_2\end{bmatrix}\thicksim N\left[\begin{bmatrix}\boldsymbol X^{\prime}\boldsymbol X\boldsymbol{\beta}\\\boldsymbol 0\end{bmatrix}\right.,\begin{bmatrix}\boldsymbol X^{\prime}\boldsymbol{\Sigma}\boldsymbol X&amp;\boldsymbol X^{\prime}\boldsymbol{\Sigma}\boldsymbol H\\\boldsymbol H^{\prime}\boldsymbol{\Sigma}\boldsymbol X&amp;\boldsymbol H^{\prime}\boldsymbol{\Sigma}\boldsymbol H\end{bmatrix}\right]\]</span></p>
+<p><span class="math display">\[\boldsymbol z=\begin{bmatrix}\boldsymbol{z}_1\\\boldsymbol{z}_2\end{bmatrix}\]</span></p>
+<p>可以分解为给定 <span class="math inline">\(\boldsymbol z_2\)</span> 下 <span class="math inline">\(\boldsymbol z_1\)</span> 的似然乘以 <span class="math inline">\(\boldsymbol z_2\)</span> 的边际似然。<span class="math inline">\(\boldsymbol z_2\)</span> 的边际似然不取决于模型的固定效应参数，而是取决于方差分量。<span class="math inline">\(\boldsymbol z_2\)</span> 的边际似然为</p>
+<p><span class="math display">\[L_{\boldsymbol H}(\boldsymbol z_2)=L_{\boldsymbol H}(\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2)=(2\pi)^{-(n-p)/2}|\boldsymbol{H^{\prime}\Sigma H}|^{-1/2}\exp\left[-\frac12\boldsymbol{yH}(\boldsymbol H^{\prime}\boldsymbol \Sigma \boldsymbol H)^{-1}\boldsymbol H^{\prime}\boldsymbol y\right]\]</span></p>
+<p>方差分量的 REML 估计是使 <span class="math inline">\(L_{\boldsymbol H}(\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2)\)</span> 最大化的 <span class="math inline">\(\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2\)</span> 的值。该受限似然函数适用于随机向量 <span class="math inline">\(\boldsymbol z_2\)</span>. 但固定效应模型的残差（参见第 <a href="chap22.html#sec22-2">22.2</a> 节开头）可以表示为 <span class="math inline">\(\boldsymbol r = \boldsymbol H \boldsymbol z_2\)</span>，即 <span class="math inline">\(\boldsymbol z_2\)</span> 的变换。因此，受限似然函数利用了残差模型中不依赖于固定效应的信息，或者说 受限似然是模型残差的函数。因此，为此方法选择的名称是残差最大似然。最大化 <span class="math inline">\(l_R=\log[L_{\boldsymbol H}(\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2)]\)</span> 的过程产生了一组需要求解的方程。不能保证方程组的解会提供一个位于参数空间中的解集。再次强调，获得方差分量的非负估计是很重要的，因为这些估计用于分析模型的固定效应部分。</p>
+<p>在重新审视第 <a href="chap22.html#sec22-2-2">22.2.2</a> 节中描述的均衡双向混合模型时，似然函数可表示为</p>
+<p><span class="math display">\[\begin{aligned}
+L(\mu,\lambda_1,\lambda_2,\lambda_3) =&amp;\,\left[\left((2\pi)^{1/2}\lambda_1^{1/2}\right)^{-1}\exp\biggl(-\frac{nat}{2\lambda_1}(\bar{y}_{\cdot\cdot\cdot}-\bar{\mu}_{\cdot})^2\biggr)\biggr]\times\biggl[(2\pi)^{(t-1)/2}\lambda_2^{(t-1)/2}\biggr]^{-1}\right.   \\
+&amp;\times\exp\left[-\frac{na}{2\lambda_2}\sum_{i=1}^t(\bar{y}_{i\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot}-\mu_i+\bar{\mu}_{\cdot})^2\right]\times\left[(2\pi)^{(nat-t)/2}\lambda_1^{(a-1)/2}\lambda_2^{(a-1)(t-1)/2}\lambda_3^{at(n-1)/2}\right]^{-1} \\
+&amp;\times\exp\left[-\frac12{\left(\frac{SSERROR}{\lambda_3}+\frac{SSA}{\lambda_1}+\frac{SSTA}{\lambda_2}\right)}\right] \\
+=&amp;\,L(\bar{\mu}_\cdot)\times L(\mu_i-\bar{\mu}_\cdot)\times L(\lambda_1,\lambda_2,\lambda_3)\mathrm{~(say)}
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\lambda_1,\lambda_2,\lambda_3\)</span> 的 REML 估计通过最小化 <span class="math inline">\(-2\log[L(\lambda_1,\lambda_2,\lambda_3)]\)</span> 获得，这是通过对 <span class="math inline">\(l_R\)</span> 关于 <span class="math inline">\(\lambda_1,\lambda_2,\lambda_3\)</span> 求微分并将导数设置为零来实现的。微分和解是</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;\left.\frac{\partial l_R}{\partial\lambda_1}\right|_{\lambda=\hat{\lambda}} =\frac{(a-1)}{\hat{\lambda}_1}-\frac{SSA}{\hat{\lambda}_1^2}=0\Rightarrow\hat{\lambda}_1=\frac{SSA}{a-1}  \\
+&amp;\left.\frac{\partial l_R}{\partial\lambda_2}\right|_{\lambda=\hat{\lambda}} =\frac{(a-1)(t-1)}{\hat{\lambda}_2}-\frac{SSTA}{\hat{\lambda}_2^2}=0\Rightarrow\hat{\lambda}_2=\frac{SSTA}{(a-1)(t-1)}  \\
+&amp;\left.\frac{\partial l_R}{\partial\lambda_3}\right|_{\lambda=\hat{\lambda}} =\frac{at(n-1)}{\hat{\lambda}_3}-\frac{SSERROR}{\hat{\lambda}_3^2}=0\Rightarrow\hat{\lambda}_3=\frac{SSERROR}{at(n-1)}
+\end{aligned}\]</span></p>
+<p>方差分量的估计计算如下：</p>
+<p><span class="math display">\[\hat{\sigma}_\varepsilon^2=\hat{\lambda}_3,\quad\hat{\sigma}_g^2=\begin{cases}\frac{\hat{\lambda}_2-\hat{\lambda}_3}n&amp;\mathrm{~if~}\hat{\lambda}_2\geq\hat{\lambda}_3\\0&amp;\mathrm{~if~}\hat{\lambda}_2&lt;\hat{\lambda}_3\end{cases},\quad\mathrm{~and~}\quad\hat{\sigma}_a^2=\begin{cases}\frac{\hat{\lambda}_1-\hat{\lambda}_2}n&amp;\mathrm{~if~}\hat{\lambda}_1\geq\hat{\lambda}_2\\0&amp;\mathrm{~if~}\hat{\lambda}_1&lt;\hat{\lambda}_2&amp;\end{cases}\]</span></p>
+<p>REML 估计是方差分量的无偏估计，它们与使用矩法获得的估计相同。</p>
+</div>
+<div id="sec22-2-4" class="section level3 hasAnchor" number="22.2.4">
+<h3><span class="header-section-number">22.2.4</span> MINQUE 法<a href="chap22.html#sec22-2-4" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>随机模型的 MINQUE 法在第 <a href="chap19.html#sec19-3">19.3</a> 节中描述。在该应用中，模型的均值为 <span class="math inline">\(\boldsymbol j_n\mu\)</span>，而该混合模型的均值为 <span class="math inline">\(\boldsymbol{Xb}\)</span>. 该估计可以推广到一般线性混合模型 (Swallow and Searle, 1978)，其中 <span class="math inline">\(\boldsymbol \sigma=(\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2,\sigma_\varepsilon^2)^{\prime}\)</span> 的 MINQUE 估计为 <span class="math inline">\(\boldsymbol{\hat{\sigma}}=\boldsymbol{S}^{-1}\boldsymbol{q}\)</span> 其中矩阵 <span class="math inline">\(\boldsymbol S\)</span> 的元素为 <span class="math inline">\(s_{ii^{\prime}}=\mathrm{tr}[\boldsymbol{Z}_i\boldsymbol{Z}_i^{\prime}\boldsymbol{R}\boldsymbol{Z}_{i^{\prime}}\boldsymbol{Z}_i^{\prime}],i,i^{\prime}=1,2,\ldots,k+1\)</span>，其中 <span class="math inline">\(i=k+1\)</span> 对应于 <span class="math inline">\(\boldsymbol \varepsilon\)</span> 以及 <span class="math inline">\(\boldsymbol Z_{k+1}=\boldsymbol I_n\)</span>，</p>
+<p><span class="math display">\[\boldsymbol R=\boldsymbol{\Sigma}^{-1}[\boldsymbol I_n-\boldsymbol{X}(\boldsymbol X^{\prime}\boldsymbol{\Sigma}^{-1}\boldsymbol{X})^-\boldsymbol{X}^{\prime}]\boldsymbol{\Sigma}^{-1}\]</span>
+以及 <span class="math inline">\(\boldsymbol q\)</span> 的元素为 <span class="math inline">\(\boldsymbol{q}_i=\boldsymbol{y}^{\prime}\boldsymbol{R}\boldsymbol{Z}_i\boldsymbol{Z}_i^{\prime}\boldsymbol{R}\boldsymbol{y},{i}=1,{2},\ldots,{k}+1\)</span>.</p>
+<p>解取决于 <span class="math inline">\(\boldsymbol \Sigma\)</span> 的元素，对于 MINQUE 解，通常选择方差为 1，协方差为 0. 如果模型是均衡的，解通常不依赖于为 <span class="math inline">\(\boldsymbol \Sigma\)</span> 选择的值，并且过程在一次迭代中收敛。不能保证系统的解提供参数空间中的值。请确保使用提供非负估计值的解，因为需要在分析模型的固定部分时使用这些估计。一次迭代 (One-iteration) MINQUE 估计在一些软件包中实现（称为零迭代 (zero iteration)），第 <a href="#chap23"><strong>??</strong></a> 章中讨论的两个例子用此估计进行了计算。</p>
+</div>
+</div>
+<div id="sec22-3" class="section level2 hasAnchor" number="22.3">
+<h2><span class="header-section-number">22.3</span> 混合模型固定效应部分的分析<a href="chap22.html#sec22-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>混合模型固定效应部分的分析包括如下所述的模型固定效应部分分析的所有方面。</p>
+<div id="sec22-3-1" class="section level3 hasAnchor" number="22.3.1">
+<h3><span class="header-section-number">22.3.1</span> 估计<a href="chap22.html#sec22-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>有多种方法可以估计混合模型中 <span class="math inline">\(\boldsymbol \beta\)</span> 的可估函数。一般线性混合模型可表示为</p>
+<p><span class="math display">\[\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol \varepsilon\quad\mathrm{~where~Var}(\boldsymbol \varepsilon)=\boldsymbol{\Sigma}\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\boldsymbol{\Sigma}={\sigma}_1^2\boldsymbol{Z}_1\boldsymbol{Z}_2^{\prime}+{\sigma}_2^2\boldsymbol{Z}_2\boldsymbol{Z}_2^{\prime}+\cdots+{\sigma}_k^2\boldsymbol{Z}_k\boldsymbol{Z}_k^{\prime}+{\sigma}_\varepsilon^2\boldsymbol{I}_N\]</span></p>
+<p>线性组合 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span> 对于该混合模型是可估的，当且仅当存在一个向量 <span class="math inline">\(\boldsymbol c\)</span> 使得 <span class="math inline">\(E(\boldsymbol c^\prime \boldsymbol y) = \boldsymbol a^\prime \boldsymbol \beta\)</span> 时。该定义与一般线性模型的定义相同（参见第 <a href="chap6.html#chap6">6</a> 章）。<span class="math inline">\(\boldsymbol a^\prime \boldsymbol \beta\)</span> 的估计是 <span class="math inline">\(\boldsymbol a^\prime \hat {\boldsymbol \beta}\)</span>，为 <span class="math inline">\(\boldsymbol \beta\)</span> 的可估函数，其中 <span class="math inline">\(\hat {\boldsymbol \beta}\)</span> 是 <span class="math inline">\(\boldsymbol \beta\)</span> 的任意估计。</p>
+<p><span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的普通最小二乘估计 (ordinary least squares estimator) 为 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_{LS}\)</span> ，其中 <span class="math inline">\(\boldsymbol{\hat{\beta}}_{LS}=(\boldsymbol{X}^{\prime}\boldsymbol{X})^-\boldsymbol{X}^{\prime}\boldsymbol{y}\)</span> 或者正规方程 <span class="math inline">\(\boldsymbol{X&#39;X\hat{\boldsymbol{\beta}}}=\boldsymbol{X&#39;y}\)</span> 的其他解 <span class="math inline">\(\hat{\boldsymbol \beta}\)</span><a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a>。<span class="math inline">\(\boldsymbol \beta\)</span> 的最小二乘估计不依赖于 <span class="math inline">\(\boldsymbol y\)</span> 的协方差阵；也就是说，它不依赖于 <span class="math inline">\(\boldsymbol \Sigma\)</span>.</p>
+<p>如果 <span class="math inline">\(\boldsymbol \Sigma\)</span> 的元素已知（即，如果 <span class="math inline">\(\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2\)</span> 和 <span class="math inline">\(\sigma_\varepsilon^2\)</span> 已知），则 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的<strong>最佳线性无偏估计</strong> (best linear unbiased estimator, <strong>BLUE</strong>) 为 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_{BLUE}\)</span>，其中 <span class="math inline">\(\hat{\boldsymbol\beta}_{BLUE} = \left(\boldsymbol{X&#39;\Sigma}^{-1}\boldsymbol{X}\right)^-\boldsymbol{X&#39;\Sigma}^{-1}\boldsymbol{y}\)</span> 或者 <span class="math inline">\(\boldsymbol{X&#39;\Sigma^{-1}}\boldsymbol{X\hat{\beta}}_{BLUE}\boldsymbol{=X&#39;\Sigma^{-1}y}\)</span> 中的任何其他解 <span class="math inline">\(\hat{\boldsymbol \beta}_{BLUE}\)</span>.</p>
+<p>对于大多数均衡设计和一些简单的不均衡设计，<span class="math inline">\(\boldsymbol{\hat{\beta}}_{BLUE}=\boldsymbol{\hat{\beta}}_{LS}\)</span>. 因此，对于这些设计，<span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的 BLUE 是 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_{LS}\)</span>，其中 <span class="math inline">\(\hat{\boldsymbol{\beta}}_{LS}=(\boldsymbol{X}^{\prime}\boldsymbol{X})^{-}\boldsymbol{X}^{\prime}\boldsymbol{y}\)</span>，它不依赖于方差分量。</p>
+<p>当设计不均衡并且方差分量未知时，生活就不那么容易了 (life is
+not so easy). 由于 BLUE 不存在（因为它取决于未知方差），因此必须获得<strong>加权最小二乘估计</strong> (<strong>weighted least squares estimator</strong>)，其中 <span class="math inline">\(\hat{\boldsymbol\Sigma}\)</span> 用作加权矩阵。协方差阵估计为</p>
+<p><span class="math display">\[\hat{\boldsymbol{\Sigma}}=\hat{{\sigma}}_1^2\boldsymbol Z_1\boldsymbol Z_1^{\prime}+\hat{{\sigma}}_2^2\boldsymbol Z_2\boldsymbol Z_2^{\prime}+\cdots+\hat{{\sigma}}_k^2\boldsymbol Z_k\boldsymbol Z_k^{\prime}+\hat{{\sigma}}_\varepsilon^2\boldsymbol I_N\]</span></p>
+<p>其中，<span class="math inline">\(\hat{{\sigma}}_1^2,\hat{{\sigma}}_2^2,\ldots,\hat{{\sigma}}_k^2\)</span> 和 <span class="math inline">\(\hat{{\sigma}}_\varepsilon^2\)</span> 是使用第 <a href="chap22.html#sec22-2">22.2</a> 节中讨论的方法之一获得的方差分量估计。<span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的加权最小二乘估计或 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的<strong>估计的最佳线性无偏估计</strong> (estimated BLUE, <strong>EBLUE</strong>) 是 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\)</span>，其中 <span class="math inline">\(\boldsymbol{\hat{\beta}}_W=\left(\boldsymbol{X}^{\prime}{\hat{\boldsymbol{\Sigma}}}^{-1}\boldsymbol{X}\right)^{-}\boldsymbol{X&#39;}{\hat{\boldsymbol{\Sigma}}}^{-1}\boldsymbol{y}\)</span>
+或者 <span class="math inline">\({\boldsymbol X&#39;\hat{\boldsymbol\Sigma}^{-1}}\boldsymbol{X\hat{\beta}}_{W}={\boldsymbol X&#39;\hat{\boldsymbol\Sigma}^{-1}\boldsymbol y}\)</span> 的其他解 <span class="math inline">\(\boldsymbol{\hat{\beta}}_W\)</span>. 对于大多数设计，随着样本量的增加，<span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\)</span> 收敛于 <span class="math inline">\(\boldsymbol a^\prime {\boldsymbol\beta}\)</span>. 为了确保收敛，必须注意，随着样本量的增加，参数的数量不能趋于无穷大。<span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\)</span> 的大样本方差等于 <span class="math inline">\(\mathrm{Var}(\boldsymbol a^{\prime}\boldsymbol{\hat{\beta}}_W)=\boldsymbol a^{\prime}\left(\boldsymbol{X&#39;\hat{\Sigma}}^{-1}\boldsymbol{X}\right)^-\boldsymbol{a}\)</span>. 这种对 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\)</span> 方差的近似没有考虑方差分量估计的变异性。Kackar and Harville (1984) 表明，<span class="math inline">\(\boldsymbol a^{\prime}\left(\boldsymbol{X&#39;\hat{\Sigma}}^{-1}\boldsymbol{X}\right)^-\boldsymbol{a}\)</span> 太小，需要进行调整，因为方差分量的真实值被各自的估计值取代。Kackar and Harville (1984) 和 Kenward and Roger (1997) 使用关于未知方差分量的泰勒级数展开来调整固定效应的标准误估计（该近似超出了本文的范围）。使用 SAS-Mixed 中的 <code>DDFM = KR</code> 选项可为固定效应参数的估计提供调整后的标准误估计。该选项还通过将 Satterthwaite 方法应用于 KR 调整的标准误估计来估计与标准误关联的自由度。</p>
+<p>最大似然法也可以用来获得 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的估计。<span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的最大似然估计为 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_{ML}\)</span>，其中 <span class="math inline">\(\hat{\boldsymbol\beta}_{ML}\)</span> 是未受限似然方程 (unrestricted likelihood equations) 的解。<span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_{ML}\)</span> 的方差为 <span class="math inline">\(\boldsymbol a^{\prime} \boldsymbol W \boldsymbol a\)</span>，其中 <span class="math inline">\(\boldsymbol W\)</span> 是 <span class="math inline">\(\hat{\boldsymbol\beta}_{ML}\)</span> 对应的信息矩阵的广义逆的划分<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a>。第 <a href="#chap23"><strong>??</strong></a> 章中的示例演示了均衡和不均衡设计的上述估计。</p>
+</div>
+<div id="sec22-3-2" class="section level3 hasAnchor" number="22.3.2">
+<h3><span class="header-section-number">22.3.2</span> 置信区间的构建<a href="chap22.html#sec22-3-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>利用 <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\)</span> 的渐近抽样分布 <span class="math inline">\(\boldsymbol a^{\prime}\boldsymbol{\hat{\beta}}_W\thicksim N\left[\boldsymbol a^{\prime}\boldsymbol{\beta},\boldsymbol{a}^{\prime}\left(\boldsymbol X^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}\boldsymbol X\right)^-\boldsymbol{a}\right]\)</span>，可以获得关于 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 可估函数的 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间，其中 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 是 <span class="math inline">\(\boldsymbol\beta\)</span> 的可估计函数。<span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\)</span> 的标准误估计 <span class="math inline">\(\widehat{s.e.}\left(\boldsymbol a^\prime \hat{\boldsymbol\beta}_W\right)=\sqrt{\boldsymbol{a}^{\prime}\left(\boldsymbol X^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}\boldsymbol X\right)^-\boldsymbol{a}}\)</span>. 此时应使用标准误估计的 Kackar-Harville 型调整。通过使用 Satterthwaite 近似的推广 (Geisbrecht and Burns, 1985) 获得近似自由度：</p>
+<p><span class="math display">\[\hat{v}=\frac{2\left[\boldsymbol a^{\prime}\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^-\boldsymbol a\right]^2}{\widehat{\mathrm{Var}}\left[\boldsymbol a^{\prime}\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^-\boldsymbol a\right]}\]</span></p>
+<p>因此 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 近似置信区间为</p>
+<p><span class="math display">\[{\boldsymbol a&#39;\hat{\boldsymbol{\beta}}}_W\pm\left(t_{\alpha/2,\hat{v}}\right)\sqrt[]{\boldsymbol{a&#39;}\left(\boldsymbol{X&#39;\hat{\boldsymbol{\Sigma}}}^{-1}\boldsymbol{X}\right)^-\boldsymbol{a}}\]</span></p>
+<p>可以关于一组可估线性组合 <span class="math inline">\(\boldsymbol a_1^\prime \hat{\boldsymbol\beta},\boldsymbol a_2^\prime \hat{\boldsymbol\beta},\ldots,\boldsymbol a_m^\prime \hat{\boldsymbol\beta}\)</span> 构造一组同时置信区间，但需要近似每个线性组合的自由度。然后可以使用第 <a href="chap3.html#chap3">3</a> 章的技术对多重比较进行调整。</p>
+</div>
+<div id="sec22-3-3" class="section level3 hasAnchor" number="22.3.3">
+<h3><span class="header-section-number">22.3.3</span> 假设检验<a href="chap22.html#sec22-3-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>通常，假设检验为固定效应的线性组合提供适当的推断过程。为检验 <span class="math inline">\(H_0{:\boldsymbol{H\beta}}=\boldsymbol{b}\mathrm{~vs~}H_a{:\boldsymbol{H\beta}}\neq\boldsymbol{b}\)</span> 计算统计量</p>
+<p><span class="math display">\[Q=(\boldsymbol H\hat{\boldsymbol \beta}_W-\boldsymbol b)^{\prime}\left[\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol \beta}_W-\boldsymbol b)\]</span></p>
+<p>在原假设条件下，<span class="math inline">\(Q\)</span> 的渐进抽样分布为 <span class="math inline">\(\chi^2_q\)</span>，其中 <span class="math inline">\(q=\text{rank}(\boldsymbol H)\)</span>. 即 <span class="math inline">\(q\)</span> 是 <span class="math inline">\(\boldsymbol H\)</span> 中 <span class="math inline">\(\boldsymbol \beta\)</span> 的线性独立线性组合的个数。小样本检验统计量为 <span class="math inline">\(F_c = Q/v\)</span>，其中 v 是与 <span class="math inline">\(\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}\)</span> 相关的近似自由度。近似自由度 (SAS Institute, Inc., 1999) 是通过在 <span class="math inline">\(\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}\)</span> 上进行谱分解来计算的：<span class="math inline">\(\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}=\boldsymbol P^{\prime}\boldsymbol \Delta \boldsymbol P\)</span>，其中 <span class="math inline">\(\boldsymbol \Delta\)</span> 是 q × q 对角 阵，对角元为 <span class="math inline">\(\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}\)</span> 的特征根，<span class="math inline">\(\boldsymbol P\)</span> 是包含相应的特征向量的 q × q 矩阵。令 <span class="math inline">\(\boldsymbol h_s\)</span> 为 <span class="math inline">\(\boldsymbol{PH}\)</span> 的第 s 行，则 <span class="math inline">\(v_s=2d_s^2/(\boldsymbol \xi_s^{\prime}\boldsymbol \Omega\boldsymbol \xi_s)\)</span> 其中</p>
+<p><span class="math display">\[\boldsymbol \xi_s=\frac{\partial\left[\boldsymbol{h&#39;}_s\left(\boldsymbol{X&#39;\Sigma}^{-1}\boldsymbol{X}\right)^-\boldsymbol{h}_s\right]}{\partial\boldsymbol{\sigma}}\]</span></p>
+<p>为关于每个方差分量的导数向量，以及 <span class="math inline">\(\boldsymbol\Omega\)</span> 为方差分量估计 <span class="math inline">\(\hat{\boldsymbol \sigma}\)</span> 的渐近协方差阵。那么</p>
+<p><span class="math display">\[\zeta=\sum_{s=1}^q\frac{V_s}{V_s-2}\mathrm{In}(v_s&gt;2)\]</span></p>
+<p>其中指示函数 <span class="math inline">\(\mathrm{In}(v_s &gt; 2)\)</span> 删除 <span class="math inline">\(v_s \le 2\)</span> 的项。那么与 <span class="math inline">\(F_c\)</span> 相关的分母自由度的近似数为</p>
+<p><span class="math display">\[v=\begin{cases}\frac{2\zeta}{\zeta-q}&amp;\mathrm{if~}\zeta&gt;q\\0&amp;\mathrm{if~}\zeta&gt;q&amp;\end{cases}\]</span></p>
+<p>第 <a href="#chap23"><strong>??</strong></a> 章讨论了示例。</p>
+</div>
+</div>
+<div id="sec22-4" class="section level2 hasAnchor" number="22.4">
+<h2><span class="header-section-number">22.4</span> 最佳线性无偏预测<a href="chap22.html#sec22-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在某些情况下，预测随机变量的值或预测研究中使用的随机效应的值是有意义的。假设有线性模型 <span class="math inline">\(\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol \varepsilon\)</span>，其中 <span class="math inline">\(\mathrm{Var}(\varepsilon) = \boldsymbol \Sigma\)</span>. 假设有一个随机变量 <span class="math inline">\(\boldsymbol\omega\)</span>，其值未知，但假设 <span class="math inline">\(\boldsymbol\omega\thicksim N(\boldsymbol k^\prime\boldsymbol\beta,\boldsymbol \sigma_\omega^2)\)</span> 和 <span class="math inline">\(\operatorname{Cov}(\boldsymbol y,\boldsymbol\omega)=\boldsymbol c\)</span>。目的是预测 <span class="math inline">\(\boldsymbol\omega\)</span> 的值。<span class="math inline">\(\boldsymbol\omega\)</span> 的预测值称为<strong>最佳线性无偏预测</strong> (best linear unbiased predictor, <strong>BLUP</strong>)，当</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(\tilde{\boldsymbol{\omega}}=\boldsymbol{a&#39;y}+b\)</span></li>
+<li><span class="math inline">\(E(\tilde{\boldsymbol\omega})=\boldsymbol k^{\prime}{\boldsymbol\beta}\)</span> 以及</li>
+<li><span class="math inline">\(E(\tilde{\boldsymbol\omega}-\boldsymbol\omega)^2\)</span> 被最小化</li>
+</ol>
+<p>所得的 <span class="math inline">\(\boldsymbol\omega\)</span> 的 BLUP 为 <span class="math inline">\(\tilde{\boldsymbol{\omega}}=\boldsymbol{c&#39;\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\hat{\beta}}_{BLUE})+\boldsymbol{k&#39;}\boldsymbol{\hat{\beta}}_{BLUE}\)</span>. 当 <span class="math inline">\(\boldsymbol \Sigma\)</span> 的元素未知且需要估计时，<span class="math inline">\(\boldsymbol\omega\)</span> 的<strong>最佳线性无偏预测估计</strong> (estimated BLUP, <strong>EBLUP</strong>) 为</p>
+<p><span class="math display">\[\hat{\tilde{\boldsymbol \omega}}=c^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\hat{\beta}}_W)+\boldsymbol{k}^{\prime}\boldsymbol{\hat{\beta}}_W\]</span></p>
+<p>如果 <span class="math inline">\(\boldsymbol{k}^{\prime}\boldsymbol{\beta}=0\)</span> 那么 <span class="math inline">\(\hat{\boldsymbol{\tilde{\omega}}}=\boldsymbol{c}^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\hat{\beta}}_W)\)</span></p>
+<p>对于一般线性混合模型，<span class="math inline">\(\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{Z}\boldsymbol{u}+\boldsymbol{\varepsilon}\)</span> 其中 <span class="math inline">\(\boldsymbol u \thicksim N(\boldsymbol 0,\boldsymbol G)\)</span> 和 <span class="math inline">\(\boldsymbol \varepsilon \thicksim N(\boldsymbol 0, \boldsymbol R)\)</span>，<span class="math inline">\(\boldsymbol y\)</span> 和 <span class="math inline">\(\boldsymbol u\)</span> 之间的协方差为 <span class="math inline">\(\operatorname{Cov}(\boldsymbol y,\boldsymbol u)=\boldsymbol G\boldsymbol{Z}^{\prime}\)</span> 且 <span class="math inline">\(\boldsymbol u\)</span> 的 BLUP 为 <span class="math inline">\(\tilde{\boldsymbol{u}}=\boldsymbol G\boldsymbol{Z}^{\prime}\boldsymbol{\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\hat{\beta}})\)</span>.</p>
+</div>
+<div id="sec22-5" class="section level2 hasAnchor" number="22.5">
+<h2><span class="header-section-number">22.5</span> 混合模型方程组<a href="chap22.html#sec22-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Henderson (1984) 开发了混合模型方程组，其解可以同时得出 <span class="math inline">\(\boldsymbol \beta\)</span> 可估计函数 <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> 的 BLUE 以及随机效应 <span class="math inline">\(\boldsymbol u=(\boldsymbol u_1^{\prime},\boldsymbol u_2^{\prime},\ldots,\boldsymbol u_k^{\prime})^{\prime}\)</span> 的 BLUPs. 将混合模型表示为 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{Z}\boldsymbol{u}+\boldsymbol{\varepsilon}\)</span>，其中</p>
+<p><span class="math display">\[\begin{aligned}
+\boldsymbol{Z}\boldsymbol u&amp;=\boldsymbol{Z}_1\boldsymbol u_1+\boldsymbol{Z}_2\boldsymbol u_2+\cdots+\boldsymbol{Z}_k\boldsymbol u_k  \\
+\boldsymbol u_i&amp;\thicksim N(\boldsymbol 0,\sigma_i^2\boldsymbol I_{n_i}),\quad i=1,2,\ldots,k \\
+\boldsymbol{\varepsilon}&amp;\thicksim N(\boldsymbol{0},{\sigma}_\varepsilon^2\boldsymbol{I}_N)
+\end{aligned}\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{u}_1,\boldsymbol{u}_2,\ldots,\boldsymbol{u}_k,\boldsymbol{\varepsilon}\)</span> 为独立随机变量。</p>
+<p>注意到</p>
+<p><span class="math display">\[\boldsymbol{u}=\begin{bmatrix}\boldsymbol{u}_1\\\boldsymbol{u}_2\\\vdots\\\boldsymbol{u}_k\end{bmatrix}\thicksim N(\boldsymbol{0},\boldsymbol{G})\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\boldsymbol{G}=\begin{bmatrix}{\sigma}_1^2\boldsymbol{I}_{n_1}&amp;0&amp;\cdots&amp;0\\0&amp;{\sigma}_2^2\boldsymbol{I}_{n_2}&amp;\cdots&amp;0\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\0&amp;0&amp;\cdots&amp;{\sigma}_k^2\boldsymbol{I}_{n_k}\end{bmatrix}\]</span></p>
+<p>使用这些假设，<span class="math inline">\(\boldsymbol y\)</span> 的边际分布可以表示为</p>
+<p><span class="math inline">\(\boldsymbol y\thicksim N(\boldsymbol X\boldsymbol{\beta},\boldsymbol{\Sigma})\)</span></p>
+<p>其中</p>
+<p><span class="math display">\[\mathrm{Var}(\boldsymbol y)=\boldsymbol{\Sigma}=\sum_{i=1}^k{\sigma}_i^2\boldsymbol{Z}_i\boldsymbol{Z}_i^{\prime}+\boldsymbol{\sigma}_\varepsilon^2\boldsymbol{I}=\boldsymbol{Z}\boldsymbol{G}\boldsymbol{Z}^{\prime}={\sigma}_\varepsilon^2\boldsymbol{I}_N\]</span></p>
+<p>该模型及其假设意味着 <span class="math inline">\(\operatorname{Cov}(\boldsymbol{y},\boldsymbol{u})=\boldsymbol{G}\boldsymbol{Z}^{\prime}\)</span>.</p>
+<p>使用上述信息，<span class="math inline">\(\boldsymbol y\)</span> 和 <span class="math inline">\(\boldsymbol u\)</span> 的联合分布为</p>
+<p><span class="math display">\[\begin{bmatrix}\boldsymbol{u}\\\boldsymbol{y}\end{bmatrix}\thicksim N\left(\begin{bmatrix}\boldsymbol{0}\\\boldsymbol{X}\boldsymbol{\beta}\end{bmatrix},\begin{bmatrix}\boldsymbol{G}&amp;\boldsymbol{G}\boldsymbol{Z}^{\prime}\\\boldsymbol{Z}\boldsymbol{G}^{\prime}&amp;\boldsymbol{\Sigma}\end{bmatrix}\right)\]</span></p>
+<p>给定 <span class="math inline">\(\boldsymbol u\)</span> 的 <span class="math inline">\(\boldsymbol y\)</span> 的条件分布是 <span class="math inline">\(\boldsymbol{y}|\boldsymbol{u}\sim N(\boldsymbol{X\beta}+\boldsymbol{Zu},\sigma_\varepsilon^2\boldsymbol{I})\)</span> 以及 <span class="math inline">\(\boldsymbol u\)</span> 的边际分布为 <span class="math inline">\(\boldsymbol{u}\thicksim N(\boldsymbol{0},\boldsymbol{G})\)</span>. 因此，<span class="math inline">\(\boldsymbol y\)</span> 和 <span class="math inline">\(\boldsymbol u\)</span> 的联合分布可以表示为给定 <span class="math inline">\(\boldsymbol u\)</span> 的 <span class="math inline">\(\boldsymbol y\)</span> 的条件分布与 <span class="math inline">\(\boldsymbol u\)</span> 的边际分布的乘积，如</p>
+<p><span class="math display">\[\begin{aligned}
+h(\boldsymbol y,\boldsymbol u)&amp;=f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u) \\
+&amp;=[2\pi\sigma_\varepsilon^2]^{-(N/2)}\exp\left[-\frac1{2\sigma_\varepsilon^2}\left(\boldsymbol y-\boldsymbol X\boldsymbol{\beta}-\boldsymbol Z\boldsymbol{u}\right)^{\prime}\left(\boldsymbol y-\boldsymbol X\boldsymbol{\beta}-\boldsymbol Z\boldsymbol{u}\right)\right][2\pi]^{-(q/2)}|\boldsymbol{G}|^{-1/2}\exp(-\frac12\boldsymbol{u}\boldsymbol G^{-1}\boldsymbol{u})
+\end{aligned}\]</span></p>
+<p>其中 <span class="math inline">\(q=n_1+n_2+\ldots,n_k\)</span>.</p>
+<p>为导出混合模型方程（其解提供了 <span class="math inline">\(\boldsymbol \beta\)</span> 可估函数的 BLUE 和 <span class="math inline">\(\boldsymbol u\)</span> 的 BLUPs），Henderson (1984) 关于 <span class="math inline">\(\boldsymbol \beta\)</span> 和 <span class="math inline">\(\boldsymbol u\)</span> 对 <span class="math inline">\(-2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)]\)</span> 进行微分<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a>：</p>
+<p><span class="math display">\[\begin{aligned}
+-2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)] =&amp;\,(N+q)\mathrm{log}(2\pi)+N\mathrm{log}(\sigma_\varepsilon^2)+\mathrm{log}|\boldsymbol G|  \\
+&amp;+\frac1{\sigma_\varepsilon^2}(\boldsymbol y-\boldsymbol X\boldsymbol{\beta}-\boldsymbol Z\boldsymbol{u})^{\prime}(\boldsymbol y-\boldsymbol X\boldsymbol{\beta}-\boldsymbol Z\boldsymbol{u})+\boldsymbol u^{\prime}\boldsymbol G^{-1}\boldsymbol{u} \\
+=&amp;\,h\mathrm{~(say)}
+\end{aligned}\\
+\frac{\partial h}{\partial\boldsymbol{\beta}}=\frac2{\sigma_\varepsilon^2}\boldsymbol X^{\prime}(\boldsymbol y-\boldsymbol X\boldsymbol{\beta}-\boldsymbol Z\boldsymbol{u}),\quad\frac{\partial h}{\partial\boldsymbol{u}}=\frac2{\sigma_\varepsilon^2}\boldsymbol Z^{\prime}(\boldsymbol y-\boldsymbol X\boldsymbol{\beta}-\boldsymbol Z\boldsymbol{u})+2\boldsymbol G^{-1}\boldsymbol{u}\]</span></p>
+<p>将导数设置为零提供混合模型方程组</p>
+<p><span class="math display">\[\begin{bmatrix}\boldsymbol X^{\prime}\boldsymbol X&amp;\boldsymbol X^{\prime}\boldsymbol{Z}\\\boldsymbol{Z^{\prime}}\boldsymbol X&amp;(\boldsymbol{Z^{\prime}}\boldsymbol{Z}+\sigma_\varepsilon^2\boldsymbol{G^{-1}})\end{bmatrix}{\begin{bmatrix}\hat{\boldsymbol \beta}_{BLUE}\\\tilde{\boldsymbol u}\end{bmatrix}}={\begin{bmatrix}\boldsymbol X^{\prime}\boldsymbol y\\\boldsymbol Z^{\prime}\boldsymbol{u}\end{bmatrix}}\]</span></p>
+<p>如果 <span class="math inline">\(\boldsymbol \varepsilon\)</span>（残差）的方差是 <span class="math inline">\(\boldsymbol R\)</span>，则混合模型方程组变为</p>
+<p><span class="math display">\[\begin{bmatrix}\boldsymbol X^{\prime}\boldsymbol R^{-1}\boldsymbol X&amp;\boldsymbol X^{\prime}\boldsymbol R^{-1}\boldsymbol Z\\\boldsymbol Z^{\prime}\boldsymbol R^{-1}\boldsymbol X&amp;(\boldsymbol Z^{\prime}\boldsymbol R^{-1}\boldsymbol Z+\boldsymbol G^{-1})\end{bmatrix}\begin{bmatrix}\hat{\boldsymbol\beta}_{BLUE}\\\tilde{\boldsymbol u}\end{bmatrix}=\begin{bmatrix}\boldsymbol X^{\prime}\boldsymbol R^{-1}\boldsymbol y\\\boldsymbol Z^{\prime}\boldsymbol R^{-1}\boldsymbol u\end{bmatrix}\]</span></p>
+<p>混合模型方程组的解为</p>
+<p><span class="math display">\[\hat{\boldsymbol{\beta}}=\left(\boldsymbol X^{\prime}{\boldsymbol{\Sigma}}^{-1}\boldsymbol X\right)^{-}\boldsymbol X^{\prime}{\boldsymbol{\Sigma}}^{-1}\boldsymbol y\quad\mathrm{and}\quad\tilde{\boldsymbol{u}}=\boldsymbol G\boldsymbol Z^{\prime}{\boldsymbol{\Sigma}}^{-1}(\boldsymbol y-\boldsymbol X\hat{\boldsymbol{\beta}})\]</span></p>
+<p>通常，<span class="math inline">\(\boldsymbol{\Sigma}\)</span> 的元素是未知的，需要进行估计，因此估计的 BLUE（EBLUE）和估计的 BLUP（EBLUP）为</p>
+<p><span class="math display">\[\boldsymbol{\hat{\beta}_W}=\left(\boldsymbol X^{\prime}\hat{\boldsymbol{\Sigma}}^{-1}\boldsymbol X\right)^-\boldsymbol{X}^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}\boldsymbol{y}\quad\mathrm{and}\quad\hat{\tilde{\boldsymbol u}}=\boldsymbol{\hat{G}}\boldsymbol{Z}^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}(\boldsymbol{y}-\boldsymbol{X}\boldsymbol{\hat{\beta}})\]</span></p>
+</div>
+<div id="sec22-6" class="section level2 hasAnchor" number="22.6">
+<h2><span class="header-section-number">22.6</span> 结束语<a href="chap22.html#sec22-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本章介绍了一个混合模型的理论发展，用于描述实验中的处理和设计结构，其中涉及固定效应和随机效应。混合模型的分析包括方差分量以及固定效应参数函数的估计和推断。对于模型的随机效应部分，可以使用平方和方法而不是方差分量估计的渐近抽样分布来进行假设检验。为了对固定效应进行推断，对模型的固定效应部分进行了分析。可以使用可估函数的估计的渐近抽样分布或近似 <span class="math inline">\(F\)</span> 统计量（其中分母自由度通过 Satterthwaite 型近似确定）来执行置信区间和假设检验。还讨论了随机效应的最佳线性无偏预测以及混合模型方程组。</p>
+</div>
+<div id="sec22-7" class="section level2 hasAnchor" number="22.7">
+<h2><span class="header-section-number">22.7</span> 练习<a href="chap22.html#sec22-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="30">
+<li id="fn30"><p>原文：The ordinary least squares estimator of <span class="math inline">\(\boldsymbol a^\prime \boldsymbol\beta\)</span> is <span class="math inline">\(\boldsymbol a^\prime \hat{\boldsymbol\beta}_{LS}\)</span> where <span class="math inline">\(\boldsymbol{\hat{\beta}}_{LS}=(\boldsymbol{X}^{\prime}\boldsymbol{X})^-\boldsymbol{X}^{\prime}\boldsymbol{y}\)</span> or some other solution for <span class="math inline">\(\hat{\boldsymbol \beta}\)</span> to the normal equations <span class="math inline">\(\boldsymbol{X&#39;X\hat{\boldsymbol{\beta}}}=\boldsymbol{X&#39;y}\)</span>.<a href="chap22.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p>原文：where <span class="math inline">\(\boldsymbol W\)</span> is the partition of the generalized inverse of the information matrix corresponding to <span class="math inline">\(\hat{\boldsymbol\beta}_{ML}\)</span>.<a href="chap22.html#fnref31" class="footnote-back">↩︎</a></p></li>
+<li id="fn32"><p>原文：Henderson (1984) differentiated <span class="math inline">\(-2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)]\)</span> with respect to <span class="math inline">\(\boldsymbol \beta\)</span> and <span class="math inline">\(\boldsymbol u\)</span> to derive the mixed model equations whose solution provides the BLUE of estimable functions of <span class="math inline">\(\boldsymbol \beta\)</span> and BLUPs of <span class="math inline">\(\boldsymbol u\)</span> as<a href="chap22.html#fnref32" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap21.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap29.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": false,
+"smooth_scroll": false,
+"search": {
+"engine": "lunr"
+}
+},
+"toc_float": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

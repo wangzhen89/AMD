@@ -582,7 +582,7 @@ $$\left|\sum_{i=1}^p\lambda_ql_q\right|\leq\sum_{i=1}^p\left|\lambda_q\right|c_q
     的线性组合。也就是说，对于 $\lambda_q$
     的某个集合，$l^*=\sum_{q=1}^p\lambda_ql_q$。称 $l^*$
     与零显著不同，如果 \begin{equation}
-    \left|\hat{l}^*\right|>t_{\alpha/2,p,\nu}\hat{\boldsymbol\sigma}\sum_{q=1}^p\left(\left|\lambda_q\right|\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\right)
+    \left|\hat{l}^*\right|>t_{\alpha/2,p,v}\hat{\boldsymbol\sigma}\sum_{q=1}^p\left(\left|\lambda_q\right|\sqrt{\sum_{i=1}^tc_{iq}^2/n_i}\right)
     (#eq:3-12)
     \end{equation}
 

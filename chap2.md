@@ -474,7 +474,7 @@ $$F_c=\frac{41.7114/3}{1+2\times2\times0.376/15}=\frac{13.9038}{1.1003}=12.6355$
 检验处理均值相等的第二个程序是将检验一组处理均值 $\mu_i$ 线性组合假设的过程加以推广。
 设一个假设是由 $r$ 个独立的 $\mu_i$ 的线性组合组成的，例如 $H_{0}\colon\,\sum_{i=1}^{t}c_{1i}\mu_{i}=0,\sum_{i=1}^{t}c_{2i}\mu_{i}=0,\ldots,\sum_{i=1}^{t}c_{ri}\mu_{i}=0\,\mathrm{~vs.~}H_{a}:(\mathrm{not}\,H_{0})$. 设 $\boldsymbol C$ 是一个矩阵，其第 $k$ 行是第 $k$ 个线性组合的系数，若假定每个总体或处理的数据均服从正态分布，则处理均值向量的联合抽样分布为 $\hat{\boldsymbol{\mu}}\sim N[\boldsymbol{\mu},\boldsymbol V]$，其中 $\boldsymbol V$ 是一个对角阵，其第 $i$ 个对角元素为 $\sigma^2_i /n_i$. 线性组合集 $\boldsymbol C \boldsymbol \mu$ 的联合抽样分布为 $\boldsymbol{C\hat{\boldsymbol{\mu}}}\sim N[\boldsymbol{C\mu},\boldsymbol{CV}\boldsymbol{C}^{\prime}]$. 与零假设的偏差导致的平方和为 $SSH_{0} = [\boldsymbol C\hat{\boldsymbol{\mu}}]^{\prime}[\boldsymbol C\hat{\boldsymbol V}\boldsymbol C^{\prime}]^{-1}[\boldsymbol C\hat{\boldsymbol{\boldsymbol \mu}}]$，其渐近分布为具有 $r$ 个自由度的卡方分布。近似小样本量统计量为 $F_c = SSH_ 0/r$，近似分布为 $F$，自由度为 $r,v$，其中 $v$ 需要近似 (Fai and Cornelius, 1996; SAS Institute, Inc., 1999, p. 2118). 近似自由度的计算开始于对 $\boldsymbol C  \hat {\boldsymbol V} \boldsymbol C' = \boldsymbol Q \boldsymbol D \boldsymbol Q'$ 执行谱分解，其中 $\boldsymbol D$ 是具有 $\boldsymbol C  \hat {\boldsymbol V} \boldsymbol C'$ 的特征根作为对角元素的 $r×r$ 对角阵，并且 $\boldsymbol Q$ 是 $\boldsymbol C  \hat {\boldsymbol V} \boldsymbol C'$ 的对应特征向量的 $r×r$ 正交矩阵。令 $\boldsymbol z_k'$ 为 $\boldsymbol Q \boldsymbol C$ 的第 $k$ 行，并令
 
-$$\nu_k=\frac{2(d_k)^2}{\boldsymbol b_k'\boldsymbol M\boldsymbol b_k}$$
+$$v_k=\frac{2(d_k)^2}{\boldsymbol b_k'\boldsymbol M\boldsymbol b_k}$$
 
 其中 $d_k$ 是 $\boldsymbol D$ 的第 $k$ 个对角元素，$\boldsymbol b_k$ 包含 $\boldsymbol z_k'\boldsymbol V \boldsymbol z_k$ 关于 $\boldsymbol V$ 中每个方差参数的偏导数在方差估计处的值，$\boldsymbol M$ 是方差向量的渐近协方差。令
 
@@ -509,7 +509,7 @@ lsmeans group/diff cl; </td>
 </tbody>
 </table>
 
-Mixed 程序的结果见表 \@ref(tab:table2-10)，其中协方差参数估计值是四个处理方差的估计值，拟合统计量中的 AIC 是 Akaike Information Criteria (Akaike, 1974)，模型似然比检验提供了等方差假设的检验，固定效应的 III 型检验使用第二个统计量和分母的相应近似自由度提供了等均值假设的检验，估计值包含与 \@ref(sec2-6) 节中的三个问题对应的结果，其中提供了 $t$ 统计量、近似分母自由度和 $95\%$ 置信区间。表 \@ref(tab:table2-11) 包含了处理均值估计及其相应的标准误估计。名义自由度是与它们各自的方差相对应的自由度。表 \@ref(tab:table2-11) 的第二部分包含处理均值的成对比较，包括每次比较的近似分母自由度。该模型可以通过对药物1和两种药物使用一个方差，对药物2和无药物使用一种方差来简化。这可以通过定义一个变量来实现，比如T，对于药物1和两种药物都是1，对于其他两种处理是0。然后在模型指定中将T放在class语句中，并使用 `Repeated/Group=T;`。两个方差的估计值分别为 $2.4028$ 和 $12.7376$，$AIC$ 为 $126.4$，这比四方差模型的 $AIC$ 值小，表明两方差模型足以描述数据。使用在模型指定中具有较少方差的模型为相应的标准误提供了更多的自由度，从而提供了关于模型中固定效应的假设的更有效的检验。
+Mixed 程序的结果见表 \@ref(tab:table2-10)，其中协方差参数估计值是四个处理方差的估计值，拟合统计量中的 AIC 是 Akaike Information Criteria (Akaike, 1974)，模型似然比检验提供了等方差假设的检验，固定效应的 III 型检验使用第二个统计量和分母的相应近似自由度提供了等均值假设的检验，估计值包含与 \@ref(sec2-6) 节中的三个问题对应的结果，其中提供了 $t$ 统计量、近似分母自由度和 $95\%$ 置信区间。表 \@ref(tab:table2-11) 包含了处理均值估计及其相应的标准误估计。名义自由度是与它们各自的方差相对应的自由度。表 \@ref(tab:table2-11) 的第二部分包含处理均值的成对比较，包括每次比较的近似分母自由度。该模型可以通过对药物 1 和两种药物使用一个方差，对药物 2和无药物使用一种方差来简化。这可以通过定义一个变量来实现，比如 T，对于药物 1 和两种药物都是 1，对于其他两种处理是 0. 然后在模型指定中将 T 放在 class 语句中，并使用 `Repeated/Group=T;`。两个方差的估计值分别为 $2.4028$ 和 $12.7376$，$AIC$ 为 $126.4$，这比四方差模型的 $AIC$ 值小，表明两方差模型足以描述数据。使用在模型指定中具有较少方差的模型为相应的标准误提供了更多的自由度，从而提供了关于模型中固定效应的假设的更有效的检验。
 
 <table class="table table-condensed" style="margin-left: auto; margin-right: auto;">
 <caption>(\#tab:table2-10)将不等方差模型拟合到表 \@ref(tab:table2-1) 中的数据的结果</caption>
