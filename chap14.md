@@ -1,5 +1,7 @@
 # 使用效应模型分析缺失处理组合的双向处理结构 {#chap14}
 
+> > "An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem." - John Tukey
+
 在第 \@ref(chap13) 章中，我们讨论了当某些处理组合未观测到时，如何使用均值模型来分析双向处理结构。在本章中，我们考虑使用效应模型来分析相同类型的情况。使用效应模型并不能回答任何使用均值模型无法回答的问题，反之亦然。虽然均值模型非常简单且易于理解，但效应模型似乎比实际情况复杂得多。我们更喜欢使用均值模型，并且在这里讨论效应模型只是因为许多统计包似乎推荐并鼓励使用效应模型。本章考虑的效应模型是
 
 $$y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;~j=1,2,\ldots,b;~k=0,1,2,\ldots,n_{ij}$$

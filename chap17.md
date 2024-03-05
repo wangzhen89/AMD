@@ -1,5 +1,7 @@
 # 案例研究：具有许多缺失处理组合的三向处理结构 {#chap17}
 
+> "Statistics are no substitute for judgment." - Henry Clay
+
 在本章中，我们详细分析了当缺少许多处理组合时的三向处理结构。
 
 ## 营养评分示例 {#sec17-1}

@@ -1,5 +1,7 @@
 # 案例研究：缺失处理组合的双向处理结构 {#chap15}
 
+> "If all the statisticians in the world were laid head to toe, they wouldn't be able to reach a conclusion" Anon., after comment on economists by G. B. Shaw
+
 ## 案例研究 {#sec15-1}
 
 在第 \@ref(chap13) 章和第 \@ref(chap14) 章中，我们讨论了在缺失处理组合时，完全随机设计结构中双向处理结构的分析。在本章中，我们将说明当未观测到某些处理组合时，如何在随机完全区组设计中分析双向处理结构。考虑表 \@ref(tab:table15-1) 中的数据，该数据是从第 \@ref(chap12) 章中描述的实验中获得的，但在任何区组中都有一些处理组合未被观测到。图 \@ref(fig:figure15-1) 显示了至少观测一次的处理组合。任何涉及处理组合（脂肪 1、表面活性剂 3）或（脂肪 2、表面活性剂 2）的假设都无法进行检验，除非做出额外的假设。在本次讨论中，令 $FS_{ij}$ 代表将脂肪 $i$ 和表面活性剂 $j$ 分配给随机选择的实验单元时预期的响应。

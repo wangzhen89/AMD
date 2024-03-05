@@ -1,6 +1,8 @@
 
 # 方差分量的推断方法 {#chap20}
 
+> "God not only plays dice. He also sometimes throws the dice where they cannot be seen." - Stephen William Hawking
+
 当研究者设计一个涉及随机效应因素的实验时，她通常希望根据模型中指定的特定方差分量做出推断。特别是，如果 $\sigma_u^2$ 是对应于因素 A 水平分布的方差分量，实验者可能希望确定是否有足够的证据得出 $\sigma_u^2>0$ 的结论。可以通过以下方式做出适当的决定：1）检验假设 $H_0{:}\sigma_u^2=0\mathrm{~vs~}{H_a}{:}\sigma_u^2>0$；2）构造关于 $\sigma_u^2$ 的置信区间；或 3）为 $\sigma_u^2$ 构造置信下限。本章讨论了随机效应模型的这些推断程序，其中假设检验方法在第 \@ref(sec20-1) 节中描述，置信区间（下界）的构造在第 \@ref(sec20-2) 节中描述。方差分量的置信区间构造一直是研究的一个活跃领域，许多作者已经为方差分量参数的特定函数开发了专门的置信区间。本章中描述的方法可在现行软件中使用，有些可用于特定问题。讨论并不全面，而是指出了已经解决的置信区间类型。在 Burdick and Graybill (1992) 以及当前统计期刊的论文中，有更为完整的讨论。
 
 ## 假设检验 {#sec20-1}
@@ -307,7 +309,7 @@ $$\frac{v\hat{\sigma}_\varepsilon^2}{\chi_{(\alpha/2),v}^2}\leq\sigma_\varepsilo
 
 ### 一般 Satterthwaite 近似 {#sec20-2-2}
 
-方差分量抽样分布的**一般 Satterthwaite 近似** (general Satterthwaite approximation) 是通过将 $r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)$ 的前两阶矩与基于 r 个自由度的卡方分布的前两个阶相等，然后解出 r 来获得的。卡方分布的一阶矩等于其自由度 r. 因此，令 $r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)$ 的一阶矩等于自由度为 r 的卡方分布的一阶矩，并不能提供有关 r 的信息。自由度为 r 的卡方分布的方差等于 2r. 令 $r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)$ 的方差等于自由度为 r 的卡方分布的方差，得到
+方差分量抽样分布的**一般 Satterthwaite 近似** (general Satterthwaite approximation) 是通过将 $r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)$ 的前两阶矩与基于 r 个自由度的卡方分布的前两阶矩相等，然后解出 r 来获得的。卡方分布的一阶矩等于其自由度 r. 因此，令 $r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)$ 的一阶矩等于自由度为 r 的卡方分布的一阶矩，并不能提供有关 r 的信息。自由度为 r 的卡方分布的方差等于 2r. 令 $r\hat{{\sigma}}_i^2/E(\hat{{\sigma}}_i^2)$ 的方差等于自由度为 r 的卡方分布的方差，得到
 
 $$\mathrm{Var}\left(\frac{r\hat{\sigma}_i^2}{E(\hat{\sigma}_i^2)}\right)=2r\quad\mathrm{or}\quad\frac{r^2}{\left[E(\hat{\sigma}_i^2)\right]^2}\mathrm{Var}(\hat{\sigma}_i^2)=2r$$
 

@@ -1,6 +1,8 @@
 
 # 案例研究：随机效应模型分析 {#chap21}
 
+> "The aim of science is to seek the simplest explanation of complex facts... Seek simplicity and distrust it." - A. N. Whitehead
+
 前三章描述了分析随机效应模型的方法，并提供了一些示例来演示各种分析技术。本章介绍了更复杂实验情况的分析，包括估计、模型构建、假设检验和置信区间估计。
 
 ## 数据集 {#sec21-1}

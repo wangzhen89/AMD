@@ -1,6 +1,8 @@
 
 # 方差分量的估计方法 {#chap19}
 
+> "By a small sample, we may judge of the whole piece." - Miguel de Cervantes from Don Quixote
+
 对于一般随机效应模型，估计方差分量有几种方法。当设计均衡（每个单元格样本量相等且没有缺失的单元格）时，其中的一些程序会产生相同的估计，而当设计不均衡时，则会产生不同的估计。本章讨论的四种技术分别是**矩法** (method of moments)、**最大似然** (maximum likelihood, ML)、**受限**或**残差最大似然** (restricted, or residual maximum likelihood, REML) 和 **MIVQUE**. 矩法产生无偏估计，最大似然和 REML 估计是一致的，并且具有最大似然估计通常的大样本量特性，而 MIVQUE 法产生的估计在二次无偏估计类中具有最小方差。当设计均衡且方差分量的解均为正时，矩法、REML 和 MIVQUE 估计是相同的。当设计不均衡时，矩法估计最容易计算，而其他三种方法则需要迭代算法。另一方面，最大似然、REML 和 MIVQUE 法提供的估计比矩法具有更好的性质。REML 通常是估计方差分量的首选方法。
 
 ## 矩法 {#sec19-1}
@@ -287,7 +289,9 @@ $$y_{ij}=\mu+u_i+\varepsilon_{ij},\quad i=1,2,\ldots,t\quad\mathrm{and~}j=1,2,\l
 
 其中 $\mu_i\sim i.i.d.\,N(0,\sigma^2_u),\varepsilon_{ij}\sim i.i.d.\,N(0,\sigma^2_\varepsilon)$，且 $\mu_i,\varepsilon_{ij}$ 独立，或 $\boldsymbol y\sim N(\boldsymbol j_n\otimes \boldsymbol j_t)\mu,\boldsymbol \Sigma]$ 其中 $\boldsymbol \Sigma=\sigma^2_u \boldsymbol j_n\otimes \boldsymbol j_t   +\sigma^2_\varepsilon \boldsymbol I_n\otimes \boldsymbol I_t$.
 
-符号 $A \otimes B$ 表示 $A,B$ 两矩的 Kronecker 积或直积 (direct product)  (Graybill, 1976). 协方差阵 $\boldsymbol \Sigma$ 可以表示为
+[^kronecker]: 设 $\boldsymbol A, \boldsymbol B$ 分别为 m × n 和 p × q 阶矩阵，则 $\boldsymbol A \otimes \boldsymbol B=\begin{bmatrix}a_{11}\boldsymbol B&\cdots&a_{1n}\boldsymbol B\\\vdots&\ddots&\vdots\\a_{m1}\boldsymbol B&\cdots&a_{mn}\boldsymbol B\end{bmatrix}$. Knronecker 积 "$\otimes$" 可作用于两任意大小的矩阵，那么也包括向量。
+
+符号 $A \otimes B$ 表示 $A,B$ 两矩的 Kronecker 积[^kronecker]或直积 (direct product)  (Graybill, 1976). 协方差阵 $\boldsymbol \Sigma$ 可以表示为
 
 $$\boldsymbol{\Sigma}={\sigma}_\varepsilon^2\left[\left(\boldsymbol{I}_n-\frac1n\boldsymbol{J}_n\right)\otimes\boldsymbol{I}_t\right]+({\sigma}_\varepsilon^2+n{\sigma}_u^2)\left[\left(\frac1n\boldsymbol{J}_n\right)\otimes\boldsymbol{I}_t\right]$$
 

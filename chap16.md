@@ -1,6 +1,8 @@
 
 # 分析三向和高阶处理结构 {#chap16}
 
+> "Statistics are the triumph of the quantitative method, and the quantitative method is the victory of sterility and death" - Hilaire Belloc
+
 在第 \@ref(chap7) - \@ref(chap15) 章中，我们讨论了双向处理结构的分析。这 \@ref(chap9) 章中给出的方法和结果可以推广到更复杂的处理结构；随着处理结构复杂性的增加，这种分析只会变得稍微复杂一些。我们通过具体分析三向处理结构来说明泛化方法。
 
 在第 \@ref(sec16-1) 节中，我们给出了分析高阶处理结构时应遵循的一般策略。第 \@ref(sec16-2) 节讨论了均衡和不均衡处理结构的分析。对不均衡实验的讨论包括每个处理组合至少观测一次的情况和一些处理组合缺失的情况。

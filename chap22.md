@@ -1,6 +1,8 @@
 
 # 混合模型的分析 {#chap22}
 
+> "Facts speak louder than statistics" - Mr. Justice Streatfield (1950)
+
 混合模型用于刻画来自实验或研究的数据，这些数据需要多个方差-协方差参数，并涉及一些固定效应参数。第 \@ref(chap2) 章的不等方差模型是混合模型，因为它们涉及多个方差分量。第 \@ref(chap18) - \@ref(chap21) 章描述的模型称为随机效应模型，但每个模型都有一个未知的均值参数，因此这些模型本质上是混合模型。第 \@ref(chap18) 章中使用的混合模型的定义围绕着具有固定效应和多个方差分量的一些处理结构。因此，**混合模型的一般定义是具有一些固定效应参数和协方差结构中多于一个参数的模型**。符合此定义的模型包括随机完全区组模型 (randomized complete blocks models)、不完全区组模型 (incomplete blocks models)、裂区型模型 (split-plot-type models)、裂条区型模型 (strip-plot-type models)、重复测量型模型 (repeated measures type models)、随机系数模型 (random coefficients models)、多水平模型 (multilevel models) 和分层模型 (hierarchical models).
 
 混合模型包含三部分：1）模型的固定效应部分；2）模型的随机效应部分；3）模型的残差部分。因此，混合模型的分析包括两种类型的分析，一种是模型随机效应和残差部分的分析，另一种是模型固定效应部分的分析。本章讨论混合模型的构建以及分析模型随机效应部分和固定效应部分所需的步骤。本章的结果为理论结果和概念理解之间提供了桥梁。
@@ -13,7 +15,7 @@
 **规则**：如果主效应是随机效应，则涉及该主效应的任何交互作用也是随机效应。只有那些所有对应的主效应都是固定效应的交互作用才是固定效应。
 ::::
 
-例如，三因素处理结构，其中 A 和 B 的水平为固定效应，C 的水平为随机效应，模型为
+例如，三向处理结构，其中 A 和 B 的水平为固定效应，C 的水平为随机效应，模型为
 
 $$y_{ijkm}=\mu+\alpha_i+\beta_j+\gamma_{ij}+c_k+d_{ik}+f_{jk}+g_{ijk}+\varepsilon_{ijkm}$$
 
@@ -29,7 +31,7 @@ $$\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\
 
 给定 $\boldsymbol u_1,\boldsymbol u_2,\ldots,\boldsymbol u_k$ 的 $\boldsymbol y$ 的条件分布由固定效应模型表示：$\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}$ 其中 $\boldsymbol{\varepsilon}\thicksim N(\boldsymbol{0},{\sigma}_{\varepsilon}^{2}\boldsymbol{I}_{N})$ 且其中的 $\boldsymbol u_1,\boldsymbol u_2,\ldots,\boldsymbol u_k$ 为固定效应（因为取了条件）。$\boldsymbol{y}$ 的边际分布为 $\boldsymbol{y}\thicksim N(\boldsymbol{X\beta},\boldsymbol{\Sigma})$，或 $\boldsymbol{\Sigma}={\sigma}_1^2\boldsymbol{Z}_1\boldsymbol{Z}_1'+{\sigma}_2^2\boldsymbol{Z}_2\boldsymbol{Z}_2'+\cdots+{\sigma}_k^2\boldsymbol{Z}_k\boldsymbol{Z}_k'+{\sigma}_\varepsilon^2\boldsymbol{I}_N$，或等价地 $\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{e}$ 其中 $\boldsymbol{e}\thicksim N(\boldsymbol{0},\boldsymbol{\Sigma})$. 
 
-混合模型的总体参数为 $\boldsymbol{\beta},{\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2$ 和 ${\sigma}_\varepsilon^2$. 模型随机效应的分析部分包括方差分量 ${\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2$ 和 ${\sigma}_\varepsilon^2$ 的估计、检验假设和置信区间的构建。模型固定效应部分的分析包括 $\boldsymbol \beta$ 的可估函数的 估计、检验假设和置信区间的构建。 $\boldsymbol y$ 的这种边际分布基于这样的假设：随机效应的协方矩阵是单位阵的标量倍数。混合效应模型更一般的形式是 $\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}$，其中 $\boldsymbol u_i\sim N(\mathbf{0},\boldsymbol{G}_i),i=1,2,\ldots,k,\boldsymbol{\varepsilon}\thicksim N(\mathbf{0},\boldsymbol{R})$，且 $\boldsymbol u_i\,(i=1,2,\ldots,k)$ 和 $\boldsymbol{\varepsilon}$ 为独立随机变量。$\boldsymbol y$ 的边际分布可以用更一般的术语表示为 $\boldsymbol{y}\thicksim N(\boldsymbol{X\beta},\boldsymbol{\Sigma})$ 其中 
+混合模型的总体参数为 $\boldsymbol{\beta},{\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2$ 和 ${\sigma}_\varepsilon^2$. 模型随机效应的分析部分包括方差分量 ${\sigma}_1^2,{\sigma}_2^2,\ldots,{\sigma}_k^2$ 和 ${\sigma}_\varepsilon^2$ 的估计、检验假设和置信区间的构建。模型固定效应部分的分析包括 $\boldsymbol \beta$ 的可估函数的 估计、检验假设和置信区间的构建。 $\boldsymbol y$ 的这种边际分布基于这样的假设：随机效应的协方差阵是单位阵的标量倍数。混合效应模型更一般的形式是 $\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_k\boldsymbol u_k+\boldsymbol{\varepsilon}$，其中 $\boldsymbol u_i\sim N(\mathbf{0},\boldsymbol{G}_i),i=1,2,\ldots,k,\boldsymbol{\varepsilon}\thicksim N(\mathbf{0},\boldsymbol{R})$，且 $\boldsymbol u_i\,(i=1,2,\ldots,k)$ 和 $\boldsymbol{\varepsilon}$ 为独立随机变量。$\boldsymbol y$ 的边际分布可以用更一般的术语表示为 $\boldsymbol{y}\thicksim N(\boldsymbol{X\beta},\boldsymbol{\Sigma})$ 其中 
 $\boldsymbol{\Sigma}=\boldsymbol{Z}_1\boldsymbol{G}_1\boldsymbol{Z}_1^{\prime}+\boldsymbol{Z}_2\boldsymbol{G}_2\boldsymbol{Z}_2^{\prime}+\cdots+\boldsymbol{Z}_k\boldsymbol{G}_k\boldsymbol{Z}_k^{\prime}+\boldsymbol{R}$，或等价地 $\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{e}$ 其中 $\boldsymbol{e}\thicksim N(\boldsymbol{0},\boldsymbol{\Sigma})$. 
 
 理想情况下，矩阵 $\boldsymbol G_1,\boldsymbol G_1,\ldots,\boldsymbol G_k$ 和 $\boldsymbol R$ 是正定的，并且包含对随机效应和模型残差部分的协方差结构进行建模所需的参数。混合模型的分析将在接下来的两节中介绍，每节对应一个分析部分。首先考虑模型的随机效应和残差部分的分析。
@@ -54,7 +56,7 @@ $$\boldsymbol r=(\boldsymbol I-\boldsymbol X\boldsymbol X^-)\boldsymbol Z_1\bold
 
 正如第 \@ref(chap19) 章中描述的随机效应模型分析，矩法技术需要计算平方和，确定其期望，然后从方程组中估计方差分量，该方程组通过将观测到的均方与其期望值相等而获得。为了估计方差分量，必须获得其期望值不依赖于模型的混合效应部分的平方和。第 \@ref(sec18-3) 节讨论的拟合常数的方法提供了这样的平方和：首先拟合模型的固定效应部分，然后拟合随机效应部分。
 
-为了演示混合模型随机效应部分的分析，考虑完全随机设计结构中的双向处理结构，其中一个混合因子用 B 表示，另一个随机因子用 T 表示。得到的双向混合模型为
+为了演示混合模型随机效应部分的分析，考虑完全随机设计结构中的双向处理结构，其中一个随机因子用 B 表示，另一个随机因子用 T 表示。得到的双向混合模型为
 
 $$y_{ijk}=\mu+\beta_i+t_j+g_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,b\quad j=1,2,\ldots,t\quad k=1,2,\ldots,n_{ij}$$
 
@@ -62,7 +64,7 @@ $$y_{ijk}=\mu+\beta_i+t_j+g_{ij}+\varepsilon_{ijk}\quad i=1,2,\ldots,b\quad j=1,
 
 $$\begin{aligned}E[MSR(t|\mu,\beta)]&=\sigma_\varepsilon^2+k_1\sigma_g^2+k_2\sigma_\varepsilon^2\\E[MSR(g|\mu,\beta,t)]&=\sigma_\varepsilon^2+k_3\sigma_g^2\\E[MSERROR]&=\sigma_\varepsilon^2\end{aligned}$$
 
-$k_1,k_2,k_3$ 的值将取决于样本量和数据结构。这些均方期望不涉及混合效应参数，因此均方可用于估计方差分量，也可以用于检验关于它们的假设。
+$k_1,k_2,k_3$ 的值将取决于样本量和数据结构。这些均方期望不涉及固定效应参数，因此均方可用于估计方差分量，也可以用于检验关于它们的假设。
 
 方程组是通过将观测到的均方等于期望均方来构建的，其中 $\tilde{{\sigma}}_{{\varepsilon}}^2,\tilde{{\sigma}}_t^2$ 和 $\tilde{{\sigma}}_g^2$ 表示解；即，
 
@@ -128,7 +130,7 @@ $$\left.\frac{\partial l}{\partial\boldsymbol\beta}\right|_{\boldsymbol\beta=\ha
 
 $$y_{ijk}=\mu_i+a_j+g_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,a,\quad k=1,2,\ldots,n$$
 
-其中 $\mu_i$ 表示混合效应因子 T 第 i 个水平的均值，$\alpha_j$ 表示随机效应因子 A 的第 j 个水平的效应，$\gamma_{ij}$ 表示随机相互作用效应，$\varepsilon_{ijk}$ 表示残差效应。在理想条件下，$a_j\thicksim i.i.d.N(0,\sigma_a^2),g_{ij}\thicksim i.i.d.N(0,\sigma_g^2),\varepsilon_{ijk}\thicksim i.i.d.N(0,\sigma_e^2)$，且 $a_j,g_{ij},\varepsilon_{ijk}$ 为独立随机变量。数据向量的方差为
+其中 $\mu_i$ 表示固定效应因子 T 第 i 个水平的均值，$\alpha_j$ 表示随机效应因子 A 的第 j 个水平的效应，$\gamma_{ij}$ 表示随机相互作用效应，$\varepsilon_{ijk}$ 表示残差效应。在理想条件下，$a_j\thicksim i.i.d.N(0,\sigma_a^2),g_{ij}\thicksim i.i.d.N(0,\sigma_g^2),\varepsilon_{ijk}\thicksim i.i.d.N(0,\sigma_e^2)$，且 $a_j,g_{ij},\varepsilon_{ijk}$ 为独立随机变量。数据向量的方差为
 
 $$\begin{aligned}
 \boldsymbol{\Sigma}=&\,{\sigma}_a^2[\boldsymbol{J}_n\otimes\boldsymbol{I}_a\otimes\boldsymbol{J}_t]+{\sigma}_g^2[\boldsymbol{J}_n\otimes\boldsymbol{I}_a\otimes\boldsymbol{I}_t]+{\sigma}_\varepsilon^2[\boldsymbol{I}_n\otimes\boldsymbol{I}_a\otimes\boldsymbol{I}_t] \\
@@ -270,7 +272,7 @@ $$\hat{\boldsymbol{\Sigma}}=\hat{{\sigma}}_1^2\boldsymbol Z_1\boldsymbol Z_1^{\p
 
 [^wherepartition]: 原文：where $\boldsymbol W$ is the partition of the generalized inverse of the information matrix corresponding to $\hat{\boldsymbol\beta}_{ML}$.
 
-最大似然法也可以用来获得 $\boldsymbol a^\prime \boldsymbol\beta$ 的估计。$\boldsymbol a^\prime \boldsymbol\beta$ 的最大似然估计为 $\boldsymbol a^\prime \hat{\boldsymbol\beta}_{ML}$，其中 $\hat{\boldsymbol\beta}_{ML}$ 是未受限似然方程 (unrestricted likelihood equations) 的解。$\boldsymbol a^\prime \hat{\boldsymbol\beta}_{ML}$ 的方差为 $\boldsymbol a^{\prime} \boldsymbol W \boldsymbol a$，其中 $\boldsymbol W$ 是 $\hat{\boldsymbol\beta}_{ML}$ 对应的信息矩阵的广义逆的划分[^wherepartition]。第 \@ref(chap23) 章中的示例演示了均衡和不均衡设计的上述估计。
+最大似然法也可以用来获得 $\boldsymbol a^\prime \boldsymbol\beta$ 的估计。$\boldsymbol a^\prime \boldsymbol\beta$ 的最大似然估计为 $\boldsymbol a^\prime \hat{\boldsymbol\beta}_{ML}$，其中 $\hat{\boldsymbol\beta}_{ML}$ 是未受限似然方程组 (unrestricted likelihood equations) 的解。$\boldsymbol a^\prime \hat{\boldsymbol\beta}_{ML}$ 的方差为 $\boldsymbol a^{\prime} \boldsymbol W \boldsymbol a$，其中 $\boldsymbol W$ 是 $\hat{\boldsymbol\beta}_{ML}$ 对应的信息矩阵的广义逆的划分[^wherepartition]。第 \@ref(chap23) 章中的示例演示了均衡和不均衡设计的上述估计。
 
 ### 置信区间的构建 {#sec22-3-2}
 
@@ -290,7 +292,9 @@ $${\boldsymbol a'\hat{\boldsymbol{\beta}}}_W\pm\left(t_{\alpha/2,\hat{v}}\right)
 
 $$Q=(\boldsymbol H\hat{\boldsymbol \beta}_W-\boldsymbol b)^{\prime}\left[\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}\right]^{-1}(\boldsymbol H\hat{\boldsymbol \beta}_W-\boldsymbol b)$$
 
-在原假设条件下，$Q$ 的渐进抽样分布为 $\chi^2_q$，其中 $q=\text{rank}(\boldsymbol H)$. 即 $q$ 是 $\boldsymbol H$ 中 $\boldsymbol \beta$ 的线性独立线性组合的个数。小样本检验统计量为 $F_c = Q/v$，其中 v 是与 $\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}$ 相关的近似自由度。近似自由度 (SAS Institute, Inc., 1999) 是通过在 $\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}$ 上进行谱分解来计算的：$\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}=\boldsymbol P^{\prime}\boldsymbol \Delta \boldsymbol P$，其中 $\boldsymbol \Delta$ 是 q × q 对角    阵，对角元为 $\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}$ 的特征根，$\boldsymbol P$ 是包含相应的特征向量的 q × q 矩阵。令 $\boldsymbol h_s$ 为 $\boldsymbol{PH}$ 的第 s 行，则 $v_s=2d_s^2/(\boldsymbol \xi_s^{\prime}\boldsymbol \Omega\boldsymbol \xi_s)$ 其中
+[^ds]: 译者也不清楚此式中 $d_s$ 的来源。
+
+在原假设条件下，$Q$ 的渐进抽样分布为 $\chi^2_q$，其中 $q=\text{rank}(\boldsymbol H)$. 即 $q$ 是 $\boldsymbol H$ 中 $\boldsymbol \beta$ 的线性独立线性组合的个数。小样本检验统计量为 $F_c = Q/v$，其中 v 是与 $\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}$ 相关的近似自由度。近似自由度 (SAS Institute, Inc., 1999) 是通过在 $\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}$ 上进行谱分解来计算的：$\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}=\boldsymbol P^{\prime}\boldsymbol \Delta \boldsymbol P$，其中 $\boldsymbol \Delta$ 是 q × q 对角    阵，对角元为 $\boldsymbol H\left(\boldsymbol X^{\prime}\hat{\boldsymbol \Sigma}^{-1}\boldsymbol X\right)^{-}\boldsymbol H^{\prime}$ 的特征根，$\boldsymbol P$ 是包含相应特征向量的 q × q 矩阵。令 $\boldsymbol h_s$ 为 $\boldsymbol{PH}$ 的第 s 行，则 $v_s=2d_s^2/(\boldsymbol \xi_s^{\prime}\boldsymbol \Omega\boldsymbol \xi_s)$[^ds] 其中
 
 $$\boldsymbol \xi_s=\frac{\partial\left[\boldsymbol{h'}_s\left(\boldsymbol{X'\Sigma}^{-1}\boldsymbol{X}\right)^-\boldsymbol{h}_s\right]}{\partial\boldsymbol{\sigma}}$$
 
@@ -322,7 +326,7 @@ $$\hat{\tilde{\boldsymbol \omega}}=c^{\prime}\boldsymbol{\hat{\Sigma}}^{-1}(\bol
 
 ## 混合模型方程组 {#sec22-5}
 
-Henderson (1984) 开发了混合模型方程组，其解可以同时得出 $\boldsymbol \beta$ 可估计函数 $\boldsymbol a^\prime \boldsymbol\beta$ 的 BLUE 以及随机效应 $\boldsymbol u=(\boldsymbol u_1^{\prime},\boldsymbol u_2^{\prime},\ldots,\boldsymbol u_k^{\prime})^{\prime}$ 的 BLUPs. 将混合模型表示为 $\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{Z}\boldsymbol{u}+\boldsymbol{\varepsilon}$，其中
+Henderson (1984) 开发了**混合模型方程组** (mixed model equations)，其解可以同时得出 $\boldsymbol \beta$ 可估计函数 $\boldsymbol a^\prime \boldsymbol\beta$ 的 BLUE 以及随机效应 $\boldsymbol u=(\boldsymbol u_1^{\prime},\boldsymbol u_2^{\prime},\ldots,\boldsymbol u_k^{\prime})^{\prime}$ 的 BLUPs. 将混合模型表示为 $\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{Z}\boldsymbol{u}+\boldsymbol{\varepsilon}$，其中
 
 $$\begin{aligned}
  \boldsymbol{Z}\boldsymbol u&=\boldsymbol{Z}_1\boldsymbol u_1+\boldsymbol{Z}_2\boldsymbol u_2+\cdots+\boldsymbol{Z}_k\boldsymbol u_k  \\

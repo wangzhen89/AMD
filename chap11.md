@@ -1,6 +1,8 @@
 
 # 分析子类数不等的大型均衡双向实验 {#chap11}
 
+> "The science of statistics is the chief instrumentality through which the progress of civilization is now measured, and by which its development hereafter will be largely controlled." - S. N. D. North
+
 在本章中，我们提出了一种方法，用于获得均衡处理结构实验的近似分析，这些实验在每个单元格中具有不等数量的观测结果。
 
 ## 可行性问题 {#sec11-1}

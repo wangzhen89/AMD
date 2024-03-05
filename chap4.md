@@ -1,6 +1,8 @@
 
 # 实验设计基础 {#chap4}
 
+> "... the null hypothesis is never proved or established, but is possibly disproved, in the course of experimentation. Every experiment may be said to exist only to give the facts a chance of disproving the null hypothesis." - R. A. Fisher
+
 经过适当设计和分析的实验提供了有关所使用资源的调查条件的最大信息量。本章介绍了实验者设计和分析实验时使用的概念和方法。本章讨论的基本概念是**处理结构** (treatment structure) 和**设计结构** (design structure)，以及**重复** (replication)、**区组** (block) 和**实验单元** (experimental unit) 的思想。给出了设计和处理结构相结合的实例，以说明完全区组设计和不完全区组设计的概念。这些设计涉及一种**尺寸** (size)的实验单元。第五章描述了实验单元尺寸的概念，并给出了涉及多于一种实验单元尺寸的各种设计。本章提出的设计结构包括**完全随机** (completely randomized, CRD)、**随机完全区组** (randomized complete block, RCBD)、**不完全区组** (incomplete block, IBD)和**拉丁方** (Latin square, LSD)。所考虑的处理结构包括单向、双向、双向对照、部分析因和 $n$ 向结构。在本一章中，介绍了具有必要的变异源和自由度的模型和方差分析表。讨论提供了确定用于计算误差平方和的变异源的方法，以及用于计算结果自由度的算法。一般来说，误差平方和是通过对观测值或经相同处理的观测值 (observations that are treated alike) 的线性组合的比较来获得的。其他平方和的计算将在后面的章节中讨论。本章的基本方法是通过示例来演示概念。**裂区** (split-plot)、**重复测量** (repeated measures)、**裂条区** (strip-plot) 和**交叉设计** (crossover designs ) 使用不同尺寸的实验单元的概念，并在第 \@ref(chap5) 章中进行了描述。涉及**嵌套** (nesting) 的设计也在第 \@ref(chap5) 章中进行了讨论。
 
 ## 介绍基本概念 {#sec4-1}

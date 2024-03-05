@@ -1,6 +1,8 @@
 
 # 案例研究：子类数不等的均衡双向处理结构 {#chap12}
 
+> "... a hypothesis test tells us whether the observed data are consistent with the null hypothesis, and a confidence interval tells us which hypotheses are consistent with the data." - William C. Blackwelder
+
 在本章中，我们分析了在随机完全区组设计中进行的双向处理结构产生的一组数据。实验本应是均衡的，但由于不可预见的情况，一些区组缺少一些处理组合。然而，我们仍然假设每种处理组合至少观察一次。第 \@ref(chap13)-\@ref(chap15) 章讨论了从未观测到某些处理组合的情况。
 
 ## 脂肪-表面活性剂示例 {#sec12-1}

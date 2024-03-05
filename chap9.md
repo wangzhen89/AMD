@@ -1,6 +1,8 @@
 
 # 使用均值模型分析子类数不等的均衡双向处理结构 {#chap9}
 
+> "Numerical quantities focus on expected values, graphical summaries on unexpected values." - John Tukey
+
 第 \@ref(chap7) 章和第 \@ref(chap8) 章考虑了相同样本量的情况，其中每个处理组合的观测次数相同。第 \@ref(chap13)-\@ref(chap15) 章考虑了一些处理组合缺失的情况，但本章以及第 \@ref(chap10)-\@ref(chap12) 章假设观测到了每种处理组合，并且每种组合观测了多次。
 
 ## 模型定义和假设 {#sec9-1}

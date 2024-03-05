@@ -1,6 +1,8 @@
 
 # 模型的矩阵形式 {#chap6}
 
+> "The sciences do not try to explain, they hardly even try to interpret, they mainly make models. By a model is meant a mathematical construct which, with the addition of certain verbal interpretations, describes observed phenomena. The justification of such a mathematical construct is solely and precisely that it is expected to work" - John Von Neumann
+
 当使用不均衡 (unbalanced) 的固定效应模型、随机效应模型或混合效应模型时，求和符号变得非常费力，有时甚至几乎无法使用。这个问题可以通过使用模型的矩阵形式表达来解决。本章讨论了模型矩阵形式的构建，并描述了如何使用矩阵获得最小二乘估计、检验假设、计算最小二乘均值或总体边际均值以及构建置信区间。在 \@ref(sec6-3) 节中讨论了可估性 (estimability) 的概念。
 
 ## 基本符号 {#sec6-1}

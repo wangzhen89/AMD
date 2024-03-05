@@ -2,7 +2,7 @@
 title: "混乱数据分析：设计的实验"
 author: 
   - Wang Zhen
-date: "2024-03-03"
+date: "2024-03-05"
 site: bookdown::bookdown_site
 documentclass: elegantbook
 bibliography: 
@@ -25,6 +25,8 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
 
 
 ## 介绍 {-}
+
+> "Statistics is the grammar of science." - Karl Pearson
 
 [混乱数据分析：设计的实验](https://github.com/wangzhen89/AMD) 为 *[Analysis of Messy Data Volume 1: Designed Experiments, 2nd edn](https://doi.org/10.1201/EBK1584883340)* 的翻译。
 
@@ -98,6 +100,10 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
     
     + 第 \@ref(chap22) 章\*\*\*给出了混合模型的一般定义，分别讨论了随机效应部分和固定效应部分的分析。介绍了 BLUE, BLUP 和混合模型方程组等重要概念。
     
+    + 第 \@ref(chap23) 章\*\*通过工厂中员工操作机器的生产率得分案例讨论了均衡和不均衡混合模型的分析，其中涉及到固定效应和方差分量的各种估计和检验方法。
+    
+    + 第 \@ref(chap24) 章\*\*\*\*通过七个示例详细讨论了裂区型设计的分析，还讨论了样本量和功效的计算。
+    
     + 第 \@ref(chap29) 章\*\*\*讨论了交叉设计的分析。
 
 ## 术语规范 {.unlisted .unnumbered}
@@ -108,10 +114,18 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
 
 + Population 大多译作 “总体”。
 
-+ Subject 统一译作 “个体”，不论语境。虽然 Subject 更多地翻译为 “受试者”、“主体”，而且 Subject 甚至没有 “个体” 这种翻译，译者如此翻译是出于统一以及特定上下文适用性的目的。对于后一个目的，例如，很难想象将农田里的作物、烘烤的面包译作 “受试者” 或 “主体”，如此翻译稍显奇怪。当然，本书原文更多地用 experimental unit 而不是 subject 来表示实验（最小）单元。
++ Subject 统一译作 “个体”，不论语境。虽然 Subject 更多地译作 “受试者”、“主体”，而且 Subject 甚至没有 “个体” 这种翻译，译者如此翻译是出于统一以及特定上下文适用性的目的。对于后一个目的，例如，很难想象将农田里的作物、烘烤的面包译作 “受试者” 或 “主体”，如此翻译稍显奇怪。当然，本书原文更多地用 experimental unit 而不是 subject 来表示实验（最小）单元。
+
++ Balanced 统一译作 “均衡”，虽然可能更多地译作 “平衡”，如此翻译原因如下。考虑一个双向（两因素）实验，其设计通常以二维表格的形式呈现。现我们将其具象化为一张棋盘，两种处理的水平的每种组合代表棋盘的一个格子，我们的观测数据则是下在格子内的棋子，并假设每个棋子质量相等。现在我们的任务是在棋盘下方用竹竿顶端撑起棋盘，也就是找到一个支点使棋盘**平衡**。直观地想，如果每个格子中的棋子数量相等，那么这项任务最为简单：找到棋盘的中点即可。当格子中的棋子数量不等甚至有格子缺失棋子时，如此情况稍显复杂。这实际上也对应于当各处理组合观测数相等时，许多方法的功效达到最大。现将 “棋盘-棋子” 模型抽象化为数据，则最好不要用 “平衡” 而是 “均衡”，因为只有实体才会平衡，只有抽象化的数据才有 “均” 的概念。（事实上，观测数量不等时常用的逆概率加权方法，也可结合 “棋盘-棋子” 模型来解释）。
 
 + 矩阵以**加粗**字体${\Large{\text{大写}}}$英文/希腊字母表示，向量以**加粗**字体字体${\Tiny{\text{小写}}}$英文/希腊字母表示，标量以普通字体英文/希腊字母表示，如
-    + 观测向量 $\boldsymbol y$，设计矩阵及其转置 $\boldsymbol X,\boldsymbol X^\prime$，误差向量 $\boldsymbol\varepsilon$，协方差阵及其逆 $\boldsymbol \Sigma,\boldsymbol \Sigma^{-1}$，n 阶单位阵 $\boldsymbol I_n$，n 阶全 1 向量 $\boldsymbol j_n$，n 阶全 1 矩阵 $\boldsymbol J_n$
+    + 观测向量 $\boldsymbol y$
+    + 设计矩阵及其转置 $\boldsymbol X,\boldsymbol X^\prime$ 
+    + 误差向量 $\boldsymbol\varepsilon$
+    + 协方差阵及其逆 $\boldsymbol \Sigma,\boldsymbol \Sigma^{-1}$
+    + n 阶单位阵 $\boldsymbol I_n$
+    + n 阶全 1 向量 $\boldsymbol j_n$
+    + n 阶全 1 矩阵 $\boldsymbol J_n$
     + 总均值 $\mu$，方差 $\sigma^2_\varepsilon$，方差估计 $\hat \sigma^2_\varepsilon$
 
 
