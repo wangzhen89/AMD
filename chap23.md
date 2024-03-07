@@ -27,9 +27,9 @@
 
 $$y_{ijk}=\mu+\tau_i+p_j+(\tau p)_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b,\quad k=1,2,\ldots,n$$
 
-其中，$\mu$ 表示由工人总体操作的一组品牌机器的平均生产率得分，$\tau_i$ 表示第 i 台机器对生产率得分的效应，$p_j$ 表示第 j 个人对生产率得分的随机效应，$(\tau p)_{ij}$ 表示特定于第 j 个人操作第 i 台机器时对生产率得分的随机交互效应，$\varepsilon_{ijk}$ 表示与第 j 个人第 k 次操作第 i 台机器相关的随机误差项，以及 $p_j+(\tau p)_{ij}+\varepsilon_{ijk}$ 为独立随机变量。
+其中，$\mu$ 表示由工人总体操作的一组品牌机器的平均生产率得分，$\tau_i$ 表示第 i 台机器对生产率得分的效应，$p_j$ 表示第 j 个人对生产率得分的随机效应，$(\tau p)_{ij}$ 表示特定于第 j 个人操作第 i 台机器时对生产率得分的随机交互效应，$\varepsilon_{ijk}$ 表示与第 j 个人第 k 次操作第 i 台机器相关的随机误差项，以及 $p_j,(\tau p)_{ij},\varepsilon_{ijk}$ 为独立随机变量。
 
-关于该模型中随机变量的附加假设为
+关于该模型中随机变量的额外假设为
 
 $$\begin{aligned}p_j&\sim i.i.d.N(0,\sigma_{person}^2)\\(\tau p)_{ij}&\sim i.i.d.N(0,\sigma_{m\times p}^2)\\\varepsilon_{ijk}&\sim i.i.d.N(0,\sigma_{\varepsilon}^2)\end{aligned}$$
 
@@ -82,7 +82,7 @@ $$\begin{aligned}p_j&\sim i.i.d.N(0,\sigma_{person}^2)\\(\tau p)_{ij}&\sim i.i.d
 </tbody>
 </table>
 
-第一个要检验的假设是 $H_0\colon{\sigma}_{m\times p}^2=0\text{ vs }H_a\colon{\sigma}_{m\times p}^2>0$. 通过使用表 \@ref(tab:table23-2) 中的期望均方构建的用于检验该命题的统计量为
+第一个要检验的假设是 $H_0\colon{\sigma}_{m\times p}^2=0\text{ vs }H_a\colon{\sigma}_{m\times p}^2>0$. 通过使用表 \@ref(tab:table23-2) 中的期望均方构建的用于检验该假设的统计量为
 
 $$F_{m\times p}=\frac{MSPerson\times Machine}{MSResidual}=46.13$$
 
@@ -92,9 +92,9 @@ $$F_{m\times p}=\frac{MSPerson\times Machine}{MSResidual}=46.13$$
 
 $$F_p=\frac{MSPerson}{MSPerson\times Machine}$$
 
-于 $H_0\colon{\sigma}_{p}^2=0\text{ vs }H_a\colon{\sigma}_{p}^2>0$ 相关的显著性水平为 0.0089，表明工厂员工的生产率得分存在相当大的差异。培训项目可以减少员工之间的差异。
+与 $H_0\colon{\sigma}_{p}^2=0\text{ vs }H_a\colon{\sigma}_{p}^2>0$ 相关的显著性水平为 0.0089，表明工厂员工的生产率得分存在相当大的差异。培训项目可以减少员工之间的差异。
 
-表 \@ref(tab:table23-3) 显示了四种方法的方差分量估计。对于 REML、MIVQUE0 和 III型，方差分量的估计是相同的，但对于 person 和 machine × person 方差分量，ML 的估计要小一些。
+表 \@ref(tab:table23-3) 显示了四种方法的方差分量估计。对于 REML、MIVQUE0 和 III 型，方差分量的估计是相同的，但对于 person 和 machine × person 方差分量，ML 的估计要小一些。
 
 Satterthwaite 近似可用于确定在构建关于方差分量置信区间时使用的自由度。第一步是将方差分量的估计表示为表 \@ref(tab:table23-2) 中的均方的线性组合。${{\sigma}}_p^2$ 的矩法估计为 $\hat{{\sigma}}_p^2=\frac19{ MSPerson }-\frac19{ MSPerson }\times Machine=22.8584$. 通过 Satterthwaite 近似获得的近似卡方分布的自由度为
 
@@ -112,7 +112,7 @@ $$\frac{3.38035(22.8584)}{10.0467}\leq\sigma_p^2\leq\frac{3.38035(22.8584)}{0.30
 
 $$7.69102\leq\sigma_p^2\leq251.486$$
 
-${{\sigma}}_p$ 的 95% 置信区间为 $2.773\leq\sigma_p^2\leq15.858$.
+${{\sigma}}_p^2$ 的 95% 置信区间为 $2.773\leq\sigma_p^2\leq15.858$.
 
 表 \@ref(tab:table23-5) 给出了 III 型分析的协方差参数估计。方差分量的估计和标准误的估计在前两列中。Z-value 列给出了每个估计与其相应的标准误估计的比值，Pr Z 列是与 Z-value 相对应的双侧显著性水平。Lower 和 Upper 列是使用 Wald 区间计算的置信区间；即，$\hat{{\sigma}}^2\pm Z_{0.025}[\widehat{s.e.}(\hat{{\sigma}}^2)]$. 当与待估方差分量相关的自由度数量较大时，Wald 置信区间才适用。关于 ${\sigma}_{{\varepsilon}}^{{2}}$ （残差）的置信区间基于 36 个自由度的卡方分布。表 \@ref(tab:table23-6) 包含来自 REML 分析的协方差参数估计。
 
@@ -148,7 +148,7 @@ ${{\sigma}}_p$ 的 95% 置信区间为 $2.773\leq\sigma_p^2\leq15.858$.
 
 表 \@ref(tab:table23-5) 和 \@ref(tab:table23-6) 中方差分量估计及其标准误估计是相同的，但 Pr Z 列不同。表 \@ref(tab:table23-6) 中的显著性水平是单侧的（而且应该是单侧的）。计算出的自由度 $df=2(\text{Z-value})^2$ 与使用矩法估计计算出的自由度相同。残差方差分量的置信区间基于 36 个自由度的卡方分布。因此，对于均衡设计，REML、MIVQUE0 和矩法估计得到的方差分量的信息在与单个估计相关的近似自由度方面是相同的，但是 Wald 法被用于构建 person 和 machine × person 的置信区间，这两个方差分量是从矩法估计得来的，而对于 REML 和 MIVQUE0，则使用了更合适的 Satterthwaite 近似法。
 
-估计和检验混合模型中混合效应假设所需的方法取决于数据是均衡的还是不均衡的。第 \@ref(sec22-3) 节讨论了不均衡设计的方法。
+估计和检验混合模型中固定效应假设所需的方法取决于数据是均衡的还是不均衡的。第 \@ref(sec22-3) 节讨论了不均衡设计的方法。
 
 一般混合模型可以表示为
 
@@ -160,11 +160,11 @@ $$\boldsymbol y=\boldsymbol X\boldsymbol{\beta}+\boldsymbol Z_1\boldsymbol u_1+\
 
 $$\boldsymbol{\Sigma}={\sigma}_1^2\boldsymbol{Z}_1\boldsymbol{Z}_1'+{\sigma}_2^2\boldsymbol{Z}_2\boldsymbol{Z}_2'+\cdots+{\sigma}_k^2\boldsymbol{Z}_k\boldsymbol{Z}_k'+{\sigma}_\varepsilon^2\boldsymbol{I}$$
 
-的元素是已知的；即，方差分量是已知的，可估函数 $\boldsymbol a'\boldsymbol \beta $ 的 BLUE (best linear unbiased estimate) 为
+的元素是已知的；即，方差分量是已知的，可估函数 $\boldsymbol a'\boldsymbol \beta$ 的 BLUE (best linear unbiased estimate) 为
 
 $$\boldsymbol a'\hat{\boldsymbol\beta}_{BLUE} = \boldsymbol a'\left(\boldsymbol{X'\Sigma}^{-1}\boldsymbol{X}\right)^-\boldsymbol{X'\Sigma}^{-1}\boldsymbol{y}$$
 
-对于大多数均衡混合模型，$\boldsymbol a'\boldsymbol \beta $ 的估计简化为
+对于大多数均衡混合模型，$\boldsymbol a'\boldsymbol \beta$ 的估计简化为
 
 $$\boldsymbol a'\hat{\boldsymbol\beta}_{BLUE} = \boldsymbol a'\left(\boldsymbol{X'}\boldsymbol{X}\right)^-\boldsymbol{X'}\boldsymbol{y}$$
 
@@ -223,15 +223,15 @@ $$\mathrm{Var}(\hat{\mu}_i)=\frac{\sigma_\varepsilon^2+3\sigma_{m\times p}^2+3\s
 
 $$\operatorname{Var}(\boldsymbol a^{\prime}\hat{\boldsymbol \mu})=\frac{\sigma_\varepsilon^2+n\sigma_{m\times p}^2}{nb}\boldsymbol{a'a}$$
 
-差异 $\mu_i-\mu_{i^{\prime}}\left(i\neq i^{\prime}\right)$ 的估计为 $\hat{\mu_i}-\hat{\mu}_{i^{\prime}}$，其方差为
+差值 $\mu_i-\mu_{i^{\prime}}\left(i\neq i^{\prime}\right)$ 的估计为 $\hat{\mu_i}-\hat{\mu}_{i^{\prime}}$，其方差为
 
 $$\mathrm{Var}(\hat{\mu}_i-\hat{\mu}_{i^{\prime}})=2{\left[\frac{\sigma_\varepsilon^2+n\sigma_{m\times p}^2}{nb}\right]}$$
 
-两个机器均值之间差异的标准误估计为
+两个机器均值之差的标准误估计为
 
 $$\widehat{s.e.}_{\mu_i-\mu_{i^\prime}}=\sqrt{\frac{2(MSPerson\times Machine)}{18}}=2.177$$
 
-表 \@ref(tab:table23-7) 包含机器均值估计、标准误估计、$t$ 值和显著性水平，用于检验单个均值是否等于零。机器均值之间的成对差异如表 \@ref(tab:table23-8) 所示，其中包括差异估计、标准误估计、$t$ 值和显著水平。用于比较两个均值的 $LSD_{0.05}$ 值计算为
+表 \@ref(tab:table23-7) 包含机器均值估计、标准误估计、$t$ 值和显著性水平，用于检验单个均值是否等于零。机器均值之间的成对差值如表 \@ref(tab:table23-8) 所示，其中包括差值估计、标准误估计、$t$ 值和显著水平。用于比较两个均值的 $LSD_{0.05}$ 值计算为
 
 $$LSD_{0.05}=(t_{0.025,10})(\widehat{s.e}._{\hat{\mu}_i-\hat{\mu}_{i^\prime}})=2.228(2.177)=4.85$$
 
@@ -445,7 +445,7 @@ $$\hat{\boldsymbol{\beta}}_W=\left(\boldsymbol X^{\prime}\hat{\boldsymbol{\Sigma
 </tbody>
 </table>
 
-表 \@ref(tab:table23-17) - \@ref(tab:table23-19) 包含了机器均值的估计。REML 与 I 型、II 型或 III 型结果之间没有太大差异。表 \@ref(tab:table23-20) – \@ref(tab:table23-22) 包含了在每种估计方差分量方法下，每对机器均值之间差异的估计。由于 REML 的分母自由度大约等于 10（如果数据集是均衡的，则这是预期结果），因此这些方法的结果之间存在差异。REML 方法似乎提供了最全面的结果。
+表 \@ref(tab:table23-17) - \@ref(tab:table23-19) 包含了机器均值的估计。REML 与 I 型、II 型或 III 型结果之间没有太大差异。表 \@ref(tab:table23-20) – \@ref(tab:table23-22) 包含了在每种估计方差分量方法下，每对机器均值之差的估计。由于 REML 的分母自由度大约等于 10（如果数据集是均衡的，则这是预期结果），因此这些方法的结果之间存在差异。REML 方法似乎提供了最全面的结果。
 
 <table>
 <caption>(\#tab:table23-17)Machine 1 均值的估计</caption>
@@ -554,7 +554,7 @@ $$\hat{\boldsymbol{\beta}}_W=\left(\boldsymbol X^{\prime}\hat{\boldsymbol{\Sigma
 </tbody>
 </table>
 
-表 \@ref(tab:table23-20) – \@ref(tab:table23-22) 中的结果是每对机器均值之间的成对差异。同样，基于方差分量估计的 REML 方法的结果似乎是最好的，因为成对比较的自由度是 10.2, 10.1 和 10，这些值接近 10，就好像均衡分析的情况一样。
+表 \@ref(tab:table23-20) – \@ref(tab:table23-22) 中的结果是每对机器均值之间的成对差值。同样，基于方差分量估计的 REML 方法的结果似乎是最好的，因为成对比较的自由度是 10.2, 10.1 和 10，这些值接近 10，就好像均衡分析的情况一样。
 
 ## 不均衡双向数据集的 JMP 分析 {#sec23-3}
 

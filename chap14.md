@@ -1,3 +1,4 @@
+
 # 使用效应模型分析缺失处理组合的双向处理结构 {#chap14}
 
 > > "An approximate answer to the right problem is worth a good deal more than an exact answer to an approximate problem." - John Tukey
@@ -296,3 +297,5 @@ $$t=\frac{\sum_{i,j}c_{ij}\hat{{\mu}}_{ij}}{\hat{{\sigma}}\sqrt{\sum_{i,j}\frac{
 总之，对于存在缺失处理组合的数据，要做出可接受的分析需要深思熟虑。实验人员或统计学家不能仅仅在计算机程序上运行数据，然后从该程序中选取数字来撰写论文。不幸的是，这种做法已经被不知情的实验人员和数据分析师采用，并且还在被采用。**我们希望学习过本章的人再也不会这样做**。对于那些愿意付出必要努力来正确分析数据的人，建议使用第 \@ref(chap13) 章中讨论的均值模型。
 
 第 \@ref(chap15) 章将讨论一个更现实的例子。
+
+## 练习 {#sec14-7}

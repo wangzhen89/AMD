@@ -7,7 +7,7 @@
 
 ## 矩法 {#sec19-1}
 
-自从 Eisenhart (1947) 将随机效应模型命名为 MODEL II 以来，矩法一直被用于获取得方差分量的估计。许多研究人员在接下来的 20 年里致力于矩法的研究，推导了估计，并开发了检验假设的方法以及构造方差分量置信区间的方法（参见  Searle, 1987; Graybill, 1976; Henderson 1984; Searle et al. 1992; Burdick and Graybill, 1992
+自 Eisenhart (1947) 将随机效应模型命名为 MODEL II 以来，矩法一直被用于获取得方差分量的估计。许多研究人员在接下来的 20 年里致力于矩法的研究，推导了估计，并开发了检验假设的方法以及构造方差分量置信区间的方法（Searle, 1987; Graybill, 1976; Henderson 1984; Searle et al. 1992; Burdick and Graybill, 1992
 等提供了很好的参考文献列表）。在本节中，讨论矩法估计过程的广义版本。
 
 一般随机效应模型可以写为
@@ -48,11 +48,11 @@ $$Q_i=b_{i0}\tilde{\sigma}_\varepsilon^2+b_{i1}\tilde{\sigma}_1^2+b_{i2}\tilde{\
 
 $$\begin{bmatrix}Q_0\\Q_1\\Q_2\\\vdots\\Q_r\end{bmatrix}=\begin{bmatrix}b_{00}&b_{01}&b_{02}&\cdots&b_{0r}\\b_{10}&b_{11}&b_{12}&\cdots&b_{1r}\\b_{20}&b_{21}&b_{22}&\cdots&b_{2r}\\\vdots&\vdots&\vdots&\ddots&\vdots\\b_{r0}&b_{r1}&b_{r2}&\cdots&b_{rr}\end{bmatrix}\begin{bmatrix}\tilde{\sigma}_\varepsilon^2\\\tilde{\sigma}_1^2\\\tilde{\sigma}_2^2\\\vdots\\\tilde{\sigma}_r^2\end{bmatrix}$$
 
-或 $\boldsymbol Q=\boldsymbol B \tilde \sigma^2$.
+或 $\boldsymbol Q=\boldsymbol B \tilde {\boldsymbol\sigma}^2$.
 
 如果矩阵 $\boldsymbol B$ 的秩为 r+1，那么所有的方差分量都是可估的。如果 $\boldsymbol B$ 的秩小于 r+1，则不是所有的方差分量都是可估的，并且只有方差分量的一些线性组合是可估的。假设 $\boldsymbol B$ 的秩为 r+1，则方程组的解为
 
-$$\tilde{\sigma}^2=\boldsymbol B^{-1}\boldsymbol Q{=}\boldsymbol C\boldsymbol Q\mathrm{~(say)}$$
+$$\tilde {\boldsymbol\sigma}^2=\boldsymbol B^{-1}\boldsymbol Q{=}\boldsymbol C\boldsymbol Q\mathrm{~(say)}$$
 
 在不将值限制在参数空间的情况下获得该解；也就是说，有些解可能是负的。$\sigma_i^2$ 的解由 $\tilde \sigma_i^2$ 表示，估计由 $\hat \sigma_i^2$ 表示，其中
 
@@ -194,7 +194,7 @@ $$\begin{aligned}
 &\tilde{{\sigma}}_a^2 =-8.2523 
 \end{aligned}$$
 
-提供方差分量的无偏估计。因为上面的一些值是负值，所以方差分量的矩法估计的最终被认为是
+提供方差分量的无偏估计。因为上面的一些值是负值，所以方差分量最终的矩法估计为
 
 $$\begin{aligned}
 &\hat{{\sigma}}_\varepsilon^2 =3.83325  \\
@@ -266,18 +266,18 @@ $$\{-\infty<\mu<+\infty,\quad0<\sigma_i^2<+\infty,\quad i=1,2,\ldots,k;\quad0<\s
 对于一般随机效应模型 \@ref(eq:19-1)，观测向量的分布为
 
 $$
-\boldsymbol y\thicksim N(\boldsymbol j_n\boldsymbol\mu,\sigma_\varepsilon^2\boldsymbol I_n+\sigma_1^2\boldsymbol Z_1\boldsymbol Z_1^{\prime}+\sigma_2^2\boldsymbol Z_2\boldsymbol Z_2^{\prime}+\cdots+\sigma_k^2\boldsymbol Z_k\boldsymbol Z_k^{\prime})\quad\mathrm{or}\quad y\thicksim N (\boldsymbol j_n\boldsymbol \mu,\boldsymbol \Sigma)
+\boldsymbol y\thicksim N(\boldsymbol j_n\mu,\sigma_\varepsilon^2\boldsymbol I_n+\sigma_1^2\boldsymbol Z_1\boldsymbol Z_1^{\prime}+\sigma_2^2\boldsymbol Z_2\boldsymbol Z_2^{\prime}+\cdots+\sigma_k^2\boldsymbol Z_k\boldsymbol Z_k^{\prime})\quad\mathrm{or}\quad \boldsymbol y\thicksim N (\boldsymbol j_n\mu,\boldsymbol \Sigma)
 $$
 
 观测值的似然函数为
 
-$$L(\boldsymbol\mu,\sigma_\varepsilon^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|y)=(2\pi)^{-n/2}|\boldsymbol{\Sigma}|^{-1/2}\exp[-\frac12(\boldsymbol{y}-\boldsymbol{j}_n\boldsymbol\mu)^{\prime}\boldsymbol{\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol{j}_n\boldsymbol\mu)]$$
+$$L(\boldsymbol\mu,\sigma_\varepsilon^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)=(2\pi)^{-n/2}|\boldsymbol{\Sigma}|^{-1/2}\exp[-\frac12(\boldsymbol{y}-\boldsymbol{j}_n\mu)^{\prime}\boldsymbol{\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol{j}_n\mu)]$$
 
 -2log~e~似然函数为
 
-$$\begin{aligned}\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|y)&=-2\log_e[L(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|y)]\\&=n\log_e(2\pi)+\log_e(|\boldsymbol{\Sigma}|)+(\boldsymbol{y}-\boldsymbol{j}_n\boldsymbol{\mu})^{\prime}\boldsymbol{\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol{j}_n\boldsymbol{\mu})\end{aligned}$$
+$$\begin{aligned}\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)&=-2\log_e[L(\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)]\\&=n\log_e(2\pi)+\log_e(|\boldsymbol{\Sigma}|)+(\boldsymbol{y}-\boldsymbol{j}_n{\mu})^{\prime}\boldsymbol{\Sigma}^{-1}(\boldsymbol{y}-\boldsymbol{j}_n{\mu})\end{aligned}$$
 
-在参数空间上最小化 $\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|y)$ 的过程通常需要利用似然方程的迭代过程，其中涉及到关于模型 $\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|y)$ 每个参数的一阶导数或一阶和二阶导数。
+在参数空间上最小化 $\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)$ 的过程通常需要利用似然方程的迭代过程，其中涉及到关于模型 $\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\sigma_k^2|\boldsymbol y)$ 每个参数的一阶导数或一阶和二阶导数。
 
 当数据来自均衡设计时（相等的 $n$ 以及无缺失单元格），通过将似然函数的一阶导数等于零而生成的似然方程组通常可以显式求解。由于方差分量解中的一些值可能为负值，因此所得到的解不受参数空间的限制。对于某些均衡模型，可以证明，当似然方程中 $\sigma^2_i$ 的解为负时，$\sigma^2_i$ 的最大似然估计为 $\hat\sigma^2_i=0$ (Searle, 1971). 对于不均衡设计，需要迭代技术，其中估计过程应将方差分量的估计值限制在参数空间中。
 
@@ -287,7 +287,7 @@ $$\begin{aligned}\ell(\boldsymbol\mu,\sigma_e^2,\sigma_1^2,\sigma_2^2,\ldots,\si
 
 $$y_{ij}=\mu+u_i+\varepsilon_{ij},\quad i=1,2,\ldots,t\quad\mathrm{and~}j=1,2,\ldots,n$$
 
-其中 $\mu_i\sim i.i.d.\,N(0,\sigma^2_u),\varepsilon_{ij}\sim i.i.d.\,N(0,\sigma^2_\varepsilon)$，且 $\mu_i,\varepsilon_{ij}$ 独立，或 $\boldsymbol y\sim N(\boldsymbol j_n\otimes \boldsymbol j_t)\mu,\boldsymbol \Sigma]$ 其中 $\boldsymbol \Sigma=\sigma^2_u \boldsymbol j_n\otimes \boldsymbol j_t   +\sigma^2_\varepsilon \boldsymbol I_n\otimes \boldsymbol I_t$.
+其中 $\mu_i\sim i.i.d.\,N(0,\sigma^2_u),\varepsilon_{ij}\sim i.i.d.\,N(0,\sigma^2_\varepsilon)$，且 $\mu_i,\varepsilon_{ij}$ 独立，或 $\boldsymbol y\sim N[(\boldsymbol j_n\otimes \boldsymbol j_t)\mu,\boldsymbol \Sigma]$ 其中 $\boldsymbol \Sigma=\sigma^2_u \boldsymbol j_n\otimes \boldsymbol j_t   +\sigma^2_\varepsilon \boldsymbol I_n\otimes \boldsymbol I_t$.
 
 [^kronecker]: 设 $\boldsymbol A, \boldsymbol B$ 分别为 m × n 和 p × q 阶矩阵，则 $\boldsymbol A \otimes \boldsymbol B=\begin{bmatrix}a_{11}\boldsymbol B&\cdots&a_{1n}\boldsymbol B\\\vdots&\ddots&\vdots\\a_{m1}\boldsymbol B&\cdots&a_{mn}\boldsymbol B\end{bmatrix}$. Knronecker 积 "$\otimes$" 可作用于两任意大小的矩阵，那么也包括向量。
 
@@ -392,7 +392,7 @@ $$\boldsymbol{\Sigma}={\sigma}_A^2{\rho}[c{J}_n\otimes\boldsymbol{I}_t]+{\sigma}
 
 ## 受限或残差最大似然估计 {#sec19-3}
 
-通过最大化似然函数中不包括任何混合效应的部分，或者通过在从模型中去除固定效应之后最大化残差的似然函数，来获得受限或残差最大似然估计 (Restricted or residual maximum likelihood estimates, REML). 对于本章中的模型，只有一个固定效应参数 $\mu$. 这也相当于在给定的总体样本均值下查看一组平方和的条件分布。该过程通过将似然函数分解为两部分来完成，其中一部分涉及固定效应参数，另一部分仅涉及方差分量。通过关于方差分量对 -2log~e~残差似然函数进行微分，并将其设置为零，从而得到 REML 方程。
+通过最大化似然函数中不包括任何混合效应的部分，或者通过在从模型中去除固定效应之后最大化残差的似然函数，来获得受限或残差最大似然估计 (Restricted or residual maximum likelihood estimates, REML). 对于本章中的模型，只有一个固定效应参数 $\mu$. 这也相当于在给定的总体样本均值下查看一组平方和的条件分布。该过程通过将似然函数分解为两部分来完成，其中一部分涉及固定效应参数，另一部分仅涉及方差分量。通过关于方差分量对 -2log~e~残差似然函数进行求导，并将其设置为零，从而得到 REML 方程。
 
 对于一般随机效应模型 \@ref(eq:19-1)，观测值的似然函数为
 
@@ -428,7 +428,7 @@ $$\begin{aligned}
 &\left.+(t-1)\log_{\mathrm{e}}(\sigma_\varepsilon^2+n\sigma_u^2)+\frac{SSE}{\sigma_\varepsilon^2}+\frac{SSU}{\sigma_\varepsilon^2+n\sigma_u^2}\right]
 \end{aligned}$$
 
-通过关于两个参数 $\sigma^2_u,\sigma^2_\varepsilon$ 对 $\ell(\sigma_u^2,\sigma_\varepsilon^2|SSE,SSU)$ 进行微分，然后将导数设置为零，可以获得受限最大似然方程。将导数设置为零，在求解参数时评估的导数为
+通过关于两个参数 $\sigma^2_u,\sigma^2_\varepsilon$ 对 $\ell(\sigma_u^2,\sigma_\varepsilon^2|SSE,SSU)$ 进行求导，然后将导数设置为零，可以获得受限最大似然方程。将导数设置为零，在求解参数时评估的导数为
 
 $$\begin{aligned}\frac{\partial\ell({\sigma}_u^2,{\sigma}_\varepsilon^2|SSE,SS{U})}{\partial{\sigma}_\varepsilon^2}&=\frac{t(n-1)}{{\tilde{\sigma}}_\varepsilon^2}+\frac{t-1}{{\tilde{\sigma}}_\varepsilon^2+n{\tilde{\sigma}}_u^2}-\frac{SS{E}}{({\tilde{\sigma}}_\varepsilon^2)^2}-\frac{SS{U}}{({\tilde{\sigma}}_\varepsilon^2+n{\tilde{\sigma}}_u^2)^2}=0\\\frac{\partial\ell({\sigma}_u^2,{\sigma}_\varepsilon^2|{SSE},{SSU})}{\partial{\sigma}_u^2}&=\frac{n(t-1)}{{\tilde{\sigma}}_\varepsilon^2+n{\tilde{\sigma}}_u^2}-\frac{nSS{U}}{\left({\tilde{\sigma}}_\varepsilon^2+n{\tilde{\sigma}}_u^2\right)^2}=0\end{aligned}$$
 

@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 25 章 分析条区型设计的方法 | 混乱数据分析：设计的实验</title>
+  <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 25 章 分析条区型设计的方法 | 混乱数据分析：设计的实验" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="github-repo" content="wangzhen89/AMD" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 25 章 分析条区型设计的方法 | 混乱数据分析：设计的实验" />
+  
+  <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  
+
+<meta name="author" content="Wang Zhen" />
+
+
+<meta name="date" content="2024-03-07" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap24.html"/>
+<link rel="next" href="chap26.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        },
+        extensions: ["cancel.js"]
+      }
+    });
+</script>
+
+<!-- add line break after theorem title -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    for (let s of document.querySelectorAll("span.theorem, span.lemma, span.proposition, span.corollary")) {
+      s.insertAdjacentHTML('afterend', '<br style="line-height:2px;"/>');
+    }
+  });
+</script>
+
+<!-- check if --themcolor in style.css matches one of elegantbook theme colors. If so, generates the color palette  -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const cssroot = document.querySelector(':root');
+    let theme_color = getComputedStyle(document.documentElement).getPropertyValue('--themecolor').trim();
+  
+    // blue is the default option
+
+    switch (theme_color) {
+      case 'green': 
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,120,2)');
+        cssroot.style.setProperty('--main', 'rgb(70,70,70)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(115,45,2)');
+        cssroot.style.setProperty('--secondbg', 'rgba(115,45,2,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,80,80)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,80,80,0.05)');
+      break;
+      case 'cyan':
+        cssroot.style.setProperty('--structurecolor', 'rgb(31,186,190)');
+        cssroot.style.setProperty('--main', 'rgb(59,180,5)');
+        cssroot.style.setProperty('--mainbg', 'rgba(59,180,5,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(175,153,8)');
+        cssroot.style.setProperty('--secondbg', 'rgba(175,153,8,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(244,105,102)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(244,105,102,0.05)');
+      break;
+      case 'gray':
+        cssroot.style.setProperty('--structurecolor', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--main', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--mainbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--secondbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(150,150,150,0.05)');
+      break;
+      case 'black':
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--main', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--secondbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,0,0,0.05)');
+      break;
+    default:
+        cssroot.style.setProperty('--structurecolor', 'rgb(60,113,183)');
+        cssroot.style.setProperty('--main', 'rgb(0,166,82)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(255,134,24)');
+        cssroot.style.setProperty('--secondbg', 'rgba(255,134,24,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,174,247)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,174,247,0.05)');
+    }
+  });
+  </script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">混乱数据分析：设计的实验</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>介绍</a></li>
+<li class="part"><span><b>I 热身</b></span></li>
+<li class="chapter" data-level="1" data-path="chap1.html"><a href="chap1.html"><i class="fa fa-check"></i><b>1</b> 最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap1.html"><a href="chap1.html#sec1-1"><i class="fa fa-check"></i><b>1.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="1.2" data-path="chap1.html"><a href="chap1.html#sec1-2"><i class="fa fa-check"></i><b>1.2</b> 参数估计</a></li>
+<li class="chapter" data-level="1.3" data-path="chap1.html"><a href="chap1.html#sec1-3"><i class="fa fa-check"></i><b>1.3</b> 线性组合的推断：检验与置信区间</a></li>
+<li class="chapter" data-level="1.4" data-path="chap1.html"><a href="chap1.html#sec1-4"><i class="fa fa-check"></i><b>1.4</b> 示例：任务和脉搏率</a></li>
+<li class="chapter" data-level="1.5" data-path="chap1.html"><a href="chap1.html#sec1-5"><i class="fa fa-check"></i><b>1.5</b> 几个线性组合的同时检验</a></li>
+<li class="chapter" data-level="1.6" data-path="chap1.html"><a href="chap1.html#sec1-6"><i class="fa fa-check"></i><b>1.6</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.7" data-path="chap1.html"><a href="chap1.html#sec1-7"><i class="fa fa-check"></i><b>1.7</b> 检验所有均值相等</a></li>
+<li class="chapter" data-level="1.8" data-path="chap1.html"><a href="chap1.html#sec1-8"><i class="fa fa-check"></i><b>1.8</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.9" data-path="chap1.html"><a href="chap1.html#sec1-9"><i class="fa fa-check"></i><b>1.9</b> 比较两种模型的一般方法：条件误差原理</a></li>
+<li class="chapter" data-level="1.10" data-path="chap1.html"><a href="chap1.html#sec1-10"><i class="fa fa-check"></i><b>1.10</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
+<li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
+<li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap2.html"><a href="chap2.html#sec2-1"><i class="fa fa-check"></i><b>2.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="2.2" data-path="chap2.html"><a href="chap2.html#sec2-2"><i class="fa fa-check"></i><b>2.2</b> 参数估计</a></li>
+<li class="chapter" data-level="2.3" data-path="chap2.html"><a href="chap2.html#sec2-3"><i class="fa fa-check"></i><b>2.3</b> 方差齐性检验</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap2.html"><a href="chap2.html#sec2-3-1"><i class="fa fa-check"></i><b>2.3.1</b> Hartley’s <em>F</em>-Max Test</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap2.html"><a href="chap2.html#sec2-3-2"><i class="fa fa-check"></i><b>2.3.2</b> Bartlett’s Test</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap2.html"><a href="chap2.html#sec2-3-3"><i class="fa fa-check"></i><b>2.3.3</b> Levene’s Test</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap2.html"><a href="chap2.html#sec2-4-4"><i class="fa fa-check"></i><b>2.3.4</b> Brown and Forsythe’s Test</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap2.html"><a href="chap2.html#sec2-3-5"><i class="fa fa-check"></i><b>2.3.5</b> O’Brien’s Test</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap2.html"><a href="chap2.html#sec2-3-6"><i class="fa fa-check"></i><b>2.3.6</b> 一些建议</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chap2.html"><a href="chap2.html#sec2-4"><i class="fa fa-check"></i><b>2.4</b> 示例：药物和错误</a></li>
+<li class="chapter" data-level="2.5" data-path="chap2.html"><a href="chap2.html#sec2-5"><i class="fa fa-check"></i><b>2.5</b> 关于线性组合的推断</a></li>
+<li class="chapter" data-level="2.6" data-path="chap2.html"><a href="chap2.html#sec2-6"><i class="fa fa-check"></i><b>2.6</b> 示例：药物和错误（续）</a></li>
+<li class="chapter" data-level="2.7" data-path="chap2.html"><a href="chap2.html#sec2-7"><i class="fa fa-check"></i><b>2.7</b> 自由度的一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
+<li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
+<li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>II 磨刀</b></span></li>
+<li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 联合推断程序和多重比较</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap3.html"><a href="chap3.html#sec3-1"><i class="fa fa-check"></i><b>3.1</b> 错误率</a></li>
+<li class="chapter" data-level="3.2" data-path="chap3.html"><a href="chap3.html#sec3-2"><i class="fa fa-check"></i><b>3.2</b> 建议</a></li>
+<li class="chapter" data-level="3.3" data-path="chap3.html"><a href="chap3.html#sec3-3"><i class="fa fa-check"></i><b>3.3</b> 最小显著差异</a></li>
+<li class="chapter" data-level="3.4" data-path="chap3.html"><a href="chap3.html#sec3-4"><i class="fa fa-check"></i><b>3.4</b> Fisher’s LSD Procedure</a></li>
+<li class="chapter" data-level="3.5" data-path="chap3.html"><a href="chap3.html#sec3-5"><i class="fa fa-check"></i><b>3.5</b> Bonferroni’s Method</a></li>
+<li class="chapter" data-level="3.6" data-path="chap3.html"><a href="chap3.html#sec3-6"><i class="fa fa-check"></i><b>3.6</b> Scheffé’s Procedure</a></li>
+<li class="chapter" data-level="3.7" data-path="chap3.html"><a href="chap3.html#sec3-7"><i class="fa fa-check"></i><b>3.7</b> Tukey–Kramer Method</a></li>
+<li class="chapter" data-level="3.8" data-path="chap3.html"><a href="chap3.html#sec3-8"><i class="fa fa-check"></i><b>3.8</b> 模拟方法</a></li>
+<li class="chapter" data-level="3.9" data-path="chap3.html"><a href="chap3.html#sec3-9"><i class="fa fa-check"></i><b>3.9</b> Šidák Procedure</a></li>
+<li class="chapter" data-level="3.10" data-path="chap3.html"><a href="chap3.html#sec3-10"><i class="fa fa-check"></i><b>3.10</b> 示例：成对比较</a></li>
+<li class="chapter" data-level="3.11" data-path="chap3.html"><a href="chap3.html#sec3-11"><i class="fa fa-check"></i><b>3.11</b> Dunnett’s Procedure</a></li>
+<li class="chapter" data-level="3.12" data-path="chap3.html"><a href="chap3.html#sec3-12"><i class="fa fa-check"></i><b>3.12</b> 示例：与对照比较</a></li>
+<li class="chapter" data-level="3.13" data-path="chap3.html"><a href="chap3.html#sec3-13"><i class="fa fa-check"></i><b>3.13</b> 多元 <span class="math inline">\(t\)</span></a></li>
+<li class="chapter" data-level="3.14" data-path="chap3.html"><a href="chap3.html#sec3-14"><i class="fa fa-check"></i><b>3.14</b> 示例：线性独立比较</a></li>
+<li class="chapter" data-level="3.15" data-path="chap3.html"><a href="chap3.html#sec3-15"><i class="fa fa-check"></i><b>3.15</b> 序贯拒绝方法</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="chap3.html"><a href="chap3.html#sec3-15-1"><i class="fa fa-check"></i><b>3.15.1</b> Bonferroni–Holm Method</a></li>
+<li class="chapter" data-level="3.15.2" data-path="chap3.html"><a href="chap3.html#sec3-15-2"><i class="fa fa-check"></i><b>3.15.2</b> Šidák–Holm Method</a></li>
+<li class="chapter" data-level="3.15.3" data-path="chap3.html"><a href="chap3.html#sec3-15-3"><i class="fa fa-check"></i><b>3.15.3</b> 控制 FDR 的 Benjamini 和 Hochberg Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="chap3.html"><a href="chap3.html#sec3-16"><i class="fa fa-check"></i><b>3.16</b> 示例：线性相关比较</a></li>
+<li class="chapter" data-level="3.17" data-path="chap3.html"><a href="chap3.html#sec3-17"><i class="fa fa-check"></i><b>3.17</b> 多重极差检验</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="chap3.html"><a href="chap3.html#sec3-17-1"><i class="fa fa-check"></i><b>3.17.1</b> Student–Newman–Keul’s Method</a></li>
+<li class="chapter" data-level="3.17.2" data-path="chap3.html"><a href="chap3.html#sec3-17-2"><i class="fa fa-check"></i><b>3.17.2</b> Duncan’s New Multiple Range Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="chap3.html"><a href="chap3.html#sec3-18"><i class="fa fa-check"></i><b>3.18</b> Waller–Duncan Procedure</a></li>
+<li class="chapter" data-level="3.19" data-path="chap3.html"><a href="chap3.html#sec3-19"><i class="fa fa-check"></i><b>3.19</b> 示例：成对比较的多重极差</a></li>
+<li class="chapter" data-level="3.20" data-path="chap3.html"><a href="chap3.html#sec3-20"><i class="fa fa-check"></i><b>3.20</b> 警示</a></li>
+<li class="chapter" data-level="3.21" data-path="chap3.html"><a href="chap3.html#sec3-21"><i class="fa fa-check"></i><b>3.21</b> 结束语</a></li>
+<li class="chapter" data-level="3.22" data-path="chap3.html"><a href="chap3.html#sec3-22"><i class="fa fa-check"></i><b>3.22</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap3.html"><a href="chap3.html#参考文献"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap4.html"><a href="chap4.html"><i class="fa fa-check"></i><b>4</b> 实验设计基础</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap4.html"><a href="chap4.html#sec4-1"><i class="fa fa-check"></i><b>4.1</b> 介绍基本概念</a></li>
+<li class="chapter" data-level="4.2" data-path="chap4.html"><a href="chap4.html#sec4-2"><i class="fa fa-check"></i><b>4.2</b> 设计实验的结构</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap4.html"><a href="chap4.html#sec4-2-1"><i class="fa fa-check"></i><b>4.2.1</b> 设计结构类型</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap4.html"><a href="chap4.html#sec4-2-2"><i class="fa fa-check"></i><b>4.2.2</b> 处理结构类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap4.html"><a href="chap4.html#sec4-3"><i class="fa fa-check"></i><b>4.3</b> 不同设计实验的示例</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap4.html"><a href="chap4.html#sec4-3-1"><i class="fa fa-check"></i><b>4.3.1</b> 示例 4.1: 饮食</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap4.html"><a href="chap4.html#sec4-3-2"><i class="fa fa-check"></i><b>4.3.2</b> 示例 4.2: 房屋油漆</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap4.html"><a href="chap4.html#sec4-3-3"><i class="fa fa-check"></i><b>4.3.3</b> 示例 4.3: 钢板</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap4.html"><a href="chap4.html#sec4-3-4"><i class="fa fa-check"></i><b>4.3.4</b> 示例 4.4: 氮和钾的水平</a></li>
+<li class="chapter" data-level="4.3.5" data-path="chap4.html"><a href="chap4.html#sec4-3-5"><i class="fa fa-check"></i><b>4.3.5</b> 示例 4.5: 区组和重复</a></li>
+<li class="chapter" data-level="4.3.6" data-path="chap4.html"><a href="chap4.html#sec4-3-6"><i class="fa fa-check"></i><b>4.3.6</b> 示例 4.6：行区组和列区组</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap4.html"><a href="chap4.html#sec4-4"><i class="fa fa-check"></i><b>4.4</b> 结束语</a></li>
+<li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#sec4-5"><i class="fa fa-check"></i><b>4.5</b> 练习</a></li>
+<li class="chapter" data-level="" data-path="chap4.html"><a href="chap4.html#参考文献-1"><i class="fa fa-check"></i>参考文献</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> 多水平设计：裂区、条区、重复测量及其组合</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#sec5-1"><i class="fa fa-check"></i><b>5.1</b> 识别实验单元的尺寸——四种基本设计结构</a></li>
+<li class="chapter" data-level="5.2" data-path="chap5.html"><a href="chap5.html#sec5-2"><i class="fa fa-check"></i><b>5.2</b> 分层设计：一种多水平的设计结构</a></li>
+<li class="chapter" data-level="5.3" data-path="chap5.html"><a href="chap5.html#sec5-3"><i class="fa fa-check"></i><b>5.3</b> 裂区设计结构：两水平设计结构</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap5.html"><a href="chap5.html#sec5-3-1"><i class="fa fa-check"></i><b>5.3.1</b> 示例 5.1：烹饪大豆——最简单的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap5.html"><a href="chap5.html#sec5-3-2"><i class="fa fa-check"></i><b>5.3.2</b> 示例 5.2：磨小麦——通常的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap5.html"><a href="chap5.html#sec5-3-3"><i class="fa fa-check"></i><b>5.3.3</b> 示例 5.3：烘焙面包——具有不完全块设计结构的裂区</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chap5.html"><a href="chap5.html#sec5-3-4"><i class="fa fa-check"></i><b>5.3.4</b> 示例 5.4：展示柜中的肉——复杂裂区或四水平设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap5.html"><a href="chap5.html#sec5-4"><i class="fa fa-check"></i><b>5.4</b> 条区设计结构：一种无层次的多水平设计</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="chap5.html"><a href="chap5.html#sec5-4-1"><i class="fa fa-check"></i><b>5.4.1</b> 示例 5.5：制作奶酪</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap5.html"><a href="chap5.html#sec5-5"><i class="fa fa-check"></i><b>5.5</b> 重复测量设计</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chap5.html"><a href="chap5.html#sec5-5-1"><i class="fa fa-check"></i><b>5.5.1</b> 示例 5.6：马足——基本重复测量设计</a></li>
+<li class="chapter" data-level="5.5.2" data-path="chap5.html"><a href="chap5.html#sec5-5-2"><i class="fa fa-check"></i><b>5.5.2</b> 示例 5.7：舒适度研究——重复测量设计</a></li>
+<li class="chapter" data-level="5.5.3" data-path="chap5.html"><a href="chap5.html#示例-5.8交叉或转换设计"><i class="fa fa-check"></i><b>5.5.3</b> 示例 5.8：交叉或转换设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap5.html"><a href="chap5.html#sec5-6"><i class="fa fa-check"></i><b>5.6</b> 涉及嵌套因素的设计</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chap5.html"><a href="chap5.html#sec5-6-1"><i class="fa fa-check"></i><b>5.6.1</b> 示例 5.9：动物遗传学</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap5.html"><a href="chap5.html#sec5-6-2"><i class="fa fa-check"></i><b>5.6.2</b> 示例 5.10：大豆的生育期组</a></li>
+<li class="chapter" data-level="5.6.3" data-path="chap5.html"><a href="chap5.html#sec5-6-3"><i class="fa fa-check"></i><b>5.6.3</b> 示例 5.11：飞机引擎</a></li>
+<li class="chapter" data-level="5.6.4" data-path="chap5.html"><a href="chap5.html#sec5-6-4"><i class="fa fa-check"></i><b>5.6.4</b> 示例 5.12：简单的舒适度实验</a></li>
+<li class="chapter" data-level="5.6.5" data-path="chap5.html"><a href="chap5.html#sec5-6-5"><i class="fa fa-check"></i><b>5.6.5</b> 示例 5.13：重复测量的多地点研究</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap5.html"><a href="chap5.html#sec5-7"><i class="fa fa-check"></i><b>5.7</b> 结束语</a></li>
+<li class="chapter" data-level="5.8" data-path="chap5.html"><a href="chap5.html#sec5-8"><i class="fa fa-check"></i><b>5.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap6.html"><a href="chap6.html"><i class="fa fa-check"></i><b>6</b> 模型的矩阵形式</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap6.html"><a href="chap6.html#sec6-1"><i class="fa fa-check"></i><b>6.1</b> 基本符号</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>III 砍柴</b></span></li>
+<li class="chapter" data-level="7" data-path="chap7.html"><a href="chap7.html"><i class="fa fa-check"></i><b>7</b> 均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap7.html"><a href="chap7.html#sec7-1"><i class="fa fa-check"></i><b>7.1</b> 模型定义和假设</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap7.html"><a href="chap7.html#sec7-1-1"><i class="fa fa-check"></i><b>7.1.1</b> 均值模型</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap7.html"><a href="chap7.html#sec7-1-2"><i class="fa fa-check"></i><b>7.1.2</b> 效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap7.html"><a href="chap7.html#sec7-2"><i class="fa fa-check"></i><b>7.2</b> 参数估计</a></li>
+<li class="chapter" data-level="7.3" data-path="chap7.html"><a href="chap7.html#sec7-3"><i class="fa fa-check"></i><b>7.3</b> 交互作用及它们的重要性</a></li>
+<li class="chapter" data-level="7.4" data-path="chap7.html"><a href="chap7.html#sec7-4"><i class="fa fa-check"></i><b>7.4</b> 主效应</a></li>
+<li class="chapter" data-level="7.5" data-path="chap7.html"><a href="chap7.html#sec7-5"><i class="fa fa-check"></i><b>7.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="7.6" data-path="chap7.html"><a href="chap7.html#sec7-6"><i class="fa fa-check"></i><b>7.6</b> 结束语</a></li>
+<li class="chapter" data-level="7.7" data-path="chap7.html"><a href="chap7.html#sec7-7"><i class="fa fa-check"></i><b>7.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap8.html"><a href="chap8.html"><i class="fa fa-check"></i><b>8</b> 案例研究：均衡双向实验的完整分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap8.html"><a href="chap8.html#sec8-1"><i class="fa fa-check"></i><b>8.1</b> 主效应均值对比</a></li>
+<li class="chapter" data-level="8.2" data-path="chap8.html"><a href="chap8.html#sec8-2"><i class="fa fa-check"></i><b>8.2</b> 交互对比</a></li>
+<li class="chapter" data-level="8.3" data-path="chap8.html"><a href="chap8.html#sec8-3"><i class="fa fa-check"></i><b>8.3</b> 油漆铺路示例</a></li>
+<li class="chapter" data-level="8.4" data-path="chap8.html"><a href="chap8.html#sec8-4"><i class="fa fa-check"></i><b>8.4</b> 分析定量处理因素</a></li>
+<li class="chapter" data-level="8.5" data-path="chap8.html"><a href="chap8.html#sec8-5"><i class="fa fa-check"></i><b>8.5</b> 多重检验</a></li>
+<li class="chapter" data-level="8.6" data-path="chap8.html"><a href="chap8.html#sec8-6"><i class="fa fa-check"></i><b>8.6</b> 结束语</a></li>
+<li class="chapter" data-level="8.7" data-path="chap8.html"><a href="chap8.html#sec8-7"><i class="fa fa-check"></i><b>8.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap9.html"><a href="chap9.html"><i class="fa fa-check"></i><b>9</b> 使用均值模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap9.html"><a href="chap9.html#sec9-1"><i class="fa fa-check"></i><b>9.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="9.2" data-path="chap9.html"><a href="chap9.html#sec9-2"><i class="fa fa-check"></i><b>9.2</b> 参数估计</a></li>
+<li class="chapter" data-level="9.3" data-path="chap9.html"><a href="chap9.html#sec9-3"><i class="fa fa-check"></i><b>9.3</b> 检验所有均值是否相等</a></li>
+<li class="chapter" data-level="9.4" data-path="chap9.html"><a href="chap9.html#sec9-4"><i class="fa fa-check"></i><b>9.4</b> 交互作用和主效应假设</a></li>
+<li class="chapter" data-level="9.5" data-path="chap9.html"><a href="chap9.html#sec9-5"><i class="fa fa-check"></i><b>9.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="9.6" data-path="chap9.html"><a href="chap9.html#sec9-6"><i class="fa fa-check"></i><b>9.6</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="9.7" data-path="chap9.html"><a href="chap9.html#sec9-7"><i class="fa fa-check"></i><b>9.7</b> 结束语</a></li>
+<li class="chapter" data-level="9.8" data-path="chap9.html"><a href="chap9.html#sec9-8"><i class="fa fa-check"></i><b>9.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap10.html"><a href="chap10.html"><i class="fa fa-check"></i><b>10</b> 使用效应模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap10.html"><a href="chap10.html#sec10-1"><i class="fa fa-check"></i><b>10.1</b> 模型定义</a></li>
+<li class="chapter" data-level="10.2" data-path="chap10.html"><a href="chap10.html#sec10-2"><i class="fa fa-check"></i><b>10.2</b> 参数估计和 I 型分析</a></li>
+<li class="chapter" data-level="10.3" data-path="chap10.html"><a href="chap10.html#sec10-3"><i class="fa fa-check"></i><b>10.3</b> 在 SAS 中使用可估函数</a></li>
+<li class="chapter" data-level="10.4" data-path="chap10.html"><a href="chap10.html#sec10-4"><i class="fa fa-check"></i><b>10.4</b> I–IV 型假设</a></li>
+<li class="chapter" data-level="10.5" data-path="chap10.html"><a href="chap10.html#sec10-5"><i class="fa fa-check"></i><b>10.5</b> 在 SAS-GLM 中使用 I–IV 型可估函数</a></li>
+<li class="chapter" data-level="10.6" data-path="chap10.html"><a href="chap10.html#sec10-6"><i class="fa fa-check"></i><b>10.6</b> 总体边际均值与最小二乘均值</a></li>
+<li class="chapter" data-level="10.7" data-path="chap10.html"><a href="chap10.html#sec10-7"><i class="fa fa-check"></i><b>10.7</b> 计算机分析</a></li>
+<li class="chapter" data-level="10.8" data-path="chap10.html"><a href="chap10.html#sec10-8"><i class="fa fa-check"></i><b>10.8</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap11.html"><a href="chap11.html"><i class="fa fa-check"></i><b>11</b> 分析子类数不等的大型均衡双向实验</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap11.html"><a href="chap11.html#sec11-1"><i class="fa fa-check"></i><b>11.1</b> 可行性问题</a></li>
+<li class="chapter" data-level="11.2" data-path="chap11.html"><a href="chap11.html#sec11-2"><i class="fa fa-check"></i><b>11.2</b> 未加权均值法</a></li>
+<li class="chapter" data-level="11.3" data-path="chap11.html"><a href="chap11.html#sec11-3"><i class="fa fa-check"></i><b>11.3</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="11.4" data-path="chap11.html"><a href="chap11.html#sec11-4"><i class="fa fa-check"></i><b>11.4</b> 未加权均值的示例</a></li>
+<li class="chapter" data-level="11.5" data-path="chap11.html"><a href="chap11.html#sec11-5"><i class="fa fa-check"></i><b>11.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="11.6" data-path="chap11.html"><a href="chap11.html#sec11-6"><i class="fa fa-check"></i><b>11.6</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap12.html"><a href="chap12.html"><i class="fa fa-check"></i><b>12</b> 案例研究：子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="chap12.html"><a href="chap12.html#sec12-1"><i class="fa fa-check"></i><b>12.1</b> 脂肪-表面活性剂示例</a></li>
+<li class="chapter" data-level="12.2" data-path="chap12.html"><a href="chap12.html#sec12-2"><i class="fa fa-check"></i><b>12.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap13.html"><a href="chap13.html"><i class="fa fa-check"></i><b>13</b> 使用均值模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap13.html"><a href="chap13.html#sec13-1"><i class="fa fa-check"></i><b>13.1</b> 参数估计</a></li>
+<li class="chapter" data-level="13.2" data-path="chap13.html"><a href="chap13.html#sec13-2"><i class="fa fa-check"></i><b>13.2</b> 假设检验和置信区间</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="chap13.html"><a href="chap13.html#sec13-2-1"><i class="fa fa-check"></i><b>13.2.1</b> 示例 13.1</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="chap13.html"><a href="chap13.html#sec13-3"><i class="fa fa-check"></i><b>13.3</b> 计算机分析</a></li>
+<li class="chapter" data-level="13.4" data-path="chap13.html"><a href="chap13.html#sec13-4"><i class="fa fa-check"></i><b>13.4</b> 结束语</a></li>
+<li class="chapter" data-level="13.5" data-path="chap13.html"><a href="chap13.html#sec13-5"><i class="fa fa-check"></i><b>13.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap14.html"><a href="chap14.html"><i class="fa fa-check"></i><b>14</b> 使用效应模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap14.html"><a href="chap14.html#i-型和-ii-型假设"><i class="fa fa-check"></i><b>14.1</b> I 型和 II 型假设</a></li>
+<li class="chapter" data-level="14.2" data-path="chap14.html"><a href="chap14.html#iii-型假设"><i class="fa fa-check"></i><b>14.2</b> III 型假设</a></li>
+<li class="chapter" data-level="14.3" data-path="chap14.html"><a href="chap14.html#sec14-3"><i class="fa fa-check"></i><b>14.3</b> IV 型假设</a></li>
+<li class="chapter" data-level="14.4" data-path="chap14.html"><a href="chap14.html#sec14-4"><i class="fa fa-check"></i><b>14.4</b> 总体边际均值和最小二乘均值</a></li>
+<li class="chapter" data-level="14.5" data-path="chap14.html"><a href="chap14.html#sec14-5"><i class="fa fa-check"></i><b>14.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="14.6" data-path="chap14.html"><a href="chap14.html#sec14-6"><i class="fa fa-check"></i><b>14.6</b> 结束语</a></li>
+<li class="chapter" data-level="14.7" data-path="chap14.html"><a href="chap14.html#sec14-7"><i class="fa fa-check"></i><b>14.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="chap15.html"><a href="chap15.html"><i class="fa fa-check"></i><b>15</b> 案例研究：缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap15.html"><a href="chap15.html#sec15-1"><i class="fa fa-check"></i><b>15.1</b> 案例研究</a></li>
+<li class="chapter" data-level="15.2" data-path="chap15.html"><a href="chap15.html#sec15-2"><i class="fa fa-check"></i><b>15.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap16.html"><a href="chap16.html"><i class="fa fa-check"></i><b>16</b> 分析三向和高阶处理结构</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap16.html"><a href="chap16.html#sec16-1"><i class="fa fa-check"></i><b>16.1</b> 一般策略</a></li>
+<li class="chapter" data-level="16.2" data-path="chap16.html"><a href="chap16.html#sec16-2"><i class="fa fa-check"></i><b>16.2</b> 均衡和不均衡实验</a></li>
+<li class="chapter" data-level="16.3" data-path="chap16.html"><a href="chap16.html#sec16-3"><i class="fa fa-check"></i><b>16.3</b> I 型和 II 型分析</a></li>
+<li class="chapter" data-level="16.4" data-path="chap16.html"><a href="chap16.html#sec16-4"><i class="fa fa-check"></i><b>16.4</b> 结束语</a></li>
+<li class="chapter" data-level="16.5" data-path="chap16.html"><a href="chap16.html#sec16-5"><i class="fa fa-check"></i><b>16.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap17.html"><a href="chap17.html"><i class="fa fa-check"></i><b>17</b> 案例研究：具有许多缺失处理组合的三向处理结构</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap17.html"><a href="chap17.html#sec17-1"><i class="fa fa-check"></i><b>17.1</b> 营养评分示例</a></li>
+<li class="chapter" data-level="17.2" data-path="chap17.html"><a href="chap17.html#sec17-2"><i class="fa fa-check"></i><b>17.2</b> SAS-GLM 分析</a></li>
+<li class="chapter" data-level="17.3" data-path="chap17.html"><a href="chap17.html#sec17-3"><i class="fa fa-check"></i><b>17.3</b> 一个完整的分析</a></li>
+<li class="chapter" data-level="17.4" data-path="chap17.html"><a href="chap17.html#sec17-4"><i class="fa fa-check"></i><b>17.4</b> 结束语</a></li>
+<li class="chapter" data-level="17.5" data-path="chap17.html"><a href="chap17.html#sec17-5"><i class="fa fa-check"></i><b>17.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chap18.html"><a href="chap18.html"><i class="fa fa-check"></i><b>18</b> 随机效应模型和方差分量</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="chap18.html"><a href="chap18.html#sec18-1"><i class="fa fa-check"></i><b>18.1</b> 介绍</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="chap18.html"><a href="chap18.html#sec18-1-1"><i class="fa fa-check"></i><b>18.1.1</b> 示例 18.1：随机效应嵌套处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="chap18.html"><a href="chap18.html#sec18-2"><i class="fa fa-check"></i><b>18.2</b> 矩阵表示法中的一般随机效应模型</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="chap18.html"><a href="chap18.html#sec18-2-1"><i class="fa fa-check"></i><b>18.2.1</b> 示例 18.2：单向随机效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="chap18.html"><a href="chap18.html#sec18-3"><i class="fa fa-check"></i><b>18.3</b> 计算期望均方</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="chap18.html"><a href="chap18.html#sec18-3-1"><i class="fa fa-check"></i><b>18.3.1</b> 代数方法</a></li>
+<li class="chapter" data-level="18.3.2" data-path="chap18.html"><a href="chap18.html#sec18-3-2"><i class="fa fa-check"></i><b>18.3.2</b> Hartley 综合法的计算</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="chap18.html"><a href="chap18.html#sec18-4"><i class="fa fa-check"></i><b>18.4</b> 结束语</a></li>
+<li class="chapter" data-level="18.5" data-path="chap18.html"><a href="chap18.html#sec18-5"><i class="fa fa-check"></i><b>18.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap19.html"><a href="chap19.html"><i class="fa fa-check"></i><b>19</b> 方差分量的估计方法</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap19.html"><a href="chap19.html#sec19-1"><i class="fa fa-check"></i><b>19.1</b> 矩法</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="chap19.html"><a href="chap19.html#sec19-1-1"><i class="fa fa-check"></i><b>19.1.1</b> 应用。示例 19.1：不均衡单向模型</a></li>
+<li class="chapter" data-level="19.1.2" data-path="chap19.html"><a href="chap19.html#sec19-1-2"><i class="fa fa-check"></i><b>19.1.2</b> 示例 19.2：单向随机效应模型中的小麦品种</a></li>
+<li class="chapter" data-level="19.1.3" data-path="chap19.html"><a href="chap19.html#sec19-1-3"><i class="fa fa-check"></i><b>19.1.3</b> 示例 19.3：表 18.2 中的双向设计数据</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="chap19.html"><a href="chap19.html#sec19-2"><i class="fa fa-check"></i><b>19.2</b> 最大似然</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="chap19.html"><a href="chap19.html#sec19-2-1"><i class="fa fa-check"></i><b>19.2.1</b> 示例 19.4：均衡单向模型的最大似然解</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="chap19.html"><a href="chap19.html#sec19-3"><i class="fa fa-check"></i><b>19.3</b> 受限或残差最大似然估计</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="chap19.html"><a href="chap19.html#sec19-3-1"><i class="fa fa-check"></i><b>19.3.1</b> 示例 19.5：均衡单向模型的 REML 解</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="chap19.html"><a href="chap19.html#sec19-4"><i class="fa fa-check"></i><b>19.4</b> MIVQUE 法</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="chap19.html"><a href="chap19.html#sec19-4-1"><i class="fa fa-check"></i><b>19.4.1</b> 方法说明</a></li>
+<li class="chapter" data-level="19.4.2" data-path="chap19.html"><a href="chap19.html#sec19-4-2"><i class="fa fa-check"></i><b>19.4.2</b> 应用。示例 19.6：MIVQUE 用于不均衡单向设计</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="chap19.html"><a href="chap19.html#sec19-5"><i class="fa fa-check"></i><b>19.5</b> 使用 JMP 估计方差分量</a></li>
+<li class="chapter" data-level="19.6" data-path="chap19.html"><a href="chap19.html#sec19-6"><i class="fa fa-check"></i><b>19.6</b> 结束语</a></li>
+<li class="chapter" data-level="19.7" data-path="chap19.html"><a href="chap19.html#sec19-7"><i class="fa fa-check"></i><b>19.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap20.html"><a href="chap20.html"><i class="fa fa-check"></i><b>20</b> 方差分量的推断方法</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap20.html"><a href="chap20.html#sec20-1"><i class="fa fa-check"></i><b>20.1</b> 假设检验</a>
+<ul>
+<li class="chapter" data-level="20.1.1" data-path="chap20.html"><a href="chap20.html#sec20-1-1"><i class="fa fa-check"></i><b>20.1.1</b> 使用方差分析表</a></li>
+<li class="chapter" data-level="20.1.2" data-path="chap20.html"><a href="chap20.html#sec20-1-2"><i class="fa fa-check"></i><b>20.1.2</b> 示例 20.1：完全随机设计结构中的双向随机效应检验统计量</a></li>
+<li class="chapter" data-level="20.1.3" data-path="chap20.html"><a href="chap20.html#sec20-1-3"><i class="fa fa-check"></i><b>20.1.3</b> 示例 20.2：复杂三向随机效应检验统计量</a></li>
+<li class="chapter" data-level="20.1.4" data-path="chap20.html"><a href="chap20.html#sec20-1-4"><i class="fa fa-check"></i><b>20.1.4</b> 似然比检验</a></li>
+<li class="chapter" data-level="20.1.5" data-path="chap20.html"><a href="chap20.html#sec20-1-5"><i class="fa fa-check"></i><b>20.1.5</b> 示例 20.3：小麦品种——单向随机效应模型</a></li>
+<li class="chapter" data-level="20.1.6" data-path="chap20.html"><a href="chap20.html#sec20-1-6"><i class="fa fa-check"></i><b>20.1.6</b> 示例 20.4：不均衡双向</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="chap20.html"><a href="chap20.html#sec20-2"><i class="fa fa-check"></i><b>20.2</b> 构造置信区间</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="chap20.html"><a href="chap20.html#sec20-2-1"><i class="fa fa-check"></i><b>20.2.1</b> 残差方差 <span class="math inline">\(\sigma^2_\varepsilon\)</span></a></li>
+<li class="chapter" data-level="20.2.2" data-path="chap20.html"><a href="chap20.html#sec20-2-2"><i class="fa fa-check"></i><b>20.2.2</b> 一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="20.2.3" data-path="chap20.html"><a href="chap20.html#sec20-2-3"><i class="fa fa-check"></i><b>20.2.3</b> 方差分量函数的近似置信区间</a></li>
+<li class="chapter" data-level="20.2.4" data-path="chap20.html"><a href="chap20.html#sec20-2-4"><i class="fa fa-check"></i><b>20.2.4</b> 方差分量的 Wald 型置信区间</a></li>
+<li class="chapter" data-level="20.2.5" data-path="chap20.html"><a href="chap20.html#sec20-2-5"><i class="fa fa-check"></i><b>20.2.5</b> 一些精确的置信区间</a></li>
+<li class="chapter" data-level="20.2.6" data-path="chap20.html"><a href="chap20.html#sec20-2-6"><i class="fa fa-check"></i><b>20.2.6</b> 示例 20.5：均衡单向随机效应处理结构</a></li>
+<li class="chapter" data-level="20.2.7" data-path="chap20.html"><a href="chap20.html#sec20-2-7"><i class="fa fa-check"></i><b>20.2.7</b> 示例 20.6</a></li>
+<li class="chapter" data-level="20.2.8" data-path="chap20.html"><a href="chap20.html#sec20-2-8"><i class="fa fa-check"></i><b>20.2.8</b> 示例 20.6 （续）</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="chap20.html"><a href="chap20.html#sec20-3"><i class="fa fa-check"></i><b>20.3</b> 模拟研究</a></li>
+<li class="chapter" data-level="20.4" data-path="chap20.html"><a href="chap20.html#sec20-4"><i class="fa fa-check"></i><b>20.4</b> 结束语</a></li>
+<li class="chapter" data-level="20.5" data-path="chap20.html"><a href="chap20.html#sec20-5"><i class="fa fa-check"></i><b>20.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="chap21.html"><a href="chap21.html"><i class="fa fa-check"></i><b>21</b> 案例研究：随机效应模型分析</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="chap21.html"><a href="chap21.html#sec21-1"><i class="fa fa-check"></i><b>21.1</b> 数据集</a></li>
+<li class="chapter" data-level="21.2" data-path="chap21.html"><a href="chap21.html#sec21-2"><i class="fa fa-check"></i><b>21.2</b> 估计</a></li>
+<li class="chapter" data-level="21.3" data-path="chap21.html"><a href="chap21.html#sec21-3"><i class="fa fa-check"></i><b>21.3</b> 模型构建</a></li>
+<li class="chapter" data-level="21.4" data-path="chap21.html"><a href="chap21.html#sec21-4"><i class="fa fa-check"></i><b>21.4</b> 缩减模型</a></li>
+<li class="chapter" data-level="21.5" data-path="chap21.html"><a href="chap21.html#sec21-5"><i class="fa fa-check"></i><b>21.5</b> 置信区间</a></li>
+<li class="chapter" data-level="21.6" data-path="chap21.html"><a href="chap21.html#sec21-6"><i class="fa fa-check"></i><b>21.6</b> 使用 JMP 进行计算</a></li>
+<li class="chapter" data-level="21.7" data-path="chap21.html"><a href="chap21.html#sec21-7"><i class="fa fa-check"></i><b>21.7</b> 结束语</a></li>
+<li class="chapter" data-level="21.8" data-path="chap21.html"><a href="chap21.html#sec21-8"><i class="fa fa-check"></i><b>21.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="chap22.html"><a href="chap22.html"><i class="fa fa-check"></i><b>22</b> 混合模型的分析</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="chap22.html"><a href="chap22.html#sec22-1"><i class="fa fa-check"></i><b>22.1</b> 混合模型简介</a></li>
+<li class="chapter" data-level="22.2" data-path="chap22.html"><a href="chap22.html#sec22-2"><i class="fa fa-check"></i><b>22.2</b> 混合模型随机效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="chap22.html"><a href="chap22.html#sec22-2-1"><i class="fa fa-check"></i><b>22.2.1</b> 矩法</a></li>
+<li class="chapter" data-level="22.2.2" data-path="chap22.html"><a href="chap22.html#sec22-2-2"><i class="fa fa-check"></i><b>22.2.2</b> 最大似然方法</a></li>
+<li class="chapter" data-level="22.2.3" data-path="chap22.html"><a href="chap22.html#sec22-2-3"><i class="fa fa-check"></i><b>22.2.3</b> 残差最大似然法</a></li>
+<li class="chapter" data-level="22.2.4" data-path="chap22.html"><a href="chap22.html#sec22-2-4"><i class="fa fa-check"></i><b>22.2.4</b> MINQUE 法</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="chap22.html"><a href="chap22.html#sec22-3"><i class="fa fa-check"></i><b>22.3</b> 混合模型固定效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="chap22.html"><a href="chap22.html#sec22-3-1"><i class="fa fa-check"></i><b>22.3.1</b> 估计</a></li>
+<li class="chapter" data-level="22.3.2" data-path="chap22.html"><a href="chap22.html#sec22-3-2"><i class="fa fa-check"></i><b>22.3.2</b> 置信区间的构建</a></li>
+<li class="chapter" data-level="22.3.3" data-path="chap22.html"><a href="chap22.html#sec22-3-3"><i class="fa fa-check"></i><b>22.3.3</b> 假设检验</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="chap22.html"><a href="chap22.html#sec22-4"><i class="fa fa-check"></i><b>22.4</b> 最佳线性无偏预测</a></li>
+<li class="chapter" data-level="22.5" data-path="chap22.html"><a href="chap22.html#sec22-5"><i class="fa fa-check"></i><b>22.5</b> 混合模型方程组</a></li>
+<li class="chapter" data-level="22.6" data-path="chap22.html"><a href="chap22.html#sec22-6"><i class="fa fa-check"></i><b>22.6</b> 结束语</a></li>
+<li class="chapter" data-level="22.7" data-path="chap22.html"><a href="chap22.html#sec22-7"><i class="fa fa-check"></i><b>22.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="chap23.html"><a href="chap23.html"><i class="fa fa-check"></i><b>23</b> 案例研究：混合模型</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="chap23.html"><a href="chap23.html#sec23-1"><i class="fa fa-check"></i><b>23.1</b> 双向混合模型</a></li>
+<li class="chapter" data-level="23.2" data-path="chap23.html"><a href="chap23.html#sed23-2"><i class="fa fa-check"></i><b>23.2</b> 不均衡双向混合模型</a></li>
+<li class="chapter" data-level="23.3" data-path="chap23.html"><a href="chap23.html#sec23-3"><i class="fa fa-check"></i><b>23.3</b> 不均衡双向数据集的 JMP 分析</a></li>
+<li class="chapter" data-level="23.4" data-path="chap23.html"><a href="chap23.html#sec23-4"><i class="fa fa-check"></i><b>23.4</b> 结束语</a></li>
+<li class="chapter" data-level="23.5" data-path="chap23.html"><a href="chap23.html#sec23-5"><i class="fa fa-check"></i><b>23.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="chap24.html"><a href="chap24.html"><i class="fa fa-check"></i><b>24</b> 分析裂区型设计的方法</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="chap24.html"><a href="chap24.html#sec24-1"><i class="fa fa-check"></i><b>24.1</b> 介绍</a>
+<ul>
+<li class="chapter" data-level="24.1.1" data-path="chap24.html"><a href="chap24.html#sec24-1-1"><i class="fa fa-check"></i><b>24.1.1</b> 示例 24.1：面包配方和烘焙温度</a></li>
+<li class="chapter" data-level="24.1.2" data-path="chap24.html"><a href="chap24.html#sec24-1-2"><i class="fa fa-check"></i><b>24.1.2</b> 示例 24.2：在不同肥力条件下生长的小麦品种</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="chap24.html"><a href="chap24.html#sec24-2"><i class="fa fa-check"></i><b>24.2</b> 模型定义和参数估计</a></li>
+<li class="chapter" data-level="24.3" data-path="chap24.html"><a href="chap24.html#sec24-3"><i class="fa fa-check"></i><b>24.3</b> 均值间比较的标准误</a></li>
+<li class="chapter" data-level="24.4" data-path="chap24.html"><a href="chap24.html#sec24-4"><i class="fa fa-check"></i><b>24.4</b> 计算均值差标准误的一般方法</a>
+<ul>
+<li class="chapter" data-level="24.4.1" data-path="chap24.html"><a href="chap24.html#sec24-5"><i class="fa fa-check"></i><b>24.4.1</b> 通过一般对比进行比较</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="chap24.html"><a href="chap24.html#sec24-6"><i class="fa fa-check"></i><b>24.5</b> 其他示例</a>
+<ul>
+<li class="chapter" data-level="24.5.1" data-path="chap24.html"><a href="chap24.html#sec24-6-1"><i class="fa fa-check"></i><b>24.5.1</b> 示例 24.3：水分和肥料</a></li>
+<li class="chapter" data-level="24.5.2" data-path="chap24.html"><a href="chap24.html#sec24-6-2"><i class="fa fa-check"></i><b>24.5.2</b> 示例 24.4：具有裂区误差的回归</a></li>
+<li class="chapter" data-level="24.5.3" data-path="chap24.html"><a href="chap24.html#sec24-6-3"><i class="fa fa-check"></i><b>24.5.3</b> 示例 24.5：混乱的裂区设计</a></li>
+<li class="chapter" data-level="24.5.4" data-path="chap24.html"><a href="chap24.html#sec24-6-4"><i class="fa fa-check"></i><b>24.5.4</b> 示例 24.6：裂-裂区设计</a></li>
+</ul></li>
+<li class="chapter" data-level="24.6" data-path="chap24.html"><a href="chap24.html#sec24-7"><i class="fa fa-check"></i><b>24.6</b> 样本量和功效考虑</a></li>
+<li class="chapter" data-level="24.7" data-path="chap24.html"><a href="chap24.html#sec24-8"><i class="fa fa-check"></i><b>24.7</b> 使用 JMP 进行计算：示例 24.7</a></li>
+<li class="chapter" data-level="24.8" data-path="chap24.html"><a href="chap24.html#sec24-9"><i class="fa fa-check"></i><b>24.8</b> 结束语</a></li>
+<li class="chapter" data-level="24.9" data-path="chap24.html"><a href="chap24.html#sec24-10"><i class="fa fa-check"></i><b>24.9</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="chap25.html"><a href="chap25.html"><i class="fa fa-check"></i><b>25</b> 分析条区型设计的方法</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="chap25.html"><a href="chap25.html#sec25-1"><i class="fa fa-check"></i><b>25.1</b> 条区设计和模型的描述</a></li>
+<li class="chapter" data-level="25.2" data-path="chap25.html"><a href="chap25.html#sec25-2"><i class="fa fa-check"></i><b>25.2</b> 推断技术</a></li>
+<li class="chapter" data-level="25.3" data-path="chap25.html"><a href="chap25.html#sec25-3"><i class="fa fa-check"></i><b>25.3</b> 示例：氮与灌溉</a></li>
+<li class="chapter" data-level="25.4" data-path="chap25.html"><a href="chap25.html#sec25-4"><i class="fa fa-check"></i><b>25.4</b> 示例：含裂区的条区 1</a></li>
+<li class="chapter" data-level="25.5" data-path="chap25.html"><a href="chap25.html#sec25-5"><i class="fa fa-check"></i><b>25.5</b> 示例：含裂区的条区 2</a></li>
+<li class="chapter" data-level="25.6" data-path="chap25.html"><a href="chap25.html#sec25-6"><i class="fa fa-check"></i><b>25.6</b> 示例：含裂区的条区 3</a></li>
+<li class="chapter" data-level="25.7" data-path="chap25.html"><a href="chap25.html#sec25-7"><i class="fa fa-check"></i><b>25.7</b> 示例：含裂区的条区 4</a></li>
+<li class="chapter" data-level="25.8" data-path="chap25.html"><a href="chap25.html#sec25-8"><i class="fa fa-check"></i><b>25.8</b> 条-条区的设计与分析：基于 JMP7</a></li>
+<li class="chapter" data-level="25.9" data-path="chap25.html"><a href="chap25.html#sec25-9"><i class="fa fa-check"></i><b>25.9</b> 结束语</a></li>
+<li class="chapter" data-level="25.10" data-path="chap25.html"><a href="chap25.html#sec25-10"><i class="fa fa-check"></i><b>25.10</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="chap26.html"><a href="chap26.html"><i class="fa fa-check"></i><b>26</b> 分析重复测量实验的方法</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="chap26.html"><a href="chap26.html#sec26-1"><i class="fa fa-check"></i><b>26.1</b> 模型指定和理想条件</a></li>
+<li class="chapter" data-level="26.2" data-path="chap26.html"><a href="chap26.html#sec26-2"><i class="fa fa-check"></i><b>26.2</b> 时间的裂区分析</a>
+<ul>
+<li class="chapter" data-level="26.2.1" data-path="chap26.html"><a href="chap26.html#sec26-2-1"><i class="fa fa-check"></i><b>26.2.1</b> 示例 26.1：药物对心率的影响</a></li>
+<li class="chapter" data-level="26.2.2" data-path="chap26.html"><a href="chap26.html#sec26-2-2"><i class="fa fa-check"></i><b>26.2.2</b> 示例 26.2：一个复杂的舒适度实验</a></li>
+<li class="chapter" data-level="26.2.3" data-path="chap26.html"><a href="chap26.html#sec26-2-3"><i class="fa fa-check"></i><b>26.2.3</b> 示例 26.3：家庭态度</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="chap26.html"><a href="chap26.html#sec26-3"><i class="fa fa-check"></i><b>26.3</b> 使用 SAS-Mixed 程序的数据分析</a>
+<ul>
+<li class="chapter" data-level="26.3.1" data-path="chap26.html"><a href="chap26.html#sec26-3-1"><i class="fa fa-check"></i><b>26.3.1</b> 示例 26.1</a></li>
+<li class="chapter" data-level="26.3.2" data-path="chap26.html"><a href="chap26.html#sec26-3-2"><i class="fa fa-check"></i><b>26.3.2</b> 示例 26.2</a></li>
+<li class="chapter" data-level="26.3.3" data-path="chap26.html"><a href="chap26.html#sec26-3-3"><i class="fa fa-check"></i><b>26.3.3</b> 示例 26.3</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="chap26.html"><a href="chap26.html#sec26-4"><i class="fa fa-check"></i><b>26.4</b> 结束语</a></li>
+<li class="chapter" data-level="26.5" data-path="chap26.html"><a href="chap26.html#sec26-5"><i class="fa fa-check"></i><b>26.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>27</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>27.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="27.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>27.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="27.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>27.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="27.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>27.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="27.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>27.5</b> 小结</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">混乱数据分析：设计的实验</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap25" class="section level1 hasAnchor" number="25">
+<h1><span class="header-section-number">第 25 章</span> 分析条区型设计的方法<a href="chap25.html#chap25" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><strong>条区</strong> (strip-plot) 设计结构常用于实验单元以矩形排列的情况，例如田间、布料上或一摞笼子中。在第 <a href="chap5.html#chap5">5</a> 章中，条区设计被描述为基本设计结构之一，其分析细节在本章中进行讨论。当一个因素的水平应用于每个矩形的行 (row)，而另一个因素的水平应用于每个矩形的列 (column) 时，就形成了条区设计结构。因此，当处理方法不允许对实验单元进行单独处理，而是按组（如整行或整列的单元）进行处理时，这种设计非常有用。条区设计结构也适用于在一系列步骤中处理实验单元的实验，其中在每个步骤中一起处理一组实验单元。本章讨论了六个示例，以演示复杂设计结构的分析方法。第一个涉及灌溉和氮的水平的示例用于展示最简单条区设计的基本分析。其余大部分示例涉及条区设计与裂区设计结构的不同组合。最后一个示例涉及条-条区 (strip-strip-plot) 设计结构。</p>
+<div id="sec25-1" class="section level2 hasAnchor" number="25.1">
+<h2><span class="header-section-number">25.1</span> 条区设计和模型的描述<a href="chap25.html#sec25-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>条区设计结构类似于裂区设计结构，但实验单元构建方式不同。条区设计至少包含双向处理结构，其中基本实验单元以矩形集合的形式安排。每个矩形具有 a 行，其中 a 是第一因素（A）的水平数；同时具有 c 列，其中 c 是第二因素（C）的水平数。第一因素 A 的各个水平随机分配至矩形的各行，使得同一行内的所有实验单元接受相同的 A 水平，并一起进行处理。第二因素 C 的各个水平则随机分配至矩形的各列，使得同一列内的所有实验单元接受相同的 C 水平，并一起进行处理。图 <a href="chap25.html#fig:figure25-1">25.1</a> 展示了将 A 的各个水平分配给行以及将 C 的各个水平分配给列的示意图，在该图中共有 r 个矩形，代表被分区的重复 (blocked replicates). 这一分配过程生成了一种具有三种尺寸实验单元的设计。行是因子 A 的实验单元，列是因子 C 的实验单元，而单元格则是 A × C 交互作用的实验单元。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-1"></span>
+<img src="figure/figure%2025.1.png" alt="两个因子的水平分配给排列成矩形的实验单元的条（行和列）" width="629" />
+<p class="caption">
+图 25.1: 两个因子的水平分配给排列成矩形的实验单元的条（行和列）
+</p>
+</div>
+<p>可视化适当分析的一个简单方法是首先忽略因子 C 的各个水平，只观察那些将因子 A 的水平分配给各行的矩形，如图 <a href="chap25.html#fig:figure25-2">25.2</a> 所示。行设计由随机完全区组设计结构中的单向处理结构组成。可用于描述行设计数据的模型是</p>
+<p><span class="math display">\[y_{ik}=\mu_i^r+b_k^r+e_{ik}^r,\quad i=1,2,\ldots,a,\quad k=1,2,\ldots,r\]</span></p>
+<p>其中区组效应 <span class="math inline">\(b_k^r\thicksim i.i.d.N(0,\sigma_{\mathrm{block}}^2)\)</span>，行效应 <span class="math inline">\(e_{ik}^r\thicksim i.i.d.~N(0,\sigma_{\mathrm{row}}^2)\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-2"></span>
+<img src="figure/figure%2025.2.png" alt="将 A 的水平分配给每个矩形的行" width="469" />
+<p class="caption">
+图 25.2: 将 A 的水平分配给每个矩形的行
+</p>
+</div>
+<p>表 <a href="chap25.html#tab:table25-1">25.1</a> 给出了行设计的方差分析表，其中行误差项计算为 rectangle × A 交互作用。</p>
+<table>
+<caption>
+<span id="tab:table25-1">表 25.1: </span>条区设计结构行部分的方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.1.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>接下来，忽略因子 A 的各个水平，仅关注那些将因子 C 的水平分配给各列的矩形，如图 <a href="chap25.html#fig:figure25-3">25.3</a> 所示。列设计包含了在一个随机完全区组设计结构中的单向处理结构。可用于描述列设计数据的模型是</p>
+<p><span class="math display">\[y_{jk}=\mu_j^c+b_k^c+e_{jk}^c\quad i=1,2,\ldots,c,k=1,2,\ldots,r\]</span></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-3"></span>
+<img src="figure/figure%2025.3.png" alt="将 C 的水平分配给每个矩形的列" width="470" />
+<p class="caption">
+图 25.3: 将 C 的水平分配给每个矩形的列
+</p>
+</div>
+<p>其中区组效应 <span class="math inline">\(b_k^c\thicksim i.i.d.N(0,\sigma_{\mathrm{block}}^2)\)</span>，行效应 <span class="math inline">\(e_{ik}^c\thicksim i.i.d.~N(0,\sigma_{\mathrm{column}}^2)\)</span>. 列设计的方差分析表如表 <a href="chap25.html#tab:table25-2">25.2</a> 所示，其中列误差项计算为 rectangle × C 交互作用。因子 A 水平的比较是行间比较 (between-row comparisons)，因子 C 水平的比较则是列间比较 (between-column comparisons)，但 A × C 交互作用的测量是行内比较与列内比较。因此，测量 A × C 交互作用的实验单元的尺寸是与矩形内的单元相对应的行和列的交点<a href="#fn43" class="footnote-ref" id="fnref43"><sup>43</sup></a>。</p>
+<table>
+<caption>
+<span id="tab:table25-2">表 25.2: </span>条区设计结构列部分的方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.2.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>描述处理结构中具有两个因素的条区设计结构的模型是</p>
+<p><span class="math display">\[y_{ijk}=\mu+b_k+\alpha_i+r_{ik}+\gamma_j+c_{jk}+(\alpha\gamma)_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,c,\quad k=1,2,\ldots,r\]</span></p>
+<p>其中 <span class="math inline">\(\mu\)</span> 表示总均值效应，<span class="math inline">\(\alpha_i\)</span> 表示 A 的第 i 个水平的效应，<span class="math inline">\(\gamma_j\)</span> 表示 C 的第 j 个水平的效应，<span class="math inline">\((\alpha\gamma)_{ij}\)</span> 表示因子 A 和 C 的交互效应，<span class="math inline">\(b_k\)</span> 表示第 k 个区组的效应并假定 <span class="math inline">\(b_k\thicksim i.i.d.N(0,\sigma_{\mathrm{block}}^2)\)</span>，<span class="math inline">\(r_{ik}\)</span> 表示第 k 个区组内第 i 行的效应并假定 <span class="math inline">\(r_{ik}\thicksim i.i.d.N(0,\sigma_{\mathrm{row}}^2)\)</span>，<span class="math inline">\(c_{jk}\)</span> 表示第 k 个区组内第 j 列的效应并假定 <span class="math inline">\(c_{jk}\thicksim i.i.d.N(0,\sigma_{\mathrm{column}}^2)\)</span>，以及 <span class="math inline">\(\varepsilon_{ijk}\)</span> 表示第 k 个区组第 ij 个单元格的随机效应并假定 <span class="math inline">\({\varepsilon}_{ijk}\thicksim i.i.d.~N(0,{\sigma}_{\mathrm{cell}}^2)\)</span>. 此外，假设所有随机项都是独立分布的。</p>
+<table>
+<caption>
+<span id="tab:table25-3">表 25.3: </span>双向处理结构条区设计结构的方差表分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>行误差被计算为 A 与区组交互作用，列误差项被计算为 C 与区组交互作用，单元格误差项被计算为 A 与 C 与区组的三向交互作用。方差分析表如表 <a href="chap25.html#tab:table25-3">25.3</a> 所示，它是通过将表 <a href="chap25.html#tab:table25-1">25.1</a> 和 <a href="chap25.html#tab:table25-2">25.2</a> 中的条目与 AC交互作用和单元格误差项相结合而构建的。条区模型可以表示为均值模型，如下所示</p>
+<p><span class="math display">\[y_{ijk}=\mu_{ij}+b_k+r_{ik}+c_{jk}+\varepsilon_{ijk},\quad i=1,2,\ldots,a,j=1,2,\ldots,c,\quad k=1,2,\ldots,r\]</span></p>
+<p>其中 <span class="math inline">\(\mu_{ij}=\mu+\alpha_i+\gamma_j+(\alpha\gamma)_{ij}\)</span>.</p>
+<p>对于均衡的数据集，单元格均值的估计为 <span class="math inline">\(\hat{\mu}_{ij}=\bar{y}_{ij\cdot}\)</span>，涉及 <span class="math inline">\(\mu_{ij}\)</span> 的各种对比、总和或均值是通过取 <span class="math inline">\(\hat \mu_{ij}\)</span> 的相应对比、总和或均值来估计的。方差分量的矩法解是通过将表 <a href="chap25.html#tab:table25-3">25.3</a> 中的均方与预期均方相等而生成的方程组获得的</p>
+<p><span class="math display">\[\begin{aligned}
+\tilde{\sigma}_{\mathrm{cell}}^2&amp; =\text{MSError(cell)}  \\
+\tilde{{\sigma}}_{\mathrm{row}}^2&amp; =\frac{MSError(row)-MSError(cell)}c  \\
+\tilde{{\sigma}}_{\mathrm{column}}^2&amp; =\frac{MSError(column)-MSError(cell)}a  \\
+\tilde{{\sigma}}_{\mathrm{block}}^2&amp; =\frac{MSBlock-MSError(column)-MSError(row)+MSError(cell)}{ac}
+\end{aligned}\]</span></p>
+<p>方差分量的估计为</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{{\sigma}}_{\mathrm{cell}}^2&amp;= \tilde{{\sigma}}_{\mathrm{cell}}^2  \\
+\hat{\sigma}_{\mathrm{row}}^2&amp;= \begin{cases}\tilde{{\sigma}}_\mathrm{row}^2&amp;&amp;\mathrm{if~}\tilde{{\sigma}}_\mathrm{row}^2&gt;0\\0&amp;&amp;\mathrm{if~}\tilde{{\sigma}}_\mathrm{row}^2\leq0\end{cases}  \\
+\hat{{\sigma}}_{\mathrm{column}}^2&amp;= \begin{cases}\tilde{{\sigma}}_\mathrm{column}^2&amp;&amp;\mathrm{if~}\tilde{{\sigma}}_\mathrm{column}^2&gt;0\\0&amp;&amp;\mathrm{if~}\tilde{{\sigma}}_\mathrm{column}^2\leq0\end{cases}  \\
+\hat{{\sigma}}_{\mathrm{block}}^2&amp;= \begin{cases}{\tilde{\sigma}}_\mathrm{block}^2&amp;&amp;\mathrm{if~}{\tilde{\sigma}}_\mathrm{block}^2&gt;0\\0&amp;&amp;\mathrm{if~}{\tilde{\sigma}}_\mathrm{block}^2\leq0\end{cases}
+\end{aligned}\]</span></p>
+<p>在对该模型的参数进行推断时必须小心，因为该模型涉及三个误差项，每个实验单元尺寸对应一个误差项。下一节将讨论对假设的必要检验和在均值之间进行比较的适当标准误。</p>
+</div>
+<div id="sec25-2" class="section level2 hasAnchor" number="25.2">
+<h2><span class="header-section-number">25.2</span> 推断技术<a href="chap25.html#sec25-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>表 <a href="chap25.html#tab:table25-3">25.3</a> 中的期望均方列提供了构建检验统计量所需的信息，以推断因子的效应。为检验无交互假设 <span class="math inline">\(H_{0AC}\colon\mu_{ij}-\mu_{ij}-\mu_{ij}+\mu_{ij}=0\text{ for all }i\neq i&#39;\text{ and }j\neq j&#39;\text{ vs }H_{aAC}:\text{ (not }H_{0AC})\)</span>，将 A × C 均方除以 MSError(cell). 为检验因子 A 的等主效应均值假设 <span class="math inline">\(H_{0A}\colon\bar{{\mu}}_{1\cdot}=\bar{{\mu}}_{2\cdot}=\cdots=\bar{{\mu}}_{a\cdot}\mathrm{~vs~}H_{aA}{:}(\text{nоt }H_{0A})\)</span>，将因子 A 的均方除以 MSError(row). 为检验因子 C 的等主效应均值假设 <span class="math inline">\(H_{0C}\colon\bar{{\mu}}_{\cdot 1}=\bar{{\mu}}_{\cdot2}=\cdots=\bar{{\mu}}_{\cdot c}\mathrm{~vs~}H_{aC}{:}(\text{nоt }H_{0C})\)</span>，将因子 C 的均方除以 MSError(column).</p>
+<p>至于第 <a href="chap24.html#chap24">24</a> 章中讨论的裂区设计，其中有四个具有不同标准误的均值比较，而在条区设计中则存在六种具有不同标准误的均值比较。表 <a href="chap25.html#tab:table25-4">25.4</a> 给出了比较、比较的估计（基于均衡数据集）和比较方差。使用第 <a href="chap24.html#chap24">24</a> 章中描述的方法来获得单元格均值的每个对比的特定方差。为了演示这一点，两个均值差的方差，其中 A 和 C 的水平对于两个均值都不同，例如 <span class="math inline">\(\mu_{12}-\mu_{34}\)</span>，需要首先获得 <span class="math inline">\(\hat\mu_{ij}=\bar y_{ij\cdot}\)</span> 的模型表示，该表示为 <span class="math inline">\(\hat{{\mu}}_{ij}={\mu}_{ij}+\bar{{b}}_\cdot+\bar{{r}}_{i{\cdot}}+\bar{{c}}_{j{\cdot}}+\bar{{\varepsilon}}_{i{j}}\)</span>. 那么 <span class="math inline">\(\hat\mu_{12}-\hat\mu_{34}\)</span> 的模型为</p>
+<p><span class="math display">\[\hat{\mu}_{12}-\hat{\mu}_{34}=\bar{y}_{12\cdot}-\bar{y}_{34\cdot}=\mu_{12}-\mu_{34}+\bar{r}_{1\cdot}-\bar{r}_{3\cdot}+\bar{c}_{2\cdot}-\bar{c}_{4\cdot}+\bar{\varepsilon}_{12\cdot}-\bar{\varepsilon}_{34\cdot}\]</span></p>
+<table>
+<caption>
+<span id="tab:table25-4">表 25.4: </span>裂区设计的比较、估计和方差估计，其中 <span class="math inline">\(i \ne m\)</span> 和 <span class="math inline">\(j \ne n\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\mu_{12}-\mu_{34}\)</span> 的估计为 <span class="math inline">\(\bar y_{12\cdot}-\bar y_{34\cdot}\)</span>，<span class="math inline">\(\hat\mu_{12}-\hat\mu_{34}\)</span> 的方差为</p>
+<p><span class="math display">\[\begin{aligned}
+\mathrm{Var}(\hat{\mu}_{12}-\hat{\mu}_{34})&amp; =\mathrm{Var}(\bar{r}_1.-\bar{r}_3.+\bar{c}_2.-\bar{c}_4.+\bar{\varepsilon}_{12.}-\bar{\varepsilon}_{34.})  \\
+&amp;=\frac{2\sigma_\mathrm{row}^2}r+\frac{2\sigma_\mathrm{column}^2}r+\frac{2\sigma_\mathrm{cell}^2}r \\
+&amp;=\frac{2(\sigma_{\mathrm{cell}}^2+\sigma_{\mathrm{column}}^2+\sigma_{\mathrm{row}}^2)}{r}
+\end{aligned}\]</span></p>
+<p><span class="math inline">\(\hat\mu_{12}-\hat\mu_{34}\)</span> 方差估计为</p>
+<p><span class="math display">\[\widehat{\mathrm{Var}}(\hat\mu_{12}-\hat\mu_{34})
+=\frac{2(\hat\sigma_{\mathrm{cell}}^2+\hat\sigma_{\mathrm{column}}^2+\hat\sigma_{\mathrm{row}}^2)}{r}\]</span></p>
+<p>当 <span class="math inline">\(\tilde{\sigma}_{\mathrm{row}}^2&gt;0\)</span> 以及 <span class="math inline">\(\tilde{\sigma}_{\mathrm{column}}^2&gt;0\)</span> 时，该方差估计为</p>
+<p><span class="math display">\[\widehat{\mathrm{Var}}(\hat{\mu}_{12}-\hat{\mu}_{34})=\frac2{acb}\left[aMSError(row)+cMSError(column)+(ac-a-c)MSError(cell)\right]\]</span></p>
+<p>表 <a href="chap25.html#tab:table25-4">25.4</a> 给出了六种类型的比较、它们的估计及其相应的方差。表 <a href="chap25.html#tab:table25-5">25.5</a> 给出了比较的标准误估计，其中自由度对应于通过使用 Satterthwaite 近似计算的单个均方或均方组合的自由度，如下</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{{\omega}}_{1}&amp;=\frac{\left[MSError(column)+(c-1)MSError(cell)\right]^2}{\left[MSError(column)\right]^2}+\frac{\left[(c-1)MSError(cell)\right]^2}{(a-1)(c-1)(r-1)} \\
+\hat{{\omega}} _2&amp;=\frac{[MSError(row)+(a-1)MSError(cell)]^2}{\frac{[MSError(row)]^2}{(a-1)(r-1)}+\frac{[(a-1)MSError(cell)]^2}{(a-1)(c-1)(r-1)}} \\
+\hat{{\omega}}_{3} &amp;=\frac{[aMSError(row)+cMSError(column)+(ac-a-c)MSError(cell)]^2}{\frac{[aMSError(row)]^2}{(a-1)(r-1)}+\frac{[cMSError(column)]^2}{(c-1)(r-1)}+\frac{[(ac-a-c)MSError(cell)]^2}{(a-1)(c-1)(r-1)}}
+\end{aligned}\]</span></p>
+<table>
+<caption>
+<span id="tab:table25-5">表 25.5: </span>裂区设计比较的标准误估计，附带相关自由度，其中 <span class="math inline">\(i \ne m\)</span> 和 <span class="math inline">\(j \ne n\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>当有缺失的数据时，根据缺失数据的模式，会有更多不同类型的标准误。</p>
+</div>
+<div id="sec25-3" class="section level2 hasAnchor" number="25.3">
+<h2><span class="header-section-number">25.3</span> 示例：氮与灌溉<a href="chap25.html#sec25-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-4"></span>
+<img src="figure/figure%2025.4.png" alt="氮肥和灌溉条区的田间布局、处理分配和数据" width="466" />
+<p class="caption">
+图 25.4: 氮肥和灌溉条区的田间布局、处理分配和数据
+</p>
+</div>
+<p>一项实验被开展以研究两种灌溉方法 (irrigation) 及三个不同氮肥 (nitrogen) 水平对小麦产量的影响和关系。实验采用四个区组或矩形布局，并按照随机化方案分配处理，其产量结果见图 <a href="chap25.html#fig:figure25-4">25.4</a> 所示。这些数据的 SAS<sup>®</sup>-Mixed 代码以及 III 型平方和分析的方差分析表见表 <a href="chap25.html#tab:table25-6">25.6</a>。比较氮肥水平、比较灌溉方法水平以及评估氮肥与灌溉交互作用的 <span class="math inline">\(F\)</span> 值分别为 60.13, 52.18 和 33.12. 这六种比较类型的标准误估计及其相应的自由度或近似自由度在表 <a href="chap25.html#tab:table25-7">25.7</a> 中给出。最后三项比较涉及误差项的组合，因此自由度进行了近似计算。表 <a href="chap25.html#tab:table25-8">25.8</a> 给出了用于提供方差分量的 REML 估计的 SAS-Mixed 代码，同时还提供了方差分量的估计。固定效应检验的结果显示在表 <a href="chap25.html#tab:table25-9">25.9</a> 中。表 <a href="chap25.html#tab:table25-9">25.9</a> 中的结果与表 <a href="chap25.html#tab:table25-6">25.6</a> 中 III 型分析的结果一致。由于数据集是均衡的，并且方差分量的所有估计均大于零，这些检验结果是一致的。表 <a href="chap25.html#tab:table25-7">25.7</a> 中用于比较氮肥水平、灌溉水平以及其他四种比较类型的 SAS-Mixed 代码及 estimate 语句在表 <a href="chap25.html#tab:table25-10">25.10</a> 中给出。再次强调，这里有六种不同类型的比较，且每种都有各自的标准误估计。</p>
+<table>
+<caption>
+<span id="tab:table25-6">表 25.6: </span>为氮肥和灌溉示例提供 III 型平方和分析的 SAS-Mixed 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.6.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-7">表 25.7: </span>氮肥和灌溉数据的六个比较、标准误估计和自由度，其中 <span class="math inline">\(i \ne m\)</span> 和 <span class="math inline">\(j \ne n\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-8">表 25.8: </span>为氮肥和灌溉示例提供 REML 分析的 SAS-Mixed 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-9">表 25.9: </span>氮肥和灌溉示例 REML 分析的固定效应检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.9.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-10">表 25.10: </span>在 SAS-Mixed REML 分析中使用 Estimate 语句来评估六种类型的比较
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.10.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>涉及多个尺寸实验单元设计的推断问题之一是，单元格均值的各种比较涉及不同的标准误估计。不可能通过提供单一的 LSD 值来总结这些类型的数据，就像完全随机和随机完全区组设计结构的情况一样</strong>。</p>
+</div>
+<div id="sec25-4" class="section level2 hasAnchor" number="25.4">
+<h2><span class="header-section-number">25.4</span> 示例：含裂区的条区 1<a href="chap25.html#sec25-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-5"></span>
+<img src="figure/figure%2025.5.png" alt="田间区组之一的布局，氮肥和灌溉为条区，品种为裂区" width="351" />
+<p class="caption">
+图 25.5: 田间区组之一的布局，氮肥和灌溉为条区，品种为裂区
+</p>
+</div>
+<p>第 <a href="chap25.html#sec25-3">25.3</a> 节中的设计可以扩展到每个单元格内有三种小麦品种 (varieties) 的情况，如图 25.5 所示。图 <a href="chap25.html#fig:figure25-5">25.5</a> 中没有显示随机化过程，但实际上，灌溉水平被随机分配到矩形的列，氮肥水平被随机分配到矩形的行，而品种则被随机分配到由每个矩形内部行与列相交形成的单元格内的三个区 (plots) 中。如果对品种水平进行平均，则氮肥与灌溉的分析结果与表 <a href="chap25.html#tab:table25-3">25.3</a> 或表 <a href="chap25.html#tab:table25-6">25.6</a> 中的结果相同。品种水平是每个单元格内的子区 (subplots)，品种的任何比较都是单元格内或子区间比较 (within-cell or between-subplot comparisons). 可用于描述该数据的模型是</p>
+<p><span class="math display">\[y_{ijkl}=\mu_{ijk}+b_l+r_{il}+c_{jl}+d_{ijl}+\varepsilon_{ijkl},\quad i=1,2,j=1,2,3,k=1,2,3,l=1,2,3,4\]</span></p>
+<p>其中 <span class="math inline">\(\mu_{ijk}\)</span> 表示第 i 种灌溉，第 j 种氮肥和第 k 种品种的均值，<span class="math inline">\(b_l\)</span> 表示第 l 个区组（矩形）的效应并假设 <span class="math inline">\(b_l\sim i.i.d.N(0,\sigma_{\mathrm{block}}^2)\)</span>，<span class="math inline">\(c_{jl}\)</span> 表示第 l 个区组内第 i 行的效应并假设 <span class="math inline">\(c_{jl}\sim i.i.d.N(0,\sigma_{\mathrm{column}}^2)\)</span>，<span class="math inline">\(d_{ijl}\)</span> 与第 l 个区组内第 ij 个单元格相关的随机效应 <span class="math inline">\(d_{ijl}\sim i.i.d.N(0,\sigma_{\mathrm{cell}}^2)\)</span>，以及 <span class="math inline">\(\varepsilon_{ijkl}\)</span> 与分配给第 l 个区组内第 ij 个单元格的第 k 种品种相关的子区随机效应并假设 <span class="math inline">\({\varepsilon}_{ijkl}\thicksim i.i.d.N(0,{\sigma}_{\mathrm{subplot}}^2)\)</span>. 表 <a href="chap25.html#tab:table25-11">25.11</a> 给出了该模型的方差分析，表 <a href="chap25.html#tab:table25-12">25.12</a> 给出了可用于拟合该模型的 SAS-Mixed 代码。行误差项是 block × nit，列误差项是 block × irr，单元格误差是 block × nit × irr. 残差是子区误差项，是通过 variety 与 block 交互作用来计算的，其中合并了所有 nit 和 irr 的水平 (the variety by block interaction pooled across the levels of nit and irr).</p>
+<table>
+<caption>
+<span id="tab:table25-11">表 25.11: </span>含裂区的条区设计结构方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.11.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-12">表 25.12: </span>为第 <a href="chap25.html#sec25-4">25.4</a> 节中的条-裂区 (strip-split-plot) 数据集拟合模型的 SAS-Mixed 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.12.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec25-5" class="section level2 hasAnchor" number="25.5">
+<h2><span class="header-section-number">25.5</span> 示例：含裂区的条区 2<a href="chap25.html#sec25-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-6"></span>
+<img src="figure/figure%2025.6.png" alt="田间区组之一的布局，氮肥和灌溉为条区，品种为氮肥水平的裂区，品种在灌溉水平下构成了条区" width="332" />
+<p class="caption">
+图 25.6: 田间区组之一的布局，氮肥和灌溉为条区，品种为氮肥水平的裂区，品种在灌溉水平下构成了条区
+</p>
+</div>
+<p>另一种（不同于第 <a href="chap25.html#sec25-4">25.4</a> 节所述的）将品种水平纳入研究的方法在图 <a href="chap25.html#fig:figure25-6">25.6</a> 中展示。在每个氮肥水平下，品种水平跨越了灌溉的两个水平。品种水平是氮肥水平的子区，但品种水平和氮肥水平在灌溉水平下构成了条区<a href="#fn44" class="footnote-ref" id="fnref44"><sup>44</sup></a>。通过在每个单元格内合并品种水平，得到的灌溉与氮肥的分析结果与第 <a href="chap25.html#sec25-3">25.3</a> 节中的相同。设计中氮肥与品种部分可通过在每个氮肥品种组合内合并灌溉水平来获得。由此产生的设计是一个裂区设计，其中氮肥水平构成整区因子，品种水平构成子区因子。裂区分析的方差表在表 <a href="chap25.html#tab:table25-13">25.13</a> 中展示。整区误差与行误差相同，计算为区组与氮肥交互作用。子区或子行 (subrow) 或 1/3 行误差计算为 block × variety 交互作用，其中合并了所有灌溉水平。接下来考虑仅来自氮肥水平 1 的数据。在这种情况下，得到的设计是一个涉及灌溉和品种水平的条区设计。对应的条区方差分析表在表 <a href="chap25.html#tab:table25-14">25.14</a> 中列出。我们感兴趣的误差项是品种与灌溉交点处的子单元格 (subcell) 误差，这被计算为 block × irrigation × variety 交互作用，具有 6 个自由度。这些误差在氮肥水平之间进行合并，产生了 18 个自由度。nitrogen × irrigation × variety 交互作用也是一个子单元格比较。因此，block × nitrogen × irrigation × variety 交互作用提供了额外的 12 个子单元格误差自由度，使子单元格误差项共有 30 个自由度。表 <a href="chap25.html#tab:table25-15">25.15</a> 中的方差分析表展示了变异源及其相应的自由度。</p>
+<table>
+<caption>
+<span id="tab:table25-13">表 25.13: </span>第 <a href="chap25.html#sec25-5">25.5</a> 节中示例分析的裂区部分
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.13.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-14">表 25.14: </span>第 <a href="chap25.html#sec25-5">25.5</a> 节中氮肥第一水平的灌溉和品种数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.14.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-15">表 25.15: </span>第 <a href="chap25.html#sec25-5">25.5</a> 节条-裂区 (strip-split-plot) 设计的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.15.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec25-6" class="section level2 hasAnchor" number="25.6">
+<h2><span class="header-section-number">25.6</span> 示例：含裂区的条区 3<a href="chap25.html#sec25-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-7"></span>
+<img src="figure/figure%2025.7.png" alt="田间区组之一的图形：行分配了除草剂和氮肥的不同水平，列分配了品种的不同水平，单元格分配了播撒率的不同水平" width="467" />
+<p class="caption">
+图 25.7: 田间区组之一的图形：行分配了除草剂和氮肥的不同水平，列分配了品种的不同水平，单元格分配了播撒率的不同水平
+</p>
+</div>
+<p>图 <a href="chap25.html#fig:figure25-7">25.7</a> 显示，三个品种被分配到矩形的列，除草剂 (herbicide) 和氮的组合被分配到矩形的行，播撒率 (seeding rates) 的水平被分配到单元格内的子区。假设设计由四个这样的区组组成。品种形成氮和除草剂水平组合的条区<a href="#fn45" class="footnote-ref" id="fnref45"><sup>45</sup></a>，播撒率是单元格内的子区。行的双向处理结构是该设计的独特之处。该结构指出，<strong>任何类型的处理结构都可以与设计结构的任何特征相关联</strong>。方差分析表列于表 <a href="chap25.html#tab:table25-16">25.16</a> 中，其中行误差是通过合并 block × herbicide, block c nitrogen 和 block × herbicide × nitrogen 交互作用来计算的，提供九个自由度。列误差项由 block × variety 交互作用计算。单元格误差项是通过合并 block × variety × herbicide, block × variety × nitrogen 和 block × variety × herbicide × nitrogen 交互作用来计算的，这些为单元格误差项提供了 18 个自由度。子区误差是通过计算每个 herbicide, nitrogen 和 variaty 组合的 block × seeding 交互作用得到的，然后跨 herbicide, nitrogen 和 variety 的水平合并这些交互作用<a href="#fn46" class="footnote-ref" id="fnref46"><sup>46</sup></a>，为残差提供 72 个自由度。</p>
+<table>
+<caption>
+<span id="tab:table25-16">表 25.16: </span>第 <a href="chap25.html#sec25-5">25.5</a> 节条-条区设计的方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.16.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec25-7" class="section level2 hasAnchor" number="25.7">
+<h2><span class="header-section-number">25.7</span> 示例：含裂区的条区 4<a href="chap25.html#sec25-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-8"></span>
+<img src="figure/figure%2025.8.png" alt="田间区组之一的布局，将品种和播种率作为整区，将条区中的除草剂和氮肥水平作为子区" width="420" />
+<p class="caption">
+图 25.8: 田间区组之一的布局，将品种和播种率作为整区，将条区中的除草剂和氮肥水平作为子区
+</p>
+</div>
+<p>这个实验涉及研究两种品种、两种播撒率、两种除草剂和两种氮肥对玉米产量的影响。图 <a href="chap25.html#fig:figure25-8">25.8</a> 显示了实验单元的四个区组中的一个是如何处理的。品种和播撒率的水平被分配给每个区组内的四个大方块 (squares). 在每个方块内，除草剂和氮肥的水平形成一个条区。条区部分是大方块的子区。如果忽略氮肥和除草剂的水平，品种和播撒率的设计是一个随机完全区组设计结构中的双向处理结构。误差项通过处理结构与区组交互作用计算，其中合并了 block × variety, block × seeding rate 和 block × variety × seeding rate 交互作用得出，共提供 9 个自由度。可以在 SAS-Mixed 中使用 variety × seeding × block 获得大区组 (big block) 误差项，该程序将自动进行合并。表 <a href="chap25.html#tab:table25-17">25.17</a> 给出了大区组部分的方差分析表。对于品种 1 和播撒率 1，除草剂和氮肥的水平提供了一个条区设计，其方差分析总结在表 <a href="chap25.html#tab:table25-18">25.18</a> 中。误差项是通过合并品种和播撒率的四种组合得出的，为 Error(row/block)（区组内行的误差）, Error(column/block)（区组内列的误差）和 Error(cell/block)（区组内单元格的误差）提供了 12 个自由度。SAS-Mixed 代码和完整的方差分析表显示在表 <a href="chap25.html#tab:table25-19">25.19</a> 中。误差项的计算方法如下：Error(big squares) = Variety × Seeding × Block, Error(row/ block) = Herbicide × Block(Variety Seeding), Error(column/block) = Nitrogen × Block(Variety Seeding), and Error(cell/block) = Nitrogen × Herbicide × Block(Variety Seeding).</p>
+<table>
+<caption>
+<span id="tab:table25-17">表 25.17: </span>第 <a href="chap25.html#sec25-7">25.7</a> 节中示例的大区组方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.17.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-18">表 25.18: </span>第 <a href="chap25.html#sec25-7">25.7</a> 节中示例，来自品种 1 和播撒率 1 的除草剂和氮肥数据的条区方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.18.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table25-19">表 25.19: </span>第 <a href="chap25.html#sec25-7">25.7</a> 节示例中裂区中的条区的 SAS Mixed 代码和方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.19.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec25-8" class="section level2 hasAnchor" number="25.8">
+<h2><span class="header-section-number">25.8</span> 条-条区的设计与分析：基于 JMP7<a href="chap25.html#sec25-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-9"></span>
+<img src="figure/figure%2025.9.png" alt="应用温度、清洁和冲洗水平的过程" width="470" />
+<p class="caption">
+图 25.9: 应用温度、清洁和冲洗水平的过程
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-10"></span>
+<img src="figure/figure%2025.10.png" alt="三维矩形展示：清洁水平的分配给行，冲洗水平分配给列，温度水平分配给层。数字对应于图 \@ref(fig:figure25-9) 中的硅片编号" width="454" />
+<p class="caption">
+图 25.10: 三维矩形展示：清洁水平的分配给行，冲洗水平分配给列，温度水平分配给层。数字对应于图 <a href="chap25.html#fig:figure25-9">25.9</a> 中的硅片编号
+</p>
+</div>
+<p>当实验单元被组织成具有行、列和层 (tiers) 的三维矩形时，就会出现条形-条形-图设计结构。半导体行业的某个实验被用来演示条-条区 (split-split plot) 设计结构。该实验包括评估三个因素，每个因素在各自独立的工艺步骤中出现；也就是说，该实验涉及三个步骤。第一步是在硅片 (silicon wafer)（直径 20 厘米，厚度 0.2 厘米）表面添加一层氧化物。通过将硅片放入设定特定温度的炉子中，对硅片表面施加氧化层。研究了两种温度水平。第二步是对硅片表面进行抛光 (polishing) 或清洁 (cleaning)，以消除可能产生的任何凸起，评估了两种清洗方法。最后，第三步涉及冲洗 (washing off) 表面残留颗粒，这些颗粒可能会对正在构建的电路造成干扰。实验中包含了两种冲洗方法。在每个步骤中，均有四片硅片一同接受相应因素的处理。图 <a href="chap25.html#fig:figure25-9">25.9</a> 的示意图展示了八片硅片如何经过这三个步骤以及在每个步骤中硅片是如何分组的。图 <a href="chap25.html#fig:figure25-10">25.10</a> 是一个三维展示图，其中清洁的水平被分配到行，清洁后冲洗的水平被分配到列，温度的水平被分配到层。该研究重复了四次，产生了四个区组。清洁水平的实验单元是区组内的行，并且行误差项计算为 clean × block 交互作用。冲洗水平的实验单元是区组内的列，并且列误差项计算为 wash × block 交互作用。如果对温度水平进行求和，所得结构就是以清洁和冲洗作为两个因素的条区设计。清洁与冲洗交互作用的实验单元是来自两种温度下的两片硅片，而这两片硅片的误差计算为 clean × wash × block 的交互作用。温度水平的实验单元是三维矩形的层。层误差项计算为 temperature × block 交互作用。如果对清洁水平进行求和，所得结构就是以温度和冲洗作为两个因素的条区设计。温度与冲洗交互作用的实验单元是来自两个清洁水平的硅片，其误差项计算为 temperature × wash × block 交互作用。如果对冲洗水平进行求和，所得结构就是以温度和清洁作为两因素的条区。温度与清洁交互作用的实验单元是来自两个冲洗水平的两个硅片，并且两个冲洗硅片的误差计算为 temperature × clean × block 交互作用。测量温度、清洁与冲洗交互作用的实验单元是单个硅片，硅片误差计算为 temperature × clean × wash × block 交互作用。测量的响应是经三个步骤后在每个硅片上的九个位置（以埃为单位）测量的所得氧化物层的平均厚度。可用于描述厚度数据的模型是</p>
+<p><span class="math display">\[y_{ijkl}=\mu_{ijk}+b_l+r_{il}+c_{jl}+t_{kl}+w_{ijl}^{2W}+w_{ikl}^{2C}+w_{jkl}^{2T}+\varepsilon_{ijkl},\quad i=1,2,j=1,2,k=1,2,l=1,2,3,4\]</span></p>
+<p><span class="math inline">\(\mu_{ijk}\)</span> 表示经水平 i 温度、水平 j 清洁和水平 k 冲洗的平均厚度，以及</p>
+<p><span class="math display">\[\begin{aligned}&amp;b_{l}\sim i.i.d.N(0,\sigma_{\mathrm{block}}^{2}),\quad r_{il}\sim i.i.d.N(0,\sigma_{\mathrm{row}}^{2}),\quad c_{jl}\sim i.i.d.N(0,\sigma_{\mathrm{column}}^{2})\\&amp;t_{kl}\sim i.i.d.N(0,\sigma_{\mathrm{tier}}^{2}),\quad w_{ijl}^{2W}\sim i.i.d.N(0,\sigma_{2\text{washwafer}}^{2})\\&amp;w_{ikl}^{2\text{С}} \sim i . i . d . N ( 0 , \sigma _ { 2\text{cleanwafer}}^{2}),\quad w_{jkl}^{2T}\sim i.i.d.N(0,\sigma_{2\text{tempwafer}r}^{2})\end{aligned}\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\varepsilon_{ijkl}\sim i.i.d.~N(0,\sigma_{\mathrm{wafer}}^2)\]</span></p>
+<p>方差分析在表 <a href="chap25.html#tab:table25-20">25.20</a> 中给出，其中 w, 2Tw, 2Cw 和 2Ww 分别表示硅片、两个温度硅片、两个清洁硅片和两个冲洗硅片。每个因子效应都有自己的一组实验单元和相应的误差项。</p>
+<table>
+<caption>
+<span id="tab:table25-20">表 25.20: </span>第 <a href="chap25.html#sec25-8">25.8</a> 节条-条区设计的方差分析
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2025.20.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>图 <a href="chap25.html#fig:figure25-11">25.11</a> 包含了数据集，而图 <a href="chap25.html#fig:figure25-12">25.12</a> 是 JMP model specification 界面。通过使用 Attributes 按钮，将所有涉及 block 的交互作用定义为随机效应。图 <a href="chap25.html#fig:figure25-13">25.13</a> 展示了固定效应的 REML 方差成分估计以及 III 型检验结果。存在显著的 temperature × clean × wash 交互作用，因此需要评估这些单元格均值。图 <a href="chap25.html#fig:figure25-14">25.14</a> 给出了三向交互作用的最小二乘均值以及表示显著差异的字母标记。查看三向交互作用均值两两比较的另一种方式是绘制所有两两差值，从最大到最小排序，并附带差异的置信区间。图 <a href="chap25.html#fig:figure25-15">25.15</a> 是两两差异的展示。由于差异的方差取决于比较类型，所以置信区间的宽度不全相等。相比于表 <a href="chap25.html#tab:table25-4">25.4</a> 中展示的条区设计的不同方差数量，条-条区设计的不同方差数量要多得多。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-11"></span>
+<img src="figure/figure%2025.11.png" alt="第 \@ref(sec25-8) 节中示例的三步过程的数据集" width="539" />
+<p class="caption">
+图 25.11: 第 <a href="chap25.html#sec25-8">25.8</a> 节中示例的三步过程的数据集
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-12"></span>
+<img src="figure/figure%2025.12.png" alt="第 \@ref(sec25-8) 节中示例的三步过程的 fit model 界面" width="618" />
+<p class="caption">
+图 25.12: 第 <a href="chap25.html#sec25-8">25.8</a> 节中示例的三步过程的 fit model 界面
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-13"></span>
+<img src="figure/figure%2025.13.png" alt="三步过程的方差分量估计和固定效应检验" width="652" />
+<p class="caption">
+图 25.13: 三步过程的方差分量估计和固定效应检验
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-14"></span>
+<img src="figure/figure%2025.14.png" alt="带字母标记的三向最小二乘均值" width="364" />
+<p class="caption">
+图 25.14: 带字母标记的三向最小二乘均值
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure25-15"></span>
+<img src="figure/figure%2025.15.png" alt="三步过程的三向最小二乘均值差异的图形表示" width="549" />
+<p class="caption">
+图 25.15: 三步过程的三向最小二乘均值差异的图形表示
+</p>
+</div>
+</div>
+<div id="sec25-9" class="section level2 hasAnchor" number="25.9">
+<h2><span class="header-section-number">25.9</span> 结束语<a href="chap25.html#sec25-9" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>条区设计是一种基本的设计结构，本章讨论的例子说明了可能出现的一些复杂性。包含多个例子是为了让读者能够掌握一种针对复杂设计进行恰当分析的方法。<strong>条区设计结构被用来展示仅仅通过向实验单元分配因子水平的方式，就能产生多种尺寸的实验单元</strong>。对基本条区进行了分析，以演示在进行各种均值比较时计算标准误估计的复杂性。显然，随着设计的复杂化，有许多不同的标准误需要评估，条区和裂区的组合设计以及条条区设计都证明了这一点。样本量和功效计算可以使用第 <a href="chap25.html#chap25">25</a> 章中描述的方法，并结合所关注比较的标准误估计来进行。</p>
+</div>
+<div id="sec25-10" class="section level2 hasAnchor" number="25.10">
+<h2><span class="header-section-number">25.10</span> 练习<a href="chap25.html#sec25-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="43">
+<li id="fn43"><p>原文：Thus the size of the experimental unit on which the A × C interaction is measured is the intersection of a row and a column which corresponds to a cell within the rectangle.<a href="chap25.html#fnref43" class="footnote-back">↩︎</a></p></li>
+<li id="fn44"><p>原文：The levels of variety are subplots for the levels of nitrogen, but the levels of variety and the levels of nitrogen are strip-plots with the levels of irrigation.<a href="chap25.html#fnref44" class="footnote-back">↩︎</a></p></li>
+<li id="fn45"><p>原文：The varieties form a strip plot with the combination of levels of nitrogen and herbicide.<a href="chap25.html#fnref45" class="footnote-back">↩︎</a></p></li>
+<li id="fn46"><p>原文：The subplot error is obtained by computing the block × seeding rate interaction for each combination of herbicide, nitrogen, and variety and then pooling these interactions across the levels of herbicide, nitrogen, and variety.<a href="chap25.html#fnref46" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap24.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap26.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": false,
+"smooth_scroll": false,
+"search": {
+"engine": "lunr"
+}
+},
+"toc_float": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

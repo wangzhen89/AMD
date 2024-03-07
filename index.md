@@ -2,7 +2,7 @@
 title: "混乱数据分析：设计的实验"
 author: 
   - Wang Zhen
-date: "2024-03-05"
+date: "2024-03-07"
 site: bookdown::bookdown_site
 documentclass: elegantbook
 bibliography: 
@@ -104,6 +104,10 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
     
     + 第 \@ref(chap24) 章\*\*\*\*通过七个示例详细讨论了裂区型设计的分析，还讨论了样本量和功效的计算。
     
+    + 第 \@ref(chap25) 章\*\*通过六个示例详细讨论了条区型设计的分析，这包括单纯的条区设计、含裂区的条区（条裂区以及条-条区。
+    
+    + 第 \@ref(chap26) 章\*\*\*在理想的假设条件（时间的裂区假设）下讨论了重复测量实验，对三个示例进行了分析。
+    
     + 第 \@ref(chap29) 章\*\*\*讨论了交叉设计的分析。
 
 ## 术语规范 {.unlisted .unnumbered}
@@ -126,7 +130,13 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
     + n 阶单位阵 $\boldsymbol I_n$
     + n 阶全 1 向量 $\boldsymbol j_n$
     + n 阶全 1 矩阵 $\boldsymbol J_n$
-    + 总均值 $\mu$，方差 $\sigma^2_\varepsilon$，方差估计 $\hat \sigma^2_\varepsilon$
+    + 总均值 $\mu$
+    + 误差方差及其估计 $\sigma^2_\varepsilon,\hat \sigma^2_\varepsilon$
 
+
++ 对于具有多个维度的量 $x$，其中各维度以索引 $\text{index}=i,j,k,\ldots$ 表示，索引的取值为 $1,2,\ldots,n_\text{index}$. 若固定其他维度不变，而关于某维度求和，则该维度的索引替换为 "$\cdot$"；若关于该维度求均值，则进一步为该量加上横线 $\bar x$. 例如：
+    + 对于三维样本量 $n_{ijk}$；总样本量 $N=\sum_i^{n_i}\sum_j^{n_j}\sum_k^{n_k} n_{ijk}=n_{\cdot\cdot\cdot}$；固定第一维和第三维，第二维的总样本量 $\sum_j^{n_j}n_{ijk}=n_{i\cdot k}$
+    + 对于二维均值 $\mu_{ij}$；总均值 $\frac{1}{n_i}\sum_{i}^{n_i}\left(\frac{1}{n_j}\sum_{j}^{n_j}\mu_{ij}\right)=\bar \mu_{\cdot\cdot}=\mu$；固定第二维，第一维的均值 $\frac{1}{n_i}\sum_{i}^{n_i}\mu_{ij}=\bar \mu_{\cdot j}$
+    + 对于三维误差项 $\varepsilon_{ijk}$；总误差均值 $\frac{1}{n_i}\sum_{i}^{n_i}\left[\frac{1}{n_j}\sum_{j}^{n_j}\left(\frac{1}{n_k}\sum_{k}^{n_k}\varepsilon_{ijk}\right)\right]=\bar\varepsilon_{\cdot\cdot\cdot}$；固定前两维，第三维的误差均值 $\frac{1}{n_k}\sum_{k}^{n_k}\varepsilon_{ijk}=\bar\varepsilon_{ij\cdot}$
 
 未完待续……

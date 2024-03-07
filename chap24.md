@@ -5,11 +5,11 @@
 
 ## 介绍 {#sec24-1}
 
-裂区型设计 (split-plot type design) 涉及一种具有多个实验单元尺寸的设计结构，其中较小尺寸的实验单元嵌套在较大尺寸的实验单元内。第 \@ref(chap5) 章介绍了裂区设计结构的一些示例，包括分层设计结构类 (class of hierarchal design structures). 裂区型设计结构的设计和分析存在两个主要问题。第一个问题包括选择和/或识别设计结构中使用的不同尺寸的实验单元，然后将处理从处理结构分配到设计结构中的不同实验单元尺寸。成功识别不同尺寸的实验单元对于指定可以描述结果数据的适当模型至关重要。第二个问题是构建适当的模型来描述处理和设计结构的相关特征。能够识别与每种尺寸的实验单元相关的变异源是很重要的。这些变异源用于计算各自的误差项，所述误差项用于计算均值估计的标准误估计 (estimates of the standard errors of estimated means) 以及用于均值之间的成对比较。由于这些设计结构涉及一个以上尺寸的实验单元，因此固定效应参数的标准误估计及其之间的比较涉及一个或多个变异源。裂区型设计模型的一个非常重要的特征是，它们是第 \@ref(chap26) 章中讨论的重复测量模型构建的基本模型。第 \@ref(chap5) 章介绍了几个概念的例子。
+**裂区型设计** (split-plot type design) 涉及一种具有多个实验单元尺寸的设计结构，其中较小尺寸的实验单元嵌套在较大尺寸的实验单元内。第 \@ref(chap5) 章介绍了裂区设计结构的一些示例，包括分层设计结构类 (class of hierarchal design structures). 裂区型设计结构的设计和分析存在两个主要问题。第一个问题包括选择和/或识别设计结构中使用的不同尺寸的实验单元，然后将处理从处理结构分配到设计结构中的不同实验单元尺寸。成功识别不同尺寸的实验单元对于指定可以描述结果数据的适当模型至关重要。第二个问题是构建适当的模型来描述处理和设计结构的相关特征。能够识别与每种尺寸的实验单元相关的变异源是很重要的。这些变异源用于计算各自的误差项，所述误差项用于计算均值估计的标准误估计 (estimates of the standard errors of estimated means) 以及用于均值之间的成对比较。由于这些设计结构涉及一个以上尺寸的实验单元，因此固定效应参数的标准误估计及其之间的比较涉及一个或多个变异源。裂区型设计模型的一个非常重要的特征是，它们是第 \@ref(chap26) 章中讨论的重复测量模型构建的基本模型。第 \@ref(chap5) 章介绍了几个概念的例子。
 
 第 \@ref(sec24-1) 节解释了具有两种尺寸实验单元的裂区或分层设计结构的设计和分析，第 \@ref(sec24-2) 节描述了与固定效应相关的标准误的确定和估计。第 \@ref(sec24-3) 节讨论了在一般裂区设计结构中确定适当标准误及其对固定效应参数估计的一般方法。均值对比的标准误的计算在第 \@ref(sec24-4) 节中讨论。第 \@ref(sec24-6) 节介绍了裂区设计结构的四个示例，其中每个示例都演示了分析此类设计的一些显著特征。第 \@ref(sec24-7) 节讨论了裂区设计结构样本量的确定和功效的计算。本章给出了使用 SAS^®^-Mixed 和 JMP^®^ 的分析，其中 JMP 分析如第 \@ref(sec24-8) 节所示。
 
-构建裂区设计模型的关键概念是识别实验单元的不同尺寸，然后确定相应的设计结构和处理结构。整体模型是通过整合为每种尺寸的实验单元开发的模型而构建的。第 \@ref(chap5) 章中给出了模型构建的几个例子，但没有说明模型的基本假设。这些假设是，表示各种实验单元误差项的分量都是独立分布的，均值为零，并具有相关的方差 (associated variance)（更一般的假设请参见第 \@ref(chap26) 章）。在理想条件下，误差项呈正态分布。分析的目的是利用模型假设来获得总体参数的估计，并对其进行推断。在以下示例中，将使用矩法和 REML 方法来演示估计固定效应标准误所需的计算。在实践中，REML 是可在大多数情况下推荐使用的方法。
+构建裂区设计模型的关键概念是识别实验单元的不同尺寸，然后确定相应的设计结构和处理结构。整体模型是通过整合为每种尺寸的实验单元开发的模型而构建的。第 \@ref(chap5) 章中给出了模型构建的几个例子，但没有说明模型的基本假设。这些假设是，表示各种实验单元误差项的分量都是独立分布的，均值为零，并具有相关的方差 (associated variance)（更一般的假设请参见第 \@ref(chap26) 章）。在理想条件下，误差项呈正态分布。分析的目的是利用模型假设来获得总体参数的估计，并对其进行推断。在以下示例中，将使用矩法和 REML 方法来演示估计固定效应标准误所需的计算。在实践中，**REML 是可在大多数情况下推荐使用的方法**。
 
 ### 示例 24.1：面包配方和烘焙温度 {#sec24-1-1}
 
@@ -89,18 +89,18 @@ $$y_{jk}^+=\mu_j^++o_k^++\varepsilon_{jk}^+$$
 </tbody>
 </table>
 
-测量面包间变异性的误差项是通过合并三天内不同温度下的配方与天交互作用计算得出的，得到 Error(loaf)=Recipe × Day(Temperature). 将这两个模型结合起来得到模型
+测量面包间变异性的误差项是通过合并三天内不同温度下的配方与天交互作用计算得出的 (The error term that measures the loaf to loaf variability is computed by pooling the recipe by day interaction across the three temperatures)，得到 Error(loaf)=Recipe × Day(Temperature). 将这两个模型结合起来得到模型
 
 $$y_{ijk}=\mu_{ij}+d_k+o_{ik}+\varepsilon_{ijk},\quad i=1,2,3,\quad j=1,2,3,4,\quad k=1,2,3$$
 
-其中 ${\mu}_{ij}={\mu}+T_i+R_j+(TR)_{ij}$，$T_i$ 表示第 i 个温度的效应，$R_i$ 表示第 j 个配方的效应，$(TR)_{ij}$ 表示温度与配方交互作用，$d_k$ 表示第 k 天的效应，$o_{ik}$ 表示第 k 天的第 i 个烤箱的效应，以及 $\varepsilon_{ijk}$ 表示误差项。在理想条件下 $d_k\thicksim i.i.d.N(0,\sigma_{\mathrm{day}}^2),o_{ik}\thicksim i.i.d.N(0,\sigma_{\mathrm{oven}}^2),\varepsilon_{ijk}\thicksim i.i.d.N(0,\sigma_{\mathrm{loaf}}^2)$，且所有 $d_k,o_{ik},\varepsilon_{ijk}$  独立分布。烤箱是整区 (whole plot) 或较大尺寸的实验单元，面包是子区 (subplot) 或裂区或较小尺寸的实验单元。
+其中 ${\mu}_{ij}={\mu}+T_i+R_j+(TR)_{ij}$，$T_i$ 表示第 i 个温度的效应，$R_i$ 表示第 j 个配方的效应，$(TR)_{ij}$ 表示温度与配方交互作用，$d_k$ 表示第 k 天的效应，$o_{ik}$ 表示第 k 天的第 i 个烤箱的效应，以及 $\varepsilon_{ijk}$ 表示误差项。在理想条件下 $d_k\thicksim i.i.d.N(0,\sigma_{\mathrm{day}}^2),o_{ik}\thicksim i.i.d.N(0,\sigma_{\mathrm{oven}}^2),\varepsilon_{ijk}\thicksim i.i.d.N(0,\sigma_{\mathrm{loaf}}^2)$，且所有 $d_k,o_{ik},\varepsilon_{ijk}$  独立分布。烤箱是整区 (whole plot) 或较大尺寸的实验单元，面包是子区 (subplot) 或裂区 (split-plot) 或较小尺寸的实验单元。
 
 该模型可以用实验单元的尺寸表示为
 
 $$\begin{aligned}y_{ijk}=&\mu_{ij}+d_k+T_i+o_{ik} &&\}\quad\text{whole-plot or oven part of the model}
 \\&+R_j+(TR)_{ij}+\varepsilon_{ijk}&&\}\quad\text{subplot or loaf part of the model}\end{aligned}$$
 
-结合表 \@ref(tab:table24-2) 和 \@ref(tab:table24-3) 中的方差分析表给出表 \@ref(tab:table24-4) 中该模型的方差分析表。预期望均方决定了计算固定效应检验统计量的适当分母。Error(oven) 用作检验温度主效应的误差，Error(loaf) 用作检验配方主效应和配方与温度交互效应的误差。表 \@ref(tab:table24-5) 中列出了面包体积数据的 SAS-Mixed 代码和方差分析结果表。有迹象表明存在显著的温度与配方交互作用 (p = 0.0021)，因此应遵循 temperature × recipe 双向均值之间的进一步比较（参见第 \@ref(tab:table24-2) 节）
+结合表 \@ref(tab:table24-2) 和 \@ref(tab:table24-3) 中的方差分析表给出表 \@ref(tab:table24-4) 中该模型的方差分析表。预期望均方决定了计算固定效应检验统计量的适当分母。Error(oven) 用作检验温度主效应的误差，Error(loaf) 用作检验配方主效应和配方与温度交互效应的误差。表 \@ref(tab:table24-5) 中列出了面包体积数据的 SAS-Mixed 代码和方差分析结果表。有迹象表明存在显著的温度与配方交互作用 (p = 0.0021)，因此应进一步比较 temperature × recipe 的双向均值（参见第 \@ref(tab:table24-2) 节）
 
 <table>
 <caption>(\#tab:table24-4)示例 [24.1](#sec24-1-1) 面包体积数据的方差分析表</caption>
@@ -134,7 +134,7 @@ $$\begin{aligned}y_{ijk}=&\mu_{ij}+d_k+T_i+o_{ik} &&\}\quad\text{whole-plot or o
 
 ### 示例 24.2：在不同肥力条件下生长的小麦品种 {#sec24-1-2}
 
-图 \@ref(fig:figure24-4) 中的数据是在四种不同的肥力条件 (fertility regimes) 下（A1, A2, A3 和 A4）种植的两种小麦（B1 和 B2）的产量（单位为磅）。田地被分成两个区组 (blocks)，每个区组有四个整区 (whole plots). 每个肥料 (fertilizer) 水平被随机分配到每个区组内的一个整区。因此，整区设计由单向处理结构（四个肥料水平）和随机完全区组设计结构（两个区组）组成。每个区组包含四个整区实验单元，这些单位被分成两部分（称为子区，subplots）。每种小麦被随机分配到每个整区内的一个子区。子区设计由单向处理结构（两个品种）和随机完全区组设计组成，共有八个区组，每个区组包含两个子区实验单元。可用于描述这些数据的模型是
+图 \@ref(fig:figure24-4) 中的数据是在四种不同的肥力条件 (fertility regimes) 下（A1, A2, A3 和 A4）种植的两种小麦（B1 和 B2）的产量（单位为磅）。田地被分成两个区组 (blocks)，每个区组有四个整区 (whole plots). 每个肥料 (fertilizer) 水平被随机分配到每个区组内的一个整区。因此，整区设计由一个单向处理结构（肥料的四个水平）组成，该结构是一个具有两个区组的随机完全区组设计结构。每个区组包含四个整区实验单元，这些单元被分成两部分（称为子区，subplots）。每种小麦被随机分配到每个整区内的一个子区。子区设计由单向处理结构（两个品种）和随机完全区组设计组成，共有八个区组，每个区组包含两个子区实验单元。可用于描述这些数据的模型是
 
 $$y_{ijk}=\mu_{ij}+b_k+w_{ik}+\varepsilon_{ijk},\quad i=1,2,3,4,\quad j=1,2,k=1,2$$
 
@@ -196,7 +196,7 @@ $$y_{ijk}=\mu_{ij}+b_k+w_{ik}+\varepsilon_{ijk},\quad i=1,2,3,4,\quad j=1,2,k=1,
 
 $$y_{ijk}=\mu+\alpha_i+b_k+w_{ik}+\gamma_j+(\alpha\gamma)_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,c,\quad k=1,2,\ldots,r$$
 
-其中，$y_{ijk}$ 是观测到的响应，$b_k$ 表示第 k 个区组效应，假设其分布为 $N(0,\sigma_B^2)$，$w_{ik}$ 表示整区误差，假设其分布为 $N(0,\sigma_w^2)$，$\varepsilon_{ijk}$ 表示子区误差，假设其分布为 $N(0,\sigma_\varepsilon^2)$. 还假设所有的 $b_k,w_{ik},\varepsilon_{ijk}$ 都是独立分布的。值得注意的是，最重要的假设是所有的 $b_k,w_{ik},\varepsilon_{ijk}$ 都是独立分布的。幸运的是，由于固定效应因子被随机分配到其适当尺寸的实验单位，这一假设可以通过随机化过程得到保证。该模型中的固定效应包括总均值 $\mu$，整区因子（A）的效应 $\alpha_i$、子区因子（C）的效应 $\gamma_j$，以及整区因子水平和子区因子水平之间的交互效应 $(\alpha\gamma)_{ij}$. 均值模型可以用效应模型表示为 $\mu_{ij}=\mu+\alpha_i+\gamma_j+(\alpha\gamma)_{ij}$. 表 \@ref(tab:table24-9) 给出了这个一般模型的方差分析表，包括变异来源、自由度和期望均方。
+其中，$y_{ijk}$ 是观测到的响应，$b_k$ 表示第 k 个区组效应，假设其分布为 $N(0,\sigma_B^2)$，$w_{ik}$ 表示整区误差，假设其分布为 $N(0,\sigma_w^2)$，$\varepsilon_{ijk}$ 表示子区误差，假设其分布为 $N(0,\sigma_\varepsilon^2)$. 还假设所有的 $b_k,w_{ik},\varepsilon_{ijk}$ 都是独立分布的。值得注意的是，最重要的假设是所有的 $b_k,w_{ik},\varepsilon_{ijk}$ 都是独立分布的。幸运的是，由于固定效应因子被随机分配到其适当尺寸的实验单元，这一假设可以通过随机化过程得到保证。该模型中的固定效应包括总均值 $\mu$，整区因子（A）的效应 $\alpha_i$、子区因子（C）的效应 $\gamma_j$，以及整区因子水平和子区因子水平之间的交互效应 $(\alpha\gamma)_{ij}$. 均值模型可以用效应模型表示为 $\mu_{ij}=\mu+\alpha_i+\gamma_j+(\alpha\gamma)_{ij}$. 表 \@ref(tab:table24-9) 给出了这个一般模型的方差分析表，包括变异来源、自由度和期望均方。
 
 <table>
 <caption>(\#tab:table24-9)\@ref(sec24-1) 节一般裂区模型的方差分析表</caption>
@@ -237,7 +237,7 @@ $$\begin{aligned}
 &\hat{{\sigma}}_{B}^{2} =\begin{cases}\tilde{{\sigma}}_B^2&\mathrm{~if~}\tilde{{\sigma}}_B^2>0\\0&\mathrm{~if~}\tilde{{\sigma}}_B^2\leq0&\end{cases} 
 \end{aligned}$$
 
-$\mu_{ij},\bar{\mu}_{i\cdot},\bar{\mu}_{\cdot j}$ 的估计分别为 $\bar{{y}}_{ij\cdot},\bar{{y}}_{i{\cdot\cdot}},\bar{{y}}_{\cdot j\cdot}$. A 水平之间的比较是整区间比较 (between whole plot comparisons)，用于检验 A 水平相等性的适当 $F$ 统计量是 $F_A=MSA/MSError(whole plot)$. C 水平之间的比较和 A × C 交互作用的比较是整区内比较 (within whole plot comparisons) 或整区内的子区间比较 (between subplot comparisons within a whole plot)，并且适当的 $F$ 统计是 $F_C=MSC/MSError(subplot)$ 和 $F_{A×C}=MSA×C/MSError(subplot)$. 这些 $F$ 统计量是通过查看表 \@ref(tab:table24-9) 中的期望均方来构建的。
+$\mu_{ij},\bar{\mu}_{i\cdot},\bar{\mu}_{\cdot j}$ 的估计分别为 $\bar{{y}}_{ij\cdot},\bar{{y}}_{i{\cdot\cdot}},\bar{{y}}_{\cdot j\cdot}$. A 水平之间的比较是整区间比较 (between whole plot comparisons)，用于检验 A 水平相等性的适当 $F$ 统计量是 $F_A=MSA/MSError(whole plot)$. C 水平之间的比较和 A × C 交互作用的比较是整区内比较 (within whole plot comparisons) 或整区内的子区间比较 (between subplot comparisons within a whole plot)，并且适当的 $F$ 统计量是 $F_C=MSC/MSError(subplot)$ 和 $F_{A×C}=MSA×C/MSError(subplot)$. 这些 $F$ 统计量是通过查看表 \@ref(tab:table24-9) 中的期望均方来构建的。
 
 一旦计算出 $F$ 检验以确定均值之间是否存在显著差异，下一步就是进行多重比较以确定差异发生的位置。以下部分介绍了计算裂区设计的各种均值差异的标准误的方法。
 
@@ -264,7 +264,7 @@ $$y_{ijk}=\mu_{ij}+b_k+w_{ik}+\varepsilon_{ijk},\quad i=1,2,\ldots,a,~j=1,2,\ldo
 $$\mathrm{Var}(\bar{y}_{\cdot1\cdot}-\bar{y}_{\cdot2\cdot})=\mathrm{Var}(\bar{\varepsilon}_{\cdot1\cdot}-\bar{\varepsilon}_{\cdot2\cdot})=\frac{2\sigma_\varepsilon^2}{ar}$$
 
 
-其中均值 $\bar{\varepsilon}_{\cdot1\cdot}$ 的方差为 $\mathrm{Var}(\bar{{\varepsilon}}_{\cdot1\cdot})=\sigma_\varepsilon^2/ar$ 其中 ar 为均值中的观测次数。类似地，对任何 $j\ne j^\prime$，$\mathrm{Var}(\bar{y}_{\cdot j\cdot}-\bar{y}_{\cdot j^\prime\cdot})=2\sigma_\varepsilon^2/ar$. $\bar{y}_{\cdot j\cdot}-\bar{y}_{\cdot j^\prime\cdot}$ 的标准误估计为
+其中均值 $\bar{\varepsilon}_{\cdot1\cdot}$ 的方差为 $\mathrm{Var}(\bar{{\varepsilon}}_{\cdot1\cdot})=\sigma_\varepsilon^2/ar$ 其中 ar 为均值中的观测次数。类似地，对任何 $j\ne j^\prime$，$\mathrm{Var}(\bar{y}_{\cdot j\cdot}-\bar{y}_{\cdot j^\prime\cdot})=2\sigma_\varepsilon^2/ar$。$\bar{y}_{\cdot j\cdot}-\bar{y}_{\cdot j^\prime\cdot}$ 的标准误估计为
 
 $$\widehat{s.e.}(\bar{y}_{.j.}-\bar{y}_{.j'.})=\sqrt{\frac{2\hat{\sigma}_{\varepsilon}^2}{ar}}=\sqrt{\frac{2MSError(subplot)}{ar}}\quad\text{for all }j\neq j'$$
 
@@ -274,7 +274,7 @@ $$\mathrm{LSD}_\alpha=[t_{\alpha/2,a(c-1)(r-1)}]\widehat{s.e.}(\bar{y}_{\cdot j\
 
 为了比较 A 的水平，需要比较由 $\bar{{y}}_{i\cdot \cdot}$ 估计的 $\bar{{\mu}}_{i\cdot}$. 量 $\bar{{\mu}}_{i\cdot}$ 可以用一般模型表示，通过对 j 和 k 求和，得到 $\bar{y}_{i\cdot\cdot}=\bar{\mu}_{i\cdot}+\bar{b}_{\cdot}+\bar{w}_{i\cdot}+\bar{\varepsilon}_{ij\cdot\cdot}$
 
-对比 $\bar{{\mu}}_{1\cdot}-\bar{{\mu}}_{2\cdot}$ 的估计为 $\bar{{y}}_{1\cdot \cdot}-\bar{{y}}_{2\cdot \cdot}$，可以用关于 $\bar{{y}}_{i\cdot \cdot}$ 的模型表示为 $\bar{y}_{1\cdot\cdot}-\bar{y}_{2\cdot\cdot}=\bar{\mu}_{1\cdot}-\bar{\mu}_{2\cdot}+\bar{w}_{1\cdot}-\bar{w}_{2\cdot}+\bar{\varepsilon}_{1\cdot\cdot}-\bar{\varepsilon}_{2\cdot\cdot}$. 这种比较取决于整区和子区方差分量。$\bar{{\mu}}_{1\cdot}-\bar{{\mu}}_{2\cdot}$ 的方差为
+对比 $\bar{{\mu}}_{1\cdot}-\bar{{\mu}}_{2\cdot}$ 的估计为 $\bar{{y}}_{1\cdot \cdot}-\bar{{y}}_{2\cdot \cdot}$，可以用关于 $\bar{{y}}_{i\cdot \cdot}$ 的模型表示为 $\bar{y}_{1\cdot\cdot}-\bar{y}_{2\cdot\cdot}=\bar{\mu}_{1\cdot}-\bar{\mu}_{2\cdot}+\bar{w}_{1\cdot}-\bar{w}_{2\cdot}+\bar{\varepsilon}_{1\cdot\cdot}-\bar{\varepsilon}_{2\cdot\cdot}$. 这种比较取决于整区和子区方差分量。$\bar{y}_{1\cdot\cdot}-\bar{y}_{2\cdot\cdot}$ 的方差为
 
 $$\begin{aligned}
 \mathrm{Var}(\bar{y}_{1\cdot\cdot}-\bar{y}_{2\cdot\cdot}) &=\operatorname{Var}(\bar{w}_{1\cdot}-\bar{w}_{2\cdot}+\bar{\varepsilon}_{1\cdot\cdot}-\bar{\varepsilon}_{2\cdot\cdot}) \\
@@ -282,7 +282,7 @@ $$\begin{aligned}
 &=\frac{2(\sigma_\varepsilon^2+c\sigma_w^2)}{rc} 
 \end{aligned}$$
 
-$\bar{{\mu}}_{1\cdot}-\bar{{\mu}}_{2\cdot}$ 的标准误估计为
+$\bar{y}_{1\cdot\cdot}-\bar{y}_{2\cdot\cdot}$ 的标准误估计为
 
 $$\widehat{s.e.}(\bar{y}_{1\cdot\cdot}-\bar{y}_{2\cdot\cdot})=\sqrt{\frac{2(\hat{\sigma}_\varepsilon^2+c\hat{\sigma}_w^2)}{rc}}=\sqrt{\frac{2MSError(wholeplot)}{rc}}$$
 
@@ -333,7 +333,7 @@ $$\mathrm{LSD}_\alpha=(t_{\alpha/2,\hat{v}})\sqrt{\frac{2(\widehat{\sigma_\varep
 </tbody>
 </table>
 
-1) **比较配方的主效应均值**：标准误估计为
+1) 比较配方的主效应均值：标准误估计为
 
 $$\widehat{s.e.}(\bar{y}_{\cdot1\cdot}-\bar{y}_{\cdot2\cdot})=\sqrt{\frac{2(657.87)}{3(3)}}=12.09$$
 
@@ -365,11 +365,11 @@ $$\hat{v}=\frac{\left(1517.51\right)^2}{\frac{\left(\frac144096.42\right)^2}4+\f
 
 ## 计算均值差标准误的一般方法 {#sec24-4}
 
-将上述技术应用于涉及多种实验单位尺寸的比较的标准误计算并不总是那么直接。本节描述了一种计算标准误和近似自由度的一般方法，该方法可应用于更复杂的情况。普通读者可以跳过这一节。该方法通过模型示例进行描述。
+将上述技术应用于涉及多种实验单元尺寸的比较的标准误计算并不总是那么直接。本节描述了一种计算标准误和近似自由度的一般方法，该方法可应用于更复杂的情况。普通读者 (casual reader) 可以跳过这一节。该方法通过模型示例进行描述。
 
 $$y_{ijk}=\mu+\alpha_i+b_k+w_{ik}+\gamma_j+(\alpha\gamma)_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,a,\quad j=1,2,\ldots,c,\quad k=1,2,\ldots,r$$
 
-基本上，该技术包括将给定的均值比较表示为分量的总和，其中每个分量是仅涉及一个实验单元尺寸的均值的比较。然后，比较的分量是独立分布的，比较的方差是通过将各分量的方差相加得到的。例如，${\mu_{11}}-{\mu_{21}}$ 可表示为
+基本上，该技术包括将给定的均值比较表示为分量 (components) 的和，其中每个分量是仅涉及一个实验单元尺寸的均值的比较。然后，比较的分量是独立分布的，比较的方差是通过将各分量的方差相加得到的。例如，${\mu_{11}}-{\mu_{21}}$ 可表示为
 
 $$\mu_{11}-\mu_{21}=(\bar{\mu}_{1\cdot}-\bar{\mu}_{2\cdot})+[(\mu_{11}-\bar{\mu}_{1\cdot})-(\mu_{21}-\bar{\mu}_{2\cdot})]$$
 
@@ -446,7 +446,7 @@ $\hat{\tau}$ 的标准误估计为
 
 $$\widehat{s.e.}(\hat{\tau})=\sqrt{\left(\frac{MSError(wholeplot)}{rc}\right)\sum_{i=1}^ah_i^2}$$
 
-在整区处理相同水平上子区处理的对比，即，$\mu_{i1},\mu_{i2},\ldots,\mu_{ic}$ 的一个对比为 $\delta_i=s_1\mu_{i1}+s_2\mu_{i2}+\cdots+s_c\mu_{ic}$ 其中 $\Sigma_{j=1}^cs_j=0$. 它的估计为 $\hat\delta_i=s_1\bar y_{i1\cdot}+s_2\bar y_{i2\cdot}+\cdots+s_c\bar y_{ic\cdot}$，方差为
+在整区处理相同水平上子区处理的对比，即，$\mu_{i1},\mu_{i2},\ldots,\mu_{ic}$ 的一个对比为 $\delta_i=s_1\mu_{i1}+s_2\mu_{i2}+\cdots+s_c\mu_{ic}$，其中 $\Sigma_{j=1}^cs_j=0$. 它的估计为 $\hat\delta_i=s_1\bar y_{i1\cdot}+s_2\bar y_{i2\cdot}+\cdots+s_c\bar y_{ic\cdot}$，方差为
 
 $$\mathrm{Var}(\hat{\delta}_i)=\frac{\sigma_\varepsilon^2}r\sum_{j=1}^cs_j^2$$
 
@@ -454,7 +454,7 @@ $\hat{\delta}_i$ 的标准误估计为
 
 $$\widehat{s.e.}(\hat{\delta}_i)=\sqrt{\frac{MSError(subplot)}r\sum_{j=1}^cs_j^2}$$
 
-在子区处理相同水平上整区处理的对比，即，${\mu}_{1{j}},{\mu}_{2{j}},\ldots,{\mu}_{{a}{j}}$ 的一个对比为 ${\lambda}_j={u}_1{\mu}_{1{j}}+{u}_2{\mu}_{2{j}}+\cdots+{u}_a{\mu}_{{a}{j}}$ 其中 $ {\Sigma}_{i=1}^a{u}_i=0$. 它的估计为 $\hat\lambda_j=u_1\bar y_{1j\cdot}+u_2\bar y_{2j\cdot}+\cdots+u_a\bar y_{aj\cdot}$，方差为
+在子区处理相同水平上整区处理的对比，即，${\mu}_{1{j}},{\mu}_{2{j}},\ldots,{\mu}_{{a}{j}}$ 的一个对比为 ${\lambda}_j={u}_1{\mu}_{1{j}}+{u}_2{\mu}_{2{j}}+\cdots+{u}_a{\mu}_{{a}{j}}$，其中 ${\Sigma}_{i=1}^a{u}_i=0$. 它的估计为 $\hat\lambda_j=u_1\bar y_{1j\cdot}+u_2\bar y_{2j\cdot}+\cdots+u_a\bar y_{aj\cdot}$，方差为
 
 $$\mathrm{Var}(\hat{\lambda}_j)=\frac{(\sigma_\varepsilon^2+\sigma_w^2)}r\sum_{i=1}^au_i^2$$
 
@@ -543,7 +543,7 @@ $$\begin{aligned}
 </tbody>
 </table>
 
-表 \@ref(tab:table24-11) 中的数据来自一个实验，该实验测量了在不同水分 (moisture) 水平和不同肥料 (fertilizer) 量下种植的小麦植株的干物质量 (amount of dry matter). 实验中有 48 个不同的泥炭盆 (peat pots) 和 12 个塑料托盘 (plastic trays)；每个托盘可以放入四个盆。水分处理包括每天向托盘中添加 10, 20, 30 或 40 毫升的水，水被泥炭盆吸收。水分水平随机分配给托盘。托盘是大型实验单位或整个地块，整个地块设计是完全随机设计结构中的单向处理结构（四个水分水平）。肥料水平为每盆 2, 4, 6 或 8 毫克。四个肥料水平随机分配给每个托盘中的四个盆，以便每个肥料水平在每个托盘中出现一次。盆是最小的实验单位或裂区或子区，子区设计是随机完全区组设计结构中的单向处理结构（四个肥料水平），其中 12 个托盘是区组。在每个盆中种植小麦种子，30 天后测量每个盆中生长的小麦植株的干物质量。可用于描述分配给第 i 个水分水平和第 j 个肥料水平的第 k 个托盘中盆的干物质量的模型是
+表 \@ref(tab:table24-11) 中的数据来自一个实验，该实验测量了在不同水分 (moisture) 水平和不同肥料 (fertilizer) 量下种植的小麦植株的干物质量 (amount of dry matter). 实验中有 48 个不同的泥炭盆 (peat pots) 和 12 个塑料托盘 (plastic trays)；每个托盘可以放入四个盆。水分处理包括每天向托盘中添加 10, 20, 30 或 40 毫升的水，水被泥炭盆吸收。水分水平随机分配给托盘。托盘是大型实验单元或整区，整区设计是完全随机设计结构中的单向处理结构（四个水分水平）。肥料水平为每盆 2, 4, 6 或 8 毫克。四个肥料水平随机分配给每个托盘中的四个盆，以便每个肥料水平在每个托盘中出现一次。盆是最小的实验单元或裂区或子区，子区设计是随机完全区组设计结构中的单向处理结构（四个肥料水平），其中 12 个托盘是区组。在每个盆中种植小麦种子，30 天后测量每个盆中生长的小麦植株的干物质量。可用于描述分配给第 i 个水分水平和第 j 个肥料水平的第 k 个托盘中盆的干物质量的模型是
 
 $$y_{ijk}=\mu_{ij}+t_{ik}+p_{ijk},\quad i=1,2,3,4;~j=1,2,3,4;~k=1,2,3$$
 
@@ -704,7 +704,7 @@ $$\hat{v}=\frac{[3.406+(4-1)0.752]^2}{\frac{[3.406]^2}8+\frac{[(4-1)0.752]^2}{24
 
 $$DM_{ijk}=\beta_0+\beta_1mst_i+\beta_2fr_j+\beta_3(mst_i)(fr_j)+\beta_4(mst_i)^2(fr_j)+\beta_5(mst_i)(fr_j)^2+t_{ik}+p_{ijk}$$
 
-确定缩简模型是否充分描述了数据是令人感兴趣的，因此构造了一个欠拟合检验 (test for lack of fit). 设 frx=fr，并将 frx 包含在 class 语句中。在缩简模型中包括 mstblk × frx，如表 \@ref(tab:table24-19) 所示。表 \@ref(tab:table24-20) 的方差分析表中与 mstblk × frx 对应的 $F$ 检验提供了缩减模型的欠拟合检验。在这种情况下，与欠拟合检验相对应的显著性水平为 0.5561，表明缩减模型充分描述了数据。表 \@ref(tab:table24-21) 中的代码显示了缩减模型并显示了协方差参数的估计，回归系数的估计如表 \@ref(tab:table24-22) 所示。与完全模型相比，缩减模型的托盘误差项略小，而残差或盆方差相似。缩减模型的预测值如图\@ref(fig:figure24-7) 所示，水分与肥料单元格均值如图 \@ref(fig:figure24-8) 所示。正如从拟合度检验的结果中所预期的那样，回归模型充分描述了单元格均值。
+确定缩减模型是否充分描述了数据是令人感兴趣的，因此构造了一个欠拟合检验 (test for lack of fit). 设 frx=fr，并将 frx 包含在 class 语句中。在缩减模型中包括 mstblk × frx，如表 \@ref(tab:table24-19) 所示。表 \@ref(tab:table24-20) 的方差分析表中与 mstblk × frx 对应的 $F$ 检验提供了缩减模型的欠拟合检验。在这种情况下，与欠拟合检验相对应的显著性水平为 0.5561，表明缩减模型充分描述了数据。表 \@ref(tab:table24-21) 中的代码显示了缩减模型并显示了协方差参数的估计，回归系数的估计如表 \@ref(tab:table24-22) 所示。与完全模型相比，缩减模型的托盘误差项略小，而残差或盆方差相似。缩减模型的预测值如图\@ref(fig:figure24-7) 所示，水分与肥料单元格均值如图 \@ref(fig:figure24-8) 所示。正如从拟合度检验的结果中所预期的那样，回归模型充分描述了单元格均值。
 
 <table>
 <caption>(\#tab:table24-18)全响应面模型参数的解</caption>
@@ -908,7 +908,7 @@ $$y_{ijkl}=\mu_{kl}+b_i+w_{ij}+\varepsilon_{ijkl}$$
 </tbody>
 </table>
 
-本研究涉及三种尺寸的实验单位。动物是被分配饲料水平的实验单元。动物的侧是温度水平的实验单元，牛排是包装水平的实验单元。可以用来描述剪切力 (shear forces) ($f_{ijkl}$)的模型是
+本研究涉及三种尺寸的实验单元。动物是被分配饲料水平的实验单元。动物的侧是温度水平的实验单元，牛排是包装水平的实验单元。可以用来描述剪切力 (shear forces) ($f_{ijkl}$)的模型是
 
 $$f_{ijkl}=\mu_{ikl}+a_{ij}+s_{ijk}+\varepsilon_{ijkl}\quad i=1,2,j=1,2,\ldots,10,k=1,2,l=1,2,3$$
 

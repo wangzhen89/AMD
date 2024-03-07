@@ -3,7 +3,7 @@
 
 > "Facts speak louder than statistics" - Mr. Justice Streatfield (1950)
 
-混合模型用于刻画来自实验或研究的数据，这些数据需要多个方差-协方差参数，并涉及一些固定效应参数。第 \@ref(chap2) 章的不等方差模型是混合模型，因为它们涉及多个方差分量。第 \@ref(chap18) - \@ref(chap21) 章描述的模型称为随机效应模型，但每个模型都有一个未知的均值参数，因此这些模型本质上是混合模型。第 \@ref(chap18) 章中使用的混合模型的定义围绕着具有固定效应和多个方差分量的一些处理结构。因此，**混合模型的一般定义是具有一些固定效应参数和协方差结构中多于一个参数的模型**。符合此定义的模型包括随机完全区组模型 (randomized complete blocks models)、不完全区组模型 (incomplete blocks models)、裂区型模型 (split-plot-type models)、裂条区型模型 (strip-plot-type models)、重复测量型模型 (repeated measures type models)、随机系数模型 (random coefficients models)、多水平模型 (multilevel models) 和分层模型 (hierarchical models).
+混合模型用于刻画来自实验或研究的数据，这些数据需要多个方差-协方差参数，并涉及一些固定效应参数。第 \@ref(chap2) 章的不等方差模型是混合模型，因为它们涉及多个方差分量。第 \@ref(chap18) - \@ref(chap21) 章描述的模型称为随机效应模型，但每个模型都有一个未知的均值参数，因此这些模型本质上是混合模型。第 \@ref(chap18) 章中使用的混合模型的定义围绕着具有固定效应和多个方差分量的一些处理结构。因此，**混合模型的一般定义是具有一些固定效应参数和协方差结构中多于一个参数的模型**。符合此定义的模型包括随机完全区组模型 (randomized complete blocks models)、不完全区组模型 (incomplete blocks models)、裂区型模型 (split-plot-type models)、条区型模型 (strip-plot-type models)、重复测量型模型 (repeated measures type models)、随机系数模型 (random coefficients models)、多水平模型 (multilevel models) 和分层模型 (hierarchical models).
 
 混合模型包含三部分：1）模型的固定效应部分；2）模型的随机效应部分；3）模型的残差部分。因此，混合模型的分析包括两种类型的分析，一种是模型随机效应和残差部分的分析，另一种是模型固定效应部分的分析。本章讨论混合模型的构建以及分析模型随机效应部分和固定效应部分所需的步骤。本章的结果为理论结果和概念理解之间提供了桥梁。
 
@@ -159,7 +159,7 @@ l =&\,nta\log(2\pi)+a\log(\lambda_1)+a(t-1)\log(\lambda_2)+at(n-1)\log(\lambda_3
 &+\frac{na}{\lambda_2}\sum_{i=1}^{t}(\bar{y}_{i\cdot\cdot}-\bar{y}_{\cdot\cdot\cdot}+\bar{\mu}_{\cdot}-\mu_i)^2
 \end{aligned}$$
 
-接下来，关于 $\lambda_1,\lambda_2,\lambda_3,\bar\mu_{\cdot}$ 和 $(\mu_i-\bar\mu_{\cdot})$ 对 $l$ 进行微分，并将导数设置为零，以提供方程组：
+接下来，关于 $\lambda_1,\lambda_2,\lambda_3,\bar\mu_{\cdot}$ 和 $(\mu_i-\bar\mu_{\cdot})$ 对 $l$ 进行求导，并将导数设置为零，以提供方程组：
 
 $$\begin{aligned}
 &\left.\frac{\partial l}{\partial\lambda_3}\right|_{{\mu}=\hat{{\mu}},{\lambda}=\hat{{\lambda}}} =-\frac{at(n-1)}{\hat{\lambda}_3}+\frac{SSERROR}{\hat{\lambda}_3^2}=0\Longrightarrow\hat{\lambda}_3^2=\frac{SSERROR}{at(n-1)}=\hat{\sigma}_\varepsilon^2  \\
@@ -215,7 +215,7 @@ L(\mu,\lambda_1,\lambda_2,\lambda_3) =&\,\left[\left((2\pi)^{1/2}\lambda_1^{1/2}
 =&\,L(\bar{\mu}_\cdot)\times L(\mu_i-\bar{\mu}_\cdot)\times L(\lambda_1,\lambda_2,\lambda_3)\mathrm{~(say)}
 \end{aligned}$$
 
-$\lambda_1,\lambda_2,\lambda_3$ 的 REML 估计通过最小化 $-2\log[L(\lambda_1,\lambda_2,\lambda_3)]$ 获得，这是通过对 $l_R$ 关于 $\lambda_1,\lambda_2,\lambda_3$ 求微分并将导数设置为零来实现的。微分和解是
+$\lambda_1,\lambda_2,\lambda_3$ 的 REML 估计通过最小化 $-2\log[L(\lambda_1,\lambda_2,\lambda_3)]$ 获得，这是通过对 $l_R$ 关于 $\lambda_1,\lambda_2,\lambda_3$ 求导并将导数设置为零来实现的。导数和解是
 
 $$\begin{aligned}
 &\left.\frac{\partial l_R}{\partial\lambda_1}\right|_{\lambda=\hat{\lambda}} =\frac{(a-1)}{\hat{\lambda}_1}-\frac{SSA}{\hat{\lambda}_1^2}=0\Rightarrow\hat{\lambda}_1=\frac{SSA}{a-1}  \\
@@ -369,7 +369,7 @@ h(\boldsymbol y,\boldsymbol u)&=f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u) \
 
 [^henderson1984]: 原文：Henderson (1984) differentiated $-2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)]$ with respect to $\boldsymbol \beta$ and $\boldsymbol u$ to derive the mixed model equations whose solution provides the BLUE of estimable functions of $\boldsymbol \beta$ and BLUPs of $\boldsymbol u$ as
 
-为导出混合模型方程（其解提供了 $\boldsymbol \beta$ 可估函数的 BLUE 和 $\boldsymbol u$ 的 BLUPs），Henderson (1984) 关于 $\boldsymbol \beta$ 和 $\boldsymbol u$ 对 $-2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)]$ 进行微分[^henderson1984]：
+为导出混合模型方程（其解提供了 $\boldsymbol \beta$ 可估函数的 BLUE 和 $\boldsymbol u$ 的 BLUPs），Henderson (1984) 关于 $\boldsymbol \beta$ 和 $\boldsymbol u$ 对 $-2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)]$ 进行求导[^henderson1984]：
 
 $$\begin{aligned}
 -2\log[f(\boldsymbol y|\boldsymbol u)g(\boldsymbol u)] =&\,(N+q)\mathrm{log}(2\pi)+N\mathrm{log}(\sigma_\varepsilon^2)+\mathrm{log}|\boldsymbol G|  \\

@@ -2,7 +2,7 @@
 
 > "Maturity is the capacity to endure uncertainty." - John Finley
 
-具有一个以上**随机分量** (random component) 的模型适用于多种情况，包括随机效应和混合效应模型，其中处理结构中的部分或全部因子是随机的，或者如裂区和重复测量设计那样有多种尺寸的实验单元。对于此类模型，感兴趣的参数包括与随机分量的分布相关的方差（通常称为**方差分量**, variance components）。重要的是能够识别模型的随机分量，并能够在模型分析中使用它们。当对给定模型进行方差分析时，需要均方的期望值（均方是方差分量的函数），以构造适当的检验统计量，并确定用于比较固定效应参数的标准误。还需要能够获得方差分量的估计，并检验假设和构造方差分的函数的置信区间。随机效应模型及其分析方法的讨论分为四章。本章定义了随机效应模型，并描述了一种计算平方和期望的一般程序。该程序可以很容易地被计算机软件用于评估平方和的期望值。估计问题在第 \@ref(chap19) 章中讨论，检验假设和构造置信区间的方法在第 \@ref(chap20) 章中介绍，第 \@ref(chap21) 章提供了一个详细的示例分析。
+具有多个**随机分量** (random component) 的模型适用于多种情况，包括随机效应和混合效应模型，其中处理结构中的部分或全部因子是随机的，或者如裂区和重复测量设计那样有多种尺寸的实验单元。对于此类模型，感兴趣的参数包括与随机分量的分布相关的方差（通常称为**方差分量**, variance components）。重要的是能够识别模型的随机分量，并能够在模型分析中使用它们。当对给定模型进行方差分析时，需要均方的期望值（均方是方差分量的函数），以构造适当的检验统计量，并确定用于比较固定效应参数的标准误。还需要能够获得方差分量的估计，并检验假设和构造方差分的函数的置信区间。随机效应模型及其分析方法的讨论分为四章。本章定义了随机效应模型，并描述了一种计算平方和期望的一般程序。该程序可以很容易地利用计算机软件评估平方和的期望值。估计问题在第 \@ref(chap19) 章中讨论，检验假设和构造置信区间的方法在第 \@ref(chap20) 章中介绍，第 \@ref(chap21) 章提供了一个详细的示例分析。
 
 ## 介绍 {#sec18-1}
 
@@ -45,14 +45,14 @@
 ::: {.definition #18-5}
 ♦
 
-如果处理结构中的一些因子是固定效应，一些因子是随机效应，或者处理结构中所有因子都是固定效应并且设计结构中有一个以上尺寸的实验单元（或者模型中至少有两个方差分量），则该模型称为混合 (mixed) 或**混合效应** (mixed effects) 模型。
+如果处理结构中的一些因子是固定效应，一些因子是随机效应，或者处理结构中所有因子都是固定效应并且设计结构中有多种尺寸的实验单元（或者模型中至少有两个方差分量），则该模型称为混合 (mixed) 或**混合效应** (mixed effects) 模型。
 :::
 
 本章讨论的模型都是随机效应模型。第 \@ref(chap22) 章和第 \@ref(chap23) 章介绍了对混合模型的讨论。下面的例子有助于激发随机效应模型的应用和分析。
 
 ### 示例 18.1：随机效应嵌套处理结构 {#sec18-1-1}
 
-一个消费者团体研究了美国至少拥有 20,000 人口的城市中咖啡价格的变化。该团体希望调查的三个因子是州、州内的城市以及州内城市内的商店。处理结构或抽样设计是一个涉及州、城市和商店的三向两水平的嵌套系统，其中城市嵌套在州内，商店嵌套在城市内。抽样程序是从所有可能的州中随机选择 $r$ 个州（$r < 50$）。接下来，从第 $i$ 个州中的 $C_i$ 个城市中随机选择 $t_i$ 个城市（$t_i < C_i$），这些城市的人口至少为 20,000. 最后，从第 $i$ 个州中的第 $j$ 个城市的 $S_{ij}$ 家商店中随机选择 $n_{ij}$ 家商店（$n_{ij} < S_{ij}$），并确定每家随机选择的商店中特定等级的咖啡价格。可以用来描述咖啡价格变化的模型是
+一个消费者团体研究了美国至少拥有 20,000 人口的城市中咖啡价格的变异。该团体希望调查的三个因子是州 (state)、州内的城市 (sity) 以及州内城市内的商店 (store). 处理结构或抽样设计是一个涉及州、城市和商店的三向两水平的嵌套系统，其中城市嵌套在州内，商店嵌套在城市内。抽样程序是从所有可能的州中随机选择 $r$ 个州（$r < 50$）。接下来，从第 $i$ 个州中的 $C_i$ 个城市中随机选择 $t_i$ 个城市（$t_i < C_i$），这些城市的人口至少为 20,000. 最后，从第 $i$ 个州中的第 $j$ 个城市的 $S_{ij}$ 家商店中随机选择 $n_{ij}$ 家商店（$n_{ij} < S_{ij}$），并确定每家随机选择的商店中特定等级的咖啡价格。可以用来描述咖啡价格变异的模型是
 
 $$y_{ijk}=\mu+s_i+c_{j(i)}+a_{k(ij)}\quad i=1,2,\ldots,r,j=1,2,\ldots,t_i,\quad k=1,2,\ldots,n_{ij}$$
 
@@ -62,7 +62,7 @@ $$y_{ijk}=\mu+s_i+c_{j(i)}+a_{k(ij)}\quad i=1,2,\ldots,r,j=1,2,\ldots,t_i,\quad 
 2. $c_{j(i)}\sim i.i.d.\,N(0,\sigma_{\mathrm{City}}^2)$
 3. $a_{k(ij)}\sim i.i.d.\,N(0,\sigma_{\mathrm{Store}}^2)$
 
-还假设所有随机效应都是彼此独立分布的。该随机效应模型中的参数为 $\mu,\sigma_{\mathrm{State}}^2,\sigma_{\mathrm{City}}^2,\sigma_{\mathrm{Store}}^2$. 项 $s_i,c_{j(i)},a_{k(ij)}$ 是随机变量，不是模型中的参数。大多数应用只对参数估计感兴趣，对预测随机变量的值不感兴趣。但是，当对随机变量的预测感兴趣时，可以获得随机效应的**最佳线性无偏预测估计** (estimated best linear unbiased predictors, EBLUP) (Littell et al., 2006; Milliken and Johnson, 2002).
+还假设所有随机效应都是彼此独立分布的。该随机效应模型中的参数为 $\mu,\sigma_{\mathrm{State}}^2,\sigma_{\mathrm{City}}^2,\sigma_{\mathrm{Store}}^2$. **项 $s_i,c_{j(i)},a_{k(ij)}$ 是随机变量，不是模型中的参数**。大多数应用只对参数估计感兴趣，对预测随机变量的值不感兴趣。但是，当对随机变量的预测感兴趣时，可以获得随机效应的**最佳线性无偏预测估计** (estimated best linear unbiased predictors, **EBLUP**) (Littell et al., 2006; Milliken and Johnson, 2002).
 
 咖啡价格的方差可以通过模型参数表示为
 
@@ -84,7 +84,7 @@ $$\rho_{y_{i11}y_{i22}}=\frac{\sigma_{\mathrm{State}}^2}{\sigma_{\mathrm{State}}
 
 ## 矩阵表示法中的一般随机效应模型 {#sec18-2}
 
-为了描述用于评估平方和期望的方法，有必要使用一些通用符号来描述一般随机效应模型 (general random effects model). 本节介绍一般随机效应模型的矩阵表示，后面的部分将使用该模型来演示计算期望均方的一般方法。为了帮助可视化一般随机效应模型及其在矩阵方面的表达，我们研究了完全随机设计结构中单向处理结构的随机效应模型。
+为了描述用于评估平方和期望的方法，有必要使用一些通用符号来描述**一般随机效应模型** (general random effects model). 本节介绍一般随机效应模型的矩阵表示，后面的部分将使用该模型来演示计算期望均方的一般方法。为了帮助可视化一般随机效应模型及其在矩阵方面的表达，我们研究了完全随机设计结构中单向处理结构的随机效应模型。
 
 ### 示例 18.2：单向随机效应模型 {#sec18-2-1}
 
@@ -102,7 +102,7 @@ $$\begin{aligned}
 &=\sigma_u^2+\sigma_\varepsilon^2
 \end{aligned}$$
 
-$y_{ij}$ 的方差有两个分量，包括处理总体的方差或 $u$ 水平的方差和实验单元的方差，因此称为方差分量 (variance components or components of variance). 从 $u_i$ 的相同可能性获得的两个观测值的协方差为
+$y_{ij}$ 的方差有两个分量，包括处理总体的方差或 $u$ 水平的方差和实验单元的方差，因此称为**方差分量** (variance components or components of variance). 从 $u_i$ 的相同可能性获得的两个观测值的协方差为
 
 $$\begin{aligned}\mathrm{Cov}(y_{ij},y_{ij^{\prime}})&=\mathrm{Cov}(\mu+u_i+\varepsilon_{ij},\mu+u_i+\varepsilon_{ij^{\prime}})\\&=\mathrm{Cov}(u_i,u_i)=\mathrm{Var}(u_i)=\sigma_u^2\end{aligned}$$
 
@@ -110,7 +110,7 @@ $$\begin{aligned}\mathrm{Cov}(y_{ij},y_{ij^{\prime}})&=\mathrm{Cov}(\mu+u_i+\var
 
 $$\rho=\frac{\mathrm{Cov}(y_{ij},y_{ij},)}{\sqrt{\mathrm{Var}(y_{ij})\mathrm{Var}(y_{ij},)}}=\frac{\sigma_u^2}{\sigma_u^2+\sigma_\varepsilon^2}$$
 
-不同 $i$ 值的观察结果是不相关的。方程 \@ref(eq:18-1) 中的模型可以用矩阵表示法描述为
+不同 $i$ 值的观测结果是不相关的。方程 \@ref(eq:18-1) 中的模型可以用矩阵表示法描述为
 
 \begin{equation}
 \boldsymbol y=\boldsymbol j \mu+\boldsymbol Z_1 \boldsymbol u+\boldsymbol \varepsilon 
@@ -121,11 +121,11 @@ $$\rho=\frac{\mathrm{Cov}(y_{ij},y_{ij},)}{\sqrt{\mathrm{Var}(y_{ij})\mathrm{Var
 
 $$\begin{aligned}
 \boldsymbol\Sigma& =\mathrm{Var}(\boldsymbol{y})=\mathrm{Var}(\boldsymbol{j} \mu+\boldsymbol{Z}_1\boldsymbol{u}+\boldsymbol{\varepsilon})  \\
-&=\mathbf{Z}_1\operatorname{Var}(\boldsymbol{u})\mathbf{Z}_1^{\prime}+\operatorname{Var}(\boldsymbol{\varepsilon}) \\
-&=\sigma_u^2\mathbf{Z}_1\mathbf{Z}_1^{\prime}+\boldsymbol{\sigma}_\boldsymbol{\varepsilon}^2\mathbf{I}_N
+&=\boldsymbol{Z}_1\operatorname{Var}(\boldsymbol{u})\boldsymbol{Z}_1^{\prime}+\operatorname{Var}(\boldsymbol{\varepsilon}) \\
+&=\sigma_u^2\boldsymbol{Z}_1\boldsymbol{Z}_1^{\prime}+\boldsymbol{\sigma}_\boldsymbol{\varepsilon}^2\boldsymbol{I}_N
 \end{aligned}$$
 
-$yij$ 的方差是 $\boldsymbol\Sigma$ 的对角元，$yij$ 对子之间的协方差是 $\boldsymbol\Sigma$ 的非对角元。
+$y_{ij}$ 的方差是 $\boldsymbol\Sigma$ 的对角元，$y_{ij}$ 对子之间的协方差是 $\boldsymbol\Sigma$ 的非对角元。
 
 等价地，模型可以写为
 
@@ -151,14 +151,14 @@ $$
 
 [^generalrandomeffectmodel]: 原文：The general random effects model will have r random components representing the main effects and interactions for the random effect factors of the treatment structure and for those factors used to describe the design structure as well as possible interactions between components of the design and treatment structures used to describe the necessary error terms.
 
-一般随机效应模型将具有 $r$ 个随机分量，代表了处理结构中随机效应因子的主效应和交互作用，同时也代表了用于描述设计结构的因子以及设计与处理结构分量之间可能存在的交互作用，此交互作用用于描述必要误差项[^generalrandomeffectmodel]。一般随机效应模型包括由 $\mu$ 表示的总体均值参数由向量 $\boldsymbol \varepsilon$ 表示的残差或最小尺寸实验单元的误差。一般随机效应模型可以用矩阵表示为
+一般随机效应模型将具有 $r$ 个随机分量，代表了处理结构中随机效应因子的主效应和交互作用，同时也代表了用于描述设计结构的因子以及设计与处理结构分量之间可能存在的交互作用，此交互作用用于描述必要误差项[^generalrandomeffectmodel]。一般随机效应模型包括由 $\mu$ 表示的总体均值参数以及由向量 $\boldsymbol \varepsilon$ 表示的残差或最小尺寸实验单元的误差。一般随机效应模型可以用矩阵表示为
 
 \begin{equation}
 \boldsymbol y=\boldsymbol j \mu+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_r\boldsymbol u_r+\boldsymbol\varepsilon
 (#eq:18-3)
 \end{equation}
 
-其中 $\mu_s(s=1,2,\cdots,r)$ 表示随机效应以及 $\boldsymbol\varepsilon$ 表示残差，其中假设所有这些随机变量独立分布，且假设它们的边际分布为
+其中 $\boldsymbol \mu_s(s=1,2,\cdots,r)$ 表示随机效应以及 $\boldsymbol\varepsilon$ 表示残差，其中假设所有这些随机变量独立分布，且假设它们的边际分布为
 
 $$\boldsymbol u_1\thicksim N(0,\sigma_1^2\boldsymbol I_{t_1}),\quad \boldsymbol u_2\thicksim N(0,\sigma_2^2\boldsymbol I_{t_2}),\ldots,\quad \boldsymbol u_r\thicksim N(0,\sigma_r^2\boldsymbol I_{t_r}),\quad\mathrm{and}\quad\boldsymbol\varepsilon\thicksim N(0,\sigma_\varepsilon^2\boldsymbol I_N)$$
 
@@ -174,8 +174,8 @@ $$\operatorname{Var}(\boldsymbol y)=\boldsymbol Z^{\prime}\operatorname{Var}(\bo
 
 $$\begin{aligned}
 \boldsymbol \Sigma& =\operatorname{Var}(\boldsymbol y)=\operatorname{Var}(\boldsymbol j \mu+\boldsymbol Z_1\boldsymbol u_1+\boldsymbol Z_2\boldsymbol u_2+\cdots+\boldsymbol Z_r\boldsymbol u_r+\boldsymbol\varepsilon)  \\
-&=\mathbf{Z}_1\mathrm{Var}(\boldsymbol{u}_1)\mathbf{Z}_1^{\prime}+\mathbf{Z}_2\mathrm{Var}(\boldsymbol{u}_2)\mathbf{Z}_2^{\prime}+\cdots+\mathbf{Z}_r\mathrm{Var}(\boldsymbol{u}_r)\mathbf{Z}_r^{\prime}+\mathrm{Var}(\boldsymbol{\varepsilon}) \\
-&=\sigma_1^2\mathbf{Z}_1\mathbf{Z}_1^{\prime}+\sigma_2^2\mathbf{Z}_2\mathbf{Z}_2^{\prime}+\cdots+\sigma_r^2\mathbf{Z}_r\mathbf{Z}_r^{\prime}+\sigma_\varepsilon^2\mathbf{I}_N
+&=\boldsymbol{Z}_1\mathrm{Var}(\boldsymbol{u}_1)\boldsymbol{Z}_1^{\prime}+\boldsymbol{Z}_2\mathrm{Var}(\boldsymbol{u}_2)\boldsymbol{Z}_2^{\prime}+\cdots+\boldsymbol{Z}_r\mathrm{Var}(\boldsymbol{u}_r)\boldsymbol{Z}_r^{\prime}+\mathrm{Var}(\boldsymbol{\varepsilon}) \\
+&=\sigma_1^2\boldsymbol{Z}_1\boldsymbol{Z}_1^{\prime}+\sigma_2^2\boldsymbol{Z}_2\boldsymbol{Z}_2^{\prime}+\cdots+\sigma_r^2\boldsymbol{Z}_r\boldsymbol{Z}_r^{\prime}+\sigma_\varepsilon^2\boldsymbol{I}_N
 \end{aligned}$$
 
 这种一般形式的随机效应模型可以在许多情况下使用，以帮助识别数据收集系统中的变异源。分析这些变异来源的一种方法是计算一组与每个随机效应对应的平方和，然后确定每个平方和估计的参数函数。通过获取效应平方和的期望值，可以评估由每个效应平方和所估计的方差分量函数。接下来的章节将使用这种矩阵形式的一般随机效应模型来描述涉及观测值的平方和期望值的评估方法。
@@ -203,7 +203,7 @@ y_{ij}&=\mu+\mu_i+\varepsilon_{ij}\\
 
 $$Q_1=\sum_{i=1}^t\sum_{j=1}^{n_i}[(\mu+u_i+\varepsilon_{ij})-(\mu+u_i+\bar{\varepsilon}_{i\cdot})]^2=\sum_{i=1}^t\sum_{j=1}^{n_i}(\varepsilon_{ij}-\bar{\varepsilon}_{i\cdot})^2$$
 
-使用 $\boldsymbol \varepsilon$ 的分布性质可以评估$Q_1$ 的期望值
+使用 $\boldsymbol \varepsilon$ 的分布性质可以评估 $Q_1$ 的期望值
 
 $$\begin{aligned}
 E(Q_1)& =\sum_{i=1}^t\sum_{j=1}^{n_i}E({\varepsilon}_{ij}-\bar{{\varepsilon}}_i.)^2=\sum_{i=1}^t\sum_{j=1}^{n_i}[E({\varepsilon}_{ij}^2)+E(\bar{{\varepsilon}}_{i\cdot}^2)-2E({\varepsilon}_{ij}\bar{{\varepsilon}}_{i\cdot})]\quad\text{(by squaring)}  \\
@@ -231,7 +231,7 @@ E(Q_{2})& \begin{aligned}=\sum_{i=1}^tn_i[E(u_i-\tilde{u}_{\cdot})^2+E(\bar{{\va
 
 为了简化这一点，$Q_2$ 的期望分为两部分进行评估。第一部分评估了涉及 $\boldsymbol \varepsilon$ 的期望。与均值 $\bar \varepsilon_{i\cdot}$ 和 $\bar \varepsilon_{\cdot\cdot}$ 相关的分布为
 
-$$\bar{{\varepsilon}}_{i\cdot}\sim N{\left(0,\frac{{\sigma}_\varepsilon^2}{n_i}\right)}\quad\mathrm{and}\quad\bar\varepsilon_{\cdot}\sim N{\left(0,\frac{{\sigma}_\varepsilon^2}N\right)}$$
+$$\bar{{\varepsilon}}_{i\cdot}\sim N{\left(0,\frac{{\sigma}_\varepsilon^2}{n_i}\right)}\quad\mathrm{and}\quad\bar\varepsilon_{\cdot\cdot}\sim N{\left(0,\frac{{\sigma}_\varepsilon^2}N\right)}$$
 
 那么 $Q_2$ 中涉及 $\boldsymbol \varepsilon$ 部分的期望是
 
@@ -247,7 +247,7 @@ $$\begin{aligned} &\sum_{i=1}^{t}n_{i}\left[E(\bar{{\varepsilon}}_{i\cdot})^{2}+
 
 $$\mathrm{Var}(\tilde{u}_\cdot)=E(\tilde{u}_\cdot)^2=\sum_{i=1}^t\left(\frac{n_i^2}{N^2}\right){\sigma}_u^2=\left(\frac1{N^2}\right){\sum}_{i=1}^t(n_i^2){\sigma}_u^2$$
 
-由于对于 $i\ne i^\prime$ 有 $E(u_iu_{i^\prime})$,$u_i$ 和 $\tilde{u}_\cdot$ 之间的协方差为
+由于对于 $i\ne i^\prime$ 有 $E(u_iu_{i^\prime})$，$u_i$ 和 $\tilde{u}_\cdot$ 之间的协方差为
 
 $$\mathrm{Cov}(\tilde{u}_\cdot,u_i)=E(\tilde{u}_\cdot u_i)=\left(\frac{n_i}N\right)E(u_i)^2=\left(\frac{n_i}N\right)\sigma_u^2$$
 
@@ -296,11 +296,11 @@ Q=\boldsymbol{y'Ay}
 其中 $\boldsymbol y$ 是观测向量，$\boldsymbol A$ 是适当选择的对称常数矩阵，称为**二次型的矩阵** (the matrix of the quadratic form) (Graybill, 1976). 例如，n 个观测值的向量的样本方差为
 
 $$s^2=\sum_{i=1}^n\frac{(\boldsymbol y_i-\bar{\boldsymbol y}_{\cdot})^2}{n-1}=\boldsymbol y^{\prime}\biggl[\frac1{n-1}{\biggl(\boldsymbol I_n-\frac1n\boldsymbol J_n\biggr)}\biggr]\boldsymbol{y}$$
-其中 $\boldsymbol I_n$ 为 n × n 单位阵，$\boldsymbol J_n$ 为 n × n 全一阵，二次型 \boldsymbol{y'Ay} 的矩阵为
+其中 $\boldsymbol I_n$ 为 n × n 单位阵，$\boldsymbol J_n$ 为 n × n 全一阵，二次型 $\boldsymbol{y'Ay}$ 的矩阵为
 
 $$\boldsymbol A=\frac1{n-1}{\biggl(\boldsymbol I_n-\frac1n\boldsymbol J_n\biggr)}$$
 
-针对不同的模型，总存在某些特定的选择使得矩阵 $\boldsymbol A$ 产生所需的平方和，幸运的是，正如我们很快将看到的那样，无需了解矩阵 $\boldsymbol A$ 中的元素具体是什么，甚至不必知道如何确定矩阵 $\boldsymbol A$ 的元素。你只需要知道矩阵 $\boldsymbol A$ 是存在的。
+针对不同的模型，总存在某些特定的选择使得矩阵 $\boldsymbol A$ 产生所需的平方和，幸运的是，正如我们很快将看到的那样，无需了解矩阵 $\boldsymbol A$ 中的元素具体是什么，甚至不必知道如何确定矩阵 $\boldsymbol A$ 的元素。**只需要知道矩阵 $\boldsymbol A$ 是存在的**。
 
 对于一般随机效应模型 \@ref(eq:18-3) 及其相应的协方差阵 $\boldsymbol \Sigma$，二次型的期望 (Graybill, 1976) 为
 
@@ -350,7 +350,7 @@ $$\begin{bmatrix}y_{11}\\y_{12}\\y_{13}\\y_{14}\\y_{21}\\y_{22}\\y_{23}\\y_{24}\
 
 组内平方和 (within sum of squares[^withinsumofsquares]) $Q_1$ 的期望值为
 
-$$E(Q_1)=E(\boldsymbol{y'}A_w\boldsymbol{y})=\boldsymbol{\sigma}_u^2\left[\boldsymbol{\sum}_{j=1}^4\boldsymbol{z'}_j\boldsymbol{A}_w\boldsymbol{z}_j\right]+12{\sigma}_\varepsilon^2$$
+$$E(Q_1)=E(\boldsymbol{y'}\boldsymbol A_w\boldsymbol{y})=\boldsymbol{\sigma}_u^2\left[\boldsymbol{\sum}_{j=1}^4\boldsymbol{z}'_j\boldsymbol{A}_w\boldsymbol{z}_j\right]+12{\sigma}_\varepsilon^2$$
 
 其中 12 是与 $Q_1$ 相关的自由度，$\boldsymbol{A}_w$ 表示组内平方和 $Q_1$ 二次型的矩阵。为了获得 $\sigma^2_u$ 的系数，使用 $\boldsymbol z_1$ 作为数据计算组内平方和 $Q_1$，使用 $\boldsymbol z_2$ 作为数据计算 $Q_1$，使用 $\boldsymbol z_3$ 作为数据计算 $Q_1$，使用 $\boldsymbol z_4$ 作为数据计算 $Q_1$. 对于列 $\boldsymbol z_1$ 的组内平方和
 
@@ -368,7 +368,7 @@ $$E(Q_2)=E(\boldsymbol{y'}\boldsymbol A_B\boldsymbol{y})={\sigma}_u^2\biggl[\bol
 
 $$Q_2=\sum_{i=1}^tn_i(\bar{y}_{i\cdot}-\bar{y}_{\cdot\cdot})^2=\sum_{i=1}^tn_i\bar{y}_{i\cdot}^2-n_{\cdot\cdot}\bar{y}_{\cdot\cdot}$$
 
-其中 3 是与 $Q_2$ 相关的自由度，$\boldsymbol{A}_B$ 表示组间平方和 $Q_2$ 二次型的矩阵。要计算 $\sigma^2_u$ 的系数，请使用每列 $\boldsymbol z_1,\boldsymbol z_2,\boldsymbol z_3,\boldsymbol z_4$ 计算组间平方和 $Q_2$ 的值，并将这四个值相加。使用 $\boldsymbol z_1$ 作为数据计算的平方和之间的值为
+其中 3 是与 $Q_2$ 相关的自由度，$\boldsymbol{A}_B$ 表示组间平方和 $Q_2$ 二次型的矩阵。要计算 $\sigma^2_u$ 的系数，请使用每列 $\boldsymbol z_1,\boldsymbol z_2,\boldsymbol z_3,\boldsymbol z_4$ 计算组间平方和 $Q_2$ 的值，并将这四个值相加。使用 $\boldsymbol z_1$ 作为数据计算的组间平方和的值为
 
 $$Q_2(\boldsymbol z_1){=}4\sum_{i=1}^4\bar{z}_{1i\cdot}^2-16\bar{z}_{\cdot\cdot\cdot}^2=4(1^2+0^2+0^2+0^2){-}16(0.25)^2{=}3$$
 
@@ -396,7 +396,7 @@ $$\begin{aligned}E(Q_1)=\sigma_u^2\sum_{i=1}^t\boldsymbol z_i'\boldsymbol A_w\bo
 
 $$Q_1(\boldsymbol z_1)=\sum_{i=1}^t\sum_{j=1}^{n_i} z_{1ij}^2-\sum_{i=1}^tn_i\bar{ z}_{1i\cdot}^2=n_1-\left[n_1(1)+n_2(0)+\cdots+n_t(0)\right]=0$$
 
-同样，$Q_1(\boldsymbol z_2),Q_1(\boldsymbol z_3),Q_1(\boldsymbol z_4)$ 也为 0. 因此，在 $\sigma^2_u$ 在 $E(Q_1)$ 中的系数为零，这意味着 $E(Q_1)=(N-t)\sigma^2_{\varepsilon}$，并且其中存在与 $Q_1$ 相关的 N-t 个自由度。
+同样，$Q_1(\boldsymbol z_2),Q_1(\boldsymbol z_3),Q_1(\boldsymbol z_4)$ 也为 0. 因此，$\sigma^2_u$ 在 $E(Q_1)$ 中的系数为零，这意味着 $E(Q_1)=(N-t)\sigma^2_{\varepsilon}$，并且其中存在与 $Q_1$ 相关的 N-t 个自由度。
 
 组间平方和为
 
@@ -413,7 +413,7 @@ $$Q_2(\boldsymbol z_1){=}\sum_{i=1}^tn_i\bar{z}_{1i\cdot}^2-N\bar{z}_{1\cdot\cdo
 对于列 $\boldsymbol z_1$ 有 $\bar z_{11\cdot}=1,\bar z_{12\cdot}=\bar z_{13\cdot}=\cdots \bar z_{1t\cdot}=0$ 以及 $\bar z_{1\cdot\cdot}=n_1/N$. 因此
 
 
-$$Q_2(z_1)=n_1(1)^2+n_2(0)^2+\cdots+n_t(0)^2-N(n_1/N)^2=\frac{n_1-n_1^2}N$$
+$$Q_2(\boldsymbol z_1)=n_1(1)^2+n_2(0)^2+\cdots+n_t(0)^2-N(n_1/N)^2=\frac{n_1-n_1^2}N$$
 
 类似地，使用 $\boldsymbol Z$ 的其他列作为数据的 $Q_2$ 的值为
 
@@ -457,13 +457,13 @@ $$Q_2=\frac{y_{\cdot1\cdot}^2}5+\frac{y_{\cdot2\cdot}^2}5+\frac{y_{\cdot3\cdot}^
 
 以及，对于 $k_1,k_2,k_3$ 的一些值，$E(Q_2)$ 具有形式 $E(Q_2)＝k_1\sigma_a^2+k_2\sigma_b^2+k_3\sigma_c^2+2\sigma_\varepsilon^2$，其中 2 是与 $Q_2$ 相关的自由度。下一步是使用 Hartley 的综合法来确定 $k_1,k_2,k_3$. 要确定 $k_1$ 的值，请为 $\boldsymbol Z_1$ 的两列中的每一列计算 $Q_2$. 使用 $\boldsymbol Z_1$ 的第一列作为数据的 $Q_2$ 的值为
 
-$$\begin{aligned}Q_2( z_{11})=\frac{3^2}5+\frac{2^2}5+\frac{2^2}4-\frac{7^2}{14}=0.1\end{aligned}$$
+$$\begin{aligned}Q_2( \boldsymbol z_{11})=\frac{3^2}5+\frac{2^2}5+\frac{2^2}4-\frac{7^2}{14}=0.1\end{aligned}$$
 
 并且使用 $\boldsymbol Z_1$ 的第二列作为数据的 $Q_2$ 的值为
 
 $$Q_2(\boldsymbol z_{12})=\frac{2^2}5+\frac{3^2}5+\frac{2^2}4-\frac{5^2}{14}=0.1$$
 
-因此，$k_1＝Q_2( z_{11})+Q_2( z_{11})＝0.1+0.1＝0.2$. 为确定 $k_2$ 的值，计算 $\boldsymbol Z_2$ 每列的 $Q_2$ 为
+因此，$k_1＝Q_2( z_{11})+Q_2( z_{11})=0.1+0.1=0.2$. 为确定 $k_2$ 的值，计算 $\boldsymbol Z_2$ 每列的 $Q_2$ 为
 
 $$
 \begin{aligned}
@@ -604,13 +604,15 @@ $$
 
 这些平方和是在讨论图 \@ref(fig:figure18-1) 中数据结构之初所使用的。
 
-拟合常数法，或 Henderson's methods III，涉及将数据拟合到各种线性模型中，然后计算相应的平方和。该方法使用所谓的因拟合完全模型而导致的平方和减少以及因拟合各种子模型而导致的平方和减少（参见第 \@ref(chap10) 章）。为了设定符号，考虑模型
+[^fittingconstant]: 原书上下文并没有给出这些符号的意义，也令译者一头雾水。尤其下方的 “$\boldsymbol{b}\sim N(0,\sigma_b^2),\boldsymbol{t}\sim N(0,\sigma_t^2),\boldsymbol{g}\sim N(0,\sigma_g^2)$”，原书中这些变量确实是加粗字体，但其分布并没有表示为多元正态分布的形式。
+
+**拟合常数法** (fitting-constants method)，或 Henderson's methods III，涉及将数据拟合到各种线性模型中，然后计算相应的平方和。该方法使用所谓的因拟合完全模型而导致的平方和减少以及因拟合各种子模型而导致的平方和减少（参见第 \@ref(chap10) 章）。为了设定符号，考虑模型[^fittingconstant]
 
 $$\boldsymbol y=\boldsymbol X_1\boldsymbol b_1+\boldsymbol X_2\boldsymbol b_2+\boldsymbol X_3\boldsymbol b_3+\boldsymbol\varepsilon $$
 
 由于拟合完全模型而导致的总平方和的减少为
 
-$$R(\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3)=\boldsymbol y^{\prime}\boldsymbol y-\mathrm{SSERROR}(b_1,b_2,b_3)$$
+$$R(\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3)=\boldsymbol y^{\prime}\boldsymbol y-\mathrm{SSERROR}(\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3)$$
 
 其中 $\mathrm{SSERROR}(\boldsymbol b_1,\boldsymbol b_2,\boldsymbol b_3)$ 是拟合完全模型后的残差平方和。由于拟合 $\boldsymbol b_1$ 和 $\boldsymbol b_2$ 导致的减少为 $R(\boldsymbol b_1,\boldsymbol b_2)=\boldsymbol y^{\prime}\boldsymbol y-{\text{SSERROR}(\boldsymbol b_1,\boldsymbol b_2)}$ 其中 ${\text{SSERROR}(\boldsymbol b_1,\boldsymbol b_2)}$ 是模型 $\boldsymbol y=\boldsymbol X_1 \boldsymbol b_1+\boldsymbol X_2 \boldsymbol b_2 + \boldsymbol \varepsilon$ 的残差平方和。
 
@@ -642,7 +644,7 @@ $$\begin{aligned}
 &E[R(\boldsymbol b| \mu)]=k_6\sigma_\varepsilon^2+k_7\sigma_g^2+k_8\sigma_t^2+k_9\sigma_b^2
 \end{aligned}$$
 
-也可以使用由 $R(\boldsymbol t| \mu),R(\boldsymbol b| \mu, \boldsymbol t),R(\boldsymbol g| \mu, \boldsymbol b, \boldsymbol t)$ 和 $\text{SSERROR}( \mu,\boldsymbol b,\boldsymbol t, \boldsymbol g)$ 给出的 I 型平方和，拟合常数的方法可以用于随机效应和混合效应模型，只要固定效应先于随机效应拟合即可。
+也可以使用由 $R(\boldsymbol t| \mu),R(\boldsymbol b| \mu, \boldsymbol t),R(\boldsymbol g| \mu, \boldsymbol b, \boldsymbol t)$ 和 $\text{SSERROR}( \mu,\boldsymbol b,\boldsymbol t, \boldsymbol g)$ 给出的 I 型平方和，拟合常数法可以用于随机效应和混合效应模型，只要固定效应先于随机效应拟合即可。
 
 综合法可用于评估涉及随机效应和/或多个误差项的任何模型的平方和的期望。一组平方和及其期望（或均方）可用于估计方差分量，以开发假设检验，并构造关于各个方差分量和/或方差分量函数的置信区间。第 \@ref(chap19) 章讨论了估计方法，第 \@ref(chap20) 章介绍了推断技术。许多统计软件程序自动使用 Hartley 综合法来计算期望均方 (expected mean squares).
 

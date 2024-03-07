@@ -18,7 +18,7 @@ y_{ijk}=\mu+\tau_i+\beta_j+\gamma_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t;~j
 
 ## 参数估计和 I 型分析 {#sec10-2}
 
-除了第 \@ref(chap9) 章介绍的那些平方和，在分析具有不等子类数量的双向处理结构时，还会涉及其他一些平方和。本章将探讨其中两种。首先是一系列平方和，它们涉及通过推广第 \@ref(#sec3-2) 节所述的模型比较方法，以序贯 (sequential) 的方式将双向效应模型逐步拟合到观测数据上。常用的一种序列步骤如下
+除了第 \@ref(chap9) 章介绍的那些平方和，在分析具有不等子类数量的双向处理结构时，还会涉及其他一些平方和。本章将探讨其中两种。首先是一系列平方和，它们涉及通过推广第 \@ref(sec3-2) 节所述的模型比较方法，以序贯 (sequential) 的方式将双向效应模型逐步拟合到观测数据上。常用的一种序列步骤如下
 
 1. 第一步. 拟合 $y_{ijk}=\mu+\varepsilon_{ijk}$，将其残差平方和表示为 $RSS_1$.
 2. 第二步. 拟合 $y_{ijk}=\mu+\tau_i+\varepsilon_{ijk}$，将其残差平方和表示为 $RSS_2$.
@@ -113,9 +113,9 @@ I 型分析中的平方和以及交互作用的检验统计量与第 \@ref(chap9
 应回忆第 \@ref(chap6) 章中的参数估计 $\hat{{\mu}}=32,\hat{{\tau}}_1=-8,\hat{{\beta}}_1=-6,\hat{\beta}_2=-9,\hat{\gamma}_{11}=2,\hat{\gamma}_{12}=10$ 不是相应参数 $\mu,\tau_1,\beta_1,\beta_2,\gamma_{11},\gamma_{12}$ 的无偏估计。事实上，这些单独的参数是不可估的。在用于求解正规方程组的置零限制下，可以证明
 
 \begin{align}
-&\hat{\mu} \,\,\text{is an unbiased estimate of}\,\, \mu+\tau_2+\beta_3+\gamma_{23} \hat{\tau}_1 \,\,\text{is an unbiased estimate of}\,\, \tau_1-\tau_2+\gamma_{13}-\gamma_{23}  -\gamma_{23} \\
-&\hat{\beta}_1 \,\,\text{is an unbiased estimate of}\,\, \beta_1-\beta_3+\gamma_{21}-\gamma_{23} -\gamma_{23} \boldsymbol{\beta}_3+\boldsymbol{\gamma}_{21}
-\\
+&\hat{\mu} \,\,\text{is an unbiased estimate of}\,\, \mu+\tau_2+\beta_3+\gamma_{23} \\
+&\hat{\tau}_1 \,\,\text{is an unbiased estimate of}\,\, \tau_1-\tau_2+\gamma_{13}-\gamma_{23}  -\gamma_{23} \\
+&\hat{\beta}_1 \,\,\text{is an unbiased estimate of}\,\, \beta_1-\beta_3+\gamma_{21}-\gamma_{23} -\gamma_{23} \\
 &\hat{\beta}_2 \,\,\text{is an unbiased estimate of}\,\, \beta_2-\beta_3+\gamma_{22}-\gamma_{23} \gamma_{23}\\
 &\hat{\gamma}_{11} \,\,\text{is an unbiased estimate of}\,\, \gamma_{11}-\gamma_{13}-\gamma_{21}+\gamma_{23}\\
 &\hat{\gamma}_{12} \,\,\text{is an unbiased estimate of}\,\, \gamma_{12}-\gamma_{13}-\gamma_{22}+\gamma_{23}
@@ -141,7 +141,7 @@ SAS-GLM 给出的可估函数的一般形式如表 \@ref(tab:table10-3) 所示�
 
 $$\begin{aligned}
 \boldsymbol{\ell'\beta} =
-&({Ll})\mu+({L2})\tau_1+({L1}-{L2})\tau_2+({L4})\beta_1+({L5})\beta_2+({L1}-{L4}-{L5})\beta_3+({L7})\gamma_{11}\\&+(\mathrm{L}8)\gamma_{12}+(\mathrm{L}2-\mathrm{L}7-\mathrm{L}8)\gamma_{13}+(\mathrm{L}4-\mathrm{L}7)\gamma_{21}+(\mathrm{L}5-\mathrm{L}8)\gamma_{22} \\
+&({L1})\mu+({L2})\tau_1+({L1}-{L2})\tau_2+({L4})\beta_1+({L5})\beta_2+({L1}-{L4}-{L5})\beta_3+({L7})\gamma_{11}\\&+(\mathrm{L}8)\gamma_{12}+(\mathrm{L}2-\mathrm{L}7-\mathrm{L}8)\gamma_{13}+(\mathrm{L}4-\mathrm{L}7)\gamma_{21}+(\mathrm{L}5-\mathrm{L}8)\gamma_{22} \\
 &+(L1-L2-L4-L5+L7+L8)\gamma_{23} 
 \end{aligned}$$
 
