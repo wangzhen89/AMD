@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>第 27 章 不满足理想条件时重复测量实验的分析 | 混乱数据分析：设计的实验</title>
+  <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="第 27 章 不满足理想条件时重复测量实验的分析 | 混乱数据分析：设计的实验" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  <meta name="github-repo" content="wangzhen89/AMD" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="第 27 章 不满足理想条件时重复测量实验的分析 | 混乱数据分析：设计的实验" />
+  
+  <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
+  
+
+<meta name="author" content="Wang Zhen" />
+
+
+<meta name="date" content="2024-03-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chap26.html"/>
+<link rel="next" href="chap28.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      TeX: {
+        Macros: {
+          bm: ["{\\boldsymbol #1}",1],
+        },
+        extensions: ["cancel.js"]
+      }
+    });
+</script>
+
+<!-- add line break after theorem title -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    for (let s of document.querySelectorAll("span.theorem, span.lemma, span.proposition, span.corollary")) {
+      s.insertAdjacentHTML('afterend', '<br style="line-height:2px;"/>');
+    }
+  });
+</script>
+
+<!-- check if --themcolor in style.css matches one of elegantbook theme colors. If so, generates the color palette  -->
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    const cssroot = document.querySelector(':root');
+    let theme_color = getComputedStyle(document.documentElement).getPropertyValue('--themecolor').trim();
+  
+    // blue is the default option
+
+    switch (theme_color) {
+      case 'green': 
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,120,2)');
+        cssroot.style.setProperty('--main', 'rgb(70,70,70)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(115,45,2)');
+        cssroot.style.setProperty('--secondbg', 'rgba(115,45,2,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,80,80)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,80,80,0.05)');
+      break;
+      case 'cyan':
+        cssroot.style.setProperty('--structurecolor', 'rgb(31,186,190)');
+        cssroot.style.setProperty('--main', 'rgb(59,180,5)');
+        cssroot.style.setProperty('--mainbg', 'rgba(59,180,5,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(175,153,8)');
+        cssroot.style.setProperty('--secondbg', 'rgba(175,153,8,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(244,105,102)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(244,105,102,0.05)');
+      break;
+      case 'gray':
+        cssroot.style.setProperty('--structurecolor', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--main', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--mainbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--secondbg', 'rgba(150,150,150,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(150,150,150)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(150,150,150,0.05)');
+      break;
+      case 'black':
+        cssroot.style.setProperty('--structurecolor', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--main', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--secondbg', 'rgba(0,0,0,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,0,0)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,0,0,0.05)');
+      break;
+    default:
+        cssroot.style.setProperty('--structurecolor', 'rgb(60,113,183)');
+        cssroot.style.setProperty('--main', 'rgb(0,166,82)');
+        cssroot.style.setProperty('--mainbg', 'rgba(0,166,82,0.05)');
+        cssroot.style.setProperty('--second', 'rgb(255,134,24)');
+        cssroot.style.setProperty('--secondbg', 'rgba(255,134,24,0.05)');
+        cssroot.style.setProperty('--third', 'rgb(0,174,247)');
+        cssroot.style.setProperty('--thirdbg', 'rgba(0,174,247,0.05)');
+    }
+  });
+  </script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">混乱数据分析：设计的实验</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>介绍</a></li>
+<li class="part"><span><b>I 热身</b></span></li>
+<li class="chapter" data-level="1" data-path="chap1.html"><a href="chap1.html"><i class="fa fa-check"></i><b>1</b> 最简单的情况：具有同质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="chap1.html"><a href="chap1.html#sec1-1"><i class="fa fa-check"></i><b>1.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="1.2" data-path="chap1.html"><a href="chap1.html#sec1-2"><i class="fa fa-check"></i><b>1.2</b> 参数估计</a></li>
+<li class="chapter" data-level="1.3" data-path="chap1.html"><a href="chap1.html#sec1-3"><i class="fa fa-check"></i><b>1.3</b> 线性组合的推断：检验与置信区间</a></li>
+<li class="chapter" data-level="1.4" data-path="chap1.html"><a href="chap1.html#sec1-4"><i class="fa fa-check"></i><b>1.4</b> 示例：任务和脉搏率</a></li>
+<li class="chapter" data-level="1.5" data-path="chap1.html"><a href="chap1.html#sec1-5"><i class="fa fa-check"></i><b>1.5</b> 几个线性组合的同时检验</a></li>
+<li class="chapter" data-level="1.6" data-path="chap1.html"><a href="chap1.html#sec1-6"><i class="fa fa-check"></i><b>1.6</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.7" data-path="chap1.html"><a href="chap1.html#sec1-7"><i class="fa fa-check"></i><b>1.7</b> 检验所有均值相等</a></li>
+<li class="chapter" data-level="1.8" data-path="chap1.html"><a href="chap1.html#sec1-8"><i class="fa fa-check"></i><b>1.8</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.9" data-path="chap1.html"><a href="chap1.html#sec1-9"><i class="fa fa-check"></i><b>1.9</b> 比较两种模型的一般方法：条件误差原理</a></li>
+<li class="chapter" data-level="1.10" data-path="chap1.html"><a href="chap1.html#sec1-10"><i class="fa fa-check"></i><b>1.10</b> 示例：任务和脉搏率（续）</a></li>
+<li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
+<li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
+<li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="chap2.html"><a href="chap2.html#sec2-1"><i class="fa fa-check"></i><b>2.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="2.2" data-path="chap2.html"><a href="chap2.html#sec2-2"><i class="fa fa-check"></i><b>2.2</b> 参数估计</a></li>
+<li class="chapter" data-level="2.3" data-path="chap2.html"><a href="chap2.html#sec2-3"><i class="fa fa-check"></i><b>2.3</b> 方差齐性检验</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="chap2.html"><a href="chap2.html#sec2-3-1"><i class="fa fa-check"></i><b>2.3.1</b> Hartley’s <em>F</em>-Max Test</a></li>
+<li class="chapter" data-level="2.3.2" data-path="chap2.html"><a href="chap2.html#sec2-3-2"><i class="fa fa-check"></i><b>2.3.2</b> Bartlett’s Test</a></li>
+<li class="chapter" data-level="2.3.3" data-path="chap2.html"><a href="chap2.html#sec2-3-3"><i class="fa fa-check"></i><b>2.3.3</b> Levene’s Test</a></li>
+<li class="chapter" data-level="2.3.4" data-path="chap2.html"><a href="chap2.html#sec2-4-4"><i class="fa fa-check"></i><b>2.3.4</b> Brown and Forsythe’s Test</a></li>
+<li class="chapter" data-level="2.3.5" data-path="chap2.html"><a href="chap2.html#sec2-3-5"><i class="fa fa-check"></i><b>2.3.5</b> O’Brien’s Test</a></li>
+<li class="chapter" data-level="2.3.6" data-path="chap2.html"><a href="chap2.html#sec2-3-6"><i class="fa fa-check"></i><b>2.3.6</b> 一些建议</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="chap2.html"><a href="chap2.html#sec2-4"><i class="fa fa-check"></i><b>2.4</b> 示例：药物和错误</a></li>
+<li class="chapter" data-level="2.5" data-path="chap2.html"><a href="chap2.html#sec2-5"><i class="fa fa-check"></i><b>2.5</b> 关于线性组合的推断</a></li>
+<li class="chapter" data-level="2.6" data-path="chap2.html"><a href="chap2.html#sec2-6"><i class="fa fa-check"></i><b>2.6</b> 示例：药物和错误（续）</a></li>
+<li class="chapter" data-level="2.7" data-path="chap2.html"><a href="chap2.html#sec2-7"><i class="fa fa-check"></i><b>2.7</b> 自由度的一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
+<li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
+<li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>II 磨刀</b></span></li>
+<li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 同时推断程序和多重比较</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="chap3.html"><a href="chap3.html#sec3-1"><i class="fa fa-check"></i><b>3.1</b> 错误率</a></li>
+<li class="chapter" data-level="3.2" data-path="chap3.html"><a href="chap3.html#sec3-2"><i class="fa fa-check"></i><b>3.2</b> 建议</a></li>
+<li class="chapter" data-level="3.3" data-path="chap3.html"><a href="chap3.html#sec3-3"><i class="fa fa-check"></i><b>3.3</b> 最小显著差异</a></li>
+<li class="chapter" data-level="3.4" data-path="chap3.html"><a href="chap3.html#sec3-4"><i class="fa fa-check"></i><b>3.4</b> Fisher’s LSD Procedure</a></li>
+<li class="chapter" data-level="3.5" data-path="chap3.html"><a href="chap3.html#sec3-5"><i class="fa fa-check"></i><b>3.5</b> Bonferroni’s Method</a></li>
+<li class="chapter" data-level="3.6" data-path="chap3.html"><a href="chap3.html#sec3-6"><i class="fa fa-check"></i><b>3.6</b> Scheffé’s Procedure</a></li>
+<li class="chapter" data-level="3.7" data-path="chap3.html"><a href="chap3.html#sec3-7"><i class="fa fa-check"></i><b>3.7</b> Tukey–Kramer Method</a></li>
+<li class="chapter" data-level="3.8" data-path="chap3.html"><a href="chap3.html#sec3-8"><i class="fa fa-check"></i><b>3.8</b> 模拟方法</a></li>
+<li class="chapter" data-level="3.9" data-path="chap3.html"><a href="chap3.html#sec3-9"><i class="fa fa-check"></i><b>3.9</b> Šidák Procedure</a></li>
+<li class="chapter" data-level="3.10" data-path="chap3.html"><a href="chap3.html#sec3-10"><i class="fa fa-check"></i><b>3.10</b> 示例：成对比较</a></li>
+<li class="chapter" data-level="3.11" data-path="chap3.html"><a href="chap3.html#sec3-11"><i class="fa fa-check"></i><b>3.11</b> Dunnett’s Procedure</a></li>
+<li class="chapter" data-level="3.12" data-path="chap3.html"><a href="chap3.html#sec3-12"><i class="fa fa-check"></i><b>3.12</b> 示例：与对照比较</a></li>
+<li class="chapter" data-level="3.13" data-path="chap3.html"><a href="chap3.html#sec3-13"><i class="fa fa-check"></i><b>3.13</b> 多元 <span class="math inline">\(t\)</span></a></li>
+<li class="chapter" data-level="3.14" data-path="chap3.html"><a href="chap3.html#sec3-14"><i class="fa fa-check"></i><b>3.14</b> 示例：线性独立比较</a></li>
+<li class="chapter" data-level="3.15" data-path="chap3.html"><a href="chap3.html#sec3-15"><i class="fa fa-check"></i><b>3.15</b> 序贯拒绝方法</a>
+<ul>
+<li class="chapter" data-level="3.15.1" data-path="chap3.html"><a href="chap3.html#sec3-15-1"><i class="fa fa-check"></i><b>3.15.1</b> Bonferroni–Holm Method</a></li>
+<li class="chapter" data-level="3.15.2" data-path="chap3.html"><a href="chap3.html#sec3-15-2"><i class="fa fa-check"></i><b>3.15.2</b> Šidák–Holm Method</a></li>
+<li class="chapter" data-level="3.15.3" data-path="chap3.html"><a href="chap3.html#sec3-15-3"><i class="fa fa-check"></i><b>3.15.3</b> 控制 FDR 的 Benjamini 和 Hochberg Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.16" data-path="chap3.html"><a href="chap3.html#sec3-16"><i class="fa fa-check"></i><b>3.16</b> 示例：线性相关比较</a></li>
+<li class="chapter" data-level="3.17" data-path="chap3.html"><a href="chap3.html#sec3-17"><i class="fa fa-check"></i><b>3.17</b> 多重极差检验</a>
+<ul>
+<li class="chapter" data-level="3.17.1" data-path="chap3.html"><a href="chap3.html#sec3-17-1"><i class="fa fa-check"></i><b>3.17.1</b> Student–Newman–Keul’s Method</a></li>
+<li class="chapter" data-level="3.17.2" data-path="chap3.html"><a href="chap3.html#sec3-17-2"><i class="fa fa-check"></i><b>3.17.2</b> Duncan’s New Multiple Range Method</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="chap3.html"><a href="chap3.html#sec3-18"><i class="fa fa-check"></i><b>3.18</b> Waller–Duncan Procedure</a></li>
+<li class="chapter" data-level="3.19" data-path="chap3.html"><a href="chap3.html#sec3-19"><i class="fa fa-check"></i><b>3.19</b> 示例：成对比较的多重极差</a></li>
+<li class="chapter" data-level="3.20" data-path="chap3.html"><a href="chap3.html#sec3-20"><i class="fa fa-check"></i><b>3.20</b> 警示</a></li>
+<li class="chapter" data-level="3.21" data-path="chap3.html"><a href="chap3.html#sec3-21"><i class="fa fa-check"></i><b>3.21</b> 结束语</a></li>
+<li class="chapter" data-level="3.22" data-path="chap3.html"><a href="chap3.html#sec3-22"><i class="fa fa-check"></i><b>3.22</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chap4.html"><a href="chap4.html"><i class="fa fa-check"></i><b>4</b> 实验设计基础</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="chap4.html"><a href="chap4.html#sec4-1"><i class="fa fa-check"></i><b>4.1</b> 介绍基本概念</a></li>
+<li class="chapter" data-level="4.2" data-path="chap4.html"><a href="chap4.html#sec4-2"><i class="fa fa-check"></i><b>4.2</b> 设计实验的结构</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="chap4.html"><a href="chap4.html#sec4-2-1"><i class="fa fa-check"></i><b>4.2.1</b> 设计结构类型</a></li>
+<li class="chapter" data-level="4.2.2" data-path="chap4.html"><a href="chap4.html#sec4-2-2"><i class="fa fa-check"></i><b>4.2.2</b> 处理结构类型</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="chap4.html"><a href="chap4.html#sec4-3"><i class="fa fa-check"></i><b>4.3</b> 不同设计实验的示例</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="chap4.html"><a href="chap4.html#sec4-3-1"><i class="fa fa-check"></i><b>4.3.1</b> 示例 4.1: 饮食</a></li>
+<li class="chapter" data-level="4.3.2" data-path="chap4.html"><a href="chap4.html#sec4-3-2"><i class="fa fa-check"></i><b>4.3.2</b> 示例 4.2: 房屋油漆</a></li>
+<li class="chapter" data-level="4.3.3" data-path="chap4.html"><a href="chap4.html#sec4-3-3"><i class="fa fa-check"></i><b>4.3.3</b> 示例 4.3: 钢板</a></li>
+<li class="chapter" data-level="4.3.4" data-path="chap4.html"><a href="chap4.html#sec4-3-4"><i class="fa fa-check"></i><b>4.3.4</b> 示例 4.4: 氮和钾的水平</a></li>
+<li class="chapter" data-level="4.3.5" data-path="chap4.html"><a href="chap4.html#sec4-3-5"><i class="fa fa-check"></i><b>4.3.5</b> 示例 4.5: 区组和重复</a></li>
+<li class="chapter" data-level="4.3.6" data-path="chap4.html"><a href="chap4.html#sec4-3-6"><i class="fa fa-check"></i><b>4.3.6</b> 示例 4.6：行区组和列区组</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="chap4.html"><a href="chap4.html#sec4-4"><i class="fa fa-check"></i><b>4.4</b> 结束语</a></li>
+<li class="chapter" data-level="4.5" data-path="chap4.html"><a href="chap4.html#sec4-5"><i class="fa fa-check"></i><b>4.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="chap5.html"><a href="chap5.html"><i class="fa fa-check"></i><b>5</b> 多水平设计：裂区、条区、重复测量及其组合</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="chap5.html"><a href="chap5.html#sec5-1"><i class="fa fa-check"></i><b>5.1</b> 识别实验单元的尺寸——四种基本设计结构</a></li>
+<li class="chapter" data-level="5.2" data-path="chap5.html"><a href="chap5.html#sec5-2"><i class="fa fa-check"></i><b>5.2</b> 分层设计：一种多水平的设计结构</a></li>
+<li class="chapter" data-level="5.3" data-path="chap5.html"><a href="chap5.html#sec5-3"><i class="fa fa-check"></i><b>5.3</b> 裂区设计结构：两水平设计结构</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="chap5.html"><a href="chap5.html#sec5-3-1"><i class="fa fa-check"></i><b>5.3.1</b> 示例 5.1：烹饪大豆——最简单的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.2" data-path="chap5.html"><a href="chap5.html#sec5-3-2"><i class="fa fa-check"></i><b>5.3.2</b> 示例 5.2：磨小麦——通常的裂区或两水平设计结构</a></li>
+<li class="chapter" data-level="5.3.3" data-path="chap5.html"><a href="chap5.html#sec5-3-3"><i class="fa fa-check"></i><b>5.3.3</b> 示例 5.3：烘焙面包——具有不完全块设计结构的裂区</a></li>
+<li class="chapter" data-level="5.3.4" data-path="chap5.html"><a href="chap5.html#sec5-3-4"><i class="fa fa-check"></i><b>5.3.4</b> 示例 5.4：展示柜中的肉——复杂裂区或四水平设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="chap5.html"><a href="chap5.html#sec5-4"><i class="fa fa-check"></i><b>5.4</b> 条区设计结构：一种无层次的多水平设计</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="chap5.html"><a href="chap5.html#sec5-4-1"><i class="fa fa-check"></i><b>5.4.1</b> 示例 5.5：制作奶酪</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="chap5.html"><a href="chap5.html#sec5-5"><i class="fa fa-check"></i><b>5.5</b> 重复测量设计</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="chap5.html"><a href="chap5.html#sec5-5-1"><i class="fa fa-check"></i><b>5.5.1</b> 示例 5.6：马足——基本重复测量设计</a></li>
+<li class="chapter" data-level="5.5.2" data-path="chap5.html"><a href="chap5.html#sec5-5-2"><i class="fa fa-check"></i><b>5.5.2</b> 示例 5.7：舒适度研究——重复测量设计</a></li>
+<li class="chapter" data-level="5.5.3" data-path="chap5.html"><a href="chap5.html#示例-5.8交叉或转换设计"><i class="fa fa-check"></i><b>5.5.3</b> 示例 5.8：交叉或转换设计</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="chap5.html"><a href="chap5.html#sec5-6"><i class="fa fa-check"></i><b>5.6</b> 涉及嵌套因素的设计</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="chap5.html"><a href="chap5.html#sec5-6-1"><i class="fa fa-check"></i><b>5.6.1</b> 示例 5.9：动物遗传学</a></li>
+<li class="chapter" data-level="5.6.2" data-path="chap5.html"><a href="chap5.html#sec5-6-2"><i class="fa fa-check"></i><b>5.6.2</b> 示例 5.10：大豆的生育期组</a></li>
+<li class="chapter" data-level="5.6.3" data-path="chap5.html"><a href="chap5.html#sec5-6-3"><i class="fa fa-check"></i><b>5.6.3</b> 示例 5.11：飞机引擎</a></li>
+<li class="chapter" data-level="5.6.4" data-path="chap5.html"><a href="chap5.html#sec5-6-4"><i class="fa fa-check"></i><b>5.6.4</b> 示例 5.12：简单的舒适度实验</a></li>
+<li class="chapter" data-level="5.6.5" data-path="chap5.html"><a href="chap5.html#sec5-6-5"><i class="fa fa-check"></i><b>5.6.5</b> 示例 5.13：重复测量的多地点研究</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="chap5.html"><a href="chap5.html#sec5-7"><i class="fa fa-check"></i><b>5.7</b> 结束语</a></li>
+<li class="chapter" data-level="5.8" data-path="chap5.html"><a href="chap5.html#sec5-8"><i class="fa fa-check"></i><b>5.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="chap6.html"><a href="chap6.html"><i class="fa fa-check"></i><b>6</b> 模型的矩阵形式</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="chap6.html"><a href="chap6.html#sec6-1"><i class="fa fa-check"></i><b>6.1</b> 基本符号</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="chap6.html"><a href="chap6.html#sec6-1-1"><i class="fa fa-check"></i><b>6.1.1</b> 简单线性回归模型</a></li>
+<li class="chapter" data-level="6.1.2" data-path="chap6.html"><a href="chap6.html#sec6-1-2"><i class="fa fa-check"></i><b>6.1.2</b> 单向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.3" data-path="chap6.html"><a href="chap6.html#sec6-1-3"><i class="fa fa-check"></i><b>6.1.3</b> 双向处理结构模型</a></li>
+<li class="chapter" data-level="6.1.4" data-path="chap6.html"><a href="chap6.html#sec6-1-4"><i class="fa fa-check"></i><b>6.1.4</b> 示例 6.1：双向处理结构的均值模型</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="chap6.html"><a href="chap6.html#sec6-2"><i class="fa fa-check"></i><b>6.2</b> 最小二乘估计</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="chap6.html"><a href="chap6.html#sec6-2-1"><i class="fa fa-check"></i><b>6.2.1</b> 最小二乘方程组</a></li>
+<li class="chapter" data-level="6.2.2" data-path="chap6.html"><a href="chap6.html#sec6-2-2"><i class="fa fa-check"></i><b>6.2.2</b> 零和限制</a></li>
+<li class="chapter" data-level="6.2.3" data-path="chap6.html"><a href="chap6.html#sec6-2-3"><i class="fa fa-check"></i><b>6.2.3</b> 置零限制</a></li>
+<li class="chapter" data-level="6.2.4" data-path="chap6.html"><a href="chap6.html#sec6-2-4"><i class="fa fa-check"></i><b>6.2.4</b> 示例 6.2：单向处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="chap6.html"><a href="chap6.html#sec6-3"><i class="fa fa-check"></i><b>6.3</b> 可估性和连通的设计</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="chap6.html"><a href="chap6.html#sec6-3-1"><i class="fa fa-check"></i><b>6.3.1</b> 可估函数</a></li>
+<li class="chapter" data-level="6.3.2" data-path="chap6.html"><a href="chap6.html#sec6-3-2"><i class="fa fa-check"></i><b>6.3.2</b> 连通性</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="chap6.html"><a href="chap6.html#sec6-4"><i class="fa fa-check"></i><b>6.4</b> 关于线性模型参数的检验假设</a></li>
+<li class="chapter" data-level="6.5" data-path="chap6.html"><a href="chap6.html#sec6-5"><i class="fa fa-check"></i><b>6.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="6.6" data-path="chap6.html"><a href="chap6.html#sec6-6"><i class="fa fa-check"></i><b>6.6</b> 结束语</a></li>
+<li class="chapter" data-level="6.7" data-path="chap6.html"><a href="chap6.html#sec6-7"><i class="fa fa-check"></i><b>6.7</b> 练习</a></li>
+</ul></li>
+<li class="part"><span><b>III 砍柴</b></span></li>
+<li class="chapter" data-level="7" data-path="chap7.html"><a href="chap7.html"><i class="fa fa-check"></i><b>7</b> 均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="chap7.html"><a href="chap7.html#sec7-1"><i class="fa fa-check"></i><b>7.1</b> 模型定义和假设</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="chap7.html"><a href="chap7.html#sec7-1-1"><i class="fa fa-check"></i><b>7.1.1</b> 均值模型</a></li>
+<li class="chapter" data-level="7.1.2" data-path="chap7.html"><a href="chap7.html#sec7-1-2"><i class="fa fa-check"></i><b>7.1.2</b> 效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="chap7.html"><a href="chap7.html#sec7-2"><i class="fa fa-check"></i><b>7.2</b> 参数估计</a></li>
+<li class="chapter" data-level="7.3" data-path="chap7.html"><a href="chap7.html#sec7-3"><i class="fa fa-check"></i><b>7.3</b> 交互作用及它们的重要性</a></li>
+<li class="chapter" data-level="7.4" data-path="chap7.html"><a href="chap7.html#sec7-4"><i class="fa fa-check"></i><b>7.4</b> 主效应</a></li>
+<li class="chapter" data-level="7.5" data-path="chap7.html"><a href="chap7.html#sec7-5"><i class="fa fa-check"></i><b>7.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="7.6" data-path="chap7.html"><a href="chap7.html#sec7-6"><i class="fa fa-check"></i><b>7.6</b> 结束语</a></li>
+<li class="chapter" data-level="7.7" data-path="chap7.html"><a href="chap7.html#sec7-7"><i class="fa fa-check"></i><b>7.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="chap8.html"><a href="chap8.html"><i class="fa fa-check"></i><b>8</b> 案例研究：均衡双向实验的完整分析</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="chap8.html"><a href="chap8.html#sec8-1"><i class="fa fa-check"></i><b>8.1</b> 主效应均值对比</a></li>
+<li class="chapter" data-level="8.2" data-path="chap8.html"><a href="chap8.html#sec8-2"><i class="fa fa-check"></i><b>8.2</b> 交互对比</a></li>
+<li class="chapter" data-level="8.3" data-path="chap8.html"><a href="chap8.html#sec8-3"><i class="fa fa-check"></i><b>8.3</b> 油漆铺路示例</a></li>
+<li class="chapter" data-level="8.4" data-path="chap8.html"><a href="chap8.html#sec8-4"><i class="fa fa-check"></i><b>8.4</b> 分析定量处理因素</a></li>
+<li class="chapter" data-level="8.5" data-path="chap8.html"><a href="chap8.html#sec8-5"><i class="fa fa-check"></i><b>8.5</b> 多重检验</a></li>
+<li class="chapter" data-level="8.6" data-path="chap8.html"><a href="chap8.html#sec8-6"><i class="fa fa-check"></i><b>8.6</b> 结束语</a></li>
+<li class="chapter" data-level="8.7" data-path="chap8.html"><a href="chap8.html#sec8-7"><i class="fa fa-check"></i><b>8.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="chap9.html"><a href="chap9.html"><i class="fa fa-check"></i><b>9</b> 使用均值模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="chap9.html"><a href="chap9.html#sec9-1"><i class="fa fa-check"></i><b>9.1</b> 模型定义和假设</a></li>
+<li class="chapter" data-level="9.2" data-path="chap9.html"><a href="chap9.html#sec9-2"><i class="fa fa-check"></i><b>9.2</b> 参数估计</a></li>
+<li class="chapter" data-level="9.3" data-path="chap9.html"><a href="chap9.html#sec9-3"><i class="fa fa-check"></i><b>9.3</b> 检验所有均值是否相等</a></li>
+<li class="chapter" data-level="9.4" data-path="chap9.html"><a href="chap9.html#sec9-4"><i class="fa fa-check"></i><b>9.4</b> 交互作用和主效应假设</a></li>
+<li class="chapter" data-level="9.5" data-path="chap9.html"><a href="chap9.html#sec9-5"><i class="fa fa-check"></i><b>9.5</b> 总体边际均值</a></li>
+<li class="chapter" data-level="9.6" data-path="chap9.html"><a href="chap9.html#sec9-6"><i class="fa fa-check"></i><b>9.6</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="9.7" data-path="chap9.html"><a href="chap9.html#sec9-7"><i class="fa fa-check"></i><b>9.7</b> 结束语</a></li>
+<li class="chapter" data-level="9.8" data-path="chap9.html"><a href="chap9.html#sec9-8"><i class="fa fa-check"></i><b>9.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="chap10.html"><a href="chap10.html"><i class="fa fa-check"></i><b>10</b> 使用效应模型分析子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="chap10.html"><a href="chap10.html#sec10-1"><i class="fa fa-check"></i><b>10.1</b> 模型定义</a></li>
+<li class="chapter" data-level="10.2" data-path="chap10.html"><a href="chap10.html#sec10-2"><i class="fa fa-check"></i><b>10.2</b> 参数估计和 I 型分析</a></li>
+<li class="chapter" data-level="10.3" data-path="chap10.html"><a href="chap10.html#sec10-3"><i class="fa fa-check"></i><b>10.3</b> 在 SAS 中使用可估函数</a></li>
+<li class="chapter" data-level="10.4" data-path="chap10.html"><a href="chap10.html#sec10-4"><i class="fa fa-check"></i><b>10.4</b> I–IV 型假设</a></li>
+<li class="chapter" data-level="10.5" data-path="chap10.html"><a href="chap10.html#sec10-5"><i class="fa fa-check"></i><b>10.5</b> 在 SAS-GLM 中使用 I–IV 型可估函数</a></li>
+<li class="chapter" data-level="10.6" data-path="chap10.html"><a href="chap10.html#sec10-6"><i class="fa fa-check"></i><b>10.6</b> 总体边际均值与最小二乘均值</a></li>
+<li class="chapter" data-level="10.7" data-path="chap10.html"><a href="chap10.html#sec10-7"><i class="fa fa-check"></i><b>10.7</b> 计算机分析</a></li>
+<li class="chapter" data-level="10.8" data-path="chap10.html"><a href="chap10.html#sec10-8"><i class="fa fa-check"></i><b>10.8</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="chap11.html"><a href="chap11.html"><i class="fa fa-check"></i><b>11</b> 分析子类数不等的大型均衡双向实验</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="chap11.html"><a href="chap11.html#sec11-1"><i class="fa fa-check"></i><b>11.1</b> 可行性问题</a></li>
+<li class="chapter" data-level="11.2" data-path="chap11.html"><a href="chap11.html#sec11-2"><i class="fa fa-check"></i><b>11.2</b> 未加权均值法</a></li>
+<li class="chapter" data-level="11.3" data-path="chap11.html"><a href="chap11.html#sec11-3"><i class="fa fa-check"></i><b>11.3</b> 同时推断与多重比较</a></li>
+<li class="chapter" data-level="11.4" data-path="chap11.html"><a href="chap11.html#sec11-4"><i class="fa fa-check"></i><b>11.4</b> 未加权均值的示例</a></li>
+<li class="chapter" data-level="11.5" data-path="chap11.html"><a href="chap11.html#sec11-5"><i class="fa fa-check"></i><b>11.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="11.6" data-path="chap11.html"><a href="chap11.html#sec11-6"><i class="fa fa-check"></i><b>11.6</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="chap12.html"><a href="chap12.html"><i class="fa fa-check"></i><b>12</b> 案例研究：子类数不等的均衡双向处理结构</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="chap12.html"><a href="chap12.html#sec12-1"><i class="fa fa-check"></i><b>12.1</b> 脂肪-表面活性剂示例</a></li>
+<li class="chapter" data-level="12.2" data-path="chap12.html"><a href="chap12.html#sec12-2"><i class="fa fa-check"></i><b>12.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="chap13.html"><a href="chap13.html"><i class="fa fa-check"></i><b>13</b> 使用均值模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="chap13.html"><a href="chap13.html#sec13-1"><i class="fa fa-check"></i><b>13.1</b> 参数估计</a></li>
+<li class="chapter" data-level="13.2" data-path="chap13.html"><a href="chap13.html#sec13-2"><i class="fa fa-check"></i><b>13.2</b> 假设检验和置信区间</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="chap13.html"><a href="chap13.html#sec13-2-1"><i class="fa fa-check"></i><b>13.2.1</b> 示例 13.1</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="chap13.html"><a href="chap13.html#sec13-3"><i class="fa fa-check"></i><b>13.3</b> 计算机分析</a></li>
+<li class="chapter" data-level="13.4" data-path="chap13.html"><a href="chap13.html#sec13-4"><i class="fa fa-check"></i><b>13.4</b> 结束语</a></li>
+<li class="chapter" data-level="13.5" data-path="chap13.html"><a href="chap13.html#sec13-5"><i class="fa fa-check"></i><b>13.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="chap14.html"><a href="chap14.html"><i class="fa fa-check"></i><b>14</b> 使用效应模型分析缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="chap14.html"><a href="chap14.html#i-型和-ii-型假设"><i class="fa fa-check"></i><b>14.1</b> I 型和 II 型假设</a></li>
+<li class="chapter" data-level="14.2" data-path="chap14.html"><a href="chap14.html#iii-型假设"><i class="fa fa-check"></i><b>14.2</b> III 型假设</a></li>
+<li class="chapter" data-level="14.3" data-path="chap14.html"><a href="chap14.html#sec14-3"><i class="fa fa-check"></i><b>14.3</b> IV 型假设</a></li>
+<li class="chapter" data-level="14.4" data-path="chap14.html"><a href="chap14.html#sec14-4"><i class="fa fa-check"></i><b>14.4</b> 总体边际均值和最小二乘均值</a></li>
+<li class="chapter" data-level="14.5" data-path="chap14.html"><a href="chap14.html#sec14-5"><i class="fa fa-check"></i><b>14.5</b> 计算机分析</a></li>
+<li class="chapter" data-level="14.6" data-path="chap14.html"><a href="chap14.html#sec14-6"><i class="fa fa-check"></i><b>14.6</b> 结束语</a></li>
+<li class="chapter" data-level="14.7" data-path="chap14.html"><a href="chap14.html#sec14-7"><i class="fa fa-check"></i><b>14.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="chap15.html"><a href="chap15.html"><i class="fa fa-check"></i><b>15</b> 案例研究：缺失处理组合的双向处理结构</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="chap15.html"><a href="chap15.html#sec15-1"><i class="fa fa-check"></i><b>15.1</b> 案例研究</a></li>
+<li class="chapter" data-level="15.2" data-path="chap15.html"><a href="chap15.html#sec15-2"><i class="fa fa-check"></i><b>15.2</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="chap16.html"><a href="chap16.html"><i class="fa fa-check"></i><b>16</b> 分析三向和高阶处理结构</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="chap16.html"><a href="chap16.html#sec16-1"><i class="fa fa-check"></i><b>16.1</b> 一般策略</a></li>
+<li class="chapter" data-level="16.2" data-path="chap16.html"><a href="chap16.html#sec16-2"><i class="fa fa-check"></i><b>16.2</b> 均衡和不均衡实验</a></li>
+<li class="chapter" data-level="16.3" data-path="chap16.html"><a href="chap16.html#sec16-3"><i class="fa fa-check"></i><b>16.3</b> I 型和 II 型分析</a></li>
+<li class="chapter" data-level="16.4" data-path="chap16.html"><a href="chap16.html#sec16-4"><i class="fa fa-check"></i><b>16.4</b> 结束语</a></li>
+<li class="chapter" data-level="16.5" data-path="chap16.html"><a href="chap16.html#sec16-5"><i class="fa fa-check"></i><b>16.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="chap17.html"><a href="chap17.html"><i class="fa fa-check"></i><b>17</b> 案例研究：具有许多缺失处理组合的三向处理结构</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="chap17.html"><a href="chap17.html#sec17-1"><i class="fa fa-check"></i><b>17.1</b> 营养评分示例</a></li>
+<li class="chapter" data-level="17.2" data-path="chap17.html"><a href="chap17.html#sec17-2"><i class="fa fa-check"></i><b>17.2</b> SAS-GLM 分析</a></li>
+<li class="chapter" data-level="17.3" data-path="chap17.html"><a href="chap17.html#sec17-3"><i class="fa fa-check"></i><b>17.3</b> 一个完整的分析</a></li>
+<li class="chapter" data-level="17.4" data-path="chap17.html"><a href="chap17.html#sec17-4"><i class="fa fa-check"></i><b>17.4</b> 结束语</a></li>
+<li class="chapter" data-level="17.5" data-path="chap17.html"><a href="chap17.html#sec17-5"><i class="fa fa-check"></i><b>17.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="chap18.html"><a href="chap18.html"><i class="fa fa-check"></i><b>18</b> 随机效应模型和方差分量</a>
+<ul>
+<li class="chapter" data-level="18.1" data-path="chap18.html"><a href="chap18.html#sec18-1"><i class="fa fa-check"></i><b>18.1</b> 介绍</a>
+<ul>
+<li class="chapter" data-level="18.1.1" data-path="chap18.html"><a href="chap18.html#sec18-1-1"><i class="fa fa-check"></i><b>18.1.1</b> 示例 18.1：随机效应嵌套处理结构</a></li>
+</ul></li>
+<li class="chapter" data-level="18.2" data-path="chap18.html"><a href="chap18.html#sec18-2"><i class="fa fa-check"></i><b>18.2</b> 矩阵表示法中的一般随机效应模型</a>
+<ul>
+<li class="chapter" data-level="18.2.1" data-path="chap18.html"><a href="chap18.html#sec18-2-1"><i class="fa fa-check"></i><b>18.2.1</b> 示例 18.2：单向随机效应模型</a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="chap18.html"><a href="chap18.html#sec18-3"><i class="fa fa-check"></i><b>18.3</b> 计算期望均方</a>
+<ul>
+<li class="chapter" data-level="18.3.1" data-path="chap18.html"><a href="chap18.html#sec18-3-1"><i class="fa fa-check"></i><b>18.3.1</b> 代数方法</a></li>
+<li class="chapter" data-level="18.3.2" data-path="chap18.html"><a href="chap18.html#sec18-3-2"><i class="fa fa-check"></i><b>18.3.2</b> Hartley 综合法的计算</a></li>
+</ul></li>
+<li class="chapter" data-level="18.4" data-path="chap18.html"><a href="chap18.html#sec18-4"><i class="fa fa-check"></i><b>18.4</b> 结束语</a></li>
+<li class="chapter" data-level="18.5" data-path="chap18.html"><a href="chap18.html#sec18-5"><i class="fa fa-check"></i><b>18.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="chap19.html"><a href="chap19.html"><i class="fa fa-check"></i><b>19</b> 方差分量的估计方法</a>
+<ul>
+<li class="chapter" data-level="19.1" data-path="chap19.html"><a href="chap19.html#sec19-1"><i class="fa fa-check"></i><b>19.1</b> 矩法</a>
+<ul>
+<li class="chapter" data-level="19.1.1" data-path="chap19.html"><a href="chap19.html#sec19-1-1"><i class="fa fa-check"></i><b>19.1.1</b> 应用。示例 19.1：不均衡单向模型</a></li>
+<li class="chapter" data-level="19.1.2" data-path="chap19.html"><a href="chap19.html#sec19-1-2"><i class="fa fa-check"></i><b>19.1.2</b> 示例 19.2：单向随机效应模型中的小麦品种</a></li>
+<li class="chapter" data-level="19.1.3" data-path="chap19.html"><a href="chap19.html#sec19-1-3"><i class="fa fa-check"></i><b>19.1.3</b> 示例 19.3：表 18.2 中的双向设计数据</a></li>
+</ul></li>
+<li class="chapter" data-level="19.2" data-path="chap19.html"><a href="chap19.html#sec19-2"><i class="fa fa-check"></i><b>19.2</b> 最大似然</a>
+<ul>
+<li class="chapter" data-level="19.2.1" data-path="chap19.html"><a href="chap19.html#sec19-2-1"><i class="fa fa-check"></i><b>19.2.1</b> 示例 19.4：均衡单向模型的最大似然解</a></li>
+</ul></li>
+<li class="chapter" data-level="19.3" data-path="chap19.html"><a href="chap19.html#sec19-3"><i class="fa fa-check"></i><b>19.3</b> 受限或残差最大似然估计</a>
+<ul>
+<li class="chapter" data-level="19.3.1" data-path="chap19.html"><a href="chap19.html#sec19-3-1"><i class="fa fa-check"></i><b>19.3.1</b> 示例 19.5：均衡单向模型的 REML 解</a></li>
+</ul></li>
+<li class="chapter" data-level="19.4" data-path="chap19.html"><a href="chap19.html#sec19-4"><i class="fa fa-check"></i><b>19.4</b> MIVQUE 法</a>
+<ul>
+<li class="chapter" data-level="19.4.1" data-path="chap19.html"><a href="chap19.html#sec19-4-1"><i class="fa fa-check"></i><b>19.4.1</b> 方法说明</a></li>
+<li class="chapter" data-level="19.4.2" data-path="chap19.html"><a href="chap19.html#sec19-4-2"><i class="fa fa-check"></i><b>19.4.2</b> 应用。示例 19.6：MIVQUE 用于不均衡单向设计</a></li>
+</ul></li>
+<li class="chapter" data-level="19.5" data-path="chap19.html"><a href="chap19.html#sec19-5"><i class="fa fa-check"></i><b>19.5</b> 使用 JMP 估计方差分量</a></li>
+<li class="chapter" data-level="19.6" data-path="chap19.html"><a href="chap19.html#sec19-6"><i class="fa fa-check"></i><b>19.6</b> 结束语</a></li>
+<li class="chapter" data-level="19.7" data-path="chap19.html"><a href="chap19.html#sec19-7"><i class="fa fa-check"></i><b>19.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="20" data-path="chap20.html"><a href="chap20.html"><i class="fa fa-check"></i><b>20</b> 方差分量的推断方法</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="chap20.html"><a href="chap20.html#sec20-1"><i class="fa fa-check"></i><b>20.1</b> 假设检验</a>
+<ul>
+<li class="chapter" data-level="20.1.1" data-path="chap20.html"><a href="chap20.html#sec20-1-1"><i class="fa fa-check"></i><b>20.1.1</b> 使用方差分析表</a></li>
+<li class="chapter" data-level="20.1.2" data-path="chap20.html"><a href="chap20.html#sec20-1-2"><i class="fa fa-check"></i><b>20.1.2</b> 示例 20.1：完全随机设计结构中的双向随机效应检验统计量</a></li>
+<li class="chapter" data-level="20.1.3" data-path="chap20.html"><a href="chap20.html#sec20-1-3"><i class="fa fa-check"></i><b>20.1.3</b> 示例 20.2：复杂三向随机效应检验统计量</a></li>
+<li class="chapter" data-level="20.1.4" data-path="chap20.html"><a href="chap20.html#sec20-1-4"><i class="fa fa-check"></i><b>20.1.4</b> 似然比检验</a></li>
+<li class="chapter" data-level="20.1.5" data-path="chap20.html"><a href="chap20.html#sec20-1-5"><i class="fa fa-check"></i><b>20.1.5</b> 示例 20.3：小麦品种——单向随机效应模型</a></li>
+<li class="chapter" data-level="20.1.6" data-path="chap20.html"><a href="chap20.html#sec20-1-6"><i class="fa fa-check"></i><b>20.1.6</b> 示例 20.4：不均衡双向</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="chap20.html"><a href="chap20.html#sec20-2"><i class="fa fa-check"></i><b>20.2</b> 构造置信区间</a>
+<ul>
+<li class="chapter" data-level="20.2.1" data-path="chap20.html"><a href="chap20.html#sec20-2-1"><i class="fa fa-check"></i><b>20.2.1</b> 残差方差 <span class="math inline">\(\sigma^2_\varepsilon\)</span></a></li>
+<li class="chapter" data-level="20.2.2" data-path="chap20.html"><a href="chap20.html#sec20-2-2"><i class="fa fa-check"></i><b>20.2.2</b> 一般 Satterthwaite 近似</a></li>
+<li class="chapter" data-level="20.2.3" data-path="chap20.html"><a href="chap20.html#sec20-2-3"><i class="fa fa-check"></i><b>20.2.3</b> 方差分量函数的近似置信区间</a></li>
+<li class="chapter" data-level="20.2.4" data-path="chap20.html"><a href="chap20.html#sec20-2-4"><i class="fa fa-check"></i><b>20.2.4</b> 方差分量的 Wald 型置信区间</a></li>
+<li class="chapter" data-level="20.2.5" data-path="chap20.html"><a href="chap20.html#sec20-2-5"><i class="fa fa-check"></i><b>20.2.5</b> 一些精确的置信区间</a></li>
+<li class="chapter" data-level="20.2.6" data-path="chap20.html"><a href="chap20.html#sec20-2-6"><i class="fa fa-check"></i><b>20.2.6</b> 示例 20.5：均衡单向随机效应处理结构</a></li>
+<li class="chapter" data-level="20.2.7" data-path="chap20.html"><a href="chap20.html#sec20-2-7"><i class="fa fa-check"></i><b>20.2.7</b> 示例 20.6</a></li>
+<li class="chapter" data-level="20.2.8" data-path="chap20.html"><a href="chap20.html#sec20-2-8"><i class="fa fa-check"></i><b>20.2.8</b> 示例 20.6 （续）</a></li>
+</ul></li>
+<li class="chapter" data-level="20.3" data-path="chap20.html"><a href="chap20.html#sec20-3"><i class="fa fa-check"></i><b>20.3</b> 模拟研究</a></li>
+<li class="chapter" data-level="20.4" data-path="chap20.html"><a href="chap20.html#sec20-4"><i class="fa fa-check"></i><b>20.4</b> 结束语</a></li>
+<li class="chapter" data-level="20.5" data-path="chap20.html"><a href="chap20.html#sec20-5"><i class="fa fa-check"></i><b>20.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="chap21.html"><a href="chap21.html"><i class="fa fa-check"></i><b>21</b> 案例研究：随机效应模型分析</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="chap21.html"><a href="chap21.html#sec21-1"><i class="fa fa-check"></i><b>21.1</b> 数据集</a></li>
+<li class="chapter" data-level="21.2" data-path="chap21.html"><a href="chap21.html#sec21-2"><i class="fa fa-check"></i><b>21.2</b> 估计</a></li>
+<li class="chapter" data-level="21.3" data-path="chap21.html"><a href="chap21.html#sec21-3"><i class="fa fa-check"></i><b>21.3</b> 模型构建</a></li>
+<li class="chapter" data-level="21.4" data-path="chap21.html"><a href="chap21.html#sec21-4"><i class="fa fa-check"></i><b>21.4</b> 缩减模型</a></li>
+<li class="chapter" data-level="21.5" data-path="chap21.html"><a href="chap21.html#sec21-5"><i class="fa fa-check"></i><b>21.5</b> 置信区间</a></li>
+<li class="chapter" data-level="21.6" data-path="chap21.html"><a href="chap21.html#sec21-6"><i class="fa fa-check"></i><b>21.6</b> 使用 JMP 进行计算</a></li>
+<li class="chapter" data-level="21.7" data-path="chap21.html"><a href="chap21.html#sec21-7"><i class="fa fa-check"></i><b>21.7</b> 结束语</a></li>
+<li class="chapter" data-level="21.8" data-path="chap21.html"><a href="chap21.html#sec21-8"><i class="fa fa-check"></i><b>21.8</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="22" data-path="chap22.html"><a href="chap22.html"><i class="fa fa-check"></i><b>22</b> 混合模型的分析</a>
+<ul>
+<li class="chapter" data-level="22.1" data-path="chap22.html"><a href="chap22.html#sec22-1"><i class="fa fa-check"></i><b>22.1</b> 混合模型简介</a></li>
+<li class="chapter" data-level="22.2" data-path="chap22.html"><a href="chap22.html#sec22-2"><i class="fa fa-check"></i><b>22.2</b> 混合模型随机效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.2.1" data-path="chap22.html"><a href="chap22.html#sec22-2-1"><i class="fa fa-check"></i><b>22.2.1</b> 矩法</a></li>
+<li class="chapter" data-level="22.2.2" data-path="chap22.html"><a href="chap22.html#sec22-2-2"><i class="fa fa-check"></i><b>22.2.2</b> 最大似然方法</a></li>
+<li class="chapter" data-level="22.2.3" data-path="chap22.html"><a href="chap22.html#sec22-2-3"><i class="fa fa-check"></i><b>22.2.3</b> 残差最大似然法</a></li>
+<li class="chapter" data-level="22.2.4" data-path="chap22.html"><a href="chap22.html#sec22-2-4"><i class="fa fa-check"></i><b>22.2.4</b> MINQUE 法</a></li>
+</ul></li>
+<li class="chapter" data-level="22.3" data-path="chap22.html"><a href="chap22.html#sec22-3"><i class="fa fa-check"></i><b>22.3</b> 混合模型固定效应部分的分析</a>
+<ul>
+<li class="chapter" data-level="22.3.1" data-path="chap22.html"><a href="chap22.html#sec22-3-1"><i class="fa fa-check"></i><b>22.3.1</b> 估计</a></li>
+<li class="chapter" data-level="22.3.2" data-path="chap22.html"><a href="chap22.html#sec22-3-2"><i class="fa fa-check"></i><b>22.3.2</b> 置信区间的构建</a></li>
+<li class="chapter" data-level="22.3.3" data-path="chap22.html"><a href="chap22.html#sec22-3-3"><i class="fa fa-check"></i><b>22.3.3</b> 假设检验</a></li>
+</ul></li>
+<li class="chapter" data-level="22.4" data-path="chap22.html"><a href="chap22.html#sec22-4"><i class="fa fa-check"></i><b>22.4</b> 最佳线性无偏预测</a></li>
+<li class="chapter" data-level="22.5" data-path="chap22.html"><a href="chap22.html#sec22-5"><i class="fa fa-check"></i><b>22.5</b> 混合模型方程组</a></li>
+<li class="chapter" data-level="22.6" data-path="chap22.html"><a href="chap22.html#sec22-6"><i class="fa fa-check"></i><b>22.6</b> 结束语</a></li>
+<li class="chapter" data-level="22.7" data-path="chap22.html"><a href="chap22.html#sec22-7"><i class="fa fa-check"></i><b>22.7</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="23" data-path="chap23.html"><a href="chap23.html"><i class="fa fa-check"></i><b>23</b> 案例研究：混合模型</a>
+<ul>
+<li class="chapter" data-level="23.1" data-path="chap23.html"><a href="chap23.html#sec23-1"><i class="fa fa-check"></i><b>23.1</b> 双向混合模型</a></li>
+<li class="chapter" data-level="23.2" data-path="chap23.html"><a href="chap23.html#sed23-2"><i class="fa fa-check"></i><b>23.2</b> 不均衡双向混合模型</a></li>
+<li class="chapter" data-level="23.3" data-path="chap23.html"><a href="chap23.html#sec23-3"><i class="fa fa-check"></i><b>23.3</b> 不均衡双向数据集的 JMP 分析</a></li>
+<li class="chapter" data-level="23.4" data-path="chap23.html"><a href="chap23.html#sec23-4"><i class="fa fa-check"></i><b>23.4</b> 结束语</a></li>
+<li class="chapter" data-level="23.5" data-path="chap23.html"><a href="chap23.html#sec23-5"><i class="fa fa-check"></i><b>23.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="chap24.html"><a href="chap24.html"><i class="fa fa-check"></i><b>24</b> 分析裂区型设计的方法</a>
+<ul>
+<li class="chapter" data-level="24.1" data-path="chap24.html"><a href="chap24.html#sec24-1"><i class="fa fa-check"></i><b>24.1</b> 介绍</a>
+<ul>
+<li class="chapter" data-level="24.1.1" data-path="chap24.html"><a href="chap24.html#sec24-1-1"><i class="fa fa-check"></i><b>24.1.1</b> 示例 24.1：面包配方和烘焙温度</a></li>
+<li class="chapter" data-level="24.1.2" data-path="chap24.html"><a href="chap24.html#sec24-1-2"><i class="fa fa-check"></i><b>24.1.2</b> 示例 24.2：在不同肥力条件下生长的小麦品种</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="chap24.html"><a href="chap24.html#sec24-2"><i class="fa fa-check"></i><b>24.2</b> 模型定义和参数估计</a></li>
+<li class="chapter" data-level="24.3" data-path="chap24.html"><a href="chap24.html#sec24-3"><i class="fa fa-check"></i><b>24.3</b> 均值间比较的标准误</a></li>
+<li class="chapter" data-level="24.4" data-path="chap24.html"><a href="chap24.html#sec24-4"><i class="fa fa-check"></i><b>24.4</b> 计算均值差标准误的一般方法</a>
+<ul>
+<li class="chapter" data-level="24.4.1" data-path="chap24.html"><a href="chap24.html#sec24-5"><i class="fa fa-check"></i><b>24.4.1</b> 通过一般对比进行比较</a></li>
+</ul></li>
+<li class="chapter" data-level="24.5" data-path="chap24.html"><a href="chap24.html#sec24-6"><i class="fa fa-check"></i><b>24.5</b> 其他示例</a>
+<ul>
+<li class="chapter" data-level="24.5.1" data-path="chap24.html"><a href="chap24.html#sec24-6-1"><i class="fa fa-check"></i><b>24.5.1</b> 示例 24.3：水分和肥料</a></li>
+<li class="chapter" data-level="24.5.2" data-path="chap24.html"><a href="chap24.html#sec24-6-2"><i class="fa fa-check"></i><b>24.5.2</b> 示例 24.4：具有裂区误差的回归</a></li>
+<li class="chapter" data-level="24.5.3" data-path="chap24.html"><a href="chap24.html#sec24-6-3"><i class="fa fa-check"></i><b>24.5.3</b> 示例 24.5：混乱的裂区设计</a></li>
+<li class="chapter" data-level="24.5.4" data-path="chap24.html"><a href="chap24.html#sec24-6-4"><i class="fa fa-check"></i><b>24.5.4</b> 示例 24.6：裂-裂区设计</a></li>
+</ul></li>
+<li class="chapter" data-level="24.6" data-path="chap24.html"><a href="chap24.html#sec24-7"><i class="fa fa-check"></i><b>24.6</b> 样本量和功效考虑</a></li>
+<li class="chapter" data-level="24.7" data-path="chap24.html"><a href="chap24.html#sec24-8"><i class="fa fa-check"></i><b>24.7</b> 使用 JMP 进行计算：示例 24.7</a></li>
+<li class="chapter" data-level="24.8" data-path="chap24.html"><a href="chap24.html#sec24-9"><i class="fa fa-check"></i><b>24.8</b> 结束语</a></li>
+<li class="chapter" data-level="24.9" data-path="chap24.html"><a href="chap24.html#sec24-10"><i class="fa fa-check"></i><b>24.9</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="25" data-path="chap25.html"><a href="chap25.html"><i class="fa fa-check"></i><b>25</b> 分析条区型设计的方法</a>
+<ul>
+<li class="chapter" data-level="25.1" data-path="chap25.html"><a href="chap25.html#sec25-1"><i class="fa fa-check"></i><b>25.1</b> 条区设计和模型的描述</a></li>
+<li class="chapter" data-level="25.2" data-path="chap25.html"><a href="chap25.html#sec25-2"><i class="fa fa-check"></i><b>25.2</b> 推断技术</a></li>
+<li class="chapter" data-level="25.3" data-path="chap25.html"><a href="chap25.html#sec25-3"><i class="fa fa-check"></i><b>25.3</b> 示例：氮与灌溉</a></li>
+<li class="chapter" data-level="25.4" data-path="chap25.html"><a href="chap25.html#sec25-4"><i class="fa fa-check"></i><b>25.4</b> 示例：含裂区的条区 1</a></li>
+<li class="chapter" data-level="25.5" data-path="chap25.html"><a href="chap25.html#sec25-5"><i class="fa fa-check"></i><b>25.5</b> 示例：含裂区的条区 2</a></li>
+<li class="chapter" data-level="25.6" data-path="chap25.html"><a href="chap25.html#sec25-6"><i class="fa fa-check"></i><b>25.6</b> 示例：含裂区的条区 3</a></li>
+<li class="chapter" data-level="25.7" data-path="chap25.html"><a href="chap25.html#sec25-7"><i class="fa fa-check"></i><b>25.7</b> 示例：含裂区的条区 4</a></li>
+<li class="chapter" data-level="25.8" data-path="chap25.html"><a href="chap25.html#sec25-8"><i class="fa fa-check"></i><b>25.8</b> 条-条区的设计与分析：基于 JMP7</a></li>
+<li class="chapter" data-level="25.9" data-path="chap25.html"><a href="chap25.html#sec25-9"><i class="fa fa-check"></i><b>25.9</b> 结束语</a></li>
+<li class="chapter" data-level="25.10" data-path="chap25.html"><a href="chap25.html#sec25-10"><i class="fa fa-check"></i><b>25.10</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="26" data-path="chap26.html"><a href="chap26.html"><i class="fa fa-check"></i><b>26</b> 分析重复测量实验的方法</a>
+<ul>
+<li class="chapter" data-level="26.1" data-path="chap26.html"><a href="chap26.html#sec26-1"><i class="fa fa-check"></i><b>26.1</b> 模型指定和理想条件</a></li>
+<li class="chapter" data-level="26.2" data-path="chap26.html"><a href="chap26.html#sec26-2"><i class="fa fa-check"></i><b>26.2</b> 时间的裂区分析</a>
+<ul>
+<li class="chapter" data-level="26.2.1" data-path="chap26.html"><a href="chap26.html#sec26-2-1"><i class="fa fa-check"></i><b>26.2.1</b> 示例 26.1：药物对心率的影响</a></li>
+<li class="chapter" data-level="26.2.2" data-path="chap26.html"><a href="chap26.html#sec26-2-2"><i class="fa fa-check"></i><b>26.2.2</b> 示例 26.2：一个复杂的舒适度实验</a></li>
+<li class="chapter" data-level="26.2.3" data-path="chap26.html"><a href="chap26.html#sec26-2-3"><i class="fa fa-check"></i><b>26.2.3</b> 示例 26.3：家庭态度</a></li>
+</ul></li>
+<li class="chapter" data-level="26.3" data-path="chap26.html"><a href="chap26.html#sec26-3"><i class="fa fa-check"></i><b>26.3</b> 使用 SAS-Mixed 程序的数据分析</a>
+<ul>
+<li class="chapter" data-level="26.3.1" data-path="chap26.html"><a href="chap26.html#sec26-3-1"><i class="fa fa-check"></i><b>26.3.1</b> 示例 26.1</a></li>
+<li class="chapter" data-level="26.3.2" data-path="chap26.html"><a href="chap26.html#sec26-3-2"><i class="fa fa-check"></i><b>26.3.2</b> 示例 26.2</a></li>
+<li class="chapter" data-level="26.3.3" data-path="chap26.html"><a href="chap26.html#sec26-3-3"><i class="fa fa-check"></i><b>26.3.3</b> 示例 26.3</a></li>
+</ul></li>
+<li class="chapter" data-level="26.4" data-path="chap26.html"><a href="chap26.html#sec26-4"><i class="fa fa-check"></i><b>26.4</b> 结束语</a></li>
+<li class="chapter" data-level="26.5" data-path="chap26.html"><a href="chap26.html#sec26-5"><i class="fa fa-check"></i><b>26.5</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="27" data-path="chap27.html"><a href="chap27.html"><i class="fa fa-check"></i><b>27</b> 不满足理想条件时重复测量实验的分析</a>
+<ul>
+<li class="chapter" data-level="27.1" data-path="chap27.html"><a href="chap27.html#sec27-1"><i class="fa fa-check"></i><b>27.1</b> 介绍</a></li>
+<li class="chapter" data-level="27.2" data-path="chap27.html"><a href="chap27.html#sec27-2"><i class="fa fa-check"></i><b>27.2</b> MANOVA 法</a></li>
+<li class="chapter" data-level="27.3" data-path="chap27.html"><a href="chap27.html#sec27-3"><i class="fa fa-check"></i><b>27.3</b> <span class="math inline">\(p\)</span> 值调整法</a></li>
+<li class="chapter" data-level="27.4" data-path="chap27.html"><a href="chap27.html#sec27-4"><i class="fa fa-check"></i><b>27.4</b> 混合模型法</a>
+<ul>
+<li class="chapter" data-level="27.4.1" data-path="chap27.html"><a href="chap27.html#sec27-4-1"><i class="fa fa-check"></i><b>27.4.1</b> 最大似然法</a></li>
+<li class="chapter" data-level="27.4.2" data-path="chap27.html"><a href="chap27.html#sec27-4-2"><i class="fa fa-check"></i><b>27.4.2</b> 受限最大似然法</a></li>
+</ul></li>
+<li class="chapter" data-level="27.5" data-path="chap27.html"><a href="chap27.html#sec27-5"><i class="fa fa-check"></i><b>27.5</b> 总结</a></li>
+<li class="chapter" data-level="27.6" data-path="chap27.html"><a href="chap27.html#sec27-6"><i class="fa fa-check"></i><b>27.6</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="chap28.html"><a href="chap28.html"><i class="fa fa-check"></i><b>28</b> 案例研究：重复测量的复杂例子</a>
+<ul>
+<li class="chapter" data-level="28.1" data-path="chap28.html"><a href="chap28.html#sec28-1"><i class="fa fa-check"></i><b>28.1</b> 复杂舒适度实验</a></li>
+<li class="chapter" data-level="28.2" data-path="chap28.html"><a href="chap28.html#sec28-2"><i class="fa fa-check"></i><b>28.2</b> 家庭态度实验</a></li>
+<li class="chapter" data-level="28.3" data-path="chap28.html"><a href="chap28.html#sec28-3"><i class="fa fa-check"></i><b>28.3</b> 多地点研究</a></li>
+<li class="chapter" data-level="28.4" data-path="chap28.html"><a href="chap28.html#sec28-4"><i class="fa fa-check"></i><b>28.4</b> 练习</a></li>
+</ul></li>
+<li class="chapter" data-level="29" data-path="chap29.html"><a href="chap29.html"><i class="fa fa-check"></i><b>29</b> 交叉设计的分析</a>
+<ul>
+<li class="chapter" data-level="29.1" data-path="chap29.html"><a href="chap29.html#sec29-1"><i class="fa fa-check"></i><b>29.1</b> 定义，假设和模型</a></li>
+<li class="chapter" data-level="29.2" data-path="chap29.html"><a href="chap29.html#sec29-2"><i class="fa fa-check"></i><b>29.2</b> 两时期/两处理交叉设计</a></li>
+<li class="chapter" data-level="29.3" data-path="chap29.html"><a href="chap29.html#sec29-3"><i class="fa fa-check"></i><b>29.3</b> 具有两个以上时期的交叉设计</a></li>
+<li class="chapter" data-level="29.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>29.4</b> 具有两种以上处理的交叉设计</a></li>
+<li class="chapter" data-level="29.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>29.5</b> 小结</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">混乱数据分析：设计的实验</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chap27" class="section level1 hasAnchor" number="27">
+<h1><span class="header-section-number">第 27 章</span> 不满足理想条件时重复测量实验的分析<a href="chap27.html#chap27" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>重复测量设计涉及一个或多个步骤，其中研究人员不能将一个或更多因素的水平随机分配给实验单元。使用时间作为因素是无法使用随机化的最常见实验情况。例如，当在同一实验单元的多个时间点收集数据时，无法随机化时间点的顺序。时间 1 必须是第一个，时间 2 必须是第二个，依此类推。重复测量因子的这种非随机分配会影响实验单元之间的方差和协方差，第 <a href="chap26.html#chap26">26</a> 章中描述的理想条件可能无效。本章介绍了当第 <a href="chap26.html#chap26">26</a> 章中给出的理想条件不成立时，分析重复测量实验数据的策略。此外，还描述了允许检查第 <a href="chap26.html#chap26">26</a> 章中描述的理想条件是否满足的程序。</p>
+<div id="sec27-1" class="section level2 hasAnchor" number="27.1">
+<h2><span class="header-section-number">27.1</span> 介绍<a href="chap27.html#sec27-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>考虑类似于表 <a href="chap26.html#tab:table26-1">26.1</a> 中描述的实验情况。设 <span class="math inline">\(y_{ijk}\)</span> 代表处理组 i 中个体<a href="#fn50" class="footnote-ref" id="fnref50"><sup>50</sup></a> k 在时间 j 观测到的响应，并设</p>
+<p><span class="math display">\[\boldsymbol{y}_{ik}=\begin{bmatrix}{y}_{i1k}\\{y}_{i2k}\\\vdots\\{y}_{ipk}\end{bmatrix}\]</span></p>
+<p>表示处理组 i 中个体 k 的响应向量。</p>
+<p>可以用来描述这些数据的模型是</p>
+<p><span class="math display">\[y_{ijk}=\mu+\alpha_i+\tau_j+\gamma_{ij}+\varepsilon_{ijk}^*,i=1,2,\ldots,t;~j=1,2,\ldots,p;~k=1,2,\ldots,n_i\]</span></p>
+<p>令</p>
+<p><span class="math display">\[\boldsymbol{\varepsilon}_{ik}^*=\begin{bmatrix}{\varepsilon}_{i1k}^*\\{\varepsilon}_{i2k}^*\\\vdots\\{\varepsilon}_{ipk}^*\end{bmatrix}\]</span></p>
+<p>表示处理组 i 中个体 k 的误差向量。假设 <span class="math inline">\(\boldsymbol{\varepsilon}_{ik}^*\)</span> 独立同分布于均值为 <span class="math inline">\(\boldsymbol 0\)</span> 和协方差矩阵为 <span class="math inline">\(\boldsymbol \Sigma\)</span> 的 p 元正态分布。即 <span class="math inline">\(\boldsymbol \varepsilon_{ik}^*\sim i.i.d.N(\boldsymbol{0},\boldsymbol{\Sigma}),i=1,2,\ldots,t;k=1,2,\ldots,n_i\)</span></p>
+<p>令</p>
+<p><span class="math display">\[\boldsymbol{\Sigma}=\begin{bmatrix}{\sigma}_{11}&amp;{\sigma}_{12}&amp;\cdots&amp;{\sigma}_{1p}\\{\sigma}_{21}&amp;{\sigma}_{22}&amp;\cdots&amp;{\sigma}_{2p}\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\{\sigma}_{p1}&amp;{\sigma}_{p2}&amp;\cdots&amp;{\sigma}_{pp}\end{bmatrix}\]</span></p>
+<p>表示重复测量向量的协方差阵。</p>
+<div class="definition">
+<p><span id="def:27-1" class="definition"><strong>定义 27.1  </strong></span>♦</p>
+<p>若 <span class="math inline">\(\boldsymbol{\Sigma}={\lambda}\boldsymbol{I}_t+\boldsymbol{\eta}\boldsymbol{j}&#39;+\boldsymbol{j}\boldsymbol{\eta}&#39;\)</span>，其中 <span class="math inline">\(\boldsymbol j\)</span> 是全 1 的 p × 1 向量，<span class="math inline">\(\boldsymbol \eta\)</span> 是由常数组成的 p × 1 向量，则重复测量被认为满足 Huynh–Feldt (H–F) 条件（参见 Huynh and Feldt, 1970）。</p>
+</div>
+<p>当定义 27.1 成立时，<span class="math inline">\(\boldsymbol{\Sigma}\)</span> 具有如下形式</p>
+<p><span class="math display">\[\boldsymbol{\Sigma}=\begin{bmatrix}\lambda+2{\eta}_1&amp;{\eta}_1+{\eta}_2&amp;\cdots&amp;{\eta}_1+{\eta}_p\\{\eta}_2+{\eta}_1&amp;\lambda+2{\eta}_2&amp;\cdots&amp;{\eta}_2+{\eta}_p\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\{\eta}_p+{\eta}_1&amp;{\eta}_p+{\eta}_2&amp;\cdots&amp;\lambda+2{\eta}_p\end{bmatrix}\]</span></p>
+<p>H-F 条件的一个特例是当重复测量具有<strong>复合对称协方差结构</strong> (compound
+symmetry covariance structure, <strong>CS</strong>)，则对于 <span class="math inline">\(\sigma^2,\rho\)</span> 的某种取值，</p>
+<p><span class="math display">\[\boldsymbol{\Sigma}={\sigma}^2{\begin{bmatrix}1&amp;{\rho}&amp;\cdots&amp;{\rho}\\{\rho}&amp;1&amp;\cdots&amp;{\rho}\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\{\rho}&amp;{\rho}&amp;\cdots&amp;1\end{bmatrix}}\]</span></p>
+<p>请注意，第 <a href="chap26.html#sec26-1">26.1</a> 节中讨论的<u>时间的裂区分析</u> (split-plot-in-time analysis) 描述的理想条件是具有复合对称性的重复测量的协方差阵的特例，其中 <span class="math inline">\(\sigma^2=\sigma_\delta^2+\sigma_\varepsilon^2\)</span> 以及 <span class="math inline">\(\rho=\sigma_\delta^2/(\sigma_\delta^2+\sigma_\varepsilon^2)\)</span>. <strong>复合对称结构比时间的裂区结构更通用，因为复合对称结构中的 <span class="math inline">\(\rho\)</span> 可以为负</strong>。</p>
+<div class="rmdnote">
+<p>如果满足 H-F 条件，那么许多涉及时间比较的重要问题可以通过分析重复测量实验来回答，就像分析满足第 <a href="chap26.html#sec26-1">26.1</a> 节给出的理想条件的重复测量实验一样，并且如果重复测量满足复合对称性，则可以使用第 <a href="chap26.html#chap26">26</a> 章中给出的<u>时间的裂区分析</u>方法。特别是，<strong>当且仅当重复测量满足定义 27.1 中给出的 H-F 条件时，时间主效应和时间 × 处理交互效应的<u>时间的裂区检验</u>才可以在统计上证明有效</strong>。此外，使用<u>时间的裂区分析</u>时，比较时间主效应的对比以及比较处理变量特定值内时间效应的对比都具有统计有效性。如果关注双向均值或边际均值，<u>时间的裂区分析</u>可以提供均值的正确估计，但标准误的估计是不正确的。</p>
+</div>
+<div class="rmdnote">
+<p>如果重复测量具有复合对称性且 <span class="math inline">\(\rho&gt;0\)</span>，则<u>时间的裂区分析</u>给出的所有结果都是正确的。在这种情况下，可以说 <span class="math inline">\(\varepsilon_{ik}^*=\delta_{ik}+\varepsilon_{ijk}\)</span>，其中 <span class="math inline">\(\delta_{ik}\sim i.i.d.N(0,\sigma_\delta^2),\varepsilon_{ijk}\sim i.i.d.N(0,\sigma_\varepsilon^2)\)</span>，以及 <span class="math inline">\(\delta_{ik}\)</span> 和 <span class="math inline">\(\varepsilon_{ijk}\)</span> 是独立的。</p>
+</div>
+<p><strong>提问：如果 H-F 条件不满足呢？</strong></p>
+<p>在不满足 H–F 条件的情况下，可以考虑几种分析方法。一种总是合适的方法是将重复测量的向量视为多元响应向量，并使用<strong>多元方差分析</strong> (multivariate analysis of variance, MANOVA) 方法。第二种是使用<u>时间的裂区分析</u>，但通过调整与相关效应均方相对应的自由度来调整 <span class="math inline">\(p\)</span> 值<a href="#fn51" class="footnote-ref" id="fnref51"><sup>51</sup></a>。第三种方法是使用 SAS<sup>®</sup>-Mixed 和 SAS<sup>®</sup>-Gilimix 程序中可用的混合模型方法，并对协方差结构进行建模。</p>
+<p>多元方差分析方法在第 <a href="chap27.html#sec27-2">27.2</a> 节中描述，调整自由度方法在第 <a href="chap27.html#sec27-3">27.3</a> 节中讨论，混合模型方法将在第 <a href="chap27.html#sec27-4">27.4</a> 节中讨论。</p>
+</div>
+<div id="sec27-2" class="section level2 hasAnchor" number="27.2">
+<h2><span class="header-section-number">27.2</span> MANOVA 法<a href="chap27.html#sec27-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本节考虑使用多元方差分析法来分析重复测量实验。这些方法<strong>总是</strong>适用于以下情况</p>
+<p><span class="math display">\[\boldsymbol\varepsilon_{ik}^*\sim i.i.d.\mathrm{~}N(\boldsymbol0,\boldsymbol{\Sigma}),\quad i=1,2,\ldots,t;\mathrm{~}k=1,2,\ldots,n_i\]</span></p>
+<p><strong>MANOVA 方法只能应用于给定实验单元上的所有重复测量都存在或全部缺失的实验</strong>，因为所使用的统计软件将自动从分析中删除一个或多个重复测量值缺失的任何实验单元。然而，对于其他两种方法，这并不存在问题。（对于它们，）分配给每个处理的实验单元数量无需均衡。要充分利用这一章节的内容，读者应需理解第 @chap(6) 章讨论的模型的矩阵形式。</p>
+<p>具有类似于表 <a href="chap26.html#tab:table26-1">26.1</a> 中给出的结构的重复测量实验的一般多元模型是式 <a href="chap26.html#eq:26-1">(26.1)</a> 中定义的模型的矩阵形式的推广。多元模型可以表示为</p>
+<p><span class="math display" id="eq:27-1">\[\begin{equation}
+\boldsymbol Y=\boldsymbol {XB}+\boldsymbol E
+\tag{27.1}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol Y\)</span> 表示在实验中测量的所有数据。数据矩阵 <span class="math inline">\(\boldsymbol Y\)</span> 的每一行对应于特定的实验单元，每一列对应于一个重复测量中。因此 <span class="math inline">\(\boldsymbol Y\)</span> 是 N × p 矩阵，其中 <span class="math inline">\(N=\sum_{i=1}^t n_i\)</span>. 矩阵 <span class="math inline">\(\boldsymbol X\)</span> 是假设秩为 t 的 N × r 设计矩阵。<span class="math inline">\(\boldsymbol B\)</span> 的每一列都是未知参数的 r × 1 向量，每一列对应于特定的重复测量。矩阵 <span class="math inline">\(\boldsymbol E\)</span> 是不可观测随机误差的 N × p 矩阵。假设 <span class="math inline">\(\boldsymbol E\)</span> 的行独立分布于 <span class="math inline">\(N(\boldsymbol{0},\boldsymbol{\Sigma})\)</span>. 因此，当 <span class="math inline">\(\boldsymbol E\)</span> 中的行是独立的时，一行中的元素可以彼此相关 (correlated) 且可以具有不同的方差。</p>
+<p>对于多元模型 <a href="chap27.html#eq:27-1">(27.1)</a>，可以检验以下形式的一般假设</p>
+<p><span class="math display" id="eq:27-2">\[\begin{equation}
+H_0{:\boldsymbol{CBM}}=0\mathrm{~vs~}H_a{:\boldsymbol{CBM}}\neq0
+\tag{27.2}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol C\)</span> 是秩为 g 的 g × r 矩阵，<span class="math inline">\(\boldsymbol M\)</span> 是秩为 q 的 p × q 矩阵。</p>
+<p>为了检验式 <a href="chap27.html#eq:27-2">(27.2)</a> 中的假设，首先需要求得矩阵 <span class="math inline">\(\boldsymbol B\)</span> 中参数的最小二乘估计以及观测到的残差平方和与叉乘矩阵 (cross-products matrix)<a href="#fn52" class="footnote-ref" id="fnref52"><sup>52</sup></a>。分别记作 <span class="math inline">\(\hat{\boldsymbol B}\)</span> 和 <span class="math inline">\(\hat{\boldsymbol E}\)</span> ，并由以下式给出：</p>
+<p><span class="math display" id="eq:27-3">\[\begin{equation}
+\hat{\boldsymbol B}=(\boldsymbol X^{\prime}\boldsymbol X)^-\boldsymbol X^{\prime}\boldsymbol Y\quad\mathrm{and}\quad\hat{\boldsymbol E}=\boldsymbol Y^{\prime}[\boldsymbol I-\boldsymbol X(\boldsymbol X^{\prime}\boldsymbol X)^-\boldsymbol X^{\prime}]\boldsymbol Y
+\tag{27.3}
+\end{equation}\]</span></p>
+<p>用于检验等式 <a href="chap27.html#eq:27-2">(27.2)</a> 中的假设，似然比检验统计量 (likelihood ratio test statistic) 由下式给出</p>
+<p><span class="math display" id="eq:27-4">\[\begin{equation}
+\Lambda=\frac{|\boldsymbol R|}{\left|\boldsymbol H+\boldsymbol R\right|}
+\tag{27.4}
+\end{equation}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\boldsymbol R=\boldsymbol M&#39;\hat{\boldsymbol E}\boldsymbol M,\quad \boldsymbol H=\boldsymbol M^{\prime}\hat{\boldsymbol B}\boldsymbol C^{\prime}\left[\boldsymbol C(\boldsymbol X^{\prime}\boldsymbol X)^{-}\boldsymbol C^{\prime}\right]^{-1}\boldsymbol C \hat{\boldsymbol B} \boldsymbol M\]</span></p>
+<p>以及 <span class="math inline">\(|\boldsymbol W|\)</span> 表示矩阵 <span class="math inline">\(\boldsymbol W\)</span> 的行列式。</p>
+<p>这种统计量被称为 Wilks’ 似然比准则 (likelihood ratio criterion) (Morrison, 1976). <span class="math inline">\(\Lambda\)</span> 的抽样分布相当复杂，但对于大多数实际目的，可以获得一个近似 <span class="math inline">\(\alpha\)</span> 水平的检验，拒绝 <span class="math inline">\(H_0\)</span> 当</p>
+<p><span class="math display">\[-\left(N-t-\frac{|q-g|+1}2\right)\mathrm{log}_{\mathrm{e}}(\Lambda)&gt;\chi_{\alpha,qg}^2\]</span></p>
+<p>只有当 <span class="math inline">\(q\)</span> 和 <span class="math inline">\(g\)</span> 都大于 <span class="math inline">\(2\)</span> 才可使用的一个更好的近似是，拒绝 <span class="math inline">\(H_0\)</span> 当</p>
+<p><span class="math display">\[F&gt;F_{\alpha,qg,ab-c}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[F=\frac{(1-\Lambda^{1/b})(ab-c)}{qg\Lambda^{1/b}}\]</span></p>
+<p>以及</p>
+<p><span class="math display" id="eq:27-5">\[\begin{align}
+&amp;a=N-t-\frac{|q-s|+1}2 \\
+&amp;b=\left(\frac{q^{2}s^{2}-4}{q^{2}+s^{2}-5}\right)^{1/2} \\
+&amp; c=\frac{qs-2}2  \\
+&amp;s=\min(q,g)
+\tag{27.5}
+\end{align}\]</span></p>
+<p>而只要 <span class="math inline">\(q = 1, 2\)</span> 或 <span class="math inline">\(g = 1, 2\)</span>，式 <a href="chap27.html#eq:27-2">(27.2)</a> 就存在精确的 <span class="math inline">\(F\)</span> 检验。这些检验如下</p>
+<ol style="list-style-type: decimal">
+<li><p>对于 <span class="math inline">\(g = 1\)</span> 以及任何 <span class="math inline">\(q\)</span>，拒绝 <span class="math inline">\(H_0\)</span> 如果
+<span class="math display" id="eq:27-6">\[\begin{equation}
+F=\left(\frac{1-\Lambda}\Lambda\right)\left(\frac{N-t-q+1}q\right)&gt;F_{\alpha,q,N-t-q+1}
+\tag{27.6}
+\end{equation}\]</span></p></li>
+<li><p>对于 <span class="math inline">\(q = 1\)</span> 以及任何 <span class="math inline">\(g\)</span>，拒绝 <span class="math inline">\(H_0\)</span> 如果
+<span class="math display" id="eq:27-7">\[\begin{equation}
+F=\left(\frac{1-\Lambda}\Lambda\right)\left(\frac{N-t}g\right)&gt;F_{\alpha,g,N-t}
+\tag{27.7}
+\end{equation}\]</span></p></li>
+<li><p>对于 <span class="math inline">\(g = 2\)</span> 以及任何 <span class="math inline">\(q &gt; 1\)</span>，拒绝 <span class="math inline">\(H_0\)</span> 如果
+<span class="math display" id="eq:27-8">\[\begin{equation}
+F=\left(\frac{1-\sqrt{\Lambda}}{\sqrt{\Lambda}}\right){\left(\frac{N-t-q+1}q\right)}{&gt;F_{\alpha,2q,2(N-t-q+1)}}
+\tag{27.8}
+\end{equation}\]</span></p></li>
+<li><p>对于 <span class="math inline">\(q = 2\)</span> 以及任何 <span class="math inline">\(g &gt; 1\)</span>，拒绝 <span class="math inline">\(H_0\)</span> 如果
+<span class="math display" id="eq:27-9">\[\begin{equation}
+F=\left(\frac{1-\sqrt{\Lambda}}{\sqrt{\Lambda}}\right)\left(\frac{N-t-1}g\right)&gt;F_{\alpha,2g,2(N-t-1)}
+\tag{27.9}
+\end{equation}\]</span></p></li>
+</ol>
+<p>多元方法的一个缺点是必须满足 <span class="math inline">\(p &lt; N – t\)</span>. 当 <span class="math inline">\(p \ge N – t\)</span> 时，通常可以将相邻的重复测量组合成 <span class="math inline">\(p^*\)</span> 个新变量，或者仅分析重复测量尺寸为 <span class="math inline">\(p^*\)</span> 的子集，其中 <span class="math inline">\(p^* &lt; N – t\)</span>.</p>
+<p>为了说明本节中描述的分析，考虑进行一项实验，研究四种高粱 (sorghum) 品种和五种肥料 (fertilizer) 水平在叶面积指数<a href="#fn53" class="footnote-ref" id="fnref53"><sup>53</sup></a> (leaf area index) 上的差异，其中四种高粱品种用 V1, V2, V3 和 V4 表示，五个肥料水平用 1, 2, 3, 4 和 5 表示。还假设这 20 个品种 × 肥料的组合被随机分配到田间 20 个区 (plots). 对于此示例，假设肥料水平和品种之间不存在交互作用，并且可以使用基本的双向加性模型<a href="#fn54" class="footnote-ref" id="fnref54"><sup>54</sup></a>来分析数据。最后，假设从植物出苗后两周开始，在五周内的每周对每个品种 × 肥料的区中进行叶面积指数的测量。获得的数据列于表 <a href="chap27.html#tab:table27-1">27.1</a> 中。</p>
+<table>
+<caption>
+<span id="tab:table27-1">表 27.1: </span>四个高粱品种的叶面积指数
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.1.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>对于表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据，数据矩阵为</p>
+<p><span class="math display">\[\boldsymbol Y=\begin{bmatrix}5.00&amp;4.84&amp;4.02&amp;3.75&amp;3.13\\4.42&amp;4.30&amp;3.67&amp;3.29&amp;2.83\\4.42&amp;4.10&amp;3.46&amp;3.09&amp;2.82\\4.01&amp;3.89&amp;3.21&amp;2.89&amp;2.56\\3.36&amp;3.10&amp;2.67&amp;2.47&amp;2.16\\5.82&amp;5.60&amp;5.05&amp;4.72&amp;4.46\\5.73&amp;5.59&amp;5.00&amp;4.65&amp;4.42\\5.31&amp;5.19&amp;4.86&amp;4.44&amp;4.22\\4.92&amp;4.66&amp;4.56&amp;4.16&amp;3.99\\3.96&amp;3.86&amp;3.50&amp;3.13&amp;2.95\\5.65&amp;5.97&amp;5.27&amp;5.07&amp;4.52\\5.39&amp;5.49&amp;5.08&amp;4.87&amp;4.32\\5.15&amp;5.28&amp;4.93&amp;4.67&amp;4.15\\4.50&amp;4.89&amp;4.74&amp;4.49&amp;4.10\\3.75&amp;3.74&amp;3.55&amp;3.28&amp;3.00\\5.86&amp;5.60&amp;5.37&amp;5.00&amp;4.37\\5.82&amp;5.55&amp;5.29&amp;4.95&amp;4.07\\5.26&amp;5.06&amp;4.76&amp;4.48&amp;3.94\\4.87&amp;4.75&amp;4.55&amp;4.33&amp;3.83\\3.96&amp;3.76&amp;3.56&amp;3.18&amp;2.96\end{bmatrix}\]</span></p>
+<p>参数矩阵为</p>
+<p><span class="math display">\[\boldsymbol{B}=\begin{bmatrix}
+\mu^{(1)}&amp;\mu^{(2)}&amp;\mu^{(3)}&amp;\mu^{(4)}&amp;\mu^{(5)}\\
+\tau_1^{(1)}&amp;\tau_1^{(2)}&amp;\tau_1^{(3)}&amp;\tau_1^{(4)}&amp;\tau_1^{(5)}\\
+\tau_2^{(1)}&amp;\tau_2^{(2)}&amp;\tau_2^{(3)}&amp;\tau_2^{(4)}&amp;\tau_2^{(5)}\\
+\tau_3^{(1)}&amp;\tau_3^{(2)}&amp;\tau_3^{(3)}&amp;\tau_3^{(4)}&amp;\tau_3^{(5)}\\
+\tau_4^{(1)}&amp;\tau_4^{(2)}&amp;\tau_4^{(3)}&amp;\tau_4^{(4)}&amp;\tau_4^{(5)}\\
+\beta_1^{(1)}&amp;\beta_1^{(2)}&amp;\beta_1^{(3)}&amp;\beta_1^{(4)}&amp;\beta_1^{(5)}\\
+\beta_2^{(1)}&amp;\beta_2^{(2)}&amp;\beta_2^{(3)}&amp;\beta_2^{(4)}&amp;\beta_2^{(5)}\\
+\beta_3^{(1)}&amp;\beta_3^{(2)}&amp;\beta_3^{(3)}&amp;\beta_3^{(4)}&amp;\beta_3^{(5)}\\
+\beta_4^{(1)}&amp;\beta_4^{(2)}&amp;\beta_4^{(3)}&amp;\beta_4^{(4)}&amp;\beta_4^{(5)}\\
+\beta_5^{(1)}&amp;\beta_5^{(2)}&amp;\beta_5^{(3)}&amp;\beta_5^{(4)}&amp;\beta_5^{(5)}\\
+\end{bmatrix}\]</span></p>
+<p>其中 <span class="math inline">\(\tau\)</span> 对应不同品种，<span class="math inline">\(\beta\)</span> 对应不同肥料水平，设计矩阵为</p>
+<p><span class="math display">\[\boldsymbol X=\begin{bmatrix}
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix} \]</span></p>
+<p>注意，<span class="math inline">\(\boldsymbol B\)</span> 的每一列代表数据矩阵 <span class="math inline">\(\boldsymbol Y\)</span> 的第 <span class="math inline">\(j(j=1,2,3,4,5)\)</span> 个响应列的双向加性模型所需的参数，设计矩阵 <span class="math inline">\(\boldsymbol X\)</span> 是一个 20 × 10 矩阵且秩等于 8；因此 <span class="math inline">\(N = 20,p = 10\)</span> 且 <span class="math inline">\(t = 8\)</span>。式 <a href="chap27.html#eq:27-3">(27.3)</a> 给出的 <span class="math inline">\(\hat{\boldsymbol B}\)</span> 的值为</p>
+<p><span class="math display">\[\hat{\boldsymbol{B}}=\begin{bmatrix}3.350&amp;3.283&amp;3.003&amp;2.788&amp;2.150\\0.222&amp;0.106&amp;-0.198&amp;-0.260&amp;-0.312\\1.128&amp;1.040&amp;0.990&amp;0.874&amp;0.996\\0.868&amp;1.134&amp;1.110&amp;1.130&amp;1.006\\1.134&amp;1.004&amp;1.102&amp;1.042&amp;0.822\\1.395&amp;1.398&amp;1.173&amp;1.115&amp;0.982\\1.152&amp;1.128&amp;1.006&amp;0.940&amp;0.772\\0.847&amp;0.803&amp;0.748&amp;0.685&amp;0.645\\0.387&amp;0.443&amp;0.511&amp;0.483&amp;0.482\\-0.430&amp;-0.489&amp;-0.434&amp;-0.470&amp;-0.370\end{bmatrix}\]</span></p>
+<p>以及式 <a href="chap27.html#eq:27-3">(27.3)</a> 中的 <span class="math inline">\(\boldsymbol E\)</span> 的值为</p>
+<p><span class="math display">\[\hat{\boldsymbol{E}}=\begin{bmatrix}0.237&amp;0.171&amp;0.162&amp;0.228&amp;0.129\\0.171&amp;0.247&amp;0.163&amp;0.231&amp;0.135\\0.162&amp;0.163&amp;0.268&amp;0.303&amp;0.184\\0.228&amp;0.231&amp;0.303&amp;0.392&amp;0.241\\0.129&amp;0.135&amp;0.184&amp;0.241&amp;0.247\end{bmatrix}\]</span></p>
+<p>等品种主效应均值检验由式 <a href="chap27.html#eq:27-4">(27.4)</a> 得出，通过取</p>
+<p><span class="math display">\[\boldsymbol{C}=\begin{bmatrix}0&amp;1&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0\end{bmatrix}\quad\mathrm{and}\quad\boldsymbol{M}=\begin{bmatrix}1\\1\\1\\1\\1\\1\end{bmatrix}\]</span></p>
+<p>那么 <span class="math inline">\(\Lambda= 0.04345,g = 3,q = 1\)</span>. 由于 <span class="math inline">\(q = 1\)</span>，可以使用式 <a href="chap27.html#eq:27-7">(27.7)</a>，得到</p>
+<p><span class="math display">\[F=\frac{1-0.04345}{0.04345}\times\frac{12}3=88.06\]</span></p>
+<p>具有 3 个和 12 个自由度。观察到的显著性水平 <span class="math inline">\(\hat\alpha\)</span> 小于 0.0001.</p>
+<p>等时间主效应均值的检验由式 <a href="chap27.html#eq:27-4">(27.4)</a> 得出，通过取</p>
+<p><span class="math display">\[\boldsymbol{C}=\begin{bmatrix}1&amp;\frac14&amp;\frac14&amp;\frac14&amp;\frac14&amp;\frac15&amp;\frac15&amp;\frac15&amp;\frac15&amp;\frac15\\\end{bmatrix}\quad\mathrm{and}\quad\boldsymbol{M}=\begin{bmatrix}1&amp;1&amp;1&amp;1\\-1&amp;0&amp;0&amp;0\\0&amp;-1&amp;0&amp;0\\0&amp;0&amp;-1&amp;0\\0&amp;0&amp;0&amp;-1\end{bmatrix}\]</span></p>
+<p>可得到 <span class="math inline">\(\Lambda= 0.04345,g=1,q=4\)</span>. 由于 <span class="math inline">\(g = 1\)</span>，因此可以使用式 <a href="chap27.html#eq:27-6">(27.6)</a>，并得到</p>
+<p><span class="math display">\[\begin{aligned}F=&amp;\frac{1-0.00502}{0.00502}\times\frac94=445.96\end{aligned}\]</span></p>
+<p>具有 4 个和 9 个自由度。观察到的显著性水平 <span class="math inline">\(\hat\alpha\)</span> 小于 0.0001.</p>
+<p>品种 × 时间交互作用的检验由式 <a href="chap27.html#eq:27-4">(27.4)</a> 得出，通过取</p>
+<p><span class="math display">\[\boldsymbol{C}=\begin{bmatrix}0&amp;1&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\\0&amp;1&amp;0&amp;0&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0\end{bmatrix}\quad\mathrm{and}\quad\boldsymbol{M}=\begin{bmatrix}1&amp;1&amp;1&amp;1\\-1&amp;0&amp;0&amp;0\\0&amp;-1&amp;0&amp;0\\0&amp;0&amp;-1&amp;0\\0&amp;0&amp;0&amp;-1\end{bmatrix}\]</span></p>
+<p>可得到 <span class="math inline">\(\Lambda= 0.01426,g=1,q=4\)</span>. 由于 g 和 q 都大于 1，可以使用式 <a href="chap27.html#eq:27-5">(27.5)</a>，其中 <span class="math inline">\(s = 3,a = 11,b = 2.646\)</span> 以及 <span class="math inline">\(c = 5\)</span>. 那么</p>
+<p><span class="math display">\[F=\frac{(1-0.01426^{1/2.646})(11\times2.646-5)}{4\times3\times0.01426^{1/2.646}}=\frac{(1-0.2006)(24.1060)}{12(0.2006)}=8.00\]</span></p>
+<p>具有 12 个和 24.1 个自由度。观察到的显著性水平 <span class="math inline">\(\hat\alpha\)</span> 小于 0.0001.</p>
+<p>请注意，等品种均值的检验与通过<u>时间的裂区分析</u>获得的检验相同。这是三个检验中唯一与通过<u>时间的裂区分析</u>获得的相应检验相同的检验。以类似的方式可以得到肥料主效应（<span class="math inline">\(F=94.36\)</span>）和肥料 × 时间交互效应（<span class="math inline">\(F=1.91\)</span>）的检验统计量。</p>
+<p><span class="math inline">\(\boldsymbol{B}\)</span> 中参数的许多特殊函数是可估的，并且可以对这些可估函数进行推断。<span class="math inline">\(\boldsymbol{B}\)</span> 中参数的大多数有趣的线性函数都可以写成 <span class="math inline">\(\boldsymbol{c&#39;Bm}\)</span> 的形式，其中 <span class="math inline">\(\boldsymbol{c}\)</span> 是 r × 1 向量，<span class="math inline">\(\boldsymbol{m}\)</span> 是 p × 1 向量。正如第 <a href="chap6.html#chap6">6</a> 章中那样，当且仅当存在一个向量 <span class="math inline">\(\boldsymbol{u}\)</span> 使得 <span class="math inline">\(\boldsymbol{X^{\prime}}\boldsymbol{X}\boldsymbol{u}=\boldsymbol{c}\)</span> 时，<span class="math inline">\(\boldsymbol{c&#39;Bm}\)</span> 才是可估的。对于 <span class="math inline">\(\boldsymbol m\)</span> 没有限制。</p>
+<p><span class="math inline">\(\boldsymbol{c&#39;Bm}\)</span> 的最佳估计是 <span class="math inline">\(\boldsymbol{c&#39;\hat Bm}\)</span>，其中 <span class="math inline">\(\boldsymbol{\hat B}\)</span> 由式 <a href="chap27.html#eq:27-3">(27.3)</a> 中给出。 <span class="math inline">\(\boldsymbol{c&#39;\hat Bm}\)</span> 的标准误估计由下式给出</p>
+<p><span class="math display">\[\widehat{s.e.}(\boldsymbol c^{\prime}\hat{\boldsymbol B}\boldsymbol m)=\sqrt{\boldsymbol c^{\prime}(\boldsymbol X^{\prime}\boldsymbol X)^-\boldsymbol c\cdot\frac{{\boldsymbol m^{\prime}\hat{\boldsymbol E}\boldsymbol m}}{N-t}}\]</span></p>
+<p>相应的自由度为 N-t. 因此，<span class="math inline">\(\boldsymbol{c&#39;Bm}\)</span> 的 <span class="math inline">\((1 - \alpha)100\%\)</span> 置信区间由下式给出</p>
+<p><span class="math display" id="eq:27-10">\[\begin{equation}
+\boldsymbol{c^{\prime}\hat{B}m}\pm t_{\alpha,N-t}\left[\widehat{s.e.}(\boldsymbol{c^{\prime}\hat{B}m})\right]
+\tag{27.10}
+\end{equation}\]</span></p>
+<p>用于检验 <span class="math inline">\(H_0:\boldsymbol{c&#39;Bm}=a_0\)</span> 的 <span class="math inline">\(t\)</span> 统计量由下式给出</p>
+<p><span class="math display" id="eq:27-11">\[\begin{equation}
+t=\frac{\boldsymbol{c&#39;\hat Bm}-a_0}{\widehat{s.e.}(\boldsymbol{c&#39;\hat Bm})}
+\tag{27.11}
+\end{equation}\]</span></p>
+<p>如果 <span class="math inline">\(t&gt;t_{\alpha/2,N-t}\)</span> 则拒绝 <span class="math inline">\(H_0\)</span>.</p>
+<p>例如，考虑估计 V1 的边际均值。对于此边际均值，</p>
+<p><span class="math display">\[\boldsymbol c&#39;=\begin{bmatrix}1&amp;1&amp;0&amp;0&amp;0&amp;0.2&amp;0.2&amp;0.2&amp;0.2&amp;0.2\end{bmatrix}\quad\mathrm{and}\quad\boldsymbol{m}=\begin{bmatrix}0.2\\0.2\\0.2\\0.2\\0.2\end{bmatrix}\]</span></p>
+<p><span class="math inline">\(\boldsymbol{c&#39;\hat Bm}\)</span> 的值为 3.496，其标准误估计为 0.0594. 利用式 <a href="chap27.html#eq:27-10">(27.10)</a> 可以得到 V1 边际均值的 95% 置信区间为 3.496 ± (2.179) (0.0594).</p>
+<p>作为第二个例子，考虑估计表 <a href="chap27.html#tab:table27-1">27.1</a> 中数据的时间 1 的 边际均值。对于此边际均值，</p>
+<p><span class="math display">\[\boldsymbol c^{\prime}=[1\quad0.25\quad0.25\quad0.25\quad0.2\quad0.2\quad0.2\quad0.2\quad0.2]\quad\mathrm{and}\quad\boldsymbol{m}=\begin{bmatrix}1\\0\\0\\0\\0\end{bmatrix}\]</span></p>
+<p><span class="math inline">\(\boldsymbol{c&#39;\hat Bm}\)</span> 的值为 4.858，其标准误估计为 0.0315.</p>
+<p>作为第三个示例，考虑估计 V1 和 V2 边际均值之差。此时</p>
+<p><span class="math display">\[\boldsymbol c^{\prime}=\begin{bmatrix}0&amp;1&amp;-1&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0&amp;0\end{bmatrix}\quad\mathrm{and}\quad\boldsymbol{m}=\begin{bmatrix}0.2\\0.2\\0.2\\0.2\\0.2\end{bmatrix}\]</span></p>
+<p><span class="math inline">\(\boldsymbol{c&#39;\hat Bm}\)</span> 的值为 -1.094，其标准误估计为 0.0840. 用于比较这两个边际平均值的 <span class="math inline">\(t\)</span> 统计量为 <span class="math inline">\(t = -1.094/0.0840 = 13.02\)</span>，其观察到的显著性水平为 <span class="math inline">\(\hat\alpha &lt; 0.0001\)</span>.</p>
+<p>当使用 <code>MANOVA</code> 选项及其 <code>M =</code> 选项时，可以从 SAS<sup>®</sup>-GLM 程序获得上面给出的许多推断结果。为了说明这一点，使用表 <a href="chap27.html#tab:table27-2">27.2</a> 中给出的 SAS 命令重新分析表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据。第一个 <code>MANOVA</code> 选项用于获取 E^，第二个 <code>MANOVA</code> 选项用于获取比较品种主效应均值和肥料主效应均值的检验【注意，M = (0.2 0.2 0.2 0.2 0.2) 告诉 <code>MANOVA</code> 选项计算五次重复的时间测量平均值】。肥料 × 时间交互作用和品种 × 时间交互作用的检验是从第三个 <code>MANOVA</code> 选项获得的，其中 <span class="math inline">\(\boldsymbol M\)</span> 是时间对比的 4 × 5 矩阵。</p>
+<table>
+<caption>
+<span id="tab:table27-2">表 27.2: </span>使用 MANOVA 分析表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据的 SAS-GLM 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.2.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-3">27.3</a> 给出了从表 <a href="chap27.html#tab:table27-2">27.2</a> 的多元方差分析中获得的 <span class="math inline">\(\hat{\boldsymbol E}\)</span> 值。表 <a href="chap27.html#tab:table27-4">27.4</a> 给出了肥料和品种主效应的 MANOVA 检验，表 <a href="chap27.html#tab:table27-5">27.5</a> 给出了 MANOVA 交互检验。</p>
+<table>
+<caption>
+<span id="tab:table27-3">表 27.3: </span>误差平方和和叉乘矩阵
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-4">表 27.4: </span>肥料和品种主效应检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-5">表 27.5: </span>MANOVA 交互检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p><code>MANOVA</code> 和 <code>CONTRAST</code> 选项都可以用来检验形如 <span class="math inline">\(H_0{:\boldsymbol{c&#39;Bm}}=0\)</span> 的假设。例如，通过将以下三个语句添加到表 <a href="chap27.html#tab:table27-2">27.2</a> 中的 SAS 命令中</p>
+<pre class="sas"><code>CONTRAST ‘V1-V2’ VARIETY 1 -1 0 0;
+MANOVA M=(.2 .2 .2 .2 .2) / PRINTE;
+MANOVA M=(1 0 0 0 0) / PRINTE;</code></pre>
+<p>我们可以从第一个 MANOVA 语句中获得对品种 1 和 2 主效应均值比较的 Wilks 统计量，以及从第二个 MANOVA 语句中对时间 1 处的品种 1 和品种 2 进行比较的 Wilks 统计量。通过在上述每个 MANOVA 命令中包含 <code>PRINTE</code> 选项，还可以获得 <span class="math inline">\(\boldsymbol {m&#39;\hat E m}\)</span> 的值。表 <a href="chap27.html#tab:table27-6">27.6</a> 给出了比较品种 1 主效应均值与品种 2 主效应均值的检验统计量 (<span class="math inline">\(F = 169.4\)</span>)。请注意，169.4 是本节前面给出的 <span class="math inline">\(t\)</span> 统计量的平方。另请注意，当 <span class="math inline">\({\boldsymbol m}&#39; = [0.2 0.2 0.2 0.2 0.2]\)</span> 时，<span class="math inline">\(\boldsymbol {m&#39;\hat E m} = 0.2115\)</span>.</p>
+<table>
+<caption>
+<span id="tab:table27-6">表 27.6: </span>比较品种 1 和品种 2 主效应均值的检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.6.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec27-3" class="section level2 hasAnchor" number="27.3">
+<h2><span class="header-section-number">27.3</span> <span class="math inline">\(p\)</span> 值调整法<a href="chap27.html#sec27-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>回想一下，当重复测量满足复合对称性假设时，重复测量实验的分析可以通过第 <a href="chap26.html#chap26">26</a> 章中描述的<u>时间的裂区</u>方法获得。如果只考虑涉及时间因素差异的检验，那么当重复测量满足 H-F 条件时，<u>时间的裂区</u>检验也有效。第二种分析重复测量实验的方法已被证明比第 <a href="chap27.html#sec27-2">27.2</a> 节中描述的基于 MANOVA 方法的分析更强大。该方法是在不满足 H-F 条件的情况下执行<u>时间的裂区分析</u>，并调整检验统计量的分子和分母自由度，从而产生调整的 <span class="math inline">\(p\)</span> 值。</p>
+<p>设</p>
+<p><span class="math display">\[\boldsymbol{\Sigma}=\begin{bmatrix}{\sigma}_{11}&amp;{\sigma}_{12}&amp;\cdots&amp;{\sigma}_{1p}\\{\sigma}_{21}&amp;{\sigma}_{22}&amp;\cdots&amp;{\sigma}_{2p}\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\{\sigma}_{p1}&amp;{\sigma}_{p2}&amp;\cdots&amp;{\sigma}_{pp}\end{bmatrix}\]</span></p>
+<p>为重复测量的协方差阵。令</p>
+<p><span class="math display" id="eq:27-12">\[\begin{equation}
+\theta=\frac{p^2(\bar{\sigma}_{ii}-\bar{\sigma}_{\cdot\cdot})^2}{(p-1)\left[\sum_{i=1}^p\sum_{j=1}^p\sigma_{ij}^2-2p\sum_{i=1}^p\bar{\sigma}_{i\cdot}^2+p^2\bar{\sigma}_{\cdot\cdot}^2\right]}
+\tag{27.12}
+\end{equation}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\bar{\sigma}_{ii}=\frac1p{\sum_{j=1}^p\sigma_{ij}},\quad\bar{\sigma}_{i\cdot}=\frac1p{\sum_{j=1}^p\sigma_{ij}},\quad\mathrm{and}\quad\bar{\sigma}_{\cdot\cdot}=\frac1{p^2}{\sum_{i=1}^p{\sum_{j=1}^p\sigma_{ij}}}\]</span></p>
+<p>Box (1954) 提出用 <span class="math inline">\(\theta\)</span> 来衡量 <span class="math inline">\(\boldsymbol \Sigma\)</span> 偏离复合对称性的程度，并证明了 <span class="math inline">\(1/(p - 1) &lt; \theta &lt; 1\)</span>. <span class="math inline">\(\theta\)</span>的值越小，<span class="math inline">\(\boldsymbol \Sigma\)</span> 偏离复合对称性就越远。假设 <span class="math inline">\(F_{TIME}\)</span> 和 <span class="math inline">\(F_{TIME × TRT}\)</span> 分别是时间主效应和时间 × 处理交互作用的<u>时间的裂区</u>检验统计量，适用于表 <a href="chap26.html#tab:table26-1">26.1</a> 所描述的重复测量场景。Box 表明，当 <span class="math inline">\(\boldsymbol \Sigma\)</span> 关于复合对称性偏离了 <span class="math inline">\(\theta\)</span> 时，则，当没有时间效应时</p>
+<p><span class="math display" id="eq:27-13">\[\begin{equation}
+F_{TIME}\text{ is approximately distributed as }F[\theta(p-1),\theta(N-t)(p-1)]
+\tag{27.13}
+\end{equation}\]</span></p>
+<p>以及当无交互效应时</p>
+<p><span class="math display" id="eq:27-14">\[\begin{equation}
+F_{TIME\times TRT}\text{ is approximately distributed as F}[\theta(t-1)(p-1),\theta(N-t)(p-1)]
+\tag{27.14}
+\end{equation}\]</span></p>
+<p>不幸的是，由于 <span class="math inline">\(\sigma_{ij}\)</span> 未知，所以 <span class="math inline">\(\theta\)</span> 未知。如果可以估计 <span class="math inline">\(\sigma_{ij}\)</span>，则可以估计 <span class="math inline">\(\theta\)</span>.</p>
+<p>已有 <span class="math inline">\(\theta\)</span> 的三种估计。第一个被称为 Box 保守估计。Box (1954) 建议保守的方法是取 <span class="math inline">\(\theta\)</span> 为其可能值的最小值。即，取 <span class="math inline">\(\theta = 1/(p - 1)\)</span>. 这可能太保守，不予推荐。</p>
+<p>Greenhouse 和 Geisser (1959) 提出了第二种可能性。令 <span class="math inline">\(\hat{\boldsymbol{Q}}=\boldsymbol{C\hat{\boldsymbol{\Sigma}}}\boldsymbol{C&#39;}\)</span> 其中 <span class="math inline">\(\boldsymbol{C}\)</span> 是满足 <span class="math inline">\(\boldsymbol{Cj} = \boldsymbol 0\)</span> 且 <span class="math inline">\(\boldsymbol{CC&#39;} = \boldsymbol I_{p-1}\)</span> 的任何 <span class="math inline">\((p - 1) × p\)</span> 矩阵，其中 <span class="math inline">\(\boldsymbol j\)</span> 是全 1 的 p × 1 向量，而 <span class="math inline">\(\boldsymbol I_{p-1}\)</span> 是 (p - 1) × ( p - 1) 的单位阵。然后</p>
+<p><span class="math display">\[\hat{{\theta}}~=~\frac{\left(\sum_{i=1}^{p-1}\hat{{q}}_{ii}\right)^2}{(p-1)\sum_{i=1}^{p-1}\sum_{j=1}^{p-1}\hat{{q}}_{ij}^2}=\frac{\left[\operatorname{tr}(\hat{\boldsymbol{Q}})\right]^2}{(p-1)\operatorname{tr}(\hat{\boldsymbol{Q}}\hat{\boldsymbol{Q}}^{\prime})}\]</span></p>
+<p>是 <span class="math inline">\(\theta\)</span> 的 Greenhouse and Geisser (G–G) 估计，其中 <span class="math inline">\(\text{tr}(\boldsymbol B)\)</span> 是矩阵 <span class="math inline">\(\boldsymbol B\)</span> 的迹。</p>
+<p>Huynh and Feldt (1976) 提出了第三种估计 <span class="math inline">\(\theta\)</span> 的方法。他们的方法将 <span class="math inline">\(\theta\)</span> 估计为</p>
+<p><span class="math display">\[\tilde{{\theta}}=\frac{N(p-1)\hat{{\theta}}-2}{(p-1)(N-r-(p-1)\hat{{\theta}})}\]</span></p>
+<p>其中 N 为总样本量，N - r 为<u>时间的裂区分析</u>中误差项的自由度。</p>
+<p>可以注意到，Box 的修正是三种调整方法中最保守的，而 H–F 修正是三个调整方法中最不保守的。还应注意的是，如果 <span class="math inline">\(\theta\)</span> 的任何估计值大于 1，则在计算调整的 <span class="math inline">\(p\)</span> 值时，在式 <a href="chap27.html#eq:27-13">(27.13)</a> 和 <a href="chap27.html#eq:27-14">(27.14)</a> 中用 1 代替 <span class="math inline">\(\theta\)</span>，因为不希望增加任何效应的自由度。</p>
+<p>可以注意到，如果 <span class="math inline">\(\boldsymbol{\Sigma}\)</span> 满足 H-F 条件，则对于某 <span class="math inline">\(\lambda\)</span>，<span class="math inline">\(\boldsymbol{C\Sigma C&#39;}=\lambda \boldsymbol{I}\)</span>. 当这为真时，我们说 <span class="math inline">\(\boldsymbol{C\Sigma C&#39;}\)</span> 满足球形条件。此时 <span class="math inline">\(H_0{:\boldsymbol{C\Sigma C&#39;}}=\lambda\boldsymbol{I}\)</span> 的似然比检验是可用的。似然比检验统计量由下式给出：</p>
+<p><span class="math display" id="eq:27-15">\[\begin{equation}
+\boldsymbol{\Lambda}=\frac{|\hat{\boldsymbol{Q}}|}{\left[\frac1{p-1}\mathrm{tr}(\hat{\boldsymbol{Q}})\right]^{p-1}}
+\tag{27.15}
+\end{equation}\]</span></p>
+<p>若 <span class="math inline">\(-2\log_{\mathrm{e}}(\Lambda)&gt;\chi_{\alpha,p(p-1)/2-1}^2\)</span> 则拒绝 <span class="math inline">\(H_0\)</span>. 存在许多矩阵 <span class="math inline">\(\boldsymbol C\)</span> 满足 $ = $ 和 <span class="math inline">\(\boldsymbol{CC&#39;} = \boldsymbol I_{p-1}\)</span>. 应当注意，<span class="math inline">\(\Lambda\)</span> 的值不取决于可能选择哪个可行的 <span class="math inline">\(\boldsymbol C\)</span> 矩阵。</p>
+<p>例如，考虑表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据。对于这些数据</p>
+<p><span class="math display">\[\hat{\boldsymbol E}=\begin{bmatrix}0.237&amp;0.171&amp;0.162&amp;0.228&amp;0.129\\0.171&amp;0.247&amp;0.163&amp;0.231&amp;0.135\\0.162&amp;0.163&amp;0.268&amp;0.303&amp;0.184\\0.228&amp;0.231&amp;0.303&amp;0.392&amp;0.241\\0.129&amp;0.135&amp;0.184&amp;0.241&amp;0.247\end{bmatrix}\]</span></p>
+<p>基于 12 个自由度。</p>
+<p>因此，</p>
+<p><span class="math display">\[\begin{aligned}
+\boldsymbol{\hat{\Sigma}}=\frac1{12}\boldsymbol{\hat{E}}&amp; =\frac{1}{12}\begin{bmatrix}0.237&amp;0.171&amp;0.162&amp;0.228&amp;0.129\\0.171&amp;0.247&amp;0.163&amp;0.231&amp;0.135\\0.162&amp;0.163&amp;0.268&amp;0.303&amp;0.184\\0.228&amp;0.231&amp;0.303&amp;0.392&amp;0.241\\0.129&amp;0.135&amp;0.184&amp;0.241&amp;0.247\end{bmatrix}  \\\\
+&amp;=\begin{bmatrix}0.0198&amp;0.0143&amp;0.0135&amp;0.0190&amp;0.0108\\0.0143&amp;0.0206&amp;0.0136&amp;0.0193&amp;0.0113\\0.0135&amp;0.0136&amp;0.0223&amp;0.0253&amp;0.0153\\0.0190&amp;0.0193&amp;0.0253&amp;0.0327&amp;0.0201\\0.0108&amp;0.0113&amp;0.0153&amp;0.0201&amp;0.0206\end{bmatrix}
+\end{aligned}\]</span></p>
+<p>取</p>
+<p><span class="math display">\[\boldsymbol{C}=\begin{bmatrix}\frac1{\sqrt{2}}&amp;-\frac1{\sqrt{2}}&amp;0&amp;0&amp;0\\\frac1{\sqrt{6}}&amp;\frac1{\sqrt{6}}&amp;-\frac2{\sqrt{6}}&amp;0&amp;0\\\frac1{\sqrt{12}}&amp;\frac1{\sqrt{12}}&amp;\frac1{\sqrt{12}}&amp;-\frac3{\sqrt{12}}&amp;0\\\frac1{\sqrt{20}}&amp;\frac1{\sqrt{20}}&amp;\frac1{\sqrt{20}}&amp;\frac1{\sqrt{20}}&amp;-\frac4{\sqrt{20}}\end{bmatrix}\]</span></p>
+<p>可得</p>
+<p><span class="math display">\[\boldsymbol{Q}=\boldsymbol{C}\boldsymbol{\hat{\Sigma}}\boldsymbol{C}^{\prime}=\begin{bmatrix}0.00592&amp;-0.00019&amp;-0.00003&amp;0.00013\\-0.00019&amp;0.00830&amp;0.00399&amp;0.00178\\-0.00003&amp;0.00399&amp;0.00486&amp;0.00078\\0.00013&amp;0.00178&amp;0.00078&amp;0.00875\end{bmatrix}\]</span></p>
+<p>然后得到 <span class="math inline">\(\hat{{\theta}}=0.795\)</span> 和 <span class="math inline">\(\tilde{{\theta}}=1.747\)</span>. 用于检验 <span class="math inline">\(H_0{:\boldsymbol{C\Sigma C&#39;}}=\lambda\boldsymbol{I}\)</span> 的似然比检验统计量的值</p>
+<p><span class="math display">\[\Lambda=\frac{|\hat{\boldsymbol{Q}}|}{\left[\frac1{p-1}\mathrm{tr}(\hat{\boldsymbol{Q}})\right]^{p-1}}=\frac{1.20895(10)^{-9}}{\left(\frac{0.027831}4\right)^4}=0.5159\]</span></p>
+<p>因此 <span class="math inline">\(-2\log_e(\Lambda)=1.32\)</span>，将其与 <span class="math inline">\(\chi_{0.05,9}^2=16.919\)</span> 比较，因此根据这些数据无法拒绝 <span class="math inline">\(H_0{:\boldsymbol{C\Sigma C&#39;}}=\lambda\boldsymbol{I}\)</span>.</p>
+<p>假设表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据是使用 SAS-GLM 程序进行<u>时间的裂区分析</u>。表 <a href="chap27.html#tab:table27-7">27.7</a> 中给出了所使用的 SAS 命令。</p>
+<table>
+<caption>
+<span id="tab:table27-7">表 27.7: </span>使用时间的裂区分析来分析表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据的 SAS-GLM 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-8">27.8</a> 中给出了肥料和品种的主效应检验，表 <a href="chap27.html#tab:table27-9">27.9</a> 中给出了时间主效应以及时间 × 肥料和时间 × 品种交互效应的检验以及 G–G 调整的自由度。调整的自由度是通过将原始的<u>时间的裂区分析</u>中的自由度分别与<span class="math inline">\(\hat\theta\)</span> 相乘来计算的。表 <a href="chap27.html#tab:table27-8">27.8</a> 中的检验无需调整。请注意，表 <a href="chap27.html#tab:table27-8">27.8</a> 中的 <span class="math inline">\(F\)</span> 统计量与前面给出的品种和肥料主效应的 MANOVA 检验统计量一致。即使使用了调整的自由度，表 <a href="chap27.html#tab:table27-9">27.9</a> 中的所有显著概率仍小于 0.0001.</p>
+<table>
+<caption>
+<span id="tab:table27-8">表 27.8: </span>时间的裂区主效应均值检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-9">表 27.9: </span>具有 G-G 调整自由度的时间的裂区检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.9.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>SAS-GLM 程序及其 <code>repeated</code> 选项也可用于产生本节所述的分析以及 MANOVA 分析的一些结果。表 <a href="chap27.html#tab:table27-10">27.10</a> 给出了可用于表 <a href="chap27.html#tab:table27-1">27.1</a> 中数据分析的 SAS 命令。</p>
+<table>
+<caption>
+<span id="tab:table27-10">表 27.10: </span>使用 <code>repeated</code> 选项分析表 <a href="chap27.html#tab:table27-1">27.1</a> 中的数据的 SAS-GLM 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.10.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-11">27.11</a> 中标记为 “Orthogonal components” 的一行给出了 <span class="math inline">\(H_0{:\boldsymbol{C\Sigma C&#39;}}=\lambda\boldsymbol{I}\)</span> 的检验。也就是说，这是对 H–F 条件是否满足的检验。表 <a href="chap27.html#tab:table27-12">27.12</a> 给出了比较时间主效应的 MANOVA 检验，表 <a href="chap27.html#tab:table27-13">27.13</a> 给出了时间与品种交互作用和时间与肥料交互作用的 MANOVA 检验，表 <a href="chap27.html#tab:table27-14">27.14</a> 给出了品种与肥料主效应的检验。最后，表 <a href="chap27.html#tab:table27-15">27.15</a> 给出了时间主效应的<u>时间的裂区分析</u>，以及时间与品种和时间与肥料交互作用。给出了三组不同的 <span class="math inline">\(p\)</span> 值。它们是未调整的<u>时间的裂区分析</u> <span class="math inline">\(p\)</span> 值, Greenhouse–Geisser (G-G) 调整的 <span class="math inline">\(p\)</span> 值和 Huyhn–Feldt (H–F) 调整的 <span class="math inline">\(p\)</span> 值。还给出了 <span class="math inline">\(\hat \theta=0.7954\)</span> 和 <span class="math inline">\(\tilde\theta=1.7473\)</span>.</p>
+<table>
+<caption>
+<span id="tab:table27-11">表 27.11: </span>检验 <span class="math inline">\(H_0{:\boldsymbol{C\Sigma C&#39;}}=\lambda\boldsymbol{I}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.11.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-12">表 27.12: </span>时间主效应均值的 MONOVA 检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.12.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-13">表 27.13: </span>时间与肥料与品种的交互作用的 MONOVA 检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.13.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-14">表 27.14: </span>肥料与品种主效应检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.14.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-15">表 27.15: </span>调整 <span class="math inline">\(p\)</span> 值的<u>时间的裂区分析</u>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.15.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sec27-4" class="section level2 hasAnchor" number="27.4">
+<h2><span class="header-section-number">27.4</span> 混合模型法<a href="chap27.html#sec27-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>再次考虑第 <a href="chap27.html#sec27-1">27.1</a> 节中描述的符号，其中</p>
+<p><span class="math display">\[\boldsymbol y_{ik}=\begin{bmatrix}y_{i1k}\\y_{i2k}\\\vdots\\y_{ipk}\end{bmatrix}\]</span></p>
+<p>是处理组 i 中个体 k 的响应向量。假设误差向量</p>
+<p><span class="math display" id="eq:27-16">\[\begin{equation}
+\boldsymbol \varepsilon_{ik}^*\thicksim\mathrm{independent~}N(\boldsymbol 0,\boldsymbol{\Sigma}_i),\quad i=1,2,\ldots,t;\quad k=1,2,\ldots,n_i
+\tag{27.16}
+\end{equation}\]</span></p>
+<p>设 <span class="math inline">\(\boldsymbol y\)</span> 是一个包含所有数据向量的向量。即</p>
+<p><span class="math display">\[\boldsymbol y^{\prime}=[\boldsymbol y_{11}^{\prime}\quad \boldsymbol y_{12}^{\prime}\quad\ldots\quad \boldsymbol y_{1n_{1}}^{\prime}\quad \boldsymbol y_{21}^{\prime}\quad \boldsymbol y_{22}^{\prime}\quad\ldots\quad \boldsymbol y_{2n_{2}}^{\prime}\quad\ldots\quad \boldsymbol y_{t1}^{\prime}\quad \boldsymbol y_{t2}^{\prime}\quad \boldsymbol y_{t2}^{\prime}\quad\ldots\quad \boldsymbol y_{tn_{t}}^{\prime}]\]</span></p>
+<p>在式 <a href="chap27.html#eq:27-16">(27.16)</a> 的条件下，</p>
+<p><span class="math display">\[\boldsymbol V=\mathrm{Cov}(\boldsymbol y)=\begin{bmatrix}\boldsymbol{\Sigma}_1&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\
+\boldsymbol{0}&amp;\boldsymbol{\Sigma}_1&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\
+\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{\Sigma}_1&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\
+\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{\Sigma}_2&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{\Sigma}_2&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\\vdots&amp;\vdots&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{\Sigma}_2&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots\\\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{\Sigma}_t&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}\\\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{\Sigma}_t&amp;\cdots&amp;\boldsymbol{0}\\\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\cdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\boldsymbol{0}&amp;\cdots&amp;\boldsymbol{\Sigma}_t\end{bmatrix}\]</span></p>
+<p>设 <span class="math inline">\(\boldsymbol{y}\sim N(\boldsymbol{X}\boldsymbol{\beta},V)\)</span>，或等价地 <span class="math inline">\(\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{\varepsilon}\)</span> 其中 <span class="math inline">\(\boldsymbol{\varepsilon}\sim N(\boldsymbol{0},V)\)</span>. 现假设 <span class="math inline">\(\boldsymbol V\)</span> 已知且 <span class="math inline">\(\boldsymbol\ell&#39;\boldsymbol \beta\)</span> 可估。在这种情况下，可以证明 <span class="math inline">\(\boldsymbol\ell&#39;\boldsymbol \beta\)</span> 的最佳估计是 <span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span> 其中 <span class="math inline">\(\boldsymbol{\hat{\beta}}_V=(\boldsymbol{X}^{\prime}\boldsymbol{V}^{-1}\boldsymbol{X})^{-}\boldsymbol{X&#39;}\boldsymbol{V}^{-1}\boldsymbol{y}\)</span>. 此外，<span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span> 的标准误可证明等于 <span class="math inline">\(\boldsymbol\ell&#39;(\boldsymbol{X&#39;V}^{-1}\boldsymbol{X})^-\boldsymbol\ell\)</span>. 估计 <span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span> 称为 <span class="math inline">\(\boldsymbol\ell&#39;\boldsymbol \beta\)</span> 的<strong>广义最小二乘估计</strong> (generalized least squares estimator). 不幸的是，<span class="math inline">\(\boldsymbol V\)</span> 很少是已知的。但假设 <span class="math inline">\(\boldsymbol V\)</span> 可被估计为 <span class="math inline">\(\hat {\boldsymbol V}\)</span>，那么 <span class="math inline">\(\boldsymbol\ell&#39;\boldsymbol \beta\)</span> 可被估计为 <span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span>，其中 <span class="math inline">\(\hat{\boldsymbol \beta}_\boldsymbol V=\left(\boldsymbol{X}^{\prime}\hat {\boldsymbol{V}}^{-1}\boldsymbol{X}\right)^{-}\boldsymbol{X&#39;}\hat {\boldsymbol{V}}^{-1}\boldsymbol{y}\)</span>，那么 <span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span> 的一个标准误估计为 <span class="math inline">\(\widehat{s.e.}(\boldsymbol\ell&#39;\hat{\boldsymbol{\beta}}_{\hat{\boldsymbol V}})=\boldsymbol\ell&#39;\left(\boldsymbol{X&#39;}\hat{\boldsymbol{V}}^{-1}\boldsymbol{X}\right)^{-}\boldsymbol\ell\)</span>. 估计 <span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span> 称为 <span class="math inline">\(\boldsymbol\ell&#39;\boldsymbol \beta\)</span> 的<strong>广义最小二乘估计的估计</strong> (estimated generalized least squares estimator). 用于检验 <span class="math inline">\(\boldsymbol{\ell&#39;\beta}=0\)</span> 的近似 <span class="math inline">\(t\)</span> 统计量（其自由度也必须近似）为</p>
+<p><span class="math display" id="eq:27-17">\[\begin{equation}
+t=\frac{\boldsymbol\ell^{\prime}\hat{\boldsymbol\beta}_{\hat{\boldsymbol V}}}{\boldsymbol\ell^{\prime}(\boldsymbol X^{\prime}\hat{\boldsymbol V}^{-1}\boldsymbol X)\boldsymbol\ell}
+\tag{27.17}
+\end{equation}\]</span></p>
+<p>假设要检验 <span class="math inline">\(H_0{:\boldsymbol{H\beta}}=\boldsymbol0\mathrm{~vs~}H_a{:\boldsymbol{H\beta}}\ne\boldsymbol0\)</span>，其中 <span class="math inline">\(\boldsymbol{H}\)</span> 是秩为 q 的 q × p 矩阵。用于检验 <span class="math inline">\(H_0\)</span> 的一个近似 <span class="math inline">\(F\)</span> 统计量为</p>
+<p><span class="math display" id="eq:27-18">\[\begin{equation}
+F=\frac{(\boldsymbol H\boldsymbol{\hat{\beta}}_{\hat{\boldsymbol V}})^{\prime}\left[\boldsymbol H(\boldsymbol X\hat{\boldsymbol V}^{-1}\boldsymbol{\boldsymbol X})^{-}\boldsymbol{H}^{\prime}\right]^{-1}(\boldsymbol H{\hat{\boldsymbol \beta}}_{\hat{\boldsymbol V}})}q
+\tag{27.18}
+\end{equation}\]</span></p>
+<p>这个 <span class="math inline">\(F\)</span> 统计量的分子自由度由 q 给出，分母自由度必须近似。近似方法超出了本书的范围，但可以推荐两种方法。如果没有缺失数据值，可以使用一种称为 Satterthwaite’s method 的方法。这是第二章中讨论的 Satterthwaite’s method 的推广。有关更多详细信息，请参见 Giesbrecht and Burns (1985), McLean and Sanders (1988) 和 Fai and Cornelius (1996). 当有缺失值时，应使用 Kenward–Roger’s method. 详见 Kenward and Roger (1997).</p>
+<p>混合模型程序可用于获得 <span class="math inline">\(\boldsymbol\Sigma_i\)</span> 的估计，由此可估计 <span class="math inline">\(\boldsymbol V\)</span>. 所使用的估计方法是基于式 <a href="chap27.html#eq:27-16">(27.16)</a> 中的假设的似然方法，即 <span class="math inline">\(\boldsymbol y\)</span> 具有多元正态分布。这些方法超出了本书的范围，只是后面会有一些一般性的评论。<span class="math inline">\(\boldsymbol\Sigma_i\)</span> 的估计取决于 <span class="math inline">\(\boldsymbol\Sigma_i\)</span> 是否具有任何结构。可以考虑各种结构。相对流行的结构包括复合对称 (CS) 结构 、Hyuhn–Feldt 结构、AR(1) 结构、异质复合对称 (heterogeneous compound symmetry, HCS) 和异质 AR(1). 混合模型程序也可以处理 <span class="math inline">\(\boldsymbol\Sigma_i\)</span> 毫无结构的<strong>非结构化</strong> (unstructured, <strong>UN</strong>) 情况。一旦估计了 <span class="math inline">\(\boldsymbol V\)</span>，混合模型程序就可以计算 <span class="math inline">\(\boldsymbol\ell&#39;\hat{\boldsymbol \beta}_\boldsymbol V\)</span> 及其标准误估计。表 <a href="chap27.html#tab:table27-16">27.16</a> 给出了一些相对流行的用于重复测量的协方差结构。表 <a href="chap27.html#tab:table27-16">27.16</a> 中的结构假设 t 个处理具有相同的参数。即，它假设所有的 <span class="math inline">\(\boldsymbol\Sigma_i\)</span> 是相等的。也可以分别估计每个处理的协方差参数。</p>
+<table>
+<caption>
+<span id="tab:table27-16">表 27.16: </span>用于重复测量实验的一些流行的协方差结构
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.16.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>综上所述，重复测量模型为</p>
+<p><span class="math display" id="eq:27-19">\[\begin{equation}
+y_{ijk}=\mu+\alpha_i+\tau_j+\gamma_{ij}+\varepsilon_{ijk}^*,\quad i=1,2,\ldots,t;~j=1,2,\ldots,p;~k=1,2,\ldots,n_i
+\tag{27.19}
+\end{equation}\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[\boldsymbol{\varepsilon}_{ik}^*=\begin{bmatrix}{\varepsilon}_{i1k}^*\\{\varepsilon}_{i2k}^*\\\vdots\\{\varepsilon}_{ipk}^*\end{bmatrix}\]</span></p>
+<p>是处理组 i 中个体 k 的误差向量，以及对于 <span class="math inline">\(i=1,2,\ldots,t;k=1,2,\ldots,n_i\)</span>，<span class="math inline">\(\boldsymbol{\varepsilon}_{ik}^*\)</span> 独立分布于 <span class="math inline">\(N(\boldsymbol 0,\boldsymbol \Sigma_i)\)</span>. 通过向式 <a href="chap27.html#eq:27-19">(27.19)</a> 中的模型添加随机个体分量 (random subject component)，可以获得其他的协方差结构。这样的模型将由下式给出</p>
+<p><span class="math display" id="eq:27-20">\[\begin{equation}
+y_{ijk}=\mu+\alpha_i+\delta_{ik}+\tau_j+\gamma_{ij}+\varepsilon_{ijk}^*,i=1,2,\ldots,t;~j=1,2,\ldots,p;~k=1,2,\ldots,n_i
+\tag{27.20}
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(\delta_{ik}\thicksim i.i.d.N(0,\sigma_\delta^2),i=1,2,\ldots,t;k=1,2,\ldots,n_i\)</span>.</p>
+<p>在模型中添加随机个体分量会将重复测量的协方差结构改为</p>
+<p><span class="math display">\[\left.\mathrm{Cov}(y_{ik})=\mathrm{Cov}\left(\begin{bmatrix}y_{i1k}\\y_{i2k}\\\vdots\\y_{ipk}\end{bmatrix}\right.\right)=\sigma_\delta^2\boldsymbol{J}_p+\boldsymbol{\Sigma}_i\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{J}_p\)</span> 是全 1 的 p × p 矩阵。当 <span class="math inline">\(\Sigma_i\)</span> 满足复合对称性或 <span class="math inline">\(\Sigma_i\)</span> 具有非结构化形式时，添加随机个体分量没有任何影响，但对于许多其他协方差结构添加随机个体分量可能非常有用。</p>
+<p>接下来讨论了用于拟合模型的两种方法，如式 <a href="chap27.html#eq:27-16">(27.16)</a> 和 <a href="chap27.html#eq:27-17">(27.17)</a> 中的方法。一种是确定模型参数的<strong>最大似然估计</strong> (maximum likelihood, <strong>ML</strong>)，另一种是定义模型参数的<strong>受限最大似然估计</strong> (restricted maximum likelihood estimates, <strong>REML</strong>). 这两种方法都是数值密集型的，通过这些方法拟合模型超出了本书的范围。尽管如此，下面将讨论这两种方法所涉及的一些问题。</p>
+<div id="sec27-4-1" class="section level3 hasAnchor" number="27.4.1">
+<h3><span class="header-section-number">27.4.1</span> 最大似然法<a href="chap27.html#sec27-4-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>可以基于 <span class="math inline">\(\boldsymbol y\)</span> 的分布形成似然函数，并将似然视为协方差矩阵 <span class="math inline">\(\boldsymbol V\)</span> 中的参数以及 <span class="math inline">\(\boldsymbol \beta\)</span> 中固定效应的参数的函数。这种方法是数值密集型的，得到的估计可能不会产生感兴趣参数函数（如 <span class="math inline">\(\boldsymbol P&#39;\boldsymbol\beta\)</span>）的无偏估计，参数函数估计的分布性质可能是未知的，除非是渐近的。求解似然方程需要一个迭代过程，该迭代过程可能收敛，也可能不收敛，它可以收敛于局部最大值而不是全局最大值。ML 法的最大缺点是它倾向于低估方差-协方差参数，这导致固定效应估计的标准误估计太小。这导致 I 类错误率，并且置信区间未达到预期置信水平。有关双向混合模型的讨论，请参阅第 <a href="chap22.html#chap22">22</a> 章。</p>
+</div>
+<div id="sec27-4-2" class="section level3 hasAnchor" number="27.4.2">
+<h3><span class="header-section-number">27.4.2</span> 受限最大似然法<a href="chap27.html#sec27-4-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>受限最大似然法也是数值密集型的，并且除了渐近之外，估计的分布特性是未知的。然而，它优于 ML 方法，因为所得的感兴趣参数函数的估计具有较小的偏差，并且 REML 方法不会像 ML 方法那样低估方差-协方差参数。这导致固定效应估计的标准误估计更合适，从而得到更理想的 I 类错误率，以及往往更接近所需置信水平的置信区间。</p>
+<p>考虑模型的矩阵形式，<span class="math inline">\(\boldsymbol{y}=\boldsymbol{X\beta}+\boldsymbol{\varepsilon}\)</span>，其中 <span class="math inline">\(\boldsymbol{\varepsilon}\sim N(\boldsymbol{0},\boldsymbol{V})\)</span>. 令 <span class="math inline">\(\boldsymbol L\)</span> 为满足 <span class="math inline">\(\boldsymbol{LX} = \boldsymbol 0\)</span> 的行满秩矩阵，并且有 <span class="math inline">\(\text{rank}(\boldsymbol L) = n-\text{rank}(\boldsymbol X)\)</span>，其中 n 为 <span class="math inline">\(\boldsymbol y\)</span> 的维度。</p>
+<p>设 <span class="math inline">\(\boldsymbol y^* = \boldsymbol {Ly}\)</span>. 那么 <span class="math inline">\(\boldsymbol y^*\sim N(\boldsymbol 0,\boldsymbol{LVL}^{\prime})\)</span>. 由 <span class="math inline">\(\boldsymbol y^*\)</span> 形成的似然函数仅取决于方差-协方差参数。方差-协方差参数的 REML 估计是使受限似然函数达到最大化的参数值，该函数基于 <span class="math inline">\(\boldsymbol y^*\)</span> 的分布。一旦找到方差-协方差参数的估计，就可以估计 <span class="math inline">\(\boldsymbol V\)</span>，然后可以根据式 <a href="chap27.html#eq:27-17">(27.17)</a> 和 <a href="chap27.html#eq:27-18">(27.18)</a> 计算检验统计量。</p>
+<p>作为使用混合模型方法的一种策略，通常建议首先利用 REML 确定重复测量值的方差-协方差矩阵的合适结构。一旦获得协方差阵结构后，就可以考虑关于固定效应参数可估函数的推断。有关双向混合模型的 REML 讨论，请参阅第 <a href="chap22.html#chap22">22</a> 章。接下来将考虑选择重复测量协方差阵结构的一些可能性。</p>
+<p>诸如 SAS-Mixed 等统计软件会计算几种统计量，它们提供了有用信息，有助于选择重复测量的协方差结构。第一个这样的统计量由 Akaike (1974) 提出，即著名 Akaiki’s Information Criterion (AIC). 第二个统计量由 Schwarz (1978) 提出，被称为 Schwarz’ Bayesian Criterion (BIC). 第三个由 Hurvich and Tsai (1989) 给出，通常表示为 AICC. 这三个准则都是 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{{L}})\)</span> 的函数，其中 <span class="math inline">\(\hat{\boldsymbol{L}}\)</span> 是受限最大似然函数的最大值。这些准则的不同之处仅在于随着协方差结构中参数数量的增加，对 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{{L}})\)</span> 的惩罚方式不同。对于这三种准则，一般认为数值越小越好。令 <span class="math inline">\(d\)</span> 表示所考虑协方差结构中的参数数量，<span class="math inline">\(N\)</span> 表示个体数量，<span class="math inline">\(N^*\)</span> 表示总观测次数减去设计矩阵 <span class="math inline">\(\boldsymbol X\)</span> 的秩。那么，这三种准则可以分别定义为：</p>
+<p><span class="math display" id="eq:27-21">\[\begin{align}
+\mathrm{AIC}&amp;=-2\log_\mathrm{e}(\hat{\boldsymbol{L}})+2d\\\mathrm{BIC}&amp;=-2\log_\mathrm{e}(\hat{\boldsymbol{L}})+d[\log_\mathrm{e}(N)]\\\mathrm{AICC}&amp;=-2\log_\mathrm{e}(\hat{\boldsymbol{L}})+2d[N^*/(N^*-d-1)]
+\tag{27.21}
+\end{align}\]</span></p>
+<p>当样本量相对较大时，还可以计算似然比检验 (LRT) 统计量，该统计量可以用于比较重复测量的两种协方差结构，只要零假设下的结构是备择假设下的结构的特例。例如，可以获得将复合对称结构与 H–F 结构或非结构化结构进行比较的 LRT 统计量，也可以获得将非结构化结构与 H–F 或 AR (1) 结构相比较的 LRT 统计量，但由于 AR(1) 结构与复合对称结构或 H-F 结构彼此之间并无特例之关系，因此无法直接通过 LRT 统计量将 AR(1) 结构与复合对称结构或 H-F 结构进行比较<a href="#fn55" class="footnote-ref" id="fnref55"><sup>55</sup></a>。为了进行这样的比较，需要依赖于式 <a href="chap27.html#eq:27-21">(27.21)</a> 中的准则。</p>
+<p>例如，再次考虑表 <a href="chap27.html#tab:table27-4">27.4</a> 中的药物数据。将使用 SAS-Mixed 程序对这些数据进行各种分析。可以使用的基本 SAS 命令如表 <a href="chap27.html#tab:table27-17">27.17</a> 所示。基础模型是一个包含药物效应、时间效应和药物-时间交互作用的双向模型。Repeated 语句表明时间是一个重复因子，<code>Type = CS</code> 选项表示拟合模型假设重复测量的协方差矩阵具有复合对称性，而 <code>Subject = Person</code> 选项则表明 Person 是数据集中的一项变量，用于识别构成特定个体的重复测量构成。请注意，对于这些数据，Person变量具有 1-24 的唯一值，每个个体一个值。注意：如果让 Person 变量在三个药物组中都取值 1-8，那么为了正确识别每个个体，就需要使用 <code>Subject = Person(Drug)</code>。最后，<code>R</code> 选项被用来在输出中提供 Person = 1 的协方差阵。请注意，该分析假设所有 24 个个体具有相同的协方差阵 <span class="math inline">\(\boldsymbol \Sigma\)</span>，所以只需要打印第一个。如果希望获得第 1, 9, 17 号个体的协方差阵，则需要使用 <code>R = 1, 9, 17</code> 而不是仅使用 <code>R</code>.</p>
+<table>
+<caption>
+<span id="tab:table27-17">表 27.17: </span>使用 <code>repeated</code> 选项分析表 <a href="chap27.html#tab:table27-4">27.4</a> 中数据的 SAS-Mixed 代码
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.17.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>本例中使用的方法是重新拟合假设了各种协方差结构的模型，以便在考虑对药物和时间因素的推断时选择将使用的协方差结构。因此，使用表 <a href="chap27.html#tab:table27-18">27.18</a> 中给出的每个 repeated 语句对本例中的数据进行重新分析。在每次分析中，语句 “ODS RTF SELECT R;” 用于获取 RTF 输出文件中的每个 <span class="math inline">\(\boldsymbol R\)</span> 矩阵，而 “ODS output FITSTATISTICS=FIT1;” 用于创建一个数据集，该数据集包含每次分析的各种拟合统计量。所获得的拟合统计量是 AIC, AICC 和 BIC，以及每个分析的 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{L})\)</span> 值。</p>
+<table>
+<caption>
+<span id="tab:table27-18">表 27.18: </span>考虑不同 <code>repeated</code> 选项的协方差结构
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.18.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-18">27.18</a> 中的前六个 repeated 语句对应于表 <a href="chap27.html#tab:table27-16">27.16</a> 中给出的协方差结构。最后四个 repeated 语句包括 <code>Group = Drug</code> 选项，这会导致为每种药物拟合不同的协方差阵。每个药物组中的第一个人是编号为 1, 9 和 17 的人，<code>R = 1,9,17</code> 选项将这些的协方差阵估计置于输出中。</p>
+<p>表 <a href="chap27.html#tab:table27-19">27.19</a> 给出了假设复合对称时重复测量的协方差阵估计。请注意，<span class="math inline">\(\hat{{\sigma}}^2=33.4182\)</span> 以及</p>
+<p><span class="math display">\[\hat{\rho}=\frac{25.9702}{33.4182}=0.777\]</span></p>
+<p>表 <a href="chap27.html#tab:table27-20">27.20</a> 给出了假设 H–F 条件下的协方差阵估计。此时</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{\sigma}^2+2\hat{\eta}_1 &amp;=28.5296 \\
+\hat{\sigma}^2+2\hat{\eta}_2 &amp;=40.2442 \\
+\hat{\eta}_1+\hat{\eta}_2 &amp;=26.9390
+\end{aligned}\]</span></p>
+<p>同时求解 <span class="math inline">\(\hat{\sigma}^2,\hat{\eta}_1,\hat{\eta}_2\)</span> 得到</p>
+<p><span class="math display">\[\hat{\sigma}^2=7.4479,\quad\hat{\eta}_1=10.5409,\quad\mathrm{and}\quad\hat{\eta}_2=16.3982\]</span></p>
+<table>
+<caption>
+<span id="tab:table27-19">表 27.19: </span>复合对称 (CS) 的 <span class="math inline">\(\hat{\boldsymbol \Sigma}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.19.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-20">表 27.20: </span>H-F 条件的 <span class="math inline">\(\hat{\boldsymbol \Sigma}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.20.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-21">表 27.21: </span>非结构化 (UN) 情况的 <span class="math inline">\(\hat{\boldsymbol \Sigma}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.21.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-22">表 27.22: </span>AR(1) 情况的 <span class="math inline">\(\hat{\boldsymbol \Sigma}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.22.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>根据这些，以及 <span class="math inline">\(\boldsymbol \Sigma\)</span> 的其他两个对角元，可以得到</p>
+<p><span class="math display">\[\hat{\eta}_3=15.2671,\quad\mathrm{~and~}\quad\hat{\eta}_4=11.6326\]</span></p>
+<p>表 <a href="chap27.html#tab:table27-21">27.21</a> 给出了假设为非结构化协方差阵的协方差阵估计。这与在 SAS-GLM 分析中包括 <code>MANOVA/PRINTE</code> 选项时获得的估计相同。</p>
+<p>表 <a href="chap27.html#tab:table27-22">27.22</a> 给出了假设 AR(1) 结构的协方差阵估计。此时 <span class="math inline">\(\hat{\sigma}^2=32.4945\)</span> 以及 <span class="math inline">\(\hat{\rho}=26.7309/32.4945=0.8226\)</span>.</p>
+<p>表 <a href="chap27.html#tab:table27-23">27.23</a> 给出了假设异质复合对称结构的协方差阵估计。在这种情况下，可以得到</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;\hat{\sigma}_1^2 =31.1038_{\prime}  \\
+&amp;\hat{\sigma}_2^2 =38.6218,  \\
+&amp;\hat{\sigma}_3^2=29.3752, \\
+&amp;\hat{\sigma}_4^2=34.7840
+\end{aligned}\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\hat{\rho}=\frac{27.0585}{\sqrt{31.1038\cdot38.6218}}=0.7807\]</span></p>
+<table>
+<caption>
+<span id="tab:table27-23">表 27.23: </span>具有异质方差的复合对称结构的 <span class="math inline">\(\hat{\boldsymbol \Sigma}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.23.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-24">27.24</a> 显示了异质 AR(1) 结构的结果。此时</p>
+<p><span class="math display">\[\begin{aligned}
+\hat{\sigma}_1^2 &amp;=30.7872 \\
+\hat{\sigma}_2^2 &amp;=39.3259 \\
+\hat{\sigma}_3^2 &amp;=31.0182 \\
+\hat{\sigma}_4^2 &amp;=32.4256
+\end{aligned}\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[\hat{\rho}=\frac{29.0118}{\sqrt{30.7872\cdot39.3256}}=0.8338\]</span></p>
+<table>
+<caption>
+<span id="tab:table27-24">表 27.24: </span>具有异质方差的 AR(1) 结构的 <span class="math inline">\(\hat{\boldsymbol \Sigma}\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.24.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-25">27.25</a> - <a href="chap27.html#tab:table27-28">27.28</a> 给出了假设每种药物的协方差阵不同时的协方差阵估计。表 <a href="chap27.html#tab:table27-25">27.25</a> 为复合对称结构，表 <a href="chap27.html#tab:table27-26">27.26</a> 为 H–F 结构，表 <a href="chap27.html#tab:table27-27">27.27</a> 为非结构化结构，表 <a href="chap27.html#tab:table27-28">27.28</a> 为 AR(1) 结构。每个单独的协方差参数估计留给读者去寻找。</p>
+<table>
+<caption>
+<span id="tab:table27-25">表 27.25: </span>复合对称下每种药物的三个协方差阵估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.25.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-26">表 27.26: </span>H-F 条件下每种药物的三个协方差阵估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.26.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-27">表 27.27: </span>非结构化条件下每种药物的三个协方差阵估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.27.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-28">表 27.28: </span>AR (1) 条件下每种药物的三个协方差阵估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.28.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-29">27.29</a> 显示了上面考虑的每个协方差结构的 AIC 值。可以看出，AIC 的最小值为 488.603，并且该最小值出现在 AR(1) 结构中。因此，在 AIC 下，AR(1) 结构将是最佳的协方差结构选择。</p>
+<table>
+<caption>
+<span id="tab:table27-29">表 27.29: </span>每种协方差结构的 AIC
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.29.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-30">27.30</a> 显示了上面考虑的每个协方差结构的 AICC 值。可以看到，AICC 的最小值为 488.751，并且 AR(1) 结构也出现该最小值。因此，在 AICC 下，AR(1) 结构将是最佳的协方差结构选择。</p>
+<table>
+<caption>
+<span id="tab:table27-30">表 27.30: </span>每种协方差结构的 AICC
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.30.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-31">27.31</a> 显示了上面考虑的每个协方差结构的 BIC 值。可以看到，BIC 的最小值为 490.959，并且该最小值出现在 AR(1) 结构中。因此，在 BIC 下，AR(1) 结构将是最佳的协方差结构选择。因此，在 AIC, AICC 和 BIC 这三个准则中，重复测量的首选协方差结构是 AR(1).</p>
+<table>
+<caption>
+<span id="tab:table27-31">表 27.31: </span>每种协方差结构的 BIC
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.31.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap27.html#tab:table27-32">27.32</a> 给出了本例中考虑的每个协方差结构的 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{L})\)</span> 值。假设想要使用似然比检验来比较复合对称结构与 H-F 结构。这是可以做到的，因为复合对称性是 H-F 结构的特例。也就是说，假设我们要检验 <span class="math inline">\(H_0:\boldsymbol \Sigma\)</span> 具有 CS 结构与 <span class="math inline">\(H_a:\boldsymbol \Sigma\)</span>具有 H–F 结构。LRT 统计量的值是它们各自 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{L})\)</span> 值的差。在 <span class="math inline">\(H_0\)</span> 下，该检验统计量近似卡方分布，其自由度为协方差结构参数数量之差。当 p = 4 时，CS 结构有两个参数，而 H–F 结构有 5 个参数。因此，卡方检验统计量为 <span class="math inline">\(\chi^2=488.797-487.034=1.763\)</span>，自由度为 5 - 2 = 3。结果观察到的显著性水平为 <span class="math inline">\(\hat\alpha = 0.6230\)</span>，并且 <span class="math inline">\(H_0\)</span> 不能被拒绝。</p>
+<table>
+<caption>
+<span id="tab:table27-32">表 27.32: </span>每种协方差结构的 <span class="math inline">\(-2\log_{\mathrm{e}}(\hat{L})\)</span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.32.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>作为使用 LRT 的第二个示例，请考虑将 AR(1) 结构与 ARH(1) 结构进行比较。那么当 p = 4 时，这两个结构中的参数数量分别为 2 和 5。这里 <span class="math inline">\(\chi^2=484.603-482.767=1.836\)</span>，具有 3 个自由度。卡方临界点是 <span class="math inline">\({\chi}_{0.05,3}^2=7.815\)</span>，并且由于 1.836 &lt; 7.815，因此无法拒绝 AR(1) 结构而选择 ARH(1) 结构。</p>
+<p>作为第三个示例，考虑将 AR(1) 结构与 UN 结构进行比较。AR(1) 结构中的参数数量为 2，当 p = 4 时，UN 结构中的参数数量为 p(p + 1)/2 = 10。这里 <span class="math inline">\(\chi^2=484.603-477.372=7.231\)</span> 其中 10 - 2 = 8 个自由度。由此产生的观察到的显著性水平为 <span class="math inline">\(\hat \alpha = 0.5119\)</span>，并且无法拒绝 AR(1) 结构而选择 UN 结构。</p>
+<p>上述三个检验是可能的，因为其中一个协方差结构是另一个协方差结构的特例。无法给出将 AR(1) 与 CS 进行比较的 LRT，因为两者都不是另一者的特例。同样，人们无法获得将 ARH(1) 与 CSH 进行比较的 LRT.</p>
+<p>在考虑固定效应检验之前，假设拟合一个协方差结构为 AR(1) 的模型，但将与个体对应的随机分量添加到模型中。也就是说，假设重复测量满足 AR(1) 结构，则对式 <a href="chap27.html#eq:27-20">(27.20)</a> 中的模型进行拟合。这相当于为重复测量选择协方差结构，该结构等于</p>
+<p><span class="math display">\[\boldsymbol{\Sigma}={\sigma}_\delta^2\begin{bmatrix}1&amp;1&amp;1&amp;1\\1&amp;1&amp;1&amp;1\\1&amp;1&amp;1&amp;1\\1&amp;1&amp;1&amp;1\\1&amp;1&amp;1&amp;1\end{bmatrix}+{\sigma}^2\begin{bmatrix}1&amp;{\rho}&amp;{\rho}^2&amp;{\rho}^3\\{\rho}&amp;1&amp;{\rho}&amp;{\rho}^2\\{\rho}^2&amp;{\rho}&amp;1&amp;{\rho}\\{\rho}^3&amp;{\rho}^2&amp;{\rho}&amp;1\end{bmatrix}\]</span></p>
+<p>表 <a href="chap27.html#tab:table27-33">27.33</a> 给出了用于在重复测量和随机个体效应上拟合具有 AR(1) 结构的模型的 SAS-Mixed 命令，表 <a href="chap27.html#tab:table27-34">27.34</a> 给出了使用表 <a href="chap27.html#tab:table27-33">27.33</a> 中的命令进行分析的拟合统计量的值。请注意，AIC, AICC 和 BIC 的值均大于没有随机个体效应的 AR(1) 结构模型的值。因此，对于这些药物数据，不建议添加随机个体项。此外，将具有随机个体项的模型与不具有随机个体项的模型进行比较的 LRT 统计量为 <span class="math inline">\(\chi^2=484.6-483.7=0.9\)</span>. 向模型添加随机个体项会使参数数量增加 1。因此，<span class="math inline">\(\chi^2=484.6-483.7=0.9\)</span> 将与自由度为 1 的卡方临界点进行比较。这个临界点是 <span class="math inline">\(\chi_{0.05,1}^2=3.84\)</span>，并且向模型添加随机个体项并不会给出明显更好的拟合。</p>
+<table>
+<caption>
+<span id="tab:table27-33">表 27.33: </span>用于向重复测量实验添加随机个体效应的 SAS-Mixed 命令
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.33.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-34">表 27.34: </span>具有随机个体效应的重复测量模型的拟合统计量
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.34.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>接下来分析数据以考虑有关药物和时间效应的推断。 SAS-Mixed 命令如表 <a href="chap27.html#tab:table27-35">27.35</a> 所示。表 <a href="chap27.html#tab:table27-36">27.36</a> 显示了式 <a href="chap27.html#eq:27-18">(27.18)</a> 给出的药物和时间主效应以及药物 × 时间交互作用的检验统计量。值得注意的是，药物与时间的交互作用非常显著。因此，双向药物 × 时间平均值应在每个药物组内和每个时间水平内相互比较。最小二乘均值列于表 <a href="chap27.html#tab:table27-37">27.37</a> 中，表 <a href="chap27.html#tab:table27-38">27.38</a> 中给出了每个时间水平下药物之间的成对比较，表 <a href="chap27.html#tab:table27-39">27.39</a> 中给出了每种药物中时间水平之间的成对比较。</p>
+<table>
+<caption>
+<span id="tab:table27-35">表 27.35: </span>用于分析固定效应的最终 SAS-Mixed 命令
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.35.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-36">表 27.36: </span>III 型固定效应检验
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.36.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-37">表 27.37: </span>模型中每种效应的最小二乘均值
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.37.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-38">表 27.38: </span>每个时间水平下药物均值之间的比较，带有 Tukey-Kramer 调整显著性水平
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.38.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table27-39">表 27.39: </span>每种药物下时间均值之间的比较，带有 Tukey-Kramer 调整显著性水平
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2027.39.png">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="sec27-5" class="section level2 hasAnchor" number="27.5">
+<h2><span class="header-section-number">27.5</span> 总结<a href="chap27.html#sec27-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本章考虑了三种替代方法，当<u>时间的裂区分析</u>不合适时，可使用这些方法来分析重复测量实验。考虑的方法包括多元方差分析法、调整 <span class="math inline">\(p\)</span> 值法和混合模型法。人们选择使用哪种方法可能取决于可以使用的统计软件。当拥有可用的混合模型软件时，这种方法可能是最容易使用的方法。如果使用混合模型程序难以收敛，那么如果拥有允许使用多元方差分析法的统计软件，则可以考虑多元方差分析法。如果软件不适用于这两种方法，则可以考虑使用调整 <span class="math inline">\(p\)</span> 值法。</p>
+</div>
+<div id="sec27-6" class="section level2 hasAnchor" number="27.6">
+<h2><span class="header-section-number">27.6</span> 练习<a href="chap27.html#sec27-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="50">
+<li id="fn50"><p>本书将 “subject” 译作个体，原因见介绍页的<a href="index.html#术语规范">术语规范</a>。<a href="chap27.html#fnref50" class="footnote-back">↩︎</a></p></li>
+<li id="fn51"><p>原文：but adjust the p-values by adjusting the degrees of freedom corresponding to relevant effect mean squares.<a href="chap27.html#fnref51" class="footnote-back">↩︎</a></p></li>
+<li id="fn52"><p>原文：one first needs the least squares estimates of the parameters in B and an observed residual sum-of-squares and cross-products matrix. 译者在此看得云里雾里的，这句话其实不重要，只需理解接下来的式表达即可。<a href="chap27.html#fnref52" class="footnote-back">↩︎</a></p></li>
+<li id="fn53"><p>译者注，叶面积指数 = 总绿叶面积 / 土地面积。<a href="chap27.html#fnref53" class="footnote-back">↩︎</a></p></li>
+<li id="fn54"><p>译者注，加性模型见第 <a href="chap7.html#chap7">7</a> 章。<a href="chap27.html#fnref54" class="footnote-back">↩︎</a></p></li>
+<li id="fn55"><p>译者注：这里 “特例” 的意思是，若以 “x&lt;y” 表示 x 是 y 的特例，则 “复合对称 &lt; H-F”，“复合对称 &lt; 非结构化”，“H-F &lt; 非结构化”，“AR(1) &lt; 非结构化”，但 AR(1) 与复合对称结构无特例之关系，AR(1) 也与 H-F 结构也无特例之关系，就无法利用 LRT 进行比较。特例之关系可结合表 <a href="chap27.html#tab:table27-16">27.16</a> 看出。<a href="chap27.html#fnref55" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chap26.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="chap28.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": false,
+"smooth_scroll": false,
+"search": {
+"engine": "lunr"
+}
+},
+"toc_float": true
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

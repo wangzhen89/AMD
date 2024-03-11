@@ -442,7 +442,7 @@ $$\begin{array}{ll}y_{ij}=\mu_0+\varepsilon_{ij}&\mathrm{~for~}i=1,2,3\\y_{ij}=\
 本章最后介绍了一些关于使用计算机和统计计算软件包（如SAS^®^、BMDP^®^、SYSTAT^®^、JMP^®^和SPSS^®^）的说明。前面章节中提供的所有方法和公式都可以在大多数计算机上轻松使用。如果计算机使用 MATLAB、SAS-IML 或 APL 等编程语言，则所需的矩阵计算很容易按照前面章节中给出的矩阵公式进行。SAS、JMP、BMDP、SYSTAT 和 SPSS 每个都包含程序，使用户能够生成自己的处理的线性组合，以检验假设。此外，这些包都提供了方差分析表、处理均值及其标准误的分析。表 \@ref(tab:table1-4) 包含 SAS-GLM 代码，其中包含检验任务和脉搏率数据所述假设所需的 estimate 语句和 contrast 的语句。estimate 语句用于评估均值的一个线性组合，提供的结果是对比的估计、其标准误估计并生成 $t$ 统计量及其相应的显著性水平。contrast 语句用于评估均值的一个或多个线性组合，提供的结果是平方和、自由度和 $F$ 统计量。对于SAS-GLM中的 estimate 和 contrast 语句，假设中的 $\boldsymbol a$ 的唯一值为零，也就是说，只能检验均值的线性组合等于零。
 
 <table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
-<caption>(\#tab:table1-4)Proc GLM代码，用于拟合任务和脉搏率数据，并提供文本中描述的分析所需的 estimate 和 contrast 语句</caption>
+<caption>(\#tab:table1-4)Proc GLM 代码，用于拟合任务和脉搏率数据，并提供文本中描述的分析所需的 estimate 和 contrast 语句</caption>
  <thead>
   <tr>
    <th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;"> x </th>
@@ -450,16 +450,8 @@ $$\begin{array}{ll}y_{ij}=\mu_0+\varepsilon_{ij}&\mathrm{~for~}i=1,2,3\\y_{ij}=\
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC GLM DATA=EX1; CLASS TASK;\
-MODEL PULSE20=TASK/NOINT SOLUTION E;\
-ESTIMATE 'Ho: M4=M5’ TASK 0 0 0 1 -1 0;\
-ESTIMATE 'Ho: 3M1=M2+M3+M4' TASK 3 -1 -1 -1 0 0;\
-ESTIMATE 'Ho: 3M1=M2+M3+M4_mn' TASK 3 -1 -1 -1 0 0/DIVISOR=3;\
-ESTIMATE '4M1-M3-M4-M5-M6_mn' TASK 4 0 -1 -1 -1 -1/DIVISOR=4;\
-CONTRAST '4M1-M3-M4-M5-M6_mn' TASK 4 0 -1 -1 -1 -1;\
-CONTRAST 'M4=M5 &amp; 3M1=M2+M3+M4' TASK 0 0 0 1 -1 0, TASK 3 -1 -1 -1 0 0;\
-CONTRAST 'EQUAL MEANS 1’ TASK 1 -1 0 0 0 0, TASK 1 0 -1 0 0 0, TASK 1 0 0 -1 0 0, \
-   TASK 1 0 0 0 -1 0, TASK 1 0 0 0 0 -1; </td>
+   <td style="text-align:center;">  <img src="table/table%201.4.png">
+</td>
   </tr>
 </tbody>
 </table>

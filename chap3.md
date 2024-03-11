@@ -2,14 +2,14 @@
 
 > "... the actual and physical conduct of an experiment must govern the statistical procedure of its interpretation." - R. A. Fisher
 
-# 联合推断程序和多重比较 {#chap3}
+# 同时推断程序和多重比较 {#chap3}
 
 通常实验者想在同一个实验中比较多个 $\mu_i$
 的函数，导致多重检验的情况。也就是说，他们应该试图回答所有关于处理之间关系的问题。在实验或研究中包括两种以上处理的首要原因是能够估计和/或检验关于处理均值之间几种关系的假设。通常，选择处理是为了提供感兴趣的比较结构（例如参见
 \@ref(sec2-4)
 节中的药物实验）。在其他时候，实验者可能对将每种处理与其他所有处理进行比较感兴趣，即，进行所有成对比较。例如，当一个人比较几种小麦的产量或任何其他一组被选择用于比较研究的处理时，就是这样的情况。
 
-在一个实验中进行多次比较时，一个值得关注的问题是，观察到的显著性差异是由于真实的差异，还是仅仅由于进行了大量的比较。进行大量的比较增加了发现看似显著但实际上并不显著的差异的机会。例如，如果一个实验者在一个实验中进行了
+在一个实验中进行多重比较时，一个值得关注的问题是，观察到的显著性差异是由于真实的差异，还是仅仅由于进行了大量的比较。进行大量的比较增加了发现看似显著但实际上并不显著的差异的机会。例如，如果一个实验者在一个实验中进行了
 $25$ 次独立检验，并在 $0.05$
 的水平上发现了一个显著差异，那么她不应该对结果抱有太大的信心。因为平均而言，她应该预期仅凭偶然就发现
 $(0.05)(25)= 1.25$
@@ -26,7 +26,7 @@ $(0.05)(25)= 1.25$
 ## 错误率 {#sec3-1}
 
 评估和比较多重比较程序的主要方法之一是计算**错误率** (**error
-rates**)。如果给定的置信区间不包含所估计数量的真实值，则会出现错误。类似地，如果使用假设检验，那么每当真假设被拒绝或假假设没有被拒绝时，就会出现错误。接下来定义了四种错误率。
+rates**)。如果给定的置信区间不包含所估计的量的真实值，则会出现错误。类似地，如果使用假设检验，那么每当真假设被拒绝或假假设没有被拒绝时，就会出现错误。接下来定义了四种错误率。
 
 ::: {.definition #3-1}
 ♦
@@ -76,7 +76,7 @@ FWER 固定在某个规定的水平上，如 $0.05$.
 
 多重比较问题有五种基本类型：1) 将一组处理与一个对照或标准进行比较；2)
 在一组 $t$ 个均值之间进行所有成对比较；3)
-构造一组同时置信区间或假设的联合检验 (simultaneous confidence intervals
+构造一组同时置信区间或假设的同时检验 (simultaneous confidence intervals
 or simultaneous tests of hypotheses)；4) 探索性实验并进行大量检验；以及
 5) 数据窥探 (data snooping)，其中**比较** (**comparisons**)
 可能是数据驱动的。在前四种情况下，在数据被分析之前，比较的数量或置信区间或推入族是已知的。在最后一种情况下，没有固定的比较数量，最终的比较数量可能很大。2本章给出的建议是基于
@@ -244,7 +244,7 @@ Bonferroni's method 可应用于模型参数的任何函数集，包括方差和
 当实验者想要进行大量"计划外"比较时，建议使用此程序。计划外比较是实验者在计划实验时没有想到进行的比较。这些问题经常出现，因为实验结果经常建议实验者进行某些比较。当有大量计划的比较时，也可以使用该程序，但置信区间的宽度通常比其他程序宽，尽管并不总是如此。给定常数向量
 $\boldsymbol c$，考虑检验 $H_0{:}\,\sum_{i=1}^tc_i\mu_i=0$。我们有
 
-$$\Pr\left\{\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i{\mu}_i\right)^2}{\sum_{i=1}^tc_i^2/n_i}\leq(t-1)F_{\Tiny{\alpha,t-1,v}}\hat{\sigma}^2\quad\text{ for all contrast vectors }c\right\}=1-\alpha $$
+$$\Pr\left\{\frac{\left(\sum_{i=1}^tc_i\hat{{\mu}}_i-\sum_{i=1}^tc_i{\mu}_i\right)^2}{\sum_{i=1}^tc_i^2/n_i}\leq(t-1)F_{{\alpha,t-1,v}}\hat{\sigma}^2\quad\text{ for all contrast vectors }c\right\}=1-\alpha $$
 
 因此对于所有可能的 $\mu_i$ 与 $0$ 的对比，一个 FWER $=\alpha$
 的程序如下：拒绝 $H_0{:}\,\sum_{i=1}^tc_i\mu_i=0$ 如果
@@ -388,14 +388,8 @@ $0.840 \pm 6.526$. 表 \@ref(tab:table3-5) 包含每种方法的调整的 $p$
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC mixed DATA=EX1; CLASS TASK;\
-MODEL PULSE20=TASK/NOINT SOLUTION;\
-LSMEANS TASK/ DIFF CL;\
-LSMEANS TASK/ DIFF ADJUST=TUKEY CL;\
-LSMEANS TASK/ DIFF ADJUST=BON CL;\
-LSMEANS TASK/ DIFF ADJUST=SCHEFFE CL;\
-LSMEANS TASK/ DIFF ADJUST=SIDAK CL;\
-LSMEANS TASK/ DIFF ADJUST=SIMULATE (REPORT SEED=4938371) CL; </td>
+   <td style="text-align:center;">  <img src="table/table%203.2.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -484,14 +478,8 @@ $t$），模拟方法与之非常接近。目前正在进行五次比较，这�
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC mixed DATA=EX1; CLASS TASK;\
-MODEL PULSE20=TASK/NOINT;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=BON CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=DUNNETT CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=SIDAK CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=SIMULATE (REPORT SEED=4938371) CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL; </td>
+   <td style="text-align:center;">  <img src="table/table%203.6.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -613,14 +601,8 @@ $$\begin{aligned}
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC mixed DATA=EX1; CLASS TASK;\
-MODEL PULSE20=TASK/NOINT;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=BON CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=DUNNETT CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=SIDAK CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=SIMULATE (REPORT SEED=4938371) CL;\
-LSMEANS TASK/ DIFF=CONTROL(‘2’) ADJUST=scheffe CL; </td>
+   <td style="text-align:center;">  <img src="table/table%203.10.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -970,11 +952,8 @@ Duncan、Student–Newman–Keul 和 Waller–Duncan 方法可以使用 SAS-GLM 
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC GLM DATA=EX1; CLASS TASK;\
-MODEL PULSE20=TASK;\
-MEANS TASK/DUNCAN;\
-MEANS TASK/SNK;\
-MEANS TASK/WALLER; </td>
+   <td style="text-align:center;">  <img src="table/table%203.14.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -1060,38 +1039,3 @@ MEANS TASK/WALLER; </td>
 在本章中，讨论了从一个实验数据集进行许多推断的程序。这样的程序是必要的，以确保观察到的处理之间的差异是由于所比较的参数函数的实际差异，而不仅仅是由于偶然性。有些程序更适合计划的比较，而另一些程序更适合数据窥探。对于具有多个变量的研究，可以使用所有均值相等的 $F$ 检验来避免对某些变量进行多重比较。如果 $F$ 检验在所需的 $\alpha$ 水平上不显著，则不必进行进一步的比较，但如果 $F$ 检验在所需的 $\alpha$ 水平上显著，则应使用调整多重性的多重比较方法来比较均值（这不是 Fisher’s protected LSD）。最后，所讨论的多重比较和检验程序可应用于不等方差模型（在第 \@ref(chap2) 章中讨论），通过使用 SAS-Mixed 中的 LSMeans 语句来实现，其中 REPEATED 语句用于指定不等方差结构。还给出了在给定情况下使用哪种程序的建议。
 
 ## 练习 {#sec3-22}
-
-
-## 参考文献 {-}
-
-Fisher, R. A. (1949). The Design and Analysis of Experiments. Oliver and Boyd, Edinburgh, UK.
-
-Westfall, P. H., Tobias, R. D., Rom, D., Wolfi nger, R. D., and Hochberg, Y. (1999). Multiple Comparisons and Multiple Tests Using the SAS System. SAS Institute, Inc., Cary, NC.
-
-Benjamini, Y. and Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. J. Roy. Stat. Soc. B., Methodological, 57, 289–300.
-
-SAS Institute, Inc. (1999). SAS/STAT User’s Guide, Version 8. SAS Institute, Inc., Cary, NC.
-
-Westfall, P. H. (2002). From Farms to Pharmaceuticals: Multiple Comparisons Enter the 21st Century. Proceedings of the 13th Annual Kansas State University Conference on Applied Statistics in Agriculture, G. A. Milliken, ed. Department of Statistics, Kansas State University, Manhattan, KS.
-
-Šidák, Z. (1967). Rectangular confi dence regions for the means of multivariate normal distributions. J. Am. Stat. Assoc., 62, 626–633.
-
-Holm, S. (1979). A simple sequentially rejective multiple test procedure. Scand. J. Stat., 6, 65–70.
-
-Benjamini, Y. and Hochberg, Y. (1995). Controlling the false discovery rate: A practical and powerful approach to multiple testing. J. Roy. Stat. Soc. B., Methodological, 57, 289–300.
-
-Tukey, J. W. (1952). Allowances for various types of error rates. Unpublished IMS address, Chicago, IL.
-
-Tukey, J. W. (1953). The problem of multiple comparisons. Unpublished manuscript.
-
-Kramer, C. Y. (1956). Extension of multiple range tests to group means with unequal numbers of replications. Biometrics, 12, 307–310.
-
-Edwards, D. and Berry, J. J. (1987). The effi ciency of simulation-based multiple comparisons. Biometrics, 43, 913–928.
-
-Miller, R. G. (1967). Simultaneous Statistical Inference. McGraw-Hill Inc., New York, NY.
-
-Holland, B. S. and Copenhaver, M. D. (1987). An improved sequentially rejective Bonferroni test procedure. Biometrics, 43, 417–424.
-
-Ott, L. (1988). An Introduction to Statistical Methods and Data Analysis, 3rd ed. PWS-Kent Publishng Co., Boston, MA.
-
-

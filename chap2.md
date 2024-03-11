@@ -499,14 +499,8 @@ SAS-Mixed 程序实现了一种对分母自由度的近似，该分母自由度�
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> proc mixed cl covtest data=task;\
-class group;\
-model errors=group/ddfm=kr;\
-repeated/group=group;\
-estimate “part(1)” group -1 -1 -1 3/divisor=3 cl alpha=0.05;\
-estimate “part(2)” group 2 -1 -1 0/divisor=2 cl alpha=0.05;\
-estimate “part(3)” group 0 1 -1 0/cl alpha=0.05;\
-lsmeans group/diff cl; </td>
+   <td style="text-align:center;">  <img src="table/table%202.9.png">
+</td>
   </tr>
 </tbody>
 </table>

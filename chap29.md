@@ -324,46 +324,8 @@ $$\frac{\hat{\mu}_{11}-\hat{\mu}_{12}-\hat{\mu}_{21}+\hat{\mu}_{22}}2\pm t_{\alp
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> TITLE 'CRSOVER EXAMPLE 29.1 – A TWO PERIOD/TWO TREATMENT DESIGN';\
-DATA GRIZ;\
-INPUT SEQ $ PERIOD TRT $ PERSON Y;\
-LINES;\
-AB 1 A 11 0.2\
-AB 2 B 11 1.0\
-AB 1 A 12 0.0\
-AB 2 B 12 -0.7\
-AB 1 A 13 -0.8\
-AB 2 B 13 0.2\
-AB 1 A 14 0.6\
-AB 2 B 14 1.1\
-AB 1 A 15 0.3\
-AB 2 B 15 0.4\
-AB 1 A 16 1.5\
-AB 2 B 16 1.2\
-BA 1 B 21 1.3\
-BA 2 A 21 0.9\
-BA 1 B 22 -2.3\
-BA 2 A 22 1.0\
-BA 1 B 23 0.0\
-BA 2 A 23 0.6\
-BA 1 B 24 -0.8\
-BA 2 A 24 -0.3\
-BA 1 B 25 -0.4\
-BA 2 A 25 -1.0\
-BA 1 B 26 -2.9\
-BA 2 A 26 1.7\
-BA 1 B 27 -1.9\
-BA 2 A 27 -0.3\
-BA 1 B 28 -2.9\
-BA 2 A 28 0.9\
-;\
-PROC GLM;\
- TITLE2 'STATISTICAL ANALYSIS USING SAS-GLM';\
- CLASSES SEQ TRT PERIOD PERSON;\
- MODEL Y=SEQ PERSON(SEQ) TRT PERIOD;\
- LSMEANS TRT/PDIFF;\
- RANDOM PERSON(SEQ);\
- RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.4.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -439,13 +401,8 @@ PROC GLM;\
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC GLM;\
- TITLE2 'STATISTICAL ANALYSIS USING SAS-GLM';\
- CLASSES SEQ TRT PERIOD PERSON;\
- MODEL Y=SEQ PERSON(SEQ) PERIOD SEQ*PERIOD;\
- LSMEANS SEQ*PERIOD;\
- RANDOM PERSON(SEQ);\
-RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.9.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -480,23 +437,12 @@ $$\hat\sigma_\delta^2=\frac{BSEMS-WSEMS}2=\frac{1.005-1.245}2=\frac{-0.240}2=-0.
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC MIXED;\
- TITLE2 ‘STATISTICAL ANALYSIS USING SAS-MIXED’;\
- CLASSES SEQ TRT PERIOD PERSON;\
- MODEL Y=SEQ PERIOD TRT;\
- LSMEANS TRT/PDIFF;\
- RANDOM PERSON(SEQ);\
- RUN;\
- PROC MIXED;\
- TITLE2 ‘STATISTICAL ANALYSIS USING SAS-MIXED’;\
- CLASSES SEQ TRT PERIOD PERSON;\
- MODEL Y=SEQ PERIOD SEQ*PERIOD;\
- LSMEANS SEQ*PERIOD;\
- RANDOM PERSON(SEQ);\
- RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.11.png">
+</td>
   </tr>
 </tbody>
 </table>
+
 
 上述分析假设第一时期的处理不会影响第二时期的观测结果。接下来考虑存在延滞的情况。当存在延滞时，可以假设
 
@@ -561,21 +507,8 @@ $$\mathrm{Var}(\hat{\mu}_{11}-\hat{\mu}_{21})=(\sigma_\varepsilon^2+\sigma_\delt
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC MIXED;\
- TITLE2 'STATISTICAL ANALYSIS USING SAS-MIXED';\
- CLASSES SEQ TRT PERIOD PERSON;\
- MODEL Y=SEQ PERIOD TRT;\
- LSMEANS TRT/PDIFF;\
- RANDOM PERSON(SEQ);\
-RUN;\
-PROC MIXED;\
-TITLE2 ‘STATISTICAL ANALYSIS USING SAS-MIXED’;\
- CLASSES SEQ TRT PERIOD PERSON;\
- MODEL Y=SEQ PERIOD SEQ\*PERIOD;\
- LSMEANS SEQ\*PERIOD;\
- ESTIMATE ‘A-B FROM PERIOD 1’ SEQ 1 -1 SEQ*PERIOD 1 0 -1 0;\
- RANDOM PERSON(SEQ);\
- RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.13.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -925,33 +858,8 @@ $$\begin{aligned}-\frac13\hat{\mu}_{11}&+\frac5{12}\hat{\mu}_{12}+\frac5{12}\hat
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> TITLE 'CRSOVR EXAMPLE #29.2 AN ABA/BAB DESIGN';\
-DATA CRS;\
- INPUT SEQ $ PER TRT $ PERSON Y;\
- LINES;\
-ABA 1 A 1 25.1\
-ABA 2 B 1 27.6\
-ABA 3 A 1 24.5\
-ABA 1 A 2 22.0\
-ABA 2 B 2 24.3\
-ABA 3 A 2 21.6\
-ABA 1 A 3 25.3\
-ABA 2 B 3 27.7\
-ABA 3 A 3 25.7\
-BAB 1 B 4 25.5\
-BAB 2 A 4 23.7\
-BAB 3 B 4 24.9\
-BAB 1 B 5 27.4\
-BAB 2 A 5 27.9\
-BAB 3 B 5 24.6\
-BAB 1 B 6 26.2\
-BAB 2 A 6 27.1\
-BAB 3 B 6 25.0\
-;\
-PROC MEANS;\
-CLASS SEQ PER;\
-VAR Y;\
-RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.21.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -986,16 +894,8 @@ $$\hat{\tau}_A-\hat{\tau}_B=24.372-26.306=-1.934$$
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> DATA CRS2; SET CRS;\
-IF SEQ='ABA' AND PER=2 THEN PRIORTRT='A';\
-ELSE IF SEQ='ABA' AND PER=3 THEN PRIORTRT='B';\
-ELSE IF SEQ='BAB' AND PER=2 THEN PRIORTRT='B';\
-ELSE IF SEQ='BAB' AND PER=3 THEN PRIORTRT='A';\
-ELSE PRIORTRT='O';\
-RUN;\
-PROC PRINT;\
-TITLE2 'A PRINT OF THE DATA WITH PRIORTRT VARIABLE INCLUDED';\
-RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.23.png">
+</td>
   </tr>
 </tbody>
 </table>
@@ -1024,16 +924,8 @@ RUN; </td>
  </thead>
 <tbody>
   <tr>
-   <td style="text-align:center;"> PROC MIXED;\
- TITLE3 'AN ANALYSIS USING MIXED';\
- CLASSES SEQ PERSON TRT PER PRIORTRT;\
- MODEL Y=SEQ TRT PER PRIORTRT/DDFM=KR;\
- LSMEANS TRT/PDIFF;\
- ESTIMATE 'TRT DIFF' TRT 1 -1;\
- ESTIMATE 'CARRYOVER' PRIORTRT 1 -1;\
- CONTRAST 'PERIOD DIFF' PER 0 1 -1, PER 1 -.5 -.5 PRIORTRT -.5 -.5 1;\
- RANDOM PERSON(SEQ);\
-RUN; </td>
+   <td style="text-align:center;">  <img src="table/table%2029.25.png">
+</td>
   </tr>
 </tbody>
 </table>
