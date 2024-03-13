@@ -479,4 +479,223 @@ $$\begin{array}{ll}y_{ij}=\mu_0+\varepsilon_{ij}&\mathrm{~for~}i=1,2,3\\y_{ij}=\
 
 ## 练习 {#sec1-13}
 
+## R 代码 {#sec1-14}
 
+
+```r
+# Chap 1 ----
+library(gmodels)
+
+data <- data.frame(
+  task = factor(rep(1:6, times=c(13,12,10,10,12,11)), levels = 1:6), 
+  y = c(27,31,26,32,39,37,38,39,30,28,27,27,34,
+        29,28,37,24,35,40,40,31,30,25,29,25,
+        34,36,34,41,30,44,44,32,32,31,
+        34,34,43,44,40,47,34,31,45,28,
+        28,28,26,35,31,30,34,34,26,20,41,21,
+        28,26,29,25,35,34,37,28,21,28,26)
+)
+
+m <- aov(y ~ -1 + task, data) # "-1" 删去截距项，得到均值模型，IMPORTANT!
+n <- aov(y ~ task, data)      # 保留截距项，得到效应模型，第一个水平被置零（置零限制，R 默认将第一个水平置零）
+
+## a) test: mu3=30 ----
+# 使用均值模型 m
+c1 <- c(0,0,1,0,0,0)
+names(c1) <- paste0("task",1:6) # 名字要与向量中的元素对应，如果向量的元素按顺序对应于因子的水平，则可以不赋名字
+c11 <- c(1,0,0,0,0,0)
+names(c11) <- paste0("task",c(3,1,2,4,5,6)) # 或者这样是等价的
+estimable(m,c1,beta0 = 30)
+```
+
+```
+##               beta0 Estimate Std. Error  t value DF    Pr(>|t|)
+## (0 0 1 0 0 0)    30     35.8   1.757966 3.299267 62 0.001609292
+```
+
+```r
+estimable(m,c11,beta0 = 30)
+```
+
+```
+##               beta0 Estimate Std. Error  t value DF    Pr(>|t|)
+## (0 0 1 0 0 0)    30     35.8   1.757966 3.299267 62 0.001609292
+```
+
+```r
+# 可以为线性组合添加标签
+c1 <- rbind("c1"=c(0,0,1,0,0,0))
+estimable(m,c1,beta0 = 30)
+```
+
+```
+##    beta0 Estimate Std. Error  t value DF    Pr(>|t|)
+## c1    30     35.8   1.757966 3.299267 62 0.001609292
+```
+
+```r
+# 效应模型 n 只给一个例子
+d1 <- c(1,0,1,0,0,0) # 第一个 1 表示水平 1 的效应，随后是各水平相较水平 1 的效应
+estimable(n,d1,beta0 = 30)
+```
+
+```
+##               beta0 Estimate Std. Error  t value DF    Pr(>|t|)
+## (1 0 1 0 0 0)    30     35.8   1.757966 3.299267 62 0.001609292
+```
+
+```r
+## b) 95% CI for mu1 ----
+c2 <- rbind("c2"=c(1,0,0,0,0,0))
+estimable(m,c2,conf.int = 0.95)
+```
+
+```
+##    Estimate Std. Error  t value DF Pr(>|t|) Lower.CI Upper.CI
+## c2 31.92308   1.541838 20.70455 62        0 28.84099 35.00517
+```
+
+```r
+## c) test: mu3=mu4 ----
+c3 <- c(0,0,1,-1,0,0)
+c31 <- c(0,0,-1,1,0,0) # 或等价地
+c3 <- rbind("c3"=c3,
+            "c31"=c31)
+estimable(m,c3,beta0 = 0)
+```
+
+```
+##     beta0 Estimate Std. Error   t value DF  Pr(>|t|)
+## c3      0     -2.2    2.48614 -0.884906 62 0.3796264
+## c31     0      2.2    2.48614  0.884906 62 0.3796264
+```
+
+```r
+## d) test: mu1=(mu2+mu3+mu4)/3 ----
+c4 <- c(1,-1/3,-1/3,-1/3,0,0)
+c41 <- -c4
+c42 <- c(3,-1,-1,-1,0,0)
+c4 <- rbind("c4"=c4, # 三个都等价
+            "c41"=c41,
+            "c42"=c42)
+estimable(m,c4,beta0 = 0)
+```
+
+```
+##     beta0  Estimate Std. Error  t value DF  Pr(>|t|)
+## c4      0 -3.038034   1.830351 -1.65981 62 0.1020029
+## c41     0  3.038034   1.830351  1.65981 62 0.1020029
+## c42     0 -9.114103   5.491052 -1.65981 62 0.1020029
+```
+
+```r
+# 事实上这是一个对比
+library(emmeans)
+contrastc4 <- emmeans(m, ~ task)
+c4 <- list("c4"=c(3,-1,-1,-1,0,0))
+test(contrast(contrastc4,c4))
+```
+
+```
+##  contrast estimate   SE df t.ratio p.value
+##  c4          -9.11 5.49 62  -1.660  0.1020
+```
+
+```r
+## e) 90% CI for 4mu1-mu3-mu4-mu5-mu6 ----
+c5 <- rbind("c5"=c(4,0,-1,-1,-1,-1))
+estimable(m,c5,conf.int = .90)
+```
+
+```
+##     Estimate Std. Error    t value DF  Pr(>|t|)  Lower.CI Upper.CI
+## c5 -4.425874   7.042869 -0.6284192 62 0.5320376 -16.18609 7.334338
+```
+
+```r
+# 事实上这也是一个对比
+contrastc5 <- emmeans(m, ~ task)
+c5 <- list("c5"=c(4,0,-1,-1,-1,-1))
+confint(contrast(contrastc5,c5),level = .90)
+```
+
+```
+##  contrast estimate   SE df lower.CL upper.CL
+##  c5          -4.43 7.04 62    -16.2     7.33
+## 
+## Confidence level used: 0.9
+```
+
+```r
+## sec 1.6, https://bookdown.org/wangzhen/AMD/chap1.html#sec1-6 ----
+
+c <- rbind("a"=c(0,0,0,1,-1,0),
+           "b"=c(3,-1,-1,-1,0,0))
+estimable(m,c,beta0 = c(4,0),joint.test=TRUE) # 需指定联合检验（同时检验）
+```
+
+```
+##    X2.stat DF Pr(>|X^2|)
+## 1 5.132057  2 0.07684013
+```
+
+```r
+# 书上用的是 F 检验，这里用的是 Wald 检验
+# 改用 car::linearHypothesis
+library(car)
+linearHypothesis(m,
+                 c("task4-task5=4",
+                   "3*task1-task2-task3-task4=0"), 
+                 test = 'F') # 指定 F 检验
+```
+
+```
+## Linear hypothesis test
+## 
+## Hypothesis:
+## task4 - task5 = 4
+## 3 task1 - task2 - task3 - task4 = 0
+## 
+## Model 1: restricted model
+## Model 2: y ~ -1 + task
+## 
+##   Res.Df    RSS Df Sum of Sq     F  Pr(>F)  
+## 1     64 2074.7                             
+## 2     62 1916.1  2     158.6 2.566 0.08498 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+# 事实上 linearHypothesis 也可以做上面所有的检验
+
+## sec 1.7 - 1.11, https://bookdown.org/wangzhen/AMD/chap1.html#sec1-7 ----
+
+linearHypothesis(m,
+                 c("task2-task1=0",
+                   "task3-task2=0",
+                   "task4-task3=0",
+                   "task5-task4=0",
+                   "task6-task5=0"), 
+                 test = 'F')
+```
+
+```
+## Linear hypothesis test
+## 
+## Hypothesis:
+## - task1  + task2 = 0
+## - task2  + task3 = 0
+## - task3  + task4 = 0
+## - task4  + task5 = 0
+## - task5  + task6 = 0
+## 
+## Model 1: restricted model
+## Model 2: y ~ -1 + task
+## 
+##   Res.Df    RSS Df Sum of Sq      F   Pr(>F)   
+## 1     67 2610.5                                
+## 2     62 1916.1  5    694.44 4.4941 0.001471 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```

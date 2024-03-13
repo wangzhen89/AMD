@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-03-11" />
+<meta name="date" content="2024-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,6 +132,70 @@
   </script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -171,6 +235,7 @@
 <li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
 <li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
 <li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+<li class="chapter" data-level="1.14" data-path="chap1.html"><a href="chap1.html#sec1-14"><i class="fa fa-check"></i><b>1.14</b> R 代码</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
 <ul>
@@ -192,6 +257,7 @@
 <li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
 <li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
 <li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+<li class="chapter" data-level="2.11" data-path="chap2.html"><a href="chap2.html#sec2-11"><i class="fa fa-check"></i><b>2.11</b> R 代码</a></li>
 </ul></li>
 <li class="part"><span><b>II 磨刀</b></span></li>
 <li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 同时推断程序和多重比较</a>
@@ -602,6 +668,28 @@
 <li class="chapter" data-level="29.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>29.4</b> 具有两种以上处理的交叉设计</a></li>
 <li class="chapter" data-level="29.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>29.5</b> 小结</a></li>
 </ul></li>
+<li class="chapter" data-level="30" data-path="chap30.html"><a href="chap30.html"><i class="fa fa-check"></i><b>30</b> 嵌套设计的分析</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="chap30.html"><a href="chap30.html#sec30-1"><i class="fa fa-check"></i><b>30.1</b> 定义，假设和模型</a>
+<ul>
+<li class="chapter" data-level="30.1.1" data-path="chap30.html"><a href="chap30.html#sec30-1-1"><i class="fa fa-check"></i><b>30.1.1</b> 示例 30.1：公司和杀虫剂</a></li>
+<li class="chapter" data-level="30.1.2" data-path="chap30.html"><a href="chap30.html#sec30-1-2"><i class="fa fa-check"></i><b>30.1.2</b> 示例 30.2：舒适度实验回顾</a></li>
+<li class="chapter" data-level="30.1.3" data-path="chap30.html"><a href="chap30.html#sec30-1-3"><i class="fa fa-check"></i><b>30.1.3</b> 示例 30.3：咖啡价格示例回顾</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="chap30.html"><a href="chap30.html#sec30-2"><i class="fa fa-check"></i><b>30.2</b> 参数估计</a>
+<ul>
+<li class="chapter" data-level="30.2.1" data-path="chap30.html"><a href="chap30.html#sec30-2-1"><i class="fa fa-check"></i><b>30.2.1</b> 示例 30.1：继续</a></li>
+<li class="chapter" data-level="30.2.2" data-path="chap30.html"><a href="chap30.html#sec30-2-2"><i class="fa fa-check"></i><b>30.2.2</b> 示例 30.2：继续</a></li>
+<li class="chapter" data-level="30.2.3" data-path="chap30.html"><a href="chap30.html#sec30-2-3"><i class="fa fa-check"></i><b>30.2.3</b> 示例 30.3：继续</a></li>
+</ul></li>
+<li class="chapter" data-level="30.3" data-path="chap30.html"><a href="chap30.html#sec30-3"><i class="fa fa-check"></i><b>30.3</b> 假设检验和置信区间的构建</a>
+<ul>
+<li class="chapter" data-level="30.3.1" data-path="chap30.html"><a href="chap30.html#sec30-3-1"><i class="fa fa-check"></i><b>30.3.1</b> 示例 30.1：继续</a></li>
+</ul></li>
+<li class="chapter" data-level="30.4" data-path="chap30.html"><a href="chap30.html#sec30-4"><i class="fa fa-check"></i><b>30.4</b> 使用 JMP 进行分析</a></li>
+<li class="chapter" data-level="30.5" data-path="chap30.html"><a href="chap30.html#sec30-5"><i class="fa fa-check"></i><b>30.5</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="References.html"><a href="References.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -624,6 +712,9 @@
             <section class="normal" id="section-">
 <div id="chap25" class="section level1 hasAnchor" number="25">
 <h1><span class="header-section-number">第 25 章</span> 分析条区型设计的方法<a href="chap25.html#chap25" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>“Statistics are the heart of democracy.” - Simeon Strunsky</p>
+</blockquote>
 <p><strong>条区</strong> (strip-plot) 设计结构常用于实验单元以矩形排列的情况，例如田间、布料上或一摞笼子中。在第 <a href="chap5.html#chap5">5</a> 章中，条区设计被描述为基本设计结构之一，其分析细节在本章中进行讨论。当一个因素的水平应用于每个矩形的行 (row)，而另一个因素的水平应用于每个矩形的列 (column) 时，就形成了条区设计结构。因此，当处理方法不允许对实验单元进行单独处理，而是按组（如整行或整列的单元）进行处理时，这种设计非常有用。条区设计结构也适用于在一系列步骤中处理实验单元的实验，其中在每个步骤中一起处理一组实验单元。本章讨论了六个示例，以演示复杂设计结构的分析方法。第一个涉及灌溉和氮的水平的示例用于展示最简单条区设计的基本分析。其余大部分示例涉及条区设计与裂区设计结构的不同组合。最后一个示例涉及条-条区 (strip-strip-plot) 设计结构。</p>
 <div id="sec25-1" class="section level2 hasAnchor" number="25.1">
 <h2><span class="header-section-number">25.1</span> 条区设计和模型的描述<a href="chap25.html#sec25-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>

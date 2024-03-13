@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>第 7 章 均衡双向处理结构 | 混乱数据分析：设计的实验</title>
+  <title>第 30 章 嵌套设计的分析 | 混乱数据分析：设计的实验</title>
   <meta name="description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="第 7 章 均衡双向处理结构 | 混乱数据分析：设计的实验" />
+  <meta property="og:title" content="第 30 章 嵌套设计的分析 | 混乱数据分析：设计的实验" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   <meta name="github-repo" content="wangzhen89/AMD" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="第 7 章 均衡双向处理结构 | 混乱数据分析：设计的实验" />
+  <meta name="twitter:title" content="第 30 章 嵌套设计的分析 | 混乱数据分析：设计的实验" />
   
   <meta name="twitter:description" content="Analysis of Messy Data Volume 1: Designed Experiments的翻译" />
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="chap6.html"/>
-<link rel="next" href="chap8.html"/>
+<link rel="prev" href="chap29.html"/>
+<link rel="next" href="References.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -710,80 +710,388 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="chap7" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">第 7 章</span> 均衡双向处理结构<a href="chap7.html#chap7" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="chap30" class="section level1 hasAnchor" number="30">
+<h1><span class="header-section-number">第 30 章</span> 嵌套设计的分析<a href="chap30.html#chap30" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
-<p>“A judicious man looks on statistics not to get knowledge, but to save himself from having ignorance foisted on him.” - Thomas Carlyle</p>
+<p>“All models are wrong, but some are useful.” - George E. P. Box</p>
 </blockquote>
-<p>第 <a href="chap4.html#chap4">4</a> 章和第 <a href="chap5.html#chap5">5</a> 章讨论了如何分析实验的设计结构。本章将讨论分析实验的处理结构的方法。特别是，本章将重点分析双向交叉分类的处理结构。假设存在两组处理 <span class="math inline">\(T_1,T_2,\cdots,T_t\)</span> 和 <span class="math inline">\(B_1,B_2,\cdots,B_b\)</span>. 每个 <span class="math inline">\(T\)</span> 处理要与每个 <span class="math inline">\(B\)</span> 处理结合，并分配给一个实验单元。为方便起见，假设实验单元完全随机地分配给处理组合。或者，假设从大量实验单元中随机抽取了一个样本，并且可以根据 <span class="math inline">\(T_1,T_2,\cdots,T_t\)</span> 和 <span class="math inline">\(B_1,B_2,\cdots,B_b\)</span> 的值将样本中的实验单元分配给不同的类别。在这两种情况下，在交叉分类的处理结构中，对总共 <span class="math inline">\(bt\)</span> 个总体进行了抽样。</p>
-<p>分析实验的处理结构和设计结构通常是独立进行的，除非是区组设计和重复测量设计，以及本书后面章节中考虑的这些设计的变体。因此，无论实验单元是分组为完全区组、均衡的不完全区组、拉丁方还是其他分组方式，处理结构的分析对于大多数标准设计来说都是相似的，几乎没有区别。由于对 <span class="math inline">\(bt\)</span> 个总体进行了抽样，因此在检验等处理均值的假设时，平方和的自由度为 <span class="math inline">\(bt-1\)</span>，即假设 <span class="math inline">\(\mu_{11}=\mu_{12}=\cdots=\mu_{tb}\)</span>. 本章考虑了处理平方和的不同划分，以检验实验者通常感兴趣的不同类型的假设。</p>
-<div id="sec7-1" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> 模型定义和假设<a href="chap7.html#sec7-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="sec7-1-1" class="section level3 hasAnchor" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> 均值模型<a href="chap7.html#sec7-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><strong>均值模型</strong> (means model) 定义为</p>
-<p><span class="math display" id="eq:7-1">\[\begin{equation}
-Y_{ijk}=\mu_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b,\quad k=1,2,\ldots,n
-\tag{7.1}
+<p>嵌套效应 (nesting effects) 在设计的实验中可以只发生在设计结构或处理结构中，也可以同时发生。为了在设计结构中进行嵌套，必须有多个尺寸的实验单元，其中一个小的实验单元嵌套在一个大的实验单元中。裂区、重复测量和分层设计是设计结构中存在嵌套的示例。当存在两个或多个因素时，可以在处理结构中嵌套。这些因素可能都是固定效应，都是随机效应，或两者的混合。因此，在处理结构中嵌套的实验可以被建模为固定、随机或混合模型。第 <a href="chap5.html#chap5">5</a> 章介绍了设计结构中嵌套因子的概念。本章给出了一些例子，展示了模型构建、参数估计和假设检验。在设计结构中具有嵌套的嵌套设计通常被称为分层设计 (hierarchical designs).</p>
+<div id="sec30-1" class="section level2 hasAnchor" number="30.1">
+<h2><span class="header-section-number">30.1</span> 定义，假设和模型<a href="chap30.html#sec30-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>在处理结构中，如果因子 B 的每个水平仅与因子 A 的一个水平一起出现，则因子 B 的水平将嵌套在因子 A 的水平内。以下示例演示了处理结构中的嵌套。</p>
+<div id="sec30-1-1" class="section level3 hasAnchor" number="30.1.1">
+<h3><span class="header-section-number">30.1.1</span> 示例 30.1：公司和杀虫剂<a href="chap30.html#sec30-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>四家化学公司生产特定的杀虫剂 (insecticides). A 公司生产三种这样的产品，B 公司和 C 公司各生产两种这样的产品，D 公司生产四种这样的产品。没有一家公司生产的产品与另一家公司的产品完全相同。处理结构是双向的，一是公司，二是产品。这种处理结构如表 <a href="chap30.html#tab:table30-1">30.1</a> 所示，其中每个产品的水平在每个公司的水平内仅出现一次。因此，产品水平嵌套在公司水平内。</p>
+<table style="NAborder-bottom: 0;">
+<caption>
+<span id="tab:table30-1">表 30.1: </span>公司和杀虫剂示例的处理结构
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.1.png">
+</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="padding: 0; " colspan="100%">
+<span style="font-style: italic;">注释: </span> <sup></sup> X 表示特定产品来自相应的公司
+</td>
+</tr>
+</tfoot>
+</table>
+<p>处理结构中两个因素的水平都是固定效应。为了进行实验，我们将一盒装有活蓝草植物 (live bluegrass plants) 的土壤和 400 只蚊子分别放入 33 个玻璃容器中。然后将三个玻璃容器随机分配给每种产品。用该产品处理玻璃容器，4 小时后统计活蚊子的数量。</p>
+<p>这个实验的设计结构是完全随机的。可以用来描述每个容器中活蚊子数量的模型是</p>
+<p><span class="math display" id="eq:30-1">\[\begin{equation}
+y_{ijk}=\mu+\gamma_i+\rho_{j(i)}+\varepsilon_{ijk},\quad i=1,2,3,4,\quad j=2,3,\mathrm{~or~}4,\quad k=1,2,3
+\tag{30.1}
 \end{equation}\]</span></p>
-<p>其中假设 <span class="math inline">\(\varepsilon_{ijk}\sim i.i.d.N(0,\sigma^2),i=1,2,\ldots,t,j=1,2,\ldots,b,k=1,2,\ldots,n\)</span>，且当处理组合 <span class="math inline">\((T_i,B_j)\)</span> 被分配到随机选择的实验单元时，<span class="math inline">\(\mu_{ij}\)</span> 是预期的响应。</p>
+<p>其中 <span class="math inline">\(y_{ijk}\)</span> 是第 i 个公司的第 j 个产品的第 k 次重复中观察到的蚊子数量，<span class="math inline">\(\mu\)</span> 是总体平均值，<span class="math inline">\(\gamma_i\)</span> 是第 i 家公司的效应，<span class="math inline">\(\rho_{j(i)}\)</span> 是第 i 公司的第 j 个产品的效应，<span class="math inline">\({\varepsilon}_{ijk}\sim i.i.d.N(0,{\sigma}_\varepsilon^2)\)</span> 表示与测量 <span class="math inline">\(y_{ijk}\)</span> 相关的误差。该模型只有一个尺寸的实验单元，因此只有一个误差项。实验的设计是完全随机设计结构中的双向嵌套处理结构（两个因素都是固定效应）。要估计的模型参数是 <span class="math inline">\(\sigma^2_\varepsilon\)</span> 以及 <span class="math inline">\(\mu,\gamma_i,\rho_{j(i)}\)</span> 的可估函数。</p>
+<p>本例数据见表 <a href="chap30.html#tab:table30-2">30.2</a>，分析见第 <a href="chap30.html#sec30-2">30.2</a> 节和第 <a href="chap30.html#sec30-3">30.3</a> 节。</p>
+<table>
+<caption>
+<span id="tab:table30-2">表 30.2: </span>示例 <a href="chap30.html#sec30-1-1">30.1</a> 数据
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.2.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="sec7-1-2" class="section level3 hasAnchor" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> 效应模型<a href="chap7.html#sec7-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>具有双向处理结构的实验中另一个常见模型称为<strong>效应模型</strong> (effects model)，其由式 <a href="chap7.html#eq:7-1">(7.1)</a> 定义，且 <span class="math inline">\(\mu_{ij}\)</span> 替换为</p>
-<p><span class="math display" id="eq:7-2">\[\begin{equation}
-\mu_{ij}=\mu+\tau_i+\beta_j+\gamma_{ij},\quad i=1,2,\ldots,t,j=1,2,\ldots,b
-\tag{7.2}
+<div id="sec30-1-2" class="section level3 hasAnchor" number="30.1.2">
+<h3><span class="header-section-number">30.1.2</span> 示例 30.2：舒适度实验回顾<a href="chap30.html#sec30-1-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>示例 <a href="chap5.html#sec5-5-2">5.7</a> 中的舒适度实验是设计结构中嵌套的一个例子。大实验单位是环境室，小实验单位是人。模型是</p>
+<p><span class="math display" id="eq:30-2">\[\begin{equation}
+y_{ijkm}=\mu_{ik}+c_{j(i)}+p_{m(ijk)}\quad i=65,70,75,~j=1,2,\ldots,9,~k=M,F,~m=1,2
+\tag{30.2}
 \end{equation}\]</span></p>
-<p>从哲学角度看，效应模型在直觉上很有吸引力，因为它可能是基于这样的假设：<span class="math inline">\(\mu\)</span> 代表某种总体平均效应，<span class="math inline">\(\tau_i\)</span> 代表将 <span class="math inline">\(T_i\)</span> 分配给实验单元后对均值的效应，<span class="math inline">\(\beta_j\)</span> 代表将 <span class="math inline">\(B_j\)</span> 分配给实验单元后的效应，而 <span class="math inline">\(\gamma_{ij}\)</span> 代表同时使用 <span class="math inline">\(T_i\)</span> 和 <span class="math inline">\(B_j\)</span> 时可能对实验单元产生的任何额外的正面或负面效应。然而，如第 <a href="chap6.html#chap6">6</a> 章所指出的，效应模型存在一些可估性问题。下面将讨论这两种模型。</p>
+<p>其中 <span class="math inline">\(\mu_{ik}\)</span> 表示第 i 个温度和第 k 个性别的均值，<span class="math inline">\(c_{j(i)}\)</span> 表示分配给第 i 个温度的第 j 个室的随机效应且假设 <span class="math inline">\(c_{j(i)}\thicksim N(0,\sigma_{\text{Сhamber}} ^ 2 )\)</span>，<span class="math inline">\(p_{m(ijk)}\)</span> 表示分配到第 i 个温度的第 j 个室的第 k 个性别的第 m 个人的随机效应且假设 <span class="math inline">\(p_{m(ijk)}\thicksim N(0,\sigma_{\text{Person}} ^ 2 )\)</span>. 项 <span class="math inline">\(c_{j(i)}\)</span> 和 <span class="math inline">\(p_{m(ijk)}\)</span> 表示在第 j 个室（室嵌套在温度内）和第 i 个温度的第 j 个房间内第 k 个性别的人 m（人嵌套在室内）上的观测温度 i 的误差。由于实验单元有两种尺寸，因此分析有两个水平和两个误差项。需要估计的参数是 <span class="math inline">\(\mu_{ik},i=65,70,75,k=M,F,\sigma_{\text{Chamber&#39;}} ^ 2,\sigma_{\text{Person}} ^ 2\)</span>. 该示例的分析将在第 <a href="chap30.html#sec30-2">30.2</a> 节和第 <a href="chap30.html#sec30-3">30.3</a> 节中讨论。</p>
+</div>
+<div id="sec30-1-3" class="section level3 hasAnchor" number="30.1.3">
+<h3><span class="header-section-number">30.1.3</span> 示例 30.3：咖啡价格示例回顾<a href="chap30.html#sec30-1-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>第 <a href="chap18.html#chap18">18</a> 章中的咖啡价格示例是采用三向处理结构的抽样调查设计，其中商店水平嵌套在城市水平内，而城市水平又嵌套在州水平内（所有三个因素都是随机效应）。第 <a href="chap18.html#chap18">18</a> 章中用于描述咖啡价格变异的模型是</p>
+<p><span class="math display">\[y_{ijk}=\mu+s_i+c_{j(i)}+a_{k(ij)},\quad i=1,2,\ldots,r,j=1,2,\ldots,t_i,\quad k=1,2,\ldots,n_{ij}\]</span></p>
+<p>其中 <span class="math inline">\(\mu\)</span> 为美国咖啡价格均值，<span class="math inline">\(s_i\thicksim i.i.d.~N(0\text{,}\sigma_{\mathrm{State}}^2),c_{j(i)}\thicksim i.i.d.~N(0\text{,}\sigma_{\mathrm{City}}^2),a_{k(ij)}\thicksim i.i.d.~N(0\text{,}\sigma_{\mathrm{Store}}^2)\)</span> 分别表示随机州、城市和商店效应。感兴趣的参数是方差分量 <span class="math inline">\(\sigma_{\text{State}}^2,\sigma_{\text{City}}^2,\sigma_{\text{Store}}^2\)</span> 和总均值 <span class="math inline">\(\mu\)</span>. 咖啡价格示例是多阶段抽样实验的示例，这是嵌套设计的非常常见的应用。该示例的分析将在接下来的两节中讨论。表 <a href="chap30.html#tab:table30-3">30.3</a> 包含一项小型研究的咖啡价格，该研究用于演示参数估计、置信区间估计和假设检验。</p>
+<table>
+<caption>
+<span id="tab:table30-3">表 30.3: </span>示例 <a href="chap30.html#sec30-1-3">30.3</a> 以美分/磅为单位的咖啡价格
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.3.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>上述示例演示了可能发生在处理结构、设计结构或两者中的嵌套。处理结构可以涉及随机和/或固定效应，并且设计结构可以涉及多种尺寸的实验单元。因此，此类设计的分析涉及使用固定效应模型、随机效应模型和混合效应模型技术，如下两节所述。</p>
 </div>
 </div>
-<div id="sec7-2" class="section level2 hasAnchor" number="7.2">
-<h2><span class="header-section-number">7.2</span> 参数估计<a href="chap7.html#sec7-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>在大多数情况下，<span class="math inline">\(\sigma^2\)</span> 的估计仅来自对实验设计结构的分析。然而，在某些情况下，实验者可能能够对 <span class="math inline">\(\mu_{ij}\)</span> 或处理效果做出某些假设，这些假设可能会提供一些关于 <span class="math inline">\(\sigma^2\)</span> 的额外信息。例如，如果实验者知道 <span class="math inline">\(\mu_{11}=\mu_{12}\)</span>，那么可以将来自均值为 <span class="math inline">\(\mu_{11}\)</span> 和 <span class="math inline">\(\mu_{12}\)</span> 的总体的样本组合起来，以提供用于估计 <span class="math inline">\(\sigma^2\)</span> 的额外自由度。在这种情况下，相应的单自由度平方和由 <span class="math inline">\(n(\bar{y}_{11\cdot}-\bar{y}_{12\cdot})^2/2\)</span> 给出。</p>
-<p>大多数实验者不会倾向于相信 <span class="math inline">\(\mu_{11}=\mu_{12}\)</span>，但还有其他可能合适的信念 (beliefs). 其中一个信念是，两组处理的效应是<strong>加性的</strong> (additive). 也就是说，两组处理不会发生交互 (interact). 如果这是真的，那么额外的信息将可用于估计 <span class="math inline">\(\sigma^2\)</span>.</p>
-<p>如果将 <span class="math inline">\(bt\)</span> 种组合视为 <span class="math inline">\(bt\)</span> 个不同的处理，则第 <a href="chap1.html#chap1">1</a> 章至第 <a href="chap3.html#chap3">3</a> 章中针对单向处理结构提供的所有讨论都适用于双向处理结构；也就是说，比如 <span class="math inline">\([\mu_{11},\mu_{12},\ldots,\mu_{1b},\ldots,\mu_{t1},\mu_{t2},\ldots,\mu_{tb}]=[\mu_1,\mu_{2},\ldots,\mu_{tb}]\)</span>.</p>
-<p>因此，均值模型中参数的最佳估计为</p>
-<p><span class="math display">\[\hat{\mu}_{ij}=\frac1n\sum_{k=1}^ny_{ijk}=\bar{y}_{ij\cdot},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b\]</span></p>
-<p>以及</p>
-<p><span class="math display">\[\hat{\sigma}^2=\frac1{N-bt}\sum_{ijk}(y_{ijk}-\bar{y}_{ij\cdot})^2\]</span></p>
-<p>其中 <span class="math inline">\(N=nbt\)</span>. <span class="math inline">\(\hat \mu_{ij}\)</span> 的抽样分布为 <span class="math inline">\(N(\mu_{ij},\sigma^2/n)\)</span>，其中 <span class="math inline">\(i=1,2\cdots,t,\,j=1,2,\cdots,b\)</span>. 且 <span class="math inline">\((N-bt)\hat{\sigma}^2/\sigma^2\)</span> 的抽样分布为 <span class="math inline">\(\chi^2(N^-bt)\)</span>. 另外，<span class="math inline">\(\hat{\mu}_{11},\hat{\mu}_{12},\ldots,\hat{\mu}_{tb}\)</span> 和 <span class="math inline">\(\sigma^2\)</span> 有独立的概率分布。</p>
-<p>大多数情况下，实验者想要回答以下问题：</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(T\)</span> 处理如何影响响应？</li>
-<li><span class="math inline">\(B\)</span> 处理如何影响响应？</li>
-</ol>
+<div id="sec30-2" class="section level2 hasAnchor" number="30.2">
+<h2><span class="header-section-number">30.2</span> 参数估计<a href="chap30.html#sec30-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>涉及嵌套的模型属于已经讨论过的模型类别之一。也就是说，如果存在固定效应，则需要估计均值；如果存在随机效应，则需要估计方差分量；如果有多种尺寸的实验单元，则分析涉及多个误差项。因此，设计可能非常简单，也可能非常复杂。本章中的示例用于演示前面讨论的技术在涉及嵌套的设计分析中的应用。</p>
+<div id="sec30-2-1" class="section level3 hasAnchor" number="30.2.1">
+<h3><span class="header-section-number">30.2.1</span> 示例 30.1：继续<a href="chap30.html#sec30-2-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>模型 <a href="chap30.html#eq:30-1">(30.1)</a> 的可估计函数涉及 <span class="math inline">\(\mu + \gamma_i + \rho_{j(i)}\)</span> 的线性组合。例如，每个 i 的 <span class="math inline">\(\rho_{j(i)}\)</span> 的对比是可估的，其中 <span class="math inline">\(\rho_{1(i)}-\rho_{2(i)}\)</span> 是同一公司内产品的对比，在这种情况下，对比是对第 i 个公司的产品 1 和 2 进行比较。<span class="math inline">\(\mu + \gamma_i + \bar \rho_{\cdot(i)}\)</span> 的对比用于比较各公司产品的均值，其中 <span class="math inline">\(\gamma_1 + \bar\rho_{\cdot(1)} - \gamma_2 + \bar\rho_{\cdot(2)}\)</span> 将公司 1 与公司 2 进行比较。<span class="math inline">\(\gamma_1 + \rho_{1(1)} - \gamma_2 + \rho_{1(2)}\)</span> 将公司 1 的产品 1 与公司 2 的产品 1 进行比较。这些对比的估计分别为</p>
+<p><span class="math display">\[\begin{aligned}
+\widehat{\rho_{1(i)}-\rho_{2(i)}}&amp;=\bar y_{i1\cdot}-\bar y_{i2\cdot}\\
+\widehat{\gamma_1 + \bar\rho_{\cdot(1)} - \gamma_2 + \bar\rho_{\cdot(2)}}-\bar y_{i2\cdot}&amp;=\bar y_{1\cdot\cdot}-\bar y_{2\cdot\cdot}\\
+\widehat{\gamma_1 + \rho_{1(1)} - \gamma_2 + \rho_{1(2)}}&amp;=\bar y_{11\cdot}-\bar y_{21\cdot}
+\end{aligned}\]</span></p>
+<p>模型 <a href="chap30.html#eq:30-1">(30.1)</a> 也可以表示为</p>
+<p><span class="math display">\[y_{ijk}=\mu_{j(i)}+\varepsilon_{ijk},\quad i=1,2,3,4,\quad j=2,3,\mathrm{~or~}4,\quad k=1,2,3\]</span></p>
+<p>其中 <span class="math inline">\(\mu_{j(i)}\)</span> 为公司 i 的产品 j. <span class="math inline">\(\mu_{j(i)}\)</span> 的估计为 <span class="math inline">\(\bar y_{ij\cdot}\)</span>。任何包含 <span class="math inline">\(\mu_{j(i)}\)</span> 对比的线性组合都是可估的，但在解释所选对比时必须小心。<span class="math inline">\(\sigma^2_\varepsilon\)</span> 的估计来自于将 j(i) 组合内观测值的方差合并为</p>
+<p><span class="math display">\[\hat{\sigma}_\varepsilon^2=\frac1{N-q}\sum_{i=1}^m\sum_{j=1}^{p_i}\sum_{k=1}^{n_{j(i)}}(y_{ijk}-\bar{y}_{ij\cdot})^2\]</span></p>
+<p>其中 <span class="math inline">\(n_{j(i)}\)</span> 表示 j(i) 单元格内的观测数，q 为 <span class="math inline">\(n_{j(i)}&gt;0\)</span> 的个数，m 为公司数，<span class="math inline">\(p_i\)</span> 为来自第 i 个公司的产品数，<span class="math inline">\(n_{j(i)}\)</span> 为分配给第 i 个公司的第 j 个产品的玻璃容器的数量，<span class="math inline">\(N=\sum_{j(i)}n_{j(i)}\)</span> 为观测总数。</p>
+<p>对于这个例子</p>
+<p><span class="math display">\[\begin{aligned}{\hat{\sigma}}_\varepsilon^2=\frac{1}{33-11}\sum_{i=1}^4\sum_{j=1}^{p_i}\sum_{k=1}^3(y_{ijk}-\bar{y}_{ij\cdot})^2=60.818\end{aligned}\]</span></p>
+<p>样本均值的估计见表 <a href="chap30.html#tab:table30-4">30.4</a>.</p>
+<table>
+<caption>
+<span id="tab:table30-4">表 30.4: </span>示例 <a href="chap30.html#sec30-1-1">30.1</a> 均值估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.4.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\mu_{j(i)}\)</span> 之间可以进行多重比较。可以检验关于 <span class="math inline">\(\mu_{j(i)}\)</span> 的其他假设，例如比较公司或公司内的产品。例如，可以通过考虑比较公司 B 和公司 D</p>
+<p><span class="math display">\[\bar{\mu}_{\cdot(2)}=\bar{\mu}_{\cdot(4)}\quad\mathrm{~where~}\bar{\mu}_{\cdot(2)}=\frac{\mu_{1(2)}+\mu_{2(2)}}2\quad\mathrm{and~}\quad\bar{\mu}_{\cdot(4)}=\frac{\mu_{1(4)}+\mu_{2(4)}+\mu_{3(4)}+\mu_{4(4)}}4\]</span></p>
+<p>也就是说，比较将在 B 公司的两种产品的均值与 D 公司的四种产品的均值之间进行。研究人员需要决定这种比较是否有意义。第 <a href="chap30.html#sec30-3">30.3</a> 节讨论了这种嵌套处理结构的假设检验。</p>
+<p>如果 j(i) 单元格中的观测数量不等，则可以使用分析不均衡模型的技术来获得 <span class="math inline">\(\mu_{j(i)}\)</span> 的估计。总体边际均值的估计提供了 <span class="math inline">\(\hat\mu_{j(i)}\)</span> 的估计，而 <span class="math inline">\(\hat\sigma^2_\varepsilon\)</span> 的估计是通过合并处理组合之间的方差而获得的，该方差可以通过方差分析获得。</p>
 </div>
-<div id="sec7-3" class="section level2 hasAnchor" number="7.3">
-<h2><span class="header-section-number">7.3</span> 交互作用及它们的重要性<a href="chap7.html#sec7-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>为了很好地回答上述问题，实验者必须首先确定这两组处理是否发生交互。交互作用假设 (interaction hypothesis) 可以用几种等效的方式来表述。下面给出了其中一些。</p>
-<ol style="list-style-type: decimal">
-<li><span class="math inline">\(H_0\colon{{\mu}}_{ij}-\mu_{ij}=\mu_{i&#39;j}-\mu_{i&#39;j&#39;}\)</span> 对于所有的 <span class="math inline">\(i\ne i&#39;\)</span> 和 <span class="math inline">\(j\ne j&#39;\)</span></li>
-<li><span class="math inline">\(H_0\colon\mu_{ij}-\mu_{i&#39;j}=\mu_{ij&#39;}-\mu_{i&#39;j&#39;}\)</span> 对于所有的 <span class="math inline">\(i\ne i&#39;\)</span> 和 <span class="math inline">\(j\ne j&#39;\)</span></li>
-<li><span class="math inline">\(H_0\colon{\mu_{ij}-\mu_{i&#39;j}-\mu_{ij&#39;}+\mu_{i&#39;j&#39;}=0}\)</span> 对于所有的 <span class="math inline">\(i\ne i&#39;\)</span> 和 <span class="math inline">\(j\ne j&#39;\)</span></li>
-<li><span class="math inline">\(H_0\colon\mu_{ij}=\mu+\tau_i+\beta_j\)</span> 对于所有的 <span class="math inline">\(i\)</span> 和 <span class="math inline">\(j\)</span> 以及一些参数集 <span class="math inline">\({\mu},{\tau}_1,{\tau}_2,...,{\tau}_t,{\beta}_1,{\beta}_2,\cdots,{\beta}_b\)</span></li>
-</ol>
-<p>1-4 中的每一个都意味着两组处理效应之间没有交互作用。对 1 的解释是，任何一对 B 处理之间的差异都是相同的，无论它们与哪种 T 处理相结合。类似地，对 2 的解释是，任何一对 T 处理之间的差异都是相同的，无论它们与哪种 B 处理相结合。1 和 2 在代数上都等价于 3，3 通常被称为所有可能的二乘二表格差异的集合 (the set of all possible two by two table differences). 对 4 的解释是，这两组处理的效应是加性的。如果 1-4 中的任何一个是真的，那么说明 T 处理和 B 处理之间没有相互作用。</p>
-<p>如果两组处理不发生交互，则一组处理的效应可以如此进行最佳比较：对另一组处理的效应进行平均之后。这样的比较是最佳的，是因为平均化增加了比较两个或多个处理效应的统计功效，或者等价地，平均化对效应差异给出了尽可能短的置信区间。如果两组处理发生交互，那么一组处理效应之间的差异将依赖于与它们结合的第二组处理的水平，这会使实验分析稍微复杂一些。</p>
+<div id="sec30-2-2" class="section level3 hasAnchor" number="30.2.2">
+<h3><span class="header-section-number">30.2.2</span> 示例 30.2：继续<a href="chap30.html#sec30-2-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>表 <a href="chap30.html#tab:table30-5">30.5</a> 给出了舒适度研究的数据。嵌套出现在设计结构中，人嵌套在室内，而室嵌套在温度内。带期望均方的方差分析表展示在表 <a href="chap30.html#tab:table30-6">30.6</a> 中。两个方差分量的矩法估计（也是 REML 和 MINQUE0 估计）为 <span class="math inline">\(\hat{{\sigma}}_{\mathrm{Person}}^2=1.65,\hat{{\sigma}}_{\mathrm{Chamber}}^2=2.36\)</span>，ML 估计为 <span class="math inline">\(\hat{{\sigma}}_{\mathrm{Person}}^2=1.47,\hat{{\sigma}}_{\mathrm{Chamber}}^2=1.48\)</span>。用于裂区实验的方法（第 <a href="chap24.html#chap24">24</a> 章中描述）可用于比较 <span class="math inline">\(mu_{ij}\)</span>。如果设计不均衡，使用 REML 进行混合模型分析来估计方差分量是合适的。</p>
+<table>
+<caption>
+<span id="tab:table30-5">表 30.5: </span>示例 <a href="chap30.html#sec30-2-2">30.2</a> 的数据，其中值为舒适度得分，其中 1 = 冷，8 = 舒适，15 = 热
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.5.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table30-6">表 30.6: </span>示例 <a href="chap30.html#sec30-2-2">30.2</a> 舒适度研究的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.6.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="sec7-4" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> 主效应<a href="chap7.html#sec7-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>如果实验者得出结论，这两组处理没有交互作用，那么关于<strong>主效应</strong> (main effects) 的假设就可以进行检验。这些假设可以写成：</p>
-<p><span class="math display">\[\begin{aligned}H_{01}\colon\bar{\mu}_{1\cdot}=\bar{\mu}_{2\cdot}=\cdots=\bar{\mu}_{t\cdot}\quad\text{and}\quad H_{02}\colon\bar{\mu}_{\cdot1}=\bar{\mu}_{\cdot2}=\cdots=\bar{\mu}_{\cdot b}\end{aligned}\]</span></p>
-<p>即使实验中存在交互作用，上述两个假设仍然可以检验。然而，这两种情况对检验结果的解释将截然不同。</p>
+<div id="sec30-2-3" class="section level3 hasAnchor" number="30.2.3">
+<h3><span class="header-section-number">30.2.3</span> 示例 30.3：继续<a href="chap30.html#sec30-2-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>咖啡价格研究涉及随机效应模型，其感兴趣的参数是 <span class="math inline">\(\mu,\sigma_{\text{State}}^2,\sigma_{\text{City}}^2,\sigma_{\text{Store}}^2\)</span>. ML 将提供参数的分析和估计，就像 MINQUE0 技术一样。采用 I 型平方和的矩法分析通常用于此类多水平抽样设计。 REML 法的结果是优选的。表 <a href="chap30.html#tab:table30-7">30.7</a> 包含 I 型平方和、它们的期望均方以及用于一般研究的矩法估计。表 <a href="chap30.html#tab:table30-8">30.8</a> 包含表 <a href="chap30.html#tab:table30-3">30.3</a> 中数据的 I 型分析。表 <a href="chap30.html#tab:table30-9">30.9</a> 使用 I 型平方和, REML, MIVQUE0 和 ML 的矩法来估计方差分量。方差分量的 95% 置信区间是使用具有指定自由度的卡方分布计算的。Wald 法用于矩法提供的区间，但使用自由度为 <span class="math inline">\(2(Z\text{-value})^2\)</span> 的卡方分布重新计算它们。表 <a href="chap30.html#tab:table30-10">30.10</a> 给出了方差分量的每种估计方法对平均咖啡价格的估计。</p>
+<table>
+<caption>
+<span id="tab:table30-7">表 30.7: </span>示例 <a href="chap30.html#sec30-2-2">30.2</a> I 型平方和以及矩法估计的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.7.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table30-8">表 30.8: </span>咖啡价格数据的 I 型平方和、均方、期望均方和检验统计量
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.8.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table30-9">表 30.9: </span>咖啡数据方差分量的四种方法的估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.9.png">
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:table30-10">表 30.10: </span>咖啡价格均值方差分量的四种方法的估计
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.10.png">
+</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="sec7-5" class="section level2 hasAnchor" number="7.5">
-<h2><span class="header-section-number">7.5</span> 计算机分析<a href="chap7.html#sec7-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>大多数统计分析包都会自动给出前两节中描述的两个主效应假设和交互作用假设的检验，前提是指定了以下形式的模型</p>
-<p><span class="math display">\[y=T\mathrm{~}B\mathrm{~}T\times B\]</span></p>
-<p>大多还具有一个选项，允许用户通过使用第 <a href="chap3.html#chap3">3</a> 章中讨论的一个或多个多重比较程序来相互比较主效应均值。大多数软件包还允许用户指定和检验用户自己选择的对比。如果确定两组处理发生交互，则实验者可能想要比较所有 <span class="math inline">\(bt\)</span> 个处理组合两两之间的差异。如果所使用的统计包无法进行此类比较，则可以手动完成此操作。或者，如果统计分析包不允许对 <span class="math inline">\(T\times B\)</span> 单元格均值进行多重比较，通常可以通过一些技巧使其能够完成。为此，可以在数据文件中包含一个新的识别变量，使该新变量具有 <span class="math inline">\(bt\)</span> 个不同的值，对应 <span class="math inline">\(bt\)</span> 个处理组合。这个新变量可用于重新分析数据，作为单因素处理结构，从而得出双向单元格均值的多重比较。实验者可能还感兴趣于如何对多重检验进行调整，如第 <a href="chap3.html#chap3">3</a> 章所述。</p>
 </div>
-<div id="sec7-6" class="section level2 hasAnchor" number="7.6">
-<h2><span class="header-section-number">7.6</span> 结束语<a href="chap7.html#sec7-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>当处理以双向处理结构进行安排时，通常会检验三个基本的前提假设。其中最重要的是交互作用假设。如果没有交互作用，那么通过对其他处理水平的平均化，可以最好地比较每种处理的主效应。如果存在交互作用，那么在比较第一种处理的效应时，实验者必须小心以确定对第二种处理的水平进行平均是否有意义。<strong>通常这样做是没有意义的</strong>。</p>
+<div id="sec30-3" class="section level2 hasAnchor" number="30.3">
+<h2><span class="header-section-number">30.3</span> 假设检验和置信区间的构建<a href="chap30.html#sec30-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>对于嵌套在一个或两个结构中的均衡设计，可以使用均衡随机效应模型、均衡混合效应模型和均衡裂区重复测量模型的方法来构建置信区间并进行参数之间的比较。对于不均衡嵌套设计，估计方差分量的 REML 法提供了一种使用 Satterthwaite 近似构建置信区间的好方法。在这种情况下，近似自由度计算为 <span class="math inline">\(2(Z\text{-value})^2\)</span>. 使用 1 型平方和估计、REML 估计、ML 估计和 MINQUE0 估计为咖啡价格数据构建的置信区间显示在表 <a href="chap30.html#tab:table30-9">30.9</a> 中。矩法可以有效地用于提供有关方差分量的假设检验。表 <a href="chap30.html#tab:table30-8">30.8</a> 使用预期均方来检验 <span class="math inline">\(H_0\colon{\sigma}_\mathrm{State}^2=0\mathrm{vs~}H_a\colon{\sigma}_\mathrm{State}^2&gt;0\)</span> 和 <span class="math inline">\(H_0{:{\sigma_{\mathrm{City}}^2}}=0\operatorname{vs}H_a{:{\sigma_{\mathrm{City}}^2}}&gt;0\)</span>，分别得到 2.40 和 11.58 的 F 统计量。</p>
+<p>当嵌套在处理结构中且涉及固定效应因素时，采用分析固定效应模型的方法。主要变化是可以用方差分析表测试的假设类型，如示例 <a href="chap30.html#sec30-1-1">30.1</a> 的数据所示</p>
+<div id="sec30-3-1" class="section level3 hasAnchor" number="30.3.1">
+<h3><span class="header-section-number">30.3.1</span> 示例 30.1：继续<a href="chap30.html#sec30-3-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>杀虫剂数据模型的编写有两种方法</p>
+<p><span class="math display" id="eq:30-3">\[\begin{equation}
+y_{ijk}=\mu_{j(i)}+\varepsilon_{ijk}\quad i=1,2,3,4,\quad j=2,3,\mathrm{~or~}4,\quad k=1,2,3
+\tag{30.3}
+\end{equation}\]</span></p>
+<p>或</p>
+<p><span class="math display" id="eq:30-4">\[\begin{equation}
+y_{ijk}=\mu+\gamma_i+\rho_{j(i)}+\varepsilon_{ijk}\quad i=1,2,3,4,\quad j=2,3,\mathrm{~or~}4,\quad k=1,2,3
+\tag{30.4}
+\end{equation}\]</span></p>
+<p>表 <a href="chap30.html#tab:table30-11">30.11</a> 包含模型 <a href="chap30.html#eq:30-3">(30.3)</a> 的方差分析表。因产品导致的平方和检验的假设是</p>
+<span class="math display">\[\mu_{1(1)}=\mu_{2(1)}=\mu_{3(1)}=\mu_{1(2)}=\mu_{2(2)}=\mu_{1(3)}=\mu_{2(3)}=\mu_{1(4)}=\mu_{2(4)}=\mu_{3(4)}=\mu_{4(4)}\]</span>
+<table>
+<caption>
+<span id="tab:table30-11">表 30.11: </span>示例 30.1 基于模型 <a href="chap30.html#eq:30-3">(30.3)</a> 的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.11.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>表 <a href="chap30.html#tab:table30-12">30.12</a> 包含模型 <a href="chap30.html#eq:30-4">(30.4)</a> 的方差分析表。表 <a href="chap30.html#tab:table30-11">30.11</a> 中产品的平方和已划分为公司的平方和以及公司内嵌套的产品的平方和的和。由于双向处理结构是嵌套的（产品嵌套在公司内），因此没有衡量产品水平和公司水平之间的交互作用。公司的平方和用于检验假设 <span class="math inline">\(\bar{\mu}_{\cdot(1)}=\bar{\mu}_{\cdot(2)}=\bar{\mu}_{\cdot(3)}=\bar{\mu}_{\cdot(4)}\)</span>，其中 <span class="math display">\[\bar{{\mu}}_{{\cdot}(i)}=(1/m_i)\sum_{j=1}^{m_i}{\mu}_{j(i)}={\mu}+\gamma_i+{\bar{\rho}}_{{\cdot}(i)}\]</span></p>
+<table>
+<caption>
+<span id="tab:table30-12">表 30.12: </span>示例 30.1 基于模型 <a href="chap30.html#eq:30-4">(30.4)</a> 的方差分析表
+</caption>
+<thead>
+<tr>
+<th style="text-align:center;color: white !important;background-color: white !important;font-size: 0px;">
+x
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+<img src="table/table%2030.12.png">
+</td>
+</tr>
+</tbody>
+</table>
+<p>公司内部的产品的平方和检验了以下假设（以均值模型参数表示）</p>
+<p><span class="math display">\[\mu_{1(1)}=\mu_{2(1)}=\mu_{3(1)},\quad\mu_{1(2)}=\mu_{2(2)}=\mu_{1(3)}=\mu_{2(3)},\quad\mathrm{and}\quad\mu_{1(4)}=\mu_{2(4)}=\mu_{3(4)}=\mu_{4(4)}\]</span></p>
+<p>或以效应模型参数表示</p>
+<p><span class="math display">\[\rho_{1(1)}=\rho_{2(1)}=\rho_{3(1)},\quad\rho_{1(2)}=\rho_{2(2)}=\rho_{1(3)}=\rho_{2(3)},\quad\mathrm{and}\quad\rho_{1(4)}=\rho_{2(4)}=\rho_{3(4)}=\rho_{4(4)}\]</span></p>
+<p>任何适当的多重比较程序（见第 <a href="chap3.html#chap3">3</a> 章）都可以用于以下情况：1）比较 <span class="math inline">\(\bar{{\mu}}_{\cdot (i)}\)</span>，2）比较 <span class="math inline">\(\bar{{\mu}}_{j (i)}\)</span>、3）比较每个 i 的 <span class="math inline">\(\bar{{\mu}}_{j (i)}\)</span>，或 4）比较上述任何组合。对于不均衡模型，III 型或 IV 型平方和适用于检验各种假设，并且总体边际均值的估计提供了 <span class="math inline">\(\bar{{\mu}}_{\cdot (i)}\)</span> 和 <span class="math inline">\(\bar{{\mu}}_{j (i)}\)</span> 的估计。</p>
+<p>对于其他嵌套模型，方差分析表中的预期均方可以用作构建关于方差分量的适当 <span class="math inline">\(F\)</span> 检验的准则，并且混合模型 “固定效应的 III 型检验” 可以用于检验关于固定效应的各种假设。第 <a href="chap22.html#chap22">22</a> 章和第 <a href="chap23.html#chap23">23</a> 章中的方法将在这种情况下使用。</p>
 </div>
-<div id="sec7-7" class="section level2 hasAnchor" number="7.7">
-<h2><span class="header-section-number">7.7</span> 练习<a href="chap7.html#sec7-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="sec30-4" class="section level2 hasAnchor" number="30.4">
+<h2><span class="header-section-number">30.4</span> 使用 JMP 进行分析<a href="chap30.html#sec30-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>JMP<sup>®</sup> 软件用于提供示例 30.2 和 30.3 的分析。图 <a href="chap30.html#fig:figure30-1">30.1</a> 包含数据集的部分列表，其中 chamber, temperature, gender 和 person 被定义为名义变量。图 <a href="chap30.html#fig:figure30-2">30.2</a> 中的 fit model 界面包括 temperature, gender, temperature × gender 作为固定效应，chamber(temperature) 作为随机效应。person 误差项为模型的残差。图 <a href="chap30.html#fig:figure30-3">30.3</a> 包含方差分量的 REML 估计，以及室误差的 Wald 置信区间，残差或人变异的卡方置信区间，固定效应的 III 型检验。Tukey 多重比较的最小二乘均值如图 <a href="chap30.html#fig:figure30-4">30.4</a> 所示。图 <a href="chap30.html#fig:figure30-5">30.5</a> 中的数据界面包含示例 30.3 的咖啡价格的部分列表。图 <a href="chap30.html#fig:figure30-6">30.6</a> 中的 fit model 界面将 state 和 city(state) 作为随机效应。store 间的变异是通过残差来衡量的。图 <a href="chap30.html#fig:figure30-7">30.7</a> 包含方差分量的估计以及总均值的估计。还给出了 state 和 city(state) 方差分量的 Wald 置信区间，为残差或 store 间变异提供了卡方置信区间。总均值的标准误估计为 3.359，而使用 REML 的 SAS<sup>®</sup>-Mixed 的总均值标准误估计为 3.2935（见表 <a href="chap30.html#tab:table30-10">30.10</a>）。</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-1"></span>
+<img src="figure/figure%2030.1.png" alt="示例 30.2 舒适度数据的 JMP 界面" width="761" />
+<p class="caption">
+图 30.1: 示例 30.2 舒适度数据的 JMP 界面
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-2"></span>
+<img src="figure/figure%2030.2.png" alt="示例 30.2 舒适度数据的 JMP fit model 界面" width="838" />
+<p class="caption">
+图 30.2: 示例 30.2 舒适度数据的 JMP fit model 界面
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-3"></span>
+<img src="figure/figure%2030.3.png" alt="示例 30.2 的随机和固定效应的 JMP AOV 表" width="850" />
+<p class="caption">
+图 30.3: 示例 30.2 的随机和固定效应的 JMP AOV 表
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-4"></span>
+<img src="figure/figure%2030.4.png" alt="示例 30.2 中使用 Tukey 多重比较的最小二乘均值" width="476" />
+<p class="caption">
+图 30.4: 示例 30.2 中使用 Tukey 多重比较的最小二乘均值
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-5"></span>
+<img src="figure/figure%2030.5.png" alt="示例 30.3 咖啡数据的 JMP 数据界面" width="650" />
+<p class="caption">
+图 30.5: 示例 30.3 咖啡数据的 JMP 数据界面
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-6"></span>
+<img src="figure/figure%2030.6.png" alt="示例 30.3 JMP fit model 界面" width="850" />
+<p class="caption">
+图 30.6: 示例 30.3 JMP fit model 界面
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:figure30-7"></span>
+<img src="figure/figure%2030.7.png" alt="示例 30.3 JMP 方差分量的 REML 估计" width="768" />
+<p class="caption">
+图 30.7: 示例 30.3 JMP 方差分量的 REML 估计
+</p>
+</div>
+</div>
+<div id="sec30-5" class="section level2 hasAnchor" number="30.5">
+<h2><span class="header-section-number">30.5</span> 结束语<a href="chap30.html#sec30-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>本章定义了嵌套的概念，并通过实例证明嵌套可以发生在处理结构、设计结构或两者中。嵌套模型可以包括固定效应、随机效应或混合效应模型，对实例的分析阐述了所涉及的一些问题。</p>
 
 </div>
 </div>
@@ -792,8 +1100,8 @@ Y_{ijk}=\mu_{ij}+\varepsilon_{ijk},\quad i=1,2,\ldots,t,\quad j=1,2,\ldots,b,\qu
           </div>
         </div>
       </div>
-<a href="chap6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="chap8.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="chap29.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="References.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,6 +1,8 @@
 
 # 分析重复测量实验的方法 {#chap26}
 
+> "[Statistics are] the only tools by which an opening can be cut through the formidable thicket of difficulties that bars the path of those who pursue the science of man." - Sir Francis Galton
+
 [^subject]: 本书将 "subject" 译作个体，原因见介绍页的[术语规范](#术语规范)。
 [^timeinterval]: 原文：The smaller unit is the interval of time during which the subject is exposed to a treatment or an interval just between time measurements.
 

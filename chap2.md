@@ -115,14 +115,14 @@ r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat\sigma_i^2(n_i-1)]/[(n
 
 ### 一些建议 {#sec2-3-6}
 
-Conover (1981) 以及 Olejnik & Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene's Test 是 Conover 等人研究的更好的检验之一。O'Brien's Test 似乎提供了一个合适的大小检验 (size test)，而不会损失太多功效。当分布具有重尾 (heavy tails) 时，Brown–Forsyth's Test 似乎更好。根据他们的结果，我们提出以下建议：
+Conover (1981) 以及 Olejnik & Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene's Test 是 Conover 等人研究的更好的检验之一。O'Brien's Test 似乎提供了一个合适的大小检验 (size test)，而不会损失太多功效。当分布具有重尾 (heavy tails) 时，Brown–Forsythe's Test 似乎更好。根据他们的结果，我们提出以下建议：
 
-1) 如果分布具有较重的尾部，请使用 Brown–Forsyth's test.
+1) 如果分布具有较重的尾部，请使用 Brown–Forsythe's test.
 2) 如果分布有些偏斜，请使用 O'Brien's test.
 3) 如果数据几乎是正态分布的，那么任何检验都是合适的，包括 Bartlett's 和 Hartley's tests.
 
 Levene's 和 O'Brien's tests 可以很容易地进行定制，用于涉及多个因素的设计实验，包括协方差分析 (Milliken and Johnson, 
-2002). Levene's, O'Brien's 和 Brown–Forsyth's tests 在正态分布数据方面几乎与 Bartlett's 和 Hartley's tests 一样好，在非正态分布的数据方面优于它们。Conover et al. 以及 Olejnik 和 Algina 讨论了一些非参数检验，但它们更难计算，并且上述推荐的检验几乎同样有效。下面是一个示例，其中演示了用于方差相等的每个检验。
+2002). Levene's, O'Brien's 和 Brown–Forsythe's tests 在正态分布数据方面几乎与 Bartlett's 和 Hartley's tests 一样好，在非正态分布的数据方面优于它们。Conover et al. 以及 Olejnik 和 Algina 讨论了一些非参数检验，但它们更难计算，并且上述推荐的检验几乎同样有效。下面是一个示例，其中演示了用于方差相等的每个检验。
 
 ## 示例：药物和错误 {#sec2-4}
 
@@ -183,7 +183,7 @@ Levene's test 的计算从残差或观测值与处理均值的偏差的计算开
 </tbody>
 </table>
 
-Brown–Forsyth's test 统计量是通过计算观察值与处理中位数偏差的绝对值（中位数见表 \@ref(tab:table2-1)）获得的。表 \@ref(tab:table2-3) 包含了与中位数偏差的绝对值。接下来，单向方差分析提供的 $F$ 统计量为 $5.49$，并且观察到的显著性水平是 $0.0049$（也基于自由度 $3,25$）。
+Brown–Forsythe's test 统计量是通过计算观察值与处理中位数偏差的绝对值（中位数见表 \@ref(tab:table2-1)）获得的。表 \@ref(tab:table2-3) 包含了与中位数偏差的绝对值。接下来，单向方差分析提供的 $F$ 统计量为 $5.49$，并且观察到的显著性水平是 $0.0049$（也基于自由度 $3,25$）。
 
 <table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>(\#tab:table2-3)观测结果相对于处理中位数偏差的绝对值</caption>
@@ -566,3 +566,173 @@ Mixed 程序的结果见表 \@ref(tab:table2-10)，其中协方差参数估计�
 本章讨论了具有异质误差的单向方差分析模型的统计分析。讨论包括确定误差方差齐性的几个统计检验，以及何时使用每个检验的建议。讨论了在发现误差方差不齐时，对不同处理的效应进行统计推断的适当程序，还回顾了说明这些程序使用的示例。
 
 ## 练习 {#sec2-10}
+
+## R 代码 {#sec2-11}
+
+
+```r
+# Chap2----
+
+## sec 2.4, https://bookdown.org/wangzhen/AMD/chap2.html#sec2-4 ----
+
+data <- data.frame(
+  g = factor(rep(c("NoDrug","Drug1","Drug2","Drug12"), 
+                    times=c(7,6,8,8)), 
+                levels = c("NoDrug","Drug1","Drug2","Drug12")), 
+  y = c(1,8,9,9,4,0,1,
+        12,10,13,13,12,10,
+        12,4,11,7,8,10,12,5,
+        13,14,14,17,11,14,13,14)
+)
+
+library(PMCMRplus)
+library(DescTools)
+library(lawstat)
+PMCMRplus::hartleyTest(y ~ g,data=data) # 提示在非均衡数据集下 Maximum F-ratio test 不精确
+```
+
+```
+## 
+## 	Hartley's maximum F-ratio test of homogeneity of variances
+## 
+## data:  y by g
+## F Max = 8.7245, df = 5, k = 4, p-value = 0.1277
+```
+
+```r
+bartlett.test(y ~ g,data=data) # Bartlett’s test
+```
+
+```
+## 
+## 	Bartlett test of homogeneity of variances
+## 
+## data:  y by g
+## Bartlett's K-squared = 7.8111, df = 3, p-value = 0.05008
+```
+
+```r
+DescTools::LeveneTest(y ~ g,data=data,center=mean) # center = mean 对应的是 Levene's
+```
+
+```
+## Levene's Test for Homogeneity of Variance (center = mean)
+##       Df F value   Pr(>F)   
+## group  3  6.9664 0.001454 **
+##       25                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+DescTools::LeveneTest(y ~ g,data=data,center=median) # center = mean 对应的是 Brown–Forsythe's
+```
+
+```
+## Levene's Test for Homogeneity of Variance (center = median)
+##       Df F value   Pr(>F)   
+## group  3  5.4943 0.004861 **
+##       25                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+```r
+lawstat::levene.test(data$y ,data$g, correction.method = "correction.factor") # O'Brien's test；这个函数通过修改参数可以实现 Brown–Forsythe, Levene, O'Brien's test 以及更多
+```
+
+```
+## 
+## 	Modified robust Brown-Forsythe Levene-type test based on the
+## 	absolute deviations from the median with correction factor
+## 
+## data:  data$y
+## Test Statistic = 5.4975, p-value = 0.004848
+```
+
+```r
+## sec 2.6, https://bookdown.org/wangzhen/AMD/chap2.html#sec2-6 ----
+
+library(SimComp)
+# 检验 1 
+c <- rbind("c"=c(1,-1/3,-1/3,-1/3))
+SimTestDiff(y ~ g,data=data,
+            ContrastMat=c, # 指定对比
+            covar.equal=FALSE) # 指定为 F 才会进行 Satterthwaite 近似
+```
+
+```
+##  
+## Test for differences of means of multiple endpoints 
+## Assumption: Heterogeneous covariance matrices for the groups 
+## Alternative hypotheses: True differences not equal to the margins 
+##  
+##   comparison endpoint margin estimate statistic degr.fr p.value.raw
+## c          c        y      0   -6.776    -4.256   7.096      0.0038
+##   p.value.adj
+## c      0.0038
+## 
+```
+
+```r
+# 检验 2
+c <- rbind("c"=c(0,-1/2,-1/2,1))
+SimTestDiff(y ~ g,data=data,
+            ContrastMat=c,
+            covar.equal=FALSE)
+```
+
+```
+##  
+## Test for differences of means of multiple endpoints 
+## Assumption: Heterogeneous covariance matrices for the groups 
+## Alternative hypotheses: True differences not equal to the margins 
+##  
+##   comparison endpoint margin estimate statistic degr.fr p.value.raw
+## c          c        y      0    3.604     4.221   16.79       6e-04
+##   p.value.adj
+## c       6e-04
+## 
+```
+
+```r
+# 检验 3
+c <- rbind("c"=c(0,1,-1,0))
+SimTestDiff(y ~ g,data=data,
+            ContrastMat=c,
+            covar.equal=FALSE)
+```
+
+```
+##  
+## Test for differences of means of multiple endpoints 
+## Assumption: Heterogeneous covariance matrices for the groups 
+## Alternative hypotheses: True differences not equal to the margins 
+##  
+##   comparison endpoint margin estimate statistic degr.fr p.value.raw
+## c          c        y      0    3.042     2.465   10.12      0.0334
+##   p.value.adj
+## c      0.0334
+## 
+```
+
+```r
+## sec 2.8, https://bookdown.org/wangzhen/AMD/chap2.html#sec2-8 ----
+library(onewaytests)
+welch.test(y ~ g,data=data)
+```
+
+```
+## 
+##   Welch's Heteroscedastic F Test (alpha = 0.05) 
+## ------------------------------------------------------------- 
+##   data : y and g 
+## 
+##   statistic  : 12.63548 
+##   num df     : 3 
+##   denom df   : 13.28303 
+##   p.value    : 0.0003469085 
+## 
+##   Result     : Difference is statistically significant. 
+## -------------------------------------------------------------
+```

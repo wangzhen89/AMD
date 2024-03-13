@@ -2,7 +2,7 @@
 title: "混乱数据分析：设计的实验"
 author: 
   - Wang Zhen
-date: "2024-03-11"
+date: "2024-03-13"
 site: bookdown::bookdown_site
 documentclass: elegantbook
 bibliography: 
@@ -30,7 +30,7 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
 
 [混乱数据分析：设计的实验](https://github.com/wangzhen89/AMD) 为 *[Analysis of Messy Data Volume 1: Designed Experiments, 2nd edn](https://doi.org/10.1201/EBK1584883340)* 的翻译。
 
-本书/翻译基于 [Elegant Bookdown Template](https://bookdown.org/xiangyun/elegantbookdown/)。尚未包括每章的练习。
+本书/翻译基于 [Elegant Bookdown Template](https://bookdown.org/xiangyun/elegantbookdown/)。目前正文翻译工作已完成，尚未包括每章的练习。后续更新计划：在有数据分析章节末尾补充相应的 R 代码和 SPSS 语法（先 R 后 SPSS）。
 
 > 本书探讨了多重比较程序、随机效应模型、混合模型、裂区实验和重复测量设计的各种技术。作者使用几个统计软件包简化了这些技术，并强调了设计结构和处理结构之间的区别。他们用例子介绍每一个主题，接着进行理论讨论，最后进行案例研究。本书向您展示如何有效地分析现实世界中的非标准数据集。
 
@@ -113,6 +113,9 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
     + 第 \@ref(chap28) 章\*\*讨论了几个复杂的重复测量示例及其使用混合模型程序的统计分析。
     
     + 第 \@ref(chap29) 章\*\*\*讨论了交叉设计的分析。
+    
+    + 第 \@ref(chap30) 章\*\*回顾了第 \@ref(chap5) 章的几个例子，给出了嵌套实验的分析方法。
+
 
 ## 术语规范 {.unlisted .unnumbered}
 
@@ -142,5 +145,3 @@ description: "Analysis of Messy Data Volume 1: Designed Experiments的翻译"
     + 对于三维样本量 $n_{ijk}$；总样本量 $N=\sum_i^{n_i}\sum_j^{n_j}\sum_k^{n_k} n_{ijk}=n_{\cdot\cdot\cdot}$；固定第一维和第三维，第二维的总样本量 $\sum_j^{n_j}n_{ijk}=n_{i\cdot k}$
     + 对于二维均值 $\mu_{ij}$；总均值 $\frac{1}{n_i}\sum_{i}^{n_i}\left(\frac{1}{n_j}\sum_{j}^{n_j}\mu_{ij}\right)=\bar \mu_{\cdot\cdot}=\mu$；固定第二维，第一维的均值 $\frac{1}{n_i}\sum_{i}^{n_i}\mu_{ij}=\bar \mu_{\cdot j}$
     + 对于三维误差项 $\varepsilon_{ijk}$；总误差均值 $\frac{1}{n_i}\sum_{i}^{n_i}\left[\frac{1}{n_j}\sum_{j}^{n_j}\left(\frac{1}{n_k}\sum_{k}^{n_k}\varepsilon_{ijk}\right)\right]=\bar\varepsilon_{\cdot\cdot\cdot}$；固定前两维，第三维的误差均值 $\frac{1}{n_k}\sum_{k}^{n_k}\varepsilon_{ijk}=\bar\varepsilon_{ij\cdot}$
-
-未完待续……

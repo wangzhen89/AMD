@@ -23,7 +23,7 @@
 <meta name="author" content="Wang Zhen" />
 
 
-<meta name="date" content="2024-03-11" />
+<meta name="date" content="2024-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,6 +132,70 @@
   </script>
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 <style type="text/css">
   
@@ -171,6 +235,7 @@
 <li class="chapter" data-level="1.11" data-path="chap1.html"><a href="chap1.html#sec1-11"><i class="fa fa-check"></i><b>1.11</b> 计算机分析</a></li>
 <li class="chapter" data-level="1.12" data-path="chap1.html"><a href="chap1.html#sec1-12"><i class="fa fa-check"></i><b>1.12</b> 结束语</a></li>
 <li class="chapter" data-level="1.13" data-path="chap1.html"><a href="chap1.html#sec1-13"><i class="fa fa-check"></i><b>1.13</b> 练习</a></li>
+<li class="chapter" data-level="1.14" data-path="chap1.html"><a href="chap1.html#sec1-14"><i class="fa fa-check"></i><b>1.14</b> R 代码</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="chap2.html"><a href="chap2.html"><i class="fa fa-check"></i><b>2</b> 具有异质误差的完全随机设计结构中的单向处理结构</a>
 <ul>
@@ -192,6 +257,7 @@
 <li class="chapter" data-level="2.8" data-path="chap2.html"><a href="chap2.html#sec2-8"><i class="fa fa-check"></i><b>2.8</b> 比较所有均值</a></li>
 <li class="chapter" data-level="2.9" data-path="chap2.html"><a href="chap2.html#sec2-9"><i class="fa fa-check"></i><b>2.9</b> 结束语</a></li>
 <li class="chapter" data-level="2.10" data-path="chap2.html"><a href="chap2.html#sec2-10"><i class="fa fa-check"></i><b>2.10</b> 练习</a></li>
+<li class="chapter" data-level="2.11" data-path="chap2.html"><a href="chap2.html#sec2-11"><i class="fa fa-check"></i><b>2.11</b> R 代码</a></li>
 </ul></li>
 <li class="part"><span><b>II 磨刀</b></span></li>
 <li class="chapter" data-level="3" data-path="chap3.html"><a href="chap3.html"><i class="fa fa-check"></i><b>3</b> 同时推断程序和多重比较</a>
@@ -602,6 +668,28 @@
 <li class="chapter" data-level="29.4" data-path="chap29.html"><a href="chap29.html#sec29-4"><i class="fa fa-check"></i><b>29.4</b> 具有两种以上处理的交叉设计</a></li>
 <li class="chapter" data-level="29.5" data-path="chap29.html"><a href="chap29.html#sec29-5"><i class="fa fa-check"></i><b>29.5</b> 小结</a></li>
 </ul></li>
+<li class="chapter" data-level="30" data-path="chap30.html"><a href="chap30.html"><i class="fa fa-check"></i><b>30</b> 嵌套设计的分析</a>
+<ul>
+<li class="chapter" data-level="30.1" data-path="chap30.html"><a href="chap30.html#sec30-1"><i class="fa fa-check"></i><b>30.1</b> 定义，假设和模型</a>
+<ul>
+<li class="chapter" data-level="30.1.1" data-path="chap30.html"><a href="chap30.html#sec30-1-1"><i class="fa fa-check"></i><b>30.1.1</b> 示例 30.1：公司和杀虫剂</a></li>
+<li class="chapter" data-level="30.1.2" data-path="chap30.html"><a href="chap30.html#sec30-1-2"><i class="fa fa-check"></i><b>30.1.2</b> 示例 30.2：舒适度实验回顾</a></li>
+<li class="chapter" data-level="30.1.3" data-path="chap30.html"><a href="chap30.html#sec30-1-3"><i class="fa fa-check"></i><b>30.1.3</b> 示例 30.3：咖啡价格示例回顾</a></li>
+</ul></li>
+<li class="chapter" data-level="30.2" data-path="chap30.html"><a href="chap30.html#sec30-2"><i class="fa fa-check"></i><b>30.2</b> 参数估计</a>
+<ul>
+<li class="chapter" data-level="30.2.1" data-path="chap30.html"><a href="chap30.html#sec30-2-1"><i class="fa fa-check"></i><b>30.2.1</b> 示例 30.1：继续</a></li>
+<li class="chapter" data-level="30.2.2" data-path="chap30.html"><a href="chap30.html#sec30-2-2"><i class="fa fa-check"></i><b>30.2.2</b> 示例 30.2：继续</a></li>
+<li class="chapter" data-level="30.2.3" data-path="chap30.html"><a href="chap30.html#sec30-2-3"><i class="fa fa-check"></i><b>30.2.3</b> 示例 30.3：继续</a></li>
+</ul></li>
+<li class="chapter" data-level="30.3" data-path="chap30.html"><a href="chap30.html#sec30-3"><i class="fa fa-check"></i><b>30.3</b> 假设检验和置信区间的构建</a>
+<ul>
+<li class="chapter" data-level="30.3.1" data-path="chap30.html"><a href="chap30.html#sec30-3-1"><i class="fa fa-check"></i><b>30.3.1</b> 示例 30.1：继续</a></li>
+</ul></li>
+<li class="chapter" data-level="30.4" data-path="chap30.html"><a href="chap30.html#sec30-4"><i class="fa fa-check"></i><b>30.4</b> 使用 JMP 进行分析</a></li>
+<li class="chapter" data-level="30.5" data-path="chap30.html"><a href="chap30.html#sec30-5"><i class="fa fa-check"></i><b>30.5</b> 结束语</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="References.html"><a href="References.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -706,14 +794,14 @@ r_{ij}=[(w+n_i-2)n_i(y_{ij}-\overline{y}_{i\cdot})^2-w\hat\sigma_i^2(n_i-1)]/[(n
 </div>
 <div id="sec2-3-6" class="section level3 hasAnchor" number="2.3.6">
 <h3><span class="header-section-number">2.3.6</span> 一些建议<a href="chap2.html#sec2-3-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Conover (1981) 以及 Olejnik &amp; Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene’s Test 是 Conover 等人研究的更好的检验之一。O’Brien’s Test 似乎提供了一个合适的大小检验 (size test)，而不会损失太多功效。当分布具有重尾 (heavy tails) 时，Brown–Forsyth’s Test 似乎更好。根据他们的结果，我们提出以下建议：</p>
+<p>Conover (1981) 以及 Olejnik &amp; Algina (1987) 对方差检验的同质性进行了模拟研究，其中包括上述检验以及许多其他检验。研究表明，没有一种检验对所有情况都是稳健和具有最大功效的。根据 Olejnik 和 Algina，Levene’s Test 是 Conover 等人研究的更好的检验之一。O’Brien’s Test 似乎提供了一个合适的大小检验 (size test)，而不会损失太多功效。当分布具有重尾 (heavy tails) 时，Brown–Forsythe’s Test 似乎更好。根据他们的结果，我们提出以下建议：</p>
 <ol style="list-style-type: decimal">
-<li>如果分布具有较重的尾部，请使用 Brown–Forsyth’s test.</li>
+<li>如果分布具有较重的尾部，请使用 Brown–Forsythe’s test.</li>
 <li>如果分布有些偏斜，请使用 O’Brien’s test.</li>
 <li>如果数据几乎是正态分布的，那么任何检验都是合适的，包括 Bartlett’s 和 Hartley’s tests.</li>
 </ol>
 <p>Levene’s 和 O’Brien’s tests 可以很容易地进行定制，用于涉及多个因素的设计实验，包括协方差分析 (Milliken and Johnson,
-2002). Levene’s, O’Brien’s 和 Brown–Forsyth’s tests 在正态分布数据方面几乎与 Bartlett’s 和 Hartley’s tests 一样好，在非正态分布的数据方面优于它们。Conover et al. 以及 Olejnik 和 Algina 讨论了一些非参数检验，但它们更难计算，并且上述推荐的检验几乎同样有效。下面是一个示例，其中演示了用于方差相等的每个检验。</p>
+2002). Levene’s, O’Brien’s 和 Brown–Forsythe’s tests 在正态分布数据方面几乎与 Bartlett’s 和 Hartley’s tests 一样好，在非正态分布的数据方面优于它们。Conover et al. 以及 Olejnik 和 Algina 讨论了一些非参数检验，但它们更难计算，并且上述推荐的检验几乎同样有效。下面是一个示例，其中演示了用于方差相等的每个检验。</p>
 </div>
 </div>
 <div id="sec2-4" class="section level2 hasAnchor" number="2.4">
@@ -771,7 +859,7 @@ x
 </tr>
 </tbody>
 </table>
-<p>Brown–Forsyth’s test 统计量是通过计算观察值与处理中位数偏差的绝对值（中位数见表 <a href="chap2.html#tab:table2-1">2.1</a>）获得的。表 <a href="chap2.html#tab:table2-3">2.3</a> 包含了与中位数偏差的绝对值。接下来，单向方差分析提供的 <span class="math inline">\(F\)</span> 统计量为 <span class="math inline">\(5.49\)</span>，并且观察到的显著性水平是 <span class="math inline">\(0.0049\)</span>（也基于自由度 <span class="math inline">\(3,25\)</span>）。</p>
+<p>Brown–Forsythe’s test 统计量是通过计算观察值与处理中位数偏差的绝对值（中位数见表 <a href="chap2.html#tab:table2-1">2.1</a>）获得的。表 <a href="chap2.html#tab:table2-3">2.3</a> 包含了与中位数偏差的绝对值。接下来，单向方差分析提供的 <span class="math inline">\(F\)</span> 统计量为 <span class="math inline">\(5.49\)</span>，并且观察到的显著性水平是 <span class="math inline">\(0.0049\)</span>（也基于自由度 <span class="math inline">\(3,25\)</span>）。</p>
 <table class="table table-condensed" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:table2-3">表 2.3: </span>观测结果相对于处理中位数偏差的绝对值
@@ -1110,6 +1198,122 @@ x
 </div>
 <div id="sec2-10" class="section level2 hasAnchor" number="2.10">
 <h2><span class="header-section-number">2.10</span> 练习<a href="chap2.html#sec2-10" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="sec2-11" class="section level2 hasAnchor" number="2.11">
+<h2><span class="header-section-number">2.11</span> R 代码<a href="chap2.html#sec2-11" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="chap2.html#cb27-1" tabindex="-1"></a><span class="co"># Chap2----</span></span>
+<span id="cb27-2"><a href="chap2.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="chap2.html#cb27-3" tabindex="-1"></a><span class="do">## sec 2.4, https://bookdown.org/wangzhen/AMD/chap2.html#sec2-4 ----</span></span>
+<span id="cb27-4"><a href="chap2.html#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="chap2.html#cb27-5" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-6"><a href="chap2.html#cb27-6" tabindex="-1"></a>  <span class="at">g =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;NoDrug&quot;</span>,<span class="st">&quot;Drug1&quot;</span>,<span class="st">&quot;Drug2&quot;</span>,<span class="st">&quot;Drug12&quot;</span>), </span>
+<span id="cb27-7"><a href="chap2.html#cb27-7" tabindex="-1"></a>                    <span class="at">times=</span><span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">8</span>)), </span>
+<span id="cb27-8"><a href="chap2.html#cb27-8" tabindex="-1"></a>                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;NoDrug&quot;</span>,<span class="st">&quot;Drug1&quot;</span>,<span class="st">&quot;Drug2&quot;</span>,<span class="st">&quot;Drug12&quot;</span>)), </span>
+<span id="cb27-9"><a href="chap2.html#cb27-9" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">0</span>,<span class="dv">1</span>,</span>
+<span id="cb27-10"><a href="chap2.html#cb27-10" tabindex="-1"></a>        <span class="dv">12</span>,<span class="dv">10</span>,<span class="dv">13</span>,<span class="dv">13</span>,<span class="dv">12</span>,<span class="dv">10</span>,</span>
+<span id="cb27-11"><a href="chap2.html#cb27-11" tabindex="-1"></a>        <span class="dv">12</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">5</span>,</span>
+<span id="cb27-12"><a href="chap2.html#cb27-12" tabindex="-1"></a>        <span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">14</span>,<span class="dv">17</span>,<span class="dv">11</span>,<span class="dv">14</span>,<span class="dv">13</span>,<span class="dv">14</span>)</span>
+<span id="cb27-13"><a href="chap2.html#cb27-13" tabindex="-1"></a>)</span>
+<span id="cb27-14"><a href="chap2.html#cb27-14" tabindex="-1"></a></span>
+<span id="cb27-15"><a href="chap2.html#cb27-15" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span>
+<span id="cb27-16"><a href="chap2.html#cb27-16" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span>
+<span id="cb27-17"><a href="chap2.html#cb27-17" tabindex="-1"></a><span class="fu">library</span>(lawstat)</span>
+<span id="cb27-18"><a href="chap2.html#cb27-18" tabindex="-1"></a>PMCMRplus<span class="sc">::</span><span class="fu">hartleyTest</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data) <span class="co"># 提示在非均衡数据集下 Maximum F-ratio test 不精确</span></span></code></pre></div>
+<pre><code>## 
+##  Hartley&#39;s maximum F-ratio test of homogeneity of variances
+## 
+## data:  y by g
+## F Max = 8.7245, df = 5, k = 4, p-value = 0.1277</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="chap2.html#cb29-1" tabindex="-1"></a><span class="fu">bartlett.test</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data) <span class="co"># Bartlett’s test</span></span></code></pre></div>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  y by g
+## Bartlett&#39;s K-squared = 7.8111, df = 3, p-value = 0.05008</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="chap2.html#cb31-1" tabindex="-1"></a>DescTools<span class="sc">::</span><span class="fu">LeveneTest</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data,<span class="at">center=</span>mean) <span class="co"># center = mean 对应的是 Levene&#39;s</span></span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = mean)
+##       Df F value   Pr(&gt;F)   
+## group  3  6.9664 0.001454 **
+##       25                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="chap2.html#cb33-1" tabindex="-1"></a>DescTools<span class="sc">::</span><span class="fu">LeveneTest</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data,<span class="at">center=</span>median) <span class="co"># center = mean 对应的是 Brown–Forsythe&#39;s</span></span></code></pre></div>
+<pre><code>## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value   Pr(&gt;F)   
+## group  3  5.4943 0.004861 **
+##       25                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="chap2.html#cb35-1" tabindex="-1"></a>lawstat<span class="sc">::</span><span class="fu">levene.test</span>(data<span class="sc">$</span>y ,data<span class="sc">$</span>g, <span class="at">correction.method =</span> <span class="st">&quot;correction.factor&quot;</span>) <span class="co"># O&#39;Brien&#39;s test；这个函数通过修改参数可以实现 Brown–Forsythe, Levene, O&#39;Brien&#39;s test 以及更多</span></span></code></pre></div>
+<pre><code>## 
+##  Modified robust Brown-Forsythe Levene-type test based on the
+##  absolute deviations from the median with correction factor
+## 
+## data:  data$y
+## Test Statistic = 5.4975, p-value = 0.004848</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="chap2.html#cb37-1" tabindex="-1"></a><span class="do">## sec 2.6, https://bookdown.org/wangzhen/AMD/chap2.html#sec2-6 ----</span></span>
+<span id="cb37-2"><a href="chap2.html#cb37-2" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="chap2.html#cb37-3" tabindex="-1"></a><span class="fu">library</span>(SimComp)</span>
+<span id="cb37-4"><a href="chap2.html#cb37-4" tabindex="-1"></a><span class="co"># 检验 1 </span></span>
+<span id="cb37-5"><a href="chap2.html#cb37-5" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="st">&quot;c&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>))</span>
+<span id="cb37-6"><a href="chap2.html#cb37-6" tabindex="-1"></a><span class="fu">SimTestDiff</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data,</span>
+<span id="cb37-7"><a href="chap2.html#cb37-7" tabindex="-1"></a>            <span class="at">ContrastMat=</span>c, <span class="co"># 指定对比</span></span>
+<span id="cb37-8"><a href="chap2.html#cb37-8" tabindex="-1"></a>            <span class="at">covar.equal=</span><span class="cn">FALSE</span>) <span class="co"># 指定为 F 才会进行 Satterthwaite 近似</span></span></code></pre></div>
+<pre><code>##  
+## Test for differences of means of multiple endpoints 
+## Assumption: Heterogeneous covariance matrices for the groups 
+## Alternative hypotheses: True differences not equal to the margins 
+##  
+##   comparison endpoint margin estimate statistic degr.fr p.value.raw
+## c          c        y      0   -6.776    -4.256   7.096      0.0038
+##   p.value.adj
+## c      0.0038
+## </code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="chap2.html#cb39-1" tabindex="-1"></a><span class="co"># 检验 2</span></span>
+<span id="cb39-2"><a href="chap2.html#cb39-2" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="st">&quot;c&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb39-3"><a href="chap2.html#cb39-3" tabindex="-1"></a><span class="fu">SimTestDiff</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data,</span>
+<span id="cb39-4"><a href="chap2.html#cb39-4" tabindex="-1"></a>            <span class="at">ContrastMat=</span>c,</span>
+<span id="cb39-5"><a href="chap2.html#cb39-5" tabindex="-1"></a>            <span class="at">covar.equal=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>##  
+## Test for differences of means of multiple endpoints 
+## Assumption: Heterogeneous covariance matrices for the groups 
+## Alternative hypotheses: True differences not equal to the margins 
+##  
+##   comparison endpoint margin estimate statistic degr.fr p.value.raw
+## c          c        y      0    3.604     4.221   16.79       6e-04
+##   p.value.adj
+## c       6e-04
+## </code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="chap2.html#cb41-1" tabindex="-1"></a><span class="co"># 检验 3</span></span>
+<span id="cb41-2"><a href="chap2.html#cb41-2" tabindex="-1"></a>c <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="st">&quot;c&quot;</span><span class="ot">=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>))</span>
+<span id="cb41-3"><a href="chap2.html#cb41-3" tabindex="-1"></a><span class="fu">SimTestDiff</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data,</span>
+<span id="cb41-4"><a href="chap2.html#cb41-4" tabindex="-1"></a>            <span class="at">ContrastMat=</span>c,</span>
+<span id="cb41-5"><a href="chap2.html#cb41-5" tabindex="-1"></a>            <span class="at">covar.equal=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>##  
+## Test for differences of means of multiple endpoints 
+## Assumption: Heterogeneous covariance matrices for the groups 
+## Alternative hypotheses: True differences not equal to the margins 
+##  
+##   comparison endpoint margin estimate statistic degr.fr p.value.raw
+## c          c        y      0    3.042     2.465   10.12      0.0334
+##   p.value.adj
+## c      0.0334
+## </code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="chap2.html#cb43-1" tabindex="-1"></a><span class="do">## sec 2.8, https://bookdown.org/wangzhen/AMD/chap2.html#sec2-8 ----</span></span>
+<span id="cb43-2"><a href="chap2.html#cb43-2" tabindex="-1"></a><span class="fu">library</span>(onewaytests)</span>
+<span id="cb43-3"><a href="chap2.html#cb43-3" tabindex="-1"></a><span class="fu">welch.test</span>(y <span class="sc">~</span> g,<span class="at">data=</span>data)</span></code></pre></div>
+<pre><code>## 
+##   Welch&#39;s Heteroscedastic F Test (alpha = 0.05) 
+## ------------------------------------------------------------- 
+##   data : y and g 
+## 
+##   statistic  : 12.63548 
+##   num df     : 3 
+##   denom df   : 13.28303 
+##   p.value    : 0.0003469085 
+## 
+##   Result     : Difference is statistically significant. 
+## -------------------------------------------------------------</code></pre>
 
 </div>
 </div>

@@ -1,6 +1,8 @@
 
 # 案例研究：重复测量的复杂例子 {#chap28}
 
+> "The only relevant test of the validity of a hypothesis is comparison of its predictions with experience." - Milton Friedman
+
 本章考虑了几个例子及其使用混合模型程序的统计分析。考虑的示例包括具有重复测量的裂区设计、重复测量中嵌套的重复测量以及多地点研究。
 
 ##  复杂舒适度实验 {#sec28-1}
